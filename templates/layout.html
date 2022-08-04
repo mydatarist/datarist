@@ -1,87 +1,18 @@
-{% block head_meta %}
-    <html lang="en">
-  <head>
-	<script src="{{ url_for('static', filename='js/gtag.js') }}"></script>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}{% endblock %}</title>
-    <link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet">
-	<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
-  </head>  
-{% endblock %}
-{% block head_css %}
-    ... CSS imports (bootstrap, fontAwesome, select2, fab specific etc...
-{% endblock %}
-{% block head_js %}
-    ... JS imports (JQuery, fab specific)
-{% endblock %}
-{% block body %}<body>
-    {% block navbar %}
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Main navigation">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="{{ url_for('home') }}">Datarist</a>
-    <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{ url_for('features') }}">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('docs') }}">Docs</a>
-        </li>
-      </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
-</nav>
-    {% endblock %}
-     {% block messages %}
-        ... Where the flask flash messages are shown ("Added row", etc)
-      {% endblock %}
-      {% block content %}
-        ... All the content goes here, forms, lists, index, charts etc..
-      {% endblock %}
-    {% block footer %}
-        <div class="container">
-  <footer class="py-3 my-4">
-    <ul class="nav justify-content-center pb-3 mb-3">
-      <li class="nav-item"><a href="{{ url_for('terms') }}" class="nav-link px-2 text-muted">Terms</a></li>
-      <li class="nav-item"><a href="{{ url_for('privacy') }}" class="nav-link px-2 text-muted">Privacy</a></li>
-      <li class="nav-item"><a href="{{ url_for('contact') }}" class="nav-link px-2 text-muted">Contact</a></li>
-    </ul>
-    <p class="text-center text-muted">&copy; 2022 Datarist, Inc</p>
-  </footer>
-</div>
-  
-  
-    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
-	<script src="{{ url_for('static', filename='js/offcanvas.js') }}"></script>
-  </body>
-</html>
-    {% endblock %}
-{% block tail_js %}
-{% endblock %}
-
-
 <!doctype html>
-<html lang="en">
+<html>
   <head>
-	<script src="{{ url_for('static', filename='js/gtag.js') }}"></script>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block head %}
+    <script src="{{ url_for('static', filename='js/gtag.js') }}"></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}{% endblock %}</title>
-    <link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet">
 	<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    {% endblock %}
   </head>
   <body>
-  
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Main navigation">
+    {% block content %}
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Main navigation">
   <div class="container-fluid">
     <a class="navbar-brand" href="{{ url_for('home') }}">Datarist</a>
     <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
@@ -104,10 +35,9 @@
     </div>
   </div>
 </nav>
-
- 
-
-<div class="container">
+	{% endblock %}
+      {% block footer %}
+      <div class="container">
   <footer class="py-3 my-4">
     <ul class="nav justify-content-center pb-3 mb-3">
       <li class="nav-item"><a href="{{ url_for('terms') }}" class="nav-link px-2 text-muted">Terms</a></li>
@@ -121,5 +51,6 @@
   
     <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
 	<script src="{{ url_for('static', filename='js/offcanvas.js') }}"></script>
+      {% endblock %}
   </body>
 </html>
