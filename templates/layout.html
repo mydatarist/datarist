@@ -1,38 +1,14 @@
 <!doctype html>
 <html>
-  
-{% block head %}
-
-<head>
-<script src="{{ url_for('static', filename='js/gtag.js') }}"></script>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet">
-<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
-
-{% block head_js %}
-  
-{% endblock %}
-
-{% block head_meta %}
-  
-{% endblock %}
-
-<title>{% block title %}{% endblock %}</title>
-
-{% block head_css %}
-  
-{% endblock %}
-
-</head>
-
-{% endblock %}
-
-{% block body %}
-
-<body>
-
-{% block navbar %}
+  <head>
+    <script src="{{ url_for('static', filename='js/gtag.js') }}"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+  <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Main navigation">
     <div class="container-fluid">
       <a class="navbar-brand" href="{{ url_for('home') }}">Datarist</a>
@@ -55,17 +31,9 @@
     </div>
   </div>
 </nav>
-{% endblock %}
-
-{% block messages %}
-
-{% endblock %}
-
 {% block content %}
 
 {% endblock %}
-
-{% block footer %}
   <div class="container">
     <footer class="py-3 my-4">
       <ul class="nav justify-content-center pb-3 mb-3">
@@ -76,15 +44,7 @@
       <p class="text-center text-muted">&copy; 2022 Datarist, Inc.</p>
     </footer>
   </div>
-{% endblock %}
-
-{% block tail_js %}
 <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/offcanvas.js') }}"></script>
-{% endblock %}
-
-</body>
-
-{% endblock %}
-
+  </body>
 </html>
