@@ -26,28 +26,12 @@ def inject_now():
   return { 'now': datetime.utcnow() }
 
 @app.route('/')
-def home():
-    return render_template('home.html')
-
-@app.route('/features/')
-def features():
-    return render_template('features.html')
+def index():
+    return render_template('index.html')
 	
 @app.route('/docs/')
 def docs():
     return render_template('docs.html')
-
-@app.route('/terms/')
-def terms():
-    return render_template('terms.html')
-
-@app.route('/privacy/')
-def privacy():
-    return render_template('privacy.html')
-
-@app.route('/contact/')
-def contact():
-    return render_template('contact.html')
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
