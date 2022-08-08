@@ -20,7 +20,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary" aria-label="Offcanvas navbar large">
     <div class="container">
-      <a class="navbar-brand" href="{{ url_for('home') }}">
+      <a class="navbar-brand" href="{{ url_for('index') }}">
       <img src="{{ url_for('static', filename='brand/logo/datarist-logo-white.png') }}" alt="datarist logo" width="100" height="24">
     </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2">
@@ -28,23 +28,16 @@
       </button>
       <div class="offcanvas offcanvas-end text-bg-primary" tabindex="-1" id="offcanvasNavbar2" aria-labelledby="offcanvasNavbar2Label">
         <div class="offcanvas-header">
-          <a class="offcanvas-title" id="offcanvasNavbar2Label" href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='brand/logo/datarist-logo-white.png') }}" alt="datarist logo" width="100" height="24">
+          <a class="offcanvas-title" id="offcanvasNavbar2Label" href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='brand/logo/datarist-logo-white.png') }}" alt="datarist logo" width="100" height="24">
     </a>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
             <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('home') }}">Features</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="{{ url_for('docs') }}">Docs</a>
             </li>            
           </ul>
-          <form class="d-flex mt-3 mt-lg-0" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
         </div>
       </div>
     </div>
@@ -54,11 +47,6 @@
 {% endblock %}
   <div class="container">
     <footer class="py-3 my-4">
-      <ul class="nav justify-content-center pb-3 mb-3">
-        <li class="nav-item"><a href="{{ url_for('terms') }}" class="nav-link px-2 text-muted">Terms</a></li>
-        <li class="nav-item"><a href="{{ url_for('privacy') }}" class="nav-link px-2 text-muted">Privacy</a></li>
-        <li class="nav-item"><a href="{{ url_for('contact') }}" class="nav-link px-2 text-muted">Contact</a></li>
-      </ul>
       <p class="text-center copyright">Datarist &copy; {{ now.year }}</p>
     </footer>
   </div>
