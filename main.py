@@ -29,9 +29,9 @@ def inject_now():
 def index():
     return render_template('index.html')
 	
-@app.route('/docs/')
-def docs():
-    return render_template('docs.html')
+@app.route('/docs/statistics/graphics/3d-plots/')
+def threeDPlots():
+    return render_template('docs/statistics/graphics/3d-plots.html')
 
 @app.route('/docs/')
 def docs():
