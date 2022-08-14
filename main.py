@@ -31,11 +31,11 @@ def index():
 	
 @app.route('/docs/statistics/graphics/3d-plots/')
 def three_d_plots():
-    return render_template('docs/statistics/graphics/3d-plots.html')
+    return render_template('3d-plots.html')
 
 @app.route('/docs/statistics/graphics/bar-charts/')
 def bar_charts():
-    return render_template('docs/statistics/graphics/bar-charts.html')
+    return render_template('bar-charts.html')
 
 
 @app.route('/terms/')
