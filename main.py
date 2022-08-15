@@ -33,6 +33,130 @@ def index():
 def docs():
     return render_template('docs.html')
 
+@app.route('/docs/statistics/graphics/3d-plots/')
+def three_d_plots():
+    return render_template('docs/statistics/graphics/3d-plots.html')
+
+@app.route('/docs/statistics/graphics/bar-charts/')
+def bar_charts():
+    return render_template('docs/statistics/graphics/bar-charts.html')
+
+@app.route('/docs/statistics/graphics/bland-altman-plots/')
+def bland_altman_plots():
+    return render_template('docs/statistics/graphics/bland-altman-plots.html')
+
+@app.route('/docs/statistics/graphics/box-plots/')
+def box_plots():
+    return render_template('docs/statistics/graphics/box-plots.html')
+
+@app.route('/docs/statistics/graphics/circular-data-plots/')
+def circular_data_plots():
+    return render_template('docs/statistics/graphics/circular-data-plots.html')
+
+@app.route('/docs/statistics/graphics/contour-plots/')
+def contour_plots():
+    return render_template('docs/statistics/graphics/contour-plots.html')
+
+@app.route('/docs/statistics/graphics/curve-fitting/')
+def curve_fitting():
+    return render_template('docs/statistics/graphics/curve-fitting.html')
+	
+@app.route('/docs/statistics/graphics/bar-charts/')
+def bar_charts():
+    return render_template('docs/statistics/graphics/bar-charts.html')
+	
+@app.route('/docs/statistics/graphics/bar-charts/')
+def bar_charts():
+    return render_template('docs/statistics/graphics/bar-charts.html')
+	
+@app.route('/docs/statistics/graphics/bar-charts/')
+def bar_charts():
+    return render_template('docs/statistics/graphics/bar-charts.html')
+	
+@app.route('/docs/statistics/graphics/bar-charts/')
+def bar_charts():
+    return render_template('docs/statistics/graphics/bar-charts.html')
+	
+@app.route('/docs/statistics/graphics/bar-charts/')
+def bar_charts():
+    return render_template('docs/statistics/graphics/bar-charts.html')
+	
+@app.route('/docs/statistics/graphics/bar-charts/')
+def bar_charts():
+    return render_template('docs/statistics/graphics/bar-charts.html')
+	
+@app.route('/docs/statistics/graphics/bar-charts/')
+def bar_charts():
+    return render_template('docs/statistics/graphics/bar-charts.html')
+	
+@app.route('/docs/statistics/graphics/bar-charts/')
+def bar_charts():
+    return render_template('docs/statistics/graphics/bar-charts.html')
+	
+@app.route('/docs/statistics/graphics/bar-charts/')
+def bar_charts():
+    return render_template('docs/statistics/graphics/bar-charts.html')
+	
+@app.route('/docs/statistics/graphics/bar-charts/')
+def bar_charts():
+    return render_template('docs/statistics/graphics/bar-charts.html')
+	
+@app.route('/docs/statistics/graphics/bar-charts/')
+def bar_charts():
+    return render_template('docs/statistics/graphics/bar-charts.html')
+	
+@app.route('/docs/statistics/graphics/bar-charts/')
+def bar_charts():
+    return render_template('docs/statistics/graphics/bar-charts.html')
+	
+@app.route('/docs/statistics/graphics/bar-charts/')
+def bar_charts():
+    return render_template('docs/statistics/graphics/bar-charts.html')
+	
+@app.route('/docs/statistics/graphics/bar-charts/')
+def bar_charts():
+    return render_template('docs/statistics/graphics/bar-charts.html')
+
+@app.route('/docs/statistics/graphics/bar-charts/')
+def bar_charts():
+    return render_template('docs/statistics/graphics/bar-charts.html')
+	
+@app.route('/docs/statistics/graphics/bar-charts/')
+def bar_charts():
+    return render_template('docs/statistics/graphics/bar-charts.html')
+
+@app.route('/docs/statistics/graphics/bar-charts/')
+def bar_charts():
+    return render_template('docs/statistics/graphics/bar-charts.html')
+	
+@app.route('/docs/statistics/graphics/bar-charts/')
+def bar_charts():
+    return render_template('docs/statistics/graphics/bar-charts.html')
+	
+@app.route('/docs/statistics/graphics/bar-charts/')
+def bar_charts():
+    return render_template('docs/statistics/graphics/bar-charts.html')
+	
+@app.route('/docs/statistics/graphics/bar-charts/')
+def bar_charts():
+    return render_template('docs/statistics/graphics/bar-charts.html')
+	
+@app.route('/docs/statistics/graphics/bar-charts/')
+def bar_charts():
+    return render_template('docs/statistics/graphics/bar-charts.html')
+	
+@app.route('/docs/statistics/graphics/bar-charts/')
+def bar_charts():
+    return render_template('docs/statistics/graphics/bar-charts.html')
+	
+@app.route('/docs/statistics/graphics/bar-charts/')
+def bar_charts():
+    return render_template('docs/statistics/graphics/bar-charts.html')
+	
+@app.route('/docs/statistics/graphics/bar-charts/')
+def bar_charts():
+    return render_template('docs/statistics/graphics/bar-charts.html')
+	
 @app.route('/docs/statistics/graphics/bar-charts/')
 def bar_charts():
     return render_template('docs/statistics/graphics/bar-charts.html')
