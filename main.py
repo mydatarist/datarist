@@ -35,7 +35,7 @@ def docs():
 
 @app.route('/docs/statistics/graphics/bar-charts/')
 def barcharts():
-    return render_template('bar-charts.html')
+    return render_template('docs/statistics/graphics/bar-charts.html')
 	
 @app.route('/terms/')
 def terms():
