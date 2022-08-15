@@ -33,6 +33,8 @@ def index():
 def docs():
     return render_template('docs.html')
 
+# DOCS/STATISTICS/GRAPHICS/
+
 @app.route('/docs/statistics/graphics/3d-plots/')
 def three_d_plots():
     return render_template('docs/statistics/graphics/3d-plots.html')
@@ -148,7 +150,125 @@ def time_series():
 @app.route('/docs/statistics/graphics/violin-plots/')
 def violin_plots():
     return render_template('docs/statistics/graphics/violin-plots.html')
+
+# DOCS/STATISTICS/PROCEDURES/
+
+@app.route('/docs/statistics/procedures/analysis-of-variance/')
+def procedure_analysis_of_variance():
+    return render_template('docs/statistics/procedures/analysis-of-variance.html')
 	
+@app.route('/docs/statistics/procedures/appraisal/')
+def procedure_appraisal():
+    return render_template('docs/statistics/procedures/appraisal.html')
+	
+@app.route('/docs/statistics/procedures/cluster-analysis/')
+def procedure_cluster_analysis():
+    return render_template('docs/statistics/procedures/cluster-analysis.html')
+	
+@app.route('/docs/statistics/procedures/correlation/')
+def procedure_correlation():
+    return render_template('docs/statistics/procedures/correlation.html')
+	
+@app.route('/docs/statistics/procedures/curve-fitting/')
+def procedure_curve_fitting():
+    return render_template('docs/statistics/procedures/curve-fitting.html')
+	
+@app.route('/docs/statistics/procedures/descriptive-statistics/')
+def procedure_descriptive_statistics():
+    return render_template('docs/statistics/procedures/descriptive-statistics.html')
+	
+@app.route('/docs/statistics/procedures/design-of-experiments/')
+def procedure_design_of_experiments():
+    return render_template('docs/statistics/procedures/design-of-experiments.html')
+	
+@app.route('/docs/statistics/procedures/diagnostic-tests/')
+def procedure_diagnostic_tests():
+    return render_template('docs/statistics/procedures/diagnostic-tests.html')
+	
+@app.route('/docs/statistics/procedures/distribution-fitting/')
+def procedure_distribution_fitting():
+    return render_template('docs/statistics/procedures/distribution-fitting.html')
+	
+@app.route('/docs/statistics/procedures/forecasting/')
+def procedure_forecasting():
+    return render_template('docs/statistics/procedures/forecasting.html')
+	
+@app.route('/docs/statistics/procedures/group-sequential/')
+def procedure_group_sequential():
+    return render_template('docs/statistics/procedures/group-sequential.html')
+	
+@app.route('/docs/statistics/procedures/item-analysis/')
+def procedure_item_analysis():
+    return render_template('docs/statistics/procedures/item-analysis.html')
+	
+@app.route('/docs/statistics/procedures/meta-analysis/')
+def procedure_meta_analysis():
+    return render_template('docs/statistics/procedures/meta-analysis.html')
+	
+@app.route('/docs/statistics/procedures/method-comparison/')
+def procedure_method_comparison():
+    return render_template('docs/statistics/procedures/method-comparison.html')
+	
+@app.route('/docs/statistics/procedures/mixed-models/')
+def procedure_mixed_models():
+    return render_template('docs/statistics/procedures/mixed-models.html')
+	
+@app.route('/docs/statistics/procedures/multivariate-analysis/')
+def procedure_multivariate_analysis():
+    return render_template('docs/statistics/procedures/multivariate-analysis.html')
+	
+@app.route('/docs/statistics/procedures/nondetects-data/')
+def procedure_nondetects_data():
+    return render_template('docs/statistics/procedures/nondetects-data.html')
+	
+@app.route('/docs/statistics/procedures/nonparametric/')
+def procedure_nonparametric():
+    return render_template('docs/statistics/procedures/nonparametric.html')
+	
+@app.route('/docs/statistics/procedures/operations-research/')
+def procedure_operations_research():
+    return render_template('docs/statistics/procedures/operations-research.html')
+	
+@app.route('/docs/statistics/procedures/proportions/')
+def procedure_proportions():
+    return render_template('docs/statistics/procedures/proportions.html')
+	
+@app.route('/docs/statistics/procedures/quality-control/')
+def procedure_quality_control():
+    return render_template('docs/statistics/procedures/quality-control.html')
+	
+@app.route('/docs/statistics/procedures/reference-intervals/')
+def procedure_reference_intervals():
+    return render_template('docs/statistics/procedures/reference-intervals.html')
+	
+@app.route('/docs/statistics/procedures/regression/')
+def procedure_regression():
+    return render_template('docs/statistics/procedures/regression.html')
+	
+@app.route('/docs/statistics/procedures/roc-curves/')
+def procedure_roc_curves():
+    return render_template('docs/statistics/procedures/roc-curves.html')
+	
+@app.route('/docs/statistics/procedures/survey-data/')
+def procedure_survey_data():
+    return render_template('docs/statistics/procedures/survey-data.html')
+	
+@app.route('/docs/statistics/procedures/survival-analysis-reliability/')
+def procedure_survival_analysis_reliability():
+    return render_template('docs/statistics/procedures/survival-analysis-reliability.html')
+	
+@app.route('/docs/statistics/procedures/time-series/')
+def procedure_time_series():
+    return render_template('docs/statistics/procedures/time-series.html')
+	
+@app.route('/docs/statistics/procedures/t-tests/')
+def procedure_t_tests():
+    return render_template('docs/statistics/procedures/t-tests.html')
+	
+@app.route('/docs/statistics/procedures/two-way-tables/')
+def procedure_two_way_tables():
+    return render_template('docs/statistics/procedures/two-way-tables.html')
+		
 @app.route('/terms/')
 def terms():
     return render_template('terms.html')
