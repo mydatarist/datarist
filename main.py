@@ -32,6 +32,10 @@ def index():
 @app.route('/docs/')
 def docs():
     return render_template('docs.html')
+
+@app.route('/docs/statistics/graphics/bar-charts/')
+def barcharts():
+    return render_template('bar-charts.html')
 	
 @app.route('/terms/')
 def terms():
