@@ -61,41 +61,41 @@ def contour_plots():
 def curve_fitting():
     return render_template('docs/statistics/graphics/curve-fitting.html')
 	
-@app.route('/docs/statistics/graphics/bar-charts/')
-def bar_charts():
-    return render_template('docs/statistics/graphics/bar-charts.html')
+@app.route('/docs/statistics/graphics/dendrograms/')
+def dendrograms():
+    return render_template('docs/statistics/graphics/dendrograms.html')
 	
-@app.route('/docs/statistics/graphics/bar-charts/')
-def bar_charts():
-    return render_template('docs/statistics/graphics/bar-charts.html')
+@app.route('/docs/statistics/graphics/density-plots/')
+def density_plots():
+    return render_template('docs/statistics/graphics/density-plots.html')
 	
-@app.route('/docs/statistics/graphics/bar-charts/')
-def bar_charts():
-    return render_template('docs/statistics/graphics/bar-charts.html')
+@app.route('/docs/statistics/graphics/dot-plots/')
+def dot-plots():
+    return render_template('docs/statistics/graphics/dot-plots.html')
 	
-@app.route('/docs/statistics/graphics/bar-charts/')
-def bar_charts():
-    return render_template('docs/statistics/graphics/bar-charts.html')
+@app.route('/docs/statistics/graphics/error-bar-charts/')
+def error_bar_charts():
+    return render_template('docs/statistics/graphics/error-bar-charts.html')
 	
-@app.route('/docs/statistics/graphics/bar-charts/')
-def bar_charts():
-    return render_template('docs/statistics/graphics/bar-charts.html')
+@app.route('/docs/statistics/graphics/forecasting/')
+def forecasting():
+    return render_template('docs/statistics/graphics/forecasting.html')
 	
-@app.route('/docs/statistics/graphics/bar-charts/')
-def bar_charts():
-    return render_template('docs/statistics/graphics/bar-charts.html')
+@app.route('/docs/statistics/graphics/forest-plots/')
+def forest_plots():
+    return render_template('docs/statistics/graphics/forest-plots.html')
 	
-@app.route('/docs/statistics/graphics/bar-charts/')
-def bar_charts():
-    return render_template('docs/statistics/graphics/bar-charts.html')
+@app.route('/docs/statistics/graphics/function-plots/')
+def function_plots():
+    return render_template('docs/statistics/graphics/function-plots.html')
 	
-@app.route('/docs/statistics/graphics/bar-charts/')
-def bar_charts():
-    return render_template('docs/statistics/graphics/bar-charts.html')
+@app.route('/docs/statistics/graphics/heat-maps/')
+def heat_maps():
+    return render_template('docs/statistics/graphics/heat-maps.html')
 	
-@app.route('/docs/statistics/graphics/bar-charts/')
-def bar_charts():
-    return render_template('docs/statistics/graphics/bar-charts.html')
+@app.route('/docs/statistics/graphics/histograms/')
+def histograms():
+    return render_template('docs/statistics/graphics/histograms.html')
 	
 @app.route('/docs/statistics/graphics/bar-charts/')
 def bar_charts():
