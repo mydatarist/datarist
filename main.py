@@ -70,7 +70,7 @@ def density_plots():
     return render_template('docs/statistics/graphics/density-plots.html')
 	
 @app.route('/docs/statistics/graphics/dot-plots/')
-def dot-plots():
+def dot_plots():
     return render_template('docs/statistics/graphics/dot-plots.html')
 	
 @app.route('/docs/statistics/graphics/error-bar-charts/')
@@ -97,69 +97,57 @@ def heat_maps():
 def histograms():
     return render_template('docs/statistics/graphics/histograms.html')
 	
-@app.route('/docs/statistics/graphics/bar-charts/')
-def bar_charts():
-    return render_template('docs/statistics/graphics/bar-charts.html')
+@app.route('/docs/statistics/graphics/kaplan-meier-curves/')
+def kaplan_meier_curves():
+    return render_template('docs/statistics/graphics/kaplan-meier-curves.html')
 	
-@app.route('/docs/statistics/graphics/bar-charts/')
-def bar_charts():
-    return render_template('docs/statistics/graphics/bar-charts.html')
+@app.route('/docs/statistics/graphics/line-charts/')
+def line_charts():
+    return render_template('docs/statistics/graphics/line-charts.html')
 	
-@app.route('/docs/statistics/graphics/bar-charts/')
-def bar_charts():
-    return render_template('docs/statistics/graphics/bar-charts.html')
+@app.route('/docs/statistics/graphics/mosaic-plots/')
+def mosaic_plots():
+    return render_template('docs/statistics/graphics/mosaic-plots.html')
 	
-@app.route('/docs/statistics/graphics/bar-charts/')
-def bar_charts():
-    return render_template('docs/statistics/graphics/bar-charts.html')
+@app.route('/docs/statistics/graphics/percentile-plots/')
+def percentile_plots():
+    return render_template('docs/statistics/graphics/percentile-plots.html')
 	
-@app.route('/docs/statistics/graphics/bar-charts/')
-def bar_charts():
-    return render_template('docs/statistics/graphics/bar-charts.html')
+@app.route('/docs/statistics/graphics/pie-charts/')
+def pie_charts():
+    return render_template('docs/statistics/graphics/pie-charts.html')
 
-@app.route('/docs/statistics/graphics/bar-charts/')
-def bar_charts():
-    return render_template('docs/statistics/graphics/bar-charts.html')
+@app.route('/docs/statistics/graphics/probability-plots/')
+def probability_plots():
+    return render_template('docs/statistics/graphics/probability-plots.html')
 	
-@app.route('/docs/statistics/graphics/bar-charts/')
-def bar_charts():
-    return render_template('docs/statistics/graphics/bar-charts.html')
+@app.route('/docs/statistics/graphics/quality-control-charts/')
+def quality_control_charts():
+    return render_template('docs/statistics/graphics/quality-control-charts.html')
 
-@app.route('/docs/statistics/graphics/bar-charts/')
-def bar_charts():
-    return render_template('docs/statistics/graphics/bar-charts.html')
+@app.route('/docs/statistics/graphics/roc-curves/')
+def rock_curves():
+    return render_template('docs/statistics/graphics/roc-curves.html')
 	
-@app.route('/docs/statistics/graphics/bar-charts/')
-def bar_charts():
-    return render_template('docs/statistics/graphics/bar-charts.html')
+@app.route('/docs/statistics/graphics/scatter-plots/')
+def scatter_plots():
+    return render_template('docs/statistics/graphics/scatter_plots.html')
 	
-@app.route('/docs/statistics/graphics/bar-charts/')
-def bar_charts():
-    return render_template('docs/statistics/graphics/bar-charts.html')
+@app.route('/docs/statistics/graphics/stem-and-leaf-plots/')
+def stem_and_leaf_plots():
+    return render_template('docs/statistics/graphics/stem-and-leaf-plots.html')
 	
-@app.route('/docs/statistics/graphics/bar-charts/')
-def bar_charts():
-    return render_template('docs/statistics/graphics/bar-charts.html')
+@app.route('/docs/statistics/graphics/surface-plots/')
+def surface_plots():
+    return render_template('docs/statistics/graphics/surface-plots.html')
 	
-@app.route('/docs/statistics/graphics/bar-charts/')
-def bar_charts():
-    return render_template('docs/statistics/graphics/bar-charts.html')
+@app.route('/docs/statistics/graphics/time-series/')
+def time_series():
+    return render_template('docs/statistics/graphics/time-series.html')
 	
-@app.route('/docs/statistics/graphics/bar-charts/')
-def bar_charts():
-    return render_template('docs/statistics/graphics/bar-charts.html')
-	
-@app.route('/docs/statistics/graphics/bar-charts/')
-def bar_charts():
-    return render_template('docs/statistics/graphics/bar-charts.html')
-	
-@app.route('/docs/statistics/graphics/bar-charts/')
-def bar_charts():
-    return render_template('docs/statistics/graphics/bar-charts.html')
-	
-@app.route('/docs/statistics/graphics/bar-charts/')
-def bar_charts():
-    return render_template('docs/statistics/graphics/bar-charts.html')
+@app.route('/docs/statistics/graphics/violin-plots/')
+def violin_plots():
+    return render_template('docs/statistics/graphics/violin-plots.html')
 	
 @app.route('/terms/')
 def terms():
