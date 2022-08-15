@@ -28,16 +28,11 @@ def inject_now():
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/docs/')
+def docs():
+    return render_template('docs.html')
 	
-@app.route('/docs/statistics/graphics/3d-plots/')
-def 3d-plots():
-    return render_template('3d-plots.html')
-
-@app.route('/docs/statistics/graphics/bar-charts/')
-def bar-charts():
-    return render_template('bar-charts.html')
-
-
 @app.route('/terms/')
 def terms():
     return render_template('terms.html')
