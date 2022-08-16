@@ -499,9 +499,9 @@ def tools_sample_size_standard_deviation_estimator():
 def tools_sample_size_standard_deviation_of_means_calculator():
     return render_template('docs/statistics/tools/sample-size/standard-deviation-of-means-calculator.html')		
 
-@app.route('/docs/statistics/tools/sample-size/xxxx/')
-def tools_sample_size_xxxx():
-    return render_template('docs/statistics/tools/sample-size/xxxx.html')		
+@app.route('/docs/statistics/tools/sample-size/survival-parameter-conversion-tool/')
+def tools_sample_size_survival_parameter_conversion_tool():
+    return render_template('docs/statistics/tools/sample-size/survival-parameter-conversion-tool.html')		
 
 
 @app.route('/terms/')
