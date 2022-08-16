@@ -483,9 +483,9 @@ def tools_sample_size_multinomial_effect_size_estimator():
 def tools_sample_size_odds_ratio_to_proportions_converter():
     return render_template('docs/statistics/tools/sample-size/odds-ratio-to-proportions-converter.html')		
 
-@app.route('/docs/statistics/tools/sample-size/xxxx/')
-def tools_sample_size_xxxx():
-    return render_template('docs/statistics/tools/sample-size/xxxx.html')		
+@app.route('/docs/statistics/tools/sample-size/probability-calculator/')
+def tools_sample_size_probability_calculator():
+    return render_template('docs/statistics/tools/sample-size/probability-calculator.html')		
 
 @app.route('/docs/statistics/tools/sample-size/xxxx/')
 def tools_sample_size_xxxx():
