@@ -503,6 +503,28 @@ def tools_sample_size_standard_deviation_of_means_calculator():
 def tools_sample_size_survival_parameter_conversion_tool():
     return render_template('docs/statistics/tools/sample-size/survival-parameter-conversion-tool.html')		
 
+# ABOUT
+
+@app.route('/docs/about/overview/')
+def docs_about_overview():
+    return render_template('docs/about/overview.html')		
+
+@app.route('/docs/about/team/')
+def docs_about_team():
+    return render_template('docs/about/team.html')		
+
+@app.route('/docs/about/brand/')
+def docs_about_brand():
+    return render_template('docs/about/brand.html')		
+
+@app.route('/docs/about/license/')
+def docs_about_license():
+    return render_template('docs/about/license.html')		
+
+@app.route('/docs/about/translations/')
+def docs_about_translations():
+    return render_template('docs/about/translations.html')		
+
 @app.route('/terms/')
 def terms():
     return render_template('terms.html')
