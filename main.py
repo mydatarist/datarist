@@ -495,9 +495,9 @@ def tools_sample_size_procedure_validation_tool_for_operations_qualification():
 def tools_sample_size_standard_deviation_estimator():
     return render_template('docs/statistics/tools/sample-size/standard-deviation-estimator.html')		
 
-@app.route('/docs/statistics/tools/sample-size/xxxx/')
-def tools_sample_size_xxxx():
-    return render_template('docs/statistics/tools/sample-size/xxxx.html')		
+@app.route('/docs/statistics/tools/sample-size/standard-deviation-of-means-calculator/')
+def tools_sample_size_standard_deviation_of_means_calculator():
+    return render_template('docs/statistics/tools/sample-size/standard-deviation-of-means-calculator.html')		
 
 @app.route('/docs/statistics/tools/sample-size/xxxx/')
 def tools_sample_size_xxxx():
