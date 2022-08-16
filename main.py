@@ -475,9 +475,9 @@ def tools_sample_size_data_simulator():
 def tools_sample_size_installation_validation_tool_for_installation_qualification():
     return render_template('docs/statistics/tools/sample-size/installation-validation-tool-for-installation-qualification.html')		
 
-@app.route('/docs/statistics/tools/sample-size/xxxx/')
-def tools_sample_size_xxxx():
-    return render_template('docs/statistics/tools/sample-size/xxxx.html')		
+@app.route('/docs/statistics/tools/sample-size/multinomial-effect-size-estimator/')
+def tools_sample_size_multinomial_effect_size_estimator():
+    return render_template('docs/statistics/tools/sample-size/multinomial-effect-size-estimator.html')		
 
 @app.route('/docs/statistics/tools/sample-size/xxxx/')
 def tools_sample_size_xxxx():
