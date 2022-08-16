@@ -457,9 +457,9 @@ def tools_procedures_probability_calculator():
 def tools_procedures_standard_deviation_calculator():
     return render_template('docs/statistics/tools/procedures/standard-deviation-calculator.html')		
 
-@app.route('/docs/statistics/tools/procedures/xxxx/')
-def tools_procedures_xxxx():
-    return render_template('docs/statistics/tools/procedures/xxxx.html')		
+@app.route('/docs/statistics/tools/procedures/survival-parameter-conversion-tool/')
+def tools_procedures_survival_parameter_conversion_tool():
+    return render_template('docs/statistics/tools/procedures/survival-parameter-conversion-tool.html')		
 
 
 @app.route('/terms/')
