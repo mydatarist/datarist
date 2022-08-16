@@ -441,9 +441,9 @@ def sample_size_bayesian_adjustment():
 
 # TOOLS
 
-@app.route('/docs/statistics/tools/procedures/xxxx/')
-def tools_procedures_xxxx():
-    return render_template('docs/statistics/tools/procedures/xxxx.html')		
+@app.route('/docs/statistics/tools/procedures/chi-square-effect-size-calculator/')
+def tools_procedures_chi_square_effect_size_calculator():
+    return render_template('docs/statistics/tools/procedures/chi-square-effect-size-calculator.html')		
 
 @app.route('/docs/statistics/tools/procedures/xxxx/')
 def tools_procedures_xxxx():
