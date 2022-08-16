@@ -449,9 +449,9 @@ def tools_procedures_chi_square_effect_size_calculator():
 def tools_procedures_odds_ratio_and_proportions_calculator():
     return render_template('docs/statistics/tools/procedures/odds-ratio-and-proportions-calculator.html')		
 
-@app.route('/docs/statistics/tools/procedures/xxxx/')
-def tools_procedures_xxxx():
-    return render_template('docs/statistics/tools/procedures/xxxx.html')		
+@app.route('/docs/statistics/tools/procedures/probability-calculator/')
+def tools_procedures_probability_calculator():
+    return render_template('docs/statistics/tools/procedures/probability-calculator.html')		
 
 @app.route('/docs/statistics/tools/procedures/xxxx/')
 def tools_procedures_xxxx():
