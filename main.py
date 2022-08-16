@@ -439,7 +439,7 @@ def sample_size_variances_and_standard_deviations():
 def sample_size_bayesian_adjustment():
     return render_template('docs/statistics/sample-size/bayesian-adjustment.html')		
 
-# TOOLS
+# TOOLS - PROCEDURE
 
 @app.route('/docs/statistics/tools/procedures/chi-square-effect-size-calculator/')
 def tools_procedures_chi_square_effect_size_calculator():
