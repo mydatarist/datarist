@@ -461,6 +461,9 @@ def tools_procedures_standard_deviation_calculator():
 def tools_procedures_survival_parameter_conversion_tool():
     return render_template('docs/statistics/tools/procedures/survival-parameter-conversion-tool.html')		
 
+# TOOL - SAMPLE SIZE
+
+
 
 @app.route('/terms/')
 def terms():
