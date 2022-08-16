@@ -269,6 +269,13 @@ def procedure_t_tests():
 def procedure_two_way_tables():
     return render_template('docs/statistics/procedures/two-way-tables.html')
 		
+# SAMPLE SIZE
+
+@app.route('/docs/statistics/sample-size/xxxx/')
+def sample_size_xxxx():
+    return render_template('docs/statistics/sample-size/xxxx.html')
+		
+
 @app.route('/terms/')
 def terms():
     return render_template('terms.html')
