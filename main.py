@@ -271,10 +271,173 @@ def procedure_two_way_tables():
 		
 # SAMPLE SIZE
 
-@app.route('/docs/statistics/sample-size/xxxx/')
-def sample_size_xxxx():
-    return render_template('docs/statistics/sample-size/xxxx.html')
+@app.route('/docs/statistics/sample-size/bland-altman-method/')
+def sample_size_bland_altman_method():
+    return render_template('docs/statistics/sample-size/bland-altman-method.html')
 		
+@app.route('/docs/statistics/sample-size/bridging-studies/')
+def sample_size_bridging_studies():
+    return render_template('docs/statistics/sample-size/bridging-studies.html')
+		
+@app.route('/docs/statistics/sample-size/cluster-randomized-designs/')
+def sample_size_cluster_randomized_designs():
+    return render_template('docs/statistics/sample-size/cluster-randomized-designs.html')
+		
+@app.route('/docs/statistics/sample-size/conditional-power/')
+def sample_size_conditional_power():
+    return render_template('docs/statistics/sample-size/conditional-power.html')
+		
+@app.route('/docs/statistics/sample-size/confidence-intervals/')
+def sample_size_confidence_intervals():
+    return render_template('docs/statistics/sample-size/confidence-intervals.html')
+		
+@app.route('/docs/statistics/sample-size/correlation/')
+def sample_size_correlation():
+    return render_template('docs/statistics/sample-size/correlation.html')
+		
+@app.route('/docs/statistics/sample-size/cross-over-designs/')
+def sample_size_cross_over_designs():
+    return render_template('docs/statistics/sample-size/cross-over-designs.html')
+		
+@app.route('/docs/statistics/sample-size/design-of-experiments/')
+def sample_size_design_of_experiments():
+    return render_template('docs/statistics/sample-size/design-of-experiments.html')
+		
+@app.route('/docs/statistics/sample-size/equivalence/')
+def sample_size_equivalence():
+    return render_template('docs/statistics/sample-size/equivalence.html')
+		
+@app.route('/docs/statistics/sample-size/exponential-distribution-parameter/')
+def sample_size_exponential_distribution_parameter():
+    return render_template('docs/statistics/sample-size/exponential-distribution-parameter.html')
+		
+@app.route('/docs/statistics/sample-size/group-sequential-tests/')
+def sample_size_group_sequential_tests():
+    return render_template('docs/statistics/sample-size/group-sequential-tests.html')
+		
+@app.route('/docs/statistics/sample-size/means-one/')
+def sample_size_means_one():
+    return render_template('docs/statistics/sample-size/means-one.html')
+		
+@app.route('/docs/statistics/sample-size/means-two-independent/')
+def sample_size_means_two_independent():
+    return render_template('docs/statistics/sample-size/means-two-independent.html')
+		
+@app.route('/docs/statistics/sample-size/means-two-correlated-or-paired/')
+def sample_size_means_two_correlated_or_paired():
+    return render_template('docs/statistics/sample-size/means-two-correlated-or-paired.html')
+		
+@app.route('/docs/statistics/sample-size/means-2x2-cross-over-designs/')
+def sample_size_means_2x2_cross_over_designs():
+    return render_template('docs/statistics/sample-size/means-2x2-cross-over-designs.html')
+		
+@app.route('/docs/statistics/sample-size/means-high-order-cross-over-designs/')
+def sample_size_means_high_order_cross_over_designs():
+    return render_template('docs/statistics/sample-size/means-high-order-cross-over-designs.html')
+		
+@app.route('/docs/statistics/sample-size/means-many/')
+def sample_size_means_many():
+    return render_template('docs/statistics/sample-size/means-many.html')
+		
+@app.route('/docs/statistics/sample-size/mediation-effects/')
+def sample_size_mediation_effects():
+    return render_template('docs/statistics/sample-size/mediation-effects.html')
+		
+@app.route('/docs/statistics/sample-size/michaelis-menten-parameters/')
+def sample_size_michaelis_menten_parameters():
+    return render_template('docs/statistics/sample-size/michaelis-menten-parameters.html')
+		
+@app.route('/docs/statistics/sample-size/mixed-models/')
+def sample_size_mixed_models():
+    return render_template('docs/statistics/sample-size/mixed-models.html')
+		
+@app.route('/docs/statistics/sample-size/non-inferiority/')
+def sample_size_non_inferiority():
+    return render_template('docs/statistics/sample-size/non-inferiority.html')
+		
+@app.route('/docs/statistics/sample-size/nonparametric/')
+def sample_size_nonparametric():
+    return render_template('docs/statistics/sample-size/nonparametric.html')
+		
+@app.route('/docs/statistics/sample-size/non-zero-and-non-unity-null-tests/')
+def sample_size_non_zero_and_non_unity_null_tests():
+    return render_template('docs/statistics/sample-size/non-zero-and-non-unity-null-tests.html')
+		
+@app.route('/docs/statistics/sample-size/normality-tests/')
+def sample_size_normality_tests():
+    return render_template('docs/statistics/sample-size/normality-tests.html')
+		
+@app.route('/docs/statistics/sample-size/pilot-studies/')
+def sample_size_pilot_studies():
+    return render_template('docs/statistics/sample-size/pilot-studies.html')
+		
+@app.route('/docs/statistics/sample-size/proportions-one/')
+def sample_size_proportions_one():
+    return render_template('docs/statistics/sample-size/proportions-one.html')
+		
+@app.route('/docs/statistics/sample-size/proportions-two-independent/')
+def sample_size_proportions_two_independent():
+    return render_template('docs/statistics/sample-size/proportions-two-independent.html')
+		
+@app.route('/docs/statistics/sample-size/proportions-correlated-or-paired/')
+def sample_size_proportions_correlated_or_paired():
+    return render_template('docs/statistics/sample-size/proportions-correlated-or-paired.html')
+		
+@app.route('/docs/statistics/sample-size/proportions-cross-over-designs/')
+def sample_size_proportions_cross_over_designs():
+    return render_template('docs/statistics/sample-size/proportions_cross_over_designs.html')
+		
+@app.route('/docs/statistics/sample-size/proportions-sensitivity-and-specificity/')
+def sample_size_proportions_sensitivity_and_specificity():
+    return render_template('docs/statistics/sample-size/proportions-sensitivity-and-specificity.html')
+		
+@app.route('/docs/statistics/sample-size/proportions-many/')
+def sample_size_proportions_many():
+    return render_template('docs/statistics/sample-size/proportions-many.html')
+		
+@app.route('/docs/statistics/sample-size/quality-control/')
+def sample_size_quality_control():
+    return render_template('docs/statistics/sample-size/quality-control.html')
+		
+@app.route('/docs/statistics/sample-size/rates-and-counts/')
+def sample_size_rates_and_counts():
+    return render_template('docs/statistics/sample-size/rates-and-counts.html')
+		
+@app.route('/docs/statistics/sample-size/reference-intervals/')
+def sample_size_reference_intervals():
+    return render_template('docs/statistics/sample-size/reference-intervals.html')
+		
+@app.route('/docs/statistics/sample-size/regression/')
+def sample_size_regression():
+    return render_template('docs/statistics/sample-size/regression.html')
+		
+@app.route('/docs/statistics/sample-size/roc_curves/')
+def sample_size_roc_curves():
+    return render_template('docs/statistics/sample-size/roc-curves.html')
+		
+@app.route('/docs/statistics/sample-size/superiority_by_a_margin_test/')
+def sample_size_superiority_by_a_margin_test():
+    return render_template('docs/statistics/sample-size/superiority-by-a-margin-test.html')
+		
+@app.route('/docs/statistics/sample-size/survival-analysis/')
+def sample_size_survival_analysis():
+    return render_template('docs/statistics/sample-size/survival-analysis.html')
+		
+@app.route('/docs/statistics/sample-size/tolerance-intervals/')
+def sample_size_tolerance_intervals():
+    return render_template('docs/statistics/sample-size/tolerance-intervals.html')
+		
+@app.route('/docs/statistics/sample-size/two-part-models/')
+def sample_size_two_part_models():
+    return render_template('docs/statistics/sample-size/two-part-models.html')
+		
+@app.route('/docs/statistics/sample-size/variances-and-standard-deviations/')
+def sample_size_variances_and_standard_deviations():
+    return render_template('docs/statistics/sample-size/variances-and-standard-deviations.html')
+		
+@app.route('/docs/statistics/sample-size/bayesian-adjustment/')
+def sample_size_bayesian_adjustment():
+    return render_template('docs/statistics/sample-size/bayesian-adjustment.html')		
 
 @app.route('/terms/')
 def terms():
