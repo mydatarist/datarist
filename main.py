@@ -439,7 +439,7 @@ def sample_size_variances_and_standard_deviations():
 def sample_size_bayesian_adjustment():
     return render_template('docs/statistics/sample-size/bayesian-adjustment.html')		
 
-# TOOLS - PROCEDURE
+# TOOLS/PROCEDURE
 
 @app.route('/docs/statistics/tools/procedures/chi-square-effect-size-calculator/')
 def tools_procedures_chi_square_effect_size_calculator():
@@ -461,7 +461,7 @@ def tools_procedures_standard_deviation_calculator():
 def tools_procedures_survival_parameter_conversion_tool():
     return render_template('docs/statistics/tools/procedures/survival-parameter-conversion-tool.html')		
 
-# TOOL - SAMPLE SIZE
+# TOOLS/SAMPLE SIZE
 
 @app.route('/docs/statistics/tools/sample-size/chi-square-effect-size-estimator/')
 def tools_sample_size_chi_square_effect_size_estimator():
