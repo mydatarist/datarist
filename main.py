@@ -463,6 +463,45 @@ def tools_procedures_survival_parameter_conversion_tool():
 
 # TOOL - SAMPLE SIZE
 
+@app.route('/docs/statistics/tools/sample-size/xxxx/')
+def tools_sample_size_xxxx():
+    return render_template('docs/statistics/tools/sample-size/xxxx.html')		
+
+@app.route('/docs/statistics/tools/sample-size/xxxx/')
+def tools_sample_size_xxxx():
+    return render_template('docs/statistics/tools/sample-size/xxxx.html')		
+
+@app.route('/docs/statistics/tools/sample-size/xxxx/')
+def tools_sample_size_xxxx():
+    return render_template('docs/statistics/tools/sample-size/xxxx.html')		
+
+@app.route('/docs/statistics/tools/sample-size/xxxx/')
+def tools_sample_size_xxxx():
+    return render_template('docs/statistics/tools/sample-size/xxxx.html')		
+
+@app.route('/docs/statistics/tools/sample-size/xxxx/')
+def tools_sample_size_xxxx():
+    return render_template('docs/statistics/tools/sample-size/xxxx.html')		
+
+@app.route('/docs/statistics/tools/sample-size/xxxx/')
+def tools_sample_size_xxxx():
+    return render_template('docs/statistics/tools/sample-size/xxxx.html')		
+
+@app.route('/docs/statistics/tools/sample-size/xxxx/')
+def tools_sample_size_xxxx():
+    return render_template('docs/statistics/tools/sample-size/xxxx.html')		
+
+@app.route('/docs/statistics/tools/sample-size/xxxx/')
+def tools_sample_size_xxxx():
+    return render_template('docs/statistics/tools/sample-size/xxxx.html')		
+
+@app.route('/docs/statistics/tools/sample-size/xxxx/')
+def tools_sample_size_xxxx():
+    return render_template('docs/statistics/tools/sample-size/xxxx.html')		
+
+@app.route('/docs/statistics/tools/sample-size/xxxx/')
+def tools_sample_size_xxxx():
+    return render_template('docs/statistics/tools/sample-size/xxxx.html')		
 
 
 @app.route('/terms/')
