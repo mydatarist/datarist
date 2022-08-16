@@ -36,119 +36,119 @@ def docs():
 # DOCS/STATISTICS/GRAPHICS/
 
 @app.route('/docs/statistics/graphics/3d-plots/')
-def graphics_three_d_plots():
+def docs_statistics_graphics_three_d_plots():
     return render_template('docs/statistics/graphics/3d-plots.html')
 
 @app.route('/docs/statistics/graphics/bar-charts/')
-def graphics_bar_charts():
+def docs_statistics_graphics_bar_charts():
     return render_template('docs/statistics/graphics/bar-charts.html')
 
 @app.route('/docs/statistics/graphics/bland-altman-plots/')
-def graphics_bland_altman_plots():
+def docs_statistics_graphics_bland_altman_plots():
     return render_template('docs/statistics/graphics/bland-altman-plots.html')
 
 @app.route('/docs/statistics/graphics/box-plots/')
-def graphics_box_plots():
+def docs_statistics_graphics_box_plots():
     return render_template('docs/statistics/graphics/box-plots.html')
 
 @app.route('/docs/statistics/graphics/circular-data-plots/')
-def graphics_circular_data_plots():
+def docs_statistics_graphics_circular_data_plots():
     return render_template('docs/statistics/graphics/circular-data-plots.html')
 
 @app.route('/docs/statistics/graphics/contour-plots/')
-def graphics_contour_plots():
+def docs_statistics_graphics_contour_plots():
     return render_template('docs/statistics/graphics/contour-plots.html')
 
 @app.route('/docs/statistics/graphics/curve-fitting/')
-def graphics_curve_fitting():
+def docs_statistics_graphics_curve_fitting():
     return render_template('docs/statistics/graphics/curve-fitting.html')
 	
 @app.route('/docs/statistics/graphics/dendrograms/')
-def graphics_dendrograms():
+def docs_statistics_graphics_dendrograms():
     return render_template('docs/statistics/graphics/dendrograms.html')
 	
 @app.route('/docs/statistics/graphics/density-plots/')
-def graphics_density_plots():
+def docs_statistics_graphics_density_plots():
     return render_template('docs/statistics/graphics/density-plots.html')
 	
 @app.route('/docs/statistics/graphics/dot-plots/')
-def graphics_dot_plots():
+def docs_statistics_graphics_dot_plots():
     return render_template('docs/statistics/graphics/dot-plots.html')
 	
 @app.route('/docs/statistics/graphics/error-bar-charts/')
-def graphics_error_bar_charts():
+def docs_statistics_graphics_error_bar_charts():
     return render_template('docs/statistics/graphics/error-bar-charts.html')
 	
 @app.route('/docs/statistics/graphics/forecasting/')
-def graphics_forecasting():
+def docs_statistics_graphics_forecasting():
     return render_template('docs/statistics/graphics/forecasting.html')
 	
 @app.route('/docs/statistics/graphics/forest-plots/')
-def graphics_forest_plots():
+def docs_statistics_graphics_forest_plots():
     return render_template('docs/statistics/graphics/forest-plots.html')
 	
 @app.route('/docs/statistics/graphics/function-plots/')
-def graphics_function_plots():
+def docs_statistics_graphics_function_plots():
     return render_template('docs/statistics/graphics/function-plots.html')
 	
 @app.route('/docs/statistics/graphics/heat-maps/')
-def graphics_heat_maps():
+def docs_statistics_graphics_heat_maps():
     return render_template('docs/statistics/graphics/heat-maps.html')
 	
 @app.route('/docs/statistics/graphics/histograms/')
-def graphics_histograms():
+def docs_statistics_graphics_histograms():
     return render_template('docs/statistics/graphics/histograms.html')
 	
 @app.route('/docs/statistics/graphics/kaplan-meier-curves/')
-def graphics_kaplan_meier_curves():
+def docs_statistics_graphics_kaplan_meier_curves():
     return render_template('docs/statistics/graphics/kaplan-meier-curves.html')
 	
 @app.route('/docs/statistics/graphics/line-charts/')
-def graphics_line_charts():
+def docs_statistics_graphics_line_charts():
     return render_template('docs/statistics/graphics/line-charts.html')
 	
 @app.route('/docs/statistics/graphics/mosaic-plots/')
-def graphics_mosaic_plots():
+def docs_statistics_graphics_mosaic_plots():
     return render_template('docs/statistics/graphics/mosaic-plots.html')
 	
 @app.route('/docs/statistics/graphics/percentile-plots/')
-def graphics_percentile_plots():
+def docs_statistics_graphics_percentile_plots():
     return render_template('docs/statistics/graphics/percentile-plots.html')
 	
 @app.route('/docs/statistics/graphics/pie-charts/')
-def graphics_pie_charts():
+def docs_statistics_graphics_pie_charts():
     return render_template('docs/statistics/graphics/pie-charts.html')
 
 @app.route('/docs/statistics/graphics/probability-plots/')
-def graphics_probability_plots():
+def docs_statistics_graphics_probability_plots():
     return render_template('docs/statistics/graphics/probability-plots.html')
 	
 @app.route('/docs/statistics/graphics/quality-control-charts/')
-def graphics_quality_control_charts():
+def docs_statistics_graphics_quality_control_charts():
     return render_template('docs/statistics/graphics/quality-control-charts.html')
 
 @app.route('/docs/statistics/graphics/roc-curves/')
-def graphics_roc_curves():
+def docs_statistics_graphics_roc_curves():
     return render_template('docs/statistics/graphics/roc-curves.html')
 	
 @app.route('/docs/statistics/graphics/scatter-plots/')
-def graphics_scatter_plots():
+def docs_statistics_graphics_scatter_plots():
     return render_template('docs/statistics/graphics/scatter_plots.html')
 	
 @app.route('/docs/statistics/graphics/stem-and-leaf-plots/')
-def graphics_stem_and_leaf_plots():
+def docs_statistics_graphics_stem_and_leaf_plots():
     return render_template('docs/statistics/graphics/stem-and-leaf-plots.html')
 	
 @app.route('/docs/statistics/graphics/surface-plots/')
-def graphics_surface_plots():
+def docs_statistics_graphics_surface_plots():
     return render_template('docs/statistics/graphics/surface-plots.html')
 	
 @app.route('/docs/statistics/graphics/time-series/')
-def graphics_time_series():
+def docs_statistics_graphics_time_series():
     return render_template('docs/statistics/graphics/time-series.html')
 	
 @app.route('/docs/statistics/graphics/violin-plots/')
-def graphics_violin_plots():
+def docs_statistics_graphics_violin_plots():
     return render_template('docs/statistics/graphics/violin-plots.html')
 
 # DOCS/STATISTICS/PROCEDURES/
