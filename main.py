@@ -479,9 +479,9 @@ def tools_sample_size_installation_validation_tool_for_installation_qualificatio
 def tools_sample_size_multinomial_effect_size_estimator():
     return render_template('docs/statistics/tools/sample-size/multinomial-effect-size-estimator.html')		
 
-@app.route('/docs/statistics/tools/sample-size/xxxx/')
-def tools_sample_size_xxxx():
-    return render_template('docs/statistics/tools/sample-size/xxxx.html')		
+@app.route('/docs/statistics/tools/sample-size/odds-ratio-to-proportions-converter/')
+def tools_sample_size_odds_ratio_to_proportions_converter():
+    return render_template('docs/statistics/tools/sample-size/odds-ratio-to-proportions-converter.html')		
 
 @app.route('/docs/statistics/tools/sample-size/xxxx/')
 def tools_sample_size_xxxx():
