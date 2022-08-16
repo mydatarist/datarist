@@ -441,9 +441,25 @@ def sample_size_bayesian_adjustment():
 
 # TOOLS
 
-@app.route('/docs/statistics/tools/xxxx/')
-def tools_xxxx():
-    return render_template('docs/statistics/tools/xxxx.html')		
+@app.route('/docs/statistics/tools/procedures/xxxx/')
+def tools_procedures_xxxx():
+    return render_template('docs/statistics/tools/procedures/xxxx.html')		
+
+@app.route('/docs/statistics/tools/procedures/xxxx/')
+def tools_procedures_xxxx():
+    return render_template('docs/statistics/tools/procedures/xxxx.html')		
+
+@app.route('/docs/statistics/tools/procedures/xxxx/')
+def tools_procedures_xxxx():
+    return render_template('docs/statistics/tools/procedures/xxxx.html')		
+
+@app.route('/docs/statistics/tools/procedures/xxxx/')
+def tools_procedures_xxxx():
+    return render_template('docs/statistics/tools/procedures/xxxx.html')		
+
+@app.route('/docs/statistics/tools/procedures/xxxx/')
+def tools_procedures_xxxx():
+    return render_template('docs/statistics/tools/procedures/xxxx.html')		
 
 
 @app.route('/terms/')
