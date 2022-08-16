@@ -439,6 +439,13 @@ def sample_size_variances_and_standard_deviations():
 def sample_size_bayesian_adjustment():
     return render_template('docs/statistics/sample-size/bayesian-adjustment.html')		
 
+# TOOLS
+
+@app.route('/docs/statistics/tools/xxxx/')
+def tools_xxxx():
+    return render_template('docs/statistics/tools/xxxx.html')		
+
+
 @app.route('/terms/')
 def terms():
     return render_template('terms.html')
