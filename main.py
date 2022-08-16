@@ -471,9 +471,9 @@ def tools_sample_size_chi_square_effect_size_estimator():
 def tools_sample_size_data_simulator():
     return render_template('docs/statistics/tools/sample-size/data-simulator.html')		
 
-@app.route('/docs/statistics/tools/sample-size/xxxx/')
-def tools_sample_size_xxxx():
-    return render_template('docs/statistics/tools/sample-size/xxxx.html')		
+@app.route('/docs/statistics/tools/sample-size/installation-validation-tool-for-installation-qualification/')
+def tools_sample_size_installation_validation_tool_for_installation_qualification():
+    return render_template('docs/statistics/tools/sample-size/installation-validation-tool-for-installation-qualification.html')		
 
 @app.route('/docs/statistics/tools/sample-size/xxxx/')
 def tools_sample_size_xxxx():
