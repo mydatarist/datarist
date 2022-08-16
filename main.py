@@ -503,7 +503,6 @@ def tools_sample_size_standard_deviation_of_means_calculator():
 def tools_sample_size_survival_parameter_conversion_tool():
     return render_template('docs/statistics/tools/sample-size/survival-parameter-conversion-tool.html')		
 
-
 @app.route('/terms/')
 def terms():
     return render_template('terms.html')
