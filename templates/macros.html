@@ -1,6 +1,6 @@
 {% macro navbar(endpoint, text) %}
 {% if request.endpoint.endswith(endpoint) %}
-    <li class="nav-item"><a class="nav-link" href="{{ url_for(endpoint) }}">{{text}}</a></li>
+    <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{ url_for(endpoint) }}">{{text}}</a></li>
 {% else %}
     <li class="nav-item"><a class="nav-link" href="{{ url_for(endpoint) }}">{{text}}</a></li>
 {% endif %}
