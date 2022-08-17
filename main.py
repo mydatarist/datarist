@@ -33,6 +33,13 @@ def index():
 def docs():
     return render_template('docs.html')
 
+# DOCS/GETTING-STARTED/
+
+@app.route('/docs/getting-started/introduction/')
+def docs_getting_started_introduction():
+    return render_template('docs/getting-started/introduction.html')
+
+
 # DOCS/STATISTICS/GRAPHICS/
 
 @app.route('/docs/statistics/graphics/3d-plots/')
