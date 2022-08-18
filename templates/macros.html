@@ -13,3 +13,11 @@
     <li><a class="badge bg-light text-muted text-decoration-none fw-normal fs-5 text-wrap" href="{{ url_for(endpoint) }}">{{text}}</a></li>
 {% endif %}
 {% endmacro %}
+
+{% macro footer(endpoint, text) %}
+{% if request.endpoint.endswith(endpoint) %}
+    <li><a class="text-dark text-decoration-none" href="{{ url_for(endpoint) }}">{{text}}</a></li>
+{% else %}
+    <li><a class="text-muted text-decoration-none" href="{{ url_for(endpoint) }}">{{text}}</a></li>
+{% endif %}
+{% endmacro %}
