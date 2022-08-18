@@ -14,7 +14,7 @@
 {% endif %}
 {% endmacro %}
 
-{% macro footer(endpoint, text) %}
+{% macro nav_footer(endpoint, text) %}
 {% if request.endpoint.endswith(endpoint) %}
     <li><a class="text-dark text-decoration-none" href="{{ url_for(endpoint) }}">{{text}}</a></li>
 {% else %}
