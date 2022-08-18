@@ -1,6 +1,6 @@
 {% from "macros.html" import navbar with context %}
 {% from "macros.html" import off_canvas with context %}
-{% from "macros.html" import footer with context %}
+{% from "macros.html" import nav_footer with context %}
 <!doctype html>
 <html>
   <head>
@@ -84,9 +84,9 @@
   <div class="container text-center">
     <footer class="py-3 my-4">
       <ul class="list-inline">
-        {{ footer('terms', 'Terms') }}
-        {{ footer('policy', 'Policy') }}
-        {{ footer('contact', 'Contact') }}
+        {{ nav_footer('terms', 'Terms') }}
+        {{ nav_footer('policy', 'Policy') }}
+        {{ nav_footer('contact', 'Contact') }}
       </ul>
       <p class="text-center text-muted fw-light fs-6">Datarist &copy; {{ now.year }}</p>
     </footer>
