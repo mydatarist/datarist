@@ -338,9 +338,9 @@ def docs_statistics_sample_size_means_two_correlated_or_paired():
 def docs_statistics_sample_size_means_2x2_cross_over_designs():
     return render_template('docs/statistics/sample-size/means-2x2-cross-over-designs.html')
 		
-@app.route('/docs/statistics/sample-size/means-high-order-cross-over-designs/')
-def docs_statistics_sample_size_means_high_order_cross_over_designs():
-    return render_template('docs/statistics/sample-size/means-high-order-cross-over-designs.html')
+@app.route('/docs/statistics/sample-size/means-higher-order-cross-over-designs/')
+def docs_statistics_sample_size_means_higher_order_cross_over_designs():
+    return render_template('docs/statistics/sample-size/means-higher-order-cross-over-designs.html')
 		
 @app.route('/docs/statistics/sample-size/means-many/')
 def docs_statistics_sample_size_means_many():
