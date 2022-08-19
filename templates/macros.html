@@ -8,7 +8,7 @@
 
 {% macro off_canvas(endpoint, text) %}
 {% if request.endpoint.endswith(endpoint) %}
-    <li><a class="badge bg-purple text-decoration-none fw-normal fs-6 text-wrap link-dark" href="{{ url_for(endpoint) }}">{{text}}</a></li>
+    <li><a class="badge bg-purple text-decoration-none fw-normal fs-6 text-wrap gray-6" href="{{ url_for(endpoint) }}">{{text}}</a></li>
 {% else %}
     <li><a class="badge bg-light text-decoration-none fw-normal fs-6 text-wrap link-secondary" href="{{ url_for(endpoint) }}">{{text}}</a></li>
 {% endif %}
@@ -16,7 +16,7 @@
 
 {% macro nav_footer(endpoint, text) %}
 {% if request.endpoint.endswith(endpoint) %}
-    <a class="text-decoration-none link-dark" href="{{ url_for(endpoint) }}">{{text}}</a>
+    <a class="text-decoration-none gray-6" href="{{ url_for(endpoint) }}">{{text}}</a>
 {% else %}
     <a class="text-decoration-none link-secondary" href="{{ url_for(endpoint) }}">{{text}}</a>
 {% endif %}
