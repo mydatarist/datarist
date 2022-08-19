@@ -16,7 +16,7 @@
 
 {% macro nav_footer(endpoint, text) %}
 {% if request.endpoint.endswith(endpoint) %}
-    <a class="text-decoration-underline gray-6" href="{{ url_for(endpoint) }}">{{text}}</a>
+    <a class="text-decoration-none" href="{{ url_for(endpoint) }}">{{text}}</a>
 {% else %}
     <a class="text-decoration-none" href="{{ url_for(endpoint) }}">{{text}}</a>
 {% endif %}
