@@ -512,6 +512,22 @@ def docs_statistics_tools_sample_size_survival_parameter_conversion_tool():
 
 # ABOUT
 
+@app.route('/about/overview/')
+def about_overview():
+    return render_template('about/overview.html')		
+
+@app.route('/about/team/')
+def about_team():
+    return render_template('about/team.html')		
+
+@app.route('/about/brand/')
+def about_brand():
+    return render_template('about/brand.html')		
+
+@app.route('/about/license/')
+def about_license():
+    return render_template('about/license.html')		
+
 @app.route('/docs/about/overview/')
 def docs_about_overview():
     return render_template('docs/about/overview.html')		
