@@ -8,9 +8,9 @@
 
 {% macro off_canvas(endpoint, text) %}
 {% if request.endpoint.endswith(endpoint) %}
-    <li><a class="badge bg-purple text-decoration-none text-wrap link-dark ms-2" href="{{ url_for(endpoint) }}">{{text}}</a></li>
+    <li><a class="badge bg-purple text-decoration-none text-wrap link-dark ms-2 fw-normal" href="{{ url_for(endpoint) }}">{{text}}</a></li>
 {% else %}
-    <li><a class="badge bg-light text-decoration-none text-wrap link-secondary ms-2" href="{{ url_for(endpoint) }}">{{text}}</a></li>
+    <li><a class="badge bg-light text-decoration-none text-wrap link-secondary ms-2 fw-normal" href="{{ url_for(endpoint) }}">{{text}}</a></li>
 {% endif %}
 {% endmacro %}
 
