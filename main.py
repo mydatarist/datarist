@@ -548,6 +548,14 @@ def docs_about_license():
 def docs_about_translations():
     return render_template('docs/about/translations.html')		
 
+@app.route('/about/')
+def about():
+    return render_template('about.html')
+
+@app.route('/tools/')
+def tools():
+    return render_template('tools.html')
+
 @app.route('/terms/')
 def terms():
     return render_template('terms.html')
