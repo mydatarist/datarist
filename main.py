@@ -140,7 +140,7 @@ def docs_statistics_graphics_roc_curves():
 	
 @app.route('/docs/statistics/graphics/scatter-plots/')
 def docs_statistics_graphics_scatter_plots():
-    return render_template('docs/statistics/graphics/scatter_plots.html')
+    return render_template('docs/statistics/graphics/scatter-plots.html')
 	
 @app.route('/docs/statistics/graphics/stem-and-leaf-plots/')
 def docs_statistics_graphics_stem_and_leaf_plots():
