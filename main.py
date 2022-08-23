@@ -278,101 +278,89 @@ def docs_statistics_procedures_two_way_tables():
 
 # NONPARAMETRIC
 
-@app.route('/docs/statistics/procedures/nonparametric/xxxx/')
-def docs_statistics_procedures_nonparametric_xxxx():
-    return render_template('docs/statistics/procedures/nonparametric/xxxx.html')
+@app.route('/docs/statistics/procedures/nonparametric/cochrans-q-test/')
+def docs_statistics_procedures_nonparametric_cochrans_q_test():
+    return render_template('docs/statistics/procedures/nonparametric/cochrans-q-test.html')
 
-@app.route('/docs/statistics/procedures/two-way-tables/')
-def docs_statistics_procedures_two_way_tables():
-    return render_template('docs/statistics/procedures/two-way-tables.html')
+@app.route('/docs/statistics/procedures/nonparametric/conover-equal-variance-test/')
+def docs_statistics_procedures_nonparametric_conover_equal_variance_test():
+    return render_template('docs/statistics/procedures/nonparametric/conover-equal-variance-test.html')
 
-@app.route('/docs/statistics/procedures/two-way-tables/')
-def docs_statistics_procedures_two_way_tables():
-    return render_template('docs/statistics/procedures/two-way-tables.html')
+@app.route('/docs/statistics/procedures/nonparametric/cumulative-incidence-curves/')
+def docs_statistics_procedures_nonparametric_cumulative_incidence_curves():
+    return render_template('docs/statistics/procedures/nonparametric/cumulative-incidence-curves.html')
 
-@app.route('/docs/statistics/procedures/two-way-tables/')
-def docs_statistics_procedures_two_way_tables():
-    return render_template('docs/statistics/procedures/two-way-tables.html')
+@app.route('/docs/statistics/procedures/nonparametric/dunns-test/')
+def docs_statistics_procedures_nonparametric_dunns_test():
+    return render_template('docs/statistics/procedures/nonparametric/dunns-test.html')
 
-@app.route('/docs/statistics/procedures/two-way-tables/')
-def docs_statistics_procedures_two_way_tables():
-    return render_template('docs/statistics/procedures/two-way-tables.html')
+@app.route('/docs/statistics/procedures/nonparametric/dwass-steel-critchlow-fligner-test/')
+def docs_statistics_procedures_nonparametric_dwass_steel_critchlow_fligner_test():
+    return render_template('docs/statistics/procedures/nonparametric/dwass-steel-critchlow-fligner-test.html')
 
-@app.route('/docs/statistics/procedures/two-way-tables/')
-def docs_statistics_procedures_two_way_tables():
-    return render_template('docs/statistics/procedures/two-way-tables.html')
+@app.route('/docs/statistics/procedures/nonparametric/friedmans-rank-test/')
+def docs_statistics_procedures_nonparametric_friedmans_rank_test():
+    return render_template('docs/statistics/procedures/nonparametric/friedmans-rank-test.html')
 
-@app.route('/docs/statistics/procedures/two-way-tables/')
-def docs_statistics_procedures_two_way_tables():
-    return render_template('docs/statistics/procedures/two-way-tables.html')
+@app.route('/docs/statistics/procedures/nonparametric/kendalls-tau-correlation/')
+def docs_statistics_procedures_nonparametric_kendalls_tau_correlation():
+    return render_template('docs/statistics/procedures/nonparametric/kendalls-tau-correlation.html')
 
-@app.route('/docs/statistics/procedures/two-way-tables/')
-def docs_statistics_procedures_two_way_tables():
-    return render_template('docs/statistics/procedures/two-way-tables.html')
+@app.route('/docs/statistics/procedures/nonparametric/kolmogorov-smirnov-test/')
+def docs_statistics_procedures_nonparametric_kolmogorov_smirnov_test():
+    return render_template('docs/statistics/procedures/nonparametric/kolmogorov-smirnov-test.html')
 
-@app.route('/docs/statistics/procedures/two-way-tables/')
-def docs_statistics_procedures_two_way_tables():
-    return render_template('docs/statistics/procedures/two-way-tables.html')
+@app.route('/docs/statistics/procedures/nonparametric/kruskal-wallis-test/')
+def docs_statistics_procedures_nonparametric_kruskal_wallis_test():
+    return render_template('docs/statistics/procedures/nonparametric/kruskal-wallis-test.html')
 
-@app.route('/docs/statistics/procedures/two-way-tables/')
-def docs_statistics_procedures_two_way_tables():
-    return render_template('docs/statistics/procedures/two-way-tables.html')
+@app.route('/docs/statistics/procedures/nonparametric/logrank-test/')
+def docs_statistics_procedures_nonparametric_logrank_test():
+    return render_template('docs/statistics/procedures/nonparametric/logrank-test.html')
 
-@app.route('/docs/statistics/procedures/two-way-tables/')
-def docs_statistics_procedures_two_way_tables():
-    return render_template('docs/statistics/procedures/two-way-tables.html')
+@app.route('/docs/statistics/procedures/nonparametric/mann-whitney-u-test/')
+def docs_statistics_procedures_nonparametric_mann_whitney_u_test():
+    return render_template('docs/statistics/procedures/nonparametric/mann-whitney-u-test.html')
 
-@app.route('/docs/statistics/procedures/two-way-tables/')
-def docs_statistics_procedures_two_way_tables():
-    return render_template('docs/statistics/procedures/two-way-tables.html')
+@app.route('/docs/statistics/procedures/nonparametric/wilcoxon-rank-sum-test/')
+def docs_statistics_procedures_nonparametric_wilcoxon_rank_sum_test():
+    return render_template('docs/statistics/procedures/nonparametric/wilcoxon-rank-sum-test.html')
 
-@app.route('/docs/statistics/procedures/two-way-tables/')
-def docs_statistics_procedures_two_way_tables():
-    return render_template('docs/statistics/procedures/two-way-tables.html')
+@app.route('/docs/statistics/procedures/nonparametric/mcnemar-test/')
+def docs_statistics_procedures_nonparametric_mcnemar_test():
+    return render_template('docs/statistics/procedures/nonparametric/mcnemar-test.html')
 
-@app.route('/docs/statistics/procedures/two-way-tables/')
-def docs_statistics_procedures_two_way_tables():
-    return render_template('docs/statistics/procedures/two-way-tables.html')
+@app.route('/docs/statistics/procedures/nonparametric/nondetects-data-group-comparison/')
+def docs_statistics_procedures_nonparametric_nondetects_data_group_comparison():
+    return render_template('docs/statistics/procedures/nonparametric/nondetects-data-group-comparison.html')
 
-@app.route('/docs/statistics/procedures/two-way-tables/')
-def docs_statistics_procedures_two_way_tables():
-    return render_template('docs/statistics/procedures/two-way-tables.html')
+@app.route('/docs/statistics/procedures/nonparametric/randomization-tests/')
+def docs_statistics_procedures_nonparametric_randomization_tests():
+    return render_template('docs/statistics/procedures/nonparametric/randomization-tests.html')
 
-@app.route('/docs/statistics/procedures/two-way-tables/')
-def docs_statistics_procedures_two_way_tables():
-    return render_template('docs/statistics/procedures/two-way-tables.html')
+@app.route('/docs/statistics/procedures/nonparametric/roc-curves/')
+def docs_statistics_procedures_nonparametric_roc_curves():
+    return render_template('docs/statistics/procedures/nonparametric/roc-curves.html')
 
-@app.route('/docs/statistics/procedures/two-way-tables/')
-def docs_statistics_procedures_two_way_tables():
-    return render_template('docs/statistics/procedures/two-way-tables.html')
+@app.route('/docs/statistics/procedures/nonparametric/runs-tests/')
+def docs_statistics_procedures_nonparametric_runs_tests():
+    return render_template('docs/statistics/procedures/nonparametric/runs-tests.html')
 
-@app.route('/docs/statistics/procedures/two-way-tables/')
-def docs_statistics_procedures_two_way_tables():
-    return render_template('docs/statistics/procedures/two-way-tables.html')
+@app.route('/docs/statistics/procedures/nonparametric/sign-test/')
+def docs_statistics_procedures_nonparametric_sign_test():
+    return render_template('docs/statistics/procedures/nonparametric/sign-test.html')
 
-@app.route('/docs/statistics/procedures/two-way-tables/')
-def docs_statistics_procedures_two_way_tables():
-    return render_template('docs/statistics/procedures/two-way-tables.html')
+@app.route('/docs/statistics/procedures/nonparametric/quantile-test/')
+def docs_statistics_procedures_nonparametric_quantile-test():
+    return render_template('docs/statistics/procedures/nonparametric/quantile-test.html')
 
-@app.route('/docs/statistics/procedures/two-way-tables/')
-def docs_statistics_procedures_two_way_tables():
-    return render_template('docs/statistics/procedures/two-way-tables.html')
+@app.route('/docs/statistics/procedures/nonparametric/spearman-rank-correlation/')
+def docs_statistics_procedures_nonparametric_spearman_rank_correlation():
+    return render_template('docs/statistics/procedures/nonparametric/spearman-rank-correlation.html')
 
-@app.route('/docs/statistics/procedures/two-way-tables/')
-def docs_statistics_procedures_two_way_tables():
-    return render_template('docs/statistics/procedures/two-way-tables.html')
-
-@app.route('/docs/statistics/procedures/two-way-tables/')
-def docs_statistics_procedures_two_way_tables():
-    return render_template('docs/statistics/procedures/two-way-tables.html')
-
-@app.route('/docs/statistics/procedures/two-way-tables/')
-def docs_statistics_procedures_two_way_tables():
-    return render_template('docs/statistics/procedures/two-way-tables.html')
-
-	@app.route('/docs/statistics/procedures/two-way-tables/')
-def docs_statistics_procedures_two_way_tables():
-    return render_template('docs/statistics/procedures/two-way-tables.html')
+@app.route('/docs/statistics/procedures/nonparametric/wilcoxon-signed-rank-test/')
+def docs_statistics_procedures_nonparametric_wilcoxon-signed-rank-test():
+    return render_template('docs/statistics/procedures/nonparametric/wilcoxon-signed-rank-test.html')
 	
 # SAMPLE SIZE
 
