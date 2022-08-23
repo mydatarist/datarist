@@ -275,7 +275,105 @@ def docs_statistics_procedures_t_tests():
 @app.route('/docs/statistics/procedures/two-way-tables/')
 def docs_statistics_procedures_two_way_tables():
     return render_template('docs/statistics/procedures/two-way-tables.html')
-		
+
+# NONPARAMETRIC
+
+@app.route('/docs/statistics/procedures/nonparametric/xxxx/')
+def docs_statistics_procedures_nonparametric_xxxx():
+    return render_template('docs/statistics/procedures/nonparametric/xxxx.html')
+
+@app.route('/docs/statistics/procedures/two-way-tables/')
+def docs_statistics_procedures_two_way_tables():
+    return render_template('docs/statistics/procedures/two-way-tables.html')
+
+@app.route('/docs/statistics/procedures/two-way-tables/')
+def docs_statistics_procedures_two_way_tables():
+    return render_template('docs/statistics/procedures/two-way-tables.html')
+
+@app.route('/docs/statistics/procedures/two-way-tables/')
+def docs_statistics_procedures_two_way_tables():
+    return render_template('docs/statistics/procedures/two-way-tables.html')
+
+@app.route('/docs/statistics/procedures/two-way-tables/')
+def docs_statistics_procedures_two_way_tables():
+    return render_template('docs/statistics/procedures/two-way-tables.html')
+
+@app.route('/docs/statistics/procedures/two-way-tables/')
+def docs_statistics_procedures_two_way_tables():
+    return render_template('docs/statistics/procedures/two-way-tables.html')
+
+@app.route('/docs/statistics/procedures/two-way-tables/')
+def docs_statistics_procedures_two_way_tables():
+    return render_template('docs/statistics/procedures/two-way-tables.html')
+
+@app.route('/docs/statistics/procedures/two-way-tables/')
+def docs_statistics_procedures_two_way_tables():
+    return render_template('docs/statistics/procedures/two-way-tables.html')
+
+@app.route('/docs/statistics/procedures/two-way-tables/')
+def docs_statistics_procedures_two_way_tables():
+    return render_template('docs/statistics/procedures/two-way-tables.html')
+
+@app.route('/docs/statistics/procedures/two-way-tables/')
+def docs_statistics_procedures_two_way_tables():
+    return render_template('docs/statistics/procedures/two-way-tables.html')
+
+@app.route('/docs/statistics/procedures/two-way-tables/')
+def docs_statistics_procedures_two_way_tables():
+    return render_template('docs/statistics/procedures/two-way-tables.html')
+
+@app.route('/docs/statistics/procedures/two-way-tables/')
+def docs_statistics_procedures_two_way_tables():
+    return render_template('docs/statistics/procedures/two-way-tables.html')
+
+@app.route('/docs/statistics/procedures/two-way-tables/')
+def docs_statistics_procedures_two_way_tables():
+    return render_template('docs/statistics/procedures/two-way-tables.html')
+
+@app.route('/docs/statistics/procedures/two-way-tables/')
+def docs_statistics_procedures_two_way_tables():
+    return render_template('docs/statistics/procedures/two-way-tables.html')
+
+@app.route('/docs/statistics/procedures/two-way-tables/')
+def docs_statistics_procedures_two_way_tables():
+    return render_template('docs/statistics/procedures/two-way-tables.html')
+
+@app.route('/docs/statistics/procedures/two-way-tables/')
+def docs_statistics_procedures_two_way_tables():
+    return render_template('docs/statistics/procedures/two-way-tables.html')
+
+@app.route('/docs/statistics/procedures/two-way-tables/')
+def docs_statistics_procedures_two_way_tables():
+    return render_template('docs/statistics/procedures/two-way-tables.html')
+
+@app.route('/docs/statistics/procedures/two-way-tables/')
+def docs_statistics_procedures_two_way_tables():
+    return render_template('docs/statistics/procedures/two-way-tables.html')
+
+@app.route('/docs/statistics/procedures/two-way-tables/')
+def docs_statistics_procedures_two_way_tables():
+    return render_template('docs/statistics/procedures/two-way-tables.html')
+
+@app.route('/docs/statistics/procedures/two-way-tables/')
+def docs_statistics_procedures_two_way_tables():
+    return render_template('docs/statistics/procedures/two-way-tables.html')
+
+@app.route('/docs/statistics/procedures/two-way-tables/')
+def docs_statistics_procedures_two_way_tables():
+    return render_template('docs/statistics/procedures/two-way-tables.html')
+
+@app.route('/docs/statistics/procedures/two-way-tables/')
+def docs_statistics_procedures_two_way_tables():
+    return render_template('docs/statistics/procedures/two-way-tables.html')
+
+@app.route('/docs/statistics/procedures/two-way-tables/')
+def docs_statistics_procedures_two_way_tables():
+    return render_template('docs/statistics/procedures/two-way-tables.html')
+
+	@app.route('/docs/statistics/procedures/two-way-tables/')
+def docs_statistics_procedures_two_way_tables():
+    return render_template('docs/statistics/procedures/two-way-tables.html')
+	
 # SAMPLE SIZE
 
 @app.route('/docs/statistics/sample-size/bland-altman-method/')
