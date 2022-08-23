@@ -351,7 +351,7 @@ def docs_statistics_procedures_nonparametric_sign_test():
     return render_template('docs/statistics/procedures/nonparametric/sign-test.html')
 
 @app.route('/docs/statistics/procedures/nonparametric/quantile-test/')
-def docs_statistics_procedures_nonparametric_quantile-test():
+def docs_statistics_procedures_nonparametric_quantile_test():
     return render_template('docs/statistics/procedures/nonparametric/quantile-test.html')
 
 @app.route('/docs/statistics/procedures/nonparametric/spearman-rank-correlation/')
