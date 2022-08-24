@@ -302,6 +302,10 @@ def docs_statistics_procedures_nonparametric_dwass_steel_critchlow_fligner_test(
 def docs_statistics_procedures_nonparametric_friedmans_rank_test():
     return render_template('docs/statistics/procedures/nonparametric/friedmans-rank-test.html')
 
+@app.route('/docs/statistics/procedures/nonparametric/kaplan-meier-curves/')
+def docs_statistics_procedures_nonparametric_kaplan_meier_curves():
+    return render_template('docs/statistics/procedures/nonparametric/kaplan-meier-curves.html')
+
 @app.route('/docs/statistics/procedures/nonparametric/kendalls-tau-correlation/')
 def docs_statistics_procedures_nonparametric_kendalls_tau_correlation():
     return render_template('docs/statistics/procedures/nonparametric/kendalls-tau-correlation.html')
