@@ -359,7 +359,7 @@ def docs_statistics_procedures_nonparametric_spearman_rank_correlation():
     return render_template('docs/statistics/procedures/nonparametric/spearman-rank-correlation.html')
 
 @app.route('/docs/statistics/procedures/nonparametric/wilcoxon-signed-rank-test/')
-def docs_statistics_procedures_nonparametric_wilcoxon-signed-rank-test():
+def docs_statistics_procedures_nonparametric_wilcoxon_signed_rank_test():
     return render_template('docs/statistics/procedures/nonparametric/wilcoxon-signed-rank-test.html')
 	
 # SAMPLE SIZE
