@@ -16,149 +16,47 @@
 
 {% block content %}
   {{ super() }}
-<div class="row">
-  <div class="col-4">
-    <div id="simple-list-example" class="d-flex flex-column gap-2 simple-list-example-scrollspy text-center">
-      <a class="p-1 rounded" href="#simple-list-item-1">Item 1</a>
-      <a class="p-1 rounded" href="#simple-list-item-2">Item 2</a>
-      <a class="p-1 rounded" href="#simple-list-item-3">Item 3</a>
-      <a class="p-1 rounded" href="#simple-list-item-4">Item 4</a>
-      <a class="p-1 rounded" href="#simple-list-item-5">Item 5</a>
+
+<nav class="navbar bg-light fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Offcanvas navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
     </div>
   </div>
-  <div class="col-8">
-    <div data-bs-spy="scroll" data-bs-target="#simple-list-example" data-bs-offset="0" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
-      <h4 id="simple-list-item-1">Item 1</h4>
-      <p>Terms
-Updated 12th August, 2022.
-By accessing this website, you are agreeing to be bound by these web site Terms and Conditions of Use, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws. If you do not agree with any of these terms, you are prohibited from using or accessing this site. The materials contained in this web site are protected by applicable copyright and trade mark law.
-Use Licence
-Permission is granted to cite, download or refer to materials (information or software) on Datarist’s web site for personal, non-commercial, or educational purposes only. This is the grant of a license, not a transfer of title, and under this license you may not:
-modify or copy the materials;
-	use the materials for any commercial purpose;
-attempt to decompile or reverse engineer any software contained on Datarist’s web site;
-remove any copyright or other proprietary notations from the materials; or transfer the materials to another person or ‘mirror’ the materials on any other server.
+</nav>
 
-This licence shall automatically terminate if you violate any of these restrictions and may be terminated by Datarist at any time. Upon terminating your viewing of these materials or upon the termination of this license, you must destroy any downloaded materials in your procession whether in electronic or printed format.
-
-Disclaimer
-The materials on Datarist’s web site are provided ‘as is’. Datarist makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties, including without limitation, implied warranties or conditions of merchantability, or fitness for a particular purpose. Further, Datarist does not warrant or make any representations concerning the accuracy, likely results, or reliability of the use of the materials on datarist.com or otherwise relating to such materials or on any sites linked to this site.
-Limitations
-In no event shall Datarist or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption,) arising out of the use or inability to use the materials on datarist.com, even if Datarist or a Datarist authorized representative has been notified orally or in writing of the possibility of such damage. Because some jurisdictions do not allow limitations on implied warrantees, or limitations of liability for consequential or incidental damages, these limitations may not apply to you.
-Revisions and errata
-The materials appearing on Datarist’s web site could include technical, typographical, or photographic errors. Datarist does not warrant that any of the materials on its web site are accurate, complete, or current. Datarist may make changes to the materials contained on its web site at any time without notice. Datarist does not, however, make any commitment to update the materials.
-Links
-Datarist has not reviewed all of the sites linke to its web site and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by Datarist of the site. Use of any such linked web site is at the user’s own risk.
-Site Terms of Use Modifications
-Datarist may revise these terms of use for its web site at any time without notice. By using this web site you are agreeing to be bound by the then current version of these Terms and Conditions of Use.
-Governing Law
-Any claim relating to Datarist’s web site shall be governed by the laws without regard to its conflict of law provisions.
-General Terms and Conditions applicable to Use of a Web Site.</p>
-      <h4 id="simple-list-item-2">Item 2</h4>
-      <p>Terms
-Updated 12th August, 2022.
-By accessing this website, you are agreeing to be bound by these web site Terms and Conditions of Use, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws. If you do not agree with any of these terms, you are prohibited from using or accessing this site. The materials contained in this web site are protected by applicable copyright and trade mark law.
-Use Licence
-Permission is granted to cite, download or refer to materials (information or software) on Datarist’s web site for personal, non-commercial, or educational purposes only. This is the grant of a license, not a transfer of title, and under this license you may not:
-modify or copy the materials;
-	use the materials for any commercial purpose;
-attempt to decompile or reverse engineer any software contained on Datarist’s web site;
-remove any copyright or other proprietary notations from the materials; or transfer the materials to another person or ‘mirror’ the materials on any other server.
-
-This licence shall automatically terminate if you violate any of these restrictions and may be terminated by Datarist at any time. Upon terminating your viewing of these materials or upon the termination of this license, you must destroy any downloaded materials in your procession whether in electronic or printed format.
-
-Disclaimer
-The materials on Datarist’s web site are provided ‘as is’. Datarist makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties, including without limitation, implied warranties or conditions of merchantability, or fitness for a particular purpose. Further, Datarist does not warrant or make any representations concerning the accuracy, likely results, or reliability of the use of the materials on datarist.com or otherwise relating to such materials or on any sites linked to this site.
-Limitations
-In no event shall Datarist or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption,) arising out of the use or inability to use the materials on datarist.com, even if Datarist or a Datarist authorized representative has been notified orally or in writing of the possibility of such damage. Because some jurisdictions do not allow limitations on implied warrantees, or limitations of liability for consequential or incidental damages, these limitations may not apply to you.
-Revisions and errata
-The materials appearing on Datarist’s web site could include technical, typographical, or photographic errors. Datarist does not warrant that any of the materials on its web site are accurate, complete, or current. Datarist may make changes to the materials contained on its web site at any time without notice. Datarist does not, however, make any commitment to update the materials.
-Links
-Datarist has not reviewed all of the sites linke to its web site and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by Datarist of the site. Use of any such linked web site is at the user’s own risk.
-Site Terms of Use Modifications
-Datarist may revise these terms of use for its web site at any time without notice. By using this web site you are agreeing to be bound by the then current version of these Terms and Conditions of Use.
-Governing Law
-Any claim relating to Datarist’s web site shall be governed by the laws without regard to its conflict of law provisions.
-General Terms and Conditions applicable to Use of a Web Site.</p>
-      <h4 id="simple-list-item-3">Item 3</h4>
-      <p>Terms
-Updated 12th August, 2022.
-By accessing this website, you are agreeing to be bound by these web site Terms and Conditions of Use, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws. If you do not agree with any of these terms, you are prohibited from using or accessing this site. The materials contained in this web site are protected by applicable copyright and trade mark law.
-Use Licence
-Permission is granted to cite, download or refer to materials (information or software) on Datarist’s web site for personal, non-commercial, or educational purposes only. This is the grant of a license, not a transfer of title, and under this license you may not:
-modify or copy the materials;
-	use the materials for any commercial purpose;
-attempt to decompile or reverse engineer any software contained on Datarist’s web site;
-remove any copyright or other proprietary notations from the materials; or transfer the materials to another person or ‘mirror’ the materials on any other server.
-
-This licence shall automatically terminate if you violate any of these restrictions and may be terminated by Datarist at any time. Upon terminating your viewing of these materials or upon the termination of this license, you must destroy any downloaded materials in your procession whether in electronic or printed format.
-
-Disclaimer
-The materials on Datarist’s web site are provided ‘as is’. Datarist makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties, including without limitation, implied warranties or conditions of merchantability, or fitness for a particular purpose. Further, Datarist does not warrant or make any representations concerning the accuracy, likely results, or reliability of the use of the materials on datarist.com or otherwise relating to such materials or on any sites linked to this site.
-Limitations
-In no event shall Datarist or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption,) arising out of the use or inability to use the materials on datarist.com, even if Datarist or a Datarist authorized representative has been notified orally or in writing of the possibility of such damage. Because some jurisdictions do not allow limitations on implied warrantees, or limitations of liability for consequential or incidental damages, these limitations may not apply to you.
-Revisions and errata
-The materials appearing on Datarist’s web site could include technical, typographical, or photographic errors. Datarist does not warrant that any of the materials on its web site are accurate, complete, or current. Datarist may make changes to the materials contained on its web site at any time without notice. Datarist does not, however, make any commitment to update the materials.
-Links
-Datarist has not reviewed all of the sites linke to its web site and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by Datarist of the site. Use of any such linked web site is at the user’s own risk.
-Site Terms of Use Modifications
-Datarist may revise these terms of use for its web site at any time without notice. By using this web site you are agreeing to be bound by the then current version of these Terms and Conditions of Use.
-Governing Law
-Any claim relating to Datarist’s web site shall be governed by the laws without regard to its conflict of law provisions.
-General Terms and Conditions applicable to Use of a Web Site.</p>
-      <h4 id="simple-list-item-4">Item 4</h4>
-      <p>Terms
-Updated 12th August, 2022.
-By accessing this website, you are agreeing to be bound by these web site Terms and Conditions of Use, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws. If you do not agree with any of these terms, you are prohibited from using or accessing this site. The materials contained in this web site are protected by applicable copyright and trade mark law.
-Use Licence
-Permission is granted to cite, download or refer to materials (information or software) on Datarist’s web site for personal, non-commercial, or educational purposes only. This is the grant of a license, not a transfer of title, and under this license you may not:
-modify or copy the materials;
-	use the materials for any commercial purpose;
-attempt to decompile or reverse engineer any software contained on Datarist’s web site;
-remove any copyright or other proprietary notations from the materials; or transfer the materials to another person or ‘mirror’ the materials on any other server.
-
-This licence shall automatically terminate if you violate any of these restrictions and may be terminated by Datarist at any time. Upon terminating your viewing of these materials or upon the termination of this license, you must destroy any downloaded materials in your procession whether in electronic or printed format.
-
-Disclaimer
-The materials on Datarist’s web site are provided ‘as is’. Datarist makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties, including without limitation, implied warranties or conditions of merchantability, or fitness for a particular purpose. Further, Datarist does not warrant or make any representations concerning the accuracy, likely results, or reliability of the use of the materials on datarist.com or otherwise relating to such materials or on any sites linked to this site.
-Limitations
-In no event shall Datarist or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption,) arising out of the use or inability to use the materials on datarist.com, even if Datarist or a Datarist authorized representative has been notified orally or in writing of the possibility of such damage. Because some jurisdictions do not allow limitations on implied warrantees, or limitations of liability for consequential or incidental damages, these limitations may not apply to you.
-Revisions and errata
-The materials appearing on Datarist’s web site could include technical, typographical, or photographic errors. Datarist does not warrant that any of the materials on its web site are accurate, complete, or current. Datarist may make changes to the materials contained on its web site at any time without notice. Datarist does not, however, make any commitment to update the materials.
-Links
-Datarist has not reviewed all of the sites linke to its web site and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by Datarist of the site. Use of any such linked web site is at the user’s own risk.
-Site Terms of Use Modifications
-Datarist may revise these terms of use for its web site at any time without notice. By using this web site you are agreeing to be bound by the then current version of these Terms and Conditions of Use.
-Governing Law
-Any claim relating to Datarist’s web site shall be governed by the laws without regard to its conflict of law provisions.
-General Terms and Conditions applicable to Use of a Web Site.</p>
-      <h4 id="simple-list-item-5">Item 5</h4>
-      <p>Terms
-Updated 12th August, 2022.
-By accessing this website, you are agreeing to be bound by these web site Terms and Conditions of Use, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws. If you do not agree with any of these terms, you are prohibited from using or accessing this site. The materials contained in this web site are protected by applicable copyright and trade mark law.
-Use Licence
-Permission is granted to cite, download or refer to materials (information or software) on Datarist’s web site for personal, non-commercial, or educational purposes only. This is the grant of a license, not a transfer of title, and under this license you may not:
-modify or copy the materials;
-	use the materials for any commercial purpose;
-attempt to decompile or reverse engineer any software contained on Datarist’s web site;
-remove any copyright or other proprietary notations from the materials; or transfer the materials to another person or ‘mirror’ the materials on any other server.
-
-This licence shall automatically terminate if you violate any of these restrictions and may be terminated by Datarist at any time. Upon terminating your viewing of these materials or upon the termination of this license, you must destroy any downloaded materials in your procession whether in electronic or printed format.
-
-Disclaimer
-The materials on Datarist’s web site are provided ‘as is’. Datarist makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties, including without limitation, implied warranties or conditions of merchantability, or fitness for a particular purpose. Further, Datarist does not warrant or make any representations concerning the accuracy, likely results, or reliability of the use of the materials on datarist.com or otherwise relating to such materials or on any sites linked to this site.
-Limitations
-In no event shall Datarist or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption,) arising out of the use or inability to use the materials on datarist.com, even if Datarist or a Datarist authorized representative has been notified orally or in writing of the possibility of such damage. Because some jurisdictions do not allow limitations on implied warrantees, or limitations of liability for consequential or incidental damages, these limitations may not apply to you.
-Revisions and errata
-The materials appearing on Datarist’s web site could include technical, typographical, or photographic errors. Datarist does not warrant that any of the materials on its web site are accurate, complete, or current. Datarist may make changes to the materials contained on its web site at any time without notice. Datarist does not, however, make any commitment to update the materials.
-Links
-Datarist has not reviewed all of the sites linke to its web site and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by Datarist of the site. Use of any such linked web site is at the user’s own risk.
-Site Terms of Use Modifications
-Datarist may revise these terms of use for its web site at any time without notice. By using this web site you are agreeing to be bound by the then current version of these Terms and Conditions of Use.
-Governing Law
-Any claim relating to Datarist’s web site shall be governed by the laws without regard to its conflict of law provisions.
-General Terms and Conditions applicable to Use of a Web Site.</p>
-    </div>
-  </div>
-</div>
 {% endblock %}
