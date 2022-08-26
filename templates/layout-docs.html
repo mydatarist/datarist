@@ -1,0 +1,262 @@
+{% from "macros.html" import navbar with context %}
+{% from "macros.html" import off_canvas with context %}
+{% from "macros.html" import nav_footer with context %}
+<!doctype html>
+<html>
+  <head>
+    <script src="{{ url_for('static', filename='js/gtag.js') }}"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='brand/favicon/favicon.ico') }}">
+    <link rel="icon" type="image/png" sizes="512x512" href="{{ url_for('static', filename='brand/favicon/android-chrome-512x512.png') }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ url_for('static', filename='brand/favicon/android-chrome-192x192.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='brand/favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="48x48" href="{{ url_for('static', filename='brand/favicon/favicon-48x48.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='brand/favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='brand/favicon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='brand/manifest/site.webmanifest') }}">
+    <link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" aria-label="Offcanvas navbar large">
+    <div class="container">
+      <a class="navbar-brand" href="{{ url_for('index') }}">
+      <img src="{{ url_for('static', filename='brand/logo/datarist-logo-white.png') }}" alt="datarist logo" width="100" height="24">
+    </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end text-bg-light" tabindex="-1" id="offcanvasNavbar2" aria-labelledby="offcanvasNavbar2Label">
+        <div class="offcanvas-header border-bottom">
+          <a class="offcanvas-title" id="offcanvasNavbar2Label" href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='brand/logo/datarist-logo-white.png') }}" alt="datarist logo" width="100" height="24">
+    </a>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+              
+            <div class="row">
+              <div class="col-5">
+<ul class="list-unstyled">
+  <li class="mb-1">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+  <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+</svg> Getting started</li>
+  {{ off_canvas('docs_getting_started_introduction', 'Introduction') }}
+  {{ off_canvas('tools', 'Tools') }}
+</ul>
+
+<ul class="list-unstyled">
+  <li class="mb-1">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-percent" viewBox="0 0 16 16">
+  <path d="M13.442 2.558a.625.625 0 0 1 0 .884l-10 10a.625.625 0 1 1-.884-.884l10-10a.625.625 0 0 1 .884 0zM4.5 6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm7 6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
+</svg> Procedures</li>
+      {{ off_canvas('docs_statistics_procedures_analysis_of_variance', 'Analysis of Variance') }}
+      {{ off_canvas('docs_statistics_procedures_appraisal', 'Appraisal') }}
+      {{ off_canvas('docs_statistics_procedures_cluster_analysis', 'Cluster Analysis') }}
+      {{ off_canvas('docs_statistics_procedures_correlation', 'Correlation') }}
+      {{ off_canvas('docs_statistics_procedures_curve_fitting', 'Curve Fitting') }}
+      {{ off_canvas('docs_statistics_procedures_descriptive_statistics', 'Descriptive Statistics') }}
+      {{ off_canvas('docs_statistics_procedures_design_of_experiments', 'Design (Experiments)') }}
+      {{ off_canvas('docs_statistics_procedures_diagnostic_tests', 'Diagnostic Tests') }}
+      {{ off_canvas('docs_statistics_procedures_distribution_fitting', 'Distribution Fitting') }}
+      {{ off_canvas('docs_statistics_procedures_forecasting', 'Forecasting') }}
+      {{ off_canvas('docs_statistics_procedures_group_sequential', 'Group Sequential') }}
+      {{ off_canvas('docs_statistics_procedures_item_analysis', 'Item Analysis') }}
+      {{ off_canvas('docs_statistics_procedures_meta_analysis', 'Meta Analysis') }}
+      {{ off_canvas('docs_statistics_procedures_method_comparison', 'Method Comparison') }}
+      {{ off_canvas('docs_statistics_procedures_mixed_models', 'Mixed Models') }}
+      {{ off_canvas('docs_statistics_procedures_multivariate_analysis', 'Multivariate Analysis') }}
+      {{ off_canvas('docs_statistics_procedures_nondetects_data', 'Nondetects Data') }}
+      {{ off_canvas('docs_statistics_procedures_nonparametric', 'Nonparametric') }}
+      {{ off_canvas('docs_statistics_procedures_operations_research', 'Operations Research') }}
+      {{ off_canvas('docs_statistics_procedures_proportions', 'Proportions') }}
+      {{ off_canvas('docs_statistics_procedures_quality_control', 'Quality Control') }}
+      {{ off_canvas('docs_statistics_procedures_reference_intervals', 'Reference Intervals') }}
+      {{ off_canvas('docs_statistics_procedures_regression', 'Regression') }}
+      {{ off_canvas('docs_statistics_procedures_roc_curves', 'ROC Curves') }}
+      {{ off_canvas('docs_statistics_procedures_survey_data', 'Survey Data') }}
+      {{ off_canvas('docs_statistics_procedures_survival_analysis_reliability', 'Survival Analysis') }}
+      {{ off_canvas('docs_statistics_procedures_time_series', 'Time Series') }}
+      {{ off_canvas('docs_statistics_procedures_t_tests', 'T Tests') }}
+      {{ off_canvas('docs_statistics_procedures_two_way_tables', 'Two Way Tables') }}
+</ul>
+
+<ul class="list-unstyled">
+  <li class="mb-1">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-graph-up" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M0 0h1v15h15v1H0V0Zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07Z"/>
+</svg> Graphics</li>
+  {{ off_canvas('docs_statistics_graphics_three_d_plots', '3D Plots') }}
+  {{ off_canvas('docs_statistics_graphics_bar_charts', 'Bar Charts') }}
+  {{ off_canvas('docs_statistics_graphics_bland_altman_plots', 'Bland-Altman Plots') }}
+  {{ off_canvas('docs_statistics_graphics_box_plots', 'Box Plots') }}
+  {{ off_canvas('docs_statistics_graphics_circular_data_plots', 'Circular Data Plots') }}
+  {{ off_canvas('docs_statistics_graphics_contour_plots', 'Contour Plots') }}
+  {{ off_canvas('docs_statistics_graphics_curve_fitting', 'Curve Fitting') }}
+  {{ off_canvas('docs_statistics_graphics_dendrograms', 'Dendrograms') }}
+  {{ off_canvas('docs_statistics_graphics_density_plots', 'Density Plots') }}
+  {{ off_canvas('docs_statistics_graphics_dot_plots', 'Dot Plots') }}
+  {{ off_canvas('docs_statistics_graphics_error_bar_charts', 'Error Bar Charts') }}
+  {{ off_canvas('docs_statistics_graphics_forecasting', 'Forecasting') }}
+  {{ off_canvas('docs_statistics_graphics_forest_plots', 'Forest Plots') }}
+  {{ off_canvas('docs_statistics_graphics_function_plots', 'Function Plots') }}
+  {{ off_canvas('docs_statistics_graphics_heat_maps', 'Heat Maps') }}
+  {{ off_canvas('docs_statistics_graphics_histograms', 'Histograms') }}
+  {{ off_canvas('docs_statistics_graphics_kaplan_meier_curves', 'Kaplan Meier Curves') }}
+  {{ off_canvas('docs_statistics_graphics_line_charts', 'Line Charts') }}
+  {{ off_canvas('docs_statistics_graphics_mosaic_plots', 'Mosaic Plots') }}
+  {{ off_canvas('docs_statistics_graphics_percentile_plots', 'Percentile Plots') }}
+  {{ off_canvas('docs_statistics_graphics_pie_charts', 'Pie Charts') }}
+  {{ off_canvas('docs_statistics_graphics_probability_plots', 'Probability Plots') }}
+  {{ off_canvas('docs_statistics_graphics_quality_control_charts', 'QC Charts') }}
+  {{ off_canvas('docs_statistics_graphics_roc_curves', 'ROC Curves') }}
+  {{ off_canvas('docs_statistics_graphics_scatter_plots', 'Scatter Plots') }}
+  {{ off_canvas('docs_statistics_graphics_stem_and_leaf_plots', 'Stem and Leaf Plots') }}
+  {{ off_canvas('docs_statistics_graphics_surface_plots', 'Surface Plots') }}
+  {{ off_canvas('docs_statistics_graphics_time_series', 'Time Series') }}
+  {{ off_canvas('docs_statistics_graphics_violin_plots', 'Violin Plots') }}
+</ul>
+
+
+
+
+
+              </div>
+              <div class="col-7">
+                
+  <ul class="list-unstyled">
+  <li class="mb-1">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-percent" viewBox="0 0 16 16">
+  <path d="M13.442 2.558a.625.625 0 0 1 0 .884l-10 10a.625.625 0 1 1-.884-.884l10-10a.625.625 0 0 1 .884 0zM4.5 6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm7 6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
+</svg> Nonparametric</li>
+  {{ off_canvas('docs_statistics_procedures_nonparametric_cochrans_q_test', 'Cochran\'s Q Test') }}
+  {{ off_canvas('docs_statistics_procedures_nonparametric_conover_equal_variance_test', 'Conover Equal Variance test') }}
+  {{ off_canvas('docs_statistics_procedures_nonparametric_cumulative_incidence_curves', 'Cumulative Incidence Curves') }}
+  {{ off_canvas('docs_statistics_procedures_nonparametric_dunns_test', 'Dunn\'s Test') }}
+  {{ off_canvas('docs_statistics_procedures_nonparametric_dwass_steel_critchlow_fligner_test', 'DSCF Test') }}
+  {{ off_canvas('docs_statistics_procedures_nonparametric_friedmans_rank_test', 'Friedman\'s Rank Test') }}
+  {{ off_canvas('docs_statistics_procedures_nonparametric_kaplan_meier_curves', 'Kaplan-Meier Curves') }}
+  {{ off_canvas('docs_statistics_procedures_nonparametric_kendalls_tau_correlation', 'Kendall\'s Tau Correlation') }}
+  {{ off_canvas('docs_statistics_procedures_nonparametric_kolmogorov_smirnov_test', 'Kolmogorov-Smirnov Test') }}
+  {{ off_canvas('docs_statistics_procedures_nonparametric_kruskal_wallis_test', 'Kruskal-Wallis Test') }}
+  {{ off_canvas('docs_statistics_procedures_nonparametric_logrank_test', 'Logrank Test') }}
+  {{ off_canvas('docs_statistics_procedures_nonparametric_mann_whitney_u_test', 'Mann-Whitney U Test') }}
+  {{ off_canvas('docs_statistics_procedures_nonparametric_wilcoxon_rank_sum_test', 'Wilcoxon Rank-Sum Test') }}
+  {{ off_canvas('docs_statistics_procedures_nonparametric_mcnemar_test', 'McNemar Test') }}
+  {{ off_canvas('docs_statistics_procedures_nonparametric_nondetects_data_group_comparison', 'Nondetects-Data') }}
+  {{ off_canvas('docs_statistics_procedures_nonparametric_randomization_tests', 'Randomization Tests') }}
+  {{ off_canvas('docs_statistics_procedures_nonparametric_roc_curves', 'ROC Curves') }}
+  {{ off_canvas('docs_statistics_procedures_nonparametric_runs_tests', 'Runs Tests') }}
+  {{ off_canvas('docs_statistics_procedures_nonparametric_sign_test', 'Sign Test') }}
+  {{ off_canvas('docs_statistics_procedures_nonparametric_quantile_test', 'Quantile Test') }}
+  {{ off_canvas('docs_statistics_procedures_nonparametric_spearman_rank_correlation', 'Spearman-Rank Correlation') }}
+  {{ off_canvas('docs_statistics_procedures_nonparametric_wilcoxon_signed_rank_test', 'Wilcoxon Signed-Rank Test') }}  
+</ul>              
+                
+                
+
+
+
+
+<ul class="list-unstyled">
+  <li class="mb-1">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
+  <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+</svg> Sample Size</li>
+  {{ off_canvas('docs_statistics_sample_size_bayesian_adjustment', 'Bayesian Adjustment') }}
+  {{ off_canvas('docs_statistics_sample_size_bland_altman_method', 'Bland-Altman Method') }}
+  {{ off_canvas('docs_statistics_sample_size_bridging_studies', 'Bridging Studies') }}
+  {{ off_canvas('docs_statistics_sample_size_cluster_randomized_designs', 'Cluster Randomized Designs') }}
+  {{ off_canvas('docs_statistics_sample_size_conditional_power', 'Conditional Power') }}
+  {{ off_canvas('docs_statistics_sample_size_confidence_intervals', 'Confidence Intervals') }}
+  {{ off_canvas('docs_statistics_sample_size_correlation', 'Correlation') }}
+  {{ off_canvas('docs_statistics_sample_size_cross_over_designs', 'Cross Over Designs') }}
+  {{ off_canvas('docs_statistics_sample_size_design_of_experiments', 'Design of Experiments') }}
+  {{ off_canvas('docs_statistics_sample_size_equivalence', 'Equivalence') }}
+  {{ off_canvas('docs_statistics_sample_size_exponential_distribution_parameter', 'Exponential Distribution') }}
+  {{ off_canvas('docs_statistics_sample_size_group_sequential_tests', 'Group Sequential Tests') }}
+  {{ off_canvas('docs_statistics_sample_size_means_one', 'Means - One') }}
+  {{ off_canvas('docs_statistics_sample_size_means_two_independent', 'Means - Two Independent') }}
+  {{ off_canvas('docs_statistics_sample_size_means_two_correlated_or_paired', 'Means - Two Paired') }}
+  {{ off_canvas('docs_statistics_sample_size_means_2x2_cross_over_designs', 'Means - 2x2 Designs') }}
+  {{ off_canvas('docs_statistics_sample_size_means_higher_order_cross_over_designs', 'Means - Higher Order') }}
+  {{ off_canvas('docs_statistics_sample_size_means_many', 'Means - Many (ANOVA)') }}
+  {{ off_canvas('docs_statistics_sample_size_mediation_effects', 'Mediation Effects') }}
+  {{ off_canvas('docs_statistics_sample_size_michaelis_menten_parameters', 'Michaelis-Menten Parameters') }}
+  {{ off_canvas('docs_statistics_sample_size_mixed_models', 'Mixed Models') }}
+  {{ off_canvas('docs_statistics_sample_size_non_inferiority', 'Non Inferiority') }}
+  {{ off_canvas('docs_statistics_sample_size_nonparametric', 'Nonparametric') }}
+  {{ off_canvas('docs_statistics_sample_size_non_zero_and_non_unity_null_tests', 'Non-Zero Non-Unity Null Tests') }}
+  {{ off_canvas('docs_statistics_sample_size_normality_tests', 'Normality Tests') }}
+  {{ off_canvas('docs_statistics_sample_size_pilot_studies', 'Pilot Studies') }}
+  {{ off_canvas('docs_statistics_sample_size_proportions_one', 'Proportions - One') }}
+  {{ off_canvas('docs_statistics_sample_size_proportions_two_independent', 'Proportions - Two Independent') }}
+  {{ off_canvas('docs_statistics_sample_size_proportions_correlated_or_paired', 'Proportions - Paired') }}
+  {{ off_canvas('docs_statistics_sample_size_proportions_cross_over_designs', 'Proportions - Cross Over Designs') }}
+  {{ off_canvas('docs_statistics_sample_size_proportions_sensitivity_and_specificity', 'Proportions - Sensitivity & Spec.') }}
+  {{ off_canvas('docs_statistics_sample_size_proportions_many', 'Proportions - Many') }}
+  {{ off_canvas('docs_statistics_sample_size_quality_control', 'Quality Control') }}
+  {{ off_canvas('docs_statistics_sample_size_rates_and_counts', 'Rates and Counts') }}
+  {{ off_canvas('docs_statistics_sample_size_reference_intervals', 'Reference Intervals') }}
+  {{ off_canvas('docs_statistics_sample_size_regression', 'Regression') }}
+  {{ off_canvas('docs_statistics_sample_size_roc_curves', 'ROC Curves') }}
+  {{ off_canvas('docs_statistics_sample_size_superiority_by_a_margin_test', 'Superiority by a Margin Test') }}
+  {{ off_canvas('docs_statistics_sample_size_survival_analysis', 'Survival Analysis') }}
+  {{ off_canvas('docs_statistics_sample_size_tolerance_intervals', 'Tolerance Intervals') }}
+  {{ off_canvas('docs_statistics_sample_size_two_part_models', 'Two-Part Models') }}
+  {{ off_canvas('docs_statistics_sample_size_variances_and_standard_deviations', 'Variances and SDs') }}
+</ul>
+
+
+
+
+
+
+
+
+
+              </div>
+            </div>
+
+<div class="border-top py-2">
+<a href="https://www.buymeacoffee.com/datarist" type="button" class="btn btn-sm btn-outline-secondary" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cup-hot-fill" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M.5 6a.5.5 0 0 0-.488.608l1.652 7.434A2.5 2.5 0 0 0 4.104 16h5.792a2.5 2.5 0 0 0 2.44-1.958l.131-.59a3 3 0 0 0 1.3-5.854l.221-.99A.5.5 0 0 0 13.5 6H.5ZM13 12.5a2.01 2.01 0 0 1-.316-.025l.867-3.898A2.001 2.001 0 0 1 13 12.5Z"/>
+            <path d="m4.4.8-.003.004-.014.019a4.167 4.167 0 0 0-.204.31 2.327 2.327 0 0 0-.141.267c-.026.06-.034.092-.037.103v.004a.593.593 0 0 0 .091.248c.075.133.178.272.308.445l.01.012c.118.158.26.347.37.543.112.2.22.455.22.745 0 .188-.065.368-.119.494a3.31 3.31 0 0 1-.202.388 5.444 5.444 0 0 1-.253.382l-.018.025-.005.008-.002.002A.5.5 0 0 1 3.6 4.2l.003-.004.014-.019a4.149 4.149 0 0 0 .204-.31 2.06 2.06 0 0 0 .141-.267c.026-.06.034-.092.037-.103a.593.593 0 0 0-.09-.252A4.334 4.334 0 0 0 3.6 2.8l-.01-.012a5.099 5.099 0 0 1-.37-.543A1.53 1.53 0 0 1 3 1.5c0-.188.065-.368.119-.494.059-.138.134-.274.202-.388a5.446 5.446 0 0 1 .253-.382l.025-.035A.5.5 0 0 1 4.4.8Zm3 0-.003.004-.014.019a4.167 4.167 0 0 0-.204.31 2.327 2.327 0 0 0-.141.267c-.026.06-.034.092-.037.103v.004a.593.593 0 0 0 .091.248c.075.133.178.272.308.445l.01.012c.118.158.26.347.37.543.112.2.22.455.22.745 0 .188-.065.368-.119.494a3.31 3.31 0 0 1-.202.388 5.444 5.444 0 0 1-.253.382l-.018.025-.005.008-.002.002A.5.5 0 0 1 6.6 4.2l.003-.004.014-.019a4.149 4.149 0 0 0 .204-.31 2.06 2.06 0 0 0 .141-.267c.026-.06.034-.092.037-.103a.593.593 0 0 0-.09-.252A4.334 4.334 0 0 0 6.6 2.8l-.01-.012a5.099 5.099 0 0 1-.37-.543A1.53 1.53 0 0 1 6 1.5c0-.188.065-.368.119-.494.059-.138.134-.274.202-.388a5.446 5.446 0 0 1 .253-.382l.025-.035A.5.5 0 0 1 7.4.8Zm3 0-.003.004-.014.019a4.077 4.077 0 0 0-.204.31 2.337 2.337 0 0 0-.141.267c-.026.06-.034.092-.037.103v.004a.593.593 0 0 0 .091.248c.075.133.178.272.308.445l.01.012c.118.158.26.347.37.543.112.2.22.455.22.745 0 .188-.065.368-.119.494a3.198 3.198 0 0 1-.202.388 5.385 5.385 0 0 1-.252.382l-.019.025-.005.008-.002.002A.5.5 0 0 1 9.6 4.2l.003-.004.014-.019a4.149 4.149 0 0 0 .204-.31 2.06 2.06 0 0 0 .141-.267c.026-.06.034-.092.037-.103a.593.593 0 0 0-.09-.252A4.334 4.334 0 0 0 9.6 2.8l-.01-.012a5.099 5.099 0 0 1-.37-.543A1.53 1.53 0 0 1 9 1.5c0-.188.065-.368.119-.494.059-.138.134-.274.202-.388a5.446 5.446 0 0 1 .253-.382l.025-.035A.5.5 0 0 1 10.4.8Z"/>
+          </svg> Buy me a coffee
+        </a>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </nav>  
+
+<h1>{% block heading %} {% endblock %}</h1>
+<p class="lead">{% block sub_heading %} {% endblock %}</p>
+
+{% block content %} {% endblock %}
+  <div class="container-fluid border-top text-center my-5">
+        <ul class="list-inline mt-5">
+          {{ nav_footer('about', 'About') }}
+          {{ nav_footer('terms', 'Terms') }}
+          {{ nav_footer('privacy', 'Privacy') }}
+          {{ nav_footer('contact', 'Contact') }}
+        </ul> 
+        <a href="https://www.buymeacoffee.com/datarist" type="button" class="btn btn-sm btn-outline-secondary" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cup-hot-fill" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M.5 6a.5.5 0 0 0-.488.608l1.652 7.434A2.5 2.5 0 0 0 4.104 16h5.792a2.5 2.5 0 0 0 2.44-1.958l.131-.59a3 3 0 0 0 1.3-5.854l.221-.99A.5.5 0 0 0 13.5 6H.5ZM13 12.5a2.01 2.01 0 0 1-.316-.025l.867-3.898A2.001 2.001 0 0 1 13 12.5Z"/>
+            <path d="m4.4.8-.003.004-.014.019a4.167 4.167 0 0 0-.204.31 2.327 2.327 0 0 0-.141.267c-.026.06-.034.092-.037.103v.004a.593.593 0 0 0 .091.248c.075.133.178.272.308.445l.01.012c.118.158.26.347.37.543.112.2.22.455.22.745 0 .188-.065.368-.119.494a3.31 3.31 0 0 1-.202.388 5.444 5.444 0 0 1-.253.382l-.018.025-.005.008-.002.002A.5.5 0 0 1 3.6 4.2l.003-.004.014-.019a4.149 4.149 0 0 0 .204-.31 2.06 2.06 0 0 0 .141-.267c.026-.06.034-.092.037-.103a.593.593 0 0 0-.09-.252A4.334 4.334 0 0 0 3.6 2.8l-.01-.012a5.099 5.099 0 0 1-.37-.543A1.53 1.53 0 0 1 3 1.5c0-.188.065-.368.119-.494.059-.138.134-.274.202-.388a5.446 5.446 0 0 1 .253-.382l.025-.035A.5.5 0 0 1 4.4.8Zm3 0-.003.004-.014.019a4.167 4.167 0 0 0-.204.31 2.327 2.327 0 0 0-.141.267c-.026.06-.034.092-.037.103v.004a.593.593 0 0 0 .091.248c.075.133.178.272.308.445l.01.012c.118.158.26.347.37.543.112.2.22.455.22.745 0 .188-.065.368-.119.494a3.31 3.31 0 0 1-.202.388 5.444 5.444 0 0 1-.253.382l-.018.025-.005.008-.002.002A.5.5 0 0 1 6.6 4.2l.003-.004.014-.019a4.149 4.149 0 0 0 .204-.31 2.06 2.06 0 0 0 .141-.267c.026-.06.034-.092.037-.103a.593.593 0 0 0-.09-.252A4.334 4.334 0 0 0 6.6 2.8l-.01-.012a5.099 5.099 0 0 1-.37-.543A1.53 1.53 0 0 1 6 1.5c0-.188.065-.368.119-.494.059-.138.134-.274.202-.388a5.446 5.446 0 0 1 .253-.382l.025-.035A.5.5 0 0 1 7.4.8Zm3 0-.003.004-.014.019a4.077 4.077 0 0 0-.204.31 2.337 2.337 0 0 0-.141.267c-.026.06-.034.092-.037.103v.004a.593.593 0 0 0 .091.248c.075.133.178.272.308.445l.01.012c.118.158.26.347.37.543.112.2.22.455.22.745 0 .188-.065.368-.119.494a3.198 3.198 0 0 1-.202.388 5.385 5.385 0 0 1-.252.382l-.019.025-.005.008-.002.002A.5.5 0 0 1 9.6 4.2l.003-.004.014-.019a4.149 4.149 0 0 0 .204-.31 2.06 2.06 0 0 0 .141-.267c.026-.06.034-.092.037-.103a.593.593 0 0 0-.09-.252A4.334 4.334 0 0 0 9.6 2.8l-.01-.012a5.099 5.099 0 0 1-.37-.543A1.53 1.53 0 0 1 9 1.5c0-.188.065-.368.119-.494.059-.138.134-.274.202-.388a5.446 5.446 0 0 1 .253-.382l.025-.035A.5.5 0 0 1 10.4.8Z"/>
+          </svg> Buy me a coffee
+        </a>
+        <p class="fs-6 text-muted mt-3">Datarist &copy; {{ now.year }}</p>
+  </div>
+<script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/offcanvas.js') }}"></script>
+  </body>
+</html>
