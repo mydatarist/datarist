@@ -600,6 +600,48 @@ def docs_statistics_tools_sample_size_standard_deviation_of_means_calculator():
 def docs_statistics_tools_sample_size_survival_parameter_conversion_tool():
     return render_template('docs/statistics/tools/sample-size/survival-parameter-conversion-tool.html')		
 
+# TOOLS/NON SAMPLE SIZE
+
+@app.route('/docs/statistics/tools/non-sample-size/balanced-incomplete-block-designs/')
+def docs_statistics_tools_non_sample_size_balanced_incomplete_block_designs():
+    return render_template('docs/statistics/tools/non-sample-size/balanced-incomplete-block-designs.html')		
+
+@app.route('/docs/statistics/tools/non-sample-size/d-optimal-designs/')
+def docs_statistics_tools_non_sample_size_d_optimal_designs():
+    return render_template('docs/statistics/tools/non-sample-size/d-optimal-designs.html')		
+
+@app.route('/docs/statistics/tools/non-sample-size/design-generator/')
+def docs_statistics_tools_non_sample_size_design_generator():
+    return render_template('docs/statistics/tools/non-sample-size/design-generator.html')		
+
+@app.route('/docs/statistics/tools/non-sample-size/fractional-factorial-designs/')
+def docs_statistics_tools_non_sample_size_fractional_factorial_designs():
+    return render_template('docs/statistics/tools/non-sample-size/fractional-factorial-designs.html')		
+
+@app.route('/docs/statistics/tools/non-sample-size/latin-square-designs/')
+def docs_statistics_tools_non_sample_size_latin_square_designs():
+    return render_template('docs/statistics/tools/non-sample-size/latin-square-designs.html')		
+
+@app.route('/docs/statistics/tools/non-sample-size/response-surface-designs/')
+def docs_statistics_tools_non_sample_size_response_surface_designs():
+    return render_template('docs/statistics/tools/non-sample-size/response-surface-designs.html')		
+
+@app.route('/docs/statistics/tools/non-sample-size/screening-designs/')
+def docs_statistics_tools_non_sample_size_screening_designs():
+    return render_template('docs/statistics/tools/non-sample-size/screening-designs.html')		
+
+@app.route('/docs/statistics/tools/non-sample-size/taguchi-designs/')
+def docs_statistics_tools_non_sample_size_taguchi_designs():
+    return render_template('docs/statistics/tools/non-sample-size/taguchi-designs.html')		
+
+@app.route('/docs/statistics/tools/non-sample-size/two-level-designs/')
+def docs_statistics_tools_non_sample_size_two_level_designs():
+    return render_template('docs/statistics/tools/non-sample-size/two-level-designs.html')		
+
+@app.route('/docs/statistics/tools/non-sample-size/randomization-lists/')
+def docs_statistics_tools_non_sample_size_randomization_lists():
+    return render_template('docs/statistics/tools/non-sample-size/randomization-lists.html')		
+
 # ABOUT
 
 @app.route('/about/overview/')
