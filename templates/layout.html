@@ -22,12 +22,8 @@
       
   </head>
   <body>
-<main>
-  
-
-
  <nav class="navbar navbar-expand-lg navbar-light bg-light" aria-label="Offcanvas navbar large">
-    <div class="container-fluid">
+    <div class="container">
       <a class="navbar-brand" href="#">Responsive offcanvas navbar</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2">
         <span class="navbar-toggler-icon"></span>
@@ -67,27 +63,14 @@
       </div>
     </div>
   </nav>
+   
   
   
-  
-  
-  
+<div class="container">  
 <h1 class="display-5 fw-normal">{% block heading %} {% endblock %}</h1>
-<p class="lead">{% block sub_heading %} {% endblock %}</p>
-
-</main>
-    
- 
-  
-    
-    
-    
-    
-    
-    
-    
-    
+<p class="lead">{% block sub_heading %} {% endblock %}</p>   
 {% block content %} {% endblock %}
+</div>
   <div class="container-fluid border-top text-center my-5">
         <ul class="list-inline mt-5">
           {{ nav_footer('about', 'About') }}
