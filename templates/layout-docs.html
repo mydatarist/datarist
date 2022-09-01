@@ -3,12 +3,6 @@
 {% from "macros.html" import nav_footer with context %}
 {% include "include/header.html" %}
 {% include "include/navbar.html" %}
-    
 <h1 class="display-5 fw-normal">{% block heading %} {% endblock %}</h1>
 <p class="lead">{% block sub_heading %} {% endblock %}</p>    
-
-<script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ url_for('static', filename='js/layout-docs.js') }}"></script>
-<script src="{{ url_for('static', filename='js/offcanvas.js') }}"></script>
-  </body>
-</html>
+{% include "include/footer.html" %}
