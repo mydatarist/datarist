@@ -36,25 +36,25 @@ def docs():
 # STATISTICS
 
 @app.route('/statistics/')
-def statistics():
+def route_statistics():
     return render_template('statistics/index.html')
 
 # GRAPHICS
 
 @app.route('/graphics/')
-def graphics():
+def route_graphics():
     return render_template('graphics/index.html')
 
 # SAMPLE SIZE
 
 @app.route('/sample-size/')
-def sample_size():
+def route_sample_size():
     return render_template('sample-size/index.html')
 
 # TOOLS
 
 @app.route('/tools/')
-def tools():
+def route_tools():
     return render_template('tools/index.html')
 
 # DOCS/GETTING-STARTED/
