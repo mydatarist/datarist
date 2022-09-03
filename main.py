@@ -33,12 +33,35 @@ def index():
 def docs():
     return render_template('docs.html')
 
+# STATISTICS
+
+@app.route('/statistics/')
+def statistics():
+    return render_template('statistics/index.html')
+
+# GRAPHICS
+
+@app.route('/graphics/')
+def graphics():
+    return render_template('graphics/index.html')
+
+# SAMPLE SIZE
+
+@app.route('/sample-size/')
+def sample_size():
+    return render_template('sample-size/index.html')
+
+# TOOLS
+
+@app.route('/tools/')
+def tools():
+    return render_template('tools/index.html')
+
 # DOCS/GETTING-STARTED/
 
 @app.route('/docs/getting-started/introduction/')
 def docs_getting_started_introduction():
     return render_template('docs/getting-started/introduction.html')
-
 
 # DOCS/STATISTICS/GRAPHICS/
 
