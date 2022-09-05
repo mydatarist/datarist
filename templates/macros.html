@@ -16,8 +16,8 @@
 
 {% macro nav_footer(endpoint, text) %}
 {% if request.endpoint.endswith(endpoint) %}
-    <a class="text-decoration-underline link-dark mx-1" href="{{ url_for(endpoint) }}">{{text}}</a>
+    <li class="list-inline-item"><a class="text-decoration-underline link-dark mx-1" href="{{ url_for(endpoint) }}">{{text}}</a></li>
 {% else %}
-    <a class="text-decoration-none link-dark mx-1" href="{{ url_for(endpoint) }}">{{text}}</a>
+    <li class="list-inline-item"><a class="text-decoration-none link-dark mx-1" href="{{ url_for(endpoint) }}">{{text}}</a></li>
 {% endif %}
 {% endmacro %}
