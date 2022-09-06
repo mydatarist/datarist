@@ -41,9 +41,9 @@ def route_statistics():
 
 # GRAPHICS
 
-@app.route('/graphics/')
-def route_graphics():
-    return render_template('graphics/index.html')
+@app.route('/graph/')
+def route_graph():
+    return render_template('graph/index.html')
 
 # SAMPLE SIZE
 
