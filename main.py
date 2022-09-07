@@ -55,9 +55,9 @@ def route_tools():
 
 # ABOUT
 
-@app.route('/about/overview/')
-def about_overview():
-    return render_template('about/overview.html')		
+@app.route('/about/')
+def about():
+    return render_template('about/index.html')		
 
 @app.route('/about/team/')
 def about_team():
@@ -69,7 +69,20 @@ def about_brand():
 
 @app.route('/about/license/')
 def about_license():
-    return render_template('about/license.html')		
+    return render_template('about/license.html')	
+	
+# TERMS
+
+@app.route('/terms/')
+def terms():
+    return render_template('terms/index.html')
+
+# PRIVACY
+
+@app.route('/privacy/')
+def privacy():
+    return render_template('privacy/index.html')
+
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
