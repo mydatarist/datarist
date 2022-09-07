@@ -32,31 +32,31 @@ def index():
 # STATISTICS
 
 @app.route('/statistics/')
-def route_statistics():
+def statistics_index():
     return render_template('statistics/index.html')
 
 # GRAPHICS
 
 @app.route('/graphics/')
-def route_graphics():
+def graphics_index():
     return render_template('graphics/index.html')
 
 # SAMPLE SIZE
 
 @app.route('/sample-size/')
-def route_sample_size():
+def sample_size_index():
     return render_template('sample-size/index.html')
 
 # TOOLS
 
 @app.route('/tools/')
-def route_tools():
+def tools_index():
     return render_template('tools/index.html')
 
 # ABOUT
 
 @app.route('/about/')
-def about():
+def about_index():
     return render_template('about/index.html')		
 
 @app.route('/about/team/')
@@ -74,13 +74,13 @@ def about_license():
 # TERMS
 
 @app.route('/terms/')
-def terms():
+def terms_index():
     return render_template('terms/index.html')
 
 # PRIVACY
 
 @app.route('/privacy/')
-def privacy():
+def privacy_index():
     return render_template('privacy/index.html')
 
 
