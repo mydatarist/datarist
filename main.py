@@ -53,7 +53,7 @@ def statistics_anova_box_cox_transformation_for_two_or_more():
 def statistics_anova_groups():
     return render_template('statistics/anova/groups.html')
 
-@app.route('/statistics/anova/analysis_of_covariance_with_two_groups/')
+@app.route('/statistics/anova/analysis-of-covariance-with-two-groups/')
 def statistics_anova_analysis_of_covariance_with_two_groups():
     return render_template('statistics/anova/analysis-of-covariance-with-two-groups.html')
 
