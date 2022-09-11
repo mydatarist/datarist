@@ -57,9 +57,9 @@ def statistics_anova_area_under_curve():
 def statistics_anova_balanced_design_analysis_of_variance():
     return render_template('statistics/anova/balanced-design-analysis-of-variance.html')
 
-@app.route('/statistics/anova/xxxx/')
-def statistics_anova_xxxx():
-    return render_template('statistics/anova/xxxx')
+@app.route('/statistics/anova/box-cox-transformation-for-two-or-more/')
+def statistics_anova_box_cox_transformation_for_two_or_more():
+    return render_template('statistics/anova/box-cox-transformation-for-two-or-more.html')
 
 @app.route('/statistics/anova/xxxx/')
 def statistics_anova_xxxx():
