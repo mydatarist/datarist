@@ -73,9 +73,9 @@ def statistics_anova_general_linear_models():
 def statistics_anova_groups():
     return render_template('statistics/anova/groups.html')
 
-@app.route('/statistics/anova/xxxx/')
-def statistics_anova_xxxx():
-    return render_template('statistics/anova/xxxx')
+@app.route('/statistics/anova/multivariate-analysis-of-variance/')
+def statistics_anova_multivariate_analysis_of_variance():
+    return render_template('statistics/anova/multivariate-analysis-of-variance.html')
 
 @app.route('/statistics/anova/xxxx/')
 def statistics_anova_xxxx():
