@@ -93,6 +93,40 @@ def statistics_anova_one_way_analysis_of_variance():
 def statistics_anova_repeated_measures_analysis_of_variance():
     return render_template('statistics/anova/repeated-measures-analysis-of-variance.html')
 
+# /STATISTICS/APPRAISAL/
+
+@app.route('/statistics/appraisal/')
+def statistics_appraisal_index():
+    return render_template('statistics/appraisal/index')
+
+@app.route('/statistics/appraisal/xxxx/')
+def statistics_appraisal_xxxx():
+    return render_template('statistics/appraisal/xxxx')
+
+@app.route('/statistics/appraisal/xxxx/')
+def statistics_appraisal_xxxx():
+    return render_template('statistics/appraisal/xxxx')
+
+@app.route('/statistics/appraisal/xxxx/')
+def statistics_appraisal_xxxx():
+    return render_template('statistics/appraisal/xxxx')
+
+@app.route('/statistics/appraisal/xxxx/')
+def statistics_appraisal_xxxx():
+    return render_template('statistics/appraisal/xxxx')
+
+@app.route('/statistics/appraisal/xxxx/')
+def statistics_appraisal_xxxx():
+    return render_template('statistics/appraisal/xxxx')
+
+@app.route('/statistics/appraisal/xxxx/')
+def statistics_appraisal_xxxx():
+    return render_template('statistics/appraisal/xxxx')
+
+@app.route('/statistics/appraisal/xxxx/')
+def statistics_appraisal_xxxx():
+    return render_template('statistics/appraisal/xxxx')
+
 # /GRAPHICS/
 
 @app.route('/graphics/')
