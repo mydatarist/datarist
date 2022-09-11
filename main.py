@@ -38,7 +38,7 @@ def statistics_index():
 # STATISTICS/ANOVA
 
 @app.route('/statistics/anova/')
-def statistics_anova():
+def statistics_anova_index():
     return render_template('statistics/anova/index.html')
 
 @app.route('/statistics/anova/analysis-of-covariance-with-two-groups/')
