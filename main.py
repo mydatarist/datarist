@@ -49,9 +49,9 @@ def statistics_anova_analysis_of_covariance_with_two_groups():
 def statistics_anova_analysis_of_two_level_designs():
     return render_template('statistics/anova/analysis-of-two-level-designs.html')
 
-@app.route('/statistics/anova/xxxx/')
-def statistics_anova_xxxx():
-    return render_template('statistics/anova/xxxx')
+@app.route('/statistics/anova/area-under-curve/')
+def statistics_anova_area_under_curve():
+    return render_template('statistics/anova/area-under-curve.html')
 
 @app.route('/statistics/anova/xxxx/')
 def statistics_anova_xxxx():
