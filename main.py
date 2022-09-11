@@ -89,9 +89,9 @@ def statistics_anova_one_way_analysis_of_covariance():
 def statistics_anova_one_way_analysis_of_variance():
     return render_template('statistics/anova/one-way-analysis-of-variance.html')
 
-@app.route('/statistics/anova/xxxx/')
-def statistics_anova_xxxx():
-    return render_template('statistics/anova/xxxx')
+@app.route('/statistics/anova/repeated-measures-analysis-of-variance/')
+def statistics_anova_repeated_measures_analysis_of_variance():
+    return render_template('statistics/anova/repeated-measures-analysis-of-variance.html')
 
 # GRAPHICS
 
