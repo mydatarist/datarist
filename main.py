@@ -153,9 +153,9 @@ def statistics_cluster_analysis_k_means_clustering():
 def statistics_cluster_analysis_medoid_partitioning():
     return render_template('statistics/cluster-analysis/medoid-partitioning.html')
 
-@app.route('/statistics/cluster-analysis/xxxx/')
-def statistics_cluster_analysis_xxxx():
-    return render_template('statistics/cluster-analysis/xxxx')
+@app.route('/statistics/cluster-analysis/regression-clustering/')
+def statistics_cluster_analysis_regression_clustering():
+    return render_template('statistics/cluster-analysis/regression-clustering.html')
 
 # /GRAPHICS/
 
