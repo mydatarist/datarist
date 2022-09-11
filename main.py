@@ -69,9 +69,9 @@ def statistics_anova_general_linear_models_for_fixed_factors():
 def statistics_anova_general_linear_models():
     return render_template('statistics/anova/general-linear-models.html')
 
-@app.route('/statistics/anova/xxxx/')
-def statistics_anova_xxxx():
-    return render_template('statistics/anova/xxxx')
+@app.route('/statistics/anova/groups/')
+def statistics_anova_groups():
+    return render_template('statistics/anova/groups.html')
 
 @app.route('/statistics/anova/xxxx/')
 def statistics_anova_xxxx():
