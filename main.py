@@ -41,57 +41,57 @@ def statistics_index():
 def statistics_anova():
     return render_template('statistics/anova/index.html')
 
-@app.route('/statistics/anova/one-way-analysis-of-variance/')
-def statistics_anova_one_way_analysis_of_variance():
-    return render_template('statistics/anova/one-way-analysis-of-variance.html')
-
-@app.route('/statistics/anova/box-cox-transformation-for-two-or-more/')
-def statistics_anova_box_cox_transformation_for_two_or_more():
-    return render_template('statistics/anova/box-cox-transformation-for-two-or-more.html')
-
-@app.route('/statistics/anova/groups/')
-def statistics_anova_groups():
-    return render_template('statistics/anova/groups.html')
-
 @app.route('/statistics/anova/analysis-of-covariance-with-two-groups/')
 def statistics_anova_analysis_of_covariance_with_two_groups():
     return render_template('statistics/anova/analysis-of-covariance-with-two-groups.html')
 
-@app.route('/statistics/anova/one-way-analysis-of-covariance/')
-def statistics_anova_one_way_analysis_of_covariance():
-    return render_template('statistics/anova/one-way-analysis-of-covariance.html')
+@app.route('/statistics/anova/xxxx/')
+def statistics_anova_xxxx():
+    return render_template('statistics/anova/xxxx')
 
-@app.route('/statistics/anova/balanced-design-analysis-of-variance/')
-def statistics_anova_balanced_design_analysis_of_variance():
-    return render_template('statistics/anova/balanced-design-analysis-of-variance.html')
+@app.route('/statistics/anova/xxxx/')
+def statistics_anova_xxxx():
+    return render_template('statistics/anova/xxxx')
 
-@app.route('/statistics/anova/general-linear-models/')
-def statistics_anova_general_linear_models():
-    return render_template('statistics/anova/general-linear-models.html')
+@app.route('/statistics/anova/xxxx/')
+def statistics_anova_xxxx():
+    return render_template('statistics/anova/xxxx.html')
 
-@app.route('/statistics/anova/general-linear-models-for-fixed-factors/')
-def statistics_anova_general_linear_models_for_fixed_factors():
-    return render_template('statistics/anova/general-linear-models-for-fixed-factors.html')
+@app.route('/statistics/anova/xxxx/')
+def statistics_anova_xxxx():
+    return render_template('statistics/anova/xxxx')
 
-@app.route('/statistics/anova/repeated-measures-analysis-of-variance/')
-def statistics_anova_repeated_measures_analysis_of_variance():
-    return render_template('statistics/anova/repeated-measures-analysis-of-variance.html')
+@app.route('/statistics/anova/xxxx/')
+def statistics_anova_xxxx():
+    return render_template('statistics/anova/xxxx')
 
-@app.route('/statistics/anova/multivariate-analysis-of-variance/')
-def statistics_anova_multivariate_analysis_of_variance():
-    return render_template('statistics/anova/multivariate-analysis-of-variance.html')
+@app.route('/statistics/anova/xxxx/')
+def statistics_anova_xxxx():
+    return render_template('statistics/anova/xxxx')
 
-@app.route('/statistics/anova/analysis-of-two-level-designs/')
-def statistics_anova_analysis_of_two_level_designs():
-    return render_template('statistics/anova/analysis-of-two-level-designs.html')
+@app.route('/statistics/anova/xxxx/')
+def statistics_anova_xxxx():
+    return render_template('statistics/anova/xxxx')
 
-@app.route('/statistics/anova/nondetects-data-group-comparison/')
-def statistics_anova_nondetects_data_group_comparison():
-    return render_template('statistics/anova/nondetects-data-group-comparison.html')
+@app.route('/statistics/anova/xxxx/')
+def statistics_anova_xxxx():
+    return render_template('statistics/anova/xxxx')
 
-@app.route('/statistics/anova/area-under-curve/')
-def statistics_anova_area_under_curve():
-    return render_template('statistics/anova/area-under-curve.html')
+@app.route('/statistics/anova/xxxx/')
+def statistics_anova_xxxx():
+    return render_template('statistics/anova/xxxx')
+
+@app.route('/statistics/anova/xxxx/')
+def statistics_anova_xxxxs():
+    return render_template('statistics/anova/xxxx')
+
+@app.route('/statistics/anova/xxxx/')
+def statistics_anova_xxxx():
+    return render_template('statistics/anova/xxxx')
+
+@app.route('/statistics/anova/xxxx/')
+def statistics_anova_xxxx():
+    return render_template('statistics/anova/xxxx')
 
 # GRAPHICS
 
