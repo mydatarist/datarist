@@ -137,9 +137,9 @@ def statistics_cluster_analysis_index():
 def statistics_cluster_analysis_clustered_heat_maps():
     return render_template('statistics/cluster-analysis/clustered-heat-maps.html')
 
-@app.route('/statistics/cluster-analysis/xxxx/')
-def statistics_cluster_analysis_xxxx():
-    return render_template('statistics/cluster-analysis/xxxx')
+@app.route('/statistics/cluster-analysis/fuzzy-clustering/')
+def statistics_cluster_analysis_fuzzy_clustering():
+    return render_template('statistics/cluster-analysis/fuzzy-clustering.html')
 
 @app.route('/statistics/cluster-analysis/xxxx/')
 def statistics_cluster_analysis_xxxx():
