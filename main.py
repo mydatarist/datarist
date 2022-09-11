@@ -81,9 +81,9 @@ def statistics_anova_multivariate_analysis_of_variance():
 def statistics_anova_nondetects_data_group_comparison():
     return render_template('statistics/anova/nondetects-data-group-comparison.html')
 
-@app.route('/statistics/anova/xxxx/')
-def statistics_anova_xxxxs():
-    return render_template('statistics/anova/xxxx')
+@app.route('/statistics/anova/one-way-analysis-of-covariance/')
+def statistics_anova_one_way_analysis_of_covariance():
+    return render_template('statistics/anova/one-way-analysis-of-covariance.html')
 
 @app.route('/statistics/anova/xxxx/')
 def statistics_anova_xxxx():
