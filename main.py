@@ -111,9 +111,9 @@ def statistics_appraisal_comparables_appraisal():
 def statistics_appraisal_descriptive_statistics():
     return render_template('statistics/appraisal/descriptive-statistics.html')
 
-@app.route('/statistics/appraisal/xxxx/')
-def statistics_appraisal_xxxx():
-    return render_template('statistics/appraisal/xxxx')
+@app.route('/statistics/appraisal/hybrid-appraisal-models/')
+def statistics_appraisal_hybrid_appraisal_models():
+    return render_template('statistics/appraisal/hybrid-appraisal-models.html')
 
 @app.route('/statistics/appraisal/xxxx/')
 def statistics_appraisal_xxxx():
