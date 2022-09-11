@@ -127,6 +127,36 @@ def statistics_appraisal_multiple_regression():
 def statistics_appraisal_nonlinear_regression():
     return render_template('statistics/appraisal/nonlinear-regression.html')
 
+# /STATISTICS/CLUSTER-ANALYSIS/
+
+@app.route('/statistics/cluster-analysis/')
+def statistics_cluster_analysis_index():
+    return render_template('statistics/cluster-analysis/index.html')
+
+@app.route('/statistics/cluster-analysis/xxxx/')
+def statistics_cluster_analysis_xxxx():
+    return render_template('statistics/cluster-analysis/xxxx')
+
+@app.route('/statistics/cluster-analysis/xxxx/')
+def statistics_cluster_analysis_xxxx():
+    return render_template('statistics/cluster-analysis/xxxx')
+
+@app.route('/statistics/cluster-analysis/xxxx/')
+def statistics_cluster_analysis_xxxx():
+    return render_template('statistics/cluster-analysis/xxxx')
+
+@app.route('/statistics/cluster-analysis/xxxx/')
+def statistics_cluster_analysis_xxxx():
+    return render_template('statistics/cluster-analysis/xxxx')
+
+@app.route('/statistics/cluster-analysis/xxxx/')
+def statistics_cluster_analysis_xxxx():
+    return render_template('statistics/cluster-analysis/xxxx')
+
+@app.route('/statistics/cluster-analysis/xxxx/')
+def statistics_cluster_analysis_xxxx():
+    return render_template('statistics/cluster-analysis/xxxx')
+
 # /GRAPHICS/
 
 @app.route('/graphics/')
