@@ -103,9 +103,9 @@ def statistics_appraisal_index():
 def statistics_appraisal_appraisal_ratio_studies():
     return render_template('statistics/appraisal/appraisal-ratio-studies.html')
 
-@app.route('/statistics/appraisal/xxxx/')
-def statistics_appraisal_xxxx():
-    return render_template('statistics/appraisal/xxxx')
+@app.route('/statistics/appraisal/comparables-appraisal/')
+def statistics_appraisal_comparables_appraisal():
+    return render_template('statistics/appraisal/comparables-appraisal.html')
 
 @app.route('/statistics/appraisal/xxxx/')
 def statistics_appraisal_xxxx():
