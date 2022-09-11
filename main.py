@@ -65,9 +65,9 @@ def statistics_anova_box_cox_transformation_for_two_or_more():
 def statistics_anova_general_linear_models_for_fixed_factors():
     return render_template('statistics/anova/general-linear-models-for-fixed-factors.html')
 
-@app.route('/statistics/anova/xxxx/')
-def statistics_anova_xxxx():
-    return render_template('statistics/anova/xxxx')
+@app.route('/statistics/anova/general-linear-models/')
+def statistics_anova_general_linear_models():
+    return render_template('statistics/anova/general-linear-models.html')
 
 @app.route('/statistics/anova/xxxx/')
 def statistics_anova_xxxx():
