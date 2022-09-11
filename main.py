@@ -115,9 +115,9 @@ def statistics_appraisal_descriptive_statistics():
 def statistics_appraisal_hybrid_appraisal_models():
     return render_template('statistics/appraisal/hybrid-appraisal-models.html')
 
-@app.route('/statistics/appraisal/xxxx/')
-def statistics_appraisal_xxxx():
-    return render_template('statistics/appraisal/xxxx')
+@app.route('/statistics/appraisal/linear-regression-and-correlation/')
+def statistics_appraisal_linear_regression_and_correlation():
+    return render_template('statistics/appraisal/linear-regression-and-correlation.html')
 
 @app.route('/statistics/appraisal/xxxx/')
 def statistics_appraisal_xxxx():
