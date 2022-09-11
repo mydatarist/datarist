@@ -29,13 +29,13 @@ def inject_now():
 def index():
     return render_template('index.html')
 
-# STATISTICS
+# /STATISTICS/
 
 @app.route('/statistics/')
 def statistics_index():
     return render_template('statistics/index.html')
 
-# STATISTICS/ANOVA
+# /STATISTICS/ANOVA/
 
 @app.route('/statistics/anova/')
 def statistics_anova_index():
@@ -93,25 +93,25 @@ def statistics_anova_one_way_analysis_of_variance():
 def statistics_anova_repeated_measures_analysis_of_variance():
     return render_template('statistics/anova/repeated-measures-analysis-of-variance.html')
 
-# GRAPHICS
+# /GRAPHICS/
 
 @app.route('/graphics/')
 def graphics_index():
     return render_template('graphics/index.html')
 
-# SAMPLE SIZE
+# /SAMPLE-SIZE/
 
 @app.route('/sample-size/')
 def sample_size_index():
     return render_template('sample-size/index.html')
 
-# TOOLS
+# /TOOLS/
 
 @app.route('/tools/')
 def tools_index():
     return render_template('tools/index.html')
 
-# ABOUT
+# /ABOUT/
 
 @app.route('/about/')
 def about_index():
@@ -129,13 +129,13 @@ def about_brand():
 def about_license():
     return render_template('about/license.html')	
 	
-# TERMS
+# /TERMS/
 
 @app.route('/terms/')
 def terms_index():
     return render_template('terms/index.html')
 
-# PRIVACY
+# /PRIVACY/
 
 @app.route('/privacy/')
 def privacy_index():
