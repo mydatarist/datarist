@@ -53,9 +53,9 @@ def statistics_anova_analysis_of_two_level_designs():
 def statistics_anova_area_under_curve():
     return render_template('statistics/anova/area-under-curve.html')
 
-@app.route('/statistics/anova/xxxx/')
-def statistics_anova_xxxx():
-    return render_template('statistics/anova/xxxx.html')
+@app.route('/statistics/anova/balanced-design-analysis-of-variance/')
+def statistics_anova_balanced_design_analysis_of_variance():
+    return render_template('statistics/anova/balanced-design-analysis-of-variance.html')
 
 @app.route('/statistics/anova/xxxx/')
 def statistics_anova_xxxx():
