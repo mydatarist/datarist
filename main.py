@@ -123,9 +123,9 @@ def statistics_appraisal_linear_regression_and_correlation():
 def statistics_appraisal_multiple_regression():
     return render_template('statistics/appraisal/multiple-regression.html')
 
-@app.route('/statistics/appraisal/xxxx/')
-def statistics_appraisal_xxxx():
-    return render_template('statistics/appraisal/xxxx')
+@app.route('/statistics/appraisal/nonlinear-regression/')
+def statistics_appraisal_nonlinear_regression():
+    return render_template('statistics/appraisal/nonlinear-regression.html')
 
 # /GRAPHICS/
 
