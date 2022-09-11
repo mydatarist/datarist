@@ -149,9 +149,9 @@ def statistics_cluster_analysis_hierarchical_clustering():
 def statistics_cluster_analysis_k_means_clustering():
     return render_template('statistics/cluster-analysis/k-means-clustering.html')
 
-@app.route('/statistics/cluster-analysis/xxxx/')
-def statistics_cluster_analysis_xxxx():
-    return render_template('statistics/cluster-analysis/xxxx')
+@app.route('/statistics/cluster-analysis/medoid-partitioning/')
+def statistics_cluster_analysis_medoid_partitioning():
+    return render_template('statistics/cluster-analysis/medoid-partitioning.html')
 
 @app.route('/statistics/cluster-analysis/xxxx/')
 def statistics_cluster_analysis_xxxx():
