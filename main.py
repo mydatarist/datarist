@@ -133,9 +133,9 @@ def statistics_appraisal_nonlinear_regression():
 def statistics_cluster_analysis_index():
     return render_template('statistics/cluster-analysis/index.html')
 
-@app.route('/statistics/cluster-analysis/xxxx/')
-def statistics_cluster_analysis_xxxx():
-    return render_template('statistics/cluster-analysis/xxxx')
+@app.route('/statistics/cluster-analysis/clustered-heat-maps/')
+def statistics_cluster_analysis_clustered_heat_maps():
+    return render_template('statistics/cluster-analysis/clustered-heat-maps.html')
 
 @app.route('/statistics/cluster-analysis/xxxx/')
 def statistics_cluster_analysis_xxxx():
