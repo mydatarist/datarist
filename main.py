@@ -167,9 +167,9 @@ def statistics_correlation_index():
 def statistics_correlation_bland_altman_plot_and_analysis():
     return render_template('statistics/correlation/bland-altman-plot-and-analysis.html')
 
-@app.route('/statistics/correlation/xxxx/')
-def statistics_correlation_xxxx():
-    return render_template('statistics/correlation/xxxx.html')
+@app.route('/statistics/correlation/box-cox-transformation-for-simple-linear-regression/')
+def statistics_correlation_box_cox_transformation_for_simple_linear_regression():
+    return render_template('statistics/correlation/box-cox-transformation-for-simple-linear-regression.html')
 
 @app.route('/statistics/correlation/xxxx/')
 def statistics_correlation_xxxx():
