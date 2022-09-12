@@ -175,6 +175,10 @@ def statistics_correlation_box_cox_transformation_for_simple_linear_regression()
 def statistics_correlation_canonical_correlation():
     return render_template('statistics/correlation/canonical-correlation.html')
 
+@app.route('/statistics/correlation/circular-data-correlation/')
+def statistics_correlation_circular_data_correlation():
+    return render_template('statistics/correlation/circular-data-correlation.html')
+
 @app.route('/statistics/correlation/correlation-matrix/')
 def statistics_correlation_correlation_matrix():
     return render_template('statistics/correlation/correlation-matrix.html')
@@ -198,10 +202,6 @@ def statistics_correlation_lins_concordance_correlation_coefficient():
 @app.route('/statistics/correlation/point-biserial-and-biserial-correlations/')
 def statistics_correlation_point_biserial_and_biserial_correlations():
     return render_template('statistics/correlation/point-biserial-and-biserial-correlations.html')
-
-@app.route('/statistics/correlation/xxxx/')
-def statistics_correlation_xxxx():
-    return render_template('statistics/correlation/xxxx.html')
 
 # /GRAPHICS/
 
