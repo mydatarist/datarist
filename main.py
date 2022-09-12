@@ -183,9 +183,9 @@ def statistics_correlation_correlation_matrix():
 def statistics_correlation_correlation():
     return render_template('statistics/correlation/correlation.html')
 
-@app.route('/statistics/correlation/xxxx/')
-def statistics_correlation_xxxx():
-    return render_template('statistics/correlation/xxxx.html')
+@app.route('/statistics/correlation/item-analysis/')
+def statistics_correlation_item_analysis():
+    return render_template('statistics/correlation/item-analysis.html')
 
 @app.route('/statistics/correlation/xxxx/')
 def statistics_correlation_xxxx():
