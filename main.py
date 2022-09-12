@@ -195,9 +195,9 @@ def statistics_correlation_linear_regression_and_correlation():
 def statistics_correlation_lins_concordance_correlation_coefficient():
     return render_template('statistics/correlation/lins-concordance-correlation-coefficient.html')
 
-@app.route('/statistics/correlation/xxxx/')
-def statistics_correlation_xxxx():
-    return render_template('statistics/correlation/xxxx.html')
+@app.route('/statistics/correlation/point-biserial-and-biserial-correlations/')
+def statistics_correlation_point_biserial_and_biserial_correlations():
+    return render_template('statistics/correlation/point-biserial-and-biserial-correlations.html')
 
 @app.route('/statistics/correlation/xxxx/')
 def statistics_correlation_xxxx():
