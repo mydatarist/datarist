@@ -157,6 +157,52 @@ def statistics_cluster_analysis_medoid_partitioning():
 def statistics_cluster_analysis_regression_clustering():
     return render_template('statistics/cluster-analysis/regression-clustering.html')
 
+# /STATISTICS/CORRELATION/
+
+@app.route('/statistics/correlation/')
+def statistics_correlation_index():
+    return render_template('statistics/correlation/index.html')
+
+@app.route('/statistics/correlation/xxxx/')
+def statistics_correlation_xxxx():
+    return render_template('statistics/correlation/xxxx.html')
+
+@app.route('/statistics/correlation/xxxx/')
+def statistics_correlation_xxxx():
+    return render_template('statistics/correlation/xxxx.html')
+
+@app.route('/statistics/correlation/xxxx/')
+def statistics_correlation_xxxx():
+    return render_template('statistics/correlation/xxxx.html')
+
+@app.route('/statistics/correlation/xxxx/')
+def statistics_correlation_xxxx():
+    return render_template('statistics/correlation/xxxx.html')
+
+@app.route('/statistics/correlation/xxxx/')
+def statistics_correlation_xxxx():
+    return render_template('statistics/correlation/xxxx.html')
+
+@app.route('/statistics/correlation/xxxx/')
+def statistics_correlation_xxxx():
+    return render_template('statistics/correlation/xxxx.html')
+
+@app.route('/statistics/correlation/xxxx/')
+def statistics_correlation_xxxx():
+    return render_template('statistics/correlation/xxxx.html')
+
+@app.route('/statistics/correlation/xxxx/')
+def statistics_correlation_xxxx():
+    return render_template('statistics/correlation/xxxx.html')
+
+@app.route('/statistics/correlation/xxxx/')
+def statistics_correlation_xxxx():
+    return render_template('statistics/correlation/xxxx.html')
+
+@app.route('/statistics/correlation/xxxx/')
+def statistics_correlation_xxxx():
+    return render_template('statistics/correlation/xxxx.html')
+
 # /GRAPHICS/
 
 @app.route('/graphics/')
