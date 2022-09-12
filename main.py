@@ -187,9 +187,9 @@ def statistics_correlation_correlation():
 def statistics_correlation_item_analysis():
     return render_template('statistics/correlation/item-analysis.html')
 
-@app.route('/statistics/correlation/xxxx/')
-def statistics_correlation_xxxx():
-    return render_template('statistics/correlation/xxxx.html')
+@app.route('/statistics/correlation/linear-regression-and-correlation/')
+def statistics_correlation_linear_regression_and_correlation():
+    return render_template('statistics/correlation/linear-regression-and-correlation.html')
 
 @app.route('/statistics/correlation/xxxx/')
 def statistics_correlation_xxxx():
