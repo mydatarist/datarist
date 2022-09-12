@@ -163,9 +163,9 @@ def statistics_cluster_analysis_regression_clustering():
 def statistics_correlation_index():
     return render_template('statistics/correlation/index.html')
 
-@app.route('/statistics/correlation/xxxx/')
-def statistics_correlation_xxxx():
-    return render_template('statistics/correlation/xxxx.html')
+@app.route('/statistics/correlation/bland-altman-plot-and-analysis/')
+def statistics_correlation_bland_altman_plot_and_analysis():
+    return render_template('statistics/correlation/bland-altman-plot-and-analysis.html')
 
 @app.route('/statistics/correlation/xxxx/')
 def statistics_correlation_xxxx():
