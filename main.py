@@ -175,9 +175,9 @@ def statistics_correlation_box_cox_transformation_for_simple_linear_regression()
 def statistics_correlation_canonical_correlation():
     return render_template('statistics/correlation/canonical-correlation.html')
 
-@app.route('/statistics/correlation/xxxx/')
-def statistics_correlation_xxxx():
-    return render_template('statistics/correlation/xxxx.html')
+@app.route('/statistics/correlation/correlation-matrix/')
+def statistics_correlation_correlation_matrix():
+    return render_template('statistics/correlation/correlation-matrix.html')
 
 @app.route('/statistics/correlation/xxxx/')
 def statistics_correlation_xxxx():
