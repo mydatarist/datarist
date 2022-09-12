@@ -191,9 +191,9 @@ def statistics_correlation_item_analysis():
 def statistics_correlation_linear_regression_and_correlation():
     return render_template('statistics/correlation/linear-regression-and-correlation.html')
 
-@app.route('/statistics/correlation/xxxx/')
-def statistics_correlation_xxxx():
-    return render_template('statistics/correlation/xxxx.html')
+@app.route('/statistics/correlation/lins-concordance-correlation-coefficient/')
+def statistics_correlation_lins_concordance_correlation_coefficient():
+    return render_template('statistics/correlation/lins-concordance-correlation-coefficient.html')
 
 @app.route('/statistics/correlation/xxxx/')
 def statistics_correlation_xxxx():
