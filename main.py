@@ -179,9 +179,9 @@ def statistics_correlation_canonical_correlation():
 def statistics_correlation_correlation_matrix():
     return render_template('statistics/correlation/correlation-matrix.html')
 
-@app.route('/statistics/correlation/xxxx/')
-def statistics_correlation_xxxx():
-    return render_template('statistics/correlation/xxxx.html')
+@app.route('/statistics/correlation/correlation/')
+def statistics_correlation_correlation():
+    return render_template('statistics/correlation/correlation.html')
 
 @app.route('/statistics/correlation/xxxx/')
 def statistics_correlation_xxxx():
