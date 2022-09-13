@@ -345,9 +345,9 @@ def statistics_design_of_experiments_latin_square_designs():
 def statistics_design_of_experiments_randomization_lists():
     return render_template('statistics/design-of-experiments/randomization-lists.html')
 
-@app.route('/statistics/design-of-experiments/xxxx/')
-def statistics_design_of_experiments_index():
-    return render_template('statistics/design-of-experiments/index.html')
+@app.route('/statistics/design-of-experiments/response-surface-designs/')
+def statistics_design_of_experiments_response_surface_designs():
+    return render_template('statistics/design-of-experiments/response-surface-designs.html')
 
 @app.route('/statistics/design-of-experiments/xxxx/')
 def statistics_design_of_experiments_index():
