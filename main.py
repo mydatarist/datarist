@@ -271,9 +271,9 @@ def statistics_descriptive_statistics_index():
 def statistics_descriptive_statistics_area_under_curve():
     return render_template('statistics/descriptive-statistics/area-under-curve.html')
 
-@app.route('/statistics/descriptive-statistics/xxxxx/')
-def statistics_descriptive_statistics_index():
-    return render_template('statistics/descriptive-statistics/index.html')
+@app.route('/statistics/descriptive-statistics/box-cox-transformation/')
+def statistics_descriptive_statistics_box_cox_transformation():
+    return render_template('statistics/descriptive-statistics/box-cox-transformation.html')
 
 @app.route('/statistics/descriptive-statistics/xxxxx/')
 def statistics_descriptive_statistics_index():
