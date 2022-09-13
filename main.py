@@ -337,9 +337,9 @@ def statistics_design_of_experiments_design_generator():
 def statistics_design_of_experiments_fractional_factorial_designs():
     return render_template('statistics/design-of-experiments/fractional-factorial-designs.html')
 
-@app.route('/statistics/design-of-experiments/xxxx/')
-def statistics_design_of_experiments_index():
-    return render_template('statistics/design-of-experiments/index.html')
+@app.route('/statistics/design-of-experiments/latin-square-designs/')
+def statistics_design_of_experiments_latin_square_designs():
+    return render_template('statistics/design-of-experiments/latin-square-designs.html')
 
 @app.route('/statistics/design-of-experiments/xxxx/')
 def statistics_design_of_experiments_index():
