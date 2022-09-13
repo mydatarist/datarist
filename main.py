@@ -245,9 +245,9 @@ def statistics_curve_fitting_ratio_of_polynomials_fit_one_variable():
 def statistics_curve_fitting_ratio_of_polynomials_search_many_variable():
     return render_template('statistics/curve-fitting/ratio-of-polynomials-search-many-variable.html')
 
-@app.route('/statistics/curve-fitting/')
-def statistics_curve_fitting_index():
-    return render_template('statistics/curve-fitting/index.html')
+@app.route('/statistics/curve-fitting/ratio-of-polynomials-search-one-variable/')
+def statistics_curve_fitting_ratio_of_polynomials_search_one_variable():
+    return render_template('statistics/curve-fitting/ratio-of-polynomials-search-one-variable.html')
 
 @app.route('/statistics/curve-fitting/')
 def statistics_curve_fitting_index():
