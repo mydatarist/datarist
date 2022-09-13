@@ -229,9 +229,9 @@ def statistics_curve_fitting_introduction_to_curve_fitting():
 def statistics_curve_fitting_michaelis_menten_equation():
     return render_template('statistics/curve-fitting/michaelis-menten-equation.html')
 
-@app.route('/statistics/curve-fitting/')
-def statistics_curve_fitting_index():
-    return render_template('statistics/curve-fitting/index.html')
+@app.route('/statistics/curve-fitting/nonlinear-regression/')
+def statistics_curve_fitting_nonlinear_regression():
+    return render_template('statistics/curve-fitting/nonlinear-regression.html')
 
 @app.route('/statistics/curve-fitting/')
 def statistics_curve_fitting_index():
