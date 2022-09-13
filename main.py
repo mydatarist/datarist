@@ -279,9 +279,9 @@ def statistics_descriptive_statistics_box_cox_transformation():
 def statistics_descriptive_statistics_circular_data_analysis():
     return render_template('statistics/descriptive-statistics/circular-data-analysis.html')
 
-@app.route('/statistics/descriptive-statistics/xxxxx/')
-def statistics_descriptive_statistics_index():
-    return render_template('statistics/descriptive-statistics/index.html')
+@app.route('/statistics/descriptive-statistics/cluster-randomization/')
+def statistics_descriptive_statistics_cluster_randomization():
+    return render_template('statistics/descriptive-statistics/cluster-randomization.html')
 
 @app.route('/statistics/descriptive-statistics/xxxxx/')
 def statistics_descriptive_statistics_index():
