@@ -291,9 +291,9 @@ def statistics_descriptive_statistics_contingency_tables():
 def statistics_descriptive_statistics_data_screening():
     return render_template('statistics/descriptive-statistics/data-screening.html')
 
-@app.route('/statistics/descriptive-statistics/xxxxx/')
-def statistics_descriptive_statistics_index():
-    return render_template('statistics/descriptive-statistics/index.html')
+@app.route('/statistics/descriptive-statistics/data-simulation/')
+def statistics_descriptive_statistics_data_simulation():
+    return render_template('statistics/descriptive-statistics/data-simulation.html')
 
 @app.route('/statistics/descriptive-statistics/xxxxx/')
 def statistics_descriptive_statistics_index():
