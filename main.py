@@ -267,9 +267,9 @@ def statistics_curve_fitting_sum_of_functions_models():
 def statistics_descriptive_statistics_index():
     return render_template('statistics/descriptive-statistics/index.html')
 
-@app.route('/statistics/descriptive-statistics/xxxxx/')
-def statistics_descriptive_statistics_index():
-    return render_template('statistics/descriptive-statistics/index.html')
+@app.route('/statistics/descriptive-statistics/area-under-curve/')
+def statistics_descriptive_statistics_area_under_curve():
+    return render_template('statistics/descriptive-statistics/area-under-curve.html')
 
 @app.route('/statistics/descriptive-statistics/xxxxx/')
 def statistics_descriptive_statistics_index():
