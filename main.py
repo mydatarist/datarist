@@ -261,6 +261,60 @@ def statistics_curve_fitting_scatterplot_matrix_for_curve_fitting():
 def statistics_curve_fitting_sum_of_functions_models():
     return render_template('statistics/curve-fitting/sum-of-functions-models.html')
 
+# /STATISTICS/DESCRIPTIVE-STATISTICS/
+
+@app.route('/statistics/descriptive-statistics/')
+def statistics_descriptive_statistics_index():
+    return render_template('statistics/descriptive-statistics/index.html')
+
+@app.route('/statistics/descriptive-statistics/xxxxx/')
+def statistics_descriptive_statistics_index():
+    return render_template('statistics/descriptive-statistics/index.html')
+
+@app.route('/statistics/descriptive-statistics/xxxxx/')
+def statistics_descriptive_statistics_index():
+    return render_template('statistics/descriptive-statistics/index.html')
+
+@app.route('/statistics/descriptive-statistics/xxxxx/')
+def statistics_descriptive_statistics_index():
+    return render_template('statistics/descriptive-statistics/index.html')
+
+@app.route('/statistics/descriptive-statistics/xxxxx/')
+def statistics_descriptive_statistics_index():
+    return render_template('statistics/descriptive-statistics/index.html')
+
+@app.route('/statistics/descriptive-statistics/xxxxx/')
+def statistics_descriptive_statistics_index():
+    return render_template('statistics/descriptive-statistics/index.html')
+
+@app.route('/statistics/descriptive-statistics/xxxxx/')
+def statistics_descriptive_statistics_index():
+    return render_template('statistics/descriptive-statistics/index.html')
+
+@app.route('/statistics/descriptive-statistics/xxxxx/')
+def statistics_descriptive_statistics_index():
+    return render_template('statistics/descriptive-statistics/index.html')
+
+@app.route('/statistics/descriptive-statistics/xxxxx/')
+def statistics_descriptive_statistics_index():
+    return render_template('statistics/descriptive-statistics/index.html')
+
+@app.route('/statistics/descriptive-statistics/xxxxx/')
+def statistics_descriptive_statistics_index():
+    return render_template('statistics/descriptive-statistics/index.html')
+
+@app.route('/statistics/descriptive-statistics/xxxxx/')
+def statistics_descriptive_statistics_index():
+    return render_template('statistics/descriptive-statistics/index.html')
+
+@app.route('/statistics/descriptive-statistics/xxxxx/')
+def statistics_descriptive_statistics_index():
+    return render_template('statistics/descriptive-statistics/index.html')
+
+@app.route('/statistics/descriptive-statistics/xxxxx/')
+def statistics_descriptive_statistics_index():
+    return render_template('statistics/descriptive-statistics/index.html')
+
 # /GRAPHICS/
 
 @app.route('/graphics/')
