@@ -349,9 +349,9 @@ def statistics_design_of_experiments_randomization_lists():
 def statistics_design_of_experiments_response_surface_designs():
     return render_template('statistics/design-of-experiments/response-surface-designs.html')
 
-@app.route('/statistics/design-of-experiments/xxxx/')
-def statistics_design_of_experiments_index():
-    return render_template('statistics/design-of-experiments/index.html')
+@app.route('/statistics/design-of-experiments/response-surface-regression/')
+def statistics_design_of_experiments_response_surface_regression():
+    return render_template('statistics/design-of-experiments/response-surface-regression.html')
 
 @app.route('/statistics/design-of-experiments/xxxx/')
 def statistics_design_of_experiments_index():
