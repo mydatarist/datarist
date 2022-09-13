@@ -313,13 +313,13 @@ def statistics_descriptive_statistics_tolerance_intervals():
 
 # /STATISTICS/DESIGN-OF-EXPERIMENTS/
 
-@app.route('/statistics/design-of-experiments/xxxx/')
+@app.route('/statistics/design-of-experiments/')
 def statistics_design_of_experiments_index():
     return render_template('statistics/design-of-experiments/index.html')
 
-@app.route('/statistics/design-of-experiments/xxxx/')
-def statistics_design_of_experiments_index():
-    return render_template('statistics/design-of-experiments/index.html')
+@app.route('/statistics/design-of-experiments/analysis-of-two-level-designs/')
+def statistics_design_of_experiments_analysis_of_two_level_designs():
+    return render_template('statistics/design-of-experiments/analysis-of-two-level-designs.html')
 
 @app.route('/statistics/design-of-experiments/xxxx/')
 def statistics_design_of_experiments_index():
