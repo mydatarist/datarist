@@ -237,9 +237,9 @@ def statistics_curve_fitting_nonlinear_regression():
 def statistics_curve_fitting_ratio_of_polynomials_fit_many_variable():
     return render_template('statistics/curve-fitting/ratio-of-polynomials-fit-many-variable.html')
 
-@app.route('/statistics/curve-fitting/')
-def statistics_curve_fitting_index():
-    return render_template('statistics/curve-fitting/index.html')
+@app.route('/statistics/curve-fitting/ratio-of-polynomials-fit-one-variable/')
+def statistics_curve_fitting_ratio_of_polynomials_fit_one_variable():
+    return render_template('statistics/curve-fitting/ratio-of-polynomials-fit-one-variable.html')
 
 @app.route('/statistics/curve-fitting/')
 def statistics_curve_fitting_index():
