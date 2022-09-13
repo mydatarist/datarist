@@ -221,9 +221,9 @@ def statistics_curve_fitting_fractional_polynomial_regression():
 def statistics_curve_fitting_function_plots():
     return render_template('statistics/curve-fitting/function-plots.html')
 
-@app.route('/statistics/curve-fitting/')
-def statistics_curve_fitting_index():
-    return render_template('statistics/curve-fitting/index.html')
+@app.route('/statistics/curve-fitting/introduction-to-curve-fitting/')
+def statistics_curve_fitting_introduction_to_curve_fitting():
+    return render_template('statistics/curve-fitting/introduction-to-curve-fitting.html')
 
 @app.route('/statistics/curve-fitting/')
 def statistics_curve_fitting_index():
