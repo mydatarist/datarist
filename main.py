@@ -333,9 +333,9 @@ def statistics_design_of_experiments_d_optimal_designs():
 def statistics_design_of_experiments_design_generator():
     return render_template('statistics/design-of-experiments/design-generator.html')
 
-@app.route('/statistics/design-of-experiments/xxxx/')
-def statistics_design_of_experiments_index():
-    return render_template('statistics/design-of-experiments/index.html')
+@app.route('/statistics/design-of-experiments/fractional-factorial-designs/')
+def statistics_design_of_experiments_fractional_factorial_designs():
+    return render_template('statistics/design-of-experiments/fractional-factorial-designs.html')
 
 @app.route('/statistics/design-of-experiments/xxxx/')
 def statistics_design_of_experiments_index():
