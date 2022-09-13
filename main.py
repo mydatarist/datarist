@@ -325,9 +325,9 @@ def statistics_design_of_experiments_analysis_of_two_level_designs():
 def statistics_design_of_experiments_balanced_incomplete_block_designs():
     return render_template('statistics/design-of-experiments/balanced-incomplete-block-designs.html')
 
-@app.route('/statistics/design-of-experiments/xxxx/')
-def statistics_design_of_experiments_index():
-    return render_template('statistics/design-of-experiments/index.html')
+@app.route('/statistics/design-of-experiments/d-optimal-designs/')
+def statistics_design_of_experiments_d_optimal_designs():
+    return render_template('statistics/design-of-experiments/d-optimal-designs.html')
 
 @app.route('/statistics/design-of-experiments/xxxx/')
 def statistics_design_of_experiments_index():
