@@ -299,9 +299,9 @@ def statistics_descriptive_statistics_data_simulation():
 def statistics_descriptive_statistics_frequency_tables():
     return render_template('statistics/descriptive-statistics/frequency-tables.html')
 
-@app.route('/statistics/descriptive-statistics/xxxxx/')
-def statistics_descriptive_statistics_index():
-    return render_template('statistics/descriptive-statistics/index.html')
+@app.route('/statistics/descriptive-statistics/grubbs-outlier-test/')
+def statistics_descriptive_statistics_grubbs_outlier_test():
+    return render_template('statistics/descriptive-statistics/grubbs-outlier-test.html')
 
 @app.route('/statistics/descriptive-statistics/xxxxx/')
 def statistics_descriptive_statistics_index():
