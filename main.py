@@ -203,6 +203,64 @@ def statistics_correlation_lins_concordance_correlation_coefficient():
 def statistics_correlation_point_biserial_and_biserial_correlations():
     return render_template('statistics/correlation/point-biserial-and-biserial-correlations.html')
 
+# /STATISTICS/CURVE-FITTING/
+
+@app.route('/statistics/curve-fitting/')
+def statistics_curve_fitting_index():
+    return render_template('statistics/curve-fitting/index.html')
+
+@app.route('/statistics/curve-fitting/')
+def statistics_curve_fitting_index():
+    return render_template('statistics/curve-fitting/index.html')
+
+@app.route('/statistics/curve-fitting/')
+def statistics_curve_fitting_index():
+    return render_template('statistics/curve-fitting/index.html')
+
+@app.route('/statistics/curve-fitting/')
+def statistics_curve_fitting_index():
+    return render_template('statistics/curve-fitting/index.html')
+
+@app.route('/statistics/curve-fitting/')
+def statistics_curve_fitting_index():
+    return render_template('statistics/curve-fitting/index.html')
+
+@app.route('/statistics/curve-fitting/')
+def statistics_curve_fitting_index():
+    return render_template('statistics/curve-fitting/index.html')
+
+@app.route('/statistics/curve-fitting/')
+def statistics_curve_fitting_index():
+    return render_template('statistics/curve-fitting/index.html')
+
+@app.route('/statistics/curve-fitting/')
+def statistics_curve_fitting_index():
+    return render_template('statistics/curve-fitting/index.html')
+
+@app.route('/statistics/curve-fitting/')
+def statistics_curve_fitting_index():
+    return render_template('statistics/curve-fitting/index.html')
+
+@app.route('/statistics/curve-fitting/')
+def statistics_curve_fitting_index():
+    return render_template('statistics/curve-fitting/index.html')
+
+@app.route('/statistics/curve-fitting/')
+def statistics_curve_fitting_index():
+    return render_template('statistics/curve-fitting/index.html')
+
+@app.route('/statistics/curve-fitting/')
+def statistics_curve_fitting_index():
+    return render_template('statistics/curve-fitting/index.html')
+
+@app.route('/statistics/curve-fitting/')
+def statistics_curve_fitting_index():
+    return render_template('statistics/curve-fitting/index.html')
+
+@app.route('/statistics/curve-fitting/')
+def statistics_curve_fitting_index():
+    return render_template('statistics/curve-fitting/index.html')
+
 # /GRAPHICS/
 
 @app.route('/graphics/')
