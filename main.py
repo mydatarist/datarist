@@ -209,9 +209,9 @@ def statistics_correlation_point_biserial_and_biserial_correlations():
 def statistics_curve_fitting_index():
     return render_template('statistics/curve-fitting/index.html')
 
-@app.route('/statistics/curve-fitting/')
-def statistics_curve_fitting_index():
-    return render_template('statistics/curve-fitting/index.html')
+@app.route('/statistics/curve-fitting/curve-fitting/')
+def statistics_curve_fitting_curve_fitting():
+    return render_template('statistics/curve-fitting/curve-fitting.html')
 
 @app.route('/statistics/curve-fitting/')
 def statistics_curve_fitting_index():
