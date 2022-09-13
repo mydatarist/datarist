@@ -303,9 +303,9 @@ def statistics_descriptive_statistics_frequency_tables():
 def statistics_descriptive_statistics_grubbs_outlier_test():
     return render_template('statistics/descriptive-statistics/grubbs-outlier-test.html')
 
-@app.route('/statistics/descriptive-statistics/xxxxx/')
-def statistics_descriptive_statistics_index():
-    return render_template('statistics/descriptive-statistics/index.html')
+@app.route('/statistics/descriptive-statistics/normality-tests/')
+def statistics_descriptive_statistics_normality_tests():
+    return render_template('statistics/descriptive-statistics/normality-tests.html')
 
 @app.route('/statistics/descriptive-statistics/xxxxx/')
 def statistics_descriptive_statistics_index():
