@@ -311,6 +311,60 @@ def statistics_descriptive_statistics_normality_tests():
 def statistics_descriptive_statistics_tolerance_intervals():
     return render_template('statistics/descriptive-statistics/tolerance-intervals.html')
 
+# /STATISTICS/DESIGN-OF-EXPERIMENTS/
+
+@app.route('/statistics/design-of-experiments/xxxx/')
+def statistics_design_of_experiments_index():
+    return render_template('statistics/design-of-experiments/index.html')
+
+@app.route('/statistics/design-of-experiments/xxxx/')
+def statistics_design_of_experiments_index():
+    return render_template('statistics/design-of-experiments/index.html')
+
+@app.route('/statistics/design-of-experiments/xxxx/')
+def statistics_design_of_experiments_index():
+    return render_template('statistics/design-of-experiments/index.html')
+
+@app.route('/statistics/design-of-experiments/xxxx/')
+def statistics_design_of_experiments_index():
+    return render_template('statistics/design-of-experiments/index.html')
+
+@app.route('/statistics/design-of-experiments/xxxx/')
+def statistics_design_of_experiments_index():
+    return render_template('statistics/design-of-experiments/index.html')
+
+@app.route('/statistics/design-of-experiments/xxxx/')
+def statistics_design_of_experiments_index():
+    return render_template('statistics/design-of-experiments/index.html')
+
+@app.route('/statistics/design-of-experiments/xxxx/')
+def statistics_design_of_experiments_index():
+    return render_template('statistics/design-of-experiments/index.html')
+
+@app.route('/statistics/design-of-experiments/xxxx/')
+def statistics_design_of_experiments_index():
+    return render_template('statistics/design-of-experiments/index.html')
+
+@app.route('/statistics/design-of-experiments/xxxx/')
+def statistics_design_of_experiments_index():
+    return render_template('statistics/design-of-experiments/index.html')
+
+@app.route('/statistics/design-of-experiments/xxxx/')
+def statistics_design_of_experiments_index():
+    return render_template('statistics/design-of-experiments/index.html')
+
+@app.route('/statistics/design-of-experiments/xxxx/')
+def statistics_design_of_experiments_index():
+    return render_template('statistics/design-of-experiments/index.html')
+
+@app.route('/statistics/design-of-experiments/xxxx/')
+def statistics_design_of_experiments_index():
+    return render_template('statistics/design-of-experiments/index.html')
+
+@app.route('/statistics/design-of-experiments/xxxx/')
+def statistics_design_of_experiments_index():
+    return render_template('statistics/design-of-experiments/index.html')
+
 # /GRAPHICS/
 
 @app.route('/graphics/')
