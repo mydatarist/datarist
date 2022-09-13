@@ -253,9 +253,9 @@ def statistics_curve_fitting_ratio_of_polynomials_search_one_variable():
 def statistics_curve_fitting_reference_intervals_age_specific():
     return render_template('statistics/curve-fitting/reference-intervals-age-specific.html')
 
-@app.route('/statistics/curve-fitting/')
-def statistics_curve_fitting_index():
-    return render_template('statistics/curve-fitting/index.html')
+@app.route('/statistics/curve-fitting/scatterplot-matrix-for-curve-fitting/')
+def statistics_curve_fitting_scatterplot_matrix_for_curve_fitting():
+    return render_template('statistics/curve-fitting/scatterplot-matrix-for-curve-fitting.html')
 
 @app.route('/statistics/curve-fitting/')
 def statistics_curve_fitting_index():
