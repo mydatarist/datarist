@@ -287,9 +287,9 @@ def statistics_descriptive_statistics_cluster_randomization():
 def statistics_descriptive_statistics_contingency_tables():
     return render_template('statistics/descriptive-statistics/contingency-tables.html')
 
-@app.route('/statistics/descriptive-statistics/xxxxx/')
-def statistics_descriptive_statistics_index():
-    return render_template('statistics/descriptive-statistics/index.html')
+@app.route('/statistics/descriptive-statistics/data-screening/')
+def statistics_descriptive_statistics_data_screening():
+    return render_template('statistics/descriptive-statistics/data-screening.html')
 
 @app.route('/statistics/descriptive-statistics/xxxxx/')
 def statistics_descriptive_statistics_index():
