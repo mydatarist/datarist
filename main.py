@@ -275,9 +275,9 @@ def statistics_descriptive_statistics_area_under_curve():
 def statistics_descriptive_statistics_box_cox_transformation():
     return render_template('statistics/descriptive-statistics/box-cox-transformation.html')
 
-@app.route('/statistics/descriptive-statistics/xxxxx/')
-def statistics_descriptive_statistics_index():
-    return render_template('statistics/descriptive-statistics/index.html')
+@app.route('/statistics/descriptive-statistics/circular-data-analysis/')
+def statistics_descriptive_statistics_circular_data_analysis():
+    return render_template('statistics/descriptive-statistics/circular-data-analysis.html')
 
 @app.route('/statistics/descriptive-statistics/xxxxx/')
 def statistics_descriptive_statistics_index():
