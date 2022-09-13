@@ -257,9 +257,9 @@ def statistics_curve_fitting_reference_intervals_age_specific():
 def statistics_curve_fitting_scatterplot_matrix_for_curve_fitting():
     return render_template('statistics/curve-fitting/scatterplot-matrix-for-curve-fitting.html')
 
-@app.route('/statistics/curve-fitting/')
-def statistics_curve_fitting_index():
-    return render_template('statistics/curve-fitting/index.html')
+@app.route('/statistics/curve-fitting/sum-of-functions-models/')
+def statistics_curve_fitting_sum_of_functions_models():
+    return render_template('statistics/curve-fitting/sum-of-functions-models.html')
 
 # /GRAPHICS/
 
