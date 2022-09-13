@@ -307,13 +307,9 @@ def statistics_descriptive_statistics_grubbs_outlier_test():
 def statistics_descriptive_statistics_normality_tests():
     return render_template('statistics/descriptive-statistics/normality-tests.html')
 
-@app.route('/statistics/descriptive-statistics/xxxxx/')
-def statistics_descriptive_statistics_index():
-    return render_template('statistics/descriptive-statistics/index.html')
-
-@app.route('/statistics/descriptive-statistics/xxxxx/')
-def statistics_descriptive_statistics_index():
-    return render_template('statistics/descriptive-statistics/index.html')
+@app.route('/statistics/descriptive-statistics/tolerance-intervals/')
+def statistics_descriptive_statistics_tolerance_intervals():
+    return render_template('statistics/descriptive-statistics/tolerance-intervals.html')
 
 # /GRAPHICS/
 
