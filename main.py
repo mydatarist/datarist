@@ -417,9 +417,9 @@ def statistics_distribution_fitting_beta_distribution_fitting():
 def statistics_distribution_fitting_chi_square_probability_plots():
     return render_template('statistics/distribution-fitting/chi-square-probability-plots.html')
 
-@app.route('/statistics/distribution-fitting/')
-def statistics_distribution_fitting_index():
-    return render_template('statistics/distribution-fitting/index.html')
+@app.route('/statistics/distribution-fitting/distribution-weibull-fitting/')
+def statistics_distribution_fitting_distribution_weibull_fitting():
+    return render_template('statistics/distribution-fitting/distribution-weibull-fitting.html')
 
 @app.route('/statistics/distribution-fitting/')
 def statistics_distribution_fitting_index():
