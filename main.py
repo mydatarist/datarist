@@ -487,9 +487,9 @@ def statistics_forecasting_autocorrelations():
 def statistics_forecasting_box_jenkins_method():
     return render_template('statistics/forecasting/box-jenkins-method.html')
 
-@app.route('/statistics/forecasting/')
-def statistics_forecasting_index():
-    return render_template('statistics/forecasting/index.html')
+@app.route('/statistics/forecasting/cross-correlations/')
+def statistics_forecasting_cross_correlations():
+    return render_template('statistics/forecasting/cross-correlations.html')
 
 @app.route('/statistics/forecasting/')
 def statistics_forecasting_index():
