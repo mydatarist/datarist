@@ -565,9 +565,9 @@ def statistics_item_analysis_item_response_analysis():
 def statistics_meta_analysis_index():
     return render_template('statistics/meta-analysis/index.html')
 
-@app.route('/statistics/meta-analysis/')
-def statistics_meta_analysis_index():
-    return render_template('statistics/meta-analysis/index.html')
+@app.route('/statistics/meta-analysis/forest-plots/')
+def statistics_meta_analysis_forest_plots():
+    return render_template('statistics/meta-analysis/forest-plots.html')
 
 @app.route('/statistics/meta-analysis/')
 def statistics_meta_analysis_index():
