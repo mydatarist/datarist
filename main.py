@@ -511,6 +511,40 @@ def statistics_forecasting_spectral_analysis():
 def statistics_forecasting_time_series_plots():
     return render_template('statistics/forecasting/time-series-plots.html')
 
+# /STATISTICS/GROUP-SEQUENTIAL/
+
+@app.route('/statistics/group-sequential/')
+def statistics_group_sequential_index():
+    return render_template('statistics/group-sequential/index.html')
+
+@app.route('/statistics/group-sequential/')
+def statistics_group_sequential_index():
+    return render_template('statistics/group-sequential/index.html')
+
+@app.route('/statistics/group-sequential/')
+def statistics_group_sequential_index():
+    return render_template('statistics/group-sequential/index.html')
+
+@app.route('/statistics/group-sequential/')
+def statistics_group_sequential_index():
+    return render_template('statistics/group-sequential/index.html')
+
+@app.route('/statistics/group-sequential/')
+def statistics_group_sequential_index():
+    return render_template('statistics/group-sequential/index.html')
+
+@app.route('/statistics/group-sequential/')
+def statistics_group_sequential_index():
+    return render_template('statistics/group-sequential/index.html')
+
+@app.route('/statistics/group-sequential/')
+def statistics_group_sequential_index():
+    return render_template('statistics/group-sequential/index.html')
+
+@app.route('/statistics/group-sequential/')
+def statistics_group_sequential_index():
+    return render_template('statistics/group-sequential/index.html')
+
 # /GRAPHICS/
 
 @app.route('/graphics/')
