@@ -549,6 +549,16 @@ def statistics_group_sequential_two_poisson_rates():
 def statistics_group_sequential_two_proportions():
     return render_template('statistics/group-sequential/two-proportions.html')
 
+# /STATISTICS/ITEM-ANALYSIS/
+
+@app.route('/statistics/item-analysis/')
+def statistics_item_analysis_index():
+    return render_template('statistics/item-analysis/index.html')
+
+@app.route('/statistics/item-analysis/item-response-analysis/')
+def statistics_item_analysis_item_response_analysis():
+    return render_template('statistics/item-analysis/item-response-analysis.html')
+
 # /GRAPHICS/
 
 @app.route('/graphics/')
