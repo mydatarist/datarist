@@ -517,9 +517,9 @@ def statistics_forecasting_time_series_plots():
 def statistics_group_sequential_index():
     return render_template('statistics/group-sequential/index.html')
 
-@app.route('/statistics/group-sequential/')
-def statistics_group_sequential_index():
-    return render_template('statistics/group-sequential/index.html')
+@app.route('/statistics/group-sequential/one-hazard-rate/')
+def statistics_group_sequential_one_hazard_rate():
+    return render_template('statistics/group-sequential/one-hazard-rate.html')
 
 @app.route('/statistics/group-sequential/')
 def statistics_group_sequential_index():
