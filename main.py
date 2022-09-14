@@ -581,9 +581,9 @@ def statistics_meta_analysis_meta_analysis_of_hazard_ratios():
 def statistics_meta_analysis_meta_analysis_of_means():
     return render_template('statistics/meta-analysis/meta-analysis-of-means.html')
 
-@app.route('/statistics/meta-analysis/')
-def statistics_meta_analysis_index():
-    return render_template('statistics/meta-analysis/index.html')
+@app.route('/statistics/meta-analysis/meta-analysis-of-proportions/')
+def statistics_meta_analysis_meta_analysis_of_proportions():
+    return render_template('statistics/meta-analysis/meta-analysis-of-proportions.html')
 
 # /GRAPHICS/
 
