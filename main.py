@@ -457,9 +457,9 @@ def statistics_distribution_fitting_probability_plot_comparison():
 def statistics_distribution_fitting_uniform_probability_plots():
     return render_template('statistics/distribution-fitting/uniform-probability-plots.html')
 
-@app.route('/statistics/distribution-fitting/')
-def statistics_distribution_fitting_index():
-    return render_template('statistics/distribution-fitting/index.html')
+@app.route('/statistics/distribution-fitting/weibull-probability-plots/')
+def statistics_distribution_fitting_weibull_probability_plots():
+    return render_template('statistics/distribution-fitting/weibull-probability-plots.html')
 
 @app.route('/statistics/distribution-fitting/')
 def statistics_distribution_fitting_index():
