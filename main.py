@@ -545,6 +545,10 @@ def statistics_group_sequential_two_means():
 def statistics_group_sequential_two_poisson_rates():
     return render_template('statistics/group-sequential/two-poisson-rates.html')
 
+@app.route('/statistics/group-sequential/two-poisson-rates/')
+def statistics_group_sequential_two_poisson_rates():
+    return render_template('statistics/group-sequential/two-poisson-rates.html')
+
 # /GRAPHICS/
 
 @app.route('/graphics/')
