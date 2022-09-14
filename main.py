@@ -383,9 +383,9 @@ def statistics_diagnostic_tests_binary_diagnostic_tests_paired_samples():
 def statistics_diagnostic_tests_binary_diagnostic_tests_single_sample():
     return render_template('statistics/diagnostic-tests/binary-diagnostic-tests-single-sample.html')
 
-@app.route('/statistics/diagnostic-tests/')
-def statistics_diagnostic_tests_index():
-    return render_template('statistics/diagnostic-tests/index.html')
+@app.route('/statistics/diagnostic-tests/binary-diagnostic-tests-two-independent-samples/')
+def statistics_diagnostic_tests_binary_diagnostic_tests_two_independent_samples():
+    return render_template('statistics/diagnostic-tests/binary-diagnostic-tests-two-independent-samples.html')
 
 @app.route('/statistics/diagnostic-tests/')
 def statistics_diagnostic_tests_index():
