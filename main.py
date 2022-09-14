@@ -387,9 +387,9 @@ def statistics_diagnostic_tests_binary_diagnostic_tests_single_sample():
 def statistics_diagnostic_tests_binary_diagnostic_tests_two_independent_samples():
     return render_template('statistics/diagnostic-tests/binary-diagnostic-tests-two-independent-samples.html')
 
-@app.route('/statistics/diagnostic-tests/')
-def statistics_diagnostic_tests_index():
-    return render_template('statistics/diagnostic-tests/index.html')
+@app.route('/statistics/diagnostic-tests/comparing-two-roc-curves-independent-groups-design/')
+def statistics_diagnostic_tests_comparing_two_roc_curves_independent_groups_design():
+    return render_template('statistics/diagnostic-tests/comparing-two-roc-curves-independent-groups-design.html')
 
 @app.route('/statistics/diagnostic-tests/')
 def statistics_diagnostic_tests_index():
