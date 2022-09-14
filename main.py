@@ -399,9 +399,9 @@ def statistics_diagnostic_tests_comparing_two_roc_curves_paired_design():
 def statistics_diagnostic_tests_one_roc_curve_and_cutoff_analysis():
     return render_template('statistics/diagnostic-tests/one-roc-curve-and-cutoff-analysis.html')
 
-@app.route('/statistics/diagnostic-tests/')
-def statistics_diagnostic_tests_index():
-    return render_template('statistics/diagnostic-tests/index.html')
+@app.route('/statistics/diagnostic-tests/roc-curves/')
+def statistics_diagnostic_tests_roc_curves():
+    return render_template('statistics/diagnostic-tests/roc-curves.html')
 
 # /GRAPHICS/
 
