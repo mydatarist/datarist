@@ -569,9 +569,9 @@ def statistics_meta_analysis_index():
 def statistics_meta_analysis_forest_plots():
     return render_template('statistics/meta-analysis/forest-plots.html')
 
-@app.route('/statistics/meta-analysis/')
-def statistics_meta_analysis_index():
-    return render_template('statistics/meta-analysis/index.html')
+@app.route('/statistics/meta-analysis/meta-analysis-of-correlated-proportions/')
+def statistics_meta_analysis_meta_analysis_of_correlated_proportions():
+    return render_template('statistics/meta-analysis/meta-analysis-of-correlated-proportions.html')
 
 @app.route('/statistics/meta-analysis/')
 def statistics_meta_analysis_index():
