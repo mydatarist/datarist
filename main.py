@@ -475,9 +475,9 @@ def statistics_forecasting_index():
 def statistics_forecasting_analysis_of_runs():
     return render_template('statistics/forecasting/analysis-of-runs.html')
 
-@app.route('/statistics/forecasting/')
-def statistics_forecasting_index():
-    return render_template('statistics/forecasting/index.html')
+@app.route('/statistics/forecasting/arima/')
+def statistics_forecasting_arima():
+    return render_template('statistics/forecasting/arima.html')
 
 @app.route('/statistics/forecasting/')
 def statistics_forecasting_index():
