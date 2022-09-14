@@ -479,9 +479,9 @@ def statistics_forecasting_analysis_of_runs():
 def statistics_forecasting_arima():
     return render_template('statistics/forecasting/arima.html')
 
-@app.route('/statistics/forecasting/')
-def statistics_forecasting_index():
-    return render_template('statistics/forecasting/index.html')
+@app.route('/statistics/forecasting/autocorrelations/')
+def statistics_forecasting_autocorrelations():
+    return render_template('statistics/forecasting/autocorrelations.html')
 
 @app.route('/statistics/forecasting/')
 def statistics_forecasting_index():
