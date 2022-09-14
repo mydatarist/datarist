@@ -375,9 +375,9 @@ def statistics_diagnostic_tests_index():
 def statistics_diagnostic_tests_binary_diagnostic_tests_clustered_samples():
     return render_template('statistics/diagnostic-tests/binary-diagnostic-tests-clustered-samples.html')
 
-@app.route('/statistics/diagnostic-tests/')
-def statistics_diagnostic_tests_index():
-    return render_template('statistics/diagnostic-tests/index.html')
+@app.route('/statistics/diagnostic-tests/binary-diagnostic-tests-paired-samples/')
+def statistics_diagnostic_tests_binary_diagnostic_tests_paired_samples():
+    return render_template('statistics/diagnostic-tests/binary-diagnostic-tests-paired-samples.html')
 
 @app.route('/statistics/diagnostic-tests/')
 def statistics_diagnostic_tests_index():
