@@ -503,9 +503,9 @@ def statistics_forecasting_exponential_smoothing():
 def statistics_forecasting_harmonic_regression():
     return render_template('statistics/forecasting/harmonic-regression.html')
 
-@app.route('/statistics/forecasting/')
-def statistics_forecasting_index():
-    return render_template('statistics/forecasting/index.html')
+@app.route('/statistics/forecasting/spectral-analysis/')
+def statistics_forecasting_spectral_analysis():
+    return render_template('statistics/forecasting/spectral-analysis.html')
 
 @app.route('/statistics/forecasting/')
 def statistics_forecasting_index():
