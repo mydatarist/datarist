@@ -403,6 +403,68 @@ def statistics_diagnostic_tests_one_roc_curve_and_cutoff_analysis():
 def statistics_diagnostic_tests_roc_curves():
     return render_template('statistics/diagnostic-tests/roc-curves.html')
 
+# /STATISTICS/DISTRIBUTION-FITTING/
+
+@app.route('/statistics/distribution-fitting/')
+def statistics_distribution_fitting_index():
+    return render_template('statistics/distribution-fitting/index.html')
+
+@app.route('/statistics/distribution-fitting/')
+def statistics_distribution_fitting_index():
+    return render_template('statistics/distribution-fitting/index.html')
+
+@app.route('/statistics/distribution-fitting/')
+def statistics_distribution_fitting_index():
+    return render_template('statistics/distribution-fitting/index.html')
+
+@app.route('/statistics/distribution-fitting/')
+def statistics_distribution_fitting_index():
+    return render_template('statistics/distribution-fitting/index.html')
+
+@app.route('/statistics/distribution-fitting/')
+def statistics_distribution_fitting_index():
+    return render_template('statistics/distribution-fitting/index.html')
+
+@app.route('/statistics/distribution-fitting/')
+def statistics_distribution_fitting_index():
+    return render_template('statistics/distribution-fitting/index.html')
+
+@app.route('/statistics/distribution-fitting/')
+def statistics_distribution_fitting_index():
+    return render_template('statistics/distribution-fitting/index.html')
+
+@app.route('/statistics/distribution-fitting/')
+def statistics_distribution_fitting_index():
+    return render_template('statistics/distribution-fitting/index.html')
+
+@app.route('/statistics/distribution-fitting/')
+def statistics_distribution_fitting_index():
+    return render_template('statistics/distribution-fitting/index.html')
+
+@app.route('/statistics/distribution-fitting/')
+def statistics_distribution_fitting_index():
+    return render_template('statistics/distribution-fitting/index.html')
+
+@app.route('/statistics/distribution-fitting/')
+def statistics_distribution_fitting_index():
+    return render_template('statistics/distribution-fitting/index.html')
+
+@app.route('/statistics/distribution-fitting/')
+def statistics_distribution_fitting_index():
+    return render_template('statistics/distribution-fitting/index.html')
+
+@app.route('/statistics/distribution-fitting/')
+def statistics_distribution_fitting_index():
+    return render_template('statistics/distribution-fitting/index.html')
+
+@app.route('/statistics/distribution-fitting/')
+def statistics_distribution_fitting_index():
+    return render_template('statistics/distribution-fitting/index.html')
+
+@app.route('/statistics/distribution-fitting/')
+def statistics_distribution_fitting_index():
+    return render_template('statistics/distribution-fitting/index.html')
+
 # /GRAPHICS/
 
 @app.route('/graphics/')
