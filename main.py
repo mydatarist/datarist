@@ -425,9 +425,9 @@ def statistics_distribution_fitting_distribution_weibull_fitting():
 def statistics_distribution_fitting_exponential_probability_plots():
     return render_template('statistics/distribution-fitting/exponential-probability-plots.html')
 
-@app.route('/statistics/distribution-fitting/')
-def statistics_distribution_fitting_index():
-    return render_template('statistics/distribution-fitting/index.html')
+@app.route('/statistics/distribution-fitting/gamma-distribution-fitting/')
+def statistics_distribution_fitting_gamma_distribution_fitting():
+    return render_template('statistics/distribution-fitting/gamma-distribution-fitting.html')
 
 @app.route('/statistics/distribution-fitting/')
 def statistics_distribution_fitting_index():
