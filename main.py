@@ -433,9 +433,9 @@ def statistics_distribution_fitting_gamma_distribution_fitting():
 def statistics_distribution_fitting_grubbs_outlier_test():
     return render_template('statistics/distribution-fitting/grubbs-outlier-test.html')
 
-@app.route('/statistics/distribution-fitting/')
-def statistics_distribution_fitting_index():
-    return render_template('statistics/distribution-fitting/index.html')
+@app.route('/statistics/distribution-fitting/half-normal-probability-plots/')
+def statistics_distribution_fitting_half_normal_probability_plots():
+    return render_template('statistics/distribution-fitting/half-normal-probability-plots.html')
 
 @app.route('/statistics/distribution-fitting/')
 def statistics_distribution_fitting_index():
