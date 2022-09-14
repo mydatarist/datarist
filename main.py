@@ -409,9 +409,9 @@ def statistics_diagnostic_tests_roc_curves():
 def statistics_distribution_fitting_index():
     return render_template('statistics/distribution-fitting/index.html')
 
-@app.route('/statistics/distribution-fitting/')
-def statistics_distribution_fitting_index():
-    return render_template('statistics/distribution-fitting/index.html')
+@app.route('/statistics/distribution-fitting/beta-distribution-fitting/')
+def statistics_distribution_fitting_beta_distribution_fitting():
+    return render_template('statistics/distribution-fitting/beta-distribution-fitting.html')
 
 @app.route('/statistics/distribution-fitting/')
 def statistics_distribution_fitting_index():
