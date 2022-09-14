@@ -525,9 +525,9 @@ def statistics_group_sequential_one_hazard_rate():
 def statistics_group_sequential_one_mean():
     return render_template('statistics/group-sequential/one-mean.html')
 
-@app.route('/statistics/group-sequential/')
-def statistics_group_sequential_index():
-    return render_template('statistics/group-sequential/index.html')
+@app.route('/statistics/group-sequential/one-poisson-rate/')
+def statistics_group_sequential_one_poisson_rate():
+    return render_template('statistics/group-sequential/one-poisson-rate.html')
 
 @app.route('/statistics/group-sequential/')
 def statistics_group_sequential_index():
