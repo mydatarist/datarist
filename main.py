@@ -573,9 +573,9 @@ def statistics_meta_analysis_forest_plots():
 def statistics_meta_analysis_meta_analysis_of_correlated_proportions():
     return render_template('statistics/meta-analysis/meta-analysis-of-correlated-proportions.html')
 
-@app.route('/statistics/meta-analysis/')
-def statistics_meta_analysis_index():
-    return render_template('statistics/meta-analysis/index.html')
+@app.route('/statistics/meta-analysis/meta-analysis-of-hazard-ratios/')
+def statistics_meta_analysis_meta_analysis_of_hazard_ratios():
+    return render_template('statistics/meta-analysis/meta-analysis-of-hazard-ratios.html')
 
 @app.route('/statistics/meta-analysis/')
 def statistics_meta_analysis_index():
