@@ -449,9 +449,9 @@ def statistics_distribution_fitting_normal_probability_plots():
 def statistics_distribution_fitting_normality_tests():
     return render_template('statistics/distribution-fitting/normality-tests.html')
 
-@app.route('/statistics/distribution-fitting/')
-def statistics_distribution_fitting_index():
-    return render_template('statistics/distribution-fitting/index.html')
+@app.route('/statistics/distribution-fitting/probability-plot-comparison/')
+def statistics_distribution_fitting_probability_plot_comparison():
+    return render_template('statistics/distribution-fitting/probability-plot-comparison.html')
 
 @app.route('/statistics/distribution-fitting/')
 def statistics_distribution_fitting_index():
