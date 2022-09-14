@@ -559,6 +559,32 @@ def statistics_item_analysis_index():
 def statistics_item_analysis_item_response_analysis():
     return render_template('statistics/item-analysis/item-response-analysis.html')
 
+# /STATISTICS/META-ANALYSIS/
+
+@app.route('/statistics/meta-analysis/')
+def statistics_meta_analysis_index():
+    return render_template('statistics/meta-analysis/index.html')
+
+@app.route('/statistics/meta-analysis/')
+def statistics_meta_analysis_index():
+    return render_template('statistics/meta-analysis/index.html')
+
+@app.route('/statistics/meta-analysis/')
+def statistics_meta_analysis_index():
+    return render_template('statistics/meta-analysis/index.html')
+
+@app.route('/statistics/meta-analysis/')
+def statistics_meta_analysis_index():
+    return render_template('statistics/meta-analysis/index.html')
+
+@app.route('/statistics/meta-analysis/')
+def statistics_meta_analysis_index():
+    return render_template('statistics/meta-analysis/index.html')
+
+@app.route('/statistics/meta-analysis/')
+def statistics_meta_analysis_index():
+    return render_template('statistics/meta-analysis/index.html')
+
 # /GRAPHICS/
 
 @app.route('/graphics/')
