@@ -365,16 +365,15 @@ def statistics_design_of_experiments_taguchi_designs():
 def statistics_design_of_experiments_two_level_designs():
     return render_template('statistics/design-of-experiments/two-level-designs.html')
 
-
 # /STATISTICS/DIAGNOSTIC-TESTS/
 
 @app.route('/statistics/diagnostic-tests/')
 def statistics_diagnostic_tests_index():
     return render_template('statistics/diagnostic-tests/index.html')
 
-@app.route('/statistics/diagnostic-tests/')
-def statistics_diagnostic_tests_index():
-    return render_template('statistics/diagnostic-tests/index.html')
+@app.route('/statistics/diagnostic-tests/binary-diagnostic-tests-clustered-samples/')
+def statistics_diagnostic_tests_binary_diagnostic_tests_clustered_samples():
+    return render_template('statistics/diagnostic-tests/binary-diagnostic-tests-clustered-samples.html')
 
 @app.route('/statistics/diagnostic-tests/')
 def statistics_diagnostic_tests_index():
