@@ -483,9 +483,9 @@ def statistics_forecasting_arima():
 def statistics_forecasting_autocorrelations():
     return render_template('statistics/forecasting/autocorrelations.html')
 
-@app.route('/statistics/forecasting/')
-def statistics_forecasting_index():
-    return render_template('statistics/forecasting/index.html')
+@app.route('/statistics/forecasting/box-jenkins-method/')
+def statistics_forecasting_box_jenkins_method():
+    return render_template('statistics/forecasting/box-jenkins-method.html')
 
 @app.route('/statistics/forecasting/')
 def statistics_forecasting_index():
