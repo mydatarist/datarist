@@ -541,9 +541,9 @@ def statistics_group_sequential_two_hazard_rates():
 def statistics_group_sequential_two_means():
     return render_template('statistics/group-sequential/two-means.html')
 
-@app.route('/statistics/group-sequential/')
-def statistics_group_sequential_index():
-    return render_template('statistics/group-sequential/index.html')
+@app.route('/statistics/group-sequential/two-poisson-rates/')
+def statistics_group_sequential_two_poisson_rates():
+    return render_template('statistics/group-sequential/two-poisson-rates.html')
 
 # /GRAPHICS/
 
