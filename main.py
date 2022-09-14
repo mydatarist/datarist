@@ -495,9 +495,9 @@ def statistics_forecasting_cross_correlations():
 def statistics_forecasting_decomposition_forecasting():
     return render_template('statistics/forecasting/decomposition-forecasting.html')
 
-@app.route('/statistics/forecasting/')
-def statistics_forecasting_index():
-    return render_template('statistics/forecasting/index.html')
+@app.route('/statistics/forecasting/exponential-smoothing/')
+def statistics_forecasting_exponential_smoothing():
+    return render_template('statistics/forecasting/exponential-smoothing.html')
 
 @app.route('/statistics/forecasting/')
 def statistics_forecasting_index():
