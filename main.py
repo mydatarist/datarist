@@ -491,9 +491,9 @@ def statistics_forecasting_box_jenkins_method():
 def statistics_forecasting_cross_correlations():
     return render_template('statistics/forecasting/cross-correlations.html')
 
-@app.route('/statistics/forecasting/')
-def statistics_forecasting_index():
-    return render_template('statistics/forecasting/index.html')
+@app.route('/statistics/forecasting/decomposition-forecasting/')
+def statistics_forecasting_decomposition_forecasting():
+    return render_template('statistics/forecasting/decomposition-forecasting.html')
 
 @app.route('/statistics/forecasting/')
 def statistics_forecasting_index():
