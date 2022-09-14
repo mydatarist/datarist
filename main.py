@@ -465,6 +465,52 @@ def statistics_distribution_fitting_uniform_probability_plots():
 def statistics_distribution_fitting_weibull_probability_plots():
     return render_template('statistics/distribution-fitting/weibull-probability-plots.html')
 
+# /STATISTICS/FORECASTING/
+
+@app.route('/statistics/forecasting/')
+def statistics_forecasting_index():
+    return render_template('statistics/forecasting/index.html')
+
+@app.route('/statistics/forecasting/')
+def statistics_forecasting_index():
+    return render_template('statistics/forecasting/index.html')
+
+@app.route('/statistics/forecasting/')
+def statistics_forecasting_index():
+    return render_template('statistics/forecasting/index.html')
+
+@app.route('/statistics/forecasting/')
+def statistics_forecasting_index():
+    return render_template('statistics/forecasting/index.html')
+
+@app.route('/statistics/forecasting/')
+def statistics_forecasting_index():
+    return render_template('statistics/forecasting/index.html')
+
+@app.route('/statistics/forecasting/')
+def statistics_forecasting_index():
+    return render_template('statistics/forecasting/index.html')
+
+@app.route('/statistics/forecasting/')
+def statistics_forecasting_index():
+    return render_template('statistics/forecasting/index.html')
+
+@app.route('/statistics/forecasting/')
+def statistics_forecasting_index():
+    return render_template('statistics/forecasting/index.html')
+
+@app.route('/statistics/forecasting/')
+def statistics_forecasting_index():
+    return render_template('statistics/forecasting/index.html')
+
+@app.route('/statistics/forecasting/')
+def statistics_forecasting_index():
+    return render_template('statistics/forecasting/index.html')
+
+@app.route('/statistics/forecasting/')
+def statistics_forecasting_index():
+    return render_template('statistics/forecasting/index.html')
+
 # /GRAPHICS/
 
 @app.route('/graphics/')
