@@ -507,9 +507,9 @@ def statistics_forecasting_harmonic_regression():
 def statistics_forecasting_spectral_analysis():
     return render_template('statistics/forecasting/spectral-analysis.html')
 
-@app.route('/statistics/forecasting/')
-def statistics_forecasting_index():
-    return render_template('statistics/forecasting/index.html')
+@app.route('/statistics/forecasting/time-series-plots/')
+def statistics_forecasting_time_series_plots():
+    return render_template('statistics/forecasting/time-series-plots.html')
 
 # /GRAPHICS/
 
