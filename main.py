@@ -441,9 +441,9 @@ def statistics_distribution_fitting_half_normal_probability_plots():
 def statistics_distribution_fitting_log_normal_probability_plots():
     return render_template('statistics/distribution-fitting/log-normal-probability-plots.html')
 
-@app.route('/statistics/distribution-fitting/')
-def statistics_distribution_fitting_index():
-    return render_template('statistics/distribution-fitting/index.html')
+@app.route('/statistics/distribution-fitting/normal-probability-plots/')
+def statistics_distribution_fitting_normal_probability_plots():
+    return render_template('statistics/distribution-fitting/normal-probability-plots.html')
 
 @app.route('/statistics/distribution-fitting/')
 def statistics_distribution_fitting_index():
