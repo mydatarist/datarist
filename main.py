@@ -429,6 +429,10 @@ def statistics_distribution_fitting_exponential_probability_plots():
 def statistics_distribution_fitting_gamma_distribution_fitting():
     return render_template('statistics/distribution-fitting/gamma-distribution-fitting.html')
 
+@app.route('/statistics/distribution-fitting/gamma-probability-plots/')
+def statistics_distribution_fitting_gamma_probability_plots():
+    return render_template('statistics/distribution-fitting/gamma-probability-plots.html')
+
 @app.route('/statistics/distribution-fitting/grubbs-outlier-test/')
 def statistics_distribution_fitting_grubbs_outlier_test():
     return render_template('statistics/distribution-fitting/grubbs-outlier-test.html')
@@ -460,10 +464,6 @@ def statistics_distribution_fitting_uniform_probability_plots():
 @app.route('/statistics/distribution-fitting/weibull-probability-plots/')
 def statistics_distribution_fitting_weibull_probability_plots():
     return render_template('statistics/distribution-fitting/weibull-probability-plots.html')
-
-@app.route('/statistics/distribution-fitting/')
-def statistics_distribution_fitting_index():
-    return render_template('statistics/distribution-fitting/index.html')
 
 # /GRAPHICS/
 
