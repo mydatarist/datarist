@@ -591,6 +591,11 @@ def statistics_meta_analysis_meta_analysis_of_proportions():
 def statistics_method_comparison_index():
     return render_template('statistics/method-comparison/index.html')
 
+# /STATISTICS/MIXED-MODELS/
+
+@app.route('/statistics/mixed-models/')
+def statistics_mixed_models_index():
+    return render_template('statistics/mixed-models/index.html')
 
 # /GRAPHICS/
 
