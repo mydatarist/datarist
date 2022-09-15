@@ -621,6 +621,12 @@ def statistics_nonparametric_index():
 def statistics_operations_research_index():
     return render_template('statistics/operations-research/index.html')
 
+# /STATISTICS/PROPORTIONS/
+
+@app.route('/statistics/proportions/')
+def statistics_proportions_index():
+    return render_template('statistics/proportions/index.html')
+
 # /GRAPHICS/
 
 @app.route('/graphics/')
