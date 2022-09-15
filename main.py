@@ -689,6 +689,117 @@ def graphics_3d_plots_index():
 def graphics_bar_charts_index():
     return render_template('graphics/bar-charts/index.html')
 
+@app.route('/graphics/')
+def graphics_index():
+    return render_template('graphics/index.html')
+
+@app.route('/graphics/')
+def graphics_index():
+    return render_template('graphics/index.html')
+
+@app.route('/graphics/')
+def graphics_index():
+    return render_template('graphics/index.html')
+
+@app.route('/graphics/')
+def graphics_index():
+    return render_template('graphics/index.html')
+
+@app.route('/graphics/')
+def graphics_index():
+    return render_template('graphics/index.html')
+
+@app.route('/graphics/')
+def graphics_index():
+    return render_template('graphics/index.html')
+
+@app.route('/graphics/')
+def graphics_index():
+    return render_template('graphics/index.html')
+
+@app.route('/graphics/')
+def graphics_index():
+    return render_template('graphics/index.html')
+
+@app.route('/graphics/')
+def graphics_index():
+    return render_template('graphics/index.html')
+
+@app.route('/graphics/')
+def graphics_index():
+    return render_template('graphics/index.html')
+
+@app.route('/graphics/')
+def graphics_index():
+    return render_template('graphics/index.html')
+
+@app.route('/graphics/')
+def graphics_index():
+    return render_template('graphics/index.html')
+
+@app.route('/graphics/')
+def graphics_index():
+    return render_template('graphics/index.html')
+
+@app.route('/graphics/')
+def graphics_index():
+    return render_template('graphics/index.html')
+
+@app.route('/graphics/')
+def graphics_index():
+    return render_template('graphics/index.html')
+
+@app.route('/graphics/')
+def graphics_index():
+    return render_template('graphics/index.html')
+
+@app.route('/graphics/')
+def graphics_index():
+    return render_template('graphics/index.html')
+
+@app.route('/graphics/')
+def graphics_index():
+    return render_template('graphics/index.html')
+
+@app.route('/graphics/')
+def graphics_index():
+    return render_template('graphics/index.html')
+
+@app.route('/graphics/')
+def graphics_index():
+    return render_template('graphics/index.html')
+
+@app.route('/graphics/')
+def graphics_index():
+    return render_template('graphics/index.html')
+
+@app.route('/graphics/')
+def graphics_index():
+    return render_template('graphics/index.html')
+
+@app.route('/graphics/')
+def graphics_index():
+    return render_template('graphics/index.html')
+
+@app.route('/graphics/')
+def graphics_index():
+    return render_template('graphics/index.html')
+
+@app.route('/graphics/')
+def graphics_index():
+    return render_template('graphics/index.html')
+
+@app.route('/graphics/')
+def graphics_index():
+    return render_template('graphics/index.html')
+
+@app.route('/graphics/')
+def graphics_index():
+    return render_template('graphics/index.html')
+
+@app.route('/graphics/')
+def graphics_index():
+    return render_template('graphics/index.html')
 
 # /SAMPLE-SIZE/
 
