@@ -949,6 +949,30 @@ def sample_size_variances_index():
 def tools_index():
     return render_template('tools/index.html')
 
+@app.route('/tools/calculators/')
+def tools_calculators_index():
+    return render_template('tools/calculators/index.html')
+
+@app.route('/tools/calculators/chi-square-effect-size-calculator/')
+def tools_calculators_chi_square_effect_size_calculator_index():
+    return render_template('tools/calculators/chi-square-effect-size-calculator/index.html')
+
+@app.route('/tools/calculators/odds-ratio-and-proportions-calculator/')
+def tools_calculators_odds_ratio_and_proportions_calculator_index():
+    return render_template('tools/calculators/odds-ratio-and-proportions-calculator/index.html')
+
+@app.route('/tools/calculators/probability-calculator/')
+def tools_calculators_probability_calculator_index():
+    return render_template('tools/calculators/probability-calculator/index.html')
+
+@app.route('/tools/calculators/standard-deviation-calculator/')
+def tools_calculators_standard_deviation_calculator_index():
+    return render_template('tools/calculators/standard-deviation-calculator/index.html')
+
+@app.route('/tools/calculators/survival-parameter-conversion-tool/')
+def tools_calculators_survival_parameter_conversion_tool_index():
+    return render_template('tools/calculators/survival-parameter-conversion-tool/index.html')
+
 # /ABOUT/
 
 @app.route('/about/')
