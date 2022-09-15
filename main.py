@@ -663,6 +663,13 @@ def statistics_survey_data_index():
 def statistics_survival_analysis_reliability_index():
     return render_template('statistics/survival-analysis-reliability/index.html')
 
+# /STATISTICS/TIME-SERIES/
+
+@app.route('/statistics/time-series/')
+def statistics_time_series_index():
+    return render_template('statistics/time-series/index.html')
+
+
 # /GRAPHICS/
 
 @app.route('/graphics/')
