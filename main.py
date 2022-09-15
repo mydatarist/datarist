@@ -807,6 +807,142 @@ def graphics_violin_plots_index():
 def sample_size_index():
     return render_template('sample-size/index.html')
 
+@app.route('/sample-size/assurance/')
+def sample_size_assurance():
+    return render_template('sample-size/assurance/index.html')
+
+@app.route('/sample-size/bayesian-approaches/')
+def sample_size_bayesian_approaches_index():
+    return render_template('sample-size/bayesian-approaches/index.html')
+
+@app.route('/sample-size/bridging-studies/')
+def sample_size_bridging_studies_index():
+    return render_template('sample-size/bridging-studies/index.html')
+
+@app.route('/sample-size/cluster-randomized/')
+def sample_size_cluster_randomized_index():
+    return render_template('sample-size/cluster-randomized/index.html')
+
+@app.route('/sample-size/conditional-power/')
+def sample_size_conditional_power_index():
+    return render_template('sample-size/conditional-power/index.html')
+
+@app.route('/sample-size/confidence-intervals/')
+def sample_size_confidence_intervals_index():
+    return render_template('sample-size/confidence-intervals/index.html')
+
+@app.route('/sample-size/correlation/')
+def sample_size_correlation_index():
+    return render_template('sample-size/correlation/index.html')
+
+@app.route('/sample-size/design-of-experiments/')
+def sample_size_design_of_experiments_index():
+    return render_template('sample-size/design-of-experiments/index.html')
+
+@app.route('/sample-size/equivalence/')
+def sample_size_equivalence_index():
+    return render_template('sample-size/equivalence/index.html')
+
+@app.route('/sample-size/gee/')
+def sample_size_gee_index():
+    return render_template('sample-size/gee/index.html')
+
+@app.route('/sample-size/group-sequential/')
+def sample_size_group_sequential_index():
+    return render_template('sample-size/group-sequential/index.html')
+
+@app.route('/sample-size/introduction/')
+def sample_size_introduction_index():
+    return render_template('sample-size/introduction/index.html')
+
+@app.route('/sample-size/means/')
+def sample_size_means_index():
+    return render_template('sample-size/means/index.html')
+
+@app.route('/sample-size/method-comparison/')
+def sample_size_method_comparison_index():
+    return render_template('sample-size/method-comparison/index.html')
+
+@app.route('/sample-size/microarray/')
+def sample_size_microarray_index():
+    return render_template('sample-size/microarray/index.html')
+
+@app.route('/sample-size/mixed-models/')
+def sample_size_mixed_models_index():
+    return render_template('sample-size/mixed-models/index.html')
+
+@app.route('/sample-size/non-inferiority/')
+def sample_size_non_inferiority_index():
+    return render_template('sample-size/non-inferiority/index.html')
+
+@app.route('/sample-size/nonparametric/')
+def sample_size_nonparametric_index():
+    return render_template('sample-size/nonparametric/index.html')
+
+@app.route('/sample-size/normality/')
+def sample_size_normality_index():
+    return render_template('sample-size/normality/index.html')
+
+@app.route('/sample-size/pilot-studies/')
+def sample_size_pilot_studies_index():
+    return render_template('sample-size/pilot-studies/index.html')
+
+@app.route('/sample-size/post-marketing-surveillance/')
+def sample_size_post_marketing_surveillance_index():
+    return render_template('sample-size/post-marketing-surveillance/index.html')
+
+@app.route('/sample-size/proportions/')
+def sample_size_proportions_index():
+    return render_template('sample-size/proportions/index.html')
+
+@app.route('/sample-size/quality-control/')
+def sample_size_quality_control_index():
+    return render_template('sample-size/quality-control/index.html')
+
+@app.route('/sample-size/rates-and-counts/')
+def sample_size_rates_and_counts_index():
+    return render_template('sample-size/rates-and-counts/index.html')
+
+@app.route('/sample-size/regression/')
+def sample_size_regression_index():
+    return render_template('sample-size/regression/index.html')
+
+@app.route('/sample-size/roc/')
+def sample_size_roc_index():
+    return render_template('sample-size/roc/index.html')
+
+@app.route('/sample-size/sample-size-reestimation/')
+def sample_size_sample_size_reestimation_index():
+    return render_template('sample-size/sample-size-reestimation/index.html')
+
+@app.route('/sample-size/simulation/')
+def sample_size_simulation_index():
+    return render_template('sample-size/simulation/index.html')
+
+@app.route('/sample-size/stratified/')
+def sample_size_stratified_index():
+    return render_template('sample-size/stratified/index.html')
+
+@app.route('/sample-size/superiority-by-a-margin/')
+def sample_size_superiority_by_a_margin_index():
+    return render_template('sample-size/superiority-by-a-margin/index.html')
+
+@app.route('/sample-size/survival/')
+def sample_size_survival_index():
+    return render_template('sample-size/survival/index.html')
+
+@app.route('/sample-size/tolerance-intervals/')
+def sample_size_tolerance_intervals_index():
+    return render_template('sample-size/tolerance-intervals/index.html')
+
+@app.route('/sample-size/vaccine-efficacy/')
+def sample_size_vaccine_efficacy_index():
+    return render_template('sample-size/vaccine-efficacy/index.html')
+
+@app.route('/sample-size/variances/')
+def sample_size_variances_index():
+    return render_template('sample-size/variances/index.html')
+
 # /TOOLS/
 
 @app.route('/tools/')
