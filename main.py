@@ -657,6 +657,12 @@ def statistics_roc_curves_index():
 def statistics_survey_data_index():
     return render_template('statistics/survey-data/index.html')
 
+# /STATISTICS/SURVIVAL-ANALYSIS-RELIABILITY/
+
+@app.route('/statistics/survival-analysis-reliability/')
+def statistics_survival_analysis_reliability_index():
+    return render_template('statistics/survival-analysis-reliability/index.html')
+
 # /GRAPHICS/
 
 @app.route('/graphics/')
