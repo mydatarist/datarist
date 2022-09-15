@@ -615,6 +615,11 @@ def statistics_nondetects_data_index():
 def statistics_nonparametric_index():
     return render_template('statistics/nonparametric/index.html')
 
+# /STATISTICS/OPERATIONS-RESEARCH/
+
+@app.route('/statistics/operations-research/')
+def statistics_operations_research_index():
+    return render_template('statistics/operations-research/index.html')
 
 # /GRAPHICS/
 
