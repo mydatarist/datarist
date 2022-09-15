@@ -669,6 +669,11 @@ def statistics_survival_analysis_reliability_index():
 def statistics_time_series_index():
     return render_template('statistics/time-series/index.html')
 
+# /STATISTICS/TWO-WAY-TABLES/
+
+@app.route('/statistics/two-way-tables/')
+def statistics_two_way_tables_index():
+    return render_template('statistics/two-way-tables/index.html')
 
 # /GRAPHICS/
 
