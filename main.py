@@ -689,117 +689,117 @@ def graphics_3d_plots_index():
 def graphics_bar_charts_index():
     return render_template('graphics/bar-charts/index.html')
 
-@app.route('/graphics/')
-def graphics_index():
-    return render_template('graphics/index.html')
+@app.route('/graphics/bland-altman-plots/')
+def graphics_bland_altman_plots_index():
+    return render_template('graphics/bland-altman-plots/index.html')
 
-@app.route('/graphics/')
-def graphics_index():
-    return render_template('graphics/index.html')
+@app.route('/graphics/box-plots/')
+def graphics_box_plots_index():
+    return render_template('graphics/box-plots/index.html')
 
-@app.route('/graphics/')
-def graphics_index():
-    return render_template('graphics/index.html')
+@app.route('/graphics/circular-data-plots/')
+def graphics_circular_data_plots_index():
+    return render_template('graphics/circular-data-plots/index.html')
 
-@app.route('/graphics/')
-def graphics_index():
-    return render_template('graphics/index.html')
+@app.route('/graphics/contour-plots/')
+def graphics_contour_plots_index():
+    return render_template('graphics/contour-plots/index.html')
 
-@app.route('/graphics/')
-def graphics_index():
-    return render_template('graphics/index.html')
+@app.route('/graphics/curve-fitting/')
+def graphics_curve_fitting_index():
+    return render_template('graphics/curve-fitting/index.html')
 
-@app.route('/graphics/')
-def graphics_index():
-    return render_template('graphics/index.html')
+@app.route('/graphics/dendrograms/')
+def graphics_dendrograms_index():
+    return render_template('graphics/dendrograms/index.html')
 
-@app.route('/graphics/')
-def graphics_index():
-    return render_template('graphics/index.html')
+@app.route('/graphics/density-plots/')
+def graphics_density_plots_index():
+    return render_template('graphics/density-plots/index.html')
 
-@app.route('/graphics/')
-def graphics_index():
-    return render_template('graphics/index.html')
+@app.route('/graphics/dot-plots/')
+def graphics_dot_plots_index():
+    return render_template('graphics/dot-plots/index.html')
 
-@app.route('/graphics/')
-def graphics_index():
-    return render_template('graphics/index.html')
+@app.route('/graphics/error-bar-charts/')
+def graphics_error_bar_charts_index():
+    return render_template('graphics/error-bar-charts/index.html')
 
-@app.route('/graphics/')
-def graphics_index():
-    return render_template('graphics/index.html')
+@app.route('/graphics/forecasting/')
+def graphics_forecasting_index():
+    return render_template('graphics/forecasting/index.html')
 
-@app.route('/graphics/')
-def graphics_index():
-    return render_template('graphics/index.html')
+@app.route('/graphics/forest-plots/')
+def graphics_forest_plots_index():
+    return render_template('graphics/forest-plots/index.html')
 
-@app.route('/graphics/')
-def graphics_index():
-    return render_template('graphics/index.html')
+@app.route('/graphics/function-plots/')
+def graphics_function_plots_index():
+    return render_template('graphics/function-plots/index.html')
 
-@app.route('/graphics/')
-def graphics_index():
-    return render_template('graphics/index.html')
+@app.route('/graphics/graphics-components/')
+def graphics_graphics_components_index():
+    return render_template('graphics/graphics-components/index.html')
 
-@app.route('/graphics/')
-def graphics_index():
-    return render_template('graphics/index.html')
+@app.route('/graphics/heat-maps/')
+def graphics_heat_maps_index():
+    return render_template('graphics/heat-maps/index.html')
 
-@app.route('/graphics/')
-def graphics_index():
-    return render_template('graphics/index.html')
+@app.route('/graphics/histograms/')
+def graphics_histograms_index():
+    return render_template('graphics/histograms/index.html')
 
-@app.route('/graphics/')
-def graphics_index():
-    return render_template('graphics/index.html')
+@app.route('/graphics/kaplan-meier-curves')
+def graphics_kaplan_meier_curves_index():
+    return render_template('graphics/kaplan-meier-curves/index.html')
 
-@app.route('/graphics/')
-def graphics_index():
-    return render_template('graphics/index.html')
+@app.route('/graphics/line-charts/')
+def graphics_line_charts_index():
+    return render_template('graphics/line-charts/index.html')
 
-@app.route('/graphics/')
-def graphics_index():
-    return render_template('graphics/index.html')
+@app.route('/graphics/mosaic-plots/')
+def graphics_mosaic_plots_index():
+    return render_template('graphics/mosaic-plots/index.html')
 
-@app.route('/graphics/')
-def graphics_index():
-    return render_template('graphics/index.html')
+@app.route('/graphics/percentile-plots/')
+def graphics_percentile_plots_index():
+    return render_template('graphics/percentile-plots/index.html')
 
-@app.route('/graphics/')
-def graphics_index():
-    return render_template('graphics/index.html')
+@app.route('/graphics/pie-charts/')
+def graphics_pie_charts_index():
+    return render_template('graphics/pie-charts/index.html')
 
-@app.route('/graphics/')
-def graphics_index():
-    return render_template('graphics/index.html')
+@app.route('/graphics/probability-plots/')
+def graphics_probability_plots_index():
+    return render_template('graphics/probability-plots/index.html')
 
-@app.route('/graphics/')
-def graphics_index():
-    return render_template('graphics/index.html')
+@app.route('/graphics/quality-control-charts/')
+def graphics_quality_control_charts_index():
+    return render_template('graphics/quality-control-charts/index.html')
 
-@app.route('/graphics/')
-def graphics_index():
-    return render_template('graphics/index.html')
+@app.route('/graphics/roc-curves/')
+def graphics_roc_curves_index():
+    return render_template('graphics/roc-curves/index.html')
 
-@app.route('/graphics/')
-def graphics_index():
-    return render_template('graphics/index.html')
+@app.route('/graphics/scatter-plots/')
+def graphics_scatter_plots_index():
+    return render_template('graphics/scatter-plots/index.html')
 
-@app.route('/graphics/')
-def graphics_index():
-    return render_template('graphics/index.html')
+@app.route('/graphics/stem-and-leaf-plots/')
+def graphics_stem_and_leaf_plots_index():
+    return render_template('graphics/stem-and-leaf-plots/index.html')
 
-@app.route('/graphics/')
-def graphics_index():
-    return render_template('graphics/index.html')
+@app.route('/graphics/surface-plots/')
+def graphics_surface_plots_index():
+    return render_template('graphics/surface-plots/index.html')
 
-@app.route('/graphics/')
-def graphics_index():
-    return render_template('graphics/index.html')
+@app.route('/graphics/time-series/')
+def graphics_time_series_index():
+    return render_template('graphics/time-series/index.html')
 
-@app.route('/graphics/')
-def graphics_index():
-    return render_template('graphics/index.html')
+@app.route('/graphics/violin-plots/')
+def graphics_violin_plots_index():
+    return render_template('graphics/violin-plots/index.html')
 
 # /SAMPLE-SIZE/
 
