@@ -685,6 +685,10 @@ def graphics_index():
 def graphics_3d_plots_index():
     return render_template('graphics/3d-plots/index.html')
 
+@app.route('/graphics/bar-charts/')
+def graphics_bar_charts_index():
+    return render_template('graphics/bar-charts/index.html')
+
 
 # /SAMPLE-SIZE/
 
