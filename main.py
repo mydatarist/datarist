@@ -597,6 +597,12 @@ def statistics_method_comparison_index():
 def statistics_mixed_models_index():
     return render_template('statistics/mixed-models/index.html')
 
+# /STATISTICS/MULTIVARIATE-ANALYSIS/
+
+@app.route('/statistics/multivariate-analysis/')
+def statistics_multivariate_analysis_index():
+    return render_template('statistics/multivariate-analysis/index.html')
+
 # /GRAPHICS/
 
 @app.route('/graphics/')
