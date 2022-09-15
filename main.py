@@ -609,6 +609,12 @@ def statistics_multivariate_analysis_index():
 def statistics_nondetects_data_index():
     return render_template('statistics/nondetects-data/index.html')
 
+# /STATISTICS/NONPARAMETRIC/
+
+@app.route('/statistics/nonparametric/')
+def statistics_nonparametric_index():
+    return render_template('statistics/nonparametric/index.html')
+
 
 # /GRAPHICS/
 
