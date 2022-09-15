@@ -633,6 +633,17 @@ def statistics_proportions_index():
 def statistics_quality_control_index():
     return render_template('statistics/quality-control/index.html')
 
+# /STATISTICS/REFERENCE-INTERVALS/
+
+@app.route('/statistics/reference-intervals/')
+def statistics_reference_intervals_index():
+    return render_template('statistics/reference-intervals/index.html')
+
+# /STATISTICS/REGRESSION/
+
+@app.route('/statistics/regression/')
+def statistics_regression_index():
+    return render_template('statistics/regression/index.html')
 
 # /GRAPHICS/
 
