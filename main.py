@@ -585,6 +585,13 @@ def statistics_meta_analysis_meta_analysis_of_means():
 def statistics_meta_analysis_meta_analysis_of_proportions():
     return render_template('statistics/meta-analysis/meta-analysis-of-proportions.html')
 
+# /STATISTICS/METHOD-COMPARISON/
+
+@app.route('/statistics/method-comparison/')
+def statistics_method_comparison_index():
+    return render_template('statistics/method-comparison/index.html')
+
+
 # /GRAPHICS/
 
 @app.route('/graphics/')
