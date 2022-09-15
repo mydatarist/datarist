@@ -651,6 +651,12 @@ def statistics_regression_index():
 def statistics_roc_curves_index():
     return render_template('statistics/roc-curves/index.html')
 
+# /STATISTICS/SURVEY-DATA/
+
+@app.route('/statistics/survey-data/')
+def statistics_survey_data_index():
+    return render_template('statistics/survey-data/index.html')
+
 # /GRAPHICS/
 
 @app.route('/graphics/')
