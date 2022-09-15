@@ -603,6 +603,13 @@ def statistics_mixed_models_index():
 def statistics_multivariate_analysis_index():
     return render_template('statistics/multivariate-analysis/index.html')
 
+# /STATISTICS/NONDETECTS-DATA/
+
+@app.route('/statistics/nondetects-data/')
+def statistics_nondetects_data_index():
+    return render_template('statistics/nondetects-data/index.html')
+
+
 # /GRAPHICS/
 
 @app.route('/graphics/')
