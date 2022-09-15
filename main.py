@@ -681,6 +681,11 @@ def statistics_two_way_tables_index():
 def graphics_index():
     return render_template('graphics/index.html')
 
+@app.route('/graphics/3d-plots/)
+def graphics_3d_plots_index():
+    return render_template('graphics/3d-plots/index.html')
+
+
 # /SAMPLE-SIZE/
 
 @app.route('/sample-size/')
