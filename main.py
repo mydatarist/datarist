@@ -645,6 +645,12 @@ def statistics_reference_intervals_index():
 def statistics_regression_index():
     return render_template('statistics/regression/index.html')
 
+# /STATISTICS/ROC-CURVES/
+
+@app.route('/statistics/roc-curves/')
+def statistics_roc_curves_index():
+    return render_template('statistics/roc-curves/index.html')
+
 # /GRAPHICS/
 
 @app.route('/graphics/')
