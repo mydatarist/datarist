@@ -627,6 +627,13 @@ def statistics_operations_research_index():
 def statistics_proportions_index():
     return render_template('statistics/proportions/index.html')
 
+# /STATISTICS/QUALITY-CONTROL/
+
+@app.route('/statistics/quality-control/')
+def statistics_quality_control_index():
+    return render_template('statistics/quality-control/index.html')
+
+
 # /GRAPHICS/
 
 @app.route('/graphics/')
