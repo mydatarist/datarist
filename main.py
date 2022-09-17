@@ -29,6 +29,12 @@ def inject_now():
 def index():
     return render_template('index.html')
 
+# /DOCS/
+
+@app.route('/docs/getting-started/')
+def docs_getting_started():
+    return render_template('docs/getting-started/index.html')
+
 # /STATISTICS/
 
 @app.route('/statistics/')
