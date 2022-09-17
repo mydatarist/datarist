@@ -1,0 +1,11 @@
+{% from "macros.html" import navbar with context %}
+{% from "macros.html" import off_canvas with context %}
+{% from "macros.html" import nav_footer with context %}
+{% include "include/header.html" %}
+{% include "include/navbar.html" %} 
+<div class="container">
+<h1>{% block heading %} {% endblock %}</h1>
+<p class="lead">{% block sub_heading %} {% endblock %}</p>  
+</div> 
+{% block content %} {% endblock %}
+{% include "include/footer.html" %}
