@@ -197,15 +197,16 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
+                            <li class="nav-item col-6 col-lg-auto">
+                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
+                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
-                                        <title>Twitter</title>
-                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
-                                    </svg>
+                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
+                                    <title>Twitter</title>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1142,9 +1143,7 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                <li>
-                                    <a href="#feedback">Feedback</a>
-                                </li>                                
+                                                                
                             </ul>
                         </nav>
                     </div>
@@ -1153,30 +1152,101 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
+                    Image formats: GIF 
+
+bookmark_border
+While not terribly useful on the modern web, GIF (Graphics Interchange Format) provides a solid introduction to the core concepts of image encoding.
+
+GIF can be thought of as a wrapper for image data. It has a viewport, of sorts, called a "logical screen," to which individual frames of image data are drawn—a bit like layers in a Photoshop document. That's how GIF supports its flipbook-like animation: a single frame is drawn to the logical screen, then replaced by another, then another. Of course, this distinction isn't important when we're dealing with a static GIF, made up of a single frame drawn to the logical screen.
+
+GIF uses a lossless data compression method—a variant of the "Lempel–Ziv–Welch" algorithm, if you're curious. The finer details of how this algorithm works are more than we need to get into here, but at a high level: it works a bit like "Uglifying" JavaScript, where repeated strings of characters throughout the file are saved to a sort of internal dictionary, so they can be referenced rather than repeated every time they appear.
+
+Visualization of the gif reference using a four-by-four grid.
+
+Granted, the algorithm isn't quite as simple as a paint-by-number. It steps again through the generated table of color codes to find repeated sequences of pixel colors and creates a second table of referencable codes. At no point is any image data lost, however—just sorted and reorganized in a way that can be read without fundamentally changing it.
+
+While GIF technically uses lossless compression, it does have a major limitation that severely impacts the quality of the images: saving an image as a GIF will always result in reduced fidelity, unless the image already uses 256 colors or less.
+
+Each frame drawn to the GIF's logical screen can only contain a maximum of 256 colors. GIF also supports “index transparency,” where a transparent pixel will reference the index of a transparent “color” in the color table.
+
+The practice of reducing a range of values to a smaller, approximated set of output values is called quantization, a term you'll be seeing a lot when learning about image encodings. The results of this palette quantization are usually obvious:
+
+Static gif example
+
+To better understand this process, think back to the raster image grid you were able to recreate from my description.
+
+Three horizontal blue boxes followed by one red box
+
+This time around, add a little more detail to that original image: a few more pixels, one of which is a slightly darker shade of blue:
+
+Blue to red horizontal boxes in a two-by-four configuration, with one blue box shaded darker than the others.
+
+Absent any compression—so to speak—you could describe this grid as:
+
+Row one, column one is #0000FF. Row one, column two is #0000FF. Row one, column three is #0000FF. Row one, column four is #FF0000. Row two, column one is #0000FF. Row two, column two is #000085. Row two, column three is #0000FF. Row two, column four is #FF0000.
+
+Using something akin to GIF's lossless data compression and color indexing, you might describe it as:
+
+A: #0000FF, B: #FF0000, C: #000085. Row one, columns one through three are A. Row one, column four is B. Row two, column one is A. Row two, column two is C. Row two, column three is A. Row two, column four is B.
+
+This manages to condense the pixel-by-pixel description in a few places (“columns one through three are…”), and saves a few characters by defining the repeated colors in a dictionary, of sorts, up front. There's no change to the visual fidelity. The information has been compressed without any loss.
+
+Blue to red horizontal boxes, with a single dark pixel at 2x2.
+
+As you can see, however, the single dark blue pixel is having an outsized impact on the size of our encoding. If I were to limit myself to a quantized color palette, it could be reduced much further:
+
+A: #0000FF, B: #FF0000. Row one, columns one through three are A. Row one, column four is B. Row two, columns one through three are A. Row two, column four is B.
+
+The unfortunate end result of those saved bytes is that you've lost pixel-perfection.
+
+Uniformly blue to red horizontal boxes.
+
+Of course, you, the rendering engine, don't know that—the detail of the darker blue pixel was left out of how I encoded my source image. You've rendered the image exactly as I've encoded it, based on our shared understanding of the colors we have at hand.
+
+Now, in this exaggerated example, reducing three colors to two makes for an obvious difference in quality. Across a larger and more detailed image the effects might not be quite as noticeable, but they would still be visible.
+
+When encoded as a GIF, subtle gradients like shadows become mottled, with individual pixels standing out from their surroundings:
+
+Pink flowers on a green background.
+
+In practice, the combination of lossless compression and palette quantization means that GIF isn't very useful in modern web development. Lossless compression doesn't do enough to reduce file sizes, and a reduced palette means an obvious reduction in quality.
+
+Ultimately, GIF is only an efficient format for encoding simple images that already use limited color palettes, hard edges rather than anti-aliasing, and solid colors rather than gradients—all use cases that are far better served by other formats. The smaller and more featured PNG is often a better choice for raster images, though both are far inferior to SVG in terms of file size and visual fidelity for use cases like icons or line art, where vector shines. The most commonly seen modern use case for GIF is animation, but there are far more efficient—and accessible—modern video formats to serve that purpose.
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <h2 id="feedback">
-                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
-                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
+                    <div class="mt-5 small">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
+                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
+                      <footer class="mt-3 small">
+                        <div class="row">
+                            <div class="col-md-4 text-start">
+                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <a href="#" class="link-offset-2">Topic</a>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
+                            </div>
+                        </div>
+                      </footer>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container py-4 py-md-5 px-4 px-md-3">
+            <div class="container px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1198,6 +1268,9 @@
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
+                            <li class="mb-2">
+                              <a href="https://newsletter.datarist.com">Newsletter</a>
+                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">

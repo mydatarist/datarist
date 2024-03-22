@@ -197,15 +197,16 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
+                            <li class="nav-item col-6 col-lg-auto">
+                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
+                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
-                                        <title>Twitter</title>
-                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
-                                    </svg>
+                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
+                                    <title>Twitter</title>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1142,9 +1143,7 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                <li>
-                                    <a href="#feedback">Feedback</a>
-                                </li>                                
+                                                                
                             </ul>
                         </nav>
                     </div>
@@ -1153,30 +1152,266 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
+                    CSS performance optimization
+Previous
+Overview: Performance
+Next
+When developing a website, you need to consider how the browser is handling the CSS on your site. To mitigate any performance issues that CSS might be causing, you should optimize it. For example, you should optimize the CSS to mitigate render-blocking and minimize the number of required reflows. This article walks you through key CSS performance optimization techniques.
+
+Prerequisites:	Basic software installed, and basic knowledge of client-side web technologies.
+Objective:	To learn about the impact of CSS on website performance and how to optimize your CSS to improve performance.
+To optimize or not to optimize
+The first question you should answer before starting to optimize your CSS is "what do I need to optimize?". Some of the tips and techniques discussed below are good practices that will benefit just about any web project, whereas some are only needed in certain situations. Trying to apply all these techniques everywhere is probably unnecessary, and may be a waste of your time. You should figure out what performance optimizations are actually needed in each project.
+
+To do this, you need to measure the performance of your site. As the previous link shows, there are several different ways to measure performance, some involving sophisticated performance APIs. The best way to get started however, is to learn how to use tools such as built-in browser network and performance tools, to see what parts of the page load are taking a long time and need optimizing.
+
+Optimizing rendering
+Browsers follow a specific rendering path — paint only occurs after layout, which occurs after the render tree is created, which in turn requires both the DOM and the CSSOM trees.
+
+Showing users an unstyled page and then repainting it after the CSS styles have been parsed would be a bad user experience. For this reason, CSS is render blocking until the browser determines that the CSS is required. The browser can paint the page after it has downloaded the CSS and built the CSS object model (CSSOM).
+
+To optimize the CSSOM construction and improve page performance, you can do one or more of the following based on the current state of your CSS:
+
+Remove unnecessary styles: This may sound obvious, but it is surprising how many developers forget to clean up unused CSS rules that were added to their stylesheets during development and ended up not being used. All styles get parsed, whether they are being used during layout and painting or not, so it can speed up page rendering to get rid of unused ones. As How Do You Remove Unused CSS From a Site? (csstricks.com, 2019) summarizes, this is a difficult problem to solve for a large codebase, and there isn't a magic bullet to reliably find and remove unused CSS. You need to do the hard work of keeping your CSS modular and being careful and deliberate about what is added and removed.
+Split CSS into separate modules: Keeping CSS modular means that CSS not required at page load can be loaded later on, reducing initial CSS render-blocking and loading times. The simplest way to do this is by splitting up your CSS into separate files and loading only what is needed:
+HTML
+Copy to Clipboard
+<!-- Loading and parsing styles.css is render-blocking -->
+<link rel="stylesheet" href="styles.css" />
+
+<!-- Loading and parsing print.css is not render-blocking -->
+<link rel="stylesheet" href="print.css" media="print" />
+
+<!-- Loading and parsing mobile.css is not render-blocking on large screens -->
+<link
+  rel="stylesheet"
+  href="mobile.css"
+  media="screen and (max-width: 480px)" />
+The above example provides three sets of styles — default styles that will always load, styles that will only be loaded when the document is being printed, and styles that will be loaded only by devices with narrow screens. By default, the browser assumes that each specified style sheet is render-blocking. You can tell the browser when a style sheet should be applied by adding a media attribute containing a media query. When the browser sees a style sheet that it only needs to apply in a specific scenario, it still downloads the stylesheet, but doesn't render-block. By separating the CSS into multiple files, the main render-blocking file, in this case styles.css, is much smaller, reducing the time for which rendering is blocked.
+Minify and compress your CSS: Minifying involves removing all the whitespace in the file that is only there for human readability, once the code is put into production. You can reduce loading times considerably by minifying your CSS. Minification is generally done as part of a build process (for example, most JavaScript frameworks will minify code when you build a project ready for deployment). In addition to minification, make sure that the server that your site is hosted on uses compression such as gzip on files before serving them.
+Simplify selectors: People often write selectors that are more complex than needed for applying the required styles. This not only increases file sizes, but also the parsing time for those selectors. For example:
+CSS
+Copy to Clipboard
+/* Very specific selector */
+body div#main-content article.post h2.headline {
+  font-size: 24px;
+}
+
+/* You probably only need this */
+.headline {
+  font-size: 24px;
+}
+Making your selectors less complex and specific is also good for maintenance. It is easy to understand what simple selectors are doing, and it is easy to override styles when needed later on if the selectors are less specific.
+Don't apply styles to more elements than needed: A common mistake is to apply styles to all elements using the universal selector, or at least, to more elements than needed. This kind of styling can impact performance negatively, especially on larger sites.
+CSS
+Copy to Clipboard
+/* Selects every element inside the <body> */
+body * {
+  font-size: 14px;
+  display: flex;
+}
+Remember that many properties (such as font-size) inherit their values from their parents, so you don't need to apply them everywhere. And powerful tools such as Flexbox need to be used sparingly. Using them everywhere can cause all kinds of unexpected behavior.
+Cut down on image HTTP requests with CSS sprites: CSS sprites is a technique that places several small images (such as icons) that you want to use on your site into a single image file, and then uses different background-position values to display the chunk of image that you want to show in each different place. This can dramatically cut down on the number of HTTP requests needed to fetch the images.
+Preload important assets: You can use rel="preload" to turn <link> elements into preloaders for critical assets. This includes CSS files, fonts, and images:
+HTML
+Copy to Clipboard
+<link rel="preload" href="style.css" as="style" />
+
+<link
+  rel="preload"
+  href="ComicSans.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin />
+
+<link
+  rel="preload"
+  href="bg-image-wide.png"
+  as="image"
+  media="(min-width: 601px)" />
+With preload, the browser will fetch the referenced resources as soon as possible and make them available in the browser cache so that they will be ready for use sooner when they are referenced in subsequent code. It is useful to preload high-priority resources that the user will encounter early on in a page so that the experience is as smooth as possible. Note how you can also use media attributes to create responsive preloaders. See also Preload critical assets to improve loading speed on web.dev (2020)
+Handling animations
+Animations can improve perceived performance, making interfaces feel snappier and making users feel like progress is being made when they are waiting for a page to load (loading spinners, for example). However, larger animations and a higher number of animations will naturally require more processing power to handle, which can degrade performance.
+
+The simplest advice is to cut down on all unnecessary animations. You could also provide users with a control/site preference to turn off animations if they are using a low-powered device or a mobile device with limited battery power. You could also use JavaScript to control whether or not animation is applied to the page in the first place. There is also a media query called prefers-reduced-motion that can be used to selectively serve animation styles or not based on a user's OS-level preferences for animation.
+
+For essential DOM animations, you are advised to use CSS animations where possible, rather than JavaScript animations (the Web Animations API provides a way to directly hook into CSS animations using JavaScript).
+
+Choosing properties to animate
+Next, animation performance relies heavily on what properties you are animating. Certain properties, when animated, trigger a reflow (and therefore also a repaint) and should be avoided. These include properties that:
+
+Alter an element's dimensions, such as width, height, border, and padding.
+Reposition an element, such as margin, top, bottom, left, and right.
+Change an element's layout, such as align-content, align-items, and flex.
+Add visual effects that change the element geometry, such as box-shadow.
+Modern browsers are smart enough to repaint only the changed area of the document, rather than the entire page. As a result, larger animations are more costly.
+
+If at all possible, it is better to animate properties that do not cause reflow/repaint. This includes:
+
+Transforms
+opacity
+filter
+Animating on the GPU
+To further improve performance, you should consider moving animation work off the main thread and onto the device's GPU (also referred to as compositing). This is done by choosing specific types of animations that the browser will automatically send to the GPU to handle; these include:
+
+3D transform animations such as transform: translateZ() and rotate3d().
+Elements with certain other properties animated such as position: fixed.
+Elements with will-change applied (see the section below).
+Certain elements that are rendered in their own layer, including <video>, <canvas>, and <iframe>.
+Animation on the GPU can result in improved performance, especially on mobile. However, moving animations to GPU is not always that simple. Read CSS GPU Animation: Doing It Right (smashingmagazine.com, 2016) for a very useful and detailed analysis.
+
+Optimizing element changes with will-change
+Browsers may set up optimizations before an element is actually changed. These kinds of optimizations can increase the responsiveness of a page by doing potentially expensive work before it is required. The CSS will-change property hints to browsers how an element is expected to change.
+
+Note: will-change is intended to be used as a last resort to try to deal with existing performance problems. It should not be used to anticipate performance problems.
+
+CSS
+Copy to Clipboard
+.element {
+  will-change: opacity, transform;
+}
+Optimizing for render blocking
+CSS can scope styles to particular conditions with media queries. Media queries are important for a responsive web design and help us optimize a critical rendering path. The browser blocks rendering until it parses all of these styles but will not block rendering on styles it knows it will not use, such as the print stylesheets. By splitting the CSS into multiple files based on media queries, you can prevent render blocking during download of unused CSS. To create a non-blocking CSS link, move the not-immediately used styles, such as print styles, into separate file, add a <link> to the HTML mark up, and add a media query, in this case stating it's a print stylesheet.
+
+HTML
+Copy to Clipboard
+<!-- Loading and parsing styles.css is render-blocking -->
+<link rel="stylesheet" href="styles.css" />
+
+<!-- Loading and parsing print.css is not render-blocking -->
+<link rel="stylesheet" href="print.css" media="print" />
+
+<!-- Loading and parsing mobile.css is not render-blocking on large screens -->
+<link
+  rel="stylesheet"
+  href="mobile.css"
+  media="screen and (max-width: 480px)" />
+By default, the browser assumes that each specified style sheet is render blocking. Tell the browser when the style sheet should be applied by adding a media attribute with the media query. When the browser sees a style sheet it knows that it only needs to apply it for a specific scenario, it still downloads the stylesheet, but doesn't render block. By separating out the CSS into multiple files, the main render-blocking file, in this case styles.css, is much smaller, reducing the time that rendering is blocked.
+
+Improving font performance
+This section contains some useful tips for improving web font performance.
+
+In general, think carefully about the fonts you use on your site. Some font files can be very large (multiple megabytes). While it can be tempting to use lots of fonts for visual excitement, this can slow down page load significantly, and cause your site to look like a mess. You probably only need about two or three fonts, and you can get away with less if you choose to use web safe fonts.
+
+Font loading
+Bear in mind that a font is only loaded when it is actually applied to an element using the font-family property, not when it is first referenced using the @font-face at-rule:
+
+CSS
+Copy to Clipboard
+/* Font not loaded here */
+@font-face {
+  font-family: "Open Sans";
+  src: url("OpenSans-Regular-webfont.woff2") format("woff2");
+}
+
+h1,
+h2,
+h3 {
+  /* It is actually loaded here */
+  font-family: "Open Sans";
+}
+It can therefore be beneficial to use rel="preload" to load important fonts early, so they will be available more quickly when they are actually needed:
+
+HTML
+Copy to Clipboard
+<link
+  rel="preload"
+  href="OpenSans-Regular-webfont.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin />
+This is more likely to be beneficial if your font-family declaration is hidden inside a large external stylesheet, and won't be reached until significantly later in the parsing process. It is a tradeoff however — font files are quite large, and if you preload too many of them, you may delay other resources.
+
+You can also consider:
+
+Using rel="preconnect" to make an early connection with the font provider. See Preconnect to critical third-party origins for details.
+Using the CSS Font Loading API to customize the font loading behavior via JavaScript.
+Loading only the glyphs you need
+When choosing a font for body copy, it is harder to be sure of the glyphs that will be used in it, especially if you are dealing with user-generated content and/or content across multiple languages.
+
+However, if you know you are going to use a specific set of glyphs (for example, glyphs for headings or specific punctuation characters only), you could limit the number of glyphs the browser has to download. This can be done by creating a font file that only contains the required subset. A process called subsetting. The unicode-range @font-face descriptor can then be used to specify when your subset font is used. If the page doesn't use any character in this range, the font is not downloaded.
+
+CSS
+Copy to Clipboard
+@font-face {
+  font-family: "Open Sans";
+  src: url("OpenSans-Regular-webfont.woff2") format("woff2");
+  unicode-range: U+0025-00FF;
+}
+Defining font display behavior with the font-display descriptor
+Applied to the @font-face at-rule, the font-display descriptor defines how font files are loaded and displayed by the browser, allowing text to appear with a fallback font while a font loads, or fails to load. This improves performance by making the text visible instead of having a blank screen, with a trade-off being a flash of unstyled text.
+
+CSS
+Copy to Clipboard
+@font-face {
+  font-family: someFont;
+  src: url(/path/to/fonts/someFont.woff) format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: fallback;
+}
+Optimizing styling recalculation with CSS containment
+By using the properties defined in the CSS containment module, you can instruct the browser to isolate different parts of a page and optimize their rendering independently from one another. This allows for improved performance in rendering individual sections. As an example, you can specify to the browser to not render certain containers until they are visible in the viewport.
+
+The contain property allows an author to specify exactly what containment types they want applied to individual containers on the page. This allows the browser to recalculate layout, style, paint, size, or any combination of them for a limited part of the DOM.
+
+CSS
+Copy to Clipboard
+article {
+  contain: content;
+}
+The content-visibility property is a useful shortcut, which allows authors to apply a strong set of containments on a set of containers and specify that the browser should not lay out and render those containers until needed.
+
+A second property, contain-intrinsic-size, is also available, which allows you to provide a placeholder size for containers while they are under the effects of containment. This means that the containers will take up space even if their contents have not yet been rendered, allowing containment to do its performance magic without the risk of scroll bar shift and jank as elements render and come into view. This improves the quality of the user experience as the content is loaded.
+
+CSS
+Copy to Clipboard
+article {
+  content-visibility: auto;
+  contain-intrinsic-size: 1000px;
+}
+Previous
+Overview: Performance
+Next
+See also
+CSS animation performance
+Best practices for fonts on web.dev (2022)
+content-visibility: the new CSS property that boosts your rendering performance on web.dev (2022)
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <h2 id="feedback">
-                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
-                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
+                    <div class="mt-5 small">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
+                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
+                      <footer class="mt-3 small">
+                        <div class="row">
+                            <div class="col-md-4 text-start">
+                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <a href="#" class="link-offset-2">Topic</a>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
+                            </div>
+                        </div>
+                      </footer>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container py-4 py-md-5 px-4 px-md-3">
+            <div class="container px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1198,6 +1433,9 @@
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
+                            <li class="mb-2">
+                              <a href="https://newsletter.datarist.com">Newsletter</a>
+                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">

@@ -197,15 +197,16 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
+                            <li class="nav-item col-6 col-lg-auto">
+                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
+                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
-                                        <title>Twitter</title>
-                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
-                                    </svg>
+                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
+                                    <title>Twitter</title>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1142,9 +1143,7 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                <li>
-                                    <a href="#feedback">Feedback</a>
-                                </li>                                
+                                                                
                             </ul>
                         </nav>
                     </div>
@@ -1153,30 +1152,325 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
+                    Working with JSON
+Previous
+Overview: Objects
+Next
+JavaScript Object Notation (JSON) is a standard text-based format for representing structured data based on JavaScript object syntax. It is commonly used for transmitting data in web applications (e.g., sending some data from the server to the client, so it can be displayed on a web page, or vice versa). You'll come across it quite often, so in this article, we give you all you need to work with JSON using JavaScript, including parsing JSON so you can access data within it, and creating JSON.
+
+Prerequisites:	A basic understanding of HTML and CSS, familiarity with JavaScript basics (see First steps and Building blocks) and OOJS basics (see Introduction to objects).
+Objective:	To understand how to work with data stored in JSON, and create your own JSON strings.
+No, really, what is JSON?
+JSON is a text-based data format following JavaScript object syntax, which was popularized by Douglas Crockford. Even though it closely resembles JavaScript object literal syntax, it can be used independently from JavaScript, and many programming environments feature the ability to read (parse) and generate JSON.
+
+JSON exists as a string — useful when you want to transmit data across a network. It needs to be converted to a native JavaScript object when you want to access the data. This is not a big issue — JavaScript provides a global JSON object that has methods available for converting between the two.
+
+Note: Converting a string to a native object is called deserialization, while converting a native object to a string so it can be transmitted across the network is called serialization.
+
+A JSON string can be stored in its own file, which is basically just a text file with an extension of .json, and a MIME type of application/json.
+
+JSON structure
+As described above, JSON is a string whose format very much resembles JavaScript object literal format. You can include the same basic data types inside JSON as you can in a standard JavaScript object — strings, numbers, arrays, booleans, and other object literals. This allows you to construct a data hierarchy, like so:
+
+JSON
+Copy to Clipboard
+{
+  "squadName": "Super hero squad",
+  "homeTown": "Metro City",
+  "formed": 2016,
+  "secretBase": "Super tower",
+  "active": true,
+  "members": [
+    {
+      "name": "Molecule Man",
+      "age": 29,
+      "secretIdentity": "Dan Jukes",
+      "powers": ["Radiation resistance", "Turning tiny", "Radiation blast"]
+    },
+    {
+      "name": "Madame Uppercut",
+      "age": 39,
+      "secretIdentity": "Jane Wilson",
+      "powers": [
+        "Million tonne punch",
+        "Damage resistance",
+        "Superhuman reflexes"
+      ]
+    },
+    {
+      "name": "Eternal Flame",
+      "age": 1000000,
+      "secretIdentity": "Unknown",
+      "powers": [
+        "Immortality",
+        "Heat Immunity",
+        "Inferno",
+        "Teleportation",
+        "Interdimensional travel"
+      ]
+    }
+  ]
+}
+If we loaded this string into a JavaScript program and parsed it into a variable called superHeroes for example, we could then access the data inside it using the same dot/bracket notation we looked at in the JavaScript object basics article. For example:
+
+JS
+Copy to Clipboard
+superHeroes.homeTown;
+superHeroes["active"];
+To access data further down the hierarchy, you have to chain the required property names and array indexes together. For example, to access the third superpower of the second hero listed in the members list, you'd do this:
+
+JS
+Copy to Clipboard
+superHeroes["members"][1]["powers"][2];
+First, we have the variable name — superHeroes.
+Inside that, we want to access the members property, so we use ["members"].
+members contains an array populated by objects. We want to access the second object inside the array, so we use [1].
+Inside this object, we want to access the powers property, so we use ["powers"].
+Inside the powers property is an array containing the selected hero's superpowers. We want the third one, so we use [2].
+Note: We've made the JSON seen above available inside a variable in our JSONTest.html example (see the source code). Try loading this up and then accessing data inside the variable via your browser's JavaScript console.
+
+Arrays as JSON
+Above we mentioned that JSON text basically looks like a JavaScript object inside a string. We can also convert arrays to/from JSON. Below is also valid JSON, for example:
+
+JSON
+Copy to Clipboard
+[
+  {
+    "name": "Molecule Man",
+    "age": 29,
+    "secretIdentity": "Dan Jukes",
+    "powers": ["Radiation resistance", "Turning tiny", "Radiation blast"]
+  },
+  {
+    "name": "Madame Uppercut",
+    "age": 39,
+    "secretIdentity": "Jane Wilson",
+    "powers": [
+      "Million tonne punch",
+      "Damage resistance",
+      "Superhuman reflexes"
+    ]
+  }
+]
+The above is perfectly valid JSON. You'd just have to access array items (in its parsed version) by starting with an array index, for example [0]["powers"][0].
+
+Other notes
+JSON is purely a string with a specified data format — it contains only properties, no methods.
+JSON requires double quotes to be used around strings and property names. Single quotes are not valid other than surrounding the entire JSON string.
+Even a single misplaced comma or colon can cause a JSON file to go wrong, and not work. You should be careful to validate any data you are attempting to use (although computer-generated JSON is less likely to include errors, as long as the generator program is working correctly). You can validate JSON using an application like JSONLint.
+JSON can actually take the form of any data type that is valid for inclusion inside JSON, not just arrays or objects. So for example, a single string or number would be valid JSON.
+Unlike in JavaScript code in which object properties may be unquoted, in JSON only quoted strings may be used as properties.
+Active learning: Working through a JSON example
+So, let's work through an example to show how we could make use of some JSON formatted data on a website.
+
+Getting started
+To begin with, make local copies of our heroes.html and style.css files. The latter contains some simple CSS to style our page, while the former contains some very simple body HTML, plus a <script> element to contain the JavaScript code we will be writing in this exercise:
+
+HTML
+Copy to Clipboard
+<header>
+...
+</header>
+
+<section>
+...
+</section>
+
+<script>
+...
+</script>
+We have made our JSON data available on our GitHub, at https://Datarist.github.io/learning-area/javascript/oojs/json/superheroes.json.
+
+We are going to load the JSON into our script, and use some nifty DOM manipulation to display it, like this:
+
+Image of a document titled "Super hero squad" (in a fancy font) and subtitled "Hometown: Metro City // Formed: 2016". Three columns below the heading are titled "Molecule Man", "Madame Uppercut", and "Eternal Flame", respectively. Each column lists the hero's secret identity name, age, and superpowers.
+Top-level function
+The top-level function looks like this:
+
+JS
+Copy to Clipboard
+async function populate() {
+  const requestURL =
+    "https://Datarist.github.io/learning-area/javascript/oojs/json/superheroes.json";
+  const request = new Request(requestURL);
+
+  const response = await fetch(request);
+  const superHeroes = await response.json();
+
+  populateHeader(superHeroes);
+  populateHeroes(superHeroes);
+}
+To obtain the JSON, we use an API called Fetch. This API allows us to make network requests to retrieve resources from a server via JavaScript (e.g. images, text, JSON, even HTML snippets), meaning that we can update small sections of content without having to reload the entire page.
+
+In our function, the first four lines use the Fetch API to fetch the JSON from the server:
+
+we declare the requestURL variable to store the GitHub URL
+we use the URL to initialize a new Request object.
+we make the network request using the fetch() function, and this returns a Response object
+we retrieve the response as JSON using the json() function of the Response object.
+Note: The fetch() API is asynchronous. We'll learn a lot about asynchronous functions in the next module, but for now, we'll just say that we need to add the keyword async before the name of the function that uses the fetch API, and add the keyword await before the calls to any asynchronous functions.
+
+After all that, the superHeroes variable will contain the JavaScript object based on the JSON. We are then passing that object to two function calls — the first one fills the <header> with the correct data, while the second one creates an information card for each hero on the team, and inserts it into the <section>.
+
+Populating the header
+Now that we've retrieved the JSON data and converted it into a JavaScript object, let's make use of it by writing the two functions we referenced above. First of all, add the following function definition below the previous code:
+
+JS
+Copy to Clipboard
+function populateHeader(obj) {
+  const header = document.querySelector("header");
+  const myH1 = document.createElement("h1");
+  myH1.textContent = obj.squadName;
+  header.appendChild(myH1);
+
+  const myPara = document.createElement("p");
+  myPara.textContent = `Hometown: ${obj.homeTown} // Formed: ${obj.formed}`;
+  header.appendChild(myPara);
+}
+Here we first create an h1 element with createElement(), set its textContent to equal the squadName property of the object, then append it to the header using appendChild(). We then do a very similar operation with a paragraph: create it, set its text content and append it to the header. The only difference is that its text is set to a template literal containing both the homeTown and formed properties of the object.
+
+Creating the hero information cards
+Next, add the following function at the bottom of the code, which creates and displays the superhero cards:
+
+JS
+Copy to Clipboard
+function populateHeroes(obj) {
+  const section = document.querySelector("section");
+  const heroes = obj.members;
+
+  for (const hero of heroes) {
+    const myArticle = document.createElement("article");
+    const myH2 = document.createElement("h2");
+    const myPara1 = document.createElement("p");
+    const myPara2 = document.createElement("p");
+    const myPara3 = document.createElement("p");
+    const myList = document.createElement("ul");
+
+    myH2.textContent = hero.name;
+    myPara1.textContent = `Secret identity: ${hero.secretIdentity}`;
+    myPara2.textContent = `Age: ${hero.age}`;
+    myPara3.textContent = "Superpowers:";
+
+    const superPowers = hero.powers;
+    for (const power of superPowers) {
+      const listItem = document.createElement("li");
+      listItem.textContent = power;
+      myList.appendChild(listItem);
+    }
+
+    myArticle.appendChild(myH2);
+    myArticle.appendChild(myPara1);
+    myArticle.appendChild(myPara2);
+    myArticle.appendChild(myPara3);
+    myArticle.appendChild(myList);
+
+    section.appendChild(myArticle);
+  }
+}
+To start with, we store the members property of the JavaScript object in a new variable. This array contains multiple objects that contain the information for each hero.
+
+Next, we use a for...of loop to loop through each object in the array. For each one, we:
+
+Create several new elements: an <article>, an <h2>, three <p>s, and a <ul>.
+Set the <h2> to contain the current hero's name.
+Fill the three paragraphs with their secretIdentity, age, and a line saying "Superpowers:" to introduce the information in the list.
+Store the powers property in another new constant called superPowers — this contains an array that lists the current hero's superpowers.
+Use another for...of loop to loop through the current hero's superpowers — for each one we create an <li> element, put the superpower inside it, then put the listItem inside the <ul> element (myList) using appendChild().
+The very last thing we do is to append the <h2>, <p>s, and <ul> inside the <article> (myArticle), then append the <article> inside the <section>. The order in which things are appended is important, as this is the order they will be displayed inside the HTML.
+Note: If you are having trouble getting the example to work, try referring to our heroes-finished.html source code (see it running live also.)
+
+Note: If you are having trouble following the dot/bracket notation we are using to access the JavaScript object, it can help to have the superheroes.json file open in another tab or your text editor, and refer to it as you look at our JavaScript. You should also refer back to our JavaScript object basics article for more information on dot and bracket notation.
+
+Calling the top-level function
+Finally, we need to call our top-level populate() function:
+
+JS
+Copy to Clipboard
+populate();
+Converting between objects and text
+The above example was simple in terms of accessing the JavaScript object, because we converted the network response directly into a JavaScript object using response.json().
+
+But sometimes we aren't so lucky — sometimes we receive a raw JSON string, and we need to convert it to an object ourselves. And when we want to send a JavaScript object across the network, we need to convert it to JSON (a string) before sending it. Luckily, these two problems are so common in web development that a built-in JSON object is available in browsers, which contains the following two methods:
+
+parse(): Accepts a JSON string as a parameter, and returns the corresponding JavaScript object.
+stringify(): Accepts an object as a parameter, and returns the equivalent JSON string.
+You can see the first one in action in our heroes-finished-json-parse.html example (see the source code) — this does exactly the same thing as the example we built up earlier, except that:
+
+we retrieve the response as text rather than JSON, by calling the text() method of the response
+we then use parse() to convert the text to a JavaScript object.
+The key snippet of code is here:
+
+JS
+Copy to Clipboard
+async function populate() {
+  const requestURL =
+    "https://Datarist.github.io/learning-area/javascript/oojs/json/superheroes.json";
+  const request = new Request(requestURL);
+
+  const response = await fetch(request);
+  const superHeroesText = await response.text();
+
+  const superHeroes = JSON.parse(superHeroesText);
+  populateHeader(superHeroes);
+  populateHeroes(superHeroes);
+}
+As you might guess, stringify() works the opposite way. Try entering the following lines into your browser's JavaScript console one by one to see it in action:
+
+JS
+Copy to Clipboard
+let myObj = { name: "Chris", age: 38 };
+myObj;
+let myString = JSON.stringify(myObj);
+myString;
+Here we're creating a JavaScript object, then checking what it contains, then converting it to a JSON string using stringify() — saving the return value in a new variable — then checking it again.
+
+Test your skills!
+You've reached the end of this article, but can you remember the most important information? You can find some further tests to verify that you've retained this information before you move on — see Test your skills: JSON.
+
+Summary
+In this article, we've given you a simple guide to using JSON in your programs, including how to create and parse JSON, and how to access data locked inside it. In the next article, we'll begin looking at object-oriented JavaScript.
+
+See also
+JSON reference
+Fetch API overview
+Using Fetch
+HTTP request methods
+Official JSON website with link to ECMA standard
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <h2 id="feedback">
-                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
-                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
+                    <div class="mt-5 small">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
+                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
+                      <footer class="mt-3 small">
+                        <div class="row">
+                            <div class="col-md-4 text-start">
+                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <a href="#" class="link-offset-2">Topic</a>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
+                            </div>
+                        </div>
+                      </footer>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container py-4 py-md-5 px-4 px-md-3">
+            <div class="container px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1198,6 +1492,9 @@
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
+                            <li class="mb-2">
+                              <a href="https://newsletter.datarist.com">Newsletter</a>
+                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">
