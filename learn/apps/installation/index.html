@@ -197,15 +197,16 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
+                            <li class="nav-item col-6 col-lg-auto">
+                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
+                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
-                                        <title>Twitter</title>
-                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
-                                    </svg>
+                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
+                                    <title>Twitter</title>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1142,9 +1143,7 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                <li>
-                                    <a href="#feedback">Feedback</a>
-                                </li>                                
+                                                                
                             </ul>
                         </nav>
                     </div>
@@ -1153,30 +1152,183 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
+                    Installation 
+
+bookmark_border
+Once the user installs your PWA, it will:
+
+Have an icon in the launcher, home screen, start menu, or launchpad.
+Appear as a result when a user searches for the app on their device.
+Have a separate window within the operating system.
+Have support for specific capabilities.
+Note: While installation differs per browser and operating system, you don't need to create any kind of package or executable for your PWA to be installed from a browser.
+Installation criteria
+Every browser has a criterion that marks when a website or web app is a Progressive Web App and can be installed for a standalone experience. The metadata for your PWA is set by a JSON-based file known as the Web App Manifest, which we will cover in detail in the next module.
+
+As a minimum requirement for installability, most browsers that support it use the Web App Manifest file and certain properties such as the name of the app, and configuration of the installed experience. An exception to this is Safari for macOS, which does not support installability.
+
+The requirements to allow installation differ among the different browsers, this article details the criteria for Google Chrome and includes links to requirements for other browsers.
+
+Because the test that a PWA meets installability requirements can take several seconds, installability itself may not be available as soon as a URLs response is received.
+
+Note: The process for uninstalling a PWA is different on each combination of operating system and browser. In most situations, the app can be uninstalled the same as any other platform-specific app; in other situations, the PWA window offers a menu with an uninstall option. Deleting the icon may not clear the storage that a PWA is using.
+Desktop installation
+Desktop PWA installation is currently supported by Google Chrome and Microsoft Edge on Linux, Windows, macOS, and Chromebooks. These browsers will show an install badge (icon) in the URL bar (see the image below), stating that the current site is installable.
+
+Chrome and Edge on desktop with the install badge in the URL bar
+
+When a user is engaged with a site, they may see a popup such as the one below inviting users to install it as an app.
+
+Google chrome in-product help suggesting the PWA installation.
+
+The browser's drop-down menu also includes an "Install " item that the user can use:
+
+Chrome and Edge menu items for PWA installation.
+
+Note: Chromium-based browsers on desktop let you see all the installed PWAs with that browser using about:apps.
+Only standalone and minimal-ui display modes are supported on desktop operating systems.
+
+PWAs installed on desktops:
+
+Have an icon in the Start menu or Start screen on Windows PCs, in the dock or desktop in Linux GUIs, in the macOS launchpad, or a Chromebook's app launcher.
+Have an icon in app switchers and docks when the app is active, was recently used, or is opened in the background.
+Appear in the app search, for example, search on Windows or Spotlight on macOS.
+Can set a badge number on their icons, to indicate new notifications. This is done with the Badging API.
+Can set a contextual menu for the icon with App Shortcuts.
+Can't be installed twice with the same browser.
+Note: Installation may unlock other capabilities that are not available for PWAs running within the browser's tab. We'll talk more about this in the Capabilities Chapter.
+After installing an app on the desktop, users can navigate to about:apps, right-click on a PWA, and select "Start App when you Sign In" if they want your app to open automatically on startup.
+
+iOS and iPadOS installation
+A browser prompt to install your PWA doesn't exist On iOS and iPadOS. On these platforms PWAs are also known as home screen web apps. These apps have to be added manually to the home screen via a menu that is available only in Safari. It is recommended that you add the apple-touch-icon tag to your html. To define the icon, include the path to your icon to your HTML <head> section, like this:
+
+
+<link rel="apple-touch-icon" href="/icons/ios.png">
+Safari will use that information to create the shortcut and if you don't provide a specific icon for Apple devices, the icon on the home screen will be a screenshot of your PWA when the user installed it.
+
+It's important to understand that PWA installation is only available if the user browses your website from Safari. Other browsers available in the App Store, such as Google Chrome, Firefox, Opera, or Microsoft Edge, cannot install a PWA on the home screen.
+
+The steps to add apps to the home screen are:
+
+Open the Share menu, available at the bottom or top of the browser.
+Click Add to Home Screen.
+Confirm the name of the app; the name is user-editable.
+Click Add. On iOS and iPadOS, bookmarks to websites and PWAs look the same on the home screen.
+On iOS and iPadOS, only the standalone display mode is supported. Therefore, if you use minimal UI mode, it will fall back to a browser shortcut; if you use fullscreen, it will fall back to standalone.
+
+Caution: On Apple devices, you can install the same PWA multiple times; each installation will have its own isolated storage, and it will be treated as a different app.
+PWAs installed on iOS and iPadOS:
+
+Appear in the home screen, Spotlight's search, Siri Suggestions, and App Library search.
+Don't appear in App Gallery's categories folders.
+Lack support for capabilities such as badging and app shortcuts.
+Incidentally, Safari uses a native technology known as Web Clips to create the PWA icons in the operating system. They are just XML files in Apple's Property List format stored in the filesystem.
+
+When users use the PWA, they are not using an instance of the Safari app (like they use an instance of Chrome when doing so), they are using something known as Web.app, so you should expect slight differences between your PWA rendered in Safari and a PWA window. Both Safari and Web.app use the same core from WebKit and the same JavaScript runtime, but they run in different processes and may have different implementations, such as having isolated storage.
+Android installation
+On Android, PWA install prompts differ by device and browser. Users may see:
+
+Variations in the wording of the menu item for install such as Install or Add to Home Screen.
+Detailed installation dialogs.
+In the following image you can see two different versions of an installation dialog, a simple mini-infobar (left) and a detailed installation dialog (right).
+
+Mini info bar and installation dialogs on Android.
+
+Depending on the device and browser, your PWA will either be installed as a WebAPK, a shortcut, or a QuickApp.
+
+WebAPKs
+A WebAPK is an Android package (APK) created by a trusted provider of the user's device, typically in the cloud, on a WebAPK minting server. This method is used by Google Chrome on devices with Google Mobile Services (GMS) installed, and by Samsung Internet browser, but only on Samsung-manufactured devices, such as a Galaxy phone or tablet. Together, this accounts for the majority of Android users.
+
+When a user installs a PWA from Google Chrome and a WebAPK is used, the minting server "mints" (packages) and signs an APK for the PWA. That process takes time, but when the APK is ready, the browser installs that app silently on the user's device. Because trusted providers (Play Services or Samsung) signed the APK, the phone installs it without disabling security, as with any app coming from the store. There is no need for sideloading the app.
+
+PWAs installed via WebAPK:
+
+Have an icon in the app launcher and home screen.
+Appear on Settings, Apps.
+Can have several capabilities, such as badging, app shortcuts, and capture links within the OS.
+Can update the icon and app's metadata.
+Can't be installed twice.
+You, as a PWA developer, don't need to build or sign any package when a WebAPK is used. It's all handled transparently between the browser, device, and minting server.
+Shortcuts
+While WebAPKs provide the best experience for Android users, they can't always be created. When they can't, browsers fall back to creating a website shortcut. Because Firefox, Microsoft Edge, Opera, Brave, and Samsung Internet (on non-Samsung devices) don't have minting servers they trust, they'll create shortcuts. Google Chrome will too if the minting service is unavailable or your PWA doesn't meet installation requirements.
+
+PWAs installed with shortcuts:
+
+Have a browser-badged icon on the home screen (see the following examples).
+Don't have an icon in the Launcher or on Settings, Apps.
+Can't use any capabilities that require installation.
+Can't update their icons and app metadata.
+Can be installed many times, even using the same browser; when this happens, all will point to the same instance, and use the same storage.
+A PWA installed with different browsers on the same device.
+
+QuickApps
+Some manufacturers, including Huawei and ZTE, offer a platform known as QuickApps to create light web apps similar to PWAs but using a different technology stack. Some browsers on these devices, like the Huawei browser, can install PWAs that get packaged as QuickApp, even if you are not using the QuickApp stack.
+
+When your PWA is installed as a QuickApp, users will get a similar experience to the one they would have with shortcuts, but with an icon badged with the QuickApps icon (a lightning image). The app will also be available to launch from the QuickApp Center.
+
+QuickApps on a Huawei or ZTE home screen.
+
+Prompting for installation
+In Chromium-based browsers on desktop and Android devices, it's possible to trigger the browser's installation dialog from your PWA. The Installation Prompt chapter, will cover patterns for doing so and how to implement them.
+
+Warning: If you provide instructions to the user, remember that menu items' names vary by language.
+App catalogs and stores
+Your PWA can also be listed in app catalogs and stores to increase its reach and let users find it in the same place they find other apps. Most app catalogs and stores support technologies that let you publish a package that doesn't include the whole web app (such as your HTML and assets). These technologies let you create just a launcher to a standalone web rendering engine that will load the app and let the service worker cache the necessary assets.
+
+The app catalogs and stores that support publishing a PWA are:
+
+Google Play Store for Android and ChromeOS, using a Trusted Web Activity.
+Apple App Store for iOS, macOS, and iPadOS, using WKWebView and App-Bound Domains.
+Microsoft Store for Windows 10 and 11, using APPX packages.
+Samsung Galaxy Store, using the Samsung WebAPK minting server.
+Huawei AppGallery, using a QuickApp container for your HTML application.
+If you want to learn more about how to publish a PWA to app catalogs and stores, check out BubbleWrap CLI and PWA Builder.
+
+Warning: Some app catalogs and stores have technical or business requirements that before your PWA is accepted for publication. Check each store's requirements before starting.
+Resources
+What does it take to be installable
+WebAPKs on Android
+Patterns for promoting PWA installation
+Using a PWA in your Android app
+List your Progressive Web App in Google Play
+Submit your PWA to the Microsoft Store
+Publishing a PWA to App Store
+WebKit: App-Bound Domains
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <h2 id="feedback">
-                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
-                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
+                    <div class="mt-5 small">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
+                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
+                      <footer class="mt-3 small">
+                        <div class="row">
+                            <div class="col-md-4 text-start">
+                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <a href="#" class="link-offset-2">Topic</a>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
+                            </div>
+                        </div>
+                      </footer>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container py-4 py-md-5 px-4 px-md-3">
+            <div class="container px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1198,6 +1350,9 @@
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
+                            <li class="mb-2">
+                              <a href="https://newsletter.datarist.com">Newsletter</a>
+                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">

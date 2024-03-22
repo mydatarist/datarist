@@ -197,15 +197,16 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
+                            <li class="nav-item col-6 col-lg-auto">
+                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
+                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
-                                        <title>Twitter</title>
-                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
-                                    </svg>
+                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
+                                    <title>Twitter</title>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1142,9 +1143,7 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                <li>
-                                    <a href="#feedback">Feedback</a>
-                                </li>                                
+                                                                
                             </ul>
                         </nav>
                     </div>
@@ -1153,30 +1152,123 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
+                    Many people use component-driven development using pattern style guides, component libraries, or full design systems in their development workflow process. Even if you have not used these tools formally, it's likely you use a similar process to break up a large design for a website, app, or other digital product into manageable pieces.
+
+Like building a physical structure, it's important to build one piece at a time. First, the foundation, the structure, walls, windows, roof, and everything in between. Component-driven development tools allow us to do this for websites, apps, and other digital products.
+
+Some perks to component-driven development include breaking things down into manageable pieces, so there is less development time with these reusable components. It allows designers, frontend and backend developers, and QA to work simultaneously. And clients, designers, PMs, and more, like it because they can preview the build process and use a living style guide as a reference after the website has launched.
+
+However, when we look at patterns, components, and design systems with accessibility in mind, some questions arise. How do you know which patterns are best when it comes to accessibility? Should you use an established pattern/library or create new ones? How do you know if these patterns will actually help your users?
+
+With the myriad of choices available, it's easy to quickly become confused about this topic. This module aims to give you general information on how to evaluate patterns, components, and design systems for accessibility and gives you a starting point to help you make more accessible choices.
+
+Think critically
+Choosing an accessible pattern, component, or design system is not rocket science, but it does take time and critical thinking. In fact, there's no such thing as "one perfect pattern," but there may potentially be many options that could work. It's about learning to choose the best option for your unique situation.
+
+In the subsequent testing modules, you will learn more about the techniques and methods on how to evaluate patterns, components, and design systems for accessibility. But before that stage, you need to step back and ask yourself some fundamental questions, such as:
+
+Does an established accessible pattern, component, or design system already exist?
+What browsers and assistive technology (AT) am I supporting?
+Are there any code/framework limitations or other integrations/factors/user needs I need to consider?
+Depending on your dev environment and user needs, you may have additional or different questions from these. Consider these questions as your starting point in your accessibility evaluation.
+
+Established resources
+Before building something brand new, do your due diligence and review what already exists in terms of accessible patterns, components, and design systems. With just a little research, you might be surprised to find a solution—or multiple—that fits your needs.
+
+Some great resources for accessible patterns, components, and design systems include:
+
+Accessible Components
+Deque University ARIA library
+Gov.UK Design System
+Inclusive Components
+MagentaA11y
+U.S. Web Design System (USWDS), created for the U.S. federal government
+List of accessible patterns from Smashing Magazine
+For JavaScript frameworks, the following resources are fairly accessible out of the box or are easy to customize for accessibility:
+
+When CSS Isn't Enough: JavaScript Requirements For Accessible Components
+React
+ReachUI
+Reakit
+Chakra
+Angular: Material library
+Vue: Vuetensils
+However—and this cannot be stressed enough—you should never just copy/paste code and assume it will fit within your environment and automatically meet your user needs. This is true of all patterns, components, and design systems, even if labeled as fully accessible.
+
+All resources should be seen as a starting point. Be sure to test everything!
+
+Browsers and assistive technology (AT) support
+After researching a few base patterns, components, or a full design system that might work for your dev environment, you can move on to assistive technology support. One major type of AT you will want to focus on when evaluating patterns, components, and design systems is screen readers.
+
+Screen readers were built with specific browsers in mind and will work best when paired with these browsers. We'll go into this topic in much more detail in the module on AT testing, but for pattern evaluation purposes, it is helpful to understand these combinations exist, so you know what you need in terms of support.
+
+Screen reader	OS	Browser compatibility	Cost
+Job Access with Speech (JAWS)	Windows	Chrome, Firefox, Edge	License require (a free 40-min version exists)
+Non-Visual Desktop Access (NVDA)	Windows	Chrome and Firefox	Free (requires download)
+Narrator	Windows	Edge	Free (built into Windows machines)
+VoiceOver	macOS	Safari	Free (built into macOS machines)
+Orca	Linux	Firefox	Free (built into Gnome-based distributions)
+TalkBack	Android	Chrome and Firefox	Free (built into certain versions of Android OS)
+VoiceOver	iOS	Safari	Free (built into iOS devices)
+Browser support is generally complicated, and things get even trickier when you add AT devices and ARIA specifications to the mix.
+
+But it's not all bad news. Thankfully, great resources such as HTML5 Accessibility, Accessibility Support, and WCAG's Custom Control Accessible Development Checklist help us to better understand current browser and AT device support, and even when to use ARIA in the first place.
+
+These resources outline the different HTML and ARIA pattern sub-elements available, including open-source community tests. You can also review some pattern examples—for both desktop and mobile browsers/AT devices. As such, these resources can help you make a more accessible decision regarding patterns, components, and design systems that you may want to use.
+
+Other considerations
+Once you have chosen a few accessible base patterns or components, and factored in browser and AT device support, you can move on to more specific contextual questions about the pattern, component, design system, and dev environment.
+
+For example, if you are working in a management system (CMS) or have legacy code, there may be some limitations to which patterns you can use. Upon review, several pattern choices may quickly be cut to one or two options.
+
+Many JavaScript frameworks allow developers to use almost any pattern they choose. In cases like these, you may have fewer restrictions and can choose the most accessible pattern option.
+
+There are additional considerations to weigh when choosing a pattern, component, or design system, such as:
+
+Performance
+Security
+Search engine optimization
+Language translation support
+Third-party integrations
+These factors will undoubtedly play into your pattern choice, but you should also consider the people creating the content and code itself. The pattern you choose must be robust enough to handle any potential limitations around editor-generated or user-generated content, plus be built in a way that developers of all accessibility knowledge can use.
+
+Check your understanding
+Test your knowledge of patterns
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <h2 id="feedback">
-                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
-                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
+                    <div class="mt-5 small">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
+                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
+                      <footer class="mt-3 small">
+                        <div class="row">
+                            <div class="col-md-4 text-start">
+                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <a href="#" class="link-offset-2">Topic</a>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
+                            </div>
+                        </div>
+                      </footer>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container py-4 py-md-5 px-4 px-md-3">
+            <div class="container px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1198,6 +1290,9 @@
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
+                            <li class="mb-2">
+                              <a href="https://newsletter.datarist.com">Newsletter</a>
+                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">

@@ -197,15 +197,16 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
+                            <li class="nav-item col-6 col-lg-auto">
+                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
+                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
-                                        <title>Twitter</title>
-                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
-                                    </svg>
+                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
+                                    <title>Twitter</title>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1142,9 +1143,7 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                <li>
-                                    <a href="#feedback">Feedback</a>
-                                </li>                                
+                                                                
                             </ul>
                         </nav>
                     </div>
@@ -1153,30 +1152,238 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
+                    Multiple-column layout
+Previous
+Overview: CSS layout
+Next
+The multiple-column layout specification provides you with a method for laying content out in columns, as you might see in a newspaper. This article explains how to use this feature.
+
+Prerequisites:	HTML basics (study Introduction to HTML), and an idea of How CSS works (study Introduction to CSS.)
+Objective:	To learn how to create multiple-column layout on webpages, such as you might find in a newspaper.
+A basic example
+Let's explore how to use multiple-column layout — often referred to as multicol. You can follow along by downloading the multicol starting point file and adding the CSS into the appropriate places. At the bottom of the section you can see an example of what the final code should look like.
+
+A three-column layout
+Our starting point file contains some very simple HTML: a wrapper with a class of container, inside of which is a heading and some paragraphs.
+
+The <div> with a class of container will become our multicol container. We enable multicol by using one of two properties: column-count or column-width. The column-count property takes a number as its value and creates that number of columns. If you add the following CSS to your stylesheet and reload the page, you'll get three columns:
+
+CSS
+Play
+Copy to Clipboard
+.container {
+  column-count: 3;
+}
+The columns that you create have flexible widths — the browser works out how much space to assign each column.
+
+Play
+
+Setting column-width
+Change your CSS to use column-width as follows:
+
+CSS
+Play
+Copy to Clipboard
+.container {
+  column-width: 200px;
+}
+The browser will now give you as many columns as it can of the size that you specify; any remaining space is then shared between the existing columns. This means that you won't get exactly the width that you specify unless your container is exactly divisible by that width.
+
+Play
+
+Styling the columns
+The columns created by multicol cannot be styled individually. There's no way to make one column bigger than other columns or to change the background or text color of a single column. You have two opportunities to change the way that columns display:
+
+Changing the size of the gap between columns using the column-gap.
+Adding a rule between columns with column-rule.
+Using your example above, change the size of the gap by adding a column-gap property. You can play around with different values — the property accepts any length unit.
+
+Now add a rule between the columns with column-rule. In a similar way to the border property that you encountered in previous lessons, column-rule is a shorthand for column-rule-color, column-rule-style, and column-rule-width, and accepts the same values as border.
+
+CSS
+Play
+Copy to Clipboard
+.container {
+  column-count: 3;
+  column-gap: 20px;
+  column-rule: 4px dotted rgb(79 185 227);
+}
+Try adding rules of different styles and colors.
+
+Play
+
+Something to take note of is that the rule doesn't take up any width of its own. It lies across the gap you created with column-gap. To make more space on either side of the rule, you'll need to increase the column-gap size.
+
+Spanning columns
+You can cause an element to span across all the columns. In this case, the content breaks where the spanning element's introduced and then continues below the element, creating a new set of columns. To cause an element to span all the columns, specify the value of all for the column-span property.
+
+Note: It isn't possible to cause an element to span just some columns. The property can only have the values of none (which is the default) or all.
+
+Play
+
+Columns and fragmentation
+The content of a multi-column layout is fragmented. It essentially behaves the same way as content behaves in paged media, such as when you print a webpage. When you turn your content into a multicol container, it fragments into columns. In order for the content to do this, it must break.
+
+Fragmented boxes
+Sometimes, this breaking will happen in places that lead to a poor reading experience. In the example below, I have used multicol to lay out a series of boxes, each of which has a heading and some text inside. The heading becomes separated from the text if the columns fragment between the two.
+
+HTML
+Play
+Copy to Clipboard
+<div class="container">
+  <div class="card">
+    <h2>I am the heading</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus
+      aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci,
+      pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc,
+      at ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta.
+      Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>I am the heading</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus
+      aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci,
+      pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc,
+      at ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta.
+      Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>I am the heading</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus
+      aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci,
+      pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc,
+      at ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta.
+      Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula.
+    </p>
+  </div>
+  <div class="card">
+    <h2>I am the heading</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus
+      aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci,
+      pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc,
+      at ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta.
+      Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>I am the heading</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus
+      aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci,
+      pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc,
+      at ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta.
+      Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>I am the heading</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus
+      aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci,
+      pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc,
+      at ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta.
+      Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>I am the heading</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus
+      aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci,
+      pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc,
+      at ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta.
+      Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula.
+    </p>
+  </div>
+</div>
+CSS
+Play
+Copy to Clipboard
+.container {
+  column-width: 250px;
+  column-gap: 20px;
+}
+
+.card {
+  background-color: rgb(207 232 220);
+  border: 2px solid rgb(79 185 227);
+  padding: 10px;
+  margin: 0 0 1em 0;
+}
+Play
+
+Setting break-inside
+To control this behavior, we can use properties from the CSS Fragmentation specification. This specification gives us properties to control the breaking of content in multicol and in paged media. For example, by adding the property break-inside with a value of avoid to the rules for .card. This is the container of the heading and text, so we don't want it fragmented.
+
+CSS
+Play
+Copy to Clipboard
+.card {
+  break-inside: avoid;
+  background-color: rgb(207 232 220);
+  border: 2px solid rgb(79 185 227);
+  padding: 10px;
+  margin: 0 0 1em 0;
+}
+The addition of this property causes the boxes to stay in one piece—they now do not fragment across the columns.
+
+Play
+
+Test your skills!
+You've reached the end of this article, but can you remember the most important information? You can find some further tests to verify that you've retained this information before you move on — see Test your skills: Multicol.
+
+Summary
+You now know how to use the basic features of multiple-column layout, another tool at your disposal when choosing a layout method for the designs you're building.
+
+See also
+CSS Fragmentation
+Using multi-column layouts
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <h2 id="feedback">
-                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
-                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
+                    <div class="mt-5 small">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
+                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
+                      <footer class="mt-3 small">
+                        <div class="row">
+                            <div class="col-md-4 text-start">
+                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <a href="#" class="link-offset-2">Topic</a>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
+                            </div>
+                        </div>
+                      </footer>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container py-4 py-md-5 px-4 px-md-3">
+            <div class="container px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1198,6 +1405,9 @@
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
+                            <li class="mb-2">
+                              <a href="https://newsletter.datarist.com">Newsletter</a>
+                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">

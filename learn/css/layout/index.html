@@ -197,15 +197,16 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
+                            <li class="nav-item col-6 col-lg-auto">
+                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
+                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
-                                        <title>Twitter</title>
-                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
-                                    </svg>
+                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
+                                    <title>Twitter</title>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1142,9 +1143,7 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                <li>
-                                    <a href="#feedback">Feedback</a>
-                                </li>                                
+                                                                
                             </ul>
                         </nav>
                     </div>
@@ -1153,30 +1152,301 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
+                    Layout 
+
+bookmark_border
+The CSS Podcast - 009: Layout 
+
+Imagine you're working as a developer, and a designer colleague hands you a design for a brand new website. The design has all sorts of interesting layouts and compositions: two-dimensional layouts that are considerate of viewport width and height, as well as layouts that need to be fluid and flexible. How do you decide the best way to style these with CSS?
+
+CSS provides us with various ways to solve layout problems, on a horizontal axis, vertical axis, or even both. Choosing the right layout method for a context can be hard, and often you may need more than one layout method to solve your problem. To help with this, in the following modules, you'll learn about the unique features of each CSS layout mechanism to inform those decisions.
+
+Layout: a brief history
+In the early days of the web, designs more complex than a simple document were laid out with <table> elements. Separating HTML from visual styles was made easier when CSS was widely adopted by browsers in the late '90s. CSS opened the door to developers being able to completely change the look and feel of a website without ever touching HTML. This new capability inspired projects such as The CSS Zen Garden, which was created to demonstrate the power of CSS to encourage more developers to learn it.
+
+CSS has evolved as our needs for web design and browser technology have evolved. You can read how CSS layout and our approach to layout has evolved over time in this article by Rachel Andrew.
+
+A timeline showing how CSS has evolved over the years, starting in 1996 up to 2021
+
+Layout: the present and future
+Modern CSS has exceptionally powerful layout tooling. We have dedicated systems for layout and we're going to have a high-level look at what we have at our disposal, before digging into more detail of Flexbox and Grid in the next modules.
+
+Understanding the display property
+The display property does two things. The first thing it does is determine if the box it is applied to acts as inline or block.
+
+
+.my-element {
+  display: inline;
+}
+Inline elements behave like words in a sentence. They sit next to each other in the inline direction. Elements such as <span> and <strong>, which are typically used to style pieces of text within containing elements like a <p> (paragraph), are inline by default. They also preserve surrounding whitespace.
+
+A diagram showing all the different sizes of a box and where each sizing section starts and ends
+
+You can't set an explicit width and height on inline elements. Any block level margin and padding will be ignored by the surrounding elements.
+
+
+.my-element {
+    display: block;
+}
+Block elements don't sit alongside each other. They create a new line for themselves. Unless changed by other CSS code, a block element will expand to the size of the inline dimension, therefore spanning the full width in a horizontal writing mode. The margin on all sides of a block element will be respected.
+
+
+.my-element {
+    display: flex;
+}
+The display property also determines how an element's children should behave. For example, setting the display property to display: flex makes the box a block-level box, and also converts its children to flex items. This enables the flex properties that control alignment, ordering and flow.
+
+Flexbox and Grid
+There are two main layout mechanisms that create layout rules for multiple elements, flexbox and grid. They share similarities, but are designed to solve different layout problems.
+
+Note: We will be going into much more detail for both of these in future modules, but here is a high-level overview of what both are and what they are useful for.
+Flexbox
+
+.my-element {
+    display: flex;
+}
+Flexbox is a layout mechanism for one-dimensional layouts. Layout across a single axis, either horizontally or vertically. By default, flexbox will align the element's children next to each other, in the inline direction, and stretch them in the block direction, so they're all the same height.
+
+
+Items will stay on the same axis and not wrap when they run out of space. Instead they will try to squash onto the same line as each other. This behaviour can be changed using the align-items, justify-content and flex-wrap properties.
+
+
+Flexbox also converts the child elements to be flex items, which means you can write rules on how they behave inside a flex container. You can change alignment, order and justification on an individual item. You can also change how it shrinks or grows using the flex property.
+
+
+.my-element div {
+    flex: 1 0 auto;
+}
+The flex property is a shorthand for flex-grow, flex-shrink and flex-basis. You can expand the above example like this:
+
+
+.my-element div {
+ flex-grow: 1;
+ flex-shrink: 0;
+ flex-basis: auto;
+}
+Developers provide these low-level rules to hint a browser how the layout should behave when it is challenged by content and viewport dimensions. This makes it a very useful mechanism for responsive web design.
+
+Grid
+
+.my-element {
+    display: grid;
+}
+Grid is similar in a lot of ways to flexbox, but it is designed to control multi-axis layouts instead of single-axis layouts (vertical or horizontal space).
+
+Grid enables you to write layout rules on an element that has display: grid, and introduces a few new primitives for layout styling, such as the repeat() and minmax() functions. One useful grid unit is the fr unit—which is a fraction of remaining space—you can build traditional 12 column grids, with a gap between each item, with 3 CSS properties:
+
+
+.my-element {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
+}
+
+This example above shows a single axis layout. Where flexbox mostly treats items as a group, grid gives you precise control over their placement in two dimensions. We could define that the first item in this grid takes up 2 rows and 3 columns:
+
+
+.my-element :first-child {
+  grid-row: 1/3;
+  grid-column: 1/4;
+}
+The grid-row and grid-column properties instruct the first element in the grid to span to the start of the fourth column, from the first column, then span to the third row, from the first row.
+
+
+Flow layout
+If not using grid or flexbox, your elements display in normal flow. There are a number of layout methods that you can use to adjust the behavior and position of items when in normal flow.
+
+Inline block
+Remember how surrounding elements don't respect block margin and padding on an inline element? With inline-block you can cause that to happen.
+
+
+p span {
+    display: inline-block;
+}
+Using inline-block gives you a box that has some of the characteristics of a block-level element, but still flows inline with the text.
+
+
+p span {
+    margin-top: 0.5rem;
+}
+
+Floats
+If you have an image that sits within a paragraph of text, wouldn't it be handy for that text to wrap around that image like you might see in a newspaper? You can do this with floats.
+
+
+img {
+    float: left;
+    margin-right: 1em;
+}
+The float property instructs an element to "float" to the direction specified. The image in this example is instructed to float left, which then allows sibling elements to "wrap" around it. You can instruct an element to float left, right or inherit.
+
+
+Warning: When you use float, keep in mind that any elements following the floated element may have their layout adjusted. To prevent this, you can clear the float, either by using clear: both on an element that follows your floated element or with display: flow-root on the parent of your floated elements. Find out more in the article The end of the clearfix hack.
+Multicolumn layout
+If you have a really long list of elements, such as a list of all of the countries of the world, it can result in a lot of scrolling and time wasted for a user. It can also create excess whitespace on the page. With CSS multicolumn, you can split this into multiple columns to help with both of these issues.
+
+
+<h1>All countries</h1>
+<ul class="countries">
+  <li>Argentina</li>
+  <li>Aland Islands</li>
+  <li>Albania</li>
+  <li>Algeria</li>
+  <li>American Samoa</li>
+  <li>Andorra</li>
+  …
+</ul>
+
+.countries {
+    column-count: 2;
+    column-gap: 1em;
+}
+This automatically splits that long list into two columns and adds a gap between the two columns.
+
+
+
+.countries {
+    width: 100%;
+    column-width: 260px;
+    column-gap: 1em;
+}
+
+Instead of setting the number of columns that the content is split into, you can also define a minimum desired width, using column-width. As more space is made available in the viewport, more columns will automatically be created and as space is reduced, columns will also reduce. This is very useful in responsive web design contexts.
+
+Positioning
+Last on this overview of layout mechanisms is positioning. The position property changes how an element behaves in the normal flow of the document, and how it relates to other elements. The available options are relative, absolute, fixed and sticky with the default value being static.
+
+
+.my-element {
+  position: relative;
+  top: 10px;
+}
+This element is nudged 10px down based on its current position in the document, as it is positioned relative to itself. Adding position: relative to an element also makes it the containing block of any child elements with position: absolute. This means that its child will now be repositioned to this particular element, instead of the topmost relative parent, when it has an absolute position applied to it.
+
+
+.my-element {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.another-element {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+}
+When you set position to absolute, it breaks the element out of the current document flow. This means two things:
+
+You can position this element wherever you like, using top, right, bottom and left in its nearest relative parent.
+All of the content surrounding an absolute element reflows to fill the remaining space left by that element.
+An element with a position value of fixed behaves in a similar way to absolute, with its parent being the root <html> element. Fixed position elements stay anchored from the top left based on the top, right, bottom and left values that you set.
+
+You can achieve the anchored, fixed aspects of fixed and the more predictable document flow-honoring aspects of relative by using sticky. With this value, as the viewport scrolls past the element, it stays anchored to the top, right, bottom and left values that you set.
+
+
+Wrap-up
+There's a lot of choice and flexibility with CSS layout. To dive further into the power of CSS Flexbox and Grid, continue into the next few modules.
+
+Check your understanding
+Test your knowledge of layout
+
+
+CSS layout
+At this point, we've looked at CSS fundamentals, how to style text, and how to style and manipulate the boxes that your content sits inside. Now it's time to look at how to correctly arrange your boxes in relation to the viewport as well as to one another. We've covered the necessary prerequisites, so let's dive deep into CSS layout, looking at such various features as: different display settings, positioning, modern layout tools like flexbox and CSS grid, and some of the legacy techniques you might still want to know about.
+
+Prerequisites
+Before starting this module, you should already:
+
+Have basic familiarity with HTML, as discussed in the Introduction to HTML module.
+Be comfortable with CSS fundamentals, as discussed in Introduction to CSS.
+Understand how to style boxes.
+Note: If you are working on a computer/tablet/other device where you don't have the ability to create your own files, you could try out (most of) the code examples in an online coding program such as JSBin or Glitch.
+
+Guides
+These articles will provide instruction on the fundamental layout tools and techniques available in CSS. At the end of the lessons is an assessment to help you check your understanding of layout methods by laying out a webpage.
+
+Introduction to CSS layout
+This article will recap some of the CSS layout features we've already touched upon in previous modules — such as different display values — and introduce some of the concepts we'll be covering throughout this module.
+
+Normal flow
+Elements on webpages lay themselves out according to normal flow - until we do something to change that. This article explains the basics of normal flow as a grounding for learning how to change it.
+
+Flexbox
+Flexbox is a one-dimensional layout method for laying out items in rows or columns. Items flex to fill additional space and shrink to fit into smaller spaces. This article explains all the fundamentals. After studying this guide you can test your flexbox skills to check your understanding before moving on.
+
+Grids
+CSS Grid Layout is a two-dimensional layout system for the web. It lets you lay content out in rows and columns, and has many features that make building complex layouts straightforward. This article will give you all you need to know to get started with page layout, then test your grid skills before moving on.
+
+Floats
+Originally for floating images inside blocks of text, the float property became one of the most commonly used tools for creating multiple column layouts on webpages. With the advent of Flexbox and Grid it has now returned to its original purpose, as this article explains.
+
+Positioning
+Positioning allows you to take elements out of the normal document layout flow and make them behave differently, for example, by sitting on top of one another, or by always remaining in the same place inside the browser viewport. This article explains the different position values and how to use them.
+
+Multiple-column layout
+The multiple-column layout specification gives you a method of laying content out in columns, as you might see in a newspaper. This article explains how to use this feature.
+
+Responsive design
+As more diverse screen sizes have appeared on web-enabled devices, the concept of responsive web design (RWD) has appeared: a set of practices that allows web pages to alter their layout and appearance to suit different screen widths, resolutions, etc. It is an idea that changed the way we design for a multi-device web, and in this article we'll help you understand the main techniques you need to know to master it.
+
+Beginner's guide to media queries
+The CSS Media Query gives you a way to apply CSS only when the browser and device environment matches a rule that you specify, for example, "viewport is wider than 480 pixels". Media queries are a key part of responsive web design because they allow you to create different layouts depending on the size of the viewport. They can also be used to detect other features of the environment your site is running on, for example, whether the user is using a touchscreen rather than a mouse. In this lesson, you will first learn about the syntax used in media queries, and then you will use them in an interactive example showing how a simple design might be made responsive.
+
+Legacy layout methods
+Grid systems are a very common feature used in CSS layouts. Prior to CSS Grid Layout, they tended to be implemented using floats or other layout features. You'd first imagine your layout as a set number of columns (e.g., 4, 6, or 12), and then you'd fit your content columns inside these imaginary columns. In this article, we'll explore how these older methods work so that you understand how they were used if you work on an older project.
+
+Supporting older browsers
+In this module, we recommend using Flexbox and Grid as the main layout methods for your designs. However, there are bound to be visitors to a site you develop in the future who use older browsers, or browsers which do not support the methods you have used. This will always be the case on the web — as new features are developed, different browsers will prioritize different features. This article explains how to use modern web techniques without excluding users of older technology.
+
+Assessments
+The following assessment will test your understanding of the CSS layout methods covered in the guides above.
+
+Fundamental layout comprehension
+An assessment to test your knowledge of different layout methods by laying out a webpage.
+
+See also
+Practical positioning examples
+This article shows how to build some real-world examples to illustrate what kinds of things you can do with positioning.
+
+CSS layout cookbook
+The CSS layout cookbook aims to bring together recipes for common layout patterns, things you might need to implement in your sites. In addition to providing code you can use as a starting point in your projects, these recipes highlight the different ways layout specifications can be used and the choices you can make as a developer.
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <h2 id="feedback">
-                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
-                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
+                    <div class="mt-5 small">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
+                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
+                      <footer class="mt-3 small">
+                        <div class="row">
+                            <div class="col-md-4 text-start">
+                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <a href="#" class="link-offset-2">Topic</a>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
+                            </div>
+                        </div>
+                      </footer>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container py-4 py-md-5 px-4 px-md-3">
+            <div class="container px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1198,6 +1468,9 @@
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
+                            <li class="mb-2">
+                              <a href="https://newsletter.datarist.com">Newsletter</a>
+                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">

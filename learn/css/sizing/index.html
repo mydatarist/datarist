@@ -197,15 +197,16 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
+                            <li class="nav-item col-6 col-lg-auto">
+                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
+                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
-                                        <title>Twitter</title>
-                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
-                                    </svg>
+                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
+                                    <title>Twitter</title>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1142,9 +1143,7 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                <li>
-                                    <a href="#feedback">Feedback</a>
-                                </li>                                
+                                                                
                             </ul>
                         </nav>
                     </div>
@@ -1153,30 +1152,281 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
+                    Sizing Units 
+
+bookmark_border
+The CSS Podcast - 008: Sizing Units 
+
+The web is a responsive medium, but sometimes you want to control its dimensions to improve the overall interface quality. A good example of this is limiting line lengths to improve readability. How would you do that in a flexible medium like the web?
+
+
+For this case, you can use a ch unit, which is equal to the width of a "0" character in the rendered font at its computed size. This unit allows you to limit the width of text with a unit that's designed to size text, which in turn, allows predictable control regardless of the size of that text. The ch unit is one of a handful of units that are helpful for specific contexts like this example.
+
+Numbers
+Numbers are used to define opacity, line-height and even for color channel values in rgb. Numbers are unitless integers (1, 2, 3, 100) and decimals (.1, .2, .3).
+
+Numbers have meaning depending on their context. For example, when defining line-height, a number is representative of a ratio if you define it without a supporting unit:
+
+
+p {
+  font-size: 24px;
+  line-height: 1.5;
+}
+
+In this example, 1.5 is equal to 150% of the p element's computed pixel font size. This means that if the p has a font-size of 24px, the line height will be computed as 36px.
+
+Note: It's a good idea to use a unitless value for line-height, rather than specifying a unit. As you learned in the inheritance module, font-size can be inherited. Defining a unitless line-height keeps the line-height relative to the font size. This provides a better experience than, say, line-height: 15px, which will not change and might look strange with certain font sizes.
+Numbers can also be used in the following places:
+
+When setting values for filters: filter: sepia(0.5) applies a 50% sepia filter to the element.
+When setting opacity: opacity: 0.5 applies a 50% opacity.
+In color channels: rgb(50, 50, 50), where the values 0-255 are acceptable to set a color value. See color lesson.
+To transform an element: transform: scale(1.2) scales the element by 120% of its initial size.
+Percentages
+When using a percentage in CSS you need to know how the percentage is calculated. For example,width is calculated as a percentage of the available width in the parent element.
+
+div {
+  width: 300px;
+  height: 100px;
+}
+
+div p {
+  width: 50%; 
+}
+
+In the above example, the width of div p is 150px, assuming that the layout uses the default box-sizing: content-box.
+
+If you set margin or padding as a percentage, they will be a portion of the parent element's width, regardless of direction.
+
+div {
+  width: 300px;
+  height: 100px;
+}
+
+div p {
+  margin-top: 50%; /* calculated: 150px */
+  padding-left: 50%; /* calculated: 150px */
+}
+
+In the above snippet, both the margin-top and padding-left will compute to 150px.
+
+
+div {
+  width: 300px;
+  height: 100px;
+}
+
+div p {
+  width: 50%; /* calculated: 150px */
+  transform: translateX(10%); /* calculated: 15px */
+}
+
+If you set a transform value as a percentage, it is based on the element with the transform set. In this example, the p has a translateX value of 10% and a width of 50%. First, calculate what the width will be: 150px because it is 50% of its parent's width. Then, take 10% of 150px, which is 15px.
+
+Key term: The transform property allows you alter an element's appearance and position by rotating, skewing, scaling and translating it. This can be done in a 2D and 3D space.
+Dimensions and lengths
+If you attach a unit to a number, it becomes a dimension. For example, 1rem is a dimension. In this context, the unit that is attached to a number is referred to in specifications as a dimension token. Lengths are dimensions that refer to distance and they can either be absolute or relative.
+
+Absolute lengths
+All absolute lengths resolve against the same base, making them predictable wherever they're used in your CSS. For example, if you use cm to size your element and then print, it should be accurate if you compared it to a ruler.
+
+
+div {
+  width: 10cm;
+  height: 5cm;
+  background: black;
+}
+If you printed this page, the div would print as a 10x5cm black rectangle. Keep in mind, CSS is used not only for digital content, but also to style print content. Absolute lengths can really come in handy when designing for print.
+
+Unit	Name	Equivalent to
+cm	Centimeters	1cm = 96px/2.54
+mm	Millimeters	1mm = 1/10th of 1cm
+Q	Quarter-millimeters	1Q = 1/40th of 1cm
+in	Inches	1in = 2.54cm = 96px
+pc	Picas	1pc = 1/6th of 1in
+pt	Points	1pt = 1/72th of 1in
+px	Pixels	1px = 1/96th of 1in
+Relative lengths
+A relative length is calculated against a base value, much like a percentage. The difference between these and percentages is that you can contextually size elements. This means that CSS has units such as ch that use the text size as a basis, and vw which is based on the width of the viewport (your browser window). Relative lengths are particularly useful on the web due to its responsive nature.
+
+Font-size-relative units
+CSS provides helpful units that are relative to the size of elements of rendered typography, such as the size of the text itself (em units) or width of the typefaces characters (ch units).
+
+unit	relative to:
+em	Relative to the font size, i.e. 1.5em will be 50% larger than the base computed font size of its parent. (Historically, the height of the capital letter "M").
+ex	Heuristic to determine whether to use the x-height, a letter "x", or `.5em` in the current computed font size of the element.
+cap	Height of the capital letters in the current computed font size of the element.
+ch	Average character advance of a narrow glyph in the element's font (represented by the "0" glyph).
+ic	Average character advance of a full width glyph in the element's font, as represented by the "水" (CJK water ideograph, U+6C34) glyph.
+rem	Font size of the root element (default is 16px).
+lh	Line height of the element.
+rlh	Line height of the root element.
+The text, CSS is 10x great with labels for ascender height, descender height and x-height. The x-height represents 1ex and the 0 represents 1ch
+Viewport-relative units
+You can use the dimensions of the viewport (browser window) as a relative basis. These units portion up the available viewport space.
+
+unit	relative to
+vw	1% of viewport's width. People use this unit to do cool font tricks, like resizing a header font based on the width of the page so as the user resizes, the font will also resize.
+vh	1% of viewport's height. You can use this to arrange items in a UI, if you have a footer toolbar for example.
+vi	1% of viewport's size in the root element's inline axis. Axis refers to writing modes. In horizontal writing modes like English, the inline axis is horizontal. In vertical writing modes like some Japanese typefaces, the inline axis runs top to bottom.
+vb	1% of viewport's size in the root element's block axis. For the block axis, this would be the directionality of the language. LTR languages like English would have a vertical block axis, since English language readers parse the page from top to bottom. A vertical writing mode has a horizontal block axis.
+vmin	1% of the viewport's smaller dimension.
+vmax	1% of the viewport's larger dimension.
+
+div {
+  width: 10vw;
+}
+
+p {
+  max-width: 60ch;
+}
+
+In this example, the div will be 10% of the viewport's width because 1vw is 1% of the viewport width. The p element has a max-width of 60ch which means it can't exceed the width of 60 "0" characters in the calculated font and size.
+
+Objective: By sizing text with relative units like em or rem, rather than an absolute unit, like px, the size of your text can respond to user preferences. This can include the system font size or parent element's font size, such as the <body>. The base size of the em is the element's parent and the base size of the rem is the base font size of the document. If you don't define a font-size on your html element, this user-preferred system font size will be honoured if you use relative lengths, such as em and rem. If you use px units for sizing text, this preference will be ignored. 
+Miscellaneous units
+There are some other units which have been specified to deal with particular types of values.
+
+Angle units
+In the color module, we looked at angle units, which are helpful for defining degree values, such as the hue in hsl. They are also useful for rotating elements within transform functions.
+
+div {
+  width: 150px;
+  height: 150px;
+  transform: rotate(60deg);
+}
+
+Using the deg angle unit, you can rotate a div 90° on its center axis.
+
+
+div {
+  background-image: url('a-low-resolution-image.jpg');
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  div {
+    background-image: url('a-high-resolution-image.jpg');
+  }
+}
+Note: Other angle units include rad (radians), grad (gradians), and turn units, which represent a part of an angle, where 1turn = 360deg, and 0.5turn = 180deg.
+Resolution units
+In the previous example the value of min-resolution is 192dpi. The dpi unit stands for dots per inch. A useful context for this is detecting very high resolution screens, such as Retina displays in a media query and serving up a higher resolution image.
+
+Check your understanding
+Test your knowledge of sizing
+
+Sizing items in CSS
+Previous
+Overview: Building blocks
+Next
+In the various lessons so far, you have come across a number of ways to size items on a web page using CSS. Understanding how big the different features in your design will be is important. So, in this lesson we will summarize the various ways elements get a size via CSS and define a few terms about sizing that will help you in the future.
+
+Prerequisites:	Basic software installed, basic knowledge of working with files, HTML basics (study Introduction to HTML), and an idea of how CSS works (study CSS first steps.)
+Objective:	To understand the different ways we can size things in CSS.
+The natural or intrinsic size of things
+HTML Elements have a natural size, set before they are affected by any CSS. A straightforward example is an image. An image file contains sizing information, described as its intrinsic size. This size is determined by the image itself, not by any formatting we happen to apply.
+
+If you place an image on a page and do not change its height or width, either by using attributes on the <img> tag or else by CSS, it will be displayed using that intrinsic size. We have given the image in the example below a border so that you can see the extent of its size as defined in its file.
+
+
+An empty <div>, on the other hand, has no size of its own. If you add a <div> to your HTML with no content, then give it a border as we did with the image, you will see a line on the page. This is the collapsed border on the element — there is no content to hold it open. In our example below, that border stretches to the width of the container, because it is a block level element, a behavior that should be starting to become familiar to you. It has no height (or size in the block dimension) because there is no content.
+
+
+In the example above, try adding some text inside the empty element. The border now contains that text because the height of the element is defined by the content. Therefore the size of this <div> in the block dimension comes from the size of the content. Again, this is the intrinsic size of the element — its size is defined by its content.
+
+Setting a specific size
+We can, of course, give elements in our design a specific size. When a size is given to an element (the content of which then needs to fit into that size) we refer to it as an extrinsic size. Take our <div> from the example above — we can give it specific width and height values, and it will now have that size no matter what content is placed into it. As we discovered in our previous lesson on overflow, a set height can cause content to overflow if there is more content than the element has space to fit inside it.
+
+
+Due to this problem of overflow, fixing the height of elements with lengths or percentages is something we need to do very carefully on the web.
+
+Using percentages
+In many ways, percentages act like length units, and as we discussed in the lesson on values and units, they can often be used interchangeably with lengths. When using a percentage you need to be aware what it is a percentage of. In the case of a box inside another container, if you give the child box a percentage width it will be a percentage of the width of the parent container.
+
+
+This is because percentages resolve against the size of the containing block. With no percentage applied, our <div> would take up 100% of the available space, as it is a block level element. If we give it a percentage width, this becomes a percentage of the space it would normally fill.
+
+Percentage margins and padding
+If you set margins and padding as a percentage, you may notice some strange behavior. In the below example we have a box. We have given the inner box a margin of 10% and a padding of 10%. The padding and margin on the top and bottom of the box are the same size as the padding and margin on the left and right.
+
+
+You might expect for example the percentage top and bottom margins to be a percentage of the element's height, and the percentage left and right margins to be a percentage of the element's width. However, this is not the case!
+
+When you use margin and padding set in percentages, the value is calculated from the inline size of the containing block — therefore the width when working in a horizontal language. In our example, all of the margins and padding are 10% of the width. This means you can have equal-sized margins and padding all around the box. This is a fact worth remembering if you do use percentages in this way.
+
+min- and max- sizes
+In addition to giving things a fixed size, we can ask CSS to give an element a minimum or a maximum size. If you have a box that might contain a variable amount of content, and you always want it to be at least a certain height, you could set the min-height property on it. The box will always be at least this height, but will then grow taller if there is more content than the box has space for at its minimum height.
+
+In the example below you can see two boxes, both with a defined min-height of 150 pixels. The box on the left is 150 pixels tall; the box on the right has content that needs more room, and so it has grown taller than 150 pixels.
+
+
+This is very useful for dealing with variable amounts of content while avoiding overflow.
+
+A common use of max-width is to cause images to scale down if there is not enough space to display them at their intrinsic width while making sure they don't become larger than that width.
+
+As an example, if you were to set width: 100% on an image, and its intrinsic width was smaller than its container, the image would be forced to stretch and become larger, causing it to look pixelated.
+
+If you instead use max-width: 100%, and its intrinsic width is smaller than its container, the image will not be forced to stretch and become larger, thus preventing pixelation.
+
+In the example below, we have used the same image three times. The first image has been given width: 100% and is in a container which is larger than it, therefore it stretches to the container width. The second image has max-width: 100% set on it and therefore does not stretch to fill the container. The third box contains the same image again, also with max-width: 100% set; in this case you can see how it has scaled down to fit into the box.
+
+
+This technique is used to make images responsive, so that when viewed on a smaller device they scale down appropriately. You should, however, not use this technique to load really large images and then scale them down in the browser. Images should be appropriately sized to be no larger than they need to be for the largest size they are displayed in the design. Downloading overly large images will cause your site to become slow, and it can cost users more money if they are on a metered connection.
+
+Note: Find out more about responsive image techniques.
+
+Viewport units
+The viewport — which is the visible area of your page in the browser you are using to view a site — also has a size. In CSS we have units which relate to the size of the viewport — the vw unit for viewport width, and vh for viewport height. Using these units you can size something relative to the viewport of the user.
+
+1vh is equal to 1% of the viewport height, and 1vw is equal to 1% of the viewport width. You can use these units to size boxes, but also text. In the example below we have a box which is sized as 20vh and 20vw. The box contains a letter A, which has been given a font-size of 10vh.
+
+
+If you change the vh and vw values this will change the size of the box or font; changing the viewport size will also change their sizes because they are sized relative to the viewport. To see the example change when you change the viewport size you will need to load the example in a new browser window that you can resize (as the embedded <iframe> that contains the example shown above is its viewport). Open the example, resize the browser window, and observe what happens to the size of the box and text.
+
+Sizing things according to the viewport can be useful in your designs. For example, if you want a full-page hero section to show before the rest of your content, making that part of your page 100vh high will push the rest of the content below the viewport, meaning that it will only appear once the document is scrolled.
+
+Test your skills!
+You've reached the end of this article, but can you remember the most important information? You can find some further tests to verify that you've retained this information before you move on — see Test your skills: Sizing.
+
+Summary
+This lesson has given you a rundown of some key issues that you might run into when sizing things on the web. When you move onto CSS Layout, sizing will become very important in mastering the different layout methods, so it is worth understanding the concepts here before moving on.
+
+In the next article, we'll take a look at how images, media, and form elements are treated in CSS.
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <h2 id="feedback">
-                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
-                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
+                    <div class="mt-5 small">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
+                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
+                      <footer class="mt-3 small">
+                        <div class="row">
+                            <div class="col-md-4 text-start">
+                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <a href="#" class="link-offset-2">Topic</a>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
+                            </div>
+                        </div>
+                      </footer>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container py-4 py-md-5 px-4 px-md-3">
+            <div class="container px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1198,6 +1448,9 @@
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
+                            <li class="mb-2">
+                              <a href="https://newsletter.datarist.com">Newsletter</a>
+                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">

@@ -197,15 +197,16 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
+                            <li class="nav-item col-6 col-lg-auto">
+                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
+                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
-                                        <title>Twitter</title>
-                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
-                                    </svg>
+                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
+                                    <title>Twitter</title>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1142,9 +1143,7 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                <li>
-                                    <a href="#feedback">Feedback</a>
-                                </li>                                
+                                                                
                             </ul>
                         </nav>
                     </div>
@@ -1153,30 +1152,130 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
+                    Service workers 
+
+bookmark_border
+Users expect apps to start on slow or flaky network connections, or even when offline. They expect the content they've most recently interacted with, such as media tracks or tickets and itineraries, to be available and usable. When a request isn't possible, they expect the app to tell them instead of silently failing or crashing. And users wish to do it all quickly. As we can see in this study Milliseconds make millions, even a 0.1 second improvement in load times can improve conversion by up to 10%. In summary: users expect PWAs to be reliable and that's why we have service workers.
+
+Hello service workers
+A service worker as a middleware proxy, running device-side, between your PWA and servers, which includes both your own servers and cross-domain servers.
+
+When an app requests a resource covered by the service worker's scope, including when a user is offline, the service worker intercepts the request, acting as a network proxy. It can then decide if it should serve the resource from the cache via the Cache Storage API, from the network as normally would happen without a service worker, or create it from a local algorithm. This lets you provide a similar experience to that provided by a platform app. It can even work entirely off line.
+
+Not all browsers support service workers. Even when present your service worker won't be available on first load or while it's waiting to activate. Therefore, treat it as optional and do not require it for core functionality.
+Registering a service worker
+Before a service worker takes control of your page, it must be registered for your PWA. That means the first time a user comes to your PWA, network requests will go directly to your server because the service worker is not yet in control of your pages.
+
+After checking if the browser supports the Service Worker API, your PWA can register a service worker. When loaded, the service worker sets up shop between your PWA and the network, intercepting requests and serving the corresponding responses.
+
+
+if ('serviceWorker' in navigator) {
+   navigator.serviceWorker.register("/serviceworker.js");
+}
+
+Note: There is only one service worker per PWA, but that doesn't mean you need to place the code only in one file. A service worker can include other files using importScripts in every browser or using ECMAScript module imports in some modern browsers.
+Verify if a service worker is registered
+To verify if a service worker is registered, use developer tools in your favorite browser.
+
+In Firefox and Chromium-based browsers (Microsoft Edge, Google Chrome, or Samsung Internet):
+
+Open developer tools, then click the Application tab.
+In the left pane, select Service Workers.
+Check that the service worker's script URL appears with the status "Activated". (You'll learn what this status means in the lifecycle section in this chapter). On Firefox the status can be "Running" or "Stopped".
+In Safari:
+
+Click the Develop menu then the Service Workers submenu.
+Check that an entry with the current origin appears in the submenu. It opens an inspector over the service worker's context.
+Service worker developer tools on Chrome, Firefox and Safari.
+Service worker developer tools on Chrome, Firefox and Safari.
+Note: You can remotely inspect a phone or tablet from your desktop browser when you want to check service worker registration status on a mobile device. You will see details on how to do that in the Tools and Debug chapter
+Scope
+The folder your service worker sits in determines its scope. A service worker that lives at example.com/my-pwa/sw.js can control any navigation at the my-pwa path or below, such as example.com/my-pwa/demos/. Service workers can only control items (pages, workers, collectively "clients") in their scope. Scope applies to browser tabs and PWA windows.
+
+Only one service worker per scope is allowed. When active and running, only one instance is typically available no matter how many clients are in memory (such as PWA windows or browser tabs).
+
+Warning: You should set the scope of your service worker as close to the root of your app as possible. This is the most common setup as it lets the service worker intercept all the requests related to your PWA. Don't put it inside, for instance, a JavaScript folder or have it loaded from a CDN.
+Safari has more complex scope management, known as partitions, affecting how scopes work if you have cross-domain iframes. To read more about WebKit's implementation, read their blog post.
+
+Lifecycle
+Service workers have a lifecycle that dictates how they are installed, this is separate from your PWA installation. The service worker lifecycle starts with registering the service worker. The browser then attempts to download and parse the service worker file. If parsing succeeds, its install event is fired. The install event only fires once.
+
+Service worker installation happens silently, without requiring user permission, even if the user doesn't install the PWA. The Service Worker API is even available on platforms that do not support PWA installation, such as Safari and Firefox on desktop devices.
+
+Service worker registration and installation, while related, are different events. Registration happens when a page requests a service worker by calling register() as described previously. Installation happens when a registered service worker exists, can be parsed as JavaScript, and doesn't throw any errors during its first execution.
+After the installation, the service worker is not yet in control of its clients, including your PWA. It needs to be activated first. When the service worker is ready to control its clients, the activate event will fire. This doesn't mean, though, that the page that registered the service worker will be managed. By default, the service worker will not take control until the next time you navigate to that page, either due to reloading the page or re-opening the PWA.
+
+You can listen for events in the service worker's global scope using the self object.
+
+serviceworker.js
+
+
+// This code executes in its own worker or thread
+self.addEventListener("install", event => {
+   console.log("Service worker installed");
+});
+self.addEventListener("activate", event => {
+   console.log("Service worker activated");
+});
+Updating a service worker
+Service workers get updated when the browser detects that the service worker currently controlling the client and the new (from your server) version of the same file are byte-different.
+
+Warning: When updating your service worker, do so without renaming it. Do not even add file hashes to the filename. Otherwise, the browser will never get the new version of your service worker!
+After a successful installation, the new service worker will wait to activate until the existing (old) service worker no longer controls any clients. This state is called "waiting", and it's how the browser ensures that only one version of your service worker is running at a time. Refreshing a page or reopening the PWA won't make the new service worker take control. The user needs to close or navigate away from all tabs and windows using the current service worker and then navigate back. Only then will the new service worker take control. Visit this service worker lifecycle article for more information.
+
+Service worker lifespan
+Once installed and registered, a service worker can manage all network requests within its scope. It runs on its own thread, with activation and termination controlled by the browser. This lets it work even before or after your PWA is open. While service workers run on their own thread, there is no guarantee that in-memory state will persist between runs of a service worker, so make sure anything you want to reuse on each run is available either in IndexedDB or some other persistent storage.
+
+If not already running, a service worker will start whenever a network request in its scope is asked for, or when a triggering event, like periodic background sync or a push message, is received.
+
+Service workers don't live indefinitely. While exact timings differ between browsers, service workers will be terminated if they've been idle for a few seconds, or if they've been busy for too long. If a service worker has been terminated and an event occurs that would start it up, it will restart.
+
+Capabilities
+With a registered and active service worker, you have a thread with a completely different execution lifecycle than the main one on your PWA. However, by default, the service worker file itself has no behavior. It won't cache or serve any resources, as this has to be done by your code. You'll find out how in the following chapters.
+
+Service worker's capabilities are not just for proxy or serving HTTP requests; other features are available on top of it for other purposes, such as background code execution, web push notifications, and process payments. We'll discuss these additions in the capabilities chapter.
+
+Resources
+Service Worker API (Datarist)
+Service Worker mindset
+WebKit Workers at your service
+ES Modules in Service Workers
+Service worker lifecycle
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <h2 id="feedback">
-                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
-                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
+                    <div class="mt-5 small">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
+                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
+                      <footer class="mt-3 small">
+                        <div class="row">
+                            <div class="col-md-4 text-start">
+                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <a href="#" class="link-offset-2">Topic</a>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
+                            </div>
+                        </div>
+                      </footer>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container py-4 py-md-5 px-4 px-md-3">
+            <div class="container px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1198,6 +1297,9 @@
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
+                            <li class="mb-2">
+                              <a href="https://newsletter.datarist.com">Newsletter</a>
+                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">

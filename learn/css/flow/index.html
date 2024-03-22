@@ -197,15 +197,16 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
+                            <li class="nav-item col-6 col-lg-auto">
+                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
+                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
-                                        <title>Twitter</title>
-                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
-                                    </svg>
+                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
+                                    <title>Twitter</title>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1142,9 +1143,7 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                <li>
-                                    <a href="#feedback">Feedback</a>
-                                </li>                                
+                                                                
                             </ul>
                         </nav>
                     </div>
@@ -1153,30 +1152,258 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
+                    Normal Flow
+Previous
+Overview: CSS layout
+Next
+This article explains normal flow, or the way that webpage elements lay themselves out if you haven't changed their layout.
+
+Prerequisites:	The basics of HTML (study Introduction to HTML), and an idea of How CSS works (study Introduction to CSS.)
+Objective:	To explain how browsers layout web pages by default, before we begin to make changes.
+As detailed in the last lesson introducing layout, elements on a webpage lay out in normal flow if you haven't applied any CSS to change the way they behave. And, as we began to discover, you can change how elements behave either by adjusting their position in normal flow or by removing them from it altogether. Starting with a solid, well-structured document that's readable in normal flow is the best way to begin any webpage. It ensures that your content is readable even if the user's using a very limited browser or a device such as a screen reader that reads out the content of the page. In addition, since normal flow is designed to make a readable document, by starting in this way you're working with the document rather than struggling against it as you make changes to the layout.
+
+Before digging deeper into different layout methods, it's worth revisiting some of the things you have studied in previous modules with regard to normal document flow.
+
+How are elements laid out by default?
+The process begins as the boxes of individual elements are laid out in such a way that any padding, border, or margin they happen to have is added to their content. This is what we call the box model.
+
+By default, a block-level element's content fills the available inline space of the parent element containing it, growing along the block dimension to accommodate its content. The size of inline-level elements is just the size of their content. You can set width or height on some elements that have a default display property value of inline, like <img>, but display value will still remain inline.
+
+If you want to control the display property of an inline-level element in this manner, use CSS to set it to behave like a block-level element (e.g., with display: block; or display: inline-block;, which mixes characteristics from both).
+
+That explains how elements are structured individually, but how about the way they're structured when they interact with one another? The normal layout flow (mentioned in the layout introduction article) is the system by which elements are placed inside the browser's viewport. By default, block-level elements are laid out in the block flow direction, which is based on the parent's writing mode (initial: horizontal-tb). Each element will appear on a new line below the last one, with each one separated by whatever margin that's been specified. In English, for example, (or any other horizontal, top to bottom writing mode) block-level elements are laid out vertically.
+
+Inline elements behave differently. They don't appear on new lines; instead, they all sit on the same line along with any adjacent (or wrapped) text content as long as there is space for them to do so inside the width of the parent block level element. If there isn't space, then the overflowing content will move down to a new line.
+
+If two vertically adjacent elements both have a margin set on them and their margins touch, the larger of the two margins remains and the smaller one disappears. This is known as margin collapsing. Collapsing margins is only relevant in the vertical direction.
+
+Let's look at a simple example that explains all of this:
+
+HTML
+Play
+Copy to Clipboard
+<h1>Basic document flow</h1>
+
+<p>
+  I am a basic block level element. My adjacent block level elements sit on new
+  lines below me.
+</p>
+
+<p>
+  By default we span 100% of the width of our parent element, and we are as tall
+  as our child content. Our total width and height is our content + padding +
+  border width/height.
+</p>
+
+<p>
+  We are separated by our margins. Because of margin collapsing, we are
+  separated by the width of one of our margins, not both.
+</p>
+
+<p>
+  Inline elements <span>like this one</span> and <span>this one</span> sit on
+  the same line along with adjacent text nodes, if there is space on the same
+  line. Overflowing inline elements will
+  <span>wrap onto a new line if possible (like this one containing text)</span>,
+  or just go on to a new line if not, much like this image will do:
+  <img src="long.jpg" alt="snippet of cloth" />
+</p>
+CSS
+Play
+Copy to Clipboard
+body {
+  width: 500px;
+  margin: 0 auto;
+}
+
+p {
+  background: rgb(255 84 104 / 30%);
+  border: 2px solid rgb(255 84 104);
+  padding: 10px;
+  margin: 10px;
+}
+
+span {
+  background: white;
+  border: 1px solid black;
+}
+Play
+
+Summary
+In this lesson you've learned the basics of normal flow — the default layout for CSS elements. By understanding how inline elements, block elements, and margins behave by default, it'll be easier to modify their behavior in the future.
+
+In the next article, we'll build on this knowledge by making changes to CSS elements using flexbox.
+
+Overflow 
+
+bookmark_border
+The CSS Podcast - 034: Overflow 
+
+When content extends beyond its parent, there are many options for how you can handle it. You can scroll to add additional space, clip the overflowing edges, indicate the cut-off with an ellipsis, and so much more. Overflow is especially important to consider when developing for phone applications and multiple screen sizes.
+
+
+There are two different clipping options in CSS; text-overflow will help with individual lines of text, and the overflow properties will help control overflow in the box model.
+
+Single line overflow with text-overflow
+Use the text-overflow property on any element that contains text node(s), for example a paragraph, <p>. It specifies how the text appears when it doesn’t fit in the available space of the element. All viewable HTML text on a page is in text nodes. To use text-overflow you need a single unwrapped line of text, so you must also set overflow to hidden and have a white-space value that prevents wrapping.
+
+
+p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+Using overflow properties
+Overflow properties are set on an element to control what happens when its children need more space than it has available. This can be intentional, like in an interactive map like Google Maps, where a user pans around a large image clipped to a specific size. It can also be unintentional like in a chat application where the user types a lengthy message that doesn’t fit in the text bubble.
+
+
+You can think of the overflow in two parts. The parent element has a firmly constrained space that will not change. You can think of this as a window. The child elements are content that want more space from the parent. You can think of this as what you are looking through the window at. Managing overflow will help guide how the window frames this content.
+
+
+Scrolling on the vertical and horizontal axis
+The overflow-y property controls physical overflow along the vertical axis of the device viewport, therefore scrolling up and down.
+
+The overflow-x property controls overflow along the horizontal axis of the device viewport, therefore scrolling left and right.
+
+
+Logical properties for scroll direction
+Browser Support
+
+x
+x
+69
+x
+Source
+
+The overflow-inline and overflow-block properties set the overflow based on the document direction and writing mode.
+
+The overflow shorthand
+The overflow shorthand sets both overflow-x and overflow-y styles in one line:
+
+
+overflow: hidden scroll;
+If two keywords are specified, the first applies to overflow-x and the second to overflow-y. Otherwise, both overflow-x and overflow-y use the same value.
+
+Values
+Let's take a closer look at the values and keywords available for the overflow properties.
+
+overflow: visible (default)
+Without setting the property, overflow: visible is the default value for the web. This ensures that content is never unintentionally hidden and follows the core tenets of "never hide content" or "safe layouts of precise layouts".
+overflow: hidden
+With overflow: hidden content is clipped in the specified direction, and no scrollbars are provided to show it.
+overflow: scroll
+overflow: scroll enables scrollbars to allow users to scroll through content. Even if content isn't currently overflowing, scrollbars will be present. This is a great way to reduce future layout shift if a container may be scrollable in the future based, for example, on resize, and visually prepare the user for scrollable areas.
+overflow: clip
+Like overflow: hidden, the content with overflow: clip is clipped to the element's padding box. The difference between clip and hidden is that the clip keyword also forbids all scrolling, including programmatic scrolling.
+overflow: auto
+Finally, the value most commonly used, overflow: auto. This respects the user's preferences and shows scrollbars if needed, but hides them by default, and gives responsibility for scrolling to the user and browser.
+
+Note: Using the overflow property with a value other than visible creates a block formatting context.
+Scrolling and overflow
+Many of these overflow behaviors introduce a scrollbar, but there’s a few specific scroll behaviors and properties that can help you control scrolling on your overflow container.
+
+Scrolling and accessibility
+It's important to make sure that the scrollable area can accept focus so that a keyboard user can tab to the box, then use the arrow keys to scroll.
+
+To allow a scrolling box to accept focus add tabindex="0", a name with the aria-labelledby attribute, and an appropriate role attribute. For example:
+
+
+<div tabindex="0" role="region" aria-labelledby="id-of-descriptive-text">
+    content
+</div>
+CSS can then be used to indicate that the box has focus, using the outline property to give a visual clue that it will now be scrollable.
+
+In Using CSS to Enforce Accessibility Adrian Roselli demonstrates how CSS can help prevent accessibility regressions. For example, to only turn on scrolling and add the focus indicator if the correct attributes are used. The following rules will only make the box scrollable if it has a tabindex, aria-labelledby, and role attribute.
+
+
+[role][aria-labelledby][tabindex] {
+  overflow: auto;
+}
+
+[role][aria-labelledby][tabindex]:focus {
+  outline: .1em solid blue;
+}
+Scrollbar positioning within the box model
+Scroll bars take up space within the padding box and can compete for space if inline and not overlaid. The box model module expands more on this potential source of layout shift.
+
+
+root-scroller vs implicit-scroller
+You may notice that some scrollers have a pull-to-refresh behavior and other special behaviors, especially when developing for mobile and hybrid applications. This scroll behavior happens on the root scroller. There is only ever one root scroller on a page. By default, the documentElement is the page's root scroller, however, by changing which element is the root scroller, the special behaviors can be applied to scrollers other than the documentElement, we call this new scroller the implicit root scroller.
+
+To create a root scroller, you can use something called scroller promotion by positioning a container as fixed, ensuring it covers the entire viewport and is z-index on top with a scroller. Experience a root scroller vs a nested implicit scroller here.
+
+The video shows a root scroller with bounce behavior and new styling features,
+compared to scrolling an implicit scroller with no enhanced scroll behavior.
+scroll-behavior
+Browser Support
+
+61
+79
+36
+15.4
+Source
+
+scroll-behavior allows you to opt into browser-controlled scrolling to elements. This allows you to specify how in-page navigation like .scrollTo() or links are handled.
+
+This is especially useful when used with prefers-reduced-motion to specify scroll behavior based on user preference.
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .scroll-view {
+    scroll-behavior: auto;
+  }
+}
+
+overscroll-behavior
+Browser Support
+
+63
+18
+59
+16
+Source
+
+If you’ve ever reached the end of a modal overlay, then continued scrolling and had the page behind the overlay move, this is the scroll chaining, or bubbling up to the parent scroll container. The overscroll-behavior property allows you to prevent overflow scrolling leaking into a parent container (called scroll chaining).
+
+
+Check your understanding
+Test your knowledge of overflow
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <h2 id="feedback">
-                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
-                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
+                    <div class="mt-5 small">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
+                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
+                      <footer class="mt-3 small">
+                        <div class="row">
+                            <div class="col-md-4 text-start">
+                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <a href="#" class="link-offset-2">Topic</a>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
+                            </div>
+                        </div>
+                      </footer>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container py-4 py-md-5 px-4 px-md-3">
+            <div class="container px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1198,6 +1425,9 @@
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
+                            <li class="mb-2">
+                              <a href="https://newsletter.datarist.com">Newsletter</a>
+                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">

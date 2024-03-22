@@ -197,15 +197,16 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
+                            <li class="nav-item col-6 col-lg-auto">
+                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
+                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
-                                        <title>Twitter</title>
-                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
-                                    </svg>
+                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
+                                    <title>Twitter</title>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1142,9 +1143,7 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                <li>
-                                    <a href="#feedback">Feedback</a>
-                                </li>                                
+                                                                
                             </ul>
                         </nav>
                     </div>
@@ -1153,30 +1152,563 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
+                    Pseudo-classes 
+
+bookmark_border
+The CSS Podcast - 015: Pseudo-classes 
+
+Say you've got an email sign up form, and you want the email form field to have a red border if it contains an invalid email address. How do you do that? You can use an :invalid CSS pseudo-class, which is one of many browser-provided pseudo-classes.
+
+
+A pseudo-class lets you apply styles based on state changes and external factors. This means that your design can react to user input such as an invalid email address. These are covered in the selectors module, and this module will take you through them in more detail.
+
+Unlike pseudo-elements, which you can learn more about in the previous module, pseudo-classes hook onto specific states that an element might be in, rather than generally style parts of that element.
+
+Interactive states
+The following pseudo-classes apply due to an interaction a user has with your page.
+
+:hover
+Browser Support
+
+1
+12
+1
+2
+Source
+
+If a user has a pointing device like a mouse or trackpad, and they place it over an element, you can hook on to that state with :hover to apply styles. This is a useful way to hint that an element can be interacted with.
+
+
+:active
+Browser Support
+
+1
+12
+1
+1
+Source
+
+This state is triggered when an element is actively being interacted with— such as a click—before click is released. If a pointing device like a mouse is used, this state is when the click starts and hasn't yet been released.
+
+
+:focus, :focus-within, and :focus-visible
+Browser Support
+
+1
+12
+1
+1
+Source
+
+If an element can receive focus—like a <button>— you can react to that state with the :focus pseudo-class.
+
+
+You can also react if a child element of your element receives focus with :focus-within.
+
+
+Focusable elements, like buttons, will show a focus ring when they are in focus—even when clicked. In this sort of situation, a developer will apply the following CSS:
+
+
+button:focus {
+    outline: none;
+}
+This CSS removes the default browser focus ring when an element receives focus, which presents an accessibility issue for users who navigate a web page with a keyboard. If there is no focus style, they won't be able to keep track of where focus currently is when using the tab key. With :focus-visible you can present a focus style when an element receives focus via the keyboard, while also using the outline: none rule to prevent it when a pointer device interacts with it.
+
+
+button:focus {
+    outline: none;
+}
+
+button:focus-visible {
+    outline: 1px solid black;
+}
+
+:target
+Browser Support
+
+1
+12
+1
+1.3
+Source
+
+The :target pseudo-class selects an element that has an id matching a URL fragment. Say you have the following HTML:
+
+
+<article id="content">
+    …
+</article>
+You can attach styles to that element when the url contains #content.
+
+
+#content:target {
+    background: yellow;
+}
+This is useful for highlighting areas that might have been specifically linked to, such as the main content on a website, via a skip link.
+
+
+Historic states
+:link
+Browser Support
+
+1
+12
+1
+1
+Source
+
+The :link pseudo-class can be applied to any <a> element that has a href value that hasn't been visited yet.
+
+:visited
+You can style a link that's already been visited by the user using the :visited pseudo-class. This is the opposite state to :link but you have fewer CSS properties to use for security reasons. You can only style color, background-color, border-color, outline-color and the color of SVG fill and stroke.
+
+
+Order matters
+If you define a :visited style, it can be overridden by a link pseudo-class with at least equal specificity. Because of this, it's recommended that you use the LVHA rule for styling links with pseudo-classes in a particular order: :link, :visited, :hover, :active.
+
+
+a:link {}
+a:visited {}
+a:hover {}
+a:active {}
+Note: For security reasons, you can only change styles defined by a :link or unvisited state with the :visited pseudo-class, so making sure you define changeable styles first is important. Sticking to the LVHA rule will help with that.
+Form states
+The following pseudo-classes can select form elements, in the various states that these elements might be in during interaction with them.
+
+:disabled and :enabled
+Browser Support
+
+1
+12
+1
+3.1
+Source
+
+If a form element, such as a <button> is disabled by the browser, you can hook on to that state with the :disabled pseudo-class. The :enabled pseudo-class is available for the opposite state, though form elements are also :enabled by default, therefore you might not find yourself reaching for this pseudo-class.
+
+
+:checked and :indeterminate
+Browser Support
+
+1
+12
+1
+3.1
+Source
+
+The :checked pseudo-class is available when a supporting form element, such as a checkbox or radio button is in a checked state.
+
+
+The :checked state is a binary(true or false) state, but checkboxes do have an in-between state when they are neither checked or unchecked. This is known as the :indeterminate state.
+
+An example of this state is when you have a "select all" control that checks all checkboxes in a group. If the user was to then uncheck one of these checkboxes, the root checkbox would no longer represent "all" being checked, so should be put into an indeterminate state.
+
+
+The <progress> element also has an indeterminate state that can be styled. A common use case is to give it a striped appearance to indicate it's unknown how much more is needed.
+
+:placeholder-shown
+Browser Support
+
+47
+79
+51
+9
+Source
+
+If a form field has a placeholder attribute and no value, the :placeholder-shown pseudo-class can be used to attach styles to that state. As soon as there is content in the field, whether it has a placeholder or not, this state will no longer apply.
+
+Validation states
+Browser Support
+
+10
+12
+4
+5
+Source
+
+You can respond to HTML form validation with pseudo-classes such as :valid, :invalid and :in-range. The :valid and :invalid pseudo-classes are useful for contexts such as an email field that has a pattern that needs to be matched, for it to be a valid field. This valid value state can be shown to the user, helping them understand they can safely move to the next field.
+
+
+The :in-range pseudo-class is available if an input has a min and max, such as a numeric input and the value is within those bounds.
+
+
+With HTML forms, you can determine that a field is required with the required attribute. The :required pseudo-class will be available for required fields. Fields that are not required can be selected with the :optional pseudo-class.
+
+Note: It's not a good idea to rely solely on color to signify state changes— especially red and green—because colorblind and low-vision users can struggle to see a state change, or even miss it completely. A good idea is to use color to support state changes, along with text changes and icon changes to visually signify change
+Selecting elements by their index, order and occurrence
+There is a group of pseudo-classes that select items based on where they are in the document.
+
+:first-child and :last-child
+Browser Support
+
+4
+12
+3
+3.1
+Source
+
+If you want to find the first or last item, you can use :first-child and :last-child. These pseudo-classes will return either the first or last element in a group of sibling elements.
+
+
+:only-child
+Browser Support
+
+2
+12
+1.5
+3.1
+Source
+
+You can also select elements that have no siblings, with the :only-child pseudo-class.
+
+
+:first-of-type and :last-of-type
+Browser Support
+
+1
+12
+3.5
+3.1
+Source
+
+You can select the :first-of-type and :last-of-type which at first, look like they do the same thing as :first-child and :last-child, but consider this HTML:
+
+
+<div class="my-parent">
+    <p>A paragraph</p>
+    <div>A div</div>
+    <div>Another div</div>
+</div>
+And this CSS:
+
+
+.my-parent div:first-child {
+    color: red;
+}
+No elements would be colored red because the first child is a paragraph and not a div. The :first-of-type pseudo-class is useful in this context.
+
+
+.my-parent div:first-of-type {
+    color: red;
+}
+Even though the first <div> is the second child, it is still the first of type inside the .my-parent element, so with this rule, it will be colored red.
+
+
+:nth-child and :nth-of-type
+Browser Support
+
+1
+12
+3.5
+3.1
+Source
+
+You're not limited to first and last children and types either. The :nth-child and :nth-of-type pseudo-classes allow you to specify an element that is at a certain index. The indexing in CSS selectors starts at 1.
+
+
+You can pass more than an index into these pseudo-classes too. If you wanted to select all even elements, you can use :nth-child(even).
+
+
+You can also create more complex selectors that find items at regularly spaced intervals, using the An+B microsyntax.
+
+
+li:nth-child(3n+3) {
+    background: yellow;
+}
+This selector selects every third item, starting at item 3. The n in this expression is the index, which starts at zero the 3 (3n) is how much you multiply that index by.
+
+Let's say you have 7 <li> items. The first item that is selected is 3 because 3n+3 translates to (3 * 0) + 3. The next iteration would pick item 6 because n has now incremented to 1, so (3 * 1) + 3). This expression works for both :nth-child and :nth-of-type.
+
+You can play around with this sort of selector on this nth-child tester or this quantity selector tool.
+
+:only-of-type
+Browser Support
+
+1
+12
+3.5
+3.1
+Source
+
+Lastly, you can find the only element of a certain type in a group of siblings with :only-of-type. This is useful if you want to select lists with only one item, or if you want to find the only bold element in a paragraph.
+
+
+Finding empty elements
+It can sometimes be useful to identify completely empty elements, and there is a pseudo-class for that too.
+
+:empty
+Browser Support
+
+1
+12
+1
+3.1
+Source
+
+If an element has no children, the :empty pseudo-class applies to them. Children aren't just HTML elements or text nodes though: they can also be whitespace, which can be confusing when you're debugging the following HTML and wondering why it isn't working with :empty:
+
+
+<div>
+</div>
+The reason is that there's some whitespace between the opening and closing <div>, so empty won't work.
+
+The :empty pseudo-class can be useful if you have little control over the HTML and want to hide empty elements, such as a WYSIWYG content editor. Here, an editor has added a stray, empty paragraph.
+
+
+<article class="post">
+ <p>Donec ullamcorper nulla non metus auctor fringilla.</p>
+ <p></p>
+ <p>Curabitur blandit tempus porttitor.</p>
+</article>
+With :empty, you can find that and hide it.
+
+
+.post :empty {
+    display: none;
+}
+
+Finding and excluding multiple elements
+Some pseudo-classes help you to write more compact CSS.
+
+:is()
+Browser Support
+
+88
+88
+78
+14
+Source
+
+If you want to find all of the h2, li and img child elements in a .post element, you might think to write a selector list like this:
+
+
+.post h2,
+.post li,
+.post img {
+    …
+}
+With the :is() pseudo-class, you can write a more compact version:
+
+
+.post :is(h2, li, img) {
+    …
+}
+The :is pseudo-class is not only more compact than a selector list but it is also more forgiving. In most cases, if there's an error or unsupported selector in a selector list, the entire selector list will no longer work. If there's an error in the passed selectors in an :is pseudo-class, it will ignore the invalid selector, but use those which are valid.
+
+:not()
+Browser Support
+
+1
+12
+1
+3.1
+Source
+
+You can also exclude items with the :not() pseudo-class. For example, you can use it to style all links that don't have a class attribute.
+
+
+a:not([class]) {
+    color: blue;
+}
+A :not pseudo-class can also help you to improve accessibility. For example, an <img> must have an alt, even if it's an empty value, so you could write a CSS rule that adds a thick red outline to invalid images:
+
+
+img:not([alt]) {
+    outline: 10px red;
+}
+
+Check your understanding
+Test your knowledge of pseudo classes
+
+Type, class, and ID selectors
+Previous
+Overview: Building blocks
+Next
+In this lesson, we examine some of the simplest selectors, which you will probably use most frequently in your work.
+
+Prerequisites:	Basic software installed, basic knowledge of working with files, HTML basics (study Introduction to HTML), and an idea of how CSS works (study CSS first steps.)
+Objective:	To learn about the different CSS selectors we can use to apply CSS to a document.
+Type selectors
+A type selector is sometimes referred to as a tag name selector or element selector because it selects an HTML tag/element in your document. Type selectors are not case-sensitive. In the example below, we have used the span, em and strong selectors.
+
+Try adding a CSS rule to select the <h1> element and change its color to blue.
+
+
+The universal selector
+The universal selector is indicated by an asterisk (*). It selects everything in the document (or inside the parent element if it is being chained together with another element and a descendant combinator). In the following example, we use the universal selector to remove the margins on all elements. Instead of the default styling added by the browser — which spaces out headings and paragraphs with margins — everything is close together.
+
+
+This kind of behavior can sometimes be seen in "reset stylesheets", which strip out all of the browser styling. Since the universal selector makes global changes, we use it for very specific situations, such as the one described below.
+
+Using the universal selector to make your selectors easier to read
+One use of the universal selector is to make selectors easier to read and more obvious in terms of what they are doing. For example, if we wanted to select any descendant elements of an <article> element that are the first child of their parent, including direct children, and make them bold, we could use the :first-child pseudo-class. We will learn more about this in the lesson on pseudo-classes and pseudo-elements, as a descendant selector along with the <article> element selector:
+
+CSS
+Copy to Clipboard
+article :first-child {
+  font-weight: bold;
+}
+However, this selector could be confused with article:first-child, which will select any <article> element that is the first child of another element.
+
+To avoid this confusion, we can add the universal selector to the :first-child pseudo-class, so it is more obvious what the selector is doing. It is selecting any element which is the first-child of an <article> element, or the first-child of any descendant element of <article>:
+
+CSS
+Copy to Clipboard
+article *:first-child {
+  font-weight: bold;
+}
+Although both do the same thing, the readability is significantly improved.
+
+Class selectors
+The case-sensitive class selector starts with a dot (.) character. It will select everything in the document with that class applied to it. In the live example below we have created a class called highlight, and have applied it to several places in my document. All of the elements that have the class applied are highlighted.
+
+
+Targeting classes on particular elements
+You can create a selector that will target specific elements with the class applied. In this next example, we will highlight a <span> with a class of highlight differently to an <h1> heading with a class of highlight. We do this by using the type selector for the element we want to target, with the class appended using a dot, with no white space in between.
+
+
+This approach reduces the scope of a rule. The rule will only apply to that particular element and class combination. You would need to add another selector if you decided the rule should apply to other elements too.
+
+Target an element if it has more than one class applied
+You can apply multiple classes to an element and target them individually, or only select the element when all of the classes in the selector are present. This can be helpful when building up components that can be combined in different ways on your site.
+
+In the example below, we have a <div> that contains a note. The grey border is applied when the box has a class of notebox. If it also has a class of warning or danger, we change the border-color.
+
+We can tell the browser that we only want to match the element if it has two classes applied by chaining them together with no white space between them. You'll see that the last <div> doesn't get any styling applied, as it only has the danger class; it needs notebox as well to get anything applied.
+
+
+ID selectors
+The case-sensitive ID selector begins with a # rather than a dot character, but is used in the same way as a class selector. However, an ID can be used only once per page, and elements can only have a single id value applied to them. It can select an element that has the id set on it, and you can precede the ID with a type selector to only target the element if both the element and ID match. You can see both of these uses in the following example:
+
+
+Warning: Using the same ID multiple times in a document may appear to work for styling purposes, but don't do this. It results in invalid code, and will cause strange behavior in many places.
+
+Note: The ID selector has high specificity. This means styles applied based on matching an ID selector will overrule styles applied based on other selector, including class and type selectors. Because an ID can only occur once on a page and because of the high specificity of ID selectors, it is preferable to add a class to an element instead of an ID. If using the ID is the only way to target the element — perhaps because you do not have access to the markup and cannot edit it — consider using the ID within an attribute selector, such as p[id="header"]. Learn specificity.
+
+Summary
+That wraps up Type, class, and ID selectors. We'll continue exploring selectors by looking at attribute selectors.
+
+Pseudo-classes and pseudo-elements
+Previous
+Overview: Building blocks
+Next
+The next set of selectors we will look at are referred to as pseudo-classes and pseudo-elements. There are a large number of these, and they often serve quite specific purposes. Once you know how to use them, you can look at the list to see if there is something which works for the task you are trying to achieve. Once again the relevant Datarist page for each selector is helpful in explaining browser support.
+
+Prerequisites:	Basic software installed, basic knowledge of working with files, HTML basics (study Introduction to HTML), and an idea of how CSS works (study CSS first steps).
+Objective:	To learn about the pseudo-class and pseudo-element selectors.
+What is a pseudo-class?
+A pseudo-class is a selector that selects elements that are in a specific state, e.g. they are the first element of their type, or they are being hovered over by the mouse pointer. They tend to act as if you had applied a class to some part of your document, often helping you cut down on excess classes in your markup, and giving you more flexible, maintainable code.
+
+Pseudo-classes are keywords that start with a colon. For example, :hover is a pseudo-class.
+
+Simple pseudo-class example
+Let's look at a simple example. If we wanted to make the first paragraph in an article larger and bold, we could add a class to that paragraph and then add CSS to that class, as shown in the first example below:
+
+
+However, this could be annoying to maintain — what if a new paragraph got added to the top of the document? We'd need to move the class over to the new paragraph. Instead of adding the class, we could use the :first-child pseudo-class selector — this will always target the first child element in the article, and we will no longer need to edit the HTML (this may not always be possible anyway, maybe due to it being generated by a CMS).
+
+
+All pseudo-classes behave in this same kind of way. They target some bit of your document that is in a certain state, behaving as if you had added a class into your HTML. Take a look at some other examples on Datarist:
+
+:last-child
+:only-child
+:invalid
+Note: It is valid to write pseudo-classes and elements without any element selector preceding them. In the example above, you could write :first-child and the rule would apply to any element that is the first child of an <article> element, not just a paragraph first child — :first-child is equivalent to *:first-child. However, usually you want more control than that, so you need to be more specific.
+
+User-action pseudo classes
+Some pseudo-classes only apply when the user interacts with the document in some way. These user-action pseudo-classes, sometimes referred to as dynamic pseudo-classes, act as if a class had been added to the element when the user interacts with it. Examples include:
+
+:hover — mentioned above; this only applies if the user moves their pointer over an element, typically a link.
+:focus — only applies if the user focuses the element by clicking or using keyboard controls.
+
+What is a pseudo-element?
+Pseudo-elements behave in a similar way. However, they act as if you had added a whole new HTML element into the markup, rather than applying a class to existing elements.
+
+Pseudo-elements start with a double colon ::. ::before is an example of a pseudo-element.
+
+Note: Some early pseudo-elements used the single colon syntax, so you may sometimes see this in code or examples. Modern browsers support the early pseudo-elements with single- or double-colon syntax for backwards compatibility.
+
+For example, if you wanted to select the first line of a paragraph you could wrap it in a <span> element and use an element selector; however, that would fail if the number of words you had wrapped were longer or shorter than the parent element's width. As we tend not to know how many words will fit on a line — as that will change if the screen width or font-size changes — it is impossible to robustly do this by adding HTML.
+
+The ::first-line pseudo-element selector will do this for you reliably — if the number of words increases or decreases it will still only select the first line.
+
+
+It acts as if a <span> was magically wrapped around that first formatted line, and updated each time the line length changed.
+
+You can see that this selects the first line of both paragraphs.
+
+Combining pseudo-classes and pseudo-elements
+If you wanted to make the first line of the first paragraph bold you could chain the :first-child and ::first-line selectors together. Try editing the previous live example so it uses the following CSS. We are saying that we want to select the first line, of the first <p> element, which is inside an <article> element.
+
+CSS
+Copy to Clipboard
+article p:first-child::first-line {
+  font-size: 120%;
+  font-weight: bold;
+}
+Generating content with ::before and ::after
+There are a couple of special pseudo-elements, which are used along with the content property to insert content into your document using CSS.
+
+You could use these to insert a string of text, such as in the live example below. Try changing the text value of the content property and see it change in the output. You could also change the ::before pseudo-element to ::after and see the text inserted at the end of the element instead of the beginning.
+
+
+Inserting strings of text from CSS isn't really something we do very often on the web however, as that text is inaccessible to some screen readers and might be hard for someone to find and edit in the future.
+
+A more valid use of these pseudo-elements is to insert an icon, for example the little arrow added in the example below, which is a visual indicator that we wouldn't want read out by a screen reader:
+
+
+These pseudo-elements are also frequently used to insert an empty string, which can then be styled just like any element on the page.
+
+In this next example, we have added an empty string using the ::before pseudo-element. We have set this to display: block in order that we can style it with a width and height. We then use CSS to style it just like any element. You can play around with the CSS and change how it looks and behaves.
+
+
+The use of the ::before and ::after pseudo-elements along with the content property is referred to as "Generated Content" in CSS, and you will often see this technique being used for various tasks. A great example is the site CSS Arrow Please, which helps you to generate an arrow with CSS. Look at the CSS as you create your arrow and you will see the ::before and ::after pseudo-elements in use. Whenever you see these selectors, look at the content property to see what is being added to the HTML element.
+
+Summary
+In this article we've introduced CSS pseudo-classes and pseudo-elements, which are special types of selectors.
+
+Pseudo-classes enable you to target an element when it's in a particular state, as if you had added a class for that state to the DOM. Pseudo-elements act as if you had added a whole new element to the DOM, and enable you to style that. The ::before and ::after pseudo-elements enable you to insert content into the document using CSS.
+
+In the next article, we'll learn about combinators.
+
+See also
+Pseudo-classes reference
+Pseudo-elements reference
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <h2 id="feedback">
-                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
-                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
+                    <div class="mt-5 small">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
+                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
+                      <footer class="mt-3 small">
+                        <div class="row">
+                            <div class="col-md-4 text-start">
+                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <a href="#" class="link-offset-2">Topic</a>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
+                            </div>
+                        </div>
+                      </footer>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container py-4 py-md-5 px-4 px-md-3">
+            <div class="container px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1198,6 +1730,9 @@
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
+                            <li class="mb-2">
+                              <a href="https://newsletter.datarist.com">Newsletter</a>
+                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">

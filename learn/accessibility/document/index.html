@@ -197,15 +197,16 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
+                            <li class="nav-item col-6 col-lg-auto">
+                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
+                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
-                                        <title>Twitter</title>
-                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
-                                    </svg>
+                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
+                                    <title>Twitter</title>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1142,9 +1143,7 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                <li>
-                                    <a href="#feedback">Feedback</a>
-                                </li>                                
+                                                                
                             </ul>
                         </nav>
                     </div>
@@ -1153,30 +1152,132 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
+                    Along with structure, there are many supporting HTML elements to consider when building and designing for digital accessibility. Throughout the Learn Accessibility course, we cover a lot of elements.
+
+This module focuses on very specific elements that don't quite fit into any of the other modules but are useful to understand.
+
+Note: Our Learn HTML course covers the basics of HTML and semantic structure in great detail. As such, this module builds off of that course material and is focused specifically on digital accessibility. Likewise, be sure to review the ARIA and HTML module in this course before diving into this module.
+Page title
+The HTML <title> element defines the content of the page or screen a user is about to experience. It's found in the <head> section of an HTML document and is equivalent to the <h1> or main topic of the page. The title content is displayed in the browser tab and helps users understand which page they are visiting, but it is not displayed on the website or app itself.
+
+In a single-page app (SPA), the <title> is handled in a slightly different way, as users don't navigate between pages as they do on multi-page websites. For SPAs, the value of the document.title property can be added manually or by a helper package, depending on the JavaScript framework. Announcing the updated page titles to a screen reader user may take some additional work.
+
+Descriptive page titles are good for both users and search engine optimization (SEO)—but don't go overboard and add lots of keywords. Since the title is the first thing announced when an AT user visits a page, it must be accurate, unique, and descriptive, but also concise.
+
+When writing page titles, it is also best practice to "front load" the interior page or important content first, then add any preceding pages or information after. This way, AT users don't have to sit through the information they have already heard.
+
+Don't
+
+<title>The Food Channel | Outrageous Pumpkins | Season 3 </title>
+Do
+
+<title>Season 3 | Outrageous Pumpkins | The Food Channel</title>
+Key point: Search engines typically display only the first 55–60 characters of a page title, so be sure to limit your total page title characters.
+Language
+Page language
+The page language attribute (lang) sets the default language for the entire page. This attribute is added to the <html> tag. A valid language attribute should be added to every page as it signals the AT to which language it should use.
+
+It's recommended that you use two-character ISO language codes for greater AT coverage, as many of them do not support extended language codes.
+
+When a language attribute is completely missing, the AT will default to the user's programmed language. For example, if an AT was set to Spanish, but a user visited an English website or app, the AT would try to read the English text with Spanish accents and cadence. This combination results in an unusable digital product and a frustrated user.
+
+Don't
+
+<html>...</html>
+Do
+
+<html lang="en">...</html>
+The lang attribute can only have one language associated with it. This means the <html> attribute can only have one language, even if there are multiple languages on the page. Set lang to the primary language of the page.
+
+Don't
+
+<html lang="ar,en,fr,pt">...</html>
+Multiple languages are not supported.
+Do
+
+<html lang="ar">...</html>
+Set only the page's primary language. In this case, the language is Arabic.
+Section language
+You can also use the language attribute (lang) for language switches in the content itself. The same basic rules apply as the full-page language attribute, except you add it to the appropriate in-page element instead of on the <html> tag.
+
+Remember that the language you add to the <html> element cascades down to all the contained elements, so always set the primary language of the page top-level lang attribute first.
+
+For any in-page elements written in a different language, add that lang attribute to the appropriate wrapper element. This will override the top-level language setting until that element is closed.
+
+Don't
+
+<html lang="en">
+  <body>...
+    <div>
+      <p>While traveling in Estonia this summer, I often asked,
+        "Kas sa räägid inglise keelt?" when I met someone new.</p>
+    </div>
+  </body>
+</html>
+Do
+
+<html lang="en">
+  <body>...
+    <div>
+      <p>While traveling in Estonia this summer, I often asked,
+        <span lang="et">"Kas sa räägid inglise keelt?"</span>
+        when I met someone new.</p>
+    </div>
+  </body>
+</html>
+iFrames
+The iFrame element (<iframe>) is used to host another HTML page or a third party's content within the page. It essentially puts another webpage within the parent page. iFrames are commonly used for advertisements, embedded videos, web analytics, and interactive content.
+
+To make your <iframe> accessible, there are a couple of aspects to consider. First, each <iframe> with distinct content should include a title element inside the parent tag. This title supplies AT users with more information about the content inside the <iframe>.
+
+Second, as a best practice, it is good to set the scrolling to "auto" or "yes" in the <iframe> tag settings. This allows people with low vision to be able to scroll into content within the <iframe> that they might not otherwise be able to see. Ideally, the <iframe> container would also be flexible in its height and width.
+
+Don't
+
+<iframe src="https://www.youtube.com/embed/3obixhGZ5ds"></iframe>
+Do
+
+<iframe title="Google Pixel - Lizzo in Real Tone"
+  src="https://www.youtube.com/embed/3obixhGZ5ds"
+  scrolling="auto">
+</iframe>
+Check your understanding
+Test your knowledge of document accessibility.
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <h2 id="feedback">
-                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
-                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
+                    <div class="mt-5 small">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
+                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
+                      <footer class="mt-3 small">
+                        <div class="row">
+                            <div class="col-md-4 text-start">
+                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <a href="#" class="link-offset-2">Topic</a>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
+                            </div>
+                        </div>
+                      </footer>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container py-4 py-md-5 px-4 px-md-3">
+            <div class="container px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1198,6 +1299,9 @@
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
+                            <li class="mb-2">
+                              <a href="https://newsletter.datarist.com">Newsletter</a>
+                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">
