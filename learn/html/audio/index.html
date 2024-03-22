@@ -197,15 +197,16 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
+                            <li class="nav-item col-6 col-lg-auto">
+                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
+                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
-                                        <title>Twitter</title>
-                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
-                                    </svg>
+                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
+                                    <title>Twitter</title>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1142,9 +1143,7 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                <li>
-                                    <a href="#feedback">Feedback</a>
-                                </li>                                
+                                                                
                             </ul>
                         </nav>
                     </div>
@@ -1153,30 +1152,148 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
+                    Audio and Video 
+
+bookmark_border
+As you learned in the images module, HTML enables embedding media into a web page. In this section, we look at audio and video files, including how to embed them, user controls, providing a static image placeholder for your videos, and best practices, including making audio and video files accessible.
+
+<audio> and <video>
+The <video> and <audio> elements can be used to embed media players directly with the src attribute or can be used as the container element for a series of <source> elements, each providing a src file suggestion. While <video> can be used to embed an audio file, the <audio> element is preferable for embedding sound files.
+
+The opening <video> and <audio> tags can contain several other attributes including controls, autoplay, loop, mute, preload, and the global attributes. The <video> element also supports the height, width, and poster attributes.
+
+
+<video src="videos/machines.webm" poster="images/machine.jpg" controls>
+  <p>Watch <a href="https://youtube.com/link">video on Youtube</a></p>
+</video>
+This <video> example has a single source with the src attribute linking to the video source. The poster attribute provides an image to display as the video loads. Finally, the controls attribute provides user video controls.
+
+Fallback content is included between the opening and closing tags. If the user agent doesn't support <video> (or <audio> this content is shown. The closing </video> tag is required, even if there is no content between the two (but there should always be fallback content , right?).
+
+If no src attribute is included on the opening <video> or <audio> tags, include one or more <source> elements, each with a src attribute to a media file. The following example includes three media file options, fallback content, and English and French subtitles between the opening and closing tags.
+
+
+<video controls poster="images/machine.jpg">
+  <source src="videos/machines.webm" type="video/webm">
+  <source src="videos/machines.mp4" type="video/mp4">
+  <source src="videos/machines.ogv" type="video/ogg">
+  <track label="English" kind="subtitles" srclang="en" src="vtt/subtitles-en.vtt" default />
+  <track label="Francais" kind="subtitles" srclang="fr" src="vtt/subtitles-fr.vtt" />
+  <p>Watch <a href="https://youtube.com/link">video on Youtube</a></p>
+</video>
+Each <source> child includes a src attribute pointing to the resource and the type attribute informs the browser of the linked file's media type. This prevents the browser from fetching media files it wouldn't be able to decode.
+
+Within the type attribute, you can include a codecs parameter, which specifies exactly how the resource is encoded. Codecs give you a way of including media optimizations that are not yet supported in all browsers. The codec is separated from the media type with a semicolon. For example, the codec can be written using intuitive syntax, such as <source src="videos/machines.webm" type="video/webm;codecs=vp8,vorbis"> which indicates that the WebM files contain VP8 video and vorbis audio. Codecs can also be more difficult to decipher, such as <source src="videos/machines.mp4" type="video/mp4; codecs=avc1.4d002a"> which indicates that the MP4 encoding is Advanced Video Coding Main Profile Level 4.2. Explaining this syntax is well beyond the scope of this lesson. Jake Archibald has a post explaining how to determine the codec parameter for an AV1 video if you want to learn more.
+
+When displaying a video, by default, the first frame of the video is shown as the still shot when it becomes available. This is something that can be controlled. The poster attribute enables the source of an image to show while the video is downloading and until it is played. If the video plays and is subsequently paused, the poster is not re-shown.
+
+Make sure to define the aspect ratio of your video, because when the video loads, a size difference between the poster and the video will cause a reflow and repaint.
+
+Always include the boolean controls attribute. This makes the user controls visible, providing users with the ability to control audio levels, mute the audio completely, and expand the video to fullscreen. Omitting controls creates a bad user experience, especially if the boolean autoplay attribute is included. Note that some browsers will not heed the autoplay attribute directive if the boolean muted attribute is omitted because autoplaying a media file is generally a bad user experience, even when muted and with visible controls.
+
+Tracks
+Between the opening and required closing tags of both audio and video, include one or more <track> elements to specify timed text tracks. The following example includes two <track> files, providing timed text subtitles in both English and French.
+
+
+<track label="English" kind="subtitles" srclang="en" src="vtt/subtitles-en.vtt" default />
+<track label="Français" kind="subtitles" srclang="fr" lang="fr-fr" src="vtt/subtitles-fr.vtt" />
+The track files, specified in the src attribute, should be in WebVTT format (.vtt). The files should be on the same domain as the HTML document, unless the crossorigin attribute is included.
+
+There are five enumerated values for the track kind attribute: subtitles, captions, descriptions, chapters, and other metadata.
+
+Include subtitles along with the srclang attribute for dialogue transcription and translations. The value of each label attribute is displayed as an option to the user. The content of the selected VTT option is displayed over the video. The appearance of the subtitles can be styled by targeting the ::cue/ ::cue().
+
+The value kind="caption" should be reserved for transcription and translations that include sound effects and other relevant audio information. This isn't just for deaf viewers. Maybe a user can't find their headphones so they turned on the captions. Or maybe they didn't quite catch the last few talking points from a favorite podcast, so they want to read the transcript to confirm their understanding. Having alternative ways to access audio and video content is both important and convenient.
+
+The kind="description" is for text descriptions of the visual content in the video for users who can't see the video, whether they are using a system without a screen such as Google Home or Alexa, or are blind.
+
+Note: The audio and video section of learn accessibility goes into more detail about captions, transcripts, and audio descriptions.
+Providing captions and subtitles using the WebVTT format makes the video accessible to people with impaired hearing. Remember, disability is a mismatch between a person and their current environment. Impaired hearing can be due to the user being in a loud environment, having faulty speakers or broken headphones, or because the user has some hearing loss or is deaf. Ensuring your content is accessible helps many more people than you think; it helps everyone.
+
+Background video considerations
+Your marketing or design team may want your site to include a background video. Generally, this means that they want a muted, auto-playing, looping video with no controls. The HTML may look something like this:
+
+
+<video autoplay loop muted poster="images/machine.jpg" role="none">
+  <source src="videos/machines.webm" type="video/webm">
+  <source src="videos/machines.mp4" type="video/mp4">
+  <source src="videos/machines.ogv" type="video/ogg">
+</video>
+Background videos are not accessible. Content should not be conveyed through background videos without providing users with full control over playback and access to all captions. As this video is purely decorative, it includes the ARIA role of none and omits any fallback content. To improve the performance of always muted videos, remove the audio track from your media sources.
+
+If your video plays for five seconds or less, accessibility guidelines don't require a pausing mechanism, but anything with the boolean loop attribute will loop forever by default, exceeding this five-second, or any other, time limit. For good user experience, always include a method of pausing the video. This is most easily done by including controls.
+
+Custom media controls
+To display custom video or audio controls, rather than the browser built-in controls, include the controls attribute. Then use JavaScript to add custom media controls and remove the controls attribute. For example, you can add a <button> that toggles the play state of an audio file.
+
+
+<button id="playPause" aria-controls="idOfAudio"
+  data-pause-text="Pause audio"
+  data-play-text="Play audio">Pause audio</button>
+This example includes a button with dataset attributes containing the text that will be updated as the visitor toggles between play and pause states. The aria-controls attribute is included with the id of the element controlled by the button; in this case, the audio. Each button that controls the audio has an event handler.
+
+To create customized controls, use HTMLMediaElement.play() and HTMLMediaElement.pause(). When toggling the play state, also toggle the text of the button:
+
+
+const pauseButton = document.getElementById('playPause');
+
+pauseButton.addEventListener("click", pauseAndPlay, false);
+
+function pauseAndPlay() {
+  console.log(this);
+  const media = document.getElementById(this.getAttribute('aria-controls'));
+
+  if (media.paused) {
+    media.play();
+    this.innerText = this.dataset.pauseText;
+  } else {
+    media.pause();
+    this.innerText = this.dataset.playText;
+  }
+}
+By including the controls attribute, the user has a way to control the audio (or video) even if JavaScript fails. Only remove the controls attribute once a replacement button has been instantiated.
+
+
+document.querySelector('[aria-controls]').removeAttribute('controls');
+Always include external controls when users can't access the controls, such as with background videos that have their controls hidden behind site content. It is important to understand the basics of media accessibility requirements to accommodate users with different environmental and sensory needs, including the millions of people with hearing loss and visual impairments. We've just touched on the HTMLMediaElement which provides several properties, methods, and events that are inherited by both the HTMLVideoElement and HTMLAudioElement, with HTMLMediaElement adding a few properties, methods, and events of its own. There are several other Media APIs, including a TextTrack API. You can use the Media Capture and Streams and MediaDevices APIs to record audio from a user's microphone or record a user's screen. The Web Audio API enables manipulating live and pre-recorded audio and streaming, saving, or sending the audio to the <audio> element.
+
+Check your understanding
+Test your knowledge of audio and video.
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <h2 id="feedback">
-                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
-                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
+                    <div class="mt-5 small">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
+                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
+                      <footer class="mt-3 small">
+                        <div class="row">
+                            <div class="col-md-4 text-start">
+                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <a href="#" class="link-offset-2">Topic</a>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
+                            </div>
+                        </div>
+                      </footer>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container py-4 py-md-5 px-4 px-md-3">
+            <div class="container px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1198,6 +1315,9 @@
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
+                            <li class="mb-2">
+                              <a href="https://newsletter.datarist.com">Newsletter</a>
+                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">

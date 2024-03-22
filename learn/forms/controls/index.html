@@ -197,15 +197,16 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
+                            <li class="nav-item col-6 col-lg-auto">
+                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
+                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
-                                        <title>Twitter</title>
-                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
-                                    </svg>
+                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
+                                    <title>Twitter</title>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1142,9 +1143,7 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                <li>
-                                    <a href="#feedback">Feedback</a>
-                                </li>                                
+                                                                
                             </ul>
                         </nav>
                     </div>
@@ -1153,30 +1152,129 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
+                    Styling form controls 
+
+bookmark_border
+In this module you learn how to style form controls, and how to match your other site styles.
+
+Caution: Styling HTML form controls can be a challenge, but you should still use built-in elements wherever possible. Elements such as <input> and <button> are widely supported across browsers and platforms, and have built-in features that enhance usability and accessibility, which you don't need to implement yourself. Using a <div> instead doesn't provide these benefits.
+Help users select an option
+The <select> element
+The default styles of a <select> element don't look great, and the appearance is inconsistent between browsers.
+
+
+Note: You can also use an <input> in combination with the <datalist> element. This gives you a combination of a text field and a list of <option> elements. You can see examples of <datalist> here.
+First, let's change the arrows.
+
+
+select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    background-image: url(arrow.png);
+    background-repeat: no-repeat;
+    background-position: right .7em top 50%, 0 0;
+    background-size: .65em auto;
+}
+To remove the default arrows of a <select> element, use the CSS appearance property. To show the arrow of your choice, define the arrow as a background.
+
+Note: To ensure the best cross-browser compatibility, you must also include the prefixed versions of appearance: -moz-appearance and -webkit-appearance. Learn more about vendor prefixes.
+You should also change the font-size to at least 1rem (which for most browsers has a default value of 16px) for your <select> element. Doing so will prevent a page zoom on iOS Safari when the form control is focused.
+
+You can, of course, also change the element colors to match your brand colors. After adding some more styles for spacing, :hover, and :focus, the appearance of the <select> element is now consistent between browsers.
+
+See this in the following demo from Styling a Select Like It’s 2019
+
+
+What about the <option> element? The <option> element is a so-called replaced element whose representation is outside the scope of CSS. As of this writing, you can't style the <option> element.
+
+Note: There is an ongoing proposal to allow web developers to style and extend built-in web UI controls, including <select> and <option> elements. This would make it easier to style form controls in the future. Learn more about Open UI.
+Checkboxes and Radio buttons
+The appearance of <input type="checkbox"> and <input type="radio"> varies across browsers.
+
+
+Open the demo on various browsers to see the difference. Let's see how to make sure that checkboxes and radio buttons match your brand and look the same cross-browser.
+
+In the past, developers could not style <input type="checkbox"> and <input type="radio"> controls directly. Checkboxes and radio buttons can be styled via their pseudo elements, now. Or the following replacement technique can be used to create custom styles for these elements.
+
+First, hide the default checkbox and radio button visually.
+
+
+input[type="radio"],
+input[type="checkbox"] {
+   position: absolute;
+   opacity: 0;
+}
+It's important to use position: absolute in combination with opacity: 0 instead of display: none or visibility: hidden so that the controls are only visually hidden. This will ensure they are still exposed by the browser's accessibility tree. Note that further styling may be needed to ensure that the visually hidden form controls remain positioned "on top" of their replacement elements. Doing so will help ensure that hovering over one of these elements, when a screen reader is on, or when using touch devices with screen readers enabled, the visually hidden controls will be discoverable if exploring by touch, and the screen reader's visible focus indicator will generally appear in the location the controls are rendered on screen.
+
+To show your custom checkboxes and radio buttons, you have different options. You use the ::before CSS pseudo-element and the CSS background property, or use inline SVG images.
+
+
+input[type="radio"] + label::before {
+  content: "";
+  width: 1em;
+  height: 1em;
+  border: 1px solid black;
+  display: inline-block;
+  border-radius: 50%;
+  margin-inline-end: 0.5em;
+}
+
+input[type="radio"]:checked + label::before {
+  background: black;
+}
+Note: Styled form controls must be easy to understand and use. People are used to a checkbox that looks like a checkbox, so make sure when you style a form control that users still understand how to use it.
+There are a lot of possibilities with CSS to ensure checkboxes and radio buttons match your brand styles.
+
+
+Learn more about styling <input type="checkbox">, and <input type="radio"> and custom checkbox styles.
+
+How to use your site's colors for form controls
+Do you want to bring your site styles to form controls with one line of code? You can use the accent-color CSS property to achieve this.
+
+
+checkbox {
+  accent-color: orange;
+}
+Note: As of this writing, only Chrome, Firefox and Edge support accent-color. To ensure cross-browser compatibility, you might want to use workarounds until accent-color is supported in all platforms.
+Check your understanding
+Test your knowledge of styling form controls
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <h2 id="feedback">
-                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
-                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
+                    <div class="mt-5 small">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
+                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
+                      <footer class="mt-3 small">
+                        <div class="row">
+                            <div class="col-md-4 text-start">
+                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <a href="#" class="link-offset-2">Topic</a>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
+                            </div>
+                        </div>
+                      </footer>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container py-4 py-md-5 px-4 px-md-3">
+            <div class="container px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1198,6 +1296,9 @@
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
+                            <li class="mb-2">
+                              <a href="https://newsletter.datarist.com">Newsletter</a>
+                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">

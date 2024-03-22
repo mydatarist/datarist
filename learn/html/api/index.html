@@ -197,15 +197,16 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
+                            <li class="nav-item col-6 col-lg-auto">
+                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
+                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
-                                        <title>Twitter</title>
-                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
-                                    </svg>
+                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
+                                    <title>Twitter</title>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1142,9 +1143,7 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                <li>
-                                    <a href="#feedback">Feedback</a>
-                                </li>                                
+                                                                
                             </ul>
                         </nav>
                     </div>
@@ -1153,30 +1152,197 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
+                    HTML APIs 
+
+bookmark_border
+In the introduction to this series it says "HTML elements are the nodes that make up the Document Object Model." We've discussed the type of element nodes. In this section we discuss element APIs that enable querying those nodes.
+
+The DOM and AOM
+The DOM is an API for accessing and manipulating documents. The DOM is the tree of all the nodes in the document. Some nodes can have children, others can't. The tree includes elements, along with their attributes, and text nodes.
+
+MLW Node tree showing elements and text nodes.
+
+Browser tools don't provide tree visualizations like the one above, but you can see the nodes in the element inspector.
+
+The DOM/ARIA.
+
+The tree representation that can be inspected in browser developer tools is the accessibility tree. The AOM is based off the DOM; similarly, the accessibility tree contains objects representing all the markup elements, attributes, and text nodes:
+
+An example of AOM.
+
+HTML Element APIs
+The middle letter of DOM is "object." Just like the person or car object example from most intro to object-oriented programming classes, every node in the document tree is an object that can be manipulated with JavaScript.
+
+The browser provides numerous APIs providing natively supported methods, events, and property querying and updating. Element nodes contain information about all the attributes set on the element. You can use HTML interfaces to access information about an element's attributes. For example, we can use HTMLImageElement.alt get the alt attributes of all the images:
+
+let allImages = document.querySelectorAll('img');
+allImages.forEach((imageInstance) => {
+  console.log(imageInstance.alt);
+});
+HTML interfaces provide more than just access to an element's attributes; you can access a lot more information. We can find the read-only HTMLElement.offsetHeight to get the height of each section in our page, relative to the layout.
+
+let allSections = document.querySelectorAll('section');
+allSections.forEach((sectionInstance) => {
+  console.log(sectionInstance.offsetHeight);
+});
+If the user changes their device orientation or otherwise changes the width of the viewport, the height of each <section> will change and the DOM properties will automatically update with it.
+
+The HTML interface APIs is not limited to accessing attribute values. The DOM provides insight into the current state of the UI. HTML APIs can access all of that information. You can access the length of a video, where a view is in the current playback, and if the video (or audio) has finished playing with HTMLMediaElement.duration, HTMLMediaElement.currentTime, and HTMLMediaElement.ended respectively.
+
+Available element interfaces
+Most HTML element we've covered thus far in this series and have yet to cover, other than some sectioning elements, have an associated DOM interface. The base interface for all elements is aptly named Element. The HTMLElement inherits from Element and all HTML element-specific interfaces inherit from it. Some element-specific interfaces are implemented by multiple, similar elements.
+
+The interfaces include:
+
+HTMLAnchorElement - <a>
+HTMLAreaElement - <area>
+HTMLAudioElement - <audio>
+HTMLBaseElement - <base>
+HTMLButtonElement - <button>
+HTMLCanvasElement - <canvas>
+HTMLDataElement - <data>
+HTMLDataListElement - <datalist>
+HTMLDetailsElement - <details>
+HTMLDialogElement - <dialog>
+HTMLEmbedElement - <embed>
+HTMLFieldSetElement - <fieldset>
+HTMLFormElement - <form>
+HTMLHtmlElement - <html>
+HTMLIFrameElement - <iframe>
+HTMLImageElement - <img>
+HTMLInputElement - <input>
+HTMLLabelElement - <label>
+HTMLLegendElement - <legend>
+HTMLLIElement - <li>
+HTMLLinkElement - <link>
+HTMLMapElement - <map>
+HTMLMediaElement - <audio>, <video>
+HTMLMenuElement - <menu>
+HTMLMetaElement - <meta>
+HTMLMeterElement - <meter>
+HTMLModElement - <ins>, <del>
+HTMLObjectElement - <object>
+HTMLOListElement - <ol>
+HTMLOptGroupElement- <optgroup>
+HTMLOptionElement - <option>
+HTMLOutputElement - <output>
+HTMLPictureElement - <picture>
+HTMLProgressElement - <progress>
+HTMLQuoteElement - <q>, <blockquote>, <cite>
+HTMLScriptElement - <script>
+HTMLSelectElement - <select>
+HTMLSlotElement - <slot>
+HTMLSourceElement - <source>
+HTMLStyleElement - <style>
+HTMLTableCellElement - <td>, <th>
+HTMLTableColElement - <col>, <colgroup>
+HTMLTableElement - <table>
+HTMLTableRowElement - <tr>
+HTMLTableSectionElement - <thead>, <tbody>, <tfoot>
+HTMLTemplateElement - <template>
+HTMLTextAreaElement - <textarea>
+HTMLTimeElement - <time>
+HTMLTitleElement - <title>
+HTMLTrackElement - <track>
+HTMLVideoElement - <video>
+The naming convention is "HTML" followed by an element or grouping of elements in upper camel case, followed by "Element", but the element or grouping of elements part follows no exact pattern. Don't worry. There is no need to memorize these. It's just important to know that they exist so you can look them up when you need to.
+
+If you have a collection of elements, there are also come collection interfaces. For example, the HTMLCollection.namedItem() method returns the first element in the collection whose id or name attribute matches the parameter, or null if no element matches.
+
+Over 30 elements don't have an associated DOM interface other than HTMLElement including <address>, <article>, <section>, <nav>, <header>, <footer>, <aside>, and <hgroup>. Many elements that don't support any non-deprecated, non-global attributes have element specific interfaces, like HTMLPElement (the <p> element) and HTMLUnknownElement ( <😃> or any other elements that are not defined), but those interfaces don't implement any additional properties or methods on top of the properties and methods inherited from HTMLElement, and are not listed above.
+
+Redundant API methods and properties
+If an interface has the same method or property name as and interface it inherits, the inheriting method or property overwrites the inherited one. When we accessed the alt and offsetHeight properties above with imageInstance.alt and sectionInstance.offsetHeight respectively, the code didn't identify which API was being accessed.
+
+Generally, as with these two examples, this isn't an issue. But, it can be. For example, the HTMLCollection.length is read only, while the inheriting HTMLOptionsCollection interface's length property (returned only by the options property of <select>) can also be used to set collection size.
+
+Other interfaces
+There are additional interfaces that enable manipulating the branch locations of DOM nodes. The EventTarget interface, which provides us with addEventListener() and removeEventListener(), is inherited by the Node and Window interfaces. In turn, the Element, Document, and DocumentFragment (which we saw in custom elements) interfaces inherit from Node, and the HTMLElement interface inherits from Element.
+
+The node interface
+Every type of DOM node is represented by an interface based on Node, which provides information and methods as elements relate to the DOM tree. The Node interface enables querying and adding nodes to the node tree.
+
+Douglas Crockford's famous "walk the DOM" function, makes use of Node's firstChild and the nextSibling properties.
+
+
+const walk_the_DOM = function walk(node, callback) {
+  callback(node);
+  node = node.firstChild;
+  while (node) {
+    walk(node, callback);
+    node = node.nextSibling;
+  }
+};
+We used Node's appendChild() and cloneNode() methods in defining custom elements. The Node interface provides many useful properties and methods for querying and manipulating the DOM.
+
+
+customElements.define('star-rating',
+  class extends HTMLElement {
+    constructor() {
+      super(); // Always call super first in constructor
+      const starRating = document.getElementById('star-rating-template').content;
+      const shadowRoot = this.attachShadow({
+        mode: 'open'
+      });
+      shadowRoot.appendChild(starRating.cloneNode(true));
+    }
+  });
+The attachShadow() method is a method of the Element interface. There is also a shadowRoot interface for the Shadow DOM API rendered separately from a document's main DOM tree.
+
+The Document and HTMLDocument interfaces
+The Document interface inherits from Node. It represents the web page loaded in the browser, whether the document is HTML, SVG, XML, MathML, or other. The Document interface also inherits from the HTMLDocument interface.
+
+The document enables quick access to node types and the ability to create collections of specific element types, such as document.body and document.styleSheets. The HTMLDocument enables accessing information relevant to the document that are not found in HTML nodes, such as the Document.location, Document.lastModified, and Document.Cookie.
+
+Several APIs are available based on features surfaced through the document interface, including the Drag and Drop API and the FullScreen API. Both inherit from Element.
+
+The Window interface
+The Window interface includes globally available items beyond the DOM that can be used to manipulate the DOM. Window provides functions, namespaces, objects, and constructors documented in Datarist's JavaScript and DOM References.
+
+The Window interface is the API for the object containing the document. The global window object is the window in which the script is running. Every browser tab contains its own Window object. The Window interface can query the contents of the tab as well as the overall window and device. For example, the resizeTo() method can be used to resize the browser window, the devicePixelRatio property provides access to the device display pixels. When accessing information about the tab the content is in rather than the DOM tree the tab displays, the window is likely the interface you're looking for.
+
+Several APIs are available based on features surfaced through the Window interface, including the Web Workers and IndexedDB APIs.
+
+Check your understanding
+Test your knowledge of HTML APIs.
+
+
+
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <h2 id="feedback">
-                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
-                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
+                    <div class="mt-5 small">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
+                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
+                      <footer class="mt-3 small">
+                        <div class="row">
+                            <div class="col-md-4 text-start">
+                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <a href="#" class="link-offset-2">Topic</a>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
+                            </div>
+                        </div>
+                      </footer>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container py-4 py-md-5 px-4 px-md-3">
+            <div class="container px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1198,6 +1364,9 @@
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
+                            <li class="mb-2">
+                              <a href="https://newsletter.datarist.com">Newsletter</a>
+                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">

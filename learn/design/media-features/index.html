@@ -197,15 +197,16 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
+                            <li class="nav-item col-6 col-lg-auto">
+                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
+                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
-                                        <title>Twitter</title>
-                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
-                                    </svg>
+                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
+                                    <title>Twitter</title>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1142,9 +1143,7 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                <li>
-                                    <a href="#feedback">Feedback</a>
-                                </li>                                
+                                                                
                             </ul>
                         </nav>
                     </div>
@@ -1153,30 +1152,242 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
+                    Media features 
+
+bookmark_border
+A round-up of all the ways that media features let you respond to devices and preferences.
+
+Responsive design wouldn't be possible without media queries. Before media queries there was no way of knowing what kind of device people were using to visit your website. Designers had to make assumptions. Those assumptions were encoded into fixed-width designs or liquid layouts.
+
+That all changed with the introduction of media queries. For the first time designers could meet people halfway. Designers could adjust their layouts to respond to people's devices.
+
+Remember, a media query comprises an optional media type and a mandatory media feature. There hasn't been much change in media types over the years. There are still just four possible values:
+
+
+@media all
+@media screen
+@media print
+@media speech
+Media features, on the other hand, have expanded greatly. Designers now can meet users beyond halfway, adapting designs to fit far more than just screen size.
+
+Browser Support
+
+1
+12
+1
+3
+Source
+
+Viewport dimensions
+By far the most popular media queries on the web are the ones dealing with viewport width. But even here, you're presented with a choice. You can use the max-width media feature to apply styles below a certain width, or you can use the min-width media feature to apply styles above a certain width.
+
+
+main {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+@media (max-width: 45em) {
+  main {
+    display: block;
+  }
+}
+
+@media (min-width: 45em) {
+  main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+  }
+}
+Personally, I like to use min-width. I apply layout styles in an additive way. I introduce new layout rules at each breakpoint instead of undoing previous rules.
+
+This additive approach also works for height. Using min-height you can introduce more rules as more viewport height becomes available. For example, you might have a header element that you want to anchor to the top of the browser window if there's enough vertical space.
+
+
+@media (min-height: 30em) {
+  header {
+    position: fixed;
+  }
+}
+
+But you can use the max-height media feature if you prefer. Here, the header is anchored by default, but the stickiness is removed if there isn't enough vertical space.
+
+
+header {
+  position: fixed;
+}
+@media (max-height: 30em) {
+  header {
+    position: static;
+  }
+}
+Choosing between min- and max- prefixes doesn't just apply to width and height. The aspect-ratio media feature offers the same choice. It also offers an unprefixed version if you want to apply styles at an exact ratio of width to height.
+
+@media (min-aspect-ratio: 16/9) {
+  // The ratio of width to height is at least 16 by 9.
+}
+@media (max-aspect-ratio: 16/9) {
+  // The ratio of width to height is less than 16 by 9.
+}
+@media (aspect-ratio: 16/9) {
+  // The ratio of width to height is exactly 16 by 9.
+}
+Providing different styles for different aspect ratios could quickly get out of hand. If you don't need that fine-grained level of control, the orientation media feature might better suit your needs. It has two possible values: portrait or landscape.
+
+
+@media (orientation: portrait) {
+  // The width is less than the height.
+}
+@media (orientation: landscape) {
+  // The width is greater than the height.
+}
+
+Even though the terms "portrait" and "landscape" are most often used to refer to the orientation of mobile devices, the orientation media feature isn't device-specific. A full-screen browser window on a typical laptop will have an orientation value of landscape.
+
+Displays
+Different displays have different pixel densities, measured in dpi, dots per inch. You can adjust your styles for different pixel densities using the resolution media feature. Like aspect-ratio, resolution comes in three varieties: minimum, maximum, and exact.
+
+
+@media (min-resolution: 300dpi) {
+  // The display has a pixel density of at least 300 dots per inch.
+}
+@media (max-resolution: 300dpi) {
+  // The display has a pixel density less than 300 dots per inch.
+}
+@media (resolution: 300dpi) {
+  // The display has a pixel density of exactly 300 dots per inch.
+}
+You may never need to use any resolution media queries. Pixel density is usually only an issue for images, and responsive images are a way of dealing with pixel density directly in HTML.
+
+On the other hand, CSS is where you define your animations and transitions. You can adjust those animations and transitions to respond to different refresh rates using the update media feature. This media feature reports one of three values: none, slow, and fast.
+
+An update value of none means there's no refresh rate. A printed page, for example, can't be updated.
+
+An update value of slow means the display can't refresh quickly. An e-ink display is one example of a screen with a slow refresh rate.
+
+An update value of fast means the display refreshes fast enough to handle animations and transitions.
+
+
+@media (update: fast) {
+  a {
+    transition-duration: 0.4s;
+    transition-property: transform;
+  }
+  a:hover {
+    transform: scale(150%);
+  }
+}
+Not all aspects of the display are related to hardware capabilities. In the module on theming, you saw how to define properties in a web app manifest file. One of those properties is called display, and you can give it a value of fullscreen, standalone, minimum-ui, or browser. The corresponding display-mode media feature allows you to tailor your styles for these different options.
+
+Let's say you've provided a display value of standalone in your web app manifest. If someone adds your site to their home screen, the site will launch without any browser interface. You might decide to display a back button for those users.
+
+
+button.back {
+  display: none;
+}
+@media (display-mode: standalone) {
+  button.back {
+     display: inline;
+  }
+}
+Color
+There are numerous media features for querying the color capabilities of a device. If you want to adjust your styles for any display that only outputs shades of grey, you can use the monochrome media feature without any value.
+
+
+@media (monochrome) {
+  body {
+    color: black;
+    background-color: white;
+  }
+}
+There's a corresponding color media feature.
+
+
+@media (color) {
+  body {
+    color: maroon;
+    background-color: linen;
+  }
+}
+For color screens, you can write queries with the media features color-gamut, color-index, or dynamic-range. All of them report specific details about the color capabilities of the screen.
+
+In this example, color values update in response to the dynamic-range media feature, which reports the combination of maximum brightness, color depth, and contrast ratio of the display. The possible values are standard or high. A high-definition screen that reports a dynamic-range value of high is given a different color space using the new CSS color() function.
+
+
+.neon-red {
+  color: hsl(355 100% 95%);
+}
+@media (dynamic-range: high) {
+  .neon-red {
+    color: color(display-p3 1 0 0);
+  }
+}
+
+Interaction
+Media features can also report the kind of input mechanism used to interact with your site: hover, any-hover, pointer, and any-pointer. See the module on interaction for more details.
+
+Preferences
+There are a range of media queries that allow you to respond to user preferences: prefers-color-scheme, prefers-contrast, and prefers-reduced-motion. See the modules on theming and accessibility for more details.
+
+You can combine media features in one media query. You could scope your animation styles so that they're only applied if the device has a fast refresh rate and the user hasn't expressed a preference for reduced motion.
+
+
+@media (update: fast) and (prefers-reduced-motion: no-preference) {
+  a {
+    transition-duration: 0.4s;
+    transition-property: transform;
+  }
+  a:hover {
+    transform: scale(150%);
+  }
+}
+More media features
+There are more media features on the way.
+
+The forced-colors and inverted-colors media features will report whether a device is using a restricted or an inverted color palette.
+
+A scripting media feature will allow you to adjust your CSS based on the availability of JavaScript.
+
+A media feature called prefers-reduced-data will allow users to specify that they're on a metered connection so you can send smaller or fewer assets.
+
+Other proposals are still being formulated. In the next and final module, you'll learn about a proposal for a media feature that handles different screen configurations.
+
+Check your understanding
+Test your knowledge of media features
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <h2 id="feedback">
-                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
-                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
+                    <div class="mt-5 small">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
+                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
+                      <footer class="mt-3 small">
+                        <div class="row">
+                            <div class="col-md-4 text-start">
+                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <a href="#" class="link-offset-2">Topic</a>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
+                            </div>
+                        </div>
+                      </footer>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container py-4 py-md-5 px-4 px-md-3">
+            <div class="container px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1198,6 +1409,9 @@
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
+                            <li class="mb-2">
+                              <a href="https://newsletter.datarist.com">Newsletter</a>
+                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">
