@@ -197,16 +197,15 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
-                            <li class="nav-item col-6 col-lg-auto">
-                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
-                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
-                                    <title>Twitter</title>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
+                                        <title>Twitter</title>
+                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
+                                    </svg>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1143,7 +1142,9 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                                                
+                                <li>
+                                    <a href="#feedback">Feedback</a>
+                                </li>                                
                             </ul>
                         </nav>
                     </div>
@@ -1152,247 +1153,30 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
-                    Theming 
-
-bookmark_border
-Even branding can be responsive. You can adjust the presentation of your website to match the user's preference. But first, here's how to extend your website's branding to include the browser itself.
-
-Customize the browser interface
-Some browsers allow you to suggest a theme color based on your website's palette. The browser's interface adapts to your suggested color. Add the color in a meta element named theme-color in the head of your pages.
-
-
-<meta name="theme-color" content="#00D494">
-Note: It feels a little strange to put styling information like this in HTML rather than CSS, but this allows the browser to update its interface as soon as the page is loading rather than waiting for the CSS.
-Clearleft dot com.Resilient Web Design dot com.The Session dot org.
-Three websites are viewed in the Safari browser. Each one has its own theme color that extends into the browser interface.
-You can update the value of theme-color using JavaScript. But use this power wisely. It can be overwhelming for users if their browser's color scheme changes too often. Think about subtle ways to adjust the theme color. If the changes are too jarring, users will leave in annoyance.
-
-You can also specify a theme color in a web app manifest file. This is a JSON file with metadata about your website.
-
-Link to the manifest file from the head of your documents. Use a link element with a rel value of manifest.
-
-<link rel="manifest" href="/manifest.json">
-In the manifest file, list your metadata using key/value pairs.
-
-{
-  "short_name": "Clearleft",
-  "name": "Clearleft design agency",
-  "start_url": "/",
-  "background_color": "#00D494",
-  "theme_color": "#00D494",
-  "display": "standalone"
-}
-If a visitor decides to add your website to their home screen, the browser will use the information in your manifest file to display an appropriate shortcut.
-
-Note: Find out more about how to add a web app manifest.
-Provide a dark mode
-Many operating systems allow users to specify a preference for a light or a dark color palette, which is a good idea to optimize your site to your user's theme preferences. You can access this preference in a media feature called prefers-color-scheme.
-
-@media (prefers-color-scheme: dark) {
-  // Styles for a dark theme.
-}
-
-Specify theme colors with the prefers-color-scheme media feature within the meta element.
-
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
-You can also use the prefers-color-scheme media feature inside SVG. If you use an SVG file for your favicon, it can be adjusted for dark mode. Thomas Steiner wrote about prefers-color-scheme in SVG favicons for dark mode icons.
-
-Theming with custom properties
-If you use the same color values in multiple places throughout your CSS, it could be quite tedious to repeat all your selectors within a prefers-color-scheme media query.
-
-
-body {
-  background-color: white;
-  color: black;
-}
-input {
-  background-color: white;
-  color: black;
-  border-color: black;
-}
-button {
-  background-color: black;
-  color: white;
-}
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: black;
-    color: white;
-  }
-  input {
-    background-color: black;
-    color: white;
-    border-color: white;
-  }
-  button {
-    background-color: white;
-    color: black;
-  }
-}
-Use CSS custom properties to store your color values. Custom properties work like variables in a programming language. You can update the value of a variable without updating its name.
-
-If you update the values of your custom properties within a prefers-color-scheme media query, you won't have to write all your selectors twice.
-
-
-html {
-  --page-color: white;
-  --ink-color: black;
-}
-@media (prefers-color-scheme: dark) {
-  html {
-    --page-color: black;
-    --ink-color: white;
-  }
-}
-body {
-  background-color: var(--page-color);
-  color: var(--ink-color);
-}
-input {
-  background-color: var(--page-color);
-  color: var(--ink-color);
-  border-color: var(--ink-color);
-}
-button {
-  background-color: var(--ink-color);
-  color: var(--page-color);
-}
-
-See building a color scheme for more advanced examples of theming with custom properties.
-
-Images
-If you are using SVGs in your HTML, you can apply custom properties there too.
-
-
-svg {
-  stroke: var(--ink-color);
-  fill: var(--page-color);
-}
-Now your icons will change their colors along with the other elements on your page.
-
-If you want to tone down the brightness of your photographic images when displayed in dark mode, you can apply a filter in CSS.
-
-
-@media (prefers-color-scheme: dark) {
-  img {
-    filter: brightness(.8) contrast(1.2);
-  }
-}
-
-Three photographs at normal brightness.Three photographs with slightly less brightness.
-The effect is subtle, but you can tone down the brightness of images in dark mode.
-For some images, you might want to swap them out completely in dark mode. For example, you might want to show a map with a darker color scheme. Use the <picture> element containing a <source> element with the prefers-color-scheme media query.
-
-
-<picture>
-  <source srcset="darkimage.png" media="(prefers-color-scheme: dark)">
-  <img src="lightimage.png" alt="A description of the image.">
-</picture>
-
-Two maps of Broolyn, one using light colors and the other using dark colors.
-Two versions of the same map, one for light mode and one for dark mode.
-Forms
-Browsers provide a default color palette for form fields. Let the browser know that your site offers both a dark and a light mode. That way, the browser can provide the appropriate default styling for forms.
-
-Add this to your CSS:
-
-
-html {
-  color-scheme: light;
-}
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
-You can also use HTML. Add this in the head of your documents:
-
-
-<meta name="supported-color-schemes" content="light dark">
-
-Use the accent-color property in CSS to style checkboxes, radio buttons, and some other form fields.
-
-
-html {
-  accent-color: red;
-}
-It's common for dark themes to have subdued brand colors. You can update the accent-color value for dark mode.
-
-
-html {
-  accent-color: red;
-}
-@media (prefers-color-scheme: dark) {
-  html {
-    accent-color: pink;
-  }
-}
-It makes sense to use a custom property for this so you can keep all your color declarations in one place.
-
-
-html {
-  color-scheme: light;
-  --page-color: white;
-  --ink-color: black;
-  --highlight-color: red;
-}
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-    --page-color: black;
-    --ink-color: white;
-    --highlight-color: pink;
-  }
-}
-html {
-  accent-color: var(--highlight-color);
-}
-body {
-  background-color: var(--page-color);
-  color: var(--ink-color);
-}
-
-Note: For more on tinting elements with theme colors, see the section on more tinting.
-Providing a dark mode is just one example of adapting your site to suit your user's preferences. Next you'll learn how to make your site adaptable to all sorts of accessibility considerations.
-
-Check your understanding
-Test your knowledge on theming
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <div class="mt-5 small">
+                    <h2 id="feedback">
+                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
+                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
-                      <footer class="mt-3 small">
-                        <div class="row">
-                            <div class="col-md-4 text-start">
-                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
-                            </div>
-                            <div class="col-md-4 text-center">
-                                <a href="#" class="link-offset-2">Topic</a>
-                            </div>
-                            <div class="col-md-4 text-end">
-                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
-                            </div>
-                        </div>
-                      </footer>
+                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container px-4 px-md-3">
+            <div class="container py-4 py-md-5 px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1414,9 +1198,6 @@ Test your knowledge on theming
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
-                            <li class="mb-2">
-                              <a href="https://newsletter.datarist.com">Newsletter</a>
-                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">

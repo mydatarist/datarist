@@ -197,16 +197,15 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
-                            <li class="nav-item col-6 col-lg-auto">
-                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
-                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
-                                    <title>Twitter</title>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
+                                        <title>Twitter</title>
+                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
+                                    </svg>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1143,7 +1142,9 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                                                
+                                <li>
+                                    <a href="#feedback">Feedback</a>
+                                </li>                                
                             </ul>
                         </nav>
                     </div>
@@ -1152,192 +1153,30 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
-                    Icons 
-
-bookmark_border
-Most images are part of your content, but icons are part of your user interface. They should scale and adapt in the same way that the text of your UI scales and adapts.
-
-Scalable Vector Graphics
-When it comes to photographic imagery, there are lots of choices for the image format: JPG, WebP, and AVIF. For non-photographic imagery, you have a choice between the Portable Network Graphics (PNG) format and the Scalable Vector Graphics (SVG) format.
-
-Both PNGs and SVGs are good at dealing with areas of flat color, and they both allow your images to have transparent backgrounds. If you use a PNG you'll probably need to make multiple versions of your image in different sizes and use the srcset attribute on your img element to make the image responsive. If you use an SVG, it's responsive by default.
-
-PNGs (and JPGs, WebP, and AVIF) are bitmap images. Bitmap images store information as pixels. In an SVG, information is stored as drawing instructions. When the browser reads the SVG file the instructions are converted into pixels. Best of all, these instructions are relative. Regardless of the dimensions you use to describe lines and shapes, everything renders at just the right crispness. Instead of creating multiple SVGs of different sizes you can make one SVG that will work at all sizes. There's no need to use the srcset attribute.
-
-
-<img src="image.svg" alt="A description of the image." width="25" height="25">
-<img src="image.svg" alt="A description of the image." width="250" height="250">
-
-XML is used to write the instructions in an SVG file. This is a markup language, like HTML.
-
-
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE svg>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="-21 -21 42 42" width="100" height="100">
-  <title>Smiling face</title>
-  <circle r="20" fill="yellow" stroke="black"/>
-  <ellipse rx="2.5" ry="4" cx="-6" cy="-7" fill="black"/>
-  <ellipse rx="2.5" ry="4" cx="6" cy="-7" fill="black"/>
-  <path stroke="black" d="M -12,5 A 13.5,13.5,0 0,0 12,5 A 13,13,0 0,1 -12,5"/>
-</svg>
-Smiley face.
-
-You can even put SVG inside HTML.
-
-
-<figure>
-  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="-21 -21 42 42" width="100" height="100">
-    <title>Smiling face</title>
-    <circle r="20" fill="yellow" stroke="black"/>
-    <ellipse rx="2.5" ry="4" cx="-6" cy="-7" fill="black"/>
-    <ellipse rx="2.5" ry="4" cx="6" cy="-7" fill="black"/>
-    <path stroke="black" d="M -12,5 A 13.5,13.5,0 0,0 12,5 A 13,13,0 0,1 -12,5"/>
-  </svg>
-  <figcaption>
-  A description of the image.
-  </figcaption>
-</figure>
-If you embed an SVG like that, that's one less request that the browser needs to make. There'll be no wait for the image to download because it arrives with the HTML …in the HTML! Also, as you'll soon find out, embedding SVGs like this gives you more control over styling them too.
-
-Icons and text
-Icon images often feature simple shapes on a transparent background. SVG is ideal for icons.
-
-If you have a button or a link with text and an icon inside it, the icon is presentational. It's the text that matters. When using an img element, an empty alt attribute indicates that the image is presentational.
-
-Note: An empty alt attribute is not the same as a missing alt attribute. Always provide an alt attribute even if an image is presentational and the alt attribute has no content.
-
-<button>
-<img src="hamburger.svg" alt="" width="16" height="16">
-Menu
-</button>
-
-Because CSS is for presentation, you could put the icon in your CSS as a background image.
-
-
-<button class="menu">
-Menu
-</button>
-
-.menu {
-  background-image: url(hamburger.svg);
-  background-position: 0.5em;
-  background-repeat: no-repeat;
-  background-size: 1em;
-  padding-inline-start: 2em;
-}
-
-If you put the SVG inside your HTML, use the aria-hidden attribute to hide it from assistive technology.
-
-
-<button class="menu">
-  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 80" width="16" height="16">
-    <rect width="100" height="20" />
-    <rect y="30" width="100" height="20"/>
-    <rect y="60" width="100" height="20"/>
-  </svg>
-  Menu
-</button>
-
-Note: If you use the same icon multiple times in one page, it would be inefficient to repeat the entire SVG markup each time. There's an element in SVG called use which allows you to “clone” part of an SVG, even from a different SVG element.
-Standalone icons
-Use text inside your buttons and links if you want their purpose to be clear. You can use an icon without any text but don't assume that everyone understands the meaning of a particular icon. When in doubt, test with real users.
-
-If you decide to use an icon without any accompanying text, the icon is no longer presentational. A background image in CSS is not an appropriate way to display the icon. The icon needs to be given an accessible name in HTML.
-
-If you use an img element, the icon gets its accessible name from the alt attribute.
-
-Note: Usually the alt attribute describes the contents of the image (“Three horizontal lines.”) but with standalone icons, the alt attribute describes the meaning of the image (“Menu”).
-
-<button>
-<img src="hamburger.svg" alt="Menu" width="16" height="16">
-</button>
-
-Another option is to put the accessible name on the link or button itself and declare that the image is presentational. Use the aria-label attribute to provide the accessible name.
-
-
-<button aria-label="Menu">
-<img src="hamburger.svg" alt="" width="16" height="16">
-</button>
-
-If you put the SVG inside your HTML, use the aria-label attribute on the link or button to give it an accessible name and use the aria-hidden attribute on the icon.
-
-
-<button aria-label="Menu">
-  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 80" width="16" height="16">
-    <rect width="100" height="20" />
-    <rect y="30" width="100" height="20"/>
-    <rect y="60" width="100" height="20"/>
-  </svg>
-</button>
-
-Styling icons
-If you embed your SVG icons directly in your HTML you can style parts of them just like any other element in your page. You can't do that if you use an img element to display your icons.
-
-In the following example, the rect elements inside the SVG have a fill value of blue to match the styles for the button's text.
-
-
-button {
- color: blue;
-}
-button rect {
-  fill: blue;
-}
-You can apply hover and focus styles too.
-
-
-button:hover,
-button:focus {
-  color: red;
-}
-button:hover rect,
-button:focus rect {
-  fill: red;
-}
-
-Resources
-If you need to style SVGs that are background images in your CSS, read Una's article on colorizing SVG backgrounds.
-Sara Soueidan has written about accessible icon buttons.
-Scott O'Hara has written about contextually marking up accessible images and SVGs.
-If you're using a graphic design tool to export SVGs, use SVGOMG to optimize the output.
-Icons are an important part of your site's branding. Next you'll find out how to make other aspects of your branding responsive through the power of theming.
-
-Check your understanding
-Test your knowledge of icons
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <div class="mt-5 small">
+                    <h2 id="feedback">
+                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
+                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
-                      <footer class="mt-3 small">
-                        <div class="row">
-                            <div class="col-md-4 text-start">
-                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
-                            </div>
-                            <div class="col-md-4 text-center">
-                                <a href="#" class="link-offset-2">Topic</a>
-                            </div>
-                            <div class="col-md-4 text-end">
-                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
-                            </div>
-                        </div>
-                      </footer>
+                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container px-4 px-md-3">
+            <div class="container py-4 py-md-5 px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1359,9 +1198,6 @@ Test your knowledge of icons
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
-                            <li class="mb-2">
-                              <a href="https://newsletter.datarist.com">Newsletter</a>
-                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">

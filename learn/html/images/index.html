@@ -197,16 +197,15 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
-                            <li class="nav-item col-6 col-lg-auto">
-                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
-                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
-                                    <title>Twitter</title>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
+                                        <title>Twitter</title>
+                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
+                                    </svg>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1143,7 +1142,9 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                                                
+                                <li>
+                                    <a href="#feedback">Feedback</a>
+                                </li>                                
                             </ul>
                         </nav>
                     </div>
@@ -1152,491 +1153,30 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
-                    Images 
-
-bookmark_border
-Decorative images, such as background gradients on buttons or background images on sections of content or the full page, are presentational and should be applied with CSS. When an image adds context to a document, it is content and should be embedded with HTML.
-
-The main method for including images is the <img> tag with the src attribute referencing an image resource and the alt attribute describing the image.
-
-
-<img src="images/eve.png" alt="Eve">
-Both the srcset attribute on <img> and the <picture> element provide a way to include multiple image sources with associated media queries, each with a fallback image source, enabling serving the most appropriate image file based on the device's resolution, browser capabilities, and the viewport size. The srcset attribute enables providing multiple image versions based on resolution and, along with the sizes attribute, browser viewport size.
-
-
-<img src="images/eve.png" alt="Eve"
-  srcset="images/eve.png 400w, images/eve-xl.jpg 800w"
-  sizes="(max-width: 800px) 400px, 800px" />
-This can also be done with the <picture> element, along with <source> children, which takes an <img> as a default source.
-
-
-<picture>
-  <source src="images/eve.png" media="(max-width: 800px)" />
-  <source src="images/eve-xl.jpg" />
-  <img src="images/eve.png" alt="Eve" />
-</picture>
-In addition to these built-in HTML responsive image methods, HTML also enables image render performance to be improved via attributes. The <img> tag, and therefore graphical submit buttons <input type="image">, can include height and width attributes to set the image's aspect ratio to reduce content layout shift. The lazy attribute enables lazy loading.
-
-HTML also supports the inclusion of SVG images using the <svg> directly, though SVG images with the .svg extension (or as a data-uri) can be embedded using the <img> element.
-
-Note: The <figure> element, along with its nested <figcaption> element, enables an image with an associated description to be included. A figure is not limited to just including images. It is a semantic way of referencing images, code snippets, example text, or other content, along with a caption for that content, as a single unit. When including a <figcaption>, make sure it is the first or last child nested within the <figure>.
-At a minimum, each foreground image should include src and alt attributes.
-
-The src file is the path and filename of the embedded image. The src attribute is used to provide the URL for the image. The browser then fetches the asset and renders it to the page. This attribute is required by <img>; without it, there is nothing to render.
-
-The alt attribute provides alternative text for the image, providing a description of the image for those unable to see the screen (think search engines and assistive technologies, and even Alexa, Siri, and Google Assistant), and may be displayed by the browser if the image doesn't load. In addition to users with slow networks or capped bandwidth, the alt text is incredibly useful in HTML emails, as many users block images in their email applications.
-
-
-<img src="path/filename" alt="descriptive text" />
-If the image is of SVG file type, also include role="img", which is necessary due to VoiceOver bugs.
-
-
-<img src="switch.svg" alt="light switch" role="img" />
-Note: These examples include a slash at the end, also misnamed as a self-closing tag; this is a feature of XML, including SVG and XHTML, but not HTML. For more information about this see the note in the forms module.
-Writing effective alt image descriptions
-Alt attributes aim to be short and concise, providing all the relevant information that the image conveys while omitting information that is redundant to other content in the document or otherwise isn't useful. In writing the text, the tone should reflect the tone of the site.
-
-To write effective alternative text, imagine that you are reading the entire page to a person who can't see it. By using the semantic <img> element, screen reader users and bots are informed that the element is an image. It is redundant to include "This is an image/screenshot/photo of" in the alt. The user doesn't need to know there's an image, but they do need to know what information the image conveys.
-
-Normally, you would not say, "This is a grainy image of a dog wearing a red hat." Rather, you would relay what the image is conveying in relation to the context of the rest of the document; and what you convey will change depending on the context and the content of the surrounding text.
-
-For example, the photo of a dog will be described in different ways, depending on the context. If Fluffy is an avatar next to a review for Yuckymeat dog food, alt="Fluffy" suffices.
-
-If the photo is part of Fluffy's adoption page on an animal shelter website, the target audience is the prospective dog parent. The text should describe the information conveyed in the image that is relevant to an adopter and which is not duplicated in the surrounding text. A longer description, such as alt="Fluffy, a tri-color terrier with very short hair, with a tennis ball in her mouth" is appropriate. The text of an adoption page generally includes the species, breed, age, and gender of the adoptable pet, so this does not need to be repeated in the alt text. But the dog's written biography probably doesn't include hair length, colors, or toy preferences. Note that we didn't describe the image: the prospective dog owner does not need to know if the dog is indoors or outdoors, or that it has a red collar and a blue leash.
-
-When using images for iconography, as the alt attribute provides the accessible name, convey the meaning of the icon, not a description of the image. For example, the magnifying glass icon's alt attribute is search. The icon which looks like a house has home as the alt text. The 5-inch floppy disc icon's description is save. If there are two icons of Fluffy used to indicate best practices and anti-patterns, the smiling dog in a green beret could have alt="good" set, while the snarling dog in a red beret might read alt="bad". That said, only use standard iconography, and if you use non-standard icons such as the good and bad Fluffy, include a legend and ensure that the icons are not the only ways of deciphering the meaning of your UI elements,
-
-If the image is a screenshot or a graph, write what is learned from the image rather than describing the appearance. While an image can definitely be worth a thousand words, the description should concisely convey everything that is learned.
-
-Omit information the user already knows from the context and is otherwise informed about in the content. For example, if you're on a tutorial page about changing browser settings and the page is about clicking icons in the browser chrome, the URL of the page in the screen capture isn't important. Limit the alt to the topic at hand: how to change settings. The alt might be "The settings icon is in the navigation bar below the search field." Don't include "screenshot" or "machinelearningworkshop" as the user doesn't need to know it's a screenshot and doesn't need to know where the techwriter was surfing when they wrote the instructions. The description of the image is based on the context of why the image was included in the first place.
-
-If the screen capture shows how to find the browser version number by going to chrome://version/, include the URL in the content of the page as instructions, and provide an empty string as the alt attribute as the image provides no information that is not in the surrounding text.
-
-If the image provides no additional information or is purely decorative, the attribute should still be there, just as an empty string.
-
-
-<img src="svg/magazine.svg" alt="" role="none" />
-MachineLearningWorkshop.com has seven foreground images, therefore seven images with alt attributes: an easter egg light switch, a manual icon, two biographical photos of Hal and Eve, and three avatars of a blender, a vacuum cleaner, and a toaster. The foreground image that looks like a magazine is the only one that is purely decorative. The page also has two background images; these are also decorative and, as they are added with CSS, are inaccessible.
-
-The magazine, being purely decorative, has an empty alt attribute, and a role of none as the image is a purely presentational SVG. If meaningful, SVG images should include the role="img".
-
-
-<img src="svg/magazine.svg" alt="" role="none" />
-There are three reviews at the bottom of the page, each with an image of the poster. Usually, the alt text is the name of the person pictured.
-
-
-<img src="images/blender.svg" alt="Blendan Smooth" role="img" />
-Instead, because this is a joke page, you should convey what may not be apparent to low-vision users so they don't miss the humor; we use the original machine function as the alt instead of using the character's name:
-
-
-<img src="images/blender.svg" alt="blender" role="img" />
-The photos of the instructors aren't just avatars: they are biographical images and therefore get a more detailed description.
-
-If this were a real site, you would provide the bare minimum description of what the teacher looks like so a prospective student might recognize them when entering the classroom.
-
-
-<img src="svg/hal.svg" role="img"
-  alt="Hal 9000; a camera lens containing a red dot that sometimes changes to yellow." />
-Because this is a joke site, provide the information that is relevant in the joke context instead:
-
-
-<img src="svg/hal.svg" role="img"
-  alt="Hal 9000, the sentient AI computer from 2001: a Space Odyssey depicted as a camera lens with a red dot that changes to yellow when hovered." />
-If you were reading the page to a friend over the phone, they wouldn't care what the red dot looks like. In this case, the history of the movie reference matters.
-
-When writing descriptive text, consider what information the image conveys that is important and relevant to the user and include that. Remember, the content of the alt attribute for an image differs based on the context. All information conveyed in an image that a sighted user can access and is relevant to the context is what needs to be conveyed; nothing more. Keep it short, precise, and useful.
-
-The src and alt attributes are minimum requirements for embedded images. There are a few other attributes we need to discuss.
-
-Responsive images
-There are a myriad of viewport sizes. There are also different screen resolutions. You don't want to waste a mobile user's bandwidth by serving them an image wide enough for a large screen monitor, but you might want to serve higher resolution images for tiny devices that have four times the normal screen resolution. There are a few ways to serve different images based on the viewport size and the screen resolution.
-
-<img> srcset attribute
-The srcset attribute enables suggesting multiple image files, with the browser selecting which image to request based on multiple media queries including viewport size and screen resolution.
-
-There can be a single srcset attribute per <img> element, but that srcset can link to multiple images. The srcset attribute accepts a list of comma-separated values, each containing the URL of the asset followed by a space followed by descriptors for that image option. If a width descriptor is used, you must also include the sizes attribute with a media query or source size for each srcset option other than the last one. The Learn sections covering responsive images with srcset and descriptive syntaxes are worth reading.
-
-The srcset image will take precedence over the src image if there is a match.
-
-<picture> and <source>
-Another method for providing multiple resources and allowing the browser to render the most appropriate asset is with the <picture> element. The <picture> element is a container element for multiple image options listed in an unlimited number of <source> elements and a single required <img> element.
-
-The <source> attributes include srcset, sizes, media, width, and height. The srcset attribute is common to img, source, and link, but is generally implemented slightly differently on source as media queries can be listed in the <srcset>'s media attribute instead. <source> also supports image formats defined in the type attribute.
-
-The browser will consider each child <source> element and choose the best match among them. If no matches are found, the URL of the <img> element's src attribute is selected. The accessible name comes from the alt attribute of the nested <img>. The Learn sections covering the <picture> element and prescriptive syntaxes are also worth a read.
-
-Additional performance features
-Lazy loading
-The loading attribute tells the JS-enabled browser how to load the image. The default eager value means the image is loaded immediately as the HTML is parsed, even if the image is outside the visible viewport. By setting loading="lazy" the image loading is deferred until it is likely to come into the viewport. “Likely" is defined by the browser based on the distance the image is from the viewport. This is updated as the user scrolls. Lazy loading helps save bandwidth and CPU, improving performance for most users. If JavaScript is disabled, for security reasons, all images will default to eager.
-
-
-<img src="switch.svg" alt="light switch" loading="lazy" />
-Aspect ratio
-Browsers start rendering HTML when it is received, making requests for assets when encountered. This means the browser is already rendering the HTML when it encounters the <img> tag and makes the request. And images can take a while to load. By default, browsers don't reserve space for images other than the size required to render alt text.
-
-The <img> element has always supported unitless height and width attributes. These properties fell out of use in favor of CSS. CSS may define image dimensions, often setting a single dimension such as max-width: 100%; to ensure the aspect ratio is preserved. As CSS is usually included in the <head>, it is parsed before any <img> is encountered. But without explicitly listing the height or aspect ratio, the space reserved is the height (or width) of the alt text. With most developers only declaring a width, the receipt and rendering of images leads to cumulative layout shift which harms web vitals. To resolve this issue, browsers support image aspect ratios. Including height and width attributes on the <img> acts as sizing hints, informing the browser of the aspect ratio, enabling the right amount of space to be reserved for eventual image rendering. By including a height and width value on an image, the browser knows the aspect ratio of that image. When the browser encounters a single dimension, such as our 50% example, it saves space for the image adhering to the CSS dimension and with the other dimension maintaining the width-to-height aspect ratio.
-
-
-<img src="switch.svg" alt="light switch" role="img" width="70" height="112" />
-Your images will still be responsive if the CSS was set up correctly to make them responsive. Yes, the included unitless height and width values will be overridden with CSS. The purpose of including these attributes is to reserve the space at the right aspect ratio, improving performance by reducing layout shift. The page will still take approximately the same amount of time to load, but the UI won't jump when the image is painted to the screen.
-
-Other image features
-The <img> element also supports the crossorigin, decoding, referrerpolicy, and, in Blink-based browsers, fetchpriority attributes. Rarely used, if the image is part of a server-side map, include the ismap boolean attribute and nest the <img> in a link for users without pointing devices.
-
-The ismap attribute isn't necessary, or even supported, on the <input type="image" name="imageSubmitName"> as the x and y coordinates of the click location are sent during form submission, appending the values to the input name, if any. For example, something like &imageSubmitName.x=169&imageSubmitName.y=66 will be submitted with the form when the user clicks the image, submitting it. If the image doesn't have a name attribute, the x and y are sent: &x=169&y=66.
-
-Check your understanding
-Test your knowledge of images.
-
-
-
-
-Images in HTML
-Overview: Multimedia and embedding
-Next
-In the beginning, the Web was just text, and it was really quite boring. Fortunately, it wasn't too long before the ability to embed images (and other more interesting types of content) inside web pages was added. It is logical to start with the humble <img> element, used to embed a simple image in a webpage, but there are other types of multimedia to consider. In this article we'll look at how to use it in depth, including the basics, annotating it with captions using <figure>, and detailing how it relates to CSS background images, and we'll introduce other graphics available to the web platform.
-
-Multimedia and Embedding Images
-Prerequisites:	Basic software installed, basic knowledge of working with files, familiarity with HTML fundamentals (as covered in Getting started with HTML.)
-Objective:	To learn how to embed simple images in HTML, annotate them with captions, and how HTML images relate to CSS background images.
-How do we put an image on a webpage?
-In order to put a simple image on a web page, we use the <img> element. This is a void element (meaning, it cannot have any child content and cannot have an end tag) that requires two attributes to be useful: src and alt. The src attribute contains a URL pointing to the image you want to embed in the page. As with the href attribute for <a> elements, the src attribute can be a relative URL or an absolute URL. Without a src attribute, an img element has no image to load.
-
-The alt attribute is described below.
-
-Note: You should read A quick primer on URLs and paths to refresh your memory on relative and absolute URLs before continuing.
-
-So for example, if your image is called dinosaur.jpg, and it sits in the same directory as your HTML page, you could embed the image like so:
-
-HTML
-Copy to Clipboard
-<img src="dinosaur.jpg" alt="Dinosaur" />
-If the image was in an images subdirectory, which was inside the same directory as the HTML page, then you'd embed it like this:
-
-HTML
-Copy to Clipboard
-<img src="images/dinosaur.jpg" alt="Dinosaur" />
-And so on.
-
-Note: Search engines also read image filenames and count them towards SEO. Therefore, you should give your image a descriptive filename; dinosaur.jpg is better than img835.png.
-
-You could also embed the image using its absolute URL, for example:
-
-HTML
-Copy to Clipboard
-<img src="https://www.example.com/images/dinosaur.jpg" alt="Dinosaur" />
-Linking via absolute URLs is not recommended, however. You should host the images you want to use on your site, which in simple setups means keeping the images for your website on the same server as your HTML. In addition, it is more efficient to use relative URLs than absolute URLs in terms of maintenance (when you move your site to a different domain, you won't need to update all your URLs to include the new domain). In more advanced setups, you might use a CDN (Content Delivery Network) to deliver your images.
-
-If you did not create the images, you should make sure you have the permission to use them under the conditions of the license they are published under (see Media assets and licensing below for more information).
-
-Warning: Never point the src attribute at an image hosted on someone else's website without permission. This is called "hotlinking". It is considered unethical, since someone else would be paying the bandwidth costs for delivering the image when someone visits your page. It also leaves you with no control over the image being removed or replaced with something embarrassing.
-
-The previous code snippet, either with the absolute or the relative URL, will give us the following result:
-
-A basic image of a dinosaur, embedded in a browser, with "Images in HTML" written above it
-Note: Elements like <img> and <video> are sometimes referred to as replaced elements. This is because the element's content and size are defined by an external resource (like an image or video file), not by the contents of the element itself. You can read more about them at Replaced elements.
-
-Note: You can find the finished example from this section running on GitHub (see the source code too.)
-
-Alternative text
-The next attribute we'll look at is alt. Its value is supposed to be a textual description of the image, for use in situations where the image cannot be seen/displayed or takes a long time to render because of a slow internet connection. For example, our above code could be modified like so:
-
-HTML
-Copy to Clipboard
-<img
-  src="images/dinosaur.jpg"
-  alt="The head and torso of a dinosaur skeleton;
-          it has a large head with long sharp teeth" />
-The easiest way to test your alt text is to purposely misspell your filename. If for example our image name was spelled dinosooooor.jpg, the browser wouldn't display the image, and would display the alt text instead:
-
-The Images in HTML title, but this time the dinosaur image is not displayed, and alt text is in its place.
-So, why would you ever see or need alt text? It can come in handy for a number of reasons:
-
-The user is visually impaired, and is using a screen reader to read the web out to them. In fact, having alt text available to describe images is useful to most users.
-As described above, the spelling of the file or path name might be wrong.
-The browser doesn't support the image type. Some people still use text-only browsers, such as Lynx, which displays the alt text of images.
-You may want to provide text for search engines to utilize; for example, search engines can match alt text with search queries.
-Users have turned off images to reduce data transfer volume and distractions. This is especially common on mobile phones, and in countries where bandwidth is limited or expensive.
-What exactly should you write inside your alt attribute? It depends on why the image is there in the first place. In other words, what you lose if your image doesn't show up:
-
-Decoration. You should use CSS background images for decorative images, but if you must use HTML, add a blank alt="". If the image isn't part of the content, a screen reader shouldn't waste time reading it.
-Content. If your image provides significant information, provide the same information in a brief alt text – or even better, in the main text which everybody can see. Don't write redundant alt text. How annoying would it be for a sighted user if all paragraphs were written twice in the main content? If the image is described adequately by the main text body, you can just use alt="".
-Link. If you put an image inside <a> tags, to turn an image into a link, you still must provide accessible link text. In such cases you may, either, write it inside the same <a> element, or inside the image's alt attribute – whichever works best in your case.
-Text. You should not put your text into images. If your main heading needs a drop shadow, for example, use CSS for that rather than putting the text into an image. However, If you really can't avoid doing this, you should supply the text inside the alt attribute.
-Essentially, the key is to deliver a usable experience, even when the images can't be seen. This ensures all users are not missing any of the content. Try turning off images in your browser and see how things look. You'll soon realize how helpful alt text is if the image cannot be seen.
-
-Note: For more information, see our guide to Text Alternatives.
-
-Width and height
-You can use the width and height attributes to specify the width and height of your image. They are given as integers without a unit, and represent the image's width and height in pixels.
-
-You can find your image's width and height in a number of ways. For example, on the Mac you can use Cmd + I to get the display information for the image file. Returning to our example, we could do this:
-
-HTML
-Copy to Clipboard
-<img
-  src="images/dinosaur.jpg"
-  alt="The head and torso of a dinosaur skeleton;
-          it has a large head with long sharp teeth"
-  width="400"
-  height="341" />
-There's a very good reason to do this. The HTML for your page and the image are separate resources, fetched by the browser as separate HTTP(S) requests. As soon as the browser has received the HTML, it will start to display it to the user. If the images haven't yet been received (and this will often be the case, as image file sizes are often much larger than HTML files), then the browser will render only the HTML, and will update the page with the image as soon as it is received.
-
-For example, suppose we have some text after the image:
-
-HTML
-Copy to Clipboard
-<h1>Images in HTML</h1>
-
-<img
-  src="dinosaur.jpg"
-  alt="The head and torso of a dinosaur skeleton; it has a large head with long sharp teeth"
-  title="A T-Rex on display in the Manchester University Museum" />
-<blockquote>
-  <p>
-    But down there it would be dark now, and not the lovely lighted aquarium she
-    imagined it to be during the daylight hours, eddying with schools of tiny,
-    delicate animals floating and dancing slowly to their own serene currents
-    and creating the look of a living painting. That was wrong, in any case. The
-    ocean was different from an aquarium, which was an artificial environment.
-    The ocean was a world. And a world is not art. Dorothy thought about the
-    living things that moved in that world: large, ruthless and hungry. Like us
-    up here.
-  </p>
-  <footer>- Rachel Ingalls, <cite>Mrs. Caliban</cite></footer>
-</blockquote>
-As soon as the browser downloads the HTML, the browser will start to display the page.
-
-Once the image is loaded, the browser adds the image to the page. Because the image takes up space, the browser has to move the text down the page, to fit the image above it:
-
-Comparison of page layout while the browser is loading a page and when it has finished, when no size is specified for the image.
-Moving the text like this is extremely distracting to users, especially if they have already started to read it.
-
-If you specify the actual size of the image in your HTML, using the width and height attributes, then the browser knows, before it has downloaded the image, how much space it has to allow for it.
-
-This means that when the image has been downloaded, the browser doesn't have to move the surrounding content.
-
-Comparison of page layout while the browser is loading a page and when it has finished, when the image size is specified.
-For an excellent article on the history of this feature, see Setting height and width on images is important again.
-
-Note: Although, as we have said, it is good practice to specify the actual size of your images using HTML attributes, you should not use them to resize images.
-
-If you set the image size too big, you'll end up with images that look grainy, fuzzy, or too small, and wasting bandwidth downloading an image that is not fitting the user's needs. The image may also end up looking distorted, if you don't maintain the correct aspect ratio. You should use an image editor to put your image at the correct size before putting it on your webpage.
-
-If you do need to alter an image's size, you should use CSS instead.
-
-Image titles
-As with links, you can also add title attributes to images, to provide further supporting information if needed. In our example, we could do this:
-
-HTML
-Copy to Clipboard
-<img
-  src="images/dinosaur.jpg"
-  alt="The head and torso of a dinosaur skeleton;
-          it has a large head with long sharp teeth"
-  width="400"
-  height="341"
-  title="A T-Rex on display in the Manchester University Museum" />
-This gives us a tooltip on mouse hover, just like link titles:
-
-The dinosaur image, with a tooltip title on top of it that reads A T-Rex on display at the Manchester University Museum
-However, this is not recommended — title has a number of accessibility problems, mainly based around the fact that screen reader support is very unpredictable and most browsers won't show it unless you are hovering with a mouse (so e.g. no access to keyboard users). If you are interested in more information about this, read The Trials and Tribulations of the Title Attribute by Scott O'Hara.
-
-It is better to include such supporting information in the main article text, rather than attached to the image.
-
-Active learning: embedding an image
-It is now your turn to play! This active learning section will have you up and running with a simple embedding exercise. You are provided with a basic <img> tag; we'd like you to embed the image located at the following URL:
-
-URL
-Copy to Clipboard
-https://raw.githubusercontent.com/Datarist/learning-area/master/html/multimedia-and-embedding/images-in-html/dinosaur_small.jpg
-Earlier we said to never hotlink to images on other servers, but this is just for learning purposes, so we'll let you off this one time.
-
-We would also like you to:
-
-Add some alt text, and check that it works by misspelling the image URL.
-Set the image's correct width and height (hint: it is 200px wide and 171px high), then experiment with other values to see what the effect is.
-Set a title on the image.
-If you make a mistake, you can always reset it using the Reset button. If you get really stuck, press the Show solution button to see an answer:
-
-Play
-
-Media assets and licensing
-Images (and other media asset types) you find on the web are released under various license types. Before you use an image on a site you are building, ensure you own it, have permission to use it, or comply with the owner's licensing conditions.
-
-Understanding license types
-Let's look at some common categories of licenses you are likely to find on the web.
-
-All rights reserved
-Creators of original work such as songs, books, or software often release their work under closed copyright protection. This means that, by default, they (or their publisher) have exclusive rights to use (for example, display or distribute) their work. If you want to use copyrighted images with an all rights reserved license, you need to do one of the following:
-
-Obtain explicit, written permission from the copyright holder.
-Pay a license fee to use them. This can be a one-time fee for unlimited use ("royalty-free"), or it might be "rights-managed", in which case you might have to pay specific fees per use by time slot, geographic region, industry or media type, etc.
-Limit your uses to those that would be considered fair use or fair dealing in your jurisdiction.
-Authors are not required to include a copyright notice or license terms with their work. Copyright exists automatically in an original work of authorship once it is created in a tangible medium. So if you find an image online and there are no copyright notices or license terms, the safest course is to assume it is protected by copyright with all rights reserved.
-
-Permissive
-If the image is released under a permissive license, such as MIT, BSD, or a suitable Creative Commons (CC) license, you do not need to pay a license fee or seek permission to use it. Still, there are various licensing conditions you will have to fulfill, which vary by license.
-
-For example, you might have to:
-
-Provide a link to the original source of the image and credit its creator.
-Indicate whether any changes were made to it.
-Share any derivative works created using the image under the same license as the original.
-Not share any derivative works at all.
-Not use the image in any commercial work.
-Include a copy of the license along with any release that uses the image.
-You should consult the applicable license for the specific terms you will need to follow.
-
-Note: You may come across the term "copyleft" in the context of permissive licenses. Copyleft licenses (such as the GNU General Public License (GPL) or "Share Alike" Creative Commons licenses) stipulate that derivative works need to be released under the same license as the original.
-
-Copyleft licenses are prominent in the software world. The basic idea is that a new project built with the code of a copyleft-licensed project (this is known as a "fork" of the original software) will also need to be licensed under the same copyleft license. This ensures that the source code of the new project will also be made available for others to study and modify. Note that, in general, licenses that were drafted for software, such as the GPL, are not considered to be good licenses for non-software works as they were not drafted with non-software works in mind.
-
-Explore the links provided earlier in this section to read about the different license types and the kinds of conditions they specify.
-
-Public domain/CC0
-Work released into the public domain is sometimes referred to as "no rights reserved" — no copyright applies to it, and it can be used without permission and without having to fulfill any licensing conditions. Work can end up in the public domain by various means such as expiration of copyright, or specific waiving of rights.
-
-One of the most effective ways to place work in the public domain is to license it under CC0, a specific creative commons license that provides a clear and unambiguous legal tool for this purpose.
-
-When using public domain images, obtain proof that the image is in the public domain and keep the proof for your records. For example, take a screenshot of the original source with the licensing status clearly displayed, and consider adding a page to your website with a list of the images acquired along with their license requirements.
-
-Searching for permissively-licensed images
-You can find permissive-licensed images for your projects using an image search engine or directly from image repositories.
-
-Search for images using a description of the image you are seeking along with relevant licensing terms. For example, when searching for "yellow dinosaur" add "public domain images", "public domain image library", "open licensed images", or similar terms to the search query.
-
-Some search engines have tools to help you find images with permissive licenses. For example, when using Google, go to the "Images" tab to search for images, then click "Tools". There is a "Usage Rights" dropdown in the resulting toolbar where you can choose to search specifically for images under creative commons licenses.
-
-Image repository sites, such as Flickr, ShutterStock, and Pixabay, have search options to allow you to search just for permissively-licensed images. Some sites exclusively distribute permissively-licensed images and icons, such as Picryl and The Noun Project.
-
-Complying with the license the image has been released under is a matter of finding the license details, reading the license or instruction page provided by the source, and then following those instructions. Reputable image repositories make their license conditions clear and easy to find.
-
-Annotating images with figures and figure captions
-Speaking of captions, there are a number of ways that you could add a caption to go with your image. For example, there would be nothing to stop you from doing this:
-
-HTML
-Copy to Clipboard
-<div class="figure">
-  <img
-    src="images/dinosaur.jpg"
-    alt="The head and torso of a dinosaur skeleton;
-            it has a large head with long sharp teeth"
-    width="400"
-    height="341" />
-
-  <p>A T-Rex on display in the Manchester University Museum.</p>
-</div>
-This is OK. It contains the content you need, and is nicely stylable using CSS. But there is a problem here: there is nothing that semantically links the image to its caption, which can cause problems for screen readers. For example, when you have 50 images and captions, which caption goes with which image?
-
-A better solution, is to use the HTML <figure> and <figcaption> elements. These are created for exactly this purpose: to provide a semantic container for figures, and to clearly link the figure to the caption. Our above example could be rewritten like this:
-
-HTML
-Copy to Clipboard
-<figure>
-  <img
-    src="images/dinosaur.jpg"
-    alt="The head and torso of a dinosaur skeleton;
-            it has a large head with long sharp teeth"
-    width="400"
-    height="341" />
-
-  <figcaption>
-    A T-Rex on display in the Manchester University Museum.
-  </figcaption>
-</figure>
-The <figcaption> element tells browsers, and assistive technology that the caption describes the other content of the <figure> element.
-
-Note: From an accessibility viewpoint, captions and alt text have distinct roles. Captions benefit even people who can see the image, whereas alt text provides the same functionality as an absent image. Therefore, captions and alt text shouldn't just say the same thing, because they both appear when the image is gone. Try turning images off in your browser and see how it looks.
-
-A figure doesn't have to be an image. It is an independent unit of content that:
-
-Expresses your meaning in a compact, easy-to-grasp way.
-Could go in several places in the page's linear flow.
-Provides essential information supporting the main text.
-A figure could be several images, a code snippet, audio, video, equations, a table, or something else.
-
-Active learning: creating a figure
-In this active learning section, we'd like you to take the finished code from the previous active learning section, and turn it into a figure:
-
-Wrap it in a <figure> element.
-Copy the text out of the title attribute, remove the title attribute, and put the text inside a <figcaption> element below the image.
-If you make a mistake, you can always reset it using the Reset button. If you get really stuck, press the Show solution button to see an answer:
-
-Play
-
-CSS background images
-You can also use CSS to embed images into webpages (and JavaScript, but that's another story entirely). The CSS background-image property, and the other background-* properties, are used to control background image placement. For example, to place a background image on every paragraph on a page, you could do this:
-
-CSS
-Copy to Clipboard
-p {
-  background-image: url("images/dinosaur.jpg");
-}
-The resulting embedded image is arguably easier to position and control than HTML images. So why bother with HTML images? As hinted to above, CSS background images are for decoration only. If you just want to add something pretty to your page to enhance the visuals, this is fine. Though, such images have no semantic meaning at all. They can't have any text equivalents, are invisible to screen readers, and so on. This is where HTML images shine!
-
-Summing up: if an image has meaning, in terms of your content, you should use an HTML image. If an image is purely decoration, you should use CSS background images.
-
-Note: You'll learn a lot more about CSS background images in our CSS topic.
-
-Other graphics on the web
-We've seen that static images can be displayed using the <img> element, or by setting the background of HTML elements using the background-image property. You can also construct graphics on-the-fly, or manipulate images after the fact. The browser offers ways of creating 2D and 3D graphics with code, as well as including video from uploaded files or live streamed from a user's camera. Here are links to articles that provide insight into these more advanced graphics topics:
-
-Canvas
-The <canvas> element provides APIs to draw 2D graphics using JavaScript.
-
-SVG
-Scalable Vector Graphics (SVG) lets you use lines, curves, and other geometric shapes to render 2D graphics. With vectors, you can create images that scale cleanly to any size.
-
-WebGL
-The WebGL API guide will get your started with WebGL, the 3D graphics API for the Web that lets you use standard OpenGL ES in web content.
-
-Using HTML audio and video
-Just like <img>, you can use HTML to embed <video> and <audio> into a web page and control its playback.
-
-WebRTC
-The RTC in WebRTC stands for Real-Time Communications, a technology that enables audio/video streaming and data sharing between browser clients (peers).
-
-Test your skills!
-You've reached the end of this article, but can you remember the most important information? You can find some further tests to verify that you've retained this information before you move on — see Test your skills: HTML images.
-
-Summary
-That's all for now. We have covered images and captions in detail. In the next article, we'll move it up a gear, looking at how to use HTML to embed video and audio content in web pages.
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <div class="mt-5 small">
+                    <h2 id="feedback">
+                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
+                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
-                      <footer class="mt-3 small">
-                        <div class="row">
-                            <div class="col-md-4 text-start">
-                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
-                            </div>
-                            <div class="col-md-4 text-center">
-                                <a href="#" class="link-offset-2">Topic</a>
-                            </div>
-                            <div class="col-md-4 text-end">
-                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
-                            </div>
-                        </div>
-                      </footer>
+                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container px-4 px-md-3">
+            <div class="container py-4 py-md-5 px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1658,9 +1198,6 @@ That's all for now. We have covered images and captions in detail. In the next a
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
-                            <li class="mb-2">
-                              <a href="https://newsletter.datarist.com">Newsletter</a>
-                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">

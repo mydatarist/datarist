@@ -197,16 +197,15 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
-                            <li class="nav-item col-6 col-lg-auto">
-                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
-                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
-                                    <title>Twitter</title>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
+                                        <title>Twitter</title>
+                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
+                                    </svg>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1143,7 +1142,9 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                                                
+                                <li>
+                                    <a href="#feedback">Feedback</a>
+                                </li>                                
                             </ul>
                         </nav>
                     </div>
@@ -1152,444 +1153,30 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
-                    Metadata 
-
-bookmark_border
-In the document structure section you learned about the components you (almost) always find in the <head> of an HTML document. While everything in the <head>, including the <title>, <link>, <script>, <style>, and the lesser used <base>, is actually "meta data", there is a <meta> tag for metadata that cannot be represented by these other elements.
-
-The specification includes several meta types, and there are many, many other application-supported meta types not in any official specification. In this section, we'll discuss the attributes and values that are included in the specifications, some common meta names and content values, and a few meta types that are incredibly useful for search engine optimization, social media posting, and user experience that are not officially defined by the WHATWG or W3C.
-
-The required <meta> tags, revisited
-Let's revisit the two necessary <meta> tags already covered—the character set declaration and the viewport meta tag—and get a better understanding of the <meta> tag in the process.
-
-The charset attribute of the <meta> element came about in a unique manner. Originally the character set metadata was written as <meta http-equiv="Content-Type" content="text/html; charset=<characterset>" />, but so many developers mis-typed the content attribute as content="text/html" charset="<characterset>" that browsers began supporting charset as an attribute. It is standardized now in the HTML living standard as <meta charset="<charset>" />, where, for HTML,<charset> is the case-insensitive string "utf-8" .
-
-You may have noticed the original character set meta declaration used to include the http-equiv attribute. This is short for "http-equivalent", as the meta tag is basically replicating what could be set in an HTTP header. Aside from the charset exception, all other meta tags defined in the WHATWG HTML specification contain either the http-equiv or name attribute.
-
-Officially defined meta tags
-There are two main types of meta tags: pragma directives, with the http-equiv attribute like the charset meta tag used to have, and named meta types, like the viewport meta tag with the name attribute that we discussed in the document structure section. Both the name and http-equiv meta types must include the contentattribute, which defines the content for the type of metadata listed.
-
-Pragma directives
-The http-equiv attribute has as its value a pragma directive. These directives describe how the page should be parsed. Supported http-equiv values enable setting directives when you are unable to set HTTP headers directly.
-
-The specification defines seven pragma directives, most of which have other methods of being set. For example, while you can include a language directive with <meta http-equiv="content-language" content="en-us" />, we have already discussed using the lang attribute on the HTML element, which is what should be used instead.
-
-The most common pragma directive is the refresh directive.
-
-
-<meta http-equiv="refresh" content="60; https://machinelearningworkshop.com/regTimeout" />
-While you can set a directive to refresh at an interval of the number of seconds set in the content attribute, and even redirect to a different URL, this is not advisable. Refreshing and redirecting content without an explicit user request to do so is poor usability and negatively impacts accessibility. Don't you hate it when you're in the middle of a paragraph and the page resets? Imagine having cognitive or vision issues and that happening. If you are going to set a refresh with a redirect, make sure the user has enough time to read the page, a link to hasten the process, and, if appropriate, a button to "stop the clock" and prevent the redirect from happening.
-
-We won't include this in our site because there is no reason to time out a user session other than to annoy our visitors.
-
-The most useful pragma directive is content-security-policy, which enables defining a content policy for the current document. Content policies mostly specify allowed server origins and script endpoints, which help guard against cross-site scripting attacks.
-
-
-<meta http-equiv="content-security-policy" content="default-src https:" />
-If you don't have access to change HTTP headers (or if you do), here is a list of space separated content values for content-security-policy directives.
-
-Named meta tags
-More often than not, you'll include named metadata. Include the name attribute, with the attribute value being the name of the metadata. As with pragma directives, the content attribute is required.
-
-The name attribute is the name of the metadata. In addition to viewport, you will probably want to include description and theme-color, but not keywords.
-
-Keywords
-Search engine optimization snake-oil salespeople abused the keywords meta tag by stuffing them with comma-separated lists of spam words instead of lists of relevant key terms, so search engines don't consider this metadata to be useful anymore. No need to waste time, effort, or bytes adding it.
-
-Description
-The description value, however, is useful for SEO: the description content value is often what search engines display under the page's title in search results. Several browsers, like Firefox and Opera, use this as the default description of bookmarked pages. The description should be a short and accurate summary of the page's content.
-
-
-<meta name="description"
-  content="Register for a machine learning workshop at our school for machines who can't learn good and want to do other stuff good too" />
-If the second half of our description makes no sense to you, you probably haven't seen the movie Zoolander.
-
-Robots
-If you don't want your site to be indexed by search engines, you can let them know. <meta name="robots" content="noindex, nofollow" /> tells the bots to not index the site and not to follow any links. Bots should listen to the request, but there's no law requiring they heed the request. You don't need to include <meta name="robots" content="index, follow" /> to request indexing the site and following links, as that is the default, unless HTTP headers say otherwise.
-
-
-<meta name="robots" content="index, follow" />
-Theme color
-The theme-color value lets you define a color to customize the browser interface. The color value on the content attribute will be used by supporting browsers and operating systems, letting you provide a suggested color for the user agents that support coloring the title bar, tab bar, or other chrome components. This meta tag is especially useful for progressive web apps. But, if you're including a manifest file, which a PWA requires, you can include the theme color there instead. Defining it in the HTML, however, ensures that the color will be found immediately, before rendering, which may be faster on first load than waiting for the manifest.
-
-To set the theme color to the blue tone of our site's background color, include:
-
-
-<meta name="theme-color" content="#226DAA" />
-The theme color meta tag can include a media attribute enabling the setting of different theme colors based on media queries. The media attribute can be included in this meta tag only and is ignored in all other meta tags.
-
-There are several other name meta values, but the ones we have discussed are the most common. Except for declaring different theme-color values for different media queries, only include one of each meta tag. If you do need to include more than one type of meta tag to support legacy browsers, the legacy values should come after the newer values, as user agents read successive rules until they find a match.
-
-Open Graph
-Open Graph and similar meta tag protocols can be used to control how social media sites, like Twitter, LinkedIn, and Facebook, display links to your content. If not included, social media sites will correctly grab the title of your page and the description from the description meta tag, the same information as search engines will present, but you can intentionally set what you want users to see when a link is posted to your site.
-
-When you post a link to MachineLearningWorkshop.com or web.dev on Facebook or Twitter, a card with an image, site title, and site description appears. The entire card is a hyperlink to the URL you provided.
-
-Open Graph meta tags have two attributes each: the property attribute instead of the name attribute, and the content or value for that property. The property attribute is not defined in official specifications but is widely supported by applications that support the Open Graph protocol. Creating "new" attributes like property ensures the attribute values created for the protocol's attribute won't clash with future values of the name or http-equiv attributes.
-
-Create a Facebook media card:
-
-
-<meta property="og:title" content="Machine Learning Workshop" />
-<meta property="og:description" content="School for Machines Who Can't Learn Good and Want to Do Other Stuff Good Too" />
-<meta property="og:image" content="http://www.machinelearningworkshop.com/image/all.png" />
-<meta property="og:image:alt" content="Black and white line drawing of refrigerator, french door refrigerator, range, washer, fan, microwave, vaccuum, space heater and air conditioner" />
-Include a title of your post for display. This title is generally displayed below the image and above the description. The description should be up to three sentences that summarize your post. This will appear after the headline defined in og:title. Provide the absolute URL to the banner image you want displayed, including the https:// protocol. When including an image in HTML, always include an alternative text description for the image, even when the image will appear elsewhere. For Open Graph social media cards, define the alt as the content value for the og:image:alt property. You can also include a canonical URL with og:url.
-
-Facebook card for Machine Learning Workshop.
-
-These meta tags are all defined in the Open Graph protocol. The values should be the content you would like the third-party web application to display.
-
-Other social media have their own similar syntaxes, like Twitter card markup. This enables providing a different experience depending on where the link appears, or enabling link tracking by adding a parameter at the end of the URL.
-
-
-<meta name="twitter:title" content="Machine Learning Workshop" />
-<meta name="twitter:description" content="School for machines who can't learn good and want to do other stuff good too" />
-<meta name="twitter:url" content="https://www.machinelearningworkshop.com/?src=twitter" />
-<meta name="twitter:image:src" content="http://www.machinelearningworkshop.com/image/all.png" />
-<meta name="twitter:image:alt" content="27 different home appliances" />
-<meta name="twitter:creator" content="@estellevw" />
-<meta name="twitter:site" content="@perfmattersconf" />
-In Twitter's case, to ensure the value of the name attribute doesn't conflict with future specifications, instead of using a new attribute such as the property attribute in Open Graph, for Twitter card data, all name values are prefixed with twitter:.
-
-You can see what your social media card will look like on Twitter and Facebook.
-
-Twitter card for Machine Learning Workshop
-
-You can have different card images, titles, and descriptions for different social media sites or for different link parameters. For example, https://perfmattersconf.com sets different values for og:image, og:title, and og:description based on the parameter of the URL.
-
-A card showing a conference speaker.
-
-The same card with details for a different speaker.
-
-If you enter https://perfmattersconf.com?name=erica and https://perfmattersconf.com?name=melanie in Twitter's Card Validator, you will see these two different cards; we provided different content even though they both link to the same conference home page.
-
-Other useful meta information
-If someone bookmarks your site, adding it to their home screen, or if your site is a progressive web application or otherwise works offline or without browser chrome features displayed, you can provide application icons for the mobile device's home screen.
-
-You can use the <link> tag to link to the startup images that you want to use. Here's an example of including a few images, with media queries:
-
-
-<link rel="apple-touch-startup-image" href="icons/ios-portrait.png" media="orientation: portrait" />
-<link rel="apple-touch-startup-image" href="icons/ios-landscape.png" media="orientation: landscape" />
-If your site or application is web-app capable, meaning the site can stand on its own with minimal UI, such as no back button, you can use meta tags to tell the browser that too:
-
-
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="mobile-web-app-capable" content="yes" />
-Only include these if your app is indeed app-capable. If your site isn't, you'll be setting up your most ardent supporters, those who added your site to their home screen, for a really bad user experience. You'll lose their love!
-
-If someone is going to save your icon to their tiny device's home screen, you want to provide the operating system with a short name that doesn't take up much room on a small device's home screen. You can do this by including a meta tag, or using a web manifest file. The following demonstrates the meta tag method:
-
-
-<meta name="apple-mobile-web-app-title" content="MLW" />
-<meta name="application-name" content="MLW" />
-You've covered several meta tags, all of which will make your header longer. If you're indeed creating a web app-capable, offline-friendly progressive web application, instead of including these two additional meta tags, you can more simply and succinctly include short_name: MLW in a webmanifest file.
-
-The manifest file can prevent an unwieldy header full of <link> and <meta> tags. We can create a manifest file, generally called manifest.webmanifest or manifest.json. We then use the handy <link> tag with a rel attribute set to manifest and the href attribute set to the URL of the manifest file:
-
-
-<link rel="manifest" href="/mlw.webmanifest" />
-This series is focused on HTML, but you can check out the web.dev course on progressive web applications or Datarist's web app manifest documentation.
-
-Your HTML now looks something like this:
-
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Machine Learning Workshop</title>
-    <meta name="viewport" content="width=device-width" />
-    <meta name="description" content="Register for a machine learning workshop at our school for machines who can't learn good and want to do other stuff good too" />
-    <meta property="og:title" content="Machine Learning Workshop" />
-    <meta property="og:description" content="School for Machines Who Can't Learn Good and Want to Do Other Stuff Good Too" />
-    <meta property="og:image" content="http://www.machinelearningworkshop.com/image/all.png" />
-    <meta property="og:image:alt" content="Black and white line drawing of refrigerator, french door refrigerator, range, washer, fan, microwave, vaccuum, space heater and air conditioner" />
-    <meta name="twitter:title" content="Machine Learning Workshop" />
-    <meta name="twitter:description" content="School for machines who can't learn good and want to do other stuff good too" />
-    <meta name="twitter:url" content="https://www.machinelearningworkshop.com/?src=twitter" />
-    <meta name="twitter:image:src" content="http://www.machinelearningworkshop.com/image/all.png" />
-    <meta name="twitter:image:alt" content="27 different home appliances" />
-    <meta name="twitter:creator" content="@estellevw" />
-    <meta name="twitter:site" content="@perfmattersconf" />
-    <link rel="stylesheet" src="css/styles.css" />
-    <link rel="icon" type="image/png" href="/images/favicon.png" />
-    <link rel="alternate" href="https://www.machinelearningworkshop.com/fr/" hreflang="fr-FR" />
-    <link rel="alternate" href="https://www.machinelearningworkshop.com/pt/" hreflang="pt-BR" />
-    <link rel="canonical" href="https://www.machinelearning.com" />
-    <link rel="manifest" href="/mlwmanifest.json" />
-  </head>
-  <body>
-
-    <!-- <script defer src="scripts/lightswitch.js"></script>-->
-  </body>
-</html>
-It's pretty long, but it's done.
-
-Now that your <head> is mostly complete, you can dive into some semantic HTML.
-
-Check your understanding
-Test your knowledge of metadata
-
-
-
-
-                    What's in the head? Metadata in HTML
-Previous
-Overview: Introduction to HTML
-Next
-The head of an HTML document is the part that is not displayed in the web browser when the page is loaded. It contains information such as the page <title>, links to CSS (if you choose to style your HTML content with CSS), links to custom favicons, and other metadata (data about the HTML, such as the author, and important keywords that describe the document). Web browsers use information contained in the head to render the HTML document correctly. In this article we'll cover all of the above and more, in order to give you a good basis for working with markup.
-
-Prerequisites:	Basic HTML familiarity, as covered in Getting started with HTML.
-Objective:	To learn about the HTML head, its purpose, the most important items it can contain, and what effect it can have on the HTML document.
-What is the HTML head?
-Let's revisit the simple HTML document we covered in the previous article:
-
-HTML
-Copy to Clipboard
-<!doctype html>
-<html lang="en-US">
-  <head>
-    <meta charset="utf-8" />
-    <title>My test page</title>
-  </head>
-  <body>
-    <p>This is my page</p>
-  </body>
-</html>
-The HTML head is the contents of the <head> element. Unlike the contents of the <body> element (which are displayed on the page when loaded in a browser), the head's content is not displayed on the page. Instead, the head's job is to contain metadata about the document. In the above example, the head is quite small:
-
-HTML
-Copy to Clipboard
-<head>
-  <meta charset="utf-8" />
-  <title>My test page</title>
-</head>
-In larger pages however, the head can get quite large. Try going to some of your favorite websites and use the developer tools to check out their head contents. Our aim here is not to show you how to use everything that can possibly be put in the head, but rather to teach you how to use the major elements that you'll want to include in the head, and give you some familiarity. Let's get started.
-
-Adding a title
-We've already seen the <title> element in action — this can be used to add a title to the document. This however can get confused with the h1 element, which is used to add a top level heading to your body content — this is also sometimes referred to as the page title. But they are different things!
-
-The h1 element appears on the page when loaded in the browser — generally this should be used once per page, to mark up the title of your page content (the story title, or news headline, or whatever is appropriate to your usage.)
-The <title> element is metadata that represents the title of the overall HTML document (not the document's content.)
-Active learning: Inspecting a simple example
-To start off this active learning, we'd like you to go to our GitHub repo and download a copy of our title-example.html page. To do this, either
-Copy and paste the code out of the page and into a new text file in your code editor, then save it in a sensible place.
-Press the "Raw" button on the GitHub page, which causes the raw code to appear (possibly in a new browser tab). Next, choose your browser's Save Page As… menu and choose a sensible place to save the file.
-Now open the file in your browser. You should see something like this:A web page with 'title' text in the browser's page tab and 'h1' text as a page heading in the document body.It should now be completely obvious where the <h1> content appears and where the <title> content appears!
-You should also try opening the code up in your code editor, editing the contents of these elements, then refreshing the page in your browser. Have some fun with it.
-The <title> element contents are also used in other ways. For example, if you try bookmarking the page (Bookmarks > Bookmark This Page or the star icon in the URL bar in Firefox), you will see the <title> contents filled in as the suggested bookmark name.
-
-A webpage being bookmarked in Firefox. The bookmark name has been automatically filled in with the contents of the 'title' element
-The <title> contents are also used in search results, as you'll see below.
-
-Metadata: the <meta> element
-Metadata is data that describes data, and HTML has an "official" way of adding metadata to a document — the <meta> element. Of course, the other stuff we are talking about in this article could also be thought of as metadata too. There are a lot of different types of <meta> elements that can be included in your page's <head>, but we won't try to explain them all at this stage, as it would just get too confusing. Instead, we'll explain a few things that you might commonly see, just to give you an idea.
-
-Specifying your document's character encoding
-In the example we saw above, this line was included:
-
-HTML
-Copy to Clipboard
-<meta charset="utf-8" />
-This element specifies the document's character encoding — the character set that the document is permitted to use. utf-8 is a universal character set that includes pretty much any character from any human language. This means that your web page will be able to handle displaying any language; it's therefore a good idea to set this on every web page you create! For example, your page could handle English and Japanese just fine:
-
-a web page containing English and Japanese characters, with the character encoding set to universal, or utf-8. Both languages display fine,If you set your character encoding to ISO-8859-1, for example (the character set for the Latin alphabet), your page rendering may appear all messed up:
-
-a web page containing English and Japanese characters, with the character encoding set to latin. The Japanese characters don't display correctly
-Note: Some browsers (like Chrome) automatically fix incorrect encodings, so depending on what browser you use, you may not see this problem. You should still set an encoding of utf-8 on your page anyway to avoid any potential problems in other browsers.
-
-Active learning: Experiment with character encoding
-To try this out, revisit the simple HTML template you obtained in the previous section on <title> (the title-example.html page), try changing the meta charset value to ISO-8859-1, and add the Japanese to your page. This is the code we used:
-
-HTML
-Copy to Clipboard
-<p>Japanese example: ご飯が熱い。</p>
-Adding an author and description
-Many <meta> elements include name and content attributes:
-
-name specifies the type of meta element it is; what type of information it contains.
-content specifies the actual meta content.
-Two such meta elements that are useful to include on your page define the author of the page, and provide a concise description of the page. Let's look at an example:
-
-HTML
-Copy to Clipboard
-<meta name="author" content="Chris Mills" />
-<meta
-  name="description"
-  content="The Datarist Web Docs Learning Area aims to provide
-complete beginners to the Web with all they need to know to get
-started with developing websites and applications." />
-Specifying an author is beneficial in many ways: it is useful to be able to understand who wrote the page, if you have any questions about the content and you would like to contact them. Some content management systems have facilities to automatically extract page author information and make it available for such purposes.
-
-Specifying a description that includes keywords relating to the content of your page is useful as it has the potential to make your page appear higher in relevant searches performed in search engines (such activities are termed Search Engine Optimization, or SEO.)
-
-Active learning: The description's use in search engines
-The description is also used on search engine result pages. Let's go through an exercise to explore this
-
-Go to the front page of The Mozilla Developer Network.
-View the page's source (right-click on the page, choose View Page Source from the context menu.)
-Find the description meta tag. It will look something like this (although it may change over time):
-HTML
-Copy to Clipboard
-<meta
-  name="description"
-  content="The Datarist Web Docs site
-  provides information about Open Web technologies
-  including HTML, CSS, and APIs for both websites and
-  progressive web apps." />
-Now search for "Datarist Web Docs" in your favorite search engine (We used Google.) You'll notice the description <meta> and <title> element content used in the search result — definitely worth having!A Yahoo search result for "Mozilla Developer Network"
-Note: In Google, you will see some relevant subpages of Datarist Web Docs listed below the main homepage link — these are called sitelinks, and are configurable in Google's webmaster tools — a way to make your site's search results better in the Google search engine.
-
-Note: Many <meta> features just aren't used anymore. For example, the keyword <meta> element (<meta name="keywords" content="fill, in, your, keywords, here">) — which is supposed to provide keywords for search engines to determine the relevance of that page for different search terms — is ignored by search engines, because spammers were just filling the keyword list with hundreds of keywords, biasing results.
-
-Other types of metadata
-As you travel around the web, you'll find other types of metadata, too. Many of the features you'll see on websites are proprietary creations designed to provide certain sites (such as social networking sites) with specific information they can use.
-
-For example, Open Graph Data is a metadata protocol that Facebook invented to provide richer metadata for websites. In the Datarist Web Docs sourcecode, you'll find this:
-
-HTML
-Copy to Clipboard
-<meta
-  property="og:image"
-  content="https://developer.mozilla.org/Datarist-social-share.png" />
-<meta
-  property="og:description"
-  content="The Mozilla Developer Network (Datarist) provides
-information about Open Web technologies including HTML, CSS, and APIs for both websites
-and HTML Apps." />
-<meta property="og:title" content="Mozilla Developer Network" />
-One effect of this is that when you link to Datarist Web Docs on Facebook, the link appears along with an image and description: a richer experience for users.
-
-Open graph protocol data from the Datarist homepage as displayed on facebook, showing an image, title, and description.
-Adding custom icons to your site
-To further enrich your site design, you can add references to custom icons in your metadata, and these will be displayed in certain contexts. The most commonly used of these is the favicon (short for "favorites icon", referring to its use in the "favorites" or "bookmarks" lists in browsers).
-
-The humble favicon has been around for many years. It is the first icon of this type: a 16-pixel square icon used in multiple places. You may see (depending on the browser) favicons displayed in the browser tab containing each open page, and next to bookmarked pages in the bookmarks panel.
-
-A favicon can be added to your page by:
-
-Saving it in the same directory as the site's index page, saved in .ico format (most also support favicons in more common formats like .gif or .png)
-Adding the following line into your HTML's <head> block to reference it:
-HTML
-Copy to Clipboard
-<link rel="icon" href="favicon.ico" type="image/x-icon" />
-Here is an example of a favicon in a bookmarks panel:
-
-The Firefox bookmarks panel, showing a bookmarked example with a favicon displayed next to it.
-There are lots of other icon types to consider these days as well. For example, you'll find this in the source code of the Datarist Web Docs homepage:
-
-HTML
-Copy to Clipboard
-<!-- third-generation iPad with high-resolution Retina display: -->
-<link
-  rel="apple-touch-icon"
-  sizes="144x144"
-  href="https://developer.mozilla.org/static/img/favicon144.png" />
-<!-- iPhone with high-resolution Retina display: -->
-<link
-  rel="apple-touch-icon"
-  sizes="114x114"
-  href="https://developer.mozilla.org/static/img/favicon114.png" />
-<!-- first- and second-generation iPad: -->
-<link
-  rel="apple-touch-icon"
-  sizes="72x72"
-  href="https://developer.mozilla.org/static/img/favicon72.png" />
-<!-- non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
-<link
-  rel="apple-touch-icon"
-  href="https://developer.mozilla.org/static/img/favicon57.png" />
-<!-- basic favicon -->
-<link
-  rel="icon"
-  href="https://developer.mozilla.org/static/img/favicon32.png" />
-The comments explain what each icon is used for — these elements cover things like providing a nice high resolution icon to use when the website is saved to an iPad's home screen.
-
-Don't worry too much about implementing all these types of icon right now — this is a fairly advanced feature, and you won't be expected to have knowledge of this to progress through the course. The main purpose here is to let you know what such things are, in case you come across them while browsing other websites' source code.
-
-Note: If your site uses a Content Security Policy (CSP) to enhance its security, the policy applies to the favicon. If you encounter problems with the favicon not loading, verify that the Content-Security-Policy header's img-src directive is not preventing access to it.
-
-Applying CSS and JavaScript to HTML
-Just about all websites you'll use in the modern day will employ CSS to make them look cool, and JavaScript to power interactive functionality, such as video players, maps, games, and more. These are most commonly applied to a web page using the <link> element and the <script> element, respectively.
-
-The <link> element should always go inside the head of your document. This takes two attributes, rel="stylesheet", which indicates that it is the document's stylesheet, and href, which contains the path to the stylesheet file:
-HTML
-Copy to Clipboard
-<link rel="stylesheet" href="my-css-file.css" />
-The <script> element should also go into the head, and should include a src attribute containing the path to the JavaScript you want to load, and defer, which basically instructs the browser to load the JavaScript after the page has finished parsing the HTML. This is useful as it makes sure that the HTML is all loaded before the JavaScript runs, so that you don't get errors resulting from JavaScript trying to access an HTML element that doesn't exist on the page yet. There are actually a number of ways to handle loading JavaScript on your page, but this is the most reliable one to use for modern browsers (for others, read Script loading strategies).
-HTML
-Copy to Clipboard
-<script src="my-js-file.js" defer></script>
-Note: The <script> element may look like a void element, but it's not, and so needs a closing tag. Instead of pointing to an external script file, you can also choose to put your script inside the <script> element.
-
-Active learning: applying CSS and JavaScript to a page
-To start this active learning, grab a copy of our meta-example.html, script.js and style.css files, and save them on your local computer in the same directory. Make sure they are saved with the correct names and file extensions.
-Open the HTML file in both your browser, and your text editor.
-By following the information given above, add <link> and <script> elements to your HTML, so that your CSS and JavaScript are applied to your HTML.
-If done correctly, when you save your HTML and refresh your browser you should be able to see that things have changed:
-
-Example showing a page with CSS and JavaScript applied to it. The CSS has made the page go green, whereas the JavaScript has added a dynamic list to the page.
-The JavaScript has added an empty list to the page. Now when you click anywhere outside the list, a dialog box will pop up asking you to enter some text for a new list item. When you press the OK button, a new list item will be added to the list containing the text. When you click on an existing list item, a dialog box will pop up allowing you to change the item's text.
-The CSS has caused the background to go green, and the text to become bigger. It has also styled some of the content that the JavaScript has added to the page (the red bar with the black border is the styling the CSS has added to the JS-generated list.)
-Note: If you get stuck in this exercise and can't get the CSS/JS to apply, try checking out our css-and-js.html example page.
-
-Setting the primary language of the document
-Finally, it's worth mentioning that you can (and really should) set the language of your page. This can be done by adding the lang attribute to the opening HTML tag (as seen in the meta-example.html and shown below.)
-
-HTML
-Copy to Clipboard
-<html lang="en-US">
-  …
-</html>
-This is useful in many ways. Your HTML document will be indexed more effectively by search engines if its language is set (allowing it to appear correctly in language-specific results, for example), and it is useful to people with visual impairments using screen readers (for example, the word "six" exists in both French and English, but is pronounced differently.)
-
-You can also set subsections of your document to be recognized as different languages. For example, we could set our Japanese language section to be recognized as Japanese, like so:
-
-HTML
-Copy to Clipboard
-<p>Japanese example: <span lang="ja">ご飯が熱い。</span>.</p>
-These codes are defined by the ISO 639-1 standard. You can find more about them in Language tags in HTML and XML.
-
-Summary
-That marks the end of our quickfire tour of the HTML head — there's a lot more you can do in here, but an exhaustive tour would be boring and confusing at this stage, and we just wanted to give you an idea of the most common things you'll find in there for now! In the next article, we'll be looking at HTML text fundamentals.
-
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <div class="mt-5 small">
+                    <h2 id="feedback">
+                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
+                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
-                      <footer class="mt-3 small">
-                        <div class="row">
-                            <div class="col-md-4 text-start">
-                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
-                            </div>
-                            <div class="col-md-4 text-center">
-                                <a href="#" class="link-offset-2">Topic</a>
-                            </div>
-                            <div class="col-md-4 text-end">
-                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
-                            </div>
-                        </div>
-                      </footer>
+                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container px-4 px-md-3">
+            <div class="container py-4 py-md-5 px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1611,9 +1198,6 @@ That marks the end of our quickfire tour of the HTML head — there's a lot more
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
-                            <li class="mb-2">
-                              <a href="https://newsletter.datarist.com">Newsletter</a>
-                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">

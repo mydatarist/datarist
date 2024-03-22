@@ -197,16 +197,15 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
-                            <li class="nav-item col-6 col-lg-auto">
-                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
-                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
-                                    <title>Twitter</title>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
+                                        <title>Twitter</title>
+                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
+                                    </svg>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1143,7 +1142,9 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                                                
+                                <li>
+                                    <a href="#feedback">Feedback</a>
+                                </li>                                
                             </ul>
                         </nav>
                     </div>
@@ -1152,298 +1153,30 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
-                    Descriptive syntaxes 
-
-bookmark_border
-In this module, you'll learn how to give the browser a choice of images so that it can make the best decisions about what to display. srcset isn't a method for swapping image sources at specific breakpoints, and it isn't meant to swap one image for another. These syntaxes allow the browser to solve a very difficult problem, independent of us: seamlessly requesting and rendering an image source tailored to a user's browsing context, including viewport size, display density, user preferences, bandwidth, and countless other factors.
-
-It's a big ask—certainly more than we want to consider when we're simply marking up an image for the web, and doing it well involves more information than we can access.
-
-Describing density with x
-An <img> with a fixed width will occupy the same amount of the viewport in any browsing context, regardless of the density of a user's display—the number of physical pixels that make their screen. For example, an image with an inherent width of 400px will occupy almost the entire browser viewport on both the original Google Pixel and much newer Pixel 6 Pro—both devices have a normalized 412px logical pixel wide viewport.
-
-The Pixel 6 Pro has a much sharper display, however: the 6 Pro has a physical resolution of 1440 × 3120 pixels, while the Pixel is 1080 × 1920 pixels—that is, the number of hardware pixels that make up the screen itself.
-
-The ratio between a device's logical pixels and physical pixels is the device pixel ratio for that display (DPR). DPR is calculated by dividing the device's actual screen resolution by a viewport's CSS pixels.
-
-A DPR of 2 displayed in a console window.
-
-So, the original Pixel has a DPR of 2.6, while the Pixel 6 Pro has a DPR of 3.5.
-
-The iPhone 4, the first device with a DPR greater than 1, reports a device pixel ratio of 2—the physical resolution of the screen is double the logical resolution. Any device prior to the iPhone 4 had a DPR of 1: one logical pixel to one physical pixel.
-
-If you view that 400px-wide image on a display with a DPR of 2, each logical pixel is being rendered across four of the display's physical pixels: two horizontal and two vertical. The image doesn't benefit from the high-density display—it will look the same as it would on a display with a DPR of 1. Of course, anything "drawn" by the browser's rendering engine—text, CSS shapes, or SVGs, for example—will be drawn to suit the higher-density display. But as you learned from Image Formats and Compression, raster images are fixed grids of pixels. While it may not always be glaringly obvious, a raster image upscaled to suit a higher-density display will look low-resolution compared to the surrounding page.
-
-In order to prevent this upscaling, the image being rendered has to have an intrinsic width of at least 800 pixels. When scaled down to fit a space in a layout 400 logical pixels wide, that 800-pixel image source has double the pixel density—on a display with a DPR of 2, it'll look nice and sharp.
-
-Close up of a flower petal showing disparity in density.
-
-
-Since a display with a DPR of 1 can't make use of the increased density of an image, it will be downscaled to match the display—and as you know, a downscaled image will look just fine. On a low-density display, an image suitable for higher-density displays will look like any other low-density image.
-
-As you learned in Images and Performance, a user with a low-density display viewing an image source scaled down to 400px will only need a source with an inherent width of 400px. While a much larger image would work for all users visually, a huge, high resolution image source rendered on a small, low density display will look like any other small, low density image, but feel far slower.
-
-As you might guess, mobile devices with a DPR of 1 are vanishingly rare, though it is still common in "desktop" browsing contexts. According to data shared by Matt Hobbs, approximately 18% of GOV.UK browsing sessions from November 2022 report a DPR of 1. While high-density images would look the way those users might expect, they'll come at a much higher bandwidth and processing cost—of particular concern to users on the older and less powerful devices still likely to have low-density displays.
-
-Using srcset ensures that only devices with high-resolution displays receive image sources large enough to look sharp, without passing that same bandwidth cost along to users with lower-resolution displays.
-
-The srcset attribute identifies one or more comma-separated candidates for rendering an image. Each candidate is made up of two things: a URL, just like you would use in src, and a syntax that describes that image source. Each candidate in srcset is described by its inherent width ("w syntax") or intended density ("x syntax").
-
-The x syntax is a shorthand for "this source is appropriate for a display with this density"—a candidate followed by 2x is appropriate for a display with a DPR of 2.
-
-
-<img src="low-density.jpg" srcset="double-density.jpg 2x" alt="...">
-Browsers that support srcset will be presented with two candidates: double-density.jpg, which 2x describes as appropriate for displays with a DPR of 2, and low-density.jpg in the src attribute—the candidate selected if nothing more appropriate is found in srcset. For browsers without support for srcset, the attribute and its contents will be ignored—the contents of src will be requested, as usual.
-
-It's easy to mistake the values specified in the srcset attribute for instructions. That 2x informs the browser that the associated source file would be suitable for use on a display with a DPR of 2—information about the source itself. It doesn't tell the browser how to use that source, just informs the browser how the source could be used. It's a subtle but important distinction: this is a double density image, not an image for use on a double density display.
-
-The difference between a syntax that says "this source is appropriate for 2x displays" and one that says "use this source on 2x displays" is slight in print, but display density is only one of a huge number of interlinked factors that the browser uses to decide on the candidate to render, only some of which you can know. For example: individually, it's possible for you to determine that a user has enabled a bandwidth-saving browser preference through the prefers-reduced-data media query, and use that to always opt users into low-density images regardless of their display density—but unless implemented consistently, by every developer, on every website, it wouldn't be of much use to a user. They might have their preference respected on one site, and run into a bandwidth-obliterating wall of images on the next.
-
-The deliberately vague resource selection algorithm used by srcset/sizes leaves room for browsers to decide to select lower density images with bandwidth dips, or based on a preference to minimize data usage, without us taking on responsibility for how, or when, or at what threshold. There's no sense in taking on responsibilities—and additional work—that the browser is better equipped to handle for you.
-
-Describing widths with w
-srcset accepts a second type of descriptor for image source candidates. It's a far more powerful one—and for our purposes, a great deal easier to understand. Rather than flagging a candidate as having the appropriate dimensions for a given display density, the w syntax describes the inherent width of each candidate source. Again, each candidate is identical save for their dimensions—the same content, the same cropping, and the same aspect ratio. But in this case, you want the user's browser to choose between two candidates: small.jpg, a source with an inherent width of 600px, and large.jpg, a source with an inherent width of 1200px.
-
-
-srcset="small.jpg 600w, large.jpg 1200w"
-This doesn't tell the browser what to do with this information—just supplies it with a list of candidates for displaying the image. Before the browser can make a decision about which source to render, you need to provide it with a little more information: a description of how the image will be rendered on the page. To do that, use the sizes attribute.
-
-Describing usage with sizes
-Browsers are incredibly performant when it comes to transferring images. Requests for image assets will be initiated long before requests for stylesheets or JavaScript—oftentimes even before the markup has been fully parsed. When the browser makes these requests, it has no information about the page itself, apart from the markup—it may not have even initiated requests for external stylesheets yet, let alone applied them. At the time the browser parses your markup and starts making external requests, it only has browser-level information: the size of the user's viewport, the pixel density of the user's display, user preferences, and so on.
-
-This doesn't tell us anything about how an image is intended to be rendered in the page layout—it can't even use the viewport as a proxy for the upper bound of the img size, as it may occupy a horizontally scrolling container. So we need to provide the browser with this information and do it using markup. That is all we'll be able to use for these requests.
-
-Like srcset, sizes is intended to make information about an image available as soon as the markup is parsed. Just as the srcset attribute is shorthand for "here are the source files and their inherent sizes," the sizes attribute is shorthand for "here is the size of the rendered image in the layout." The way you describe the image is relative to the viewport—again, viewport size is the only layout information the browser has when the image request is made.
-
-That may sound a little convoluted in print, but it's far easier to understand in practice:
-
-
-<img
- sizes="80vw"
- srcset="small.jpg 600w, medium.jpg 1200w, large.jpg 2000w"
- src="fallback.jpg"
- alt="...">
-Here, this sizes value informs the browser that the space in our layout that the img occupies has a width of 80vw—80% of the viewport. Remember, this isn't an instruction, but a description of the image's size in the page layout. It doesn't say "make this image occupy 80% of the viewport," but "this image will end up occupying 80% of the viewport once the page has rendered."
-
-
-As a developer, your job is done. You've accurately described a list of candidate sources in srcset and the width of your image in sizes, and, just as with the x syntax in srcset, the rest is up to the browser.
-
-But in the interest of fully understanding how this information is used, let's take a moment to walk through the decisions that a user's browser makes upon encountering this markup:
-
-You've informed the browser that this image will take up 80% of the available viewport—so, if we were to render this img on a device with a 1000-pixel-wide viewport, this image will occupy 800 pixels. The browser will then take that value and divide against it the widths of each of the image source candidates we specified in srcset. The smallest source has an inherent size of 600 pixels, so: 600÷800=.75. Our medium image is 1200 pixels wide: 1200÷800=1.5. Our largest image is 2000 pixels wide: 2000÷800=2.5.
-
-The results of those calculations (.75, 1.5, and 2.5) are, effectively, DPR options specifically tailored to the user's viewport size. Since the browser also has information on the user's display density at hand, it makes a series of decisions:
-
-At this viewport size, the small.jpg candidate is discarded regardless of the user's display density—with a calculated DPR lower than 1, this source would require upscaling for any user, so it isn't appropriate. On a device with a DPR of 1, medium.jpg provides the closest match—that source is appropriate for display at a DPR of 1.5, so it is a little larger than necessary, but remember that downscaling is a visually seamless process. On a device with a DPR of 2,large.jpg is the closest match, so it gets selected.
-
-If the same image is rendered on a 600 pixel wide viewport, the result of all that math would be completely different: 80vw is now 480px. When we divide our sources' widths against that, we get 1.25, 2.5, and 4.1666666667. At this viewport size, small.jpg will be chosen on 1x devices, and medium.jpg will match on 2x devices.
-
-This image will look identical in all of these browsing contexts: all our source files are exactly the same apart from their dimensions, and each one is being rendered as sharply as the user's display density will allow. However, instead of serving large.jpg to every user in order to accommodate the largest viewports and the highest density displays, users will always be served the smallest suitable candidate. By using a descriptive syntax rather than a prescriptive one, you don't need to manually set breakpoints and consider future viewports and DPRs—you simply supply the browser with information and allow it to determine the answers for you.
-
-Because our sizes value is relative to the viewport and completely independent of the page layout, it adds a layer of complication. It's rare to have an image that only occupies a percentage of the viewport, without any fixed-width margins, padding, or influence from other elements on the page. You'll frequently need to express the width of an image using a combination of units; percentages, em, px, and so on.
-
-Fortunately, you can use calc() here—any browser with native support for responsive images will support calc() as well, allowing us to mix-and-match CSS units—for example, an image that occupies the full width of the user's viewport, minus a 1em margin on either side:
-
-
-<img
-    sizes="calc(100vw-2em)"
-    srcset="small.jpg 400w, medium.jpg 800w, large.jpg 1600w, x-large.jpg 2400w"
-    src="fallback.jpg"
-    alt="...">
-Describing breakpoints
-If you've spent much time working with responsive layouts, you've likely noticed something missing from these examples: the space an image occupies in a layout is very likely to change across our layout's breakpoints. In that case, you need to pass a little more detail along to the browser: sizes accepts a comma-separated set of candidates for the rendered size of the image, just like srcset accepts comma-separated candidates for image sources. Those conditions use the familiar media query syntax. This syntax is first-match: as soon as a media condition matches, the browser stops parsing the sizes attribute, and the value specified is applied.
-
-Say you have an image meant to occupy 80% of the viewport, minus one em of padding on either side, on viewports above 1200px—on smaller viewports, it occupies the full width of the viewport.
-
-
-  <img
-     sizes="(min-width: 1200px) calc(80vw - 2em), 100vw"
-     srcset="small.jpg 600w, medium.jpg 1200w, large.jpg 2000w"
-     src="fallback.jpg"
-     alt="...">
-
-If the user's viewport is greater than 1200px, calc(80vw - 2em) describes the width of the image in our layout. If the (min-width: 1200px) condition doesn't match, the browser moves on to the next value. Because there isn't a specific media condition tied to this value, 100vw is used as a default. If you were to write this sizes attribute using max-width media queries:
-
-
-  <img
-     sizes="(max-width: 1200px) 100vw, calc(80vw - 2em)"
-     srcset="small.jpg 600w, medium.jpg 1200w, large.jpg 2000w"
-     src="fallback.jpg"
-     alt="...">
-
-In plain language: "does (max-width: 1200px) match? If not, move on. The next value—calc(80vw - 2em)—has no qualifying condition, so this is the one selected.
-
-Now that you've provided the browser with all this information about your img element—potential sources, inherent widths, and how you intend to present the image to the user—the browser uses a fuzzy set of rules for determining what to do with that information. If that sounds vague, well, that's because it is—by design. The source-selection algorithm encoded in the HTML specification is explicitly vague on how a source should be chosen. Once the sources, their descriptors, and how the image will be rendered has all been parsed, the browser is free to do whatever it wants—you can't know for certain which source the browser will choose.
-
-A syntax that says "use this source on a high-resolution display" would be predictable, but it wouldn't address the core problem with images in a responsive layout: conserving user bandwidth. A screen's pixel density is only tangentially related to internet connection speed, if at all. If you are using a top-of-the-line laptop, but browsing the web by way of a metered connection, tethered to your phone, or using a shaky airplane wifi connection—you might want to opt out of high-resolution image sources, regardless of the quality of your display.
-
-Leaving the final say to the browser allows for far more performance improvements than we could manage with a strictly prescriptive syntax. For example: in most browsers, an img using the srcset or sizes syntax will never bother requesting a source with smaller dimensions than one that the user already has in their browser's cache. What would be the point in making a new request for a source that would look identical, when the browser can seamlessly downscale the image source it already has? But if the user scales their viewport up to the point where a new image is needed in order to avoid upscaling, that request will still get made, so everything looks the way you expect.
-
-That lack of explicit control can sound a little scary at face value, but because you're using source files with identical content, we're no more likely to present users with a "broken" experience than we would with a single-source src, regardless of the decisions made by the browser.
-
-Using sizes and srcset
-This is a lot of information—both for you, the reader, and for the browser. srcset and sizes are both dense syntaxes, describing a shocking amount of information in relatively few characters. That is, for better or worse, by design: making these syntaxes less terse—and more easily parsed by us humans—could have made them more difficult for a browser to parse. The more complexity added to a string, the more potential there is for parser errors or unintentional differences in behavior from one browser to another. There's an upside here, however: a syntax more easily read by machines is a syntax more easily written by them.
-
-srcset is a clear-cut case for automation. It's rare that you'll be hand-crafting multiple versions of your images for a production environment, instead automating the process using a task runner like Gulp, a bundler like Webpack, a third-party CDN like Cloudinary, or functionality already built into your CMS of choice. Given enough information to generate our sources in the first place, a system would have enough information to write them into a viable srcset attribute.
-
-sizes is a little more difficult to automate. As you know, the only way a system can calculate the size of an image in a rendered layout is to have rendered the layout. Fortunately, a number of developer tools have popped up to abstract away the process of hand-writing sizes attributes—with an efficiency you could never match by hand. respImageLint, for example, is a snippet of code intended to vet your sizes attributes for accuracy and provide suggestions for improvement. The Lazysizes project compromises some speed for efficiency by deferring image requests until after the layout has been established, allowing JavaScript to generate sizes values for you. If you're using a fully client-side rendering framework such as React or Vue, there are a number of solutions for authoring and/or generating srcset and sizes attributes, which we'll discuss further in CMS and Frameworks.
-
-
-
-
-
-
-Prescriptive syntaxes 
-
-bookmark_border
-The <picture> element doesn't render anything on its own, but instead acts as a decision engine for an inner <img> element, telling it what to render. <picture> follows a precedent already set by the <audio> and <video> elements: a wrapper element that contains individual <source> elements.
-
-
-<picture>
-   <source …>
-   <source …>
-    <img …>
-</picture …>
-That inner <img> also provides you with a reliable fallback pattern for older browsers without support for responsive images: if the <picture> element isn't recognized by the user's browser, it's ignored. The <source> elements are then discarded as well, since the browser either won't recognize them at all, or won't have meaningful context for them without a <video> or <audio> parent. The inner <img> element will be recognized by any browser, though—and the source specified in its src will be rendered as expected.
-
-"Art directed" images with <picture>
-Making changes to the content or aspect ratio of an image based on the size of the image in the page is typically referred to as "art directed" responsive images. srcset and sizes are designed to work invisibly, seamlessly swapping out sources as the user's browser dictates. There are times, however, where you want to alter sources across breakpoints to better highlight the content, the same way you adapt page layouts. For example: a full-width header image with a small central focus may work well on a large viewport:
-
-A header width image of a periwinkle flower surrounded by leaves and stems, being visited by a honeybee.
-
-But when scaled down to suit small viewports, the central focus of the image might be lost:
-
-A header width image of a periwinkle flower, scaled down. The honeybee is barely visible.
-The subject of these image sources are the same, but in order to better focus on that subject visually, you'll want the proportions of the image source to change across breakpoints. For example, a tighter zoom on the center of the image, and some of the detail at the edges cropped out:
-
-A zoomed in crop of the periwinkle flower.
-
-That sort of "cropping" can be achieved through CSS, but would leave a user requesting all the data that makes up that image, even though they might never end up seeing it.
-
-Each source element has attributes defining the conditions for the selection of that source: media, which accepts a media query, and type, which accepts a media type (previously known as "MIME type"). The first <source> in the source order to match the user's current browsing context is selected, and the contents of the srcset attribute on that source will be used to determine the right candidates for that context. In this example, the first source with a media attribute that matches user's viewport size will be the one selected:
-
-
-<picture>
-  <source media="(min-width: 1200px)" srcset="wide-crop.jpg">
-  <img src="close-crop.jpg" alt="…">
-</picture>
-
-You should always specify the inner img last in the order—if none of the source elements match their media or type criteria, the image will act as a "default" source. If you're using min-width media queries, you want to have the largest sources first, as seen in the preceding code. When using max-width media queries, you should put the smallest source first.
-
-
-<picture>
-   <source media="(max-width: 400px)" srcset="mid-bp.jpg">
-   <source media="(max-width: 800px)" srcset="high-bp.jpg">
-   <img src="highest-bp.jpg" alt="…">
-</picture>
-When a source is chosen based on the criteria you've specified, the srcset attribute on source is passed along to the <img> as though it were defined on <img> itself—meaning you're free to use sizes to optimize art directed image sources as well.
-
-
-<picture>
-   <source media="(min-width: 800px)" srcset="high-bp-1600.jpg 1600w, high-bp-1000.jpg 1000w">
-   <source srcset="lower-bp-1200.jpg 1200w, lower-bp-800.jpg 800w">
-   <img src="fallback.jpg" alt="…" sizes="calc(100vw - 2em)">
-</picture>
-Of course, an image with proportions that can vary depending on the selected <source> element raises a performance issue: <img> only supports a single width and height attribute, but omitting those attributes can lead to a measurably worse user experience. In order to account for this, a relatively recent—but well supported—addition to the HTML specification allows for use of height and width attributes on <source> elements. These work to reduce layout shifts just as well as they do on <img>, with the appropriate space reserved in your layout for whatever <source> element is selected.
-
-
-<picture>
-   <source
-      media="(min-width: 800px)"
-      srcset="high-bp-1600.jpg 1600w, high-bp-1000.jpg 1000w"
-      width="1600"
-      height="800">
-   <img src="fallback.jpg"
-      srcset="lower-bp-1200.jpg 1200w, lower-bp-800.jpg 800w"
-      sizes="calc(100vw - 2em)"
-      width="1200"
-      height="750"
-      alt="…">
-</picture>
-It's important to note that art direction can be used for more than decisions based on viewport-size—and it should, given that the majority of those cases can be more efficiently handled with srcset/sizes. For example, selecting an image source better suited to the color scheme dictated by a user's preference:
-
-
-<picture>
-   <source media="(prefers-color-scheme: dark)" srcset="hero-dark.jpg">
-   <img srcset="hero-light.jpg">
-</picture>
-
-The type attribute
-The type attribute allows you to use the <picture> element's single-request decision engine to only serve image formats to browsers that support them.
-
-As you learned in Image Formats and Compression, an encoding that the browser can't parse won't even be recognizable as image data.
-
-Before the introduction of the <picture> element, the most viable front-end solutions for serving new image formats required the browser to request and attempt to parse an image file before determining whether to throw it away and load a fallback. A common example was a script along these lines:
-
-
-   <img src="image.webp"
-    data-fallback="image.jpg"
-    onerror="this.src=this.getAttribute('data-fallback'); this.onerror=null;"
-    alt="...">
-With this pattern, a request for image.webp would still be made in every browser—meaning a wasted transfer for browsers without support for WebP. Browsers that couldn't then parse the WebP encoding would throw an onerror event, and swap the data-fallback value into src. It was a wasteful solution, but again, approaches like this one were the only option available on the front-end. Remember that the browser begins making requests for images before any custom scripting has a chance to run—or even be parsed—so we couldn't preempt this process.
-
-The <picture> element is explicitly designed to avoid those redundant requests. While there's still no way for a browser to recognize a format it doesn't support without requesting it, the type attribute warns the browser about the source encodings up-front, so it can decide whether or not to make a request.
-
-In the type attribute, you provide the Media Type (formerly MIME type) of the image source specified in the srcset attribute of each <source>. This provides the browser with all the information it needs to immediately determine whether the image candidate provided by that source can be decoded without making any external requests—if the media type isn't recognized, the <source> and all its candidates are disregarded, and the browser moves on.
-
-
-<picture>
- <source type="image/webp" srcset="pic.webp">
- <img src="pic.jpg" alt="...">
-</picture>
-Here, any browser that supports WebP encoding will recognize the image/webp Media Type specified in the type attribute of the <source> element, select that <source>, and—since we've only provided a single candidate in srcset—instruct the inner <img> to request, transfer, and render pic.webp. Any browser without support for WebP will disregard the source, and absent any instructions to the contrary, the <img> will render the contents of src as it has done since 1992. You don't need to specify a second <source> element with type="image/jpeg" here, of course—you can assume universal support for JPEG.
-
-Regardless of the user's browsing context, all of this is achieved with a single file transfer, and no bandwidth wasted on image sources that can't be rendered. This is forward-thinking, as well: as newer and more efficient file formats will come with Media Types of their own, and we'll be able to take advantage of them thanks to picture—with no JavaScript, no serverside dependencies, and all the speed of <img>.
-
-The future of responsive images
-All of the markup patterns discussed here were a heavy lift in terms of standardization: changing the functionality of something as established and central to the web as <img> was no small feat, and the suite of problems those changes aimed to solve were extensive to say the least. If you've caught yourself thinking that there's a lot of room for improvement with these markup patterns, you're absolutely right. From the outset, these standards were intended to provide a baseline for future technologies to build on.
-
-All of these solutions have necessarily depended on markup, so as to be included in the initial payload from the server, and arrive in time for the browser to request image sources—a limitation that led to the admittedly unwieldy sizes attribute.
-
-However, since these features were introduced to the web platform, a native method of deferring image requests was introduced. <img> elements with the loading="lazy" attribute aren't requested until the layout of the page is known, in order to defer requests for images outside of the user's initial viewport until later on in the process of rendering the page, potentially avoiding unnecessary requests. Because the browser fully understands the page layout at the time these requests are made, a sizes="auto" attribute has been proposed as an addition to the HTML specification to avoid the chore of manually-written sizes attributes in these cases.
-
-There are also additions to the <picture> element on the horizon as well, to match some exceptionally exciting changes to the way we style out page layouts. While viewport information is a sound basis for high-level layout decisions, it prevents us from taking a fully component-level approach to development—meaning, a component that can be dropped into any part of a page layout, with styles that respond to the space that the component itself occupies. This concern led to the creation of container queries: a method of styling elements based on the size of their parent container, rather than the viewport alone.
-
-While the container query syntax has only just stabilized—and browser support is very limited, at the time of writing—the addition of the browser technologies that enable it will provide the <picture> element with a means of doing the same thing: a potential container attribute that allows for <source> selection criteria based on the space the <picture> element's <img> occupies, rather than based on the size of the viewport.
-
-If that sounds a little vague, well, there's a good reason: these web standards discussions are ongoing, but far from settled—you can't use them just yet.
-
-While responsive image markup promises to only get easier to work with over time, like any web technology, there are a number of services, technologies, and frameworks to help ease the burden of hand-writing this markup available. In the next module, we'll look at how to integrate everything we've learned about image formats, compression, and responsive images into a modern development workflow.
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <div class="mt-5 small">
+                    <h2 id="feedback">
+                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
+                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
-                      <footer class="mt-3 small">
-                        <div class="row">
-                            <div class="col-md-4 text-start">
-                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
-                            </div>
-                            <div class="col-md-4 text-center">
-                                <a href="#" class="link-offset-2">Topic</a>
-                            </div>
-                            <div class="col-md-4 text-end">
-                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
-                            </div>
-                        </div>
-                      </footer>
+                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container px-4 px-md-3">
+            <div class="container py-4 py-md-5 px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1465,9 +1198,6 @@ While responsive image markup promises to only get easier to work with over time
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
-                            <li class="mb-2">
-                              <a href="https://newsletter.datarist.com">Newsletter</a>
-                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">

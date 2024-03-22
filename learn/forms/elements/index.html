@@ -197,16 +197,15 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
-                            <li class="nav-item col-6 col-lg-auto">
-                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
-                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
-                                    <title>Twitter</title>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
+                                        <title>Twitter</title>
+                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
+                                    </svg>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1143,7 +1142,9 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                                                
+                                <li>
+                                    <a href="#feedback">Feedback</a>
+                                </li>                                
                             </ul>
                         </nav>
                     </div>
@@ -1152,113 +1153,30 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
-                    The form element in depth 
-
-bookmark_border
-In a previous module, you learned how to use the <form> element. In this module, you learn how a form works, and when to use a form.
-
-Should you use a <form> element?
-Browser Support
-
-1
-12
-1
-1
-Source
-
-You don't always need to put form controls in a <form> element. For example, you might provide a <select> element for users to choose a product category. You don't need a <form> element here, as you're not storing or processing data on your backend.
-
-However, in most cases when you store or process data from users, you should use the <form> element. As you will learn in this module, using a <form> gives you a lot of built-in functionality from browsers that you would otherwise have to build yourself. A <form> also has many accessibility features built-in by default. If you want to avoid a page reload when a user submits a form, you can still use the <form> element, but enhance it with JavaScript.
-
-Note: It's possible to replicate form functionality with JavaScript, but a purely script-based approach is unlikely to be as robust, accessible and future-proof as a built-in <form>. Find out why not everybody has JavaScript.
-How does a <form> work?
-You learned that a <form> is the best way to handle user data. You may wonder now, how does a form work?
-
-The <form> is a container for interactive form controls.
-
-
-<form method="post">
-  <label for="name">Name</label>
-  <input type="text" name="name" id="name">
-  <button formaction="/name">Save</button>
-</form>
-How does form submission work?
-When you submit a <form>, the browser checks the <form> attributes. The data is sent as a GET or POST request according to the method attribute. If no method attribute is present, a GET request is made to the URL of the current page.
-
-How can you access and process the form data? The submitted data can be handled by JavaScript on the frontend using a GET request, or by code on the backend using a GET or POST request. Learn more about request types and transferring form data.
-
-Note: The Submit button may have a formmethod attribute. If this is the case, the value defined there is used.
-When the form is submitted, the browser makes a request to the URL that is the value of the action attribute. In addition, the browser checks if the Submit button has a formaction attribute. If this is the case, the URL defined there is used.
-
-Furthermore, the browser looks up additional attributes on the <form> element, for example, to decide if the form should be validated (novalidate), autocomplete should be used (autocomplete="off") or what encoding should be used (accept-charset).
-
-Try to build a form where users can submit their favorite color. The data should be sent as a POST request, and the URL where the data will be processed should be /color.
-
-Show form
-Ensure users can submit your form
-There are two ways to submit a form. You can click the Submit button, or press Enter while using any form control.
-
-Note: Use an actionable name for your Submit button, for example, 'Proceed to Payment' or 'Save Changes', rather than just 'Submit'. Don't disable the Submit button while still awaiting valid user input, but consider disabling it once the form has been submitted, preventing multiple requests to your server. Learn more about Submit button best practices.
-You can add a Submit button in various ways. One option is to use a <button> element inside your form. As long as you don't use type="button" it works as a Submit button. Another option is to use <input type="submit" value="Submit">.
-
-Note: You can use the enterkeyhint attribute to change the label of the Enter key for on-screen keyboards. This helps make it clearer for users what happens when they submit the current form.
-A third option is to use <input type="image" alt="Submit" src="submit.png">, to create a graphical Submit button. However, now that you can create graphical buttons with CSS, it's not recommended to use type="image".
-
-Note: Always give users as much time as they want to submit a form. Defining timeouts on your form will cause data loss, and frustrates your users. For more information, see W3C form timeout guidelines.
-Enable users to submit files
-Use <input type="file"> to enable people to upload and submit files if necessary.
-
-
-<label for="file">Choose file to upload</label>
-<input type="file" id="file" name="file" multiple>
-First, add an <input> element with type="file" to your form. Add the multiple attribute if users should be able to upload multiple files.
-
-
-One more change is needed to ensure users can upload files—set the enctype attribute on your form. The default value is application/x-www-form-urlencoded.
-
-
-<form method="post" enctype="multipart/form-data">
-…
-</form>
-To make sure files can be submitted, change it to multipart/form-data. Without this encoding, files can't be sent with a POST request.
-
-Check your understanding
-Test your knowledge of the form element
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <div class="mt-5 small">
+                    <h2 id="feedback">
+                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
+                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
-                      <footer class="mt-3 small">
-                        <div class="row">
-                            <div class="col-md-4 text-start">
-                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
-                            </div>
-                            <div class="col-md-4 text-center">
-                                <a href="#" class="link-offset-2">Topic</a>
-                            </div>
-                            <div class="col-md-4 text-end">
-                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
-                            </div>
-                        </div>
-                      </footer>
+                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container px-4 px-md-3">
+            <div class="container py-4 py-md-5 px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1280,9 +1198,6 @@ Test your knowledge of the form element
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
-                            <li class="mb-2">
-                              <a href="https://newsletter.datarist.com">Newsletter</a>
-                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">

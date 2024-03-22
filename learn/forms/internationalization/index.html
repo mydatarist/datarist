@@ -197,16 +197,15 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
-                            <li class="nav-item col-6 col-lg-auto">
-                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
-                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
-                                    <title>Twitter</title>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
+                                        <title>Twitter</title>
+                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
+                                    </svg>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1143,7 +1142,9 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                                                
+                                <li>
+                                    <a href="#feedback">Feedback</a>
+                                </li>                                
                             </ul>
                         </nav>
                     </div>
@@ -1152,110 +1153,30 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
-                    Internationalization and localization 
-
-bookmark_border
-If you're reading this, you're using the World Wide Web. Your forms may be used by people speaking different languages, people from different countries, and people with different cultural backgrounds. Learn how to prepare your form for internationalization and localization.
-
-Ensure your form works in different languages
-Let's see how you can make sure your form works with different languages.
-
-The first step to make your site localization-ready is to define the language attribute lang on the <html> element. This attribute enables screen readers to invoke the correct pronunciation, and helps browsers offer a translation of the page if the defined language is not the default browser language.
-
-
-<html lang="en-us">
-Learn more about the lang attribute.
-
-Say you translated a form to German. How can you make sure search engines and browsers know about the translated version? You can add <link> elements in your site's <head> describing the alternate versions.
-
-
-<link rel="alternate" title="The form element"
-  href="https://example.com/en/form" hreflang="en">
-<link rel="alternate" title="Das Formularelement"
-  href="https://example.com/de/form" hreflang="de">
-Help users who speak another language to use your form
-You can't translate your form into every language, but you can ensure translation tools can translate it for you.
-
-Note: Try it out! Enter the URL of your form in Google Translate, choose a language, and translate it. All visible content of your site will be translated. This is a good test to see if every text is translatable.
-To ensure translation tools translate all the text on your form, make sure all text is defined in HTML and is visible. Some tools also work with content defined in JavaScript, but to improve compatibility, try to include as much text as possible in HTML.
-
-Note: Avoid using the aria-label attribute to describe elements. Many translation tools aren't able to translate the aria-label attribute. Learn more why aria-label doesn't translate.
-Ensure your form works with different writing systems
-Different languages use different writing systems and character sets. Some scripts are written from left to right, and some from right to left.
-
-Make spacing independent of writing systems
-To ensure your form works for different writing systems, you can use CSS logical properties.
-
-
-The input has a border thickness of 1px on all sides, except on the left side, where the border is 4px thick. Now, edit the CodePen and change the writing system to right to left by adding dir="rtl" to the <main> element
-
-Note: The dir attribute indicates the direction of an element's text. If the complete site uses the same writing system, define the dir attribute on the <html> element. In CodePen you don't have access to the <html> element, which is why you need to add it to <main>. You can also use the CSS direction property to achieve the same result.
-The thick border is now on the right side. That's because we defined the border using a logical property.
-
-
-input {
-  border-inline-start-width: 4px;
-}
-Learn more about logical properties.
-
-Ensure your form can handle different name formats
-Say you have a form where the user should fill in their name. How would you add the field to your form?
-
-You could add one field for the first name and one for the surname. However, names are different around the world: for example, some people don't have a surname—so how should they fill in the surname field?
-
-To make it quick and easy to enter names—and to ensure everybody can enter their name, whatever the format—use a single form field for names wherever possible.
-
-Learn more about personal names.
-
-If you have a name with non-Latin characters, you may have encountered the issue that your name is reported as invalid in some forms. When you build forms, make sure to allow all possible characters—and do not assume that a name only consists of Latin characters.
-
-Allow a variety of address formats
-The headquarters of Google is at 1600 Amphitheatre Parkway, Mountain View, CA 94043, United States.
-
-This address includes the street number, street, city, state, postal code, and country. In your country, the address format may be totally different. How can you ensure everybody can enter their address in your form?
-
-One way is to use generic inputs.
-
-
-Learn more about other ways to work with international address fields.
-
-Check your understanding
-Test your knowledge of internationalization and localization
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <div class="mt-5 small">
+                    <h2 id="feedback">
+                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
+                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
-                      <footer class="mt-3 small">
-                        <div class="row">
-                            <div class="col-md-4 text-start">
-                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
-                            </div>
-                            <div class="col-md-4 text-center">
-                                <a href="#" class="link-offset-2">Topic</a>
-                            </div>
-                            <div class="col-md-4 text-end">
-                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
-                            </div>
-                        </div>
-                      </footer>
+                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container px-4 px-md-3">
+            <div class="container py-4 py-md-5 px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1277,9 +1198,6 @@ Test your knowledge of internationalization and localization
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
-                            <li class="mb-2">
-                              <a href="https://newsletter.datarist.com">Newsletter</a>
-                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">

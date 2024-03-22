@@ -197,16 +197,15 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
-                            <li class="nav-item col-6 col-lg-auto">
-                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
-                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
-                                    <title>Twitter</title>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
+                                        <title>Twitter</title>
+                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
+                                    </svg>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1143,7 +1142,9 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                                                
+                                <li>
+                                    <a href="#feedback">Feedback</a>
+                                </li>                                
                             </ul>
                         </nav>
                     </div>
@@ -1152,407 +1153,30 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
-                    Video and audio content
-Previous
-Overview: Multimedia and embedding
-Next
-Now that we are comfortable with adding simple images to a webpage, the next step is to start adding video and audio players to your HTML documents! In this article we'll look at doing just that with the <video> and <audio> elements; we'll then finish off by looking at how to add captions/subtitles to your videos.
-
-Prerequisites:	Basic software installed, basic knowledge of working with files, familiarity with HTML fundamentals (as covered in Getting started with HTML) and Images in HTML.
-Objective:	To learn how to embed video and audio content into a webpage, and add captions/subtitles to video.
-Video and audio on the web
-The first influx of online videos and audio were made possible by proprietary plugin-based technologies like Flash and Silverlight. Both of these had security and accessibility issues, and are now obsolete, in favor of native HTML solutions <video> and <audio> elements and the availability of JavaScript APIs for controlling them. We'll not be looking at JavaScript here — just the basic foundations that can be achieved with HTML.
-
-We won't be teaching you how to produce audio and video files — that requires a completely different skill set. We have provided you with sample audio and video files and example code for your own experimentation, in case you are unable to get hold of your own.
-
-Note: Before you begin here, you should also know that there are quite a few OVPs (online video providers) like YouTube, Dailymotion, and Vimeo, and online audio providers like Soundcloud. Such companies offer a convenient, easy way to host and consume videos, so you don't have to worry about the enormous bandwidth consumption. OVPs even usually offer ready-made code for embedding video/audio in your webpages; if you use that route, you can avoid some of the difficulties we discuss in this article. We'll be discussing this kind of service a bit more in the next article.
-
-The <video> element
-The <video> element allows you to embed a video very easily. A really simple example looks like this:
-
-HTML
-Copy to Clipboard
-<video src="rabbit320.webm" controls>
-  <p>
-    Your browser doesn't support HTML video. Here is a
-    <a href="rabbit320.webm">link to the video</a> instead.
-  </p>
-</video>
-The features of note are:
-
-src
-In the same way as for the <img> element, the src (source) attribute contains a path to the video you want to embed. It works in exactly the same way.
-
-controls
-Users must be able to control video and audio playback (it's especially critical for people who have epilepsy.) You must either use the controls attribute to include the browser's own control interface, or build your interface using the appropriate JavaScript API. At a minimum, the interface must include a way to start and stop the media, and to adjust the volume.
-
-The paragraph inside the <video> tags
-This is called fallback content — this will be displayed if the browser accessing the page doesn't support the <video> element, allowing us to provide a fallback for older browsers. This can be anything you like; in this case, we've provided a direct link to the video file, so the user can at least access it some way regardless of what browser they are using.
-
-The embedded video will look something like this:
-
-A simple video player showing a video of a small white rabbit
-You can try the example live here (see also the source code.)
-
-Using multiple source formats to improve compatibility
-There's a problem with the above example. It is possible that the video might not play for you, because different browsers support different video (and audio) formats. Fortunately, there are things you can do to help prevent this from being an issue.
-
-Contents of a media file
-First, let's go through the terminology quickly. Formats like MP3, MP4 and WebM are called container formats. They define a structure in which the audio and/or video tracks that make up the media are stored, along with metadata describing the media, what codecs are used to encode its channels, and so forth.
-
-A WebM file containing a movie which has a main video track and one alternate angle track, plus audio for both English and Spanish, in addition to audio for an English commentary track can be conceptualized as shown in the diagram below. Also included are text tracks containing closed captions for the feature film, Spanish subtitles for the film, and English captions for the commentary.
-
-Diagram conceptualizing the contents of a media file at the track level.
-
-The audio and video tracks within the container hold data in the appropriate format for the codec used to encode that media. Different formats are used for audio tracks versus video tracks. Each audio track is encoded using an audio codec, while video tracks are encoded using (as you probably have guessed) a video codec. As we talked about before, different browsers support different video and audio formats, and different container formats (like MP3, MP4, and WebM, which in turn can contain different types of video and audio).
-
-For example:
-
-A WebM container typically packages Vorbis or Opus audio with VP8/VP9 video. This is supported in all modern browsers, though older versions may not work.
-An MP4 container often packages AAC or MP3 audio with H.264 video. This is also supported in all modern browsers.
-The Ogg container tends to use Vorbis audio and Theora video. This is best supported in Firefox and Chrome, but has basically been superseded by the better quality WebM format.
-There are some special cases. For example, for some types of audio, a codec's data is often stored without a container, or with a simplified container. One such instance is the FLAC codec, which is stored most commonly in FLAC files, which are just raw FLAC tracks.
-
-Another such situation is the always-popular MP3 file. An "MP3 file" is actually an MPEG-1 Audio Layer III (MP3) audio track stored within an MPEG or MPEG-2 container. This is especially interesting since while most browsers don't support using MPEG media in the <video> and <audio> elements, they may still support MP3 due to its popularity.
-
-An audio player will tend to play an audio track directly, e.g. an MP3 or Ogg file. These don't need containers.
-
-Media file support in browsers
-Note: Several popular formats, such as MP3 and MP4/H.264, are excellent but are encumbered by patents; that is, there are patents covering some or all of the technology that they're based upon. In the United States, patents covered MP3 until 2017, and H.264 is encumbered by patents through at least 2027.
-
-Because of those patents, browsers that wish to implement support for those codecs must pay typically enormous license fees. In addition, some people prefer to avoid restricted software and prefer to use only open formats. Due to these legal and preferential reasons, web developers find themselves having to support multiple formats to capture their entire audience.
-
-The codecs described in the previous section exist to compress video and audio into manageable files, since raw audio and video are both exceedingly large. Each web browser supports an assortment of codecs, like Vorbis or H.264, which are used to convert the compressed audio and video into binary data and back. Each codec offers its own advantages and drawbacks, and each container may also offer its own positive and negative features affecting your decisions about which to use.
-
-Things become slightly more complicated because not only does each browser support a different set of container file formats, they also each support a different selection of codecs. In order to maximize the likelihood that your website or app will work on a user's browser, you may need to provide each media file you use in multiple formats. If your site and the user's browser don't share a media format in common, your media won't play.
-
-Due to the intricacies of ensuring your app's media is viewable across every combination of browsers, platforms, and devices you wish to reach, choosing the best combination of codecs and container can be a complicated task. See Choosing the right container for help selecting the container file format best suited for your needs; similarly, see Choosing a video codec and Choosing an audio codec for help selecting the first media codecs to use for your content and your target audience.
-
-One additional thing to keep in mind: mobile browsers may support additional formats not supported by their desktop equivalents, just like they may not support all the same formats the desktop version does. On top of that, both desktop and mobile browsers may be designed to offload handling of media playback (either for all media or only for specific types it can't handle internally). This means media support is partly dependent on what software the user has installed.
-
-So how do we do this? Take a look at the following updated example (try it live here, also):
-
-HTML
-Copy to Clipboard
-<video controls>
-  <source src="rabbit320.mp4" type="video/mp4" />
-  <source src="rabbit320.webm" type="video/webm" />
-  <p>
-    Your browser doesn't support this video. Here is a
-    <a href="rabbit320.mp4">link to the video</a> instead.
-  </p>
-</video>
-Here we've taken the src attribute out of the actual <video> tag, and instead included separate <source> elements that point to their own sources. In this case the browser will go through the <source> elements and play the first one that it has the codec to support. Including WebM and MP4 sources should be enough to play your video on most platforms and browsers these days.
-
-Each <source> element also has a type attribute. This is optional, but it is advised that you include it. The type attribute contains the MIME type of the file specified by the <source>, and browsers can use the type to immediately skip videos they don't understand. If type isn't included, browsers will load and try to play each file until they find one that works, which obviously takes time and is an unnecessary use of resources.
-
-Refer to our guide to media types and formats for help selecting the best containers and codecs for your needs, as well as to look up the right MIME types to specify for each.
-
-Other <video> features
-There are a number of other features you can include when displaying an HTML video. Take a look at our next example:
-
-HTML
-Copy to Clipboard
-<video
-  controls
-  width="400"
-  height="400"
-  autoplay
-  loop
-  muted
-  preload="auto"
-  poster="poster.png">
-  <source src="rabbit320.mp4" type="video/mp4" />
-  <source src="rabbit320.webm" type="video/webm" />
-  <p>
-    Your browser doesn't support this video. Here is a
-    <a href="rabbit320.mp4">link to the video</a> instead.
-  </p>
-</video>
-The resulting UI looks something like this:
-
-A video player showing a poster image before it plays. The poster image says HTML video example, OMG hell yeah!
-Features include:
-
-width and height
-You can control the video size either with these attributes or with CSS. In both cases, videos maintain their native width-height ratio — known as the aspect ratio. If the aspect ratio is not maintained by the sizes you set, the video will grow to fill the space horizontally, and the unfilled space will just be given a solid background color by default.
-
-autoplay
-Makes the audio or video start playing right away, while the rest of the page is loading. You are advised not to use autoplaying video (or audio) on your sites, because users can find it really annoying.
-
-loop
-Makes the video (or audio) start playing again whenever it finishes. This can also be annoying, so only use if really necessary.
-
-muted
-Causes the media to play with the sound turned off by default.
-
-poster
-The URL of an image which will be displayed before the video is played. It is intended to be used for a splash screen or advertising screen.
-
-preload
-Used for buffering large files; it can take one of three values:
-
-"none" does not buffer the file
-"auto" buffers the media file
-"metadata" buffers only the metadata for the file
-You can find the above example available to play live on GitHub (also see the source code.) Note that we haven't included the autoplay attribute in the live version — if the video starts to play as soon as the page loads, you don't get to see the poster!
-
-The <audio> element
-The <audio> element works just like the <video> element, with a few small differences as outlined below. A typical example might look like so:
-
-HTML
-Copy to Clipboard
-<audio controls>
-  <source src="viper.mp3" type="audio/mp3" />
-  <source src="viper.ogg" type="audio/ogg" />
-  <p>
-    Your browser doesn't support this audio file. Here is a
-    <a href="viper.mp3">link to the audio</a> instead.
-  </p>
-</audio>
-This produces something like the following in a browser:
-
-A simple audio player with a play button, timer, volume control, and progress bar
-Note: You can run the audio demo live on GitHub (also see the audio player source code.)
-
-This takes up less space than a video player, as there is no visual component — you just need to display controls to play the audio. Other differences from HTML video are as follows:
-
-The <audio> element doesn't support the width/height attributes — again, there is no visual component, so there is nothing to assign a width or height to.
-It also doesn't support the poster attribute — again, no visual component.
-Other than this, <audio> supports all the same features as <video> — review the above sections for more information about them.
-
-Displaying video text tracks
-Now we'll discuss a slightly more advanced concept that is really useful to know about. Many people can't or don't want to hear the audio/video content they find on the Web, at least at certain times. For example:
-
-Many people have auditory impairments (such as being hard of hearing or deaf) so can't hear the audio clearly if at all.
-Others may not be able to hear the audio because they are in noisy environments (like a crowded bar when a sports game is being shown).
-Similarly, in environments where having the audio playing would be a distraction or disruption (such as in a library or when a partner is trying to sleep), having captions can be very useful.
-People who don't speak the language of the video might want a text transcript or even translation to help them understand the media content.
-Wouldn't it be nice to be able to provide these people with a transcript of the words being spoken in the audio/video? Well, thanks to HTML video, you can. To do so we use the WebVTT file format and the <track> element.
-
-Note: "Transcribe" means "to write down spoken words as text." The resulting text is a "transcript."
-
-WebVTT is a format for writing text files containing multiple strings of text along with metadata such as the time in the video at which each text string should be displayed, and even limited styling/positioning information. These text strings are called cues, and there are several kinds of cues which are used for different purposes. The most common cues are:
-
-subtitles
-Translations of foreign material, for people who don't understand the words spoken in the audio.
-
-captions
-Synchronized transcriptions of dialog or descriptions of significant sounds, to let people who can't hear the audio understand what is going on.
-
-timed descriptions
-Text which should be spoken by the media player in order to describe important visuals to blind or otherwise visually impaired users.
-
-A typical WebVTT file will look something like this:
-
-WEBVTT
-
-1
-00:00:22.230 --> 00:00:24.606
-This is the first subtitle.
-
-2
-00:00:30.739 --> 00:00:34.074
-This is the second.
-
-…
-To get this displayed along with the HTML media playback, you need to:
-
-Save it as a .vtt file in a sensible place.
-Link to the .vtt file with the <track> element. <track> should be placed within <audio> or <video>, but after all <source> elements. Use the kind attribute to specify whether the cues are subtitles, captions, or descriptions. Further, use srclang to tell the browser what language you have written the subtitles in. Finally, add label to help readers identify the language they are searching for.
-Here's an example:
-
-HTML
-Copy to Clipboard
-<video controls>
-  <source src="example.mp4" type="video/mp4" />
-  <source src="example.webm" type="video/webm" />
-  <track kind="subtitles" src="subtitles_es.vtt" srclang="es" label="Spanish" />
-</video>
-This will result in a video that has subtitles displayed, kind of like this:
-
-Video player with stand controls such as play, stop, volume, and captions on and off. The video playing shows a scene of a man holding a spear-like weapon, and a caption reads "Esta hoja tiene pasado oscuro."
-For more details, including on how to add labels please read Adding captions and subtitles to HTML video. You can find the example that goes along with this article on GitHub, written by Ian Devlin (see the source code too.) This example uses some JavaScript to allow users to choose between different subtitles. Note that to turn the subtitles on, you need to press the "CC" button and select an option — English, Deutsch, or Español.
-
-Note: Text tracks also help you with SEO, since search engines especially thrive on text. Text tracks even allow search engines to link directly to a spot partway through the video.
-
-Active learning: Embedding your own audio and video
-For this active learning, we'd (ideally) like you to go out into the world and record some of your own video and audio — most phones these days allow you to record audio and video very easily and, provided you can transfer it on to your computer, you can use it. You may have to do some conversion to end up with a WebM and MP4 in the case of video, and an MP3 and Ogg in the case of audio, but there are enough programs out there to allow you to do this without too much trouble, such as Miro Video Converter and Audacity. We'd like you to have a go!
-
-If you are unable to source any video or audio, then you can feel free to use our sample audio and video files to carry out this exercise. You can also use our sample code for reference.
-
-We would like you to:
-
-Save your audio and video files in a new directory on your computer.
-Create a new HTML file in the same directory, called index.html.
-Add <audio> and <video> elements to the page; make them display the default browser controls.
-Give both of them <source> elements so that browsers will find the audio format they support best and load it. These should include type attributes.
-Give the <video> element a poster that will be displayed before the video starts to be played. Have fun creating your own poster graphic.
-For an added bonus, you could try researching text tracks, and work out how to add some captions to your video.
-
-Test your skills!
-You've reached the end of this article, but can you remember the most important information? You can find some further tests to verify that you've retained this information before you move on — see Test your skills: Multimedia and embedding. Note that the third assessment question in this test assumes knowledge of some of the techniques covered in the next article, so you may want to read that before attempting it.
-
-Summary
-And that's a wrap — we hope you had fun playing with video and audio in web pages! In the next article, we'll look at other ways of embedding content on the Web, using technologies like <iframe> and <object>.
-
-See also
-The HTML media elements: <audio>, <video>, <source>, and <track>
-Adding captions and subtitles to video
-Audio and Video delivery: A LOT of detail about putting audio and video onto web pages using HTML and JavaScript.
-Audio and Video manipulation: A LOT of detail about manipulating audio and video using JavaScript (for example adding filters.)
-Web media technologies
-Guide to media types and formats on the web
-Event reference > Media
-
-
-
-
-
-
-
-Audio and Video 
-
-bookmark_border
-As you learned in the images module, HTML enables embedding media into a web page. In this section, we look at audio and video files, including how to embed them, user controls, providing a static image placeholder for your videos, and best practices, including making audio and video files accessible.
-
-<audio> and <video>
-The <video> and <audio> elements can be used to embed media players directly with the src attribute or can be used as the container element for a series of <source> elements, each providing a src file suggestion. While <video> can be used to embed an audio file, the <audio> element is preferable for embedding sound files.
-
-The opening <video> and <audio> tags can contain several other attributes including controls, autoplay, loop, mute, preload, and the global attributes. The <video> element also supports the height, width, and poster attributes.
-
-
-<video src="videos/machines.webm" poster="images/machine.jpg" controls>
-  <p>Watch <a href="https://youtube.com/link">video on Youtube</a></p>
-</video>
-This <video> example has a single source with the src attribute linking to the video source. The poster attribute provides an image to display as the video loads. Finally, the controls attribute provides user video controls.
-
-Fallback content is included between the opening and closing tags. If the user agent doesn't support <video> (or <audio> this content is shown. The closing </video> tag is required, even if there is no content between the two (but there should always be fallback content , right?).
-
-If no src attribute is included on the opening <video> or <audio> tags, include one or more <source> elements, each with a src attribute to a media file. The following example includes three media file options, fallback content, and English and French subtitles between the opening and closing tags.
-
-
-<video controls poster="images/machine.jpg">
-  <source src="videos/machines.webm" type="video/webm">
-  <source src="videos/machines.mp4" type="video/mp4">
-  <source src="videos/machines.ogv" type="video/ogg">
-  <track label="English" kind="subtitles" srclang="en" src="vtt/subtitles-en.vtt" default />
-  <track label="Francais" kind="subtitles" srclang="fr" src="vtt/subtitles-fr.vtt" />
-  <p>Watch <a href="https://youtube.com/link">video on Youtube</a></p>
-</video>
-Each <source> child includes a src attribute pointing to the resource and the type attribute informs the browser of the linked file's media type. This prevents the browser from fetching media files it wouldn't be able to decode.
-
-Within the type attribute, you can include a codecs parameter, which specifies exactly how the resource is encoded. Codecs give you a way of including media optimizations that are not yet supported in all browsers. The codec is separated from the media type with a semicolon. For example, the codec can be written using intuitive syntax, such as <source src="videos/machines.webm" type="video/webm;codecs=vp8,vorbis"> which indicates that the WebM files contain VP8 video and vorbis audio. Codecs can also be more difficult to decipher, such as <source src="videos/machines.mp4" type="video/mp4; codecs=avc1.4d002a"> which indicates that the MP4 encoding is Advanced Video Coding Main Profile Level 4.2. Explaining this syntax is well beyond the scope of this lesson. Jake Archibald has a post explaining how to determine the codec parameter for an AV1 video if you want to learn more.
-
-When displaying a video, by default, the first frame of the video is shown as the still shot when it becomes available. This is something that can be controlled. The poster attribute enables the source of an image to show while the video is downloading and until it is played. If the video plays and is subsequently paused, the poster is not re-shown.
-
-Make sure to define the aspect ratio of your video, because when the video loads, a size difference between the poster and the video will cause a reflow and repaint.
-
-Always include the boolean controls attribute. This makes the user controls visible, providing users with the ability to control audio levels, mute the audio completely, and expand the video to fullscreen. Omitting controls creates a bad user experience, especially if the boolean autoplay attribute is included. Note that some browsers will not heed the autoplay attribute directive if the boolean muted attribute is omitted because autoplaying a media file is generally a bad user experience, even when muted and with visible controls.
-
-Tracks
-Between the opening and required closing tags of both audio and video, include one or more <track> elements to specify timed text tracks. The following example includes two <track> files, providing timed text subtitles in both English and French.
-
-
-<track label="English" kind="subtitles" srclang="en" src="vtt/subtitles-en.vtt" default />
-<track label="Français" kind="subtitles" srclang="fr" lang="fr-fr" src="vtt/subtitles-fr.vtt" />
-The track files, specified in the src attribute, should be in WebVTT format (.vtt). The files should be on the same domain as the HTML document, unless the crossorigin attribute is included.
-
-There are five enumerated values for the track kind attribute: subtitles, captions, descriptions, chapters, and other metadata.
-
-Include subtitles along with the srclang attribute for dialogue transcription and translations. The value of each label attribute is displayed as an option to the user. The content of the selected VTT option is displayed over the video. The appearance of the subtitles can be styled by targeting the ::cue/ ::cue().
-
-The value kind="caption" should be reserved for transcription and translations that include sound effects and other relevant audio information. This isn't just for deaf viewers. Maybe a user can't find their headphones so they turned on the captions. Or maybe they didn't quite catch the last few talking points from a favorite podcast, so they want to read the transcript to confirm their understanding. Having alternative ways to access audio and video content is both important and convenient.
-
-The kind="description" is for text descriptions of the visual content in the video for users who can't see the video, whether they are using a system without a screen such as Google Home or Alexa, or are blind.
-
-Note: The audio and video section of learn accessibility goes into more detail about captions, transcripts, and audio descriptions.
-Providing captions and subtitles using the WebVTT format makes the video accessible to people with impaired hearing. Remember, disability is a mismatch between a person and their current environment. Impaired hearing can be due to the user being in a loud environment, having faulty speakers or broken headphones, or because the user has some hearing loss or is deaf. Ensuring your content is accessible helps many more people than you think; it helps everyone.
-
-Background video considerations
-Your marketing or design team may want your site to include a background video. Generally, this means that they want a muted, auto-playing, looping video with no controls. The HTML may look something like this:
-
-
-<video autoplay loop muted poster="images/machine.jpg" role="none">
-  <source src="videos/machines.webm" type="video/webm">
-  <source src="videos/machines.mp4" type="video/mp4">
-  <source src="videos/machines.ogv" type="video/ogg">
-</video>
-Background videos are not accessible. Content should not be conveyed through background videos without providing users with full control over playback and access to all captions. As this video is purely decorative, it includes the ARIA role of none and omits any fallback content. To improve the performance of always muted videos, remove the audio track from your media sources.
-
-If your video plays for five seconds or less, accessibility guidelines don't require a pausing mechanism, but anything with the boolean loop attribute will loop forever by default, exceeding this five-second, or any other, time limit. For good user experience, always include a method of pausing the video. This is most easily done by including controls.
-
-Custom media controls
-To display custom video or audio controls, rather than the browser built-in controls, include the controls attribute. Then use JavaScript to add custom media controls and remove the controls attribute. For example, you can add a <button> that toggles the play state of an audio file.
-
-
-<button id="playPause" aria-controls="idOfAudio"
-  data-pause-text="Pause audio"
-  data-play-text="Play audio">Pause audio</button>
-This example includes a button with dataset attributes containing the text that will be updated as the visitor toggles between play and pause states. The aria-controls attribute is included with the id of the element controlled by the button; in this case, the audio. Each button that controls the audio has an event handler.
-
-To create customized controls, use HTMLMediaElement.play() and HTMLMediaElement.pause(). When toggling the play state, also toggle the text of the button:
-
-
-const pauseButton = document.getElementById('playPause');
-
-pauseButton.addEventListener("click", pauseAndPlay, false);
-
-function pauseAndPlay() {
-  console.log(this);
-  const media = document.getElementById(this.getAttribute('aria-controls'));
-
-  if (media.paused) {
-    media.play();
-    this.innerText = this.dataset.pauseText;
-  } else {
-    media.pause();
-    this.innerText = this.dataset.playText;
-  }
-}
-By including the controls attribute, the user has a way to control the audio (or video) even if JavaScript fails. Only remove the controls attribute once a replacement button has been instantiated.
-
-
-document.querySelector('[aria-controls]').removeAttribute('controls');
-Always include external controls when users can't access the controls, such as with background videos that have their controls hidden behind site content. It is important to understand the basics of media accessibility requirements to accommodate users with different environmental and sensory needs, including the millions of people with hearing loss and visual impairments. We've just touched on the HTMLMediaElement which provides several properties, methods, and events that are inherited by both the HTMLVideoElement and HTMLAudioElement, with HTMLMediaElement adding a few properties, methods, and events of its own. There are several other Media APIs, including a TextTrack API. You can use the Media Capture and Streams and MediaDevices APIs to record audio from a user's microphone or record a user's screen. The Web Audio API enables manipulating live and pre-recorded audio and streaming, saving, or sending the audio to the <audio> element.
-
-Check your understanding
-Test your knowledge of audio and video.
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <div class="mt-5 small">
+                    <h2 id="feedback">
+                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
+                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
-                      <footer class="mt-3 small">
-                        <div class="row">
-                            <div class="col-md-4 text-start">
-                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
-                            </div>
-                            <div class="col-md-4 text-center">
-                                <a href="#" class="link-offset-2">Topic</a>
-                            </div>
-                            <div class="col-md-4 text-end">
-                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
-                            </div>
-                        </div>
-                      </footer>
+                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container px-4 px-md-3">
+            <div class="container py-4 py-md-5 px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1574,9 +1198,6 @@ Test your knowledge of audio and video.
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
-                            <li class="mb-2">
-                              <a href="https://newsletter.datarist.com">Newsletter</a>
-                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">

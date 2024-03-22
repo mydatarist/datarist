@@ -197,16 +197,15 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
-                            <li class="nav-item col-6 col-lg-auto">
-                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
-                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
-                                    <title>Twitter</title>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
+                                        <title>Twitter</title>
+                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
+                                    </svg>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1143,7 +1142,9 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                                                
+                                <li>
+                                    <a href="#feedback">Feedback</a>
+                                </li>                                
                             </ul>
                         </nav>
                     </div>
@@ -1152,134 +1153,30 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
-                    Key performance issues 
-
-bookmark_border
-As it stands now, images are the web's biggest assets in terms of both total transfer size and number of requests per page. The median webpage's total transfer size is roughly 2MB, as of June 2022, with images alone accounting for nearly half of that. It's no exaggeration to say that optimizing image requests may be the single biggest performance optimization you can make.
-
-Later, you'll learn how responsive images have evolved to help with the issues created by trying to serve one image for all eventualities. In this section, discover key performance metrics that relate to images, and how to improve them.
-
-Deferring image requests
-While you're about to learn a number of ways to ensure your image requests are as small and efficient as possible, the fastest image request will always be the one that never gets made. So, right up front, I want to share what may be the most impactful change you can make to the way you deliver image assets to your users: the loading="lazy" attribute.
-
-
-<img src="image.jpg" loading="lazy" alt="…">
-This attribute ensures that requests for images aren't made until they fall close to the user's viewport, deferring them from the initial page load—the time when the browser is at its busiest—and removing those requests from the critical rendering path.
-
-Simple as it may be in practice, using this attribute can have a huge positive impact on performance: an image that never falls within the user's viewport will never be requested, and no bandwidth will be wasted on images that the user will never see.
-
-There's a catch, however: deferring those requests means not taking advantage of browsers' hyper-optimized processes for requesting images as early as possible. If loading="lazy" is used on img elements toward the top of the layout—and thus more likely to be in the user's viewport when the page is first loaded—these images can feel significantly slower to the end user.
-
-Fetch Priority
-The loading attribute is an example of a larger web standards effort to give developers more power over how web browsers prioritize requests.
-
-You're likely aware of browsers' basic approaches to fetch priority: for example, a request for an external CSS file in the <head> of a document is considered essential enough to block render, while a request for an external JavaScript file just above </body> will be deferred until render is complete. If the value of a loading attribute on an <img> is 'lazy', the associated image request will be deferred until the browser determines that it will be shown to a user. Otherwise, that image will have the same priority as any other image on the page.
-
-The fetchpriority attribute is intended to give developers finer-grained control over the priority of assets, allowing you to flag resources as 'high' and 'low' priority relative to resources of the same type. The use cases for fetchpriority are similar to the loading attribute, though much more broad. For example, you might use fetchpriority="low" on an image only revealed following user interaction (whether that image falls within the user's viewport or not) in order to prioritize visible images elsewhere on the page, or fetchpriority="high" to prioritize an image you know will be immediately visible in the viewport as soon as the page is rendered.
-
-Note that fetchpriority differs from loading in that it doesn't fundamentally change browser behavior. It doesn't instruct the browser to load certain assets before others, instead giving it vital context for the decisions it makes around requesting assets.
-
-Measuring the impact of images
-When optimizing image assets, perceived performance is often more important, and more difficult to measure, than total transfer size alone.
-
-Web Vitals provide measurable, actionable metrics and guidance for improving users' experience of the web, highlighting problems such as slow response time from a web server, rendering issues, and interactivity delays. Core Web Vitals are a subset of these goals, laser-focused on the user's direct experience of an individual page—a set of technical measurements that, together, determine how fast an experience feels to a user.
-
-Cumulative Layout Shift
-Cumulative Layout Shift (CLS) is a measure of visual stability. It is a metric for capturing how much the layout of the content on a page shifts as assets are loaded and the page is rendered. Anyone that has spent a significant amount of time using the web has lost their place in a long run of text due to a page "jumping" as a delayed webfont or image source is suddenly rendered—or had an interactive element suddenly moved away from your pointer. A high CLS is a nuisance at best, and cause of user error at worst—a "cancel" button shifting to a space previously occupied by a "confirm" button just as the user clicks, for example.
-
-With high load times and the amount of space they can occupy in a layout, it stands to reason that images are a common cause of high CLS scores.
-
-
-Thanks to relatively recent changes in modern browsers, it's easier than you might think to avoid high CLS scores due to images.
-
-If you've been working on the frontend for a few years now, you'll be familiar with the width and height attributes on <img>: prior to the widespread adoption of CSS, these were the only way to control the size of an image.
-
-<img src="image.jpg" height="200" width="400" alt="…">
-These attributes fell out of use in an effort to keep our styling concerns separate from our markup, especially as responsive web design made it necessary to specify percentage-based sizing via CSS. In the early days of responsive web design, "remove the unused width and height attributes" was common advice, as the values we specified in our CSS—max-width: 100% and height: auto—would override them.
-
-
-<img src="image.jpg" alt="…">
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-Having removed the height and width attributes as in the previous example, the only method the browser has for determining the height of the image in this situation is to request the source, parse it, and render it at its intrinsic aspect ratio, based on the width of the space it occupies in the layout once stylesheets have been applied. Much of this process takes place after the page has been rendered, with the newly calculated height causing additional layout shifts.
-
-Starting in 2019, browser behavior was updated to handle the width and height attributes differently. Rather than using the values of these attributes to determine the fixed, pixel-based size of an img element in the layout, these attributes can be thought to represent the aspect ratio of the image, though the syntax is the same. Modern browsers will divide these values against each other in order to determine an img element's intrinsic aspect ratio prior to the page being rendered, allowing it to reserve the space the image will occupy as the layout is rendered.
-
-As a rule, you should always use height and width attributes on <img>, with values matching the intrinsic size of your image source—so long as you make sure that you've specified height: auto alongside max-width: 100% to override the height from the HTML attribute.
-
-
-<img src="image.jpg" height="200" width="400" alt="…">
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-By using the width and height attributes on your <img> elements, you'll avoid a high CLS score due to images.
-
-
-It's important to note that there's no downside to this approach, as it leans on long-established browser behavior—any browser with support for basic CSS will work the way it always has, with the height and width attributes in your markup overridden by your styles.
-
-While width and height attributes deftly avoid CLS issues by reserving the necessary layout space for your images, presenting users with an empty gap or low-quality placeholder while they wait for an image to transfer and render isn't ideal either. While there are things you can do to mitigate the measurable and perceptible impact of slow-to-load images, the only way to present a fully-rendered image to a user more quickly is by reducing its transfer size.
-
-Largest Contentful Paint
-Largest Contentful Paint (LCP) measures the time it takes to render the largest “contentful” element visible in the user's viewport—the content element that occupies the largest percentage of the visible page. It may seem like an overly specific metric on the surface, but that element serves as a practical proxy for the point where the majority of the page has been rendered, from the user's perspective. LCP is a vital measure of (perceived) performance.
-
-Metrics like DOMContentLoaded or the window.onload event can be useful for determining when the process of loading the current page has technically completed, but they don't necessarily correspond to a user's experience of the page. A slight delay in rendering an element outside the user's viewport would be factored into either of these metrics, but would likely go completely undetected by a real-world user. A long LCP means the user's first impression of a page—the most important content inside the current viewport—is that the page is slow, or broken outright.
-
-The user perception captured by LCP has a direct impact on user experience. An experiment done by Vodafone just last year found that a 31% improvement in LCP not only led to 8% more sales—a strong result on its own—but of their total number of users, found a 15% improvement in the number of visitors who became prospective customers ("visitor-to-lead rate") and a 11% improvement in the number of users who visited their cart ("cart to visit rate").
-
-On more than 70% of webpages, the largest element in the initial viewport involves an image, either as a stand-alone <img> element or an element with a background image. In other words, 70% of pages' LCP scores are based on image performance. It doesn't take much imagination to see why: big, attention-grabbing images and logos are very likely to be found "above the fold."
-
-LCP highlighted in the console of a web.dev page
-
-There are a few steps you can take to avoid LCP delays: first, never specify loading="lazy" on an "above the fold" image, as delaying the request until after the page has been rendered will likely have a massive negative impact on your LCP score. Second, using fetchpriority="high" can inform the browser that the transfer of this image should be prioritized above images elsewhere on the page.
-
-With those rules squarely in mind, the most important thing you can do to improve a page's LCP score is reduce the amount of time it takes to transfer and render those images. In order to do that, you'll need to keep your image sources as small and efficient as possible (without sacrificing their quality, of course) and ensure that users are only getting the image assets that make the most sense for their browsing contexts.
-
-Conclusion
-Image assets are the biggest drain on your users' bandwidth—bandwidth taken away from transferring every other asset necessary to render a page. Images introduce significant issues in terms of perceived performance, both during and after the surrounding page layout has been rendered. In short: image assets do damage.
-
-Daunting as that may be, while "the web would be better off with fewer images" would certainly be true in terms of performance alone, it would also do its users a tremendous disservice. Images are a vital part of the web, and you shouldn't compromise on the quality of meaningful content for the sake of performance alone.
-
-In the rest of this course, you'll learn about the technologies that power our image assets and techniques for mitigating their performance impacts, without compromising on quality.
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <div class="mt-5 small">
+                    <h2 id="feedback">
+                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
+                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
-                      <footer class="mt-3 small">
-                        <div class="row">
-                            <div class="col-md-4 text-start">
-                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
-                            </div>
-                            <div class="col-md-4 text-center">
-                                <a href="#" class="link-offset-2">Topic</a>
-                            </div>
-                            <div class="col-md-4 text-end">
-                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
-                            </div>
-                        </div>
-                      </footer>
+                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container px-4 px-md-3">
+            <div class="container py-4 py-md-5 px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1301,9 +1198,6 @@ In the rest of this course, you'll learn about the technologies that power our i
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
-                            <li class="mb-2">
-                              <a href="https://newsletter.datarist.com">Newsletter</a>
-                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">

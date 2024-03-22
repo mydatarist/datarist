@@ -197,16 +197,15 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
-                            <li class="nav-item col-6 col-lg-auto">
-                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
-                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
-                                    <title>Twitter</title>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
+                                        <title>Twitter</title>
+                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
+                                    </svg>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1143,7 +1142,9 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                                                
+                                <li>
+                                    <a href="#feedback">Feedback</a>
+                                </li>                                
                             </ul>
                         </nav>
                     </div>
@@ -1152,239 +1153,30 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
-                    Interaction 
-
-bookmark_border
-Small screen devices like mobile phones often have touchscreens. Large screen devices like laptops and desktop computers often come with hardware like a mouse or a trackpad. It’s tempting to equate small screens with touch and large screens with pointers.
-
-But the reality is more nuanced. Some laptops have touch screen capabilities. Users can interact with either a touchscreen or a trackpad or both. Likewise it’s possible to use an external keyboard or mouse with a touchscreen device like a tablet.
-
-Instead of trying to infer the input mechanism from screen size, use media features in CSS.
-
-Pointer
-You can test for three possible values with the pointer media feature: none, coarse, and fine.
-
-If a browser reports a pointer value of none the user might be using a keyboard to interact with your website.
-
-If a browser reports a pointer value of coarse it means the primary input mechanism isn’t very accurate. A finger on a touchscreen is a coarse pointer.
-
-If a browser reports a pointer value of fine it means the primary input mechanism is capable of fine-grained control. A mouse or stylus is a fine pointer.
-
-You can adjust the size of your interface elements to suit the pointer value. Try visiting this website in different kinds of devices to see how the interface adapts.
-
-In this example, buttons are made larger for coarse pointers:
-
-
-button {
-  padding: 0.5em 1em;
-}
-@media (pointer: coarse) {
-  button {
-    padding: 1em 2em;
-  }
-}
-It’s possible to also make elements smaller for fine pointers but be careful about doing this:
-
-Don't
-
-@media (pointer: fine) {
-  button {
-    padding: 0.25em 0.5em;
-  }
-}
-Even if someone has a primary input mechanism capable of fine-grained control, think twice before reducing the size of interactive elements. Fitts’s Law still applies. A smaller target requires more concentration even with a fine pointer. A larger target area benefits everyone regardless of pointing device.
-
-Any pointer
-The pointer media feature reports the fineness of the primary input mechanism. But many devices have more than one input mechanism. It’s possible that someone is interacting with your website using both a touchscreen and a mouse at the same time.
-
-The any-pointer differs from the pointer media feature in that it reports if any pointing device passes the test.
-
-An any-pointer value of none means that no pointing device is available.
-
-An any-pointer value of coarse means that at least one pointing device is not very accurate. But that might not be the primary input mechanism.
-
-An any-pointer value of fine means that at least one pointing device is capable of fine-grained control. But again, this might not be the primary input mechanism.
-
-Because the any-pointer media query will report a positive result if any of the input mechanisms pass the test, it’s possible for a browser to report a result for any-pointer: fine and also report a result for any-pointer: coarse. In that case the order of your media queries matters. The last one will take precedence.
-
-In this example, if the device has both a fine and a coarse input mechanism, the coarse styles are applied.
-
-
-@media (any-pointer: fine) {
-  button {
-    padding: 0.5em 1em;
-  }
-}
-@media (any-pointer: coarse) {
-  button {
-    padding: 1em 2em;
-  }
-}
-Hover
-The hover media feature reports on whether the primary input mechanism can hover over elements. This usually means there’s some kind of cursor on the screen being controlled by a mouse or a trackpad.
-
-Unlike the pointer media feature which differentiates between fine and coarse pointers, the hover media feature is binary. If the primary input device is capable of hovering over elements it will report a value of hover. Otherwise the value is none.
-
-In this example, some supplementary icon is available on hover but only if the primary input device is capable of hovering over an element.
-
-
-button .extra {
-  visibility: visible;
-}
-@media (hover: hover) {
-  button .extra {
-    visibility: hidden;
-  }
-  button:hover .extra {
-    visibility: visible;
-  }
-}
-
-If you use your mouse to hover over that button, the icon will appear. But if you use your keyboard to tab to the button, the icon remains invisible. When you use the keyboard, you’re focusing rather than hovering. A desktop device with a mouse attached will report that the primary input mechanism is capable of hovering, which is true. But anyone using a keyboard while a mouse is attached won’t get the benefit of the :hover styles. So it’s a good idea to combine :hover and :focus styles to cover both interactions.
-
-
-button .extra {
-  visibility: visible;
-}
-@media (hover: hover) {
-  button .extra {
-    visibility: hidden;
-  }
-  button:is(:hover, :focus) .extra {
-    visibility: visible;
-  }
-}
-
-Even if the primary input device is capable of hovering over elements, be careful about hiding information behind a hover interaction. The information becomes less discoverable. Don’t use hover to hide important information or an important interface element.
-
-Any hover
-The hover media query only reports on the primary input mechanism. Some devices have multiple input mechanisms: touchscreen, mouse, keyboard, trackpad.
-
-Just as any-pointer reports on any of the input mechanisms, any-hover will be true if any of the available input mechanisms are capable of hovering over elements.
-
-If you decided to reverse the logic in the previous example, you could make the hover styles the default and then remove them if any-hover has a value of none.
-
-
-button .extra {
-  visibility: hidden;
-}
-button:hover .extra,
-button:focus .extra {
-  visibility: visible;
-}
-@media (any-hover: none) {
-  button .extra {
-    visibility: visible;
-  }
-}
-
-On a device that has no input mechanism capable of hovering, the extra icon is always visible.
-
-Virtual keyboards
-People use cursors and fingers to explore interfaces but when it comes time to enter information, they need a keyboard. That’s fine if there’s a physical keyboard attached to their device, but if they’re using a touchscreen device it’s a little more complicated. These devices provide on-screen virtual keyboards.
-
-Input types
-Unlike a physical keyboard, virtual keyboards can be tailored to match the expected input. If you provide information about the expected input, devices can serve up the most appropriate virtual keyboard.
-
-HTML5 input types are a great way of describing your input elements. The type attribute accepts values such as email, number, tel, url, and more.
-
-
-  <label for="email">Email</label>
-  <input type="email" id="email">
-
-  <label for="number">Number</label>
-  <input type="number" id="number">
-
-  <label for="tel">Tel</label>
-  <input type="tel" id="tel">
-
-  <label for="url">URL</label>
-  <input type="url" id="url">
-
-Input modes
-Browser Support
-
-66
-79
-95
-x
-Source
-
-The inputmode attribute gives you fine-grained control over virtual keyboards. For example, whereas there’s one input type with a value of number, you can use the inputmode attribute to differentiate between whole numbers and decimals.
-
-If you’re asking for a whole number, like somebody’s age, use inputmode="numeric".
-
-
-<label for="age">Age</label>
-<input type="number" id="age" inputmode="numeric">
-If you’re asking for a number that includes decimal places, like a price, use inputmode="decimal".
-
-
-<label for="price">Price</label>
-<input type="number" id="price" inputmode="decimal">
-
-Autocomplete
-Browser Support
-
-14
-≤79
-4
-6
-Source
-
-Nobody likes filling in forms. As a designer, you can improve the experience for your users by enabling them to automatically fill in form fields. The autocomplete attribute provides you with a host of options for improving contact forms, log-in forms, and checkout forms.
-
-
-<label for="name">Name</label>
-<input type="text" id="name" autocomplete="name">
-
-<label for="country">Country</label>
-<input type="text" id="country" autocomplete="country">
-
-<label for="email">Email</label>
-<input type="email" id="email" autocomplete="email">
-
-These HTML attributes—type, inputmode, and autocomplete—are small additions to your form fields, but they can make a big difference to the user experience. By anticipating and responding to your user’s device capabilities, you are empowering your users. For more in-depth information, there’s a course dedicated to helping you learn forms.
-
-Next up in this course, it’s time to examine some common interface patterns.
-
-Check your understanding
-Test your knowledge of interactions
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <div class="mt-5 small">
+                    <h2 id="feedback">
+                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
+                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
-                      <footer class="mt-3 small">
-                        <div class="row">
-                            <div class="col-md-4 text-start">
-                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
-                            </div>
-                            <div class="col-md-4 text-center">
-                                <a href="#" class="link-offset-2">Topic</a>
-                            </div>
-                            <div class="col-md-4 text-end">
-                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
-                            </div>
-                        </div>
-                      </footer>
+                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container px-4 px-md-3">
+            <div class="container py-4 py-md-5 px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1406,9 +1198,6 @@ Test your knowledge of interactions
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
-                            <li class="mb-2">
-                              <a href="https://newsletter.datarist.com">Newsletter</a>
-                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">

@@ -197,16 +197,15 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
-                            <li class="nav-item col-6 col-lg-auto">
-                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
-                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
-                                    <title>Twitter</title>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
+                                        <title>Twitter</title>
+                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
+                                    </svg>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1143,7 +1142,9 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                                                
+                                <li>
+                                    <a href="#feedback">Feedback</a>
+                                </li>                                
                             </ul>
                         </nav>
                     </div>
@@ -1152,177 +1153,30 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
-                    Semantic HTML 
-
-bookmark_border
-With over 100 HTML elements, and the ability to create custom elements, there are infinite ways to mark up your content; but some ways—notably semantically—are better than others.
-
-Semantic means "relating to meaning". Writing semantic HTML means using HTML elements to structure your content based on each element's meaning, not its appearance.
-
-This series hasn't covered many HTML elements yet, but even without knowing HTML, the following two code snippets show how semantic markup can give content context. Both use a word count instead of ipsum lorem to save some scrolling—use your imagination to expand "thirty words" into 30 words:
-
-The first code snippet uses <div> and <span>, two elements with no semantic value.
-
-
-<div>
-  <span>Three words</span>
-  <div>
-    <a>one word</a>
-    <a>one word</a>
-    <a>one word</a>
-    <a>one word</a>
-  </div>
-</div>
-<div>
-  <div>
-    <div>five words</div>
-  </div>
-  <div>
-    <div>three words</div>
-    <div>forty-six words</div>
-    <div>forty-four words</div>
-  </div>
-  <div>
-    <div>seven words</h2>
-    <div>sixty-eight words</div>
-    <div>forty-four words</div>
-  </div>
-</div>
-<div>
-   <span>five words</span>
-</div>
-Do you get a sense of what those words expand to? Not really.
-
-Let's rewrite this code with semantic elements:
-
-
-<header>
-  <h1>Three words</h1>
-  <nav>
-    <a>one word</a>
-    <a>one word</a>
-    <a>one word</a>
-    <a>one word</a>
-  </nav>
-</header>
-<main>
-  <header>
-    <h1>five words</h1>
-  </header>
-  <section>
-    <h2>three words</h2>
-    <p>forty-six words</p>
-    <p>forty-four words</p>
-  </section>
-  <section>
-    <h2>seven words</h2>
-    <p>sixty-eight words</p>
-    <p>forty-four words</p>
-  </section>
-</main>
-<footer>
-  <p>five words</p>
-</footer>
-Which code block conveyed meaning? Using only the non-semantic elements of <div> and <span>, you really can't tell what the content in the first code block represents. The second code example, with semantic elements, provides enough context for a non-coder to decipher the purpose and meaning without having ever encountered an HTML tag. It definitely provides enough context for the developer to understand the outline of the page, even if they don't understand the content, such as content in a foreign language.
-
-In the second code block, we can understand the architecture even without understanding the content because semantic elements provide meaning and structure. You can tell that the first header is the site's banner, with the <h1> likely to be the site name. The footer is the site footer: the five words may be a copyright statement or business address.
-
-Semantic markup isn't just about making markup easier for developers to read; it's mostly about making markup easy for automated tools to decipher. Developer tools demonstrate how semantic elements provide machine-readable structure as well.
-
-Accessibility object model (AOM)
-As the browser parses the content received, it builds the document object model (DOM) and the CSS object model (CSSOM). It then also builds an accessibility tree. Assistive devices, such as screen readers, use the AOM to parse and interpret content. The DOM is a tree of all the nodes in the document. The AOM is like a semantic version of the DOM.
-
-Let's compare how both of these document structures are rendered in Firefox's accessibility panel:
-
-A list of nodes which are all link or text leaf.
-The first code snippet.
-A list of nodes with clear landmarks.
-The second code snippet.
-In the second screen shot, there are four landmark roles in the second code block. It uses semantic landmarks conveniently named <header>, <main>, <footer>, and <nav> for "navigation". Landmarks provide structure to web content and ensure important sections of content are easily keyboard navigable for screen reader users.
-
-Note that <header> and <footer> are landmarks, with the roles of banner and contentinfo respectively, when they are not nested in other landmarks. Chrome's AOM shows this as follows:
-
-All text nodes are listed as static text.
-The first code snippet.
-The text nodes all have descriptions.
-The second code snippet.
-Looking at Chrome developer tools, you'll note a significant difference between the accessibility object model when using semantic elements versus when you don't.
-
-It's pretty clear that semantic element usage helps accessibility, and using non-semantic elements reduces accessibility. HTML is generally, by default, accessible. Our job as developers is to both protect HTML's default accessible nature and ensure that we maximize accessibility. You can inspect the AOM in developer tools.
-
-The role attribute
-The role attribute describes the role an element has in the context of the document. The role attribute is a global attribute—meaning it is valid on all elements—defined by the ARIA specification rather than the WHATWG HTML specification, where almost everything else in this series is defined.
-
-Semantic elements each have an implicit role, some depending on the context. As we saw in the Firefox accessibility dev tools screenshot, the top level <header>, <main>, <footer>, and <nav> were all landmarks, while the <header> nested in <main> was a section. The Chrome screenshot lists these elements' ARIA roles: <main> is main, <nav> is navigation, and <footer>, as it was the footer of the document, is contentinfo. When <header> is the header for the document, the default role is banner, which defines the section as the global site header. When a <header> or <footer> is nested within a sectioning element, it is not a landmark role. Both dev tools' screenshots show this.
-
-Element role names are important in building the AOM. The semantics of an element, or 'role', are important to assistive technologies and, in some cases, search engines. Assistive technology users rely on semantics to navigate through and understand the meaning of content. The element's role enables a user to access the content they seek quickly and, possibly, more importantly, the role informs the screen reader user how to interact with an interactive element once it has focus.
-
-Interactive elements, such as buttons, links, ranges, and checkboxes, all have implicit roles, all are automatically added to the keyboard tab sequence, and all have default expected user action support. The implicit role, or explicit role value, informs the user to expect element-specific default user interactions.
-
-Using the role attribute, you can give any element a role, including a different role than the tag implies. For example, <button> has the implicit role of button. With role="button", you can turn any element semantically into a button: <p role="button">Click Me</p>.
-
-While adding role="button" to an element will inform screen readers that the element is a button, it doesn't change the appearance or functionality of the element. The button element provides so many features without you doing any work. The button element is automatically added to the document's tab ordering sequence, meaning it is by default keyboard focusable. The Enter and Space keys both activate the button. Buttons also have all the methods and properties provided to them by the HTMLButtonElement interface. If you don't use the semantic button for your button, you have to program all those features back in. It's so much easier to just go with <button>.
-
-Go back to the screenshot of the AOM for the non-semantic code block. You'll note that non-semantic elements don't have implicit roles. We can make the non-semantic version semantic by assigning each element a role:
-
-
-<div role="banner">
-  <span role="heading" aria-level="1">Three words</span>
-  <div role="navigation">
-    <a>one word</a>
-    <a>one word</a>
-    <a>one word</a>
-    <a>one word</a>
-  </div>
-</div>
-While the role attribute can be used to add semantics to any element, you should instead use elements with the implicit role you need.
-
-Semantic elements
-Asking yourself, "Which element best represents the function of this section of markup?" will generally result in you picking the best element for the job. The element you choose, and therefore the tags you use, should be appropriate for the content you are displaying, as tags have semantic meaning.
-
-HTML should be used to structure content, not to define content's appearance. The appearance is the realm of CSS. While some elements are defined to appear a certain way, don't use an element based on how the user agent stylesheet makes that element appear by default. Rather, select each element based on the element's semantic meaning and functionality. Coding HTML in a logical, semantic, and meaningful way helps to ensure CSS is applied as intended.
-
-Choosing the right elements for the job as you code means you won't have to refactor or comment your HTML. If you think about using the right element for the job, you'll most often pick the right element for the job. If you don't, you probably won't. When you understand the semantics of each element and are aware of why choosing the right element is important, you will generally be able to make the right choice without much additional effort.
-
-In the next section, you'll use the semantic elements to build your document structure.
-
-Check your understanding
-Test your knowledge of semantic HTML.
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <div class="mt-5 small">
+                    <h2 id="feedback">
+                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
+                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
-                      <footer class="mt-3 small">
-                        <div class="row">
-                            <div class="col-md-4 text-start">
-                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
-                            </div>
-                            <div class="col-md-4 text-center">
-                                <a href="#" class="link-offset-2">Topic</a>
-                            </div>
-                            <div class="col-md-4 text-end">
-                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
-                            </div>
-                        </div>
-                      </footer>
+                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container px-4 px-md-3">
+            <div class="container py-4 py-md-5 px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1344,9 +1198,6 @@ Test your knowledge of semantic HTML.
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
-                            <li class="mb-2">
-                              <a href="https://newsletter.datarist.com">Newsletter</a>
-                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">

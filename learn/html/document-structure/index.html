@@ -197,16 +197,15 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
-                            <li class="nav-item col-6 col-lg-auto">
-                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
-                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
-                                    <title>Twitter</title>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
+                                        <title>Twitter</title>
+                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
+                                    </svg>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1143,7 +1142,9 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                                                
+                                <li>
+                                    <a href="#feedback">Feedback</a>
+                                </li>                                
                             </ul>
                         </nav>
                     </div>
@@ -1152,554 +1153,30 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
-                    Document structure 
-
-bookmark_border
-HTML documents include a document type declaration and the <html> root element. Nested in the <html> element are the document head and document body. While the head of the document isn't visible to the sighted visitor, it is vital to make your site function. It contains all the meta information, including information for search engines and social media results, icons for the browser tab and mobile home screen shortcut, and the behavior and presentation of your content. In this section, you'll discover the components that, while not visible, are present on almost every web page.
-
-To create the MachineLearningWorkshop.com (MLW) site, start by including the components that should be considered essential for every web page: the type of document, the content's human language, the character set, and, of course, the title or name of the site or application.
-
-Add to every HTML document
-There are several features that should be considered essential for any and every web page. Browsers will still render content if these elements are missing, but include them. Always.
-
-<!DOCTYPE html>
-The first thing in any HTML document is the preamble. For HTML, all you need is <!DOCTYPE html>. This may look like an HTML element, but it isn't. It's a special kind of node called "doctype". The doctype tells the browser to use standards mode. If omitted, browsers will use a different rendering mode known as quirks mode. Including the doctype helps prevent quirks mode.
-
-<html>
-The <html> element is the root element for an HTML document. It is the parent of the <head> and <body>, containing everything in the HTML document other than the doctype. If omitted it will be implied, but it is important to include it, as this is the element on which the language of the content of the document is declared.
-
-Content language
-The lang language attribute added to the <html> tag defines the main language of the document. The value of the lang attribute is a two- or three-letter ISO language code followed by the region. The region is optional, but recommended, as a language can vary greatly between regions. For example, French is very different in Canada (fr-CA) versus Burkina Faso (fr-BF). This language declaration enables screen readers, search engines, and translation services to know the document language.
-
-The lang attribute is not limited to the <html>tag. If there is text within the page that is in a language different from the main document language, the lang attribute should be used to identify exceptions to the main language within the document. Just like when it is included in the head, the lang attribute in the body has no visual effect. It only adds semantics, enabling assistive technologies and automated services to know the language of the impacted content.
-
-In addition to setting the language for the document and exceptions to that base language, the attribute can be used in CSS selectors. <span lang="fr-fr">Ceci n'est pas une pipe.</span> can be targeted with the attribute and language selectors [lang|="fr"] and :lang(fr).
-
-<head>
-Nested between the opening and closing <html> tags, we find the two children: <head> and <body>:
-
-<!DOCTYPE html>
-<html lang="en-US">
-  <head>
-  </head>
-  <body>
-  </body>
-</html>
-The <head>, or document metadata header, contains all the metadata for a site or application. The body contains the visible content. The rest of this section focuses on the components found nested inside the opening and closing <head></head>
-
-Required components inside the <head>
-The document metadata, including the document title, character set, viewport settings, description, base URL, stylesheet links, and icons, are found in the <head> element. While you may not need all these features, always include character set, title, and viewport settings.
-
-Character encoding
-The very first element in the <head> should be the charset character encoding declaration. It comes before the title to ensure the browser can render the characters in that title and all the characters in the rest of the document.
-
-The default encoding in most browsers is windows-1252, depending on the locale. However, you should use UTF-8, as it enables the one- to four-byte encoding of all characters, even ones you didn't even know existed. Also, it's the encoding type required by HTML5.
-
-To set the character encoding to UTF-8, include:
-
-
-<meta charset="utf-8" />
-By declaring UTF-8 (case-insensitive), you can even include emojis in your title (but please don't).
-
-The character encoding is inherited into everything in the document, even <style> and <script>. This little declaration means you can include emojis in class names and the selectorAPI (again, please don't). If you do use emojis, make sure to use them in a way that enhances usability without harming accessibility.
-
-Document title
-Your home page and all additional pages should each have a unique title. The contents for the document title, the text between the opening and closing <title> tags, are displayed in the browser tab, the list of open windows, the history, search results, and, unless redefined with <meta> tags, in social media cards.
-
-
-<title>Machine Learning Workshop</title>
-Viewport metadata
-The other meta tag that should be considered essential is the viewport meta tag, which helps site responsiveness, enabling content to render well by default, no matter the viewport width. While the viewport meta tag has been around since June 2007, when the first iPhone came out, it's only recently been documented in a specification. As it enables controlling a viewport's size and scale, and prevents the site's content from being sized down to fit a 960px site onto a 320px screen, it is definitely recommended.
-
-
-<meta name="viewport" content="width=device-width" />
-The preceding code means "make the site responsive, starting by making the width of the content the width of the screen". In addition to width, you can set zoom and scalability, but they both default to accessible values. If you want to be explicit, include:
-
-
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1" />
-Viewport is part of the Lighthouse accessibility audit; your site will pass if it is scalable and has no maximum size set.
-
-So far, the outline for our HTML file is:
-
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Machine Learning Workshop</title>
-    <meta name="viewport" content="width=device-width" />
-  </head>
-  <body>
-
-  </body>
-</html>
-Other <head> content
-There's a lot more that goes into the <head>. All the metadata, in fact. Most of the elements you'll find in the <head> are covered here, while saving a plethora of the <meta> options for the next chapter.
-
-You've seen the meta character set and the document title, but there is a lot more metadata outside of <meta> tags that should be included.
-
-CSS
-The <head> is where you include styles for your HTML. There is a learning path dedicated to CSS if you want to learn about styles, but you do need to know how to include them in your HTML documents.
-
-There are three ways to include CSS: <link>, <style>, and the style attribute.
-
-The main two ways to include styles in your HTML file are by including an external resource using a <link> element with the rel attribute set to stylesheet, or including CSS directly in the head of your document within opening and closing <style> tags.
-
-The <link> tag is the preferred method of including stylesheets. Linking a single or a few external style sheets is good for both developer experience and site performance: you get to maintain CSS in one spot instead of it being sprinkled everywhere, and browsers can cache the external file, meaning it doesn't have to be downloaded again with every page navigation.
-
-The syntax is <link rel="stylesheet" href="styles.css">, where styles.css is the URL of your stylesheet. You'll often see type="text/css". Not necessary! If you are including styles written in something other than CSS, the type is needed, but since there isn't any other type, this attribute isn't needed. The rel attribute defines the relationship: in this case stylesheet. If you omit this, your CSS will not be linked.
-
-You'll discover a few other rel values shortly, but let's first discuss other ways of including CSS.
-
-If you want your external style sheet styles to be within a cascade layer but you don't have access to edit the CSS file to put the layer information in it, you'll want to include the CSS with @import inside a <style>:
-
-
-<style>
-  @import "styles.css" layer(firstLayer);
-</style>
-When using @import to import style sheets into your document, optionally into cascade layers, the @import statements must be the first statements in your <style> or linked stylesheet, outside of the character set declaration.
-
-While cascade layers are still fairly new and you might not spot the @import in a head <style>, you will often see custom properties declared in a head style block:
-
-
-<style>
-  :root {
-    --theme-color: #226DAA;
-  }
-</style>
-Note: Styles, the presentation layer, are the purview of CSS, here we are considering how to attach your styles to the content layer, your HTML. If the CSS of the preceding code interests you, look up cascade layers and custom properties.
-Styles, either via <link> or <style>, or both, should go in the head. They will work if included in the document's body, but you want your styles in the head for performance reasons. That may seem counterintuitive, as you may think you want your content to load first, but you actually want the browser to know how to render the content when it is loaded. Adding styles first prevents the unnecessary repainting that occurs if an element is styled after it is first rendered.
-
-Then there's the one way of including styles you'll never use in the <head> of your document: inline styles. You'll probably never use inline styles in the head because the user agents' style sheets hide the head by default. But if you want to make a CSS editor without JavaScript, for example, so you can test your page's custom elements, you can make the head visible with display: block, and then hide everything in the head, and then with an inline style attribute, make a content-editable style block visible.
-
-
-<style contenteditable style="display: block; font-family: monospace; white-space: pre;">
-  head { display: block; }
-  head * { display: none; }
-  :root {
-    --theme-color: #226DAA;
-  }
-</style>
-While you can add inline styles on the <style>, it's way more fun to style your <style> in your style. I digress.
-
-Other uses of the <link> element
-The link element is used to create relationships between the HTML document and external resources. Some of these resources may be downloaded, others are informational. The type of relationship is defined by the value of the rel attribute. There are currently 25 available values for the rel attribute that can be used with <link>, <a> and <area>, or <form>, with a few that can be used with all. It's preferable to include those related to meta information in the head and those related to performance in the <body>.
-
-You'll include three other types in your header now: icon, alternate, and canonical. (You'll include a fourth type, rel="manifest", in the next module).
-
-Favicon
-Use the <link> tag, with the rel="icon" attribute/value pair to identify the favicon to be used for your document. A favicon is a very small icon that appears on the browser tab, generally to the left of the document title. When you have an unwieldy number of tabs open, the tabs will shrink and the title may disappear altogether, but the icon always remains visible. Most favicons are company or application logos.
-
-If you don't declare a favicon, the browser will look for a file named favicon.ico in the top-level directory (the website's root folder). With <link>, you can use a different file name and location:
-
-
-<link rel="icon" sizes="16x16 32x32 48x48" type="image/png" href="/images/mlwicon.png" />
-The preceding code says "use the mlwicon.png as the icon for scenarios where a 16px, 32px, or 48px makes sense." The sizes attribute accepts the value of any for scalable icons or a space-separated list of square widthXheight values; where the width and height values are 16, 32, 48, or greater in that geometric sequence, the pixel unit is omitted, and the X is case-insensitive.
-
-
-<link rel="apple-touch-icon" sizes="180x180" href="/images/mlwicon.png" />
-<link rel="mask-icon" href="/images/mlwicon.svg" color="#226DAA" />
-There are two special non-standard kind of icons for Safari browser: apple-touch-icon for iOS devices and mask-icon for pinned tabs on macOS. apple-touch-icon is applied only when the user adds a site to home screen: you can specify multiple icons with different sizes for different devices. mask-icon will only be used if the user pins the tab in desktop Safari: the icon itself should be a monochrome SVG, and the color attribute fills the icon with needed color.
-
-While you can use <link> to define a completely different image on each page or even each page load, don't. For consistency and a good user experience, use a single image! Twitter uses the blue bird: when you see the blue bird in your browser tab, you know that tab is open to a Twitter page without clicking on the tab. Google uses different favicons for each of its different applications: there's a mail icon, a calendar icon, for example. But all the Google icons use the same color scheme. Again, you know exactly what the content of an open tab is simply from the icon.
-
-Alternate versions of the site
-We use the alternate value of the rel attribute to identify translations, or alternate representations, of the site.
-
-Let's pretend we have versions of the site translated into French and Brazilian Portuguese:
-
-
-<link rel="alternate" href="https://www.machinelearningworkshop.com/fr/" hreflang="fr-FR" />
-<link rel="alternate" href="https://www.machinelearningworkshop.com/pt/" hreflang="pt-BR" />
-When using alternate for a translation, the hreflang attribute must be set.
-
-The alternate value is for more than just translations. For example, the type attribute can define the alternate URI for an RSS feed when the type attribute is set to application/rss+xml or application/atom+xml. Let's link to a pretend PDF version of the site.
-
-
-<link rel="alternate" type="application/x-pdf" href="https://machinelearningworkshop.com/mlw.pdf" />
-If the rel value is alternate stylesheet, it defines an alternate stylesheet and the title attribute must be set giving that alternate style a name.
-
-Canonical
-If you create several translations or versions of Machine Learning Workshop, search engines may get confused as to which version is the authoritative source. For this, use rel="canonical" to identify the preferred URL for the site or application.
-
-Include the canonical URL on all of your translated pages, and on the home page, indicating our preferred URL:
-
-
-<link rel="canonical" href="https://www.machinelearning.com" />
-The rel="canonical" canonical link is most often used for cross-posting with publications and blogging platforms to credit the original source; when a site syndicates content, it should include the canonical link to the original source.
-
-Scripts
-The <script> tag is used to include, well, scripts. The default type is JavaScript. If you include any other scripting language, include the type attribute with the mime type, or type="module" if it's a JavaScript module. Only JavaScript and JavaScript modules get parsed and executed.
-
-The <script> tags can be used to encapsulate your code or to download an external file. In MLW, there is no external script file because contrary to popular belief, you don't need JavaScript for a functional website, and, well, this is an HTML learning path, not a JavaScript one.
-
-You will be including a tiny bit of JavaScript to create an Easter egg later on:
-
-
-<script>
-  document.getElementById('switch').addEventListener('click', function() {
-    document.body.classList.toggle('black');
-  });
-</script>
-This snippet creates an event handler for an element with the id of switch. With JavaScript, you don't want to reference an element before it exists. It doesn't exist yet, so we won't include it yet. When we do add the light switch element, we'll add the <script> at the bottom of the <body> rather than in the <head>. Why? Two reasons. We want to ensure elements exist before the script referencing them is encountered as we're not basing this script on a DOMContentLoaded event. And, mainly, JavaScript is not only render-blocking, but the browser stops downloading all assets when scripts are downloaded and doesn't resume downloading other assets until the JavaScript has finished execution. For this reason, you will often find JavaScript requests at the end of the document rather than in the head.
-
-There are two attributes that can reduce the blocking nature of JavaScript download and execution: defer and async. With defer, HTML rendering is not blocked during the download, and the JavaScript only executes after the document has otherwise finished rendering. With async, rendering isn't blocked during the download either, but once the script has finished downloading, the rendering is paused while the JavaScript is executed.
-
-loading when using async and defer.
-
-To include MLW's JavaScript in an external file, you could write:
-
-
-<script src="js/switch.js" defer></script>
-Adding the defer attribute defers the execution of the script until after everything is rendered, preventing the script from harming performance. The async and defer attributes are only valid on external scripts.
-
-Base
-There is another element that is only found in the <head>. Not used very often, the <base> element allows setting a default link URL and target. The href attribute defines the base URL for all relative links.
-
-The target attribute, valid on <base> as well as on links and forms, sets where those links should open. The default of _self opens linked files in the same context as the current document. Other options include _blank, which opens every link in a new window, the _parent of the current content, which may be the same as self if the opener is not an iframe, or _top, which is in the same browser tab, but popped out of any context to take up the entire tab.
-
-Most developers add the target attribute to the few, if any, links they want to open in a new window on the links or form themselves, rather than using <base>.
-
-
-<base target="_top" href="https://machinelearningworkshop.com" />
-If our website found itself nested within an iframe on a site like Yummly, including the <base> element would mean when a user clicks on any links within our document, the link will load popped out of the iframe, taking up the whole browser window.
-
-One of the drawbacks of this element is that anchor links are resolved with <base>. The <base> effectively converts the link <a href="#ref"> to <a target="_top" href="https://machinelearningworkshop.com#ref">, triggering an HTTP request to the base URL with the fragment attached.
-
-A few other things to note about <base>: there can be only one <base> element in a document, and it should come before any relative URLs are used, including possible script or stylesheet references.
-
-The code now looks like this:
-
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Machine Learning Workshop</title>
-    <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" src="css/styles.css" />
-    <link rel="icon" type="image/png" href="/images/favicon.png" />
-    <link rel="alternate" href="https://www.machinelearningworkshop.com/fr/" hreflang="fr-FR" />
-    <link rel="alternate" href="https://www.machinelearningworkshop.com/pt/" hreflang="pt-BR" />
-    <link rel="canonical" href="https://www.machinelearning.com" />
-  </head>
-  <body>
-
-    <!-- <script defer src="scripts/lightswitch.js"></script>-->
-  </body>
-</html>
-HTML comments
-Note that the script is wrapped between some angle brackets, dashes, and a bang. This is how you comment out HTML. We'll leave the script commented out until we have the actual content on the page. Anything between <!-- and --> will not be visible or parsed. HTML comments can be put anywhere on the page, including the head or body, with the exception of scripts or style blocks, where you should use JavaScript and CSS comments, respectively.
-
-You have covered the basics of what goes in the <head>, but you want to learn more than the basics. In the next sections, we will learn about meta tags, and how to control what gets displayed when your website is linked to on social media.
-
-Check your understanding
-Test your knowledge of document-structure.
-
-
-
-
-
-
-                    Document and website structure
-Previous
-Overview: Introduction to HTML
-Next
-In addition to defining individual parts of your page (such as "a paragraph" or "an image"), HTML also boasts a number of block level elements used to define areas of your website (such as "the header", "the navigation menu", "the main content column"). This article looks into how to plan a basic website structure, and write the HTML to represent this structure.
-
-Prerequisites:	Basic HTML familiarity, as covered in Getting started with HTML. HTML text formatting, as covered in HTML text fundamentals. How hyperlinks work, as covered in Creating hyperlinks.
-Objective:	Learn how to structure your document using semantic tags, and how to work out the structure of a simple website.
-Basic sections of a document
-Webpages can and will look pretty different from one another, but they all tend to share similar standard components, unless the page is displaying a fullscreen video or game, is part of some kind of art project, or is just badly structured:
-
-header:
-Usually a big strip across the top with a big heading, logo, and perhaps a tagline. This usually stays the same from one webpage to another.
-
-navigation bar:
-Links to the site's main sections; usually represented by menu buttons, links, or tabs. Like the header, this content usually remains consistent from one webpage to another — having inconsistent navigation on your website will just lead to confused, frustrated users. Many web designers consider the navigation bar to be part of the header rather than an individual component, but that's not a requirement; in fact, some also argue that having the two separate is better for accessibility, as screen readers can read the two features better if they are separate.
-
-main content:
-A big area in the center that contains most of the unique content of a given webpage, for example, the video you want to watch, or the main story you're reading, or the map you want to view, or the news headlines, etc. This is the one part of the website that definitely will vary from page to page!
-
-sidebar:
-Some peripheral info, links, quotes, ads, etc. Usually, this is contextual to what is contained in the main content (for example on a news article page, the sidebar might contain the author's bio, or links to related articles) but there are also cases where you'll find some recurring elements like a secondary navigation system.
-
-footer:
-A strip across the bottom of the page that generally contains fine print, copyright notices, or contact info. It's a place to put common information (like the header) but usually, that information is not critical or secondary to the website itself. The footer is also sometimes used for SEO purposes, by providing links for quick access to popular content.
-
-A "typical website" could be structured something like this:
-
-a simple website structure example featuring a main heading, navigation menu, main content, side bar, and footer.
-Note: The image above illustrates the main sections of a document, which you can define with HTML. However, the appearance of the page shown here - including the layout, colors, and fonts - is achieved by applying CSS to the HTML.
-
-In this module we're not teaching CSS, but once you have an understanding of the basics of HTML, try diving into our CSS first steps module to start learning how to style your site.
-
-HTML for structuring content
-The simple example shown above isn't pretty, but it is perfectly fine for illustrating a typical website layout example. Some websites have more columns, some are a lot more complex, but you get the idea. With the right CSS, you could use pretty much any elements to wrap around the different sections and get it looking how you wanted, but as discussed before, we need to respect semantics and use the right element for the right job.
-
-This is because visuals don't tell the whole story. We use color and font size to draw sighted users' attention to the most useful parts of the content, like the navigation menu and related links, but what about visually impaired people for example, who might not find concepts like "pink" and "large font" very useful?
-
-Note: Roughly 8% of men and 0.5% of women are colorblind; or, to put it another way, approximately 1 in every 12 men and 1 in every 200 women. Blind and visually impaired people represent roughly 4-5% of the world population (in 2015 there were 940 million people with some degree of vision loss, while the total population was around 7.5 billion).
-
-In your HTML code, you can mark up sections of content based on their functionality — you can use elements that represent the sections of content described above unambiguously, and assistive technologies like screen readers can recognize those elements and help with tasks like "find the main navigation", or "find the main content." As we mentioned earlier in the course, there are a number of consequences of not using the right element structure and semantics for the right job.
-
-To implement such semantic mark up, HTML provides dedicated tags that you can use to represent such sections, for example:
-
-header: <header>.
-navigation bar: <nav>.
-main content: <main>, with various content subsections represented by <article>, <section>, and <div> elements.
-sidebar: <aside>; often placed inside <main>.
-footer: <footer>.
-Active learning: exploring the code for our example
-Our example seen above is represented by the following code (you can also find the example in our GitHub repository). We'd like you to look at the example above, and then look over the listing below to see what parts make up what section of the visual.
-
-HTML
-Copy to Clipboard
-<!doctype html>
-<html lang="en-US">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-
-    <title>My page title</title>
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Sonsie+One"
-      rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-
-  <body>
-    <!-- Here is our main header that is used across all the pages of our website -->
-
-    <header>
-      <h1>Header</h1>
-    </header>
-
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Our team</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-
-      <!-- A Search form is another common non-linear way to navigate through a website. -->
-
-      <form>
-        <input type="search" name="q" placeholder="Search query" />
-        <input type="submit" value="Go!" />
-      </form>
-    </nav>
-
-    <!-- Here is our page's main content -->
-    <main>
-      <!-- It contains an article -->
-      <article>
-        <h2>Article heading</h2>
-
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Donec a diam
-          lectus. Set sit amet ipsum mauris. Maecenas congue ligula as quam
-          viverra nec consectetur ant hendrerit. Donec et mollis dolor. Praesent
-          et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt
-          congue enim, ut porta lorem lacinia consectetur.
-        </p>
-
-        <h3>Subsection</h3>
-
-        <p>
-          Donec ut librero sed accu vehicula ultricies a non tortor. Lorem ipsum
-          dolor sit amet, consectetur adipisicing elit. Aenean ut gravida lorem.
-          Ut turpis felis, pulvinar a semper sed, adipiscing id dolor.
-        </p>
-
-        <p>
-          Pelientesque auctor nisi id magna consequat sagittis. Curabitur
-          dapibus, enim sit amet elit pharetra tincidunt feugiat nist imperdiet.
-          Ut convallis libero in urna ultrices accumsan. Donec sed odio eros.
-        </p>
-
-        <h3>Another subsection</h3>
-
-        <p>
-          Donec viverra mi quis quam pulvinar at malesuada arcu rhoncus. Cum
-          soclis natoque penatibus et manis dis parturient montes, nascetur
-          ridiculus mus. In rutrum accumsan ultricies. Mauris vitae nisi at sem
-          facilisis semper ac in est.
-        </p>
-
-        <p>
-          Vivamus fermentum semper porta. Nunc diam velit, adipscing ut
-          tristique vitae sagittis vel odio. Maecenas convallis ullamcorper
-          ultricied. Curabitur ornare, ligula semper consectetur sagittis, nisi
-          diam iaculis velit, is fringille sem nunc vet mi.
-        </p>
-      </article>
-
-      <!-- the aside content can also be nested within the main content -->
-      <aside>
-        <h2>Related</h2>
-
-        <ul>
-          <li><a href="#">Oh I do like to be beside the seaside</a></li>
-          <li><a href="#">Oh I do like to be beside the sea</a></li>
-          <li><a href="#">Although in the North of England</a></li>
-          <li><a href="#">It never stops raining</a></li>
-          <li><a href="#">Oh well…</a></li>
-        </ul>
-      </aside>
-    </main>
-
-    <!-- And here is our main footer that is used across all the pages of our website -->
-
-    <footer>
-      <p>©Copyright 2050 by nobody. All rights reversed.</p>
-    </footer>
-  </body>
-</html>
-Take some time to look over the code and understand it — the comments inside the code should also help you to understand it. We aren't asking you to do much else in this article, because the key to understanding document layout is writing a sound HTML structure, and then laying it out with CSS. We'll wait for this until you start to study CSS layout as part of the CSS topic.
-
-HTML layout elements in more detail
-It's good to understand the overall meaning of all the HTML sectioning elements in detail — this is something you'll work on gradually as you start to get more experience with web development. You can find a lot of detail by reading our HTML element reference. For now, these are the main definitions that you should try to understand:
-
-<main> is for content unique to this page. Use <main> only once per page, and put it directly inside <body>. Ideally this shouldn't be nested within other elements.
-<article> encloses a block of related content that makes sense on its own without the rest of the page (e.g., a single blog post).
-<section> is similar to <article>, but it is more for grouping together a single part of the page that constitutes one single piece of functionality (e.g., a mini map, or a set of article headlines and summaries), or a theme. It's considered best practice to begin each section with a heading; also note that you can break <article>s up into different <section>s, or <section>s up into different <article>s, depending on the context.
-<aside> contains content that is not directly related to the main content but can provide additional information indirectly related to it (glossary entries, author biography, related links, etc.).
-<header> represents a group of introductory content. If it is a child of <body> it defines the global header of a webpage, but if it's a child of an <article> or <section> it defines a specific header for that section (try not to confuse this with titles and headings).
-<nav> contains the main navigation functionality for the page. Secondary links, etc., would not go in the navigation.
-<footer> represents a group of end content for a page.
-Each of the aforementioned elements can be clicked on to read the corresponding article in the "HTML element reference" section, providing more detail about each one.
-
-Non-semantic wrappers
-Sometimes you'll come across a situation where you can't find an ideal semantic element to group some items together or wrap some content. Sometimes you might want to just group a set of elements together to affect them all as a single entity with some CSS or JavaScript. For cases like these, HTML provides the <div> and <span> elements. You should use these preferably with a suitable class attribute, to provide some kind of label for them so they can be easily targeted.
-
-<span> is an inline non-semantic element, which you should only use if you can't think of a better semantic text element to wrap your content, or don't want to add any specific meaning. For example:
-
-HTML
-Copy to Clipboard
-<p>
-  The King walked drunkenly back to his room at 01:00, the beer doing nothing to
-  aid him as he staggered through the door.
-  <span class="editor-note">
-    [Editor's note: At this point in the play, the lights should be down low].
-  </span>
-</p>
-In this case, the editor's note is supposed to merely provide extra direction for the director of the play; it is not supposed to have extra semantic meaning. For sighted users, CSS would perhaps be used to distance the note slightly from the main text.
-
-<div> is a block level non-semantic element, which you should only use if you can't think of a better semantic block element to use, or don't want to add any specific meaning. For example, imagine a shopping cart widget that you could choose to pull up at any point during your time on an e-commerce site:
-
-HTML
-Copy to Clipboard
-<div class="shopping-cart">
-  <h2>Shopping cart</h2>
-  <ul>
-    <li>
-      <p>
-        <a href=""><strong>Silver earrings</strong></a>: $99.95.
-      </p>
-      <img src="../products/3333-0985/thumb.png" alt="Silver earrings" />
-    </li>
-    <li>…</li>
-  </ul>
-  <p>Total cost: $237.89</p>
-</div>
-This isn't really an <aside>, as it doesn't necessarily relate to the main content of the page (you want it viewable from anywhere). It doesn't even particularly warrant using a <section>, as it isn't part of the main content of the page. So a <div> is fine in this case. We've included a heading as a signpost to aid screen reader users in finding it.
-
-Warning: Divs are so convenient to use that it's easy to use them too much. As they carry no semantic value, they just clutter your HTML code. Take care to use them only when there is no better semantic solution and try to reduce their usage to the minimum otherwise you'll have a hard time updating and maintaining your documents.
-
-Line breaks and horizontal rules
-Two elements that you'll use occasionally and will want to know about are <br> and <hr>.
-
-<br>: the line break element
-<br> creates a line break in a paragraph; it is the only way to force a rigid structure in a situation where you want a series of fixed short lines, such as in a postal address or a poem. For example:
-
-HTML
-Play
-Copy to Clipboard
-<p>
-  There once was a man named O'Dell<br />
-  Who loved to write HTML<br />
-  But his structure was bad, his semantics were sad<br />
-  and his markup didn't read very well.
-</p>
-Without the <br> elements, the paragraph would just be rendered in one long line (as we said earlier in the course, HTML ignores most whitespace); with <br> elements in the code, the markup renders like this:
-
-Play
-
-<hr>: the thematic break element
-<hr> elements create a horizontal rule in the document that denotes a thematic change in the text (such as a change in topic or scene). Visually it just looks like a horizontal line. As an example:
-
-HTML
-Play
-Copy to Clipboard
-<p>
-  Ron was backed into a corner by the marauding netherbeasts. Scared, but
-  determined to protect his friends, he raised his wand and prepared to do
-  battle, hoping that his distress call had made it through.
-</p>
-<hr />
-<p>
-  Meanwhile, Harry was sitting at home, staring at his royalty statement and
-  pondering when the next spin off series would come out, when an enchanted
-  distress letter flew through his window and landed in his lap. He read it
-  hazily and sighed; "better get back to work then", he mused.
-</p>
-Would render like this:
-
-Play
-
-Planning a simple website
-Once you've planned out the structure of a simple webpage, the next logical step is to try to work out what content you want to put on a whole website, what pages you need, and how they should be arranged and link to one another for the best possible user experience. This is called Information architecture. In a large, complex website, a lot of planning can go into this process, but for a simple website of a few pages, this can be fairly simple, and fun!
-
-Bear in mind that you'll have a few elements common to most (if not all) pages — such as the navigation menu, and the footer content. If your site is for a business, for example, it's a good idea to have your contact information available in the footer on each page. Note down what you want to have common to every page.the common features of the travel site to go on every page: title and logo, contact, copyright, terms and conditions, language chooser, accessibility policy
-Next, draw a rough sketch of what you might want the structure of each page to look like (it might look like our simple website above). Note what each block is going to be.A simple diagram of a sample site structure, with a header, main content area, two optional sidebars, and footer
-Now, brainstorm all the other (not common to every page) content you want to have on your website — write a big list down.A long list of all the features that we could put on our travel site, from searching, to special offers and country-specific info
-Next, try to sort all these content items into groups, to give you an idea of what parts might live together on different pages. This is very similar to a technique called Card sorting.The items that should appear on a holiday site sorted into 5 categories: Search, Specials, Country-specific info, Search results, and Buy things
-Now try to sketch a rough sitemap — have a bubble for each page on your site, and draw lines to show the typical workflow between pages. The homepage will probably be in the center, and link to most if not all of the others; most of the pages in a small site should be available from the main navigation, although there are exceptions. You might also want to include notes about how things might be presented.A map of the site showing the homepage, country page, search results, specials page, checkout, and buy page
-Active learning: create your own sitemap
-Try carrying out the above exercise for a website of your own creation. What would you like to make a site about?
-
-Note: Save your work somewhere; you might need it later on.
-
-Summary
-At this point, you should have a better idea about how to structure a web page/site. In the next article of this module, we'll learn how to debug HTML.
-
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <div class="mt-5 small">
+                    <h2 id="feedback">
+                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
+                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
-                      <footer class="mt-3 small">
-                        <div class="row">
-                            <div class="col-md-4 text-start">
-                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
-                            </div>
-                            <div class="col-md-4 text-center">
-                                <a href="#" class="link-offset-2">Topic</a>
-                            </div>
-                            <div class="col-md-4 text-end">
-                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
-                            </div>
-                        </div>
-                      </footer>
+                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container px-4 px-md-3">
+            <div class="container py-4 py-md-5 px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1721,9 +1198,6 @@ At this point, you should have a better idea about how to structure a web page/s
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
-                            <li class="mb-2">
-                              <a href="https://newsletter.datarist.com">Newsletter</a>
-                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">

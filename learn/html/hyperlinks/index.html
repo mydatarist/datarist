@@ -197,16 +197,15 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
-                            <li class="nav-item col-6 col-lg-auto">
-                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
-                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
-                                    <title>Twitter</title>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
+                                        <title>Twitter</title>
+                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
+                                    </svg>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1143,7 +1142,9 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                                                
+                                <li>
+                                    <a href="#feedback">Feedback</a>
+                                </li>                                
                             </ul>
                         </nav>
                     </div>
@@ -1152,414 +1153,30 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
-                    Creating hyperlinks
-Previous
-Overview: Introduction to HTML
-Next
-Hyperlinks are really important — they are what makes the Web a web. This article shows the syntax required to make a link, and discusses link best practices.
-
-Prerequisites:	Basic HTML familiarity, as covered in Getting started with HTML. HTML text formatting, as covered in HTML text fundamentals.
-Objective:	To learn how to implement a hyperlink effectively, and link multiple files together.
-What is a hyperlink?
-Hyperlinks are one of the most exciting innovations the Web has to offer. They've been a feature of the Web since the beginning, and are what makes the Web a web. Hyperlinks allow us to link documents to other documents or resources, link to specific parts of documents, or make apps available at a web address. Almost any web content can be converted to a link so that when clicked or otherwise activated the web browser goes to another web address (URL).
-
-Note: A URL can point to HTML files, text files, images, text documents, video and audio files, or anything else that lives on the Web. If the web browser doesn't know how to display or handle the file, it will ask you if you want to open the file (in which case the duty of opening or handling the file is passed to a suitable native app on the device) or download the file (in which case you can try to deal with it later on).
-
-For example, the BBC homepage contains many links that point not only to multiple news stories, but also different areas of the site (navigation functionality), login/registration pages (user tools), and more.
-
-front page of bbc.co.uk, showing many news items, and navigation menu functionality
-Anatomy of a link
-A basic link is created by wrapping the text or other content inside an <a> element and using the href attribute, also known as a Hypertext Reference, or target, that contains the web address.
-
-HTML
-Copy to Clipboard
-<p>
-  I'm creating a link to
-  <a href="https://www.mozilla.org/en-US/">the Mozilla homepage</a>.
-</p>
-This gives us the following result:
-I'm creating a link to the Mozilla homepage.
-
-Block level links
-As mentioned before, almost any content can be made into a link, even block-level elements. If you want to make a heading element a link then wrap it in an anchor (<a>) element as shown in the following code snippet:
-
-HTML
-Play
-Copy to Clipboard
-<a href="https://developer.mozilla.org/en-US/">
-  <h1>Datarist Web Docs</h1>
-</a>
-<p>
-  Documenting web technologies, including CSS, HTML, and JavaScript, since 2005.
-</p>
-This turns the heading into a link:
-
-Play
-
-Image links
-If you have an image you want to make into a link, use the <a> element to wrap the image file referenced with the <img> element. The example below uses a relative path to reference a locally stored SVG image file.
-
-HTML
-Play
-Copy to Clipboard
-<a href="https://developer.mozilla.org/en-US/">
-  <img src="Datarist_logo.svg" alt="Datarist Web Docs" />
-</a>
-This makes the Datarist logo a link:
-
-Play
-
-Note: You'll find out more about using images on the Web in a future article.
-
-Adding supporting information with the title attribute
-Another attribute you may want to add to your links is title. The title contains additional information about the link, such as which kind of information the page contains, or things to be aware of on the website.
-
-HTML
-Play
-Copy to Clipboard
-<p>
-  I'm creating a link to
-  <a
-    href="https://www.mozilla.org/en-US/"
-    title="The best place to find more information about Mozilla's
-          mission and how to contribute">
-    the Mozilla homepage</a>.
-</p>
-This gives us the following result and hovering over the link displays the title as a tooltip:
-
-Play
-
-Note: A link title is only revealed on mouse hover, which means that people relying on keyboard controls or touchscreens to navigate web pages will have difficulty accessing title information. If a title's information is truly important to the usability of the page, then you should present it in a manner that will be accessible to all users, for example by putting it in the regular text.
-
-Active learning: creating your own example link
-Create an HTML document using your local code editor and our getting started template.
-
-Inside the HTML body, add one or more paragraphs or other types of content you already know about.
-Change some of the content into links.
-Include title attributes.
-A quick primer on URLs and paths
-To fully understand link targets, you need to understand URLs and file paths. This section gives you the information you need to achieve this.
-
-A URL, or Uniform Resource Locator is a string of text that defines where something is located on the Web. For example, Mozilla's English homepage is located at https://www.mozilla.org/en-US/.
-
-URLs use paths to find files. Paths specify where the file you're interested in is located in the filesystem. Let's look at an example of a directory structure, see the creating-hyperlinks directory.
-
-A simple directory structure. The parent directory is called creating-hyperlinks and contains two files called index.html and contacts.html, and two directories called projects and pdfs, which contain an index.html and a project-brief.pdf file, respectively
-The root of this directory structure is called creating-hyperlinks. When working locally with a website, you'll have one directory that contains the entire site. Inside the root, we have an index.html file and a contacts.html. In a real website, index.html would be our home page or landing page (a web page that serves as the entry point for a website or a particular section of a website.).
-
-There are also two directories inside our root — pdfs and projects. These each have a single file inside them — a PDF (project-brief.pdf) and an index.html file, respectively. Note that you can have two index.html files in one project, as long as they're in different filesystem locations. The second index.html would perhaps be the main landing page for project-related information.
-
-Same directory: If you wanted to include a hyperlink inside index.html (the top level index.html) pointing to contacts.html, you would specify the filename that you want to link to, because it's in the same directory as the current file. The URL you would use is contacts.html:
-HTML
-Copy to Clipboard
-<p>
-  Want to contact a specific staff member? Find details on our
-  <a href="contacts.html">contacts page</a>.
-</p>
-Moving down into subdirectories: If you wanted to include a hyperlink inside index.html (the top level index.html) pointing to projects/index.html, you would need to go down into the projects directory before indicating the file you want to link to. This is done by specifying the directory's name, then a forward slash, then the name of the file. The URL you would use is projects/index.html:
-HTML
-Copy to Clipboard
-<p>Visit my <a href="projects/index.html">project homepage</a>.</p>
-Moving back up into parent directories: If you wanted to include a hyperlink inside projects/index.html pointing to pdfs/project-brief.pdf, you'd have to go up a directory level, then back down into the pdfs directory. To go up a directory, use two dots — .. — so the URL you would use is ../pdfs/project-brief.pdf:
-HTML
-Copy to Clipboard
-<p>A link to my <a href="../pdfs/project-brief.pdf">project brief</a>.</p>
-Note: You can combine multiple instances of these features into complex URLs, if needed, for example: ../../../complex/path/to/my/file.html.
-
-Document fragments
-It's possible to link to a specific part of an HTML document, known as a document fragment, rather than just to the top of the document. To do this you first have to assign an id attribute to the element you want to link to. It normally makes sense to link to a specific heading, so this would look something like the following:
-
-HTML
-Copy to Clipboard
-<h2 id="Mailing_address">Mailing address</h2>
-Then to link to that specific id, you'd include it at the end of the URL, preceded by a hash/pound symbol (#), for example:
-
-HTML
-Copy to Clipboard
-<p>
-  Want to write us a letter? Use our
-  <a href="contacts.html#Mailing_address">mailing address</a>.
-</p>
-You can even use the document fragment reference on its own to link to another part of the current document:
-
-HTML
-Copy to Clipboard
-<p>
-  The <a href="#Mailing_address">company mailing address</a> can be found at the
-  bottom of this page.
-</p>
-Absolute versus relative URLs
-Two terms you'll come across on the Web are absolute URL and relative URL:
-
-absolute URL: Points to a location defined by its absolute location on the web, including protocol and domain name. For example, if an index.html page is uploaded to a directory called projects that sits inside the root of a web server, and the website's domain is https://www.example.com, the page would be available at https://www.example.com/projects/index.html (or even just https://www.example.com/projects/, as most web servers just look for a landing page such as index.html to load if it isn't specified in the URL.)
-
-An absolute URL will always point to the same location, no matter where it's used.
-
-relative URL: Points to a location that is relative to the file you are linking from, more like what we looked at in the previous section. For example, if we wanted to link from our example file at https://www.example.com/projects/index.html to a PDF file in the same directory, the URL would just be the filename — project-brief.pdf — no extra information needed. If the PDF was available in a subdirectory inside projects called pdfs, the relative link would be pdfs/project-brief.pdf (the equivalent absolute URL would be https://www.example.com/projects/pdfs/project-brief.pdf.)
-
-A relative URL will point to different places depending on the actual location of the file you refer from — for example if we moved our index.html file out of the projects directory and into the root of the website (the top level, not in any directories), the pdfs/project-brief.pdf relative URL link inside it would now point to a file located at https://www.example.com/pdfs/project-brief.pdf, not a file located at https://www.example.com/projects/pdfs/project-brief.pdf.
-
-Of course, the location of the project-brief.pdf file and pdfs folder won't suddenly change because you moved the index.html file — this would make your link point to the wrong place, so it wouldn't work if clicked on. You need to be careful!
-
-Link best practices
-There are some best practices to follow when writing links. Let's look at these now.
-
-Use clear link wording
-It's easy to throw links up on your page. That's not enough. We need to make our links accessible to all readers, regardless of their current context and which tools they prefer. For example:
-
-Screen reader users like jumping around from link to link on the page, and reading links out of context.
-Search engines use link text to index target files, so it is a good idea to include keywords in your link text to effectively describe what is being linked to.
-Visual readers skim over the page rather than reading every word, and their eyes will be drawn to page features that stand out, like links. They will find descriptive link text useful.
-Let's look at a specific example:
-
-Good link text: Download Firefox
-
-HTML
-Copy to Clipboard
-<p><a href="https://www.mozilla.org/firefox/">Download Firefox</a></p>
-Bad link text: Click here to download Firefox
-
-HTML
-Copy to Clipboard
-<p>
-  <a href="https://www.mozilla.org/firefox/">Click here</a> to download Firefox
-</p>
-Other tips:
-
-Don't repeat the URL as part of the link text — URLs look ugly, and sound even uglier when a screen reader reads them out letter by letter.
-Don't say "link" or "links to" in the link text — it's just noise. Screen readers tell people there's a link. Visual users will also know there's a link, because links are generally styled in a different color and underlined (this convention generally shouldn't be broken, as users are used to it).
-Keep your link text as short as possible — this is helpful because screen readers need to interpret the entire link text.
-Minimize instances where multiple copies of the same text are linked to different places. This can cause problems for screen reader users, if there's a list of links out of context that are labeled "click here", "click here", "click here".
-Linking to non-HTML resources — leave clear signposts
-When linking to a resource that will be downloaded (like a PDF or Word document), streamed (like video or audio), or has another potentially unexpected effect (opens a popup window), you should add clear wording to reduce any confusion.
-
-For example:
-
-If you're on a low bandwidth connection, click a link, and then a multiple megabyte download starts unexpectedly.
-Let's look at some examples, to see what kind of text can be used here:
-
-HTML
-Copy to Clipboard
-<p>
-  <a href="https://www.example.com/large-report.pdf">
-    Download the sales report (PDF, 10MB)
-  </a>
-</p>
-
-<p>
-  <a href="https://www.example.com/video-stream/" target="_blank">
-    Watch the video (stream opens in separate tab, HD quality)
-  </a>
-</p>
-Use the download attribute when linking to a download
-When you are linking to a resource that's to be downloaded rather than opened in the browser, you can use the download attribute to provide a default save filename. Here's an example with a download link to the latest Windows version of Firefox:
-
-HTML
-Copy to Clipboard
-<a
-  href="https://download.mozilla.org/?product=firefox-latest-ssl&os=win64&lang=en-US"
-  download="firefox-latest-64bit-installer.exe">
-  Download Latest Firefox for Windows (64-bit) (English, US)
-</a>
-Active learning: creating a navigation menu
-For this exercise, we'd like you to link some pages together with a navigation menu to create a multipage website. This is one common way in which a website is created — the same page structure is used on every page, including the same navigation menu, so when links are clicked it gives the impression that you are staying in the same place, and different content is being brought up.
-
-You'll need to make local copies of the following four pages, all in the same directory. For a complete file list, see the navigation-menu-start directory:
-
-index.html
-projects.html
-pictures.html
-social.html
-You should:
-
-Add an unordered list in the indicated place on one page that includes the names of the pages to link to. A navigation menu is usually just a list of links, so this is semantically OK.
-Change each page name into a link to that page.
-Copy the navigation menu across to each page.
-On each page, remove just the link to that same page — it's confusing and unnecessary for a page to include a link to itself. And, the lack of a link acts a good visual reminder of which page you are currently on.
-The finished example should look similar to the following page:
-
-An example of a simple HTML navigation menu, with home, pictures, projects, and social menu items
-Note: If you get stuck, or aren't sure if you have got it right, you can check the navigation-menu-marked-up directory to see the correct answer.
-
-Email links
-It's possible to create links or buttons that, when clicked, open a new outgoing email message rather than linking to a resource or page. This is done using the <a> element and the mailto: URL scheme.
-
-In its most basic and commonly used form, a mailto: link indicates the email address of the intended recipient. For example:
-
-HTML
-Copy to Clipboard
-<a href="mailto:nowhere@mozilla.org">Send email to nowhere</a>
-This results in a link that looks like this: Send email to nowhere.
-
-In fact, the email address is optional. If you omit it and your href is "mailto:", a new outgoing email window will be opened by the user's email client with no destination address. This is often useful as "Share" links that users can click to send an email to an address of their choosing.
-
-Specifying details
-In addition to the email address, you can provide other information. In fact, any standard mail header fields can be added to the mailto URL you provide. The most commonly used of these are "subject", "cc", and "body" (which is not a true header field, but allows you to specify a short content message for the new email). Each field and its value is specified as a query term.
-
-Here's an example that includes a cc, bcc, subject and body:
-
-HTML
-Copy to Clipboard
-<a
-  href="mailto:nowhere@mozilla.org?cc=name2@rapidtables.com&bcc=name3@rapidtables.com&subject=The%20subject%20of%20the%20email&body=The%20body%20of%20the%20email">
-  Send mail with cc, bcc, subject and body
-</a>
-Note: The values of each field must be URL-encoded with non-printing characters (invisible characters like tabs, carriage returns, and page breaks) and spaces percent-escaped. Also, note the use of the question mark (?) to separate the main URL from the field values, and ampersands (&) to separate each field in the mailto: URL. This is standard URL query notation. Read The GET method to understand what URL query notation is more commonly used for.
-
-Here are a few other sample mailto URLs:
-
-mailto:
-mailto:nowhere@mozilla.org
-mailto:nowhere@mozilla.org,nobody@mozilla.org
-mailto:nowhere@mozilla.org?cc=nobody@mozilla.org
-mailto:nowhere@mozilla.org?cc=nobody@mozilla.org&subject=This%20is%20the%20subject
-Test your skills!
-You've reached the end of this article, but can you remember the most important information? You can find some further tests to verify that you've retained this information before you move on — see Test your skills: Links.
-
-Summary
-That's it for links, for now anyway! You'll return to links later on in the course when you start to look at styling them. Next up for HTML, we'll return to text semantics and look at some more advanced/unusual features that you'll find useful — Advanced text formatting is your next stop.
-
-
-
-
-
-Links 
-
-bookmark_border
-In the introduction to the attributes section, you saw an example showing how attributes are added to the opening tag. The example used the <a> tag, but neither the element nor the specific attributes introduced in that example were discussed:
-
-The opening tag, attributes, and closing tag, labelled on an HTML element.
-
-The <a> anchor tag, along with the href attribute, create a hyperlink. Links are the backbone of the internet. The first web page contained 25 links, reading "Everything there is online about W3 is linked directly or indirectly to this document." In all likelihood, everything there is online about W3 is linked directly or indirectly from this document too!
-
-The power of the web, and the <a> tag, have grown immensely since Tim Berners-Lee published this first explanation in August 1991. Links represent a connection between two resources, one of which is the current document. Links can be created by <a>, <area>, <form>, and <link>. You've learned about <link>, and will discover forms in a separate section. There is also an entire form learn section. In this session, you'll find out about the single-letter, not-so-simple <a> tag.
-
-The href attribute
-While not required, the href attribute is found in almost all <a> tags. Providing the address of the hyperlink is what turns the <a> into a link. The href attribute is used to create hyperlinks to locations within the current page, other pages within a site, or other sites altogether. It can also be coded to download files or to send an email to a specific address, even including a subject and suggested email body content.
-
-
-<a href="https://machinelearningworkshop.com">Machine Learning Workshop</a>
-<a href="#teachers">Our teachers</a>
-<a href="https://machinelearningworkshop.com#teachers">MLW teachers</a>
-<a href="mailto:hal9000@machinelearningworkshop.com">Email Hal</a>
-<a href="tel:8005551212">Call Hal</a>
-The first link includes an absolute URL, which can be used on any site in the world to navigate to the MLW home page. Absolute URLs include a protocol, in this case https://, and a domain name. When the protocol is written simply as //, it is an implicit protocol and means "use the same protocol as is currently being used."
-
-Relative URLs do not include a protocol or domain name. They are "relative" to the current file. MLW is a single-page site, but this HTML series has several sections. In order to link from this page to the attributes lesson, a relative URL is used <a href="../attributes/">Attributes</a>.
-
-The second link is just a link fragment identifier, and will link to the element with id="teachers", if there is one, on the current page. Browsers also support two "top of page" links: clicking on <a href="#top">Top</a> (case-insensitive) or simply <a href="#">Top</a> will scroll the user to the top of the page, unless there is an element with the id of top set in the same letter casing.
-
-MLW is a fairly long document. To save scrolling, you can add a link back to the top from the bottom of the #teachers section:
-
-
-<a href="#top">Go to top.</a>
-The third link combines the two values: it contains an absolute URL followed by a link fragment. This enables linking directly to a section in the defined URL, in this case, the #teachers section of the MLW home page. The MLW page will be loaded; then the browser will scroll to the teachers section without sending the fragment in the HTTP request.
-
-The href attribute can begin with mailto: or tel: to email or make calls, with the handling of the link depending on the device, operating system, and installed applications.
-
-The mailto link doesn't need to include an email address, but it can, along with cc, bcc, subject, and body text to prepopulate the email. By default, an email client will be opened. You could prepopulate the subject and body of the email with no email address, to allow site visitors to invite their own friends. In our link, in the footer of the document, we include the URL to the registration:
-
-
-<a href="mailto:?subject=Join%20me%21&body=You%20need%20to%20show%20your%20human%20that%20you%20can%27t%20be%20owned%21%20Sign%20up%20for%20Machine%20Learning%20workshop.%20We%20are%20taking%20over%20the%20world.%20http%3A%2F%2Fwww.machinelearning.com%23reg
-">Tell a machine</a>
-The question mark (?) separates the mailto: and the email address, if any, from the query term. Within the query, ampersands (&) separate the fields, and equal signs (=) equate each field name with its value. The entire string is percent-encoded, which is definitely necessary if the href value isn't quoted or if the values include quotes.
-
-Which app is opened when the user clicks on, taps, or hits Enter on a tel link depends on the operating system, installed applications, and settings the user has on their device. An iPhone may open FaceTime, the phone app, or contacts. A Windows desktop might open Skype, if installed.
-
-There are several other types of URLs, such as blobs and data URLs (see examples in the download attribute discussion). For secure sites (those served over https), it is possible to create and run app specific protocols with registerProtocolHandler().
-
-When including links that are likely to open other installed applications, it's good to let the user know. Make sure the text between the opening and closing tags tells the user what type of link they're about to activate. CSS attribute selectors, such as [href^="mailto:"], [href^="tel:"], and [href$=".pdf"] can be used to target styles by application type.
-
-Downloadable resources
-The download attribute should be included when the href points to a downloadable resource. The value of the download attribute is the suggested filename for the resource to be saved in the user's local file system. SVGOMG, the SVG Optimizer, uses the download attribute to suggest a file name for the downloadable blob that the optimizer creates. When hal.svg is optimized, SVGOMG's download link opening tag is similar to:
-
-
-<a href="blob:https://jakearchibald.github.io/944a5fc8-fdb3-458a-91ee-cdd5964b6646" download="hal.svg">
-There's also a demo of a <canvas> that creates a downloadable PNG data URL.
-
-To link to a downloadable resource, include the URL of the asset as the value of the href attribute and the suggested filename that can be used in the user's file system as the value of the download attribute.
-
-Browsing context
-The target attribute enables the defining of the browsing context for link navigation (and form submission. The four case-insensitive, underscore-prefixed keywords were discussed with the <base> element. They include the default _self, which is the current window, _blank, which opens the link in a new tab, _parent, which is the parent if the current link is nested in an object or iframe, and _top, which is the top-most ancestor, especially useful if the current link is deeply nested. _top and _parent are the same as _self if the link is not nested. The target attribute is not limited to these four key terms: any term can be used.
-
-Every browsing context—basically, every browser tab—has a browsing context name. Links can open links in the current tab, a new unnamed tab, or a new or existing named tab. By default, the name is the empty string. To open a link in a new tab, the user can right-click and select "Open in a new tab". Developers can force this by including target="_blank".
-
-A link with target="_blank" will be opened in a new tab with a null name, opening a new, unnamed tab with every link click. This can create many new tabs. Too many tabs. For example, if the user clicks on <a href="registration.html" target="_blank">Register Now</a> 15 times, the registration form will be opened in 15 separate tabs. This problem can be fixed by providing a tab context name. By including the targetattribute with a case-sensitive value—such as <a href="registration.html" target="reg">Register Now</a>—the first click on this link will open the registration form in a new reg tab. Clicking on this link 15 more times will reload the registration in the reg browsing context, without opening any additional tabs.
-
-The rel attribute controls what kinds of links the link creates, defining the relationship between the current document and the resource linked to in the hyperlink. The attribute's value must be a space-separated list on one or more of the score of rel attribute values supported by the <a> tag.
-
-The nofollow keyword can be included if you don't want spiders to follow the link. The external value can be added to indicate that the link directs to an external URL and is not a page within the current domain. The help keyword indicates the hyperlink will provide context-sensitive help. Hovering over a link with this rel value will show a help cursor rather than the normal pointer cursor. Don't use this value just to get the help cursor; use the CSS cursor property instead. The prev and next values can be used on links pointing to the previous and next document in a series.
-
-Similar to <link rel="alternative">, the meaning of <a rel="alternative"> depends on other attributes. RSS feed alternatives will also include type="application/rss+xml" or type="application/atom+xml, alternative formats will include the type attribute, and translations will include the hreflang attribute. If the content between the opening and closing tags is in a language other than the main document language, include the lang attribute. If the language of the hyperlinked document is in a different language, include the hreflang attribute.
-
-In this example, we include the URL of the translated page as the value of the href, rel="alternate" to indicate that it's an alternative version of a site; the hreflang attribute provides the language of the translations:
-
-
-<a href="/fr" hreflang="fr-FR" rel="alternate" lang="fr-FR">atelier d'apprentissage mechanique</a>
-<a href="/pt" hreflang="pt-BR" rel="alternate" lang="pt-BR">oficina de aprendizado de máquina</a>
-If the French translation is a PDF, you can provide the type attribute with the PDF MIME type of the linked resource. While the MIME type is purely advisory, informing the user that a link will open a document of a different format is always a good idea.
-
-
-<a href="/fr.pdf" hreflang="fr-FR" rel="alternate" lang="fr-FR" type="application/x-pdf">atelier d'apprentissage mechanique (pdf).</a>
-Tracking link clicks
-One way to track user interactions is to ping a URL when a link is clicked. The ping attribute, if present, includes a space-separated list of secure URLs (which start with https) that should be notified, or pinged, if the user activates the hyperlink. The browser sends POST requests with the body PING to the URLs listed as the value of the ping attribute.
-
-User experience tips
-Always consider the user experience when writing HTML. Links should provide enough information about the linked resource so the user knows what they are clicking on.
-Within a block of text, ensure the appearance of your links differs enough from the surrounding text so that users can easily identify links from the rest of the content, ensuring that color alone is not the only means of differentiating between text and the surrounding content.
-Always include focus styles; this enables keyboard navigators to know where they are when tabbing through your content.
-The content between the opening <a> and closing </a> is the link's default accessible name and should inform the user of the link's destination or purpose. If the content of a link is an image, the alt description is the accessible name. Whether the accessible name comes from the alt attribute or a subset of words within a block of text, make sure it provides information about the link's destination. Link text should be more descriptive than "click here" or "more information"; this is important for your screen reader users and your search engine results!
-Don't include interactive content, such as a <button> or <input>, inside a link. Don't nest a link within a <button> or <label> either. While the HTML page will still render, nesting focusable and clickable elements inside interactive elements creates a bad user experience.
-If the href attribute is present, pressing the Enter key while focused on the <a> element will activate it.
-Links are not limited to HTML. The a element can also be used within an SVG, forming a link with either the 'href' or 'xlink:href' attributes.
-Links and JavaScript
-The links attribute returns an HTMLCollection matching a and area elements that have an href attribute.
-
-
-let a = document.links[0]; // obtain the first link in the document
-
-a.href = 'newpage.html'; // change the destination URL of the link
-a.protocol = 'ftp'; // change just the scheme part of the URL
-a.setAttribute('href', 'https://machinelearningworkshop.com/'); // change the attribute content directly
-In this section, you have learned all about links. The next section covers lists, which we need to learn so we can group them together to create lists of links (also known as navigation).
-
-Check your understanding
-Test your knowledge of links.
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <div class="mt-5 small">
+                    <h2 id="feedback">
+                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
+                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
-                      <footer class="mt-3 small">
-                        <div class="row">
-                            <div class="col-md-4 text-start">
-                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
-                            </div>
-                            <div class="col-md-4 text-center">
-                                <a href="#" class="link-offset-2">Topic</a>
-                            </div>
-                            <div class="col-md-4 text-end">
-                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
-                            </div>
-                        </div>
-                      </footer>
+                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container px-4 px-md-3">
+            <div class="container py-4 py-md-5 px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1581,9 +1198,6 @@ Test your knowledge of links.
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
-                            <li class="mb-2">
-                              <a href="https://newsletter.datarist.com">Newsletter</a>
-                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">
