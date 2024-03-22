@@ -197,16 +197,15 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
-                            <li class="nav-item col-6 col-lg-auto">
-                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
-                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
-                                    <title>Twitter</title>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
+                                        <title>Twitter</title>
+                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
+                                    </svg>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1143,7 +1142,9 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                                                
+                                <li>
+                                    <a href="#feedback">Feedback</a>
+                                </li>                                
                             </ul>
                         </nav>
                     </div>
@@ -1152,282 +1153,30 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
-                    MathML Text Containers
-Previous
-Overview: First steps
-Next
-Now that you get a better idea of MathML, we move focus on text containers (variables, numbers, operators, ...) which are used as building blocks of MathML formulas.
-
-Prerequisites:	Basic software installed, basic knowledge of working with files, HTML basics (study Introduction to HTML) and some CSS notions on text styling (read fundamental text and font styling and web fonts).
-Objective:	To get familiar with MathML elements used for writing text and be aware of special behaviors.
-Unicode characters for mathematics
-Mathematical formulas involve many special characters, for example greek letters (e.g. Δ), fraktur letters (e.g. 𝔄), double-struck letter (e.g. ℂ), binary operators (e.g. ≠), arrows (e.g. ⇒), integral symbols (e.g. ∮), summation symbols (e.g. ∑), logical symbols (e.g. ∀), fences (e.g. ⌊) and many more. Wikipedia's article Mathematical operators and symbols in Unicode provides a good overview of the characters used.
-
-Since most of these characters are not part of Basic Latin Unicode block, it is recommended to specify your document's character encoding and to serve it with appropriate web fonts. Here is a basic template to use UTF-8 encoding and the Latin Modern Math font:
-
-HTML
-Play
-Copy to Clipboard
-<!doctype html>
-<html lang="en-US">
-  <head>
-    <meta charset="utf-8" />
-    <title>My page with math characters</title>
-    <link
-      rel="stylesheet"
-      href="https://fred-wang.github.io/MathFonts/LatinModern/mathfonts.css" />
-  </head>
-  <body>
-    <p style="font-family: Latin Modern Math">∀A∊𝔰𝔩(n,𝔽),TrA=0</p>
-  </body>
-</html>
-Play
-
-A bit of semantics
-We noticed in the getting started with MathML article that the text in MathML formulas are wrapped in specific container elements such as the <mn> or <mo>. More generally, every text in MathML formulas must be included inside such container elements, called token elements. In addition, MathML provides multiple token elements in order to distinguish different meanings of the text content:
-
-The <mi> element, which represents an "identifier" which could be a symbolic name or arbitrary text. Examples: <mi>x</mi> (variable), <mi>cos</mi> (function name) and <mi>π</mi> (symbolic constant).
-The <mn> element represents a "numeric literal" or other data that should be rendered as a numeric literal. Examples: <mn>2</mn> (integer), <mn>0.123</mn> (decimal number) or <mn>0xFFEF</mn> (hexadecimal value).
-The <mo> element represents an operator or anything that should be rendered as an operator. For example <mo>+</mo> (binary operation), <mo>≤</mo> (binary relation), <mo>∑</mo> (summation symbol) or <mo>[</mo> (fence).
-The <mtext> element is used to represent arbitrary text. For example short words in formulas such as <mtext>if<mtext> or <mtext>maps to</mtext>.
-Active learning: recognize token elements
-Below is a more complex example, which says that the absolute value of a real number is equal to that number if and only if it is nonnegative. Spot the different token elements and what they are used for. Each time you click the corresponding text, it is highlighted and a confirmation message is displayed.
-
-Play
-
-Finally, read the MathML source to verify whether that corresponds to your expectation:
-
-XML
-Copy to Clipboard
-<math display="block">
-  <mrow>
-    <mrow>
-      <mo>|</mo>
-      <mi>x</mi>
-      <mo>|</mo>
-    </mrow>
-    <mo>=</mo>
-    <mi>x</mi>
-  </mrow>
-  <mtext>&nbsp;iff&nbsp;</mtext>
-  <mrow>
-    <mi>x</mi>
-    <mo>≥</mo>
-    <mn>0</mn>
-  </mrow>
-</math>
-Note: It is sometimes difficult to decide the token element to use for a given text content. In practice, choosing the wrong element should not cause major issues because all token elements are generally rendered the same by browser implementations (for visual display and for assistive technologies). However, the <mi> and <mo> elements have special distinguishing features that one should be aware of. They are explained in the following sections.
-
-Automatic italicization of <mi>
-One typographic convention in mathematics is to use italic letters for variables. In order to help with that, <mi> elements with a single character may be automatically rendered as italic. This is the case for all the letters from the latin and greek alphabets. Compare the rendering of the two <mi> elements in the following formula:
-
-HTML
-Play
-Copy to Clipboard
-<math>
-  <mi>sin</mi>
-  <mi>x</mi>
-</math>
-Play
-
-Note: This table from MathML Core provide the exhaustive list of characters that are subject to italicization, together with the corresponding italic characters.
-
-Reverting automatic italicization of <mi>
-In order to revert this default italic transformation you can attach a mathvariant="normal" attribute on the <mi> element. Compare the rendering of the uppercase gamma letters in the following formula:
-
-HTML
-Play
-Copy to Clipboard
-<math>
-  <mi>Γ</mi>
-  <mi mathvariant="normal">Γ</mi>
-</math>
-Play
-
-Note: Although you can apply this transformation, normally you'd just use the desired Mathematical Alphanumeric Symbols.
-
-Operator properties of <mo>
-MathML contains an operator dictionary that defines default properties of <mo> elements depending on their content and the position within its container (prefix, infix or postfix). Let's consider a concrete example:
-
-HTML
-Copy to Clipboard
-<table>
-  <tr>
-    <td>Prefix plus</td>
-    <td>
-      <math>
-        <mo>+</mo>
-        <mi>i</mi>
-      </math>
-    </td>
-  </tr>
-  <tr>
-    <td>Infix plus</td>
-    <td>
-      <math>
-        <mi>j</mi>
-        <mo>+</mo>
-        <mi>i</mi>
-      </math>
-    </td>
-  </tr>
-  <tr>
-    <td>Prefix sum</td>
-    <td>
-      <math>
-        <mo>∑</mo>
-        <mi>i</mi>
-      </math>
-    </td>
-  </tr>
-</table>
-This example should render similarly to the screenshot below. Observe the spacing between the <mi>i</mi> elements and its preceding <mo>: no spacing for the prefix plus, some spacing for the infix plus and some smaller spacing for the prefix summation symbol.
-
-Screenshot of the MathML formula with different operator spacing
-Operators have many other properties that we will see in more details later. For now, remember to use an <mo> container for characters in the operator dictionary and to properly group subexpressions with <mrow> elements in order to help MathML renderers.
-
-Active learning: spot the difference
-Now that you are a bit familiar with special features of <mi> and <mo>, let's rewrite the <p> element in the example at the top of the page with some actual MathML. Compare the visual rendering in your browser and explain the differences with the text-only version.
-
-HTML
-Play
-Copy to Clipboard
-<!doctype html>
-<html lang="en-US">
-  <head>
-    <meta charset="utf-8" />
-    <title>My page with math characters</title>
-    <link
-      rel="stylesheet"
-      href="https://fred-wang.github.io/MathFonts/LatinModern/mathfonts.css" />
-  </head>
-  <body>
-    <p style="font-family: Latin Modern Math">∀A∊𝔰𝔩(n,𝔽),TrA=0</p>
-    <p>
-      <math>
-        <mo>∀</mo>
-        <mrow>
-          <mi>A</mi>
-          <mo>∊</mo>
-          <mrow>
-            <mi>𝔰𝔩</mi>
-            <mrow>
-              <mo>(</mo>
-              <mi>n</mi>
-              <mo>,</mo>
-              <mi>𝔽</mi>
-              <mo>)</mo>
-            </mrow>
-          </mrow>
-        </mrow>
-        <mo>,</mo>
-        <mrow>
-          <mrow>
-            <mi>Tr</mi>
-            <mi>A</mi>
-          </mrow>
-          <mo>=</mo>
-          <mn>0</mn>
-        </mrow>
-      </math>
-    </p>
-    <input id="showSolution" type="button" value="Show solution" />
-    <div id="solution"></div>
-  </body>
-</html>
-Play
-
-Note: An obvious difference is that the source code became much more verbose with MathML. Recall that this tutorial is about learning the language but in practice MathML content is generally not written manually. See the Authoring MathML page for more information.
-
-Active learning: stretchy operators
-The operator dictionary defines a default stretchy property as well as corresponding stretch axis for some operators. For example, an operator can stretch vertically by default to cover the maximum height of non-stretchy siblings within its <mrow> container. By tweaking a bit the previous exercise, one can make operators stretch vertically. Can you find them?
-
-Play
-
-As usual, you are invited to read the source code when you are done:
-
-XML
-Copy to Clipboard
-<math display="block">
-  <mrow>
-    <mrow>
-      <mo>|</mo>
-      <mfrac>
-        <mn>1</mn>
-        <mi>x</mi>
-      </mfrac>
-      <mo>|</mo>
-    </mrow>
-    <mo>=</mo>
-    <mfrac>
-      <mn>1</mn>
-      <mrow>
-        <mo>|</mo>
-        <mi>x</mi>
-        <mo>|</mo>
-      </mrow>
-    </mfrac>
-    <mo>=</mo>
-    <mfrac>
-      <mn>1</mn>
-      <mi>x</mi>
-    </mfrac>
-  </mrow>
-  <mtext>&nbsp;iff&nbsp;</mtext>
-  <mrow>
-    <mi>x</mi>
-    <mo>≥</mo>
-    <mn>0</mn>
-  </mrow>
-</math>
-Warning: Special math fonts are generally required to make that stretching possible, the previous example relies on web fonts.
-
-Summary
-In this article, we have learnt about a few token elements that are used as text containers as well as their different semantics, namely <mi> (identifier), <mn> (numbers), <mo> (operators), <mtext> (generic text). We have seen special Unicode characters that are commonly found in math formulas and given an overview of some observable behaviors of the <mi> and <mo> elements. In the next article, we will see how to rely on token elements to build much complex expressions such as fractions and roots.
-
-Previous
-Overview: First steps
-Next
-See also
-The <mi> element
-The <mn> element
-The <mo> element
-The <mtext> element
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <div class="mt-5 small">
+                    <h2 id="feedback">
+                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
+                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
-                      <footer class="mt-3 small">
-                        <div class="row">
-                            <div class="col-md-4 text-start">
-                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
-                            </div>
-                            <div class="col-md-4 text-center">
-                                <a href="#" class="link-offset-2">Topic</a>
-                            </div>
-                            <div class="col-md-4 text-end">
-                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
-                            </div>
-                        </div>
-                      </footer>
+                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container px-4 px-md-3">
+            <div class="container py-4 py-md-5 px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1449,9 +1198,6 @@ The <mtext> element
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
-                            <li class="mb-2">
-                              <a href="https://newsletter.datarist.com">Newsletter</a>
-                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">

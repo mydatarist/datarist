@@ -197,16 +197,15 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
-                            <li class="nav-item col-6 col-lg-auto">
-                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
-                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
-                                    <title>Twitter</title>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
+                                        <title>Twitter</title>
+                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
+                                    </svg>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1143,7 +1142,9 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                                                
+                                <li>
+                                    <a href="#feedback">Feedback</a>
+                                </li>                                
                             </ul>
                         </nav>
                     </div>
@@ -1152,121 +1153,30 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
-                    Image gallery
-Previous
-Overview: Building blocks
-Now that we've looked at the fundamental building blocks of JavaScript, we'll test your knowledge of loops, functions, conditionals and events by getting you to build a fairly common item you'll see on a lot of websites — a JavaScript-powered image gallery.
-
-Prerequisites:	Before attempting this assessment you should have already worked through all the articles in this module.
-Objective:	To test comprehension of JavaScript loops, functions, conditionals, and events.
-Starting point
-To get this assessment started, you should go and grab the ZIP file for the example, unzip it somewhere on your computer, and do the exercise locally to begin with.
-
-Alternatively, you could use an online editor such as CodePen, JSFiddle, or Glitch.
-
-Note: If you get stuck, you can reach out to us in one of our communication channels.
-
-Project brief
-You have been provided with some HTML, CSS and image assets and a few lines of JavaScript code; you need to write the necessary JavaScript to turn this into a working program. The HTML body looks like this:
-
-HTML
-Copy to Clipboard
-<h1>Image gallery example</h1>
-
-<div class="full-img">
-  <img
-    class="displayed-img"
-    src="images/pic1.jpg"
-    alt="Closeup of a blue human eye" />
-  <div class="overlay"></div>
-  <button class="dark">Darken</button>
-</div>
-
-<div class="thumb-bar"></div>
-The example looks like this:
-
-An image gallery with a large image on top and five thumbnails below
-The most interesting parts of the example's CSS file:
-
-It absolutely positions the three elements inside the full-img <div> — the <img> in which the full-sized image is displayed, an empty <div> that is sized to be the same size as the <img> and put right over the top of it (this is used to apply a darkening effect to the image via a semi-transparent background color), and a <button> that is used to control the darkening effect.
-It sets the width of any images inside the thumb-bar <div> (so-called "thumbnail" images) to 20%, and floats them to the left so they sit next to one another on a line.
-Your JavaScript needs to:
-
-Declare a const array listing the filenames of each image, such as 'pic1.jpg'.
-Declare a const object listing the alternative text for each image.
-Loop through the array of filenames, and for each one, insert an <img> element inside the thumb-bar <div> that embeds that image in the page along with its alternative text.
-Add a click event listener to each <img> inside the thumb-bar <div> so that, when they are clicked, the corresponding image and alternative text are displayed in the displayed-img <img> element.
-Add a click event listener to the <button> so that when it is clicked, a darken effect is applied to the full-size image. When it is clicked again, the darken effect is removed again.
-To give you more of an idea, have a look at the finished example (no peeking at the source code!)
-
-Steps to complete
-The following sections describe what you need to do.
-
-Declare an array of image filenames
-You need to create an array listing the filenames of all the images to include in the gallery. The array should be declared as a constant.
-
-Looping through the images
-We've already provided you with lines that store a reference to the thumb-bar <div> inside a constant called thumbBar, create a new <img> element, set its src and alt attributes to a placeholder value xxx, and append this new <img> element inside thumbBar.
-
-You need to:
-
-Put the section of code below the "Looping through images" comment inside a loop that loops through all the filenames in the array.
-In each loop iteration, replace the xxx placeholder values with a string that will equal the path to the image and alt attributes in each case. Set the value of the src and alt attributes to these values in each case. Remember that the image is inside the images directory, and its name is pic1.jpg, pic2.jpg, etc.
-Adding a click event listener to each thumbnail image
-In each loop iteration, you need to add a click event listener to the current newImage — this listener should find the value of the src attribute of the current image. Set the src attribute value of the displayed-img <img> to the src value passed in as a parameter. Then do the same for the alt attribute.
-
-Alternatively, you can add one event listener to the thumb bar.
-
-Writing a handler that runs the darken/lighten button
-That just leaves our darken/lighten <button> — we've already provided a line that stores a reference to the <button> in a constant called btn. You need to add a click event listener that:
-
-Checks the current class name set on the <button> — you can again achieve this by using getAttribute().
-If the class name is "dark", changes the <button> class to "light" (using setAttribute()), its text content to "Lighten", and the background-color of the overlay <div> to "rgb(0 0 0 / 50%)".
-If the class name is not "dark", changes the <button> class to "dark", its text content back to "Darken", and the background-color of the overlay <div> to "rgb(0 0 0 / 0%)".
-The following lines provide a basis for achieving the changes stipulated in points 2 and 3 above.
-
-JS
-Copy to Clipboard
-btn.setAttribute("class", xxx);
-btn.textContent = xxx;
-overlay.style.backgroundColor = xxx;
-Hints and tips
-You don't need to edit the HTML or CSS in any way.
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <div class="mt-5 small">
+                    <h2 id="feedback">
+                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
+                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
-                      <footer class="mt-3 small">
-                        <div class="row">
-                            <div class="col-md-4 text-start">
-                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
-                            </div>
-                            <div class="col-md-4 text-center">
-                                <a href="#" class="link-offset-2">Topic</a>
-                            </div>
-                            <div class="col-md-4 text-end">
-                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
-                            </div>
-                        </div>
-                      </footer>
+                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container px-4 px-md-3">
+            <div class="container py-4 py-md-5 px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1288,9 +1198,6 @@ You don't need to edit the HTML or CSS in any way.
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
-                            <li class="mb-2">
-                              <a href="https://newsletter.datarist.com">Newsletter</a>
-                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">
