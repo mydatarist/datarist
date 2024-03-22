@@ -197,16 +197,15 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
-                            <li class="nav-item col-6 col-lg-auto">
-                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
-                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
-                                    <title>Twitter</title>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
+                                        <title>Twitter</title>
+                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
+                                    </svg>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1143,7 +1142,9 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                                                
+                                <li>
+                                    <a href="#feedback">Feedback</a>
+                                </li>                                
                             </ul>
                         </nav>
                     </div>
@@ -1152,528 +1153,30 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
-
-                    Selectors 
-
-                    bookmark_border
-                    The CSS Podcast - 002: Selectors 
-                    
-                    If you've got some text that you only want to be larger and red if it's the first paragraph of an article, how do you do that?
-                    
-                    
-                    <article>
-                      <p>I want to be red and larger than the other text.</p>
-                      <p>I want to be normal sized and the default color.</p>
-                    </article>
-                    You use a CSS selector to find that specific element and apply a CSS rule, like this.
-                    
-                    
-                    article p:first-of-type {
-                      color: red;
-                      font-size: 1.5em;
-                    }
-                    CSS provides you with a lot of options to select elements and apply rules to them, ranging from very simple to very complex, to help solve situations like this.
-                    
-                    
-                    The parts of a CSS rule
-                    To understand how selectors work and their role in CSS, it's important to know the parts of a CSS rule. A CSS rule is a block of code, containing one or more selectors and one or more declarations.
-                    
-                    An image of a CSS rule with the selector .my-css-rule.
-                    In this CSS rule, the selector is .my-css-rule which finds all elements with a class of my-css-rule on the page. There are three declarations within the curly brackets. A declaration is a property and value pair which applies styles to the elements matched by the selectors. A CSS rule can have as many declarations and selectors as you like.
-                    
-                    Simple selectors
-                    The most straightforward group of selectors target HTML elements plus classes, IDs, and other attributes which may be added to an HTML tag.
-                    
-                    Universal selector
-                    Browser Support
-                    
-                    1
-                    12
-                    1
-                    1
-                    Source
-                    
-                    A universal selector—also known as a wildcard—matches any element.
-                    
-                    * {
-                      color: hotpink;
-                    }
-                    This rule causes every HTML element on the page to have hotpink text.
-                    
-                    Type selector
-                    Browser Support
-                    
-                    1
-                    12
-                    1
-                    1
-                    Source
-                    
-                    A type selector matches a HTML element directly.
-                    
-                    section {
-                      padding: 2em;
-                    }
-                    This rule causes every <section> element to have 2em of padding on all sides.
-                    
-                    Class selector
-                    Browser Support
-                    
-                    1
-                    12
-                    1
-                    1
-                    Source
-                    
-                    A HTML element can have one or more items defined in their class attribute. The class selector matches any element that has that class applied to it.
-                    
-                    <div class="my-class"></div>
-                    <button class="my-class"></button>
-                    <p class="my-class"></p>
-                    Any element that has the class applied to it will get colored red:
-                    
-                    
-                    .my-class {
-                      color: red;
-                    }
-                    Notice how the . is only present in CSS and not the HTML. This is because the . character instructs the CSS language to match class attribute members. This is a common pattern in CSS, where a special character, or set of characters, is used to define selector types.
-                    
-                    A HTML element that has a class of .my-class will still be matched to the above CSS rule, even if they have several other classes, like this:
-                    
-                    
-                    <div class="my-class another-class some-other-class"></div>
-                    This is because CSS looks for a class attribute that contains the defined class, rather than matching that class exactly.
-                    
-                    Note: The value of a class attribute can be almost anything you want it to be. One thing that could trip you up, is that you can't start a class (or an ID) with a number, such as .1element. You can read more in the specification.
-                    ID selector
-                    Browser Support
-                    
-                    1
-                    12
-                    1
-                    1
-                    Source
-                    
-                    An HTML element with an id attribute should be the only element on a page with that ID value. You select elements with an ID selector like this:
-                    
-                    
-                    #rad {
-                      border: 1px solid blue;
-                    }
-                    This CSS would apply a blue border to the HTML element that has an id of rad, like this:
-                    
-                    
-                    <div id="rad"></div>
-                    Similarly to the class selector ., use a # character to instruct CSS to look for an element that matches the id that follows it.
-                    
-                    Note: If the browser encounters more than one instance of an id it will still apply any CSS rules that match its selector. However, any element that has an id attribute is supposed to have a unique value for it, so unless you're writing very specific CSS for a single element, avoid applying styles with the id selector as it means you can't re-use those styles elsewhere.
-                    Attribute selector
-                    Browser Support
-                    
-                    1
-                    12
-                    1
-                    3
-                    Source
-                    
-                    You can look for elements that have a certain HTML attribute, or have a certain value for an HTML attribute, using the attribute selector. Instruct CSS to look for attributes by wrapping the selector with square brackets ([ ]).
-                    
-                    
-                    [data-type='primary'] {
-                      color: red;
-                    }
-                    This CSS looks for all elements that have an attribute of data-type with a value of primary, like this:
-                    
-                    
-                    <div data-type="primary"></div>
-                    Instead of looking for a specific value of data-type, you can also look for elements with the attribute present, regardless of its value.
-                    
-                    
-                    [data-type] {
-                      color: red;
-                    }
-                    
-                    <div data-type="primary"></div>
-                    <div data-type="secondary"></div>
-                    Both of these <div> elements will have red text.
-                    
-                    You can use case-sensitive attribute selectors by adding an s operator to your attribute selector.
-                    
-                    
-                    [data-type='primary' s] {
-                      color: red;
-                    }
-                    This means that if a HTML element had a data-type of Primary, instead of primary, it would not get red text. You can do the opposite—case insensitivity—by using an i operator.
-                    
-                    Along with case operators, you have access to operators that match portions of strings inside attribute values.
-                    
-                    
-                    /* A href that contains "example.com" */
-                    [href*='example.com'] {
-                      color: red;
-                    }
-                    
-                    /* A href that starts with https */
-                    [href^='https'] {
-                      color: green;
-                    }
-                    
-                    /* A href that ends with .com */
-                    [href$='.com'] {
-                      color: blue;
-                    }
-                    
-                    In this demo, the `$` operator in our attribute selector gets the filetype from the `href` attribute. This makes it possible to prefix the label—based on that filetype—using a pseudo-element.
-                    Grouping selectors
-                    A selector doesn't have to match only a single element. You can group multiple selectors by separating them with commas:
-                    
-                    
-                    strong,
-                    em,
-                    .my-class,
-                    [lang] {
-                      color: red;
-                    }
-                    This example extends the color change to both <strong> elements and <em> elements. It's also extended to a class named .my-class, and an element that has a lang attribute.
-                    
-                    Check your understanding
-                    Test your knowledge of simple selectors
-                    
-                    
-                    * {}
-                    What kind of simple selector is used in the above snippet?
-                    
-                    ID
-                    universal
-                    attribute
-                    class
-                    
-                    div {}
-                    What kind of simple selector is used in the above snippet?
-                    
-                    class
-                    ID
-                    type
-                    attribute
-                    Pseudo-classes and pseudo-elements
-                    CSS provides useful selector types that focus on specific platform state, like when an element is hovered, structures inside an element, or parts of an element.
-                    
-                    Pseudo-classes
-                    HTML elements find themselves in various states, either because they are interacted with, or one of their child elements is in a certain state.
-                    
-                    For example, an HTML element could be hovered with the mouse pointer by a user or a child element could also be hovered by the user. For those situations, use the :hover pseudo-class.
-                    
-                    
-                    /* Our link is hovered */
-                    a:hover {
-                      outline: 1px dotted green;
-                    }
-                    
-                    /* Sets all even paragraphs to have a different background */
-                    p:nth-child(even) {
-                      background: floralwhite;
-                    }
-                    Find out more in the pseudo-classes module.
-                    
-                    Pseudo-element
-                    Pseudo-elements differ from pseudo-classes because instead of responding to the platform state, they act as if they are inserting a new element with CSS. Pseudo-elements are also syntactically different from pseudo-classes, because instead of using a single colon (:), we use a double colon (::).
-                    
-                    Note: A double colon (::) is what distinguishes a pseudo-element from a pseudo-class, but because this distinction wasn't present in older versions of CSS specs, browsers support a single colon for the original pseudo-elements, such as :before and :after to help with backwards compatibility with older browsers, like IE8.
-                    
-                    .my-element::before {
-                      content: 'Prefix - ';
-                    }
-                    As in the above demo where you prefixed a link's label with the type of file it was, you can use the ::before pseudo-element to insert content at the start of an element, or the ::after pseudo-element to insert content at the end of an element.
-                    
-                    Pseudo-elements aren't limited to inserting content, though. You can also use them to target specific parts of an element. For example, suppose you have a list. Use ::marker to style each bullet point (or number) in the list
-                    
-                    
-                    /* Your list will now either have red dots, or red numbers */
-                    li::marker {
-                      color: red;
-                    }
-                    You can also use ::selection to style the content that has been highlighted by a user.
-                    
-                    
-                    ::selection {
-                      background: black;
-                      color: white;
-                    }
-                    Learn more in the module on pseudo-elements.
-                    
-                    Check your understanding
-                    Test your knowledge of pseudo selectors
-                    
-                    Pseudo-element selectors use how many colons?
-                    
-                    :::
-                    :
-                    ::
-                    
-                    p:hover {
-                      background: white;
-                      color: black;
-                    }
-                    What kind of pseudo selector is used in the above snippet?
-                    
-                    Pseudo-element
-                    Pseudo-class
-                    Complex selectors
-                    You have already seen a vast array of selectors, but sometimes, you will need more fine-grained control with your CSS. This is where complex selectors step in to help.
-                    
-                    It's worth remembering at this point that although the following selectors give us more power, we can only cascade downwards, selecting child elements. We are not able to target upwards and select a parent element. We cover what the cascade is and how it works in a later lesson.
-                    
-                    Combinators
-                    A combinator is what sits between two selectors. For example, if the selector was p > strong, the combinator is the > character. The selectors which use these combinators help you select items based on their position in the document.
-                    
-                    Descendant combinator
-                    To understand descendant combinators, you need to first understand parent and child elements.
-                    
-                    
-                    <p>A paragraph of text with some <strong>bold text for emphasis</strong>.</p>
-                    The parent element is the <p> which contains text. Inside that <p> element is a <strong> element, making its content bold. Because it is inside the <p>, it is a child element.
-                    
-                    A descendant combinator allows us to target a child element. This uses a space () to instruct the browser to look for child elements:
-                    
-                    
-                    p strong {
-                      color: blue;
-                    }
-                    This snippet selects all <strong> elements that are child elements of <p> elements only, making them blue recursively.
-                    
-                    
-                    Because the descendant combinator is recursive, the padding added to each child element applies, resulting in a staggered effect.
-                    This effect is better visualised in the above example, using the combinator selector, .top div. That CSS rule adds left padding to those <div> elements. Because the combinator is recursive, all <div> elements that are in .top will have that same padding applied to them.
-                    
-                    Take a look at the HTML panel in this demo to see how the .top element has several <div> child elements which themselves, have <div> child elements.
-                    
-                    Next sibling combinator
-                    You can look for an element that immediately follows another element by using a + character in your selector.
-                    
-                    
-                    To add space between stacked elements, use the next sibling combinator to add space only if an element is a next sibling of a child element of .top.
-                    
-                    You could add margin to all child elements of .top, using the following selector:
-                    
-                    
-                    .top * {
-                      margin-top: 1em;
-                    }
-                    The problem with this is that because you're selecting every child element of .top, this rule potentially creates extra, unnecessary space. The next sibling combinator, mixed with a universal selector enables you to not only control what elements get space, but also apply space to any element. This provides you with some long-term flexibility, regardless of what HTML elements appear in .top.
-                    
-                    Subsequent- sibling combinator
-                    A subsequent combinator is very similar to a next sibling selector. Instead of a + character however, use a ~ character. How this differs is that an element just has to follow another element with the same parent, rather than being the next element with the same parent.
-                    
-                    
-                    Use a subsequent selector along with a `:checked` pseudo class to create a pure CSS switch element.
-                    This subsequent combinator provides a little less rigidity, which is useful in contexts like the above sample, where we change the color of a custom switch when its associated checkbox has the :checked state.
-                    
-                    Child combinator
-                    A child combinator (also known as direct descendant) allows you more control over the recursion that comes with combinator selectors. By using the > character, you limit the combinator selector to apply only to direct children.
-                    
-                    Consider the previous, next sibling selector example. The space is added to each next sibling, but if one of those elements also has next sibling elements as children, it can result in undesirable, extra spacing.
-                    
-                    
-                    To alleviate this problem, change the next sibling selector to incorporate a child combinator: > * + *. The rule will now only apply to direct children of .top.
-                    
-                    
-                    Compound selectors
-                    You can combine selectors to increase specificity and readability. For example, to target <a> elements, that also have a class of .my-class, write the following:
-                    
-                    
-                    a.my-class {
-                      color: red;
-                    }
-                    This wouldn't apply a red color to all links and it would also only apply the red color to .my-class if it was on an <a> element. For more on this, see the specificity module.
-                    
-                    Check your understanding
-                    Test your knowledge of complex selectors
-                    
-                    Which of the following symbols is not a selector combinator?
-                    
-                    .
-                    +
-                    *
-                    ÷
-                    >
-                    
-                    section.awesome {
-                      border: 1px solid hotpink;
-                    }
-                    The above selector is an example of a...
-                    
-                    Compound selector
-                    Terminator
-                    Combinator
-                    Resources
-                    CSS selectors reference
-                    Interactive selectors game
-                    Pseudo-class and pseudo-elements reference
-                    A tool that translates CSS selectors into plain-english explainers
-
-
-
-
-                    CSS selectors
-Overview: Building blocks
-Next
-In CSS, selectors are used to target the HTML elements on our web pages that we want to style. There are a wide variety of CSS selectors available, allowing for fine-grained precision when selecting elements to style. In this article and its sub-articles we'll run through the different types in great detail, seeing how they work.
-
-Prerequisites:	Basic software installed, basic knowledge of working with files, HTML basics (study Introduction to HTML), and an idea of how CSS works (study CSS first steps.)
-Objective:	To learn how CSS selectors work in detail.
-What is a selector?
-A CSS selector is the first part of a CSS Rule. It is a pattern of elements and other terms that tell the browser which HTML elements should be selected to have the CSS property values inside the rule applied to them. The element or elements which are selected by the selector are referred to as the subject of the selector.
-
-Some code with the h1 highlighted.
-In other articles you may have met some different selectors, and learned that there are selectors that target the document in different ways — for example by selecting an element such as h1, or a class such as .special.
-
-In CSS, selectors are defined in the CSS Selectors specification; like any other part of CSS they need to have support in browsers for them to work. The majority of selectors that you will come across are defined in the Level 3 Selectors specification and Level 4 Selectors specification, which are both mature specifications, therefore you will find excellent browser support for these selectors.
-
-Selector lists
-If you have more than one thing which uses the same CSS then the individual selectors can be combined into a selector list so that the rule is applied to all of the individual selectors. For example, if I have the same CSS for an h1 and also a class of .special, I could write this as two separate rules.
-
-CSS
-Copy to Clipboard
-h1 {
-  color: blue;
-}
-
-.special {
-  color: blue;
-}
-I could also combine these into a selector list, by adding a comma between them.
-
-CSS
-Copy to Clipboard
-h1, .special {
-  color: blue;
-}
-White space is valid before or after the comma. You may also find the selectors more readable if each is on a new line.
-
-CSS
-Copy to Clipboard
-h1,
-.special {
-  color: blue;
-}
-In the live example below try combining the two selectors which have identical declarations. The visual display should be the same after combining them.
-
-
-When you group selectors in this way, if any selector is syntactically invalid, the whole rule will be ignored.
-
-In the following example, the invalid class selector rule will be ignored, whereas the h1 would still be styled.
-
-CSS
-Copy to Clipboard
-h1 {
-  color: blue;
-}
-
-..special {
-  color: blue;
-}
-When combined however, neither the h1 nor the class will be styled as the entire rule is deemed invalid.
-
-CSS
-Copy to Clipboard
-h1, ..special {
-  color: blue;
-}
-Types of selectors
-There are a few different groupings of selectors, and knowing which type of selector you might need will help you to find the right tool for the job. In this article's subarticles we will look at the different groups of selectors in more detail.
-
-Type, class, and ID selectors
-Type selectors target an HTML element such as an <h1>:
-
-CSS
-Copy to Clipboard
-h1 {
-}
-Class selectors target an element that has a specific value for its class attribute:
-
-CSS
-Copy to Clipboard
-.box {
-}
-ID selectors target an element that has a specific value for its id attribute:
-
-CSS
-Copy to Clipboard
-#unique {
-}
-Attribute selectors
-This group of selectors gives you different ways to select elements based on the presence of a certain attribute on an element:
-
-CSS
-Copy to Clipboard
-a[title] {
-}
-Or even make a selection based on the presence of an attribute with a particular value:
-
-CSS
-Copy to Clipboard
-a[href="https://example.com"]
-{
-}
-Pseudo-classes and pseudo-elements
-This group of selectors includes pseudo-classes, which style certain states of an element. The :hover pseudo-class for example selects an element only when it is being hovered over by the mouse pointer:
-
-CSS
-Copy to Clipboard
-a:hover {
-}
-It also includes pseudo-elements, which select a certain part of an element rather than the element itself. For example, ::first-line always selects the first line of text inside an element (a <p> in the below case), acting as if a <span> was wrapped around the first formatted line and then selected.
-
-CSS
-Copy to Clipboard
-p::first-line {
-}
-Combinators
-The final group of selectors combine other selectors in order to target elements within our documents. The following, for example, selects paragraphs that are direct children of <article> elements using the child combinator (>):
-
-CSS
-Copy to Clipboard
-article > p {
-}
-Summary
-In this article we've introduced CSS selectors, which enable you to target particular HTML elements. Next, we'll take a closer look at type, class, and ID selectors.
-
-For a complete list of selectors, see our CSS selectors reference.
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <div class="mt-5 small">
+                    <h2 id="feedback">
+                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
+                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
-                      <footer class="mt-3 small">
-                        <div class="row">
-                            <div class="col-md-4 text-start">
-                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
-                            </div>
-                            <div class="col-md-4 text-center">
-                                <a href="#" class="link-offset-2">Topic</a>
-                            </div>
-                            <div class="col-md-4 text-end">
-                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
-                            </div>
-                        </div>
-                      </footer>
+                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container px-4 px-md-3">
+            <div class="container py-4 py-md-5 px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1695,9 +1198,6 @@ For a complete list of selectors, see our CSS selectors reference.
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
-                            <li class="mb-2">
-                              <a href="https://newsletter.datarist.com">Newsletter</a>
-                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">

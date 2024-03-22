@@ -197,16 +197,15 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
-                            <li class="nav-item col-6 col-lg-auto">
-                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
-                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
-                                    <title>Twitter</title>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
+                                        <title>Twitter</title>
+                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
+                                    </svg>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1143,7 +1142,9 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                                                
+                                <li>
+                                    <a href="#feedback">Feedback</a>
+                                </li>                                
                             </ul>
                         </nav>
                     </div>
@@ -1152,177 +1153,30 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
-                    Debugging CSS
-Previous
-Overview: Building blocks
-Next
-Sometimes when writing CSS you will encounter an issue where your CSS doesn't seem to be doing what you expect. Perhaps you believe that a certain selector should match an element, but nothing happens, or a box is a different size than you expected. This article will give you guidance on how to go about debugging a CSS problem, and show you how the DevTools included in all modern browsers can help you to find out what is going on.
-
-Prerequisites:	Basic software installed, basic knowledge of working with files, HTML basics (study Introduction to HTML), and an idea of how CSS works (study CSS first steps.)
-Objective:	To learn the basics of what browser DevTools are, and how to do simple inspection and editing of CSS.
-How to access browser DevTools
-The article What are browser developer tools is an up-to-date guide explaining how to access the tools in various browsers and platforms. While you may choose to mostly develop in a particular browser, and therefore will become most familiar with the tools included in that browser, it is worth knowing how to access them in other browsers. This will help if you are seeing different rendering between multiple browsers.
-
-You will also find that browsers have chosen to focus on different areas when creating their DevTools. For example, in Firefox there are some excellent tools for working visually with CSS Layout, allowing you to inspect and edit Grid Layouts, Flexbox, and Shapes. However, all of the different browsers have similar fundamental tools, e.g., for inspecting the properties and values applied to elements on your page, and making changes to them from the editor.
-
-In this lesson we will look at some useful features of the Firefox DevTools for working with CSS. In order to do so I'll be using an example file. Load this up in a new tab if you want to follow along, and open up your DevTools as described in the article linked above.
-
-The DOM versus view source
-Something that can trip up newcomers to DevTools is the difference between what you see when you view the source of a webpage, or look at the HTML file you put on the server, and what you can see in the HTML Pane of the DevTools. While it looks roughly similar to what you can see via View Source there are some differences.
-
-In the rendered DOM the browser may have normalized the HTML, for example by correcting some badly-written HTML for you. If you incorrectly closed an element, for instance by opening an <h2> but closing with an </h3>, the browser will figure out what you were meaning to do and the HTML in the DOM will correctly close the open <h2> with an </h2>. The DOM will also show any changes made by JavaScript.
-
-View Source, in comparison, is the HTML source code as stored on the server. The HTML tree in your DevTools shows exactly what the browser is rendering at any given time, so it gives you an insight into what is really going on.
-
-Inspecting the applied CSS
-Select an element on your page, either by right/ctrl-clicking on it and selecting Inspect, or selecting it from the HTML tree on the left of the DevTools display. Try selecting the element with the class of box1; this is the first element on the page with a bordered box drawn around it.
-
-The example page for this tutorial with DevTools open.
-If you look at the Rules view to the right of your HTML, you should be able to see the CSS properties and values applied to that element. You will see the rules directly applied to class box1 and also the CSS that is being inherited by the box from its ancestors, in this case from <body>. This is useful if you are seeing some CSS being applied that you didn't expect. Perhaps it is being inherited from a parent element and you need to add a rule to overwrite it in the context of this element.
-
-Also useful is the ability to expand out shorthand properties. In our example the margin shorthand is used.
-
-Click on the little arrow to expand the view, showing the different longhand properties and their values.
-
-You can toggle values in the Rules view on and off when that panel is active — if you hold your mouse over it, checkboxes will appear. Uncheck a rule's checkbox, for example border-radius, and the CSS will stop applying.
-
-You can use this to do an A/B comparison, deciding if something looks better with a rule applied or not, and also to help debug it — for example, if a layout is going wrong and you are trying to work out which property is causing the problem.
-
-The following video provides some useful tips on debugging CSS using the Firefox DevTools:
-
-
-Editing values
-In addition to turning properties on and off, you can edit their values. Perhaps you want to see if another color looks better, or wish to tweak the size of something? DevTools can save you a lot of time editing a stylesheet and reloading the page.
-
-With box1 selected, click on the swatch (the small colored circle) that shows the color applied to the border. A color picker will open up and you can try out some different colors; these will update in real time on the page. In a similar fashion, you could change the width or style of the border.
-
-DevTools Styles Panel with a color picker open.
-Adding a new property
-You can add properties using the DevTools. Perhaps you have realized that you don't want your box to inherit the <body> element's font size, and want to set its own specific size? You can try this out in DevTools before adding it to your CSS file.
-
-You can click the closing curly brace in the rule to start entering a new declaration into it, at which point you can start typing the new property and DevTools will show you an autocomplete list of matching properties. After selecting font-size, enter the value you want to try. You can also click the + button to add an additional rule with the same selector, and add your new rules there.
-
-The DevTools Panel, adding a new property to the rules, with the autocomplete for font- open
-Note: There are other useful features in the Rules view too, for example declarations with invalid values are crossed out. You can find out more at Examine and edit CSS.
-
-Understanding the box model
-In previous lessons we have discussed the Box Model, and the fact that we have an alternate box model that changes how the size of elements are calculated based on the size you give them, plus the padding and borders. DevTools can really help you to understand how the size of an element is being calculated.
-
-The Layout view shows you a diagram of the box model on the selected element, along with a description of the properties and values that change how the element is laid out. This includes a description of properties that you may not have explicitly used on the element, but which do have initial values set.
-
-In this panel, one of the detailed properties is the box-sizing property, which controls what box model the element uses.
-
-Compare the two boxes with classes box1 and box2. They both have the same width applied (400px), however box1 is visually wider. You can see in the layout panel that it is using content-box. This is the value that takes the size you give the element and then adds on the padding and border width.
-
-The element with a class of box2 is using border-box, so here the padding and border is subtracted from the size that you have given the element. This means that the space taken up on the page by the box is the exact size that you specified — in our case width: 400px.
-
-The Layout section of the DevTools
-Note: Find out more in Examining and Inspecting the Box Model.
-
-Solving specificity issues
-Sometimes during development, but in particular when you need to edit the CSS on an existing site, you will find yourself having a hard time getting some CSS to apply. No matter what you do, the element just doesn't seem to take the CSS. What is generally happening here is that a more specific selector is overriding your changes, and here DevTools will really help you out.
-
-In our example file there are two words that have been wrapped in an <em> element. One is displaying as orange and the other hotpink. In the CSS we have applied:
-
-CSS
-Copy to Clipboard
-em {
-  color: hotpink;
-  font-weight: bold;
-}
-Above that in the stylesheet however is a rule with a .special selector:
-
-CSS
-Copy to Clipboard
-.special {
-  color: orange;
-}
-As you will recall from the lesson on cascade and inheritance where we discussed specificity, class selectors are more specific than element selectors, and so this is the value that applies. DevTools can help you find such issues, especially if the information is buried somewhere in a huge stylesheet.
-
-Inspect the <em> with the class of .special and DevTools will show you that orange is the color that applies, and also that the color property applied to the <em> is crossed out. You can now see that the class selector is overriding the element selector.
-
-Selecting an em and looking at DevTools to see what is over-riding the color.
-Find out more about the Firefox DevTools
-There is a lot of information about the Firefox DevTools here on Datarist. Take a look at the main DevTools section, and for more detail on the things we have briefly covered in this lesson see The How To Guides.
-
-Debugging problems in CSS
-DevTools can be a great help when solving CSS problems, so when you find yourself in a situation where CSS isn't behaving as you expect, how should you go about solving it? The following steps should help.
-
-Take a step back from the problem
-Any coding problem can be frustrating, especially CSS problems because you often don't get an error message to search for online to help with finding a solution. If you are becoming frustrated, take a step away from the issue for a while — go for a walk, grab a drink, chat to a co-worker, or work on some other thing for a while. Sometimes the solution magically appears when you stop thinking about the problem, and even if not, working on it when feeling refreshed will be much easier.
-
-Do you have valid HTML and CSS?
-Browsers expect your CSS and HTML to be correctly written, however browsers are also very forgiving and will try their best to display your webpages even if you have errors in the markup or stylesheet. If you have mistakes in your code the browser needs to make a guess at what you meant, and it might make a different decision to what you had in mind. In addition, two different browsers might cope with the problem in two different ways. A good first step, therefore, is to run your HTML and CSS through a validator, to pick up and fix any errors.
-
-CSS Validator
-HTML validator
-Are the property and value supported by the browser you are testing in?
-Browsers ignore CSS they don't understand. If the property or value you are using is not supported by the browser you are testing in then nothing will break, but that CSS won't be applied. DevTools will generally highlight unsupported properties and values in some way. In the screenshot below the browser does not support the subgrid value of grid-template-columns.
-
-Image of browser DevTools with the grid-template-columns: subgrid crossed out as the subgrid value is not supported.
-You can also take a look at the Browser compatibility tables at the bottom of each property page on Datarist. These show you browser support for that property, often broken down if there is support for some usage of the property and not others. See the compatibility table for the shape-outside property.
-
-Is something else overriding your CSS?
-This is where the information you have learned about specificity will come into much use. If you have something more specific overriding what you are trying to do, you can enter into a very frustrating game of trying to work out what. However, as described above, DevTools will show you what CSS is applying and you can work out how to make the new selector specific enough to override it.
-
-Make a reduced test case of the problem
-If the issue isn't solved by the steps above, then you will need to do some more investigating. The best thing to do at this point is to create something known as a reduced test case. Being able to "reduce an issue" is a really useful skill. It will help you find problems in your own code and that of your colleagues, and will also enable you to report bugs and ask for help more effectively.
-
-A reduced test case is a code example that demonstrates the problem in the simplest possible way, with unrelated surrounding content and styling removed. This will often mean taking the problematic code out of your layout to make a small example which only shows that code or feature.
-
-To create a reduced test case:
-
-If your markup is dynamically generated — for example via a CMS — make a static version of the output that shows the problem. A code sharing site like CodePen is useful for hosting reduced test cases, as then they are accessible online and you can easily share them with colleagues. You could start by doing View Source on the page and copying the HTML into CodePen, then grab any relevant CSS and JavaScript and include it too. After that, you can check whether the issue is still evident.
-If removing the JavaScript does not make the issue go away, don't include the JavaScript. If removing the JavaScript does make the issue go away, then remove as much JavaScript as you can, leaving in whatever causes the issue.
-Remove any HTML that does not contribute to the issue. Remove components or even main elements of the layout. Again, try to get down to the smallest amount of code that still shows the issue.
-Remove any CSS that doesn't impact the issue.
-In the process of doing this, you may discover what is causing the problem, or at least be able to turn it on and off by removing something specific. It is worth adding some comments to your code as you discover things. If you need to ask for help, they will show the person helping you what you have already tried. This may well give you enough information to be able to search for likely problems and workarounds.
-
-If you are still struggling to fix the problem then having a reduced test case gives you something to ask for help with, by posting to a forum, or showing to a co-worker. You are much more likely to get help if you can show that you have done the work of reducing the problem and identifying exactly where it happens, before asking for help. A more experienced developer might be able to quickly spot the problem and point you in the right direction, and even if not, your reduced test case will enable them to have a quick look and hopefully be able to offer at least some help.
-
-In the instance that your problem is actually a bug in a browser, then a reduced test case can also be used to file a bug report with the relevant browser vendor (e.g. on Mozilla's bugzilla site).
-
-As you become more experienced with CSS, you will find that you get faster at figuring out issues. However, even the most experienced of us sometimes find ourselves wondering what on earth is going on. Taking a methodical approach, making a reduced test case, and explaining the issue to someone else will usually result in a fix being found.
-
-Summary
-So there we have it: an introduction to debugging CSS, which should give you some useful skills to count on when you start to debug CSS and other types of code later on in your career.
-
-In the last article of this module, we'll take a look at how to organize your CSS.
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <div class="mt-5 small">
+                    <h2 id="feedback">
+                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
+                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
-                      <footer class="mt-3 small">
-                        <div class="row">
-                            <div class="col-md-4 text-start">
-                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
-                            </div>
-                            <div class="col-md-4 text-center">
-                                <a href="#" class="link-offset-2">Topic</a>
-                            </div>
-                            <div class="col-md-4 text-end">
-                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
-                            </div>
-                        </div>
-                      </footer>
+                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container px-4 px-md-3">
+            <div class="container py-4 py-md-5 px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1344,9 +1198,6 @@ In the last article of this module, we'll take a look at how to organize your CS
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
-                            <li class="mb-2">
-                              <a href="https://newsletter.datarist.com">Newsletter</a>
-                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">

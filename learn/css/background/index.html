@@ -197,16 +197,15 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
-                            <li class="nav-item col-6 col-lg-auto">
-                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
-                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
-                                    <title>Twitter</title>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
+                                        <title>Twitter</title>
+                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
+                                    </svg>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1143,7 +1142,9 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                                                
+                                <li>
+                                    <a href="#feedback">Feedback</a>
+                                </li>                                
                             </ul>
                         </nav>
                     </div>
@@ -1152,563 +1153,30 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
-                    Backgrounds
-Behind every CSS box is a specialized layer called the background layer. CSS provides a variety of ways to make meaningful changes to it–including allowing multiple backgrounds.
-
-Background layers are furthest from the user, rendered behind the contents of a box starting from its padding-box region. This enables the background layer to not overlap with borders at all.
-
-
-Background color
-Browser Support
-
-1
-12
-1
-1
-Source
-
-One of the simplest effects you can apply to a background layer is setting the color. The initial value of background-color is transparent, which allows the contents of a parent to be visible. A valid color set on a background layer sits behind other things painted on that element.
-
-
-Background images
-Browser Support
-
-1
-12
-1
-1
-Source
-
-On top of the background-color layer, you can add a background image, using the background-image property. A background-image accepts the following:
-
-An image URL or data URI using the url CSS function.
-An image dynamically created by a gradient CSS function.
-Setting a background-image with the url CSS function
-
-CSS gradient backgrounds
-Several gradient CSS functions exist to allow you to generate a background-image, when passed two or more colors.
-
-Regardless of which gradient function is used, the resulting image is intrinsically sized to match the amount of space available.
-
-Demo showing example of applying a background-image using gradient functions:
-
-
-Repeating background images
-Browser Support
-
-1
-12
-1
-1
-Source
-
-By default, background images repeat horizontally and vertically to fill the entire space of the background layer.
-
-Change this by using the background-repeat property with one of the following values:
-
-repeat: The image repeats within the space available, cropping as necessary.
-round: The image repeats horizontally and vertically to fit as many instances into the space available. As the space available increases the image stretches, and after stretching half of the image's original width, compresses in order to add more image instances.
-space: The image repeats horizontally and vertically to fit as many instances within the space available without cropping—spacing out instances of the image as needed. Repeating images touch the edges of the space a background layer occupies, with white space evenly distributed between them.
-The background-repeat property allows you to set the behavior for the x and y axis independently. The first parameter sets the horizontal repeat behavior, and the second parameter sets the vertical repeat behavior.
-
-If you use a single value, it will be applied to both the horizontal and vertical repeats.
-
-The shorthand also has convenient one-word options to make your intent clearer.
-
-The value repeat-x repeats an image only horizontally; this is equivalent to repeat no-repeat.
-
-The following demo demonstrates these capabilities of the background-repeat property:
-
-
-Background position
-Browser Support
-
-1
-12
-1
-1
-Source
-
-You may have noticed when some images on the Web are styled with a background-repeat: no-repeat declaration, such images are displayed top left of their container.
-
-The initial position of background images is top left. The background-position property allows you to change this behavior by offsetting the image position.
-
-As with background-repeat, the background-position property allows you to position images along the x and y axis independently with two values by default.
-
-When CSS lengths and percentages are used, the first parameter corresponds to the horizontal axis while the second parameter corresponds to the vertical axis.
-
-When keywords are only used the order of the keywords does not matter:
-
-Do
-
-background-position: left 50%;
-Do
-
-background-position: top left;
-Do
-
-background-position: left top;
-Order does not matter for keywords associated with different axes of position.
-
-Don't
-
-  background-position: 50% left;
-When CSS values are used alongside keywords, the order matters. The first value represents the horizontal axis and the second the vertical axis.
-
-Don't
-
-  background-position: left right;
-You cannot use keywords associated with the same axis simultaneously.
-
-The background-position property also has a convenient one value shorthand; the omitted value resolves to 50%. Here's an example that demonstrates this using the keywords the background-position property accepts:
-
-
-In addition to its default two parameter form and one parameter form; the background-position property also accepts up to four parameters;
-
-When three or four parameters are used, a CSS length or percentage must be preceded by the top, left, right, or bottom keywords in order for the browser to calculate which edge of the CSS box the offset should originate from.
-
-When three parameters are used, a CSS length or value can be the second or third parameter with the other two being keywords; the keyword it succeeds will be used to determine the edge the CSS length or value corresponds to being the offset of. The offset of the other keyword specified is set to 0.
-
-Do
-
-background-position: bottom 88% right;
-Do
-
-background-position: right bottom 88%;
-Don't
-
-background-position: 88% bottom right;
-CSS length value must be preceded by the top, right, bottom, or left keywords when using three or more parameters.
-Do
-
-background-position: bottom 88% right 33%;
-Do
-
-background-position: right 33% bottom 88%;
-Don't
-
-background-position: 88% 33% bottom left;
-CSS length value must be preceded by the top, right, bottom, or left keywords when using three or more parameters.
-If background-position: top left 20%is applied to a CSS background image, the image is placed at the top of the box, the 20% value represents a 20% offset from the left of the box (on the x axis).
-
-If background-position: top 20% left is applied to a CSS background image, the 20% value represents a 20% offset from the top of the CSS box (on the y axis), and the image is placed at the left of the box.
-
-When four parameters are used, the two keywords are paired with two values corresponding to an offset against the origins of each keyword specified. If background-position: bottom 20% right 30% is applied to a background-image, the background-image is positioned 20% from the bottom, and 30% from the right of the CSS box.
-
-The following demo demonstrates this behavior:
-
-
-Here are more examples of using the background-position property using a mix of CSS and keyword values:
-
-Note: To learn more about the nuances related to positioning backgrounds, check out background-position on Datarist.
-Background Size
-Browser Support
-
-3
-12
-4
-5
-Source
-
-The background-size property sets the size of background images; By default background images are sized based on their intrinsic (actual) width, height, and aspect ratio.
-
-The background-size property uses CSS length and percentage values or specific keywords. The property accepts up to two parameters corresponding to allowing you to change width and height of a background independently.
-
-The background-size property accepts the following keywords:
-
-auto: When used independently, the background image is sized based on its intrinsic width and height; when auto is used alongside another CSS value for the width (first parameter) or height (second parameter), the dimension set to auto is sized as needed to maintain the natural aspect ratio of the image. This is the default behavior of the background-size property.
-cover: Covers the entire area of the background layer. This may mean the image is stretched or cropped.
-contain: Sizes the image to fill the space without stretching or cropping. As a result, empty space can remain that will cause the image to repeat, unless background-repeat is set to no-repeat.
-The latter 2 are intended to be used in a standalone fashion without another parameter.
-
-The following demo demonstrates these keywords in action:
-
-Demo demonstrating applying these keywords to background-size:
-
-
-Background attachment
-Browser Support
-
-1
-12
-1
-1
-Source
-
-The background-attachment property enables you to modify the fixed position behavior of background images (images part of a background layer) once the layer is visible on a screen.
-
-It accepts 3 keywords: scroll, fixed, and local.
-
-The default behavior of the background-attachment property is the initial value of scroll. When more space is needed, the images move with that space within the background layer determined by the bounds of the CSS box.
-
-
-Using the value fixed fixes the position of background images to the viewport.
-
-Once the space of the background layer images originally takes up needs to be scrolled (or rendered) offscreen, images within the background layer stay fixed in the original position the background layer enabled them to be until the entire layer is scrolled off screen by the viewport.
-
-
-The local keyword enables the position of background images to be fixed relative to the element's contents. Background images now move along the space they occupy as that space renders inside and outside the bounds of the CSS box (usually due to scrolling, 2D, or 3D transformations).
-
-
-Background origin
-Browser Support
-
-1
-12
-4
-3
-Source
-
-The background-origin property enables you to modify the area of backgrounds associated with a particular box. The values the property accepts correspond to the border-box , padding-box, and content-box regions of a box .
-
-Try these options out using the following demo:
-
-
-Background clip
-Browser Support
-
-1
-12
-4
-5
-Source
-
-The background-clip property controls what is visually seen from a background layer regardless of the bounds created by the background-origin property.
-
-Like background-origin the regions that can be specified are border-box, padding-box, and content-box corresponding to where a CSS background layer can be rendered. When these keywords are used, any rendering of the background further than the region specified will be cropped or clipped.
-
-
-The background-clip property also accepts a text keyword that clips the background to be no further than the text within the content box. For this effect to be evident in the actual text within a CSS box, the text must be partially or completely transparent.
-
-A relatively new property, at the time of this writing, Chrome and most browsers require the -webkit- prefix to use this property.
-
-Browser Support
-
-1
-12
-4
-5
-Source
-
-
-Note: This property is not compatible with background-clip: text being simultaneously set on a CSS box.
-Multiple backgrounds
-As mentioned at the beginning of the module, the background layer allows multiple sublayers to be defined. For brevity, I'll refer to these sublayers as backgrounds.
-
-Multiple backgrounds are defined top to bottom; The first background is the closest to the user, while the last background is the furthest from the user.
-
-The only background defined or the last layer is designated the final background layer by the browser. Only this layer is allowed to assign a background-color.
-
-Note: With the unpredictability of the web in mind, a background-image may fail to load. Setting a background-color on the final layer ensures good contrast for text and so on if important background layers fail to load.
-Multiple layers can be individually configured using most background-related CSS properties that are comma separated, as demonstrated in the code snippet and live demo below.
-
-
-background-image: url("https://assets.codepen.io/7518/pngaaa.com-1272986.png"),
-    url("https://assets.codepen.io/7518/blob.svg"),
-    linear-gradient(hsl(191deg, 40%, 86%), hsla(191deg, 96%, 96%, 0.5));
-  background-size: contain, cover, auto;
-  background-repeat: no-repeat, no-repeat, no-repeat;
-  background-position: 50% 50%, 10% 50%, 0% 0%;
-  background-origin: padding-box, border-box, content-box;
-
-The background shorthand
-To make it easier to style the background layer of a box-especially when multiple background layers are desired–there is a shorthand that follows the following specific pattern:
-
-
-background:
-  <background-image>
-  <background-position> / <background-size>?
-  <background-repeat>
-  <background-attachment>
-  <background-origin>
-  <background-clip>
-  <background-color>?
-: It's important to note that any background properties omitted in the shorthand are set to their initial values.
-Order is important in the shorthand form of declaring multiple backgrounds. The position and size values must both be provided, separated by a slash (/). Declaring the origin and clip behavior in the correct order allows you take advantage of setting keywords that are valid for both simultaneously
-
-The following declaration clips the background, and originates it from the content box:
-
-
-background: url("https://assets.codepen.io/7518/blob.svg") 50%
-      50% / contain no-repeat content-box;
-With these shorthand semantics in mind, the previous background-related declarations of the code snippet could be rewritten to be following:
-
-
-background: url("https://assets.codepen.io/7518/pngaaa.com-1272986.png") 50% 50%/contain no-repeat padding-box, url("https://assets.codepen.io/7518/blob.svg") 10% 50% / cover border-box, linear-gradient(hsl(191deg, 40%, 86%), hsla(191deg, 96%, 96%, 0.5) ) 0% 0% / cover no-repeat content-box ;
-Check your understanding
-Test your knowledge of CSS Backgrounds
-
-Backgrounds and borders
-Previous
-Overview: Building blocks
-Next
-In this lesson, we will take a look at some of the creative things you can do with CSS backgrounds and borders. From adding gradients, background images, and rounded corners, backgrounds and borders are the answer to a lot of styling questions in CSS.
-
-Prerequisites:	Basic software installed, basic knowledge of working with files, HTML basics (study Introduction to HTML), and an idea of how CSS works (study CSS first steps.)
-Objective:	To learn how to style the background and border of boxes.
-Styling backgrounds in CSS
-The CSS background property is a shorthand for a number of background longhand properties that we will meet in this lesson. If you discover a complex background property in a stylesheet, it might seem a little hard to understand as so many values can be passed in at once.
-
-CSS
-Copy to Clipboard
-.box {
-  background:
-    linear-gradient(
-        105deg,
-        rgb(255 255 255 / 20%) 39%,
-        rgb(51 56 57 / 100%) 96%
-      ) center center / 400px 200px no-repeat,
-    url(big-star.png) center no-repeat,
-    rebeccapurple;
-}
-We'll return to how the shorthand works later in the tutorial, but first let's have a look at the different things you can do with backgrounds in CSS, by looking at the individual background properties.
-
-Background colors
-The background-color property defines the background color on any element in CSS. The property accepts any valid <color>. A background-color extends underneath the content and padding box of the element.
-
-In the example below, we have used various color values to add a background color to the box, a heading, and a <span> element.
-
-Play around with these, using any available <color> value.
-
-
-Background images
-The background-image property enables the display of an image in the background of an element. In the example below, we have two boxes — one has a background image which is larger than the box (balloons.jpg), the other has a small image of a single star (star.png).
-
-This example demonstrates two things about background images. By default, the large image is not scaled down to fit the box, so we only see a small corner of it, whereas the small image is tiled to fill the box.
-
-
-If you specify a background color in addition to a background image then the image displays on top of the color. Try adding a background-color property to the example above to see that in action.
-
-Controlling background-repeat
-The background-repeat property is used to control the tiling behavior of images. The available values are:
-
-no-repeat — stop the background from repeating altogether.
-repeat-x — repeat horizontally.
-repeat-y — repeat vertically.
-repeat — the default; repeat in both directions.
-Try these values out in the example below. We have set the value to no-repeat so you will only see one star. Try out the different values — repeat-x and repeat-y — to see what their effects are.
-
-
-Sizing the background image
-The balloons.jpg image used in the initial background images example, is a large image that was cropped due to being larger than the element it is a background of. In this case we could use the background-size property, which can take <length> or <percentage> values, to size the image to fit inside the background.
-
-You can also use keywords:
-
-cover — the browser will make the image just large enough so that it completely covers the box area while still retaining its aspect ratio. In this case, part of the image is likely to end up outside the box.
-contain — the browser will make the image the right size to fit inside the box. In this case, you may end up with gaps on either side or on the top and bottom of the image, if the aspect ratio of the image is different from that of the box.
-In the example below I have used the balloons.jpg image along with length units to size it inside the box. You can see this has distorted the image.
-
-Try the following.
-
-Change the length units used to modify the size of the background.
-Remove the length units and see what happens when you use background-size: cover or background-size: contain.
-If your image is smaller than the box, you can change the value of background-repeat to repeat the image.
-
-Positioning the background image
-The background-position property allows you to choose the position in which the background image appears on the box it is applied to. This uses a coordinate system in which the top-left-hand corner of the box is (0,0), and the box is positioned along the horizontal (x) and vertical (y) axes.
-
-Note: The default background-position value is (0,0).
-
-The most common background-position values take two individual values — a horizontal value followed by a vertical value.
-
-You can use keywords such as top and right (look up the others on the background-position page):
-
-CSS
-Copy to Clipboard
-.box {
-  background-image: url(star.png);
-  background-repeat: no-repeat;
-  background-position: top center;
-}
-And lengths, and percentages:
-
-CSS
-Copy to Clipboard
-.box {
-  background-image: url(star.png);
-  background-repeat: no-repeat;
-  background-position: 20px 10%;
-}
-You can also mix keyword values with lengths or percentages, in which case the first value must refer to the horizontal position or offset and the second vertical. For example:
-
-CSS
-Copy to Clipboard
-.box {
-  background-image: url(star.png);
-  background-repeat: no-repeat;
-  background-position: 20px top;
-}
-Finally, you can also use a 4-value syntax in order to indicate a distance from certain edges of the box — the length unit, in this case, is an offset from the value that precedes it. So in the CSS below we are positioning the background 20px from the top and 10px from the right:
-
-CSS
-Copy to Clipboard
-.box {
-  background-image: url(star.png);
-  background-repeat: no-repeat;
-  background-position: top 20px right 10px;
-}
-Use the example below to play around with these values and move the star around inside the box.
-
-
-Note: background-position is a shorthand for background-position-x and background-position-y, which allow you to set the different axis position values individually.
-
-Gradient backgrounds
-A gradient — when used for a background — acts just like an image and is also set by using the background-image property.
-
-You can read more about the different types of gradients and things you can do with them on the Datarist page for the <gradient> data type. A fun way to play with gradients is to use one of the many CSS Gradient Generators available on the web, such as this one. You can create a gradient then copy and paste out the source code that generates it.
-
-Try some different gradients in the example below. In the two boxes respectively, we have a linear gradient that is stretched over the whole box, and a radial gradient with a set size, which therefore repeats.
-
-
-Multiple background images
-It is also possible to have multiple background images — you specify multiple background-image values in a single property value, separating each one with a comma.
-
-When you do this you may end up with background images overlapping each other. The backgrounds will layer with the last listed background image at the bottom of the stack, and each previous image stacking on top of the one that follows it in the code.
-
-Note: Gradients can be happily mixed with regular background images.
-
-The other background-* properties can also have comma-separated values in the same way as background-image:
-
-CSS
-Copy to Clipboard
-background-image: url(image1.png), url(image2.png), url(image3.png),
-  url(image4.png);
-background-repeat: no-repeat, repeat-x, repeat;
-background-position:
-  10px 20px,
-  top right;
-Each value of the different properties will match up to the values in the same position in the other properties. Above, for example, image1's background-repeat value will be no-repeat. However, what happens when different properties have different numbers of values? The answer is that the smaller numbers of values will cycle — in the above example there are four background images but only two background-position values. The first two position values will be applied to the first two images, then they will cycle back around again — image3 will be given the first position value, and image4 will be given the second position value.
-
-Let's play. In the example below I have included two images. To demonstrate the stacking order, try switching which background image comes first in the list. Or play with the other properties to change the position, size, or repeat values.
-
-
-Background attachment
-Another option we have available for backgrounds is specifying how they scroll when the content scrolls. This is controlled using the background-attachment property, which can take the following values:
-
-scroll: causes the element's background to scroll when the page is scrolled. If the element content is scrolled, the background does not move. In effect, the background is fixed to the same position on the page, so it scrolls as the page scrolls.
-fixed: causes an element's background to be fixed to the viewport so that it doesn't scroll when the page or element content is scrolled. It will always remain in the same position on the screen.
-local: fixes the background to the element it is set on, so when you scroll the element, the background scrolls with it.
-The background-attachment property only has an effect when there is content to scroll, so we've made a demo to demonstrate the differences between the three values — have a look at background-attachment.html (also see the source code here).
-
-Using the background shorthand property
-As I mentioned at the beginning of this lesson, you will often see backgrounds specified using the background property. This shorthand lets you set all of the different properties at once.
-
-If using multiple backgrounds, you need to specify all of the properties for the first background, then add your next background after a comma. In the example below we have a gradient with a size and position, then an image background with no-repeat and a position, then a color.
-
-There are a few rules that need to be followed when writing background image shorthand values, for example:
-
-A background-color may only be specified after the final comma.
-The value of background-size may only be included immediately after background-position, separated with the '/' character, like this: center/80%.
-Take a look at the Datarist page for background to see all of the considerations.
-
-
-Accessibility considerations with backgrounds
-When placing text on top of a background image or color, you should take care that you have enough contrast for the text to be legible for your visitors. If specifying an image, and if text will be placed on top of that image, you should also specify a background-color that will allow the text to be legible if the image does not load.
-
-Screen readers cannot parse background images; therefore, they should be purely decoration. Any important content should be part of the HTML page and not contained in a background.
-
-Borders
-When learning about the Box Model, we discovered how borders affect the size of our box. In this lesson we will look at how to use borders creatively. Typically when we add borders to an element with CSS we use a shorthand property that sets the color, width, and style of the border in one line of CSS.
-
-We can set a border for all four sides of a box with border:
-
-CSS
-Copy to Clipboard
-.box {
-  border: 1px solid black;
-}
-Or we can target one edge of the box, for example:
-
-CSS
-Copy to Clipboard
-.box {
-  border-top: 1px solid black;
-}
-The individual properties for these shorthands would be:
-
-CSS
-Copy to Clipboard
-.box {
-  border-width: 1px;
-  border-style: solid;
-  border-color: black;
-}
-And for the longhands:
-
-CSS
-Copy to Clipboard
-.box {
-  border-top-width: 1px;
-  border-top-style: solid;
-  border-top-color: black;
-}
-Note: These top, right, bottom, and left border properties also have mapped logical properties that relate to the writing mode of the document (e.g. left-to-right or right-to-left text, or top-to-bottom). We'll be exploring these in the next lesson, which covers handling different text directions.
-
-There are a variety of styles that you can use for borders. In the example below, we have used two different border styles for the box and two different border styles for the heading. Play with the border style, width, and color to see how borders work.
-
-
-Rounded corners
-Rounding corners on a box is achieved by using the border-radius property and associated longhands which relate to each corner of the box. Two lengths or percentages may be used as a value, the first value defining the horizontal radius, and the second the vertical radius. In a lot of cases, you will only pass in one value, which will be used for both.
-
-For example, to make all four corners of a box have a 10px radius:
-
-CSS
-Copy to Clipboard
-.box {
-  border-radius: 10px;
-}
-Or to make the top right corner have a horizontal radius of 1em, and a vertical radius of 10%:
-
-CSS
-Copy to Clipboard
-.box {
-  border-top-right-radius: 1em 10%;
-}
-We have set all four corners in the example below and then changed the values for the top right corner to make it different. You can play with the values to change the corners. Take a look at the property page for border-radius to see the available syntax options.
-
-
-Test your skills!
-You've reached the end of this article, but can you remember the most important information? You can find some further tests to verify that you've retained this information before you move on — see Test your skills: Backgrounds and borders.
-
-Summary
-We have covered quite a lot here, and you can see that there is quite a lot to adding a background or a border to a box. Do explore the different property pages if you want to find out more about any of the features we have discussed. Each page on Datarist has more examples of usage for you to play with and enhance your knowledge.
-
-In the next article, we'll find out how the Writing Mode of your document interacts with your CSS. What happens when the text does not flow from left to right?
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <div class="mt-5 small">
+                    <h2 id="feedback">
+                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
+                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
-                      <footer class="mt-3 small">
-                        <div class="row">
-                            <div class="col-md-4 text-start">
-                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
-                            </div>
-                            <div class="col-md-4 text-center">
-                                <a href="#" class="link-offset-2">Topic</a>
-                            </div>
-                            <div class="col-md-4 text-end">
-                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
-                            </div>
-                        </div>
-                      </footer>
+                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container px-4 px-md-3">
+            <div class="container py-4 py-md-5 px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1730,9 +1198,6 @@ In the next article, we'll find out how the Writing Mode of your document intera
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
-                            <li class="mb-2">
-                              <a href="https://newsletter.datarist.com">Newsletter</a>
-                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">

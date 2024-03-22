@@ -197,16 +197,15 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
-                            <li class="nav-item col-6 col-lg-auto">
-                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
-                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
-                                    <title>Twitter</title>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
+                                        <title>Twitter</title>
+                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
+                                    </svg>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1143,7 +1142,9 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                                                
+                                <li>
+                                    <a href="#feedback">Feedback</a>
+                                </li>                                
                             </ul>
                         </nav>
                     </div>
@@ -1152,456 +1153,30 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
-                    Pseudo-elements 
-
-bookmark_border
-The CSS Podcast - 014: Pseudo-elements 
-
-If you've got an article of content and you want the first letter to be a much bigger drop cap— how do you achieve that?
-
-A couple of paragraphs of text with a blue drop cap
-
-In CSS, you can use the ::first-letter pseudo-element to achieve this sort of design detail.
-
-
-p::first-letter {
-  color: blue;
-  float: left;
-  font-size: 2.6em;
-  font-weight: bold;
-  line-height: 1;
-  margin-inline-end: 0.2rem;
-}
-
-A pseudo-element is like adding or targeting an extra element without having to add more HTML. This example solution, using ::first-letter, is one of many pseudo-elements. They have a range of roles, and in this lesson you're going to learn which pseudo-elements are available and how you can use them.
-
-::before and ::after
-Both the ::before and ::after pseudo-elements create a child element inside an element only if you define a content property.
-
-
-.my-element::before {
-    content: "";
-}
-
-.my-element::after {
-    content: "";
-}
-The content can be any string —even an empty one— but be mindful that anything other than an empty string will likely be announced by a screen reader. You can add an image url, which will insert an image at its original dimensions, so you won't be able to resize it. You can also insert a counter.
-
-Key term: You can create a named counter and then increment it, based on its position in the document flow. There's all sorts of contexts where they can be really useful, such as automatically numbering an outline.
-Once a ::before or ::after element has been created, you can style it however you want with no limits. You can only insert a ::before or ::after element to an element that will accept child elements (elements with a document tree), so elements such as <img />, <video> and <input> won't work.
-
-
-: input[type="checkbox"] is an exception. It is allowed to have pseudo-element children.
-::first-letter
-We met this pseudo-element at the start of the lesson. It is worth being aware that not all CSS properties can be used when targeting ::first-letter. The available properties are:
-
-color
-background properties (such as background-image)
-border properties (such as border-color)
-float
-font properties (such as font-size and font-weight)
-text properties (such as text-decoration and word-spacing)
-
-p::first-letter {
-  color: goldenrod;
-  font-weight: bold;
-}
-
-Note: You can only use :first-letter on block containers. Therefore, it won't work if you try to add it to an element that has display: inline.
-::first-line
-The ::first-line pseudo-element will let you style the first line of text only if the element with ::first-line applied has a display value of block, inline-block, list-item, table-caption or table-cell.
-
-
-p::first-line {
-  color: goldenrod;
-  font-weight: bold;
-}
-
-Like the ::first-letter pseudo-element, there's only a subset of CSS properties you can use:
-
-color
-background properties
-font properties
-text properties
-::backdrop
-If you have an element that is presented in full screen mode, such as a <dialog> or a <video>, you can style the backdrop—the space between the element and the rest of the page—with the ::backdrop pseudo-element:
-
-
-video::backdrop {
-  background-color: goldenrod;
-}
-
-The ::backdrop pseudo-element is supported in all major browsers apart from Safari.
-
-::marker
-The ::marker pseudo-element lets you style the bullet or number for a list item or the arrow of a <summary> element.
-
-
-::marker {
-  color: hotpink;
-}
-
-ul ::marker {
-  font-size: 1.5em;
-}
-
-ol ::marker {
-  font-size: 1.1em;
-}
-
-summary::marker {
-  content: '\002B'' '; /* Plus symbol with space */
-}
-
-details[open] summary::marker {
-  content: '\2212'' '; /* Minus symbol with space */
-}
-Only a small subset of CSS properties are supported for ::marker:
-
-color
-content
-white-space
-font properties
-animation and transition properties
-You can change the marker symbol, using the content property. You can use this to set a plus and minus symbol for the closed and empty states of a <summary> element, for example.
-
-
-::selection
-The ::selection pseudo-element allows you to style how selected text looks.
-
-
-::selection {
-  background: green;
-  color: white;
-}
-
-This pseudo-element can be used to style all selected text as in the above demo. It can also be used in combination with other selectors for a more specific selection style.
-
-
-p:nth-of-type(2)::selection {
-  background: darkblue;
-  color: yellow;
-}
-
-As with other pseudo-elements, only a subset of CSS properties are allowed:
-
-color
-background-color but not background-image
-text properties
-::placeholder
-Browser Support
-
-57
-79
-51
-10.1
-Source
-
-You can add a helper hint to form elements, such as <input> with a placeholder attribute. The ::placeholder pseudo-element allows you to style that text.
-
-
-input::placeholder {
-  color: darkcyan;
-}
-
-The ::placeholder only supports a subset of CSS rules:
-
-color
-background properties
-font properties
-text properties
-Note: A placeholder is not <label> and should not be used in place of a <label>. Form elements must be labelled or they will be inaccessible.
-::cue
-Browser Support
-
-26
-79
-55
-7
-Source
-
-Last in this tour of pseudo-elements is the ::cue pseudo-element. This allows you to style the WebVTT cues, which are the captions of a <video> element.
-
-You can also pass a selector into a ::cue, which allows you to style specific elements inside a caption.
-
-
-video::cue {
-  color: yellow;
-}
-
-video::cue(b) {
-  color: red;
-}
-
-video::cue(i) {
-  color: lightpink;
-}
-Check your understanding
-Test your knowledge of pseudo-elements
-
-Pseudo-classes and pseudo-elements
-Previous
-Overview: Building blocks
-Next
-The next set of selectors we will look at are referred to as pseudo-classes and pseudo-elements. There are a large number of these, and they often serve quite specific purposes. Once you know how to use them, you can look at the list to see if there is something which works for the task you are trying to achieve. Once again the relevant Datarist page for each selector is helpful in explaining browser support.
-
-Prerequisites:	Basic software installed, basic knowledge of working with files, HTML basics (study Introduction to HTML), and an idea of how CSS works (study CSS first steps).
-Objective:	To learn about the pseudo-class and pseudo-element selectors.
-What is a pseudo-class?
-A pseudo-class is a selector that selects elements that are in a specific state, e.g. they are the first element of their type, or they are being hovered over by the mouse pointer. They tend to act as if you had applied a class to some part of your document, often helping you cut down on excess classes in your markup, and giving you more flexible, maintainable code.
-
-Pseudo-classes are keywords that start with a colon. For example, :hover is a pseudo-class.
-
-Simple pseudo-class example
-Let's look at a simple example. If we wanted to make the first paragraph in an article larger and bold, we could add a class to that paragraph and then add CSS to that class, as shown in the first example below:
-
-
-However, this could be annoying to maintain — what if a new paragraph got added to the top of the document? We'd need to move the class over to the new paragraph. Instead of adding the class, we could use the :first-child pseudo-class selector — this will always target the first child element in the article, and we will no longer need to edit the HTML (this may not always be possible anyway, maybe due to it being generated by a CMS).
-
-
-All pseudo-classes behave in this same kind of way. They target some bit of your document that is in a certain state, behaving as if you had added a class into your HTML. Take a look at some other examples on Datarist:
-
-:last-child
-:only-child
-:invalid
-Note: It is valid to write pseudo-classes and elements without any element selector preceding them. In the example above, you could write :first-child and the rule would apply to any element that is the first child of an <article> element, not just a paragraph first child — :first-child is equivalent to *:first-child. However, usually you want more control than that, so you need to be more specific.
-
-User-action pseudo classes
-Some pseudo-classes only apply when the user interacts with the document in some way. These user-action pseudo-classes, sometimes referred to as dynamic pseudo-classes, act as if a class had been added to the element when the user interacts with it. Examples include:
-
-:hover — mentioned above; this only applies if the user moves their pointer over an element, typically a link.
-:focus — only applies if the user focuses the element by clicking or using keyboard controls.
-
-What is a pseudo-element?
-Pseudo-elements behave in a similar way. However, they act as if you had added a whole new HTML element into the markup, rather than applying a class to existing elements.
-
-Pseudo-elements start with a double colon ::. ::before is an example of a pseudo-element.
-
-Note: Some early pseudo-elements used the single colon syntax, so you may sometimes see this in code or examples. Modern browsers support the early pseudo-elements with single- or double-colon syntax for backwards compatibility.
-
-For example, if you wanted to select the first line of a paragraph you could wrap it in a <span> element and use an element selector; however, that would fail if the number of words you had wrapped were longer or shorter than the parent element's width. As we tend not to know how many words will fit on a line — as that will change if the screen width or font-size changes — it is impossible to robustly do this by adding HTML.
-
-The ::first-line pseudo-element selector will do this for you reliably — if the number of words increases or decreases it will still only select the first line.
-
-
-It acts as if a <span> was magically wrapped around that first formatted line, and updated each time the line length changed.
-
-You can see that this selects the first line of both paragraphs.
-
-Combining pseudo-classes and pseudo-elements
-If you wanted to make the first line of the first paragraph bold you could chain the :first-child and ::first-line selectors together. Try editing the previous live example so it uses the following CSS. We are saying that we want to select the first line, of the first <p> element, which is inside an <article> element.
-
-CSS
-Copy to Clipboard
-article p:first-child::first-line {
-  font-size: 120%;
-  font-weight: bold;
-}
-Generating content with ::before and ::after
-There are a couple of special pseudo-elements, which are used along with the content property to insert content into your document using CSS.
-
-You could use these to insert a string of text, such as in the live example below. Try changing the text value of the content property and see it change in the output. You could also change the ::before pseudo-element to ::after and see the text inserted at the end of the element instead of the beginning.
-
-
-Inserting strings of text from CSS isn't really something we do very often on the web however, as that text is inaccessible to some screen readers and might be hard for someone to find and edit in the future.
-
-A more valid use of these pseudo-elements is to insert an icon, for example the little arrow added in the example below, which is a visual indicator that we wouldn't want read out by a screen reader:
-
-
-These pseudo-elements are also frequently used to insert an empty string, which can then be styled just like any element on the page.
-
-In this next example, we have added an empty string using the ::before pseudo-element. We have set this to display: block in order that we can style it with a width and height. We then use CSS to style it just like any element. You can play around with the CSS and change how it looks and behaves.
-
-
-The use of the ::before and ::after pseudo-elements along with the content property is referred to as "Generated Content" in CSS, and you will often see this technique being used for various tasks. A great example is the site CSS Arrow Please, which helps you to generate an arrow with CSS. Look at the CSS as you create your arrow and you will see the ::before and ::after pseudo-elements in use. Whenever you see these selectors, look at the content property to see what is being added to the HTML element.
-
-Summary
-In this article we've introduced CSS pseudo-classes and pseudo-elements, which are special types of selectors.
-
-Pseudo-classes enable you to target an element when it's in a particular state, as if you had added a class for that state to the DOM. Pseudo-elements act as if you had added a whole new element to the DOM, and enable you to style that. The ::before and ::after pseudo-elements enable you to insert content into the document using CSS.
-
-In the next article, we'll learn about combinators.
-
-See also
-Pseudo-classes reference
-Pseudo-elements reference
-
-Images, media, and form elements
-Previous
-Overview: Building blocks
-Next
-In this lesson we will take a look at how certain special elements are treated in CSS. Images, other media, and form elements behave a little differently from regular boxes in terms of your ability to style them with CSS. Understanding what is and isn't possible can save some frustration, and this lesson will highlight some of the main things that you need to know.
-
-Prerequisites:	Basic software installed, basic knowledge of working with files, HTML basics (study Introduction to HTML), and an idea of how CSS works (study CSS first steps.)
-Objective:	To understand the way that some elements behave unusually when styled with CSS.
-Replaced elements
-Images and video are described as replaced elements. This means that CSS cannot affect the internal layout of these elements — only their position on the page amongst other elements. As we will see however, there are various things that CSS can do with an image.
-
-Certain replaced elements, such as images and video, are also described as having an aspect ratio. This means that it has a size in both the horizontal (x) and vertical (y) dimensions, and will be displayed using the intrinsic dimensions of the file by default.
-
-Sizing images
-As you already know from following these lessons, everything in CSS generates a box. If you place an image inside a box that is smaller or larger than the intrinsic dimensions of the image file in either direction, it will either appear smaller than the box, or overflow the box. You need to make a decision about what happens with the overflow.
-
-In the example below we have two boxes, both 200 pixels in size:
-
-One contains an image which is smaller than 200 pixels — it is smaller than the box and doesn't stretch to fill it.
-The other is larger than 200 pixels and overflows the box.
-
-So what can we do about the overflowing issue?
-
-As we learned in our previous lesson, a common technique is to make the max-width of an image 100%. This will enable the image to become smaller in size than the box but not larger. This technique will also work with other replaced elements such as <video>s, or <iframe>s.
-
-Try adding max-width: 100% to the <img> element in the example above. You will see that the smaller image remains unchanged, but the larger one becomes smaller to fit into the box.
-
-You can make other choices about images inside containers. For example, you may want to size an image so it completely covers a box.
-
-The object-fit property can help you here. When using object-fit the replaced element can be sized to fit a box in a variety of ways.
-
-Below we have used the value cover, which sizes the image down, maintaining the aspect ratio so that it neatly fills the box. As the aspect ratio is maintained, some parts of the image will be cropped by the box.
-
-
-If we use contain as a value, the image will be scaled down until it is small enough to fit inside the box. This will result in "letterboxing" if it is not the same aspect ratio as the box.
-
-You could also try the value of fill, which will fill the box but not maintain the aspect ratio.
-
-Replaced elements in layout
-When using various CSS layout techniques on replaced elements, you may well find that they behave slightly differently from other elements. For example, in a flex or grid layout, elements are stretched by default to fill the entire area. Images will not stretch, and instead will be aligned to the start of the grid area or flex container.
-
-You can see this happening in the example below where we have a two column, two row grid container, which has four items in it. All of the <div> elements have a background color and stretch to fill the row and column. The image, however, does not stretch.
-
-
-If you are following these lessons in order then you may not have looked at layout yet. Just keep in mind that replaced elements, when they become part of a grid or flex layout, have different default behaviors, essentially to avoid them being stretched strangely by the layout.
-
-To force the image to stretch to fill the grid cell it is in, you'd have to do something like the following:
-
-CSS
-Copy to Clipboard
-img {
-  width: 100%;
-  height: 100%;
-}
-This would, however, stretch the image, so it's probably not what you'd want to do.
-
-Form elements
-Form elements can be a tricky issue when it comes to styling with CSS. The Web Forms module contains detailed guides to the trickier aspects of styling these, which I will not fully reproduce here. There are, however, a few key basics worth highlighting in this section.
-
-Many form controls are added to your page by way of the <input> element — this defines simple form fields such as text inputs, through to more complex fields such as color and date pickers. There are some additional elements, such as <textarea> for multiline text input, and also elements used to contain and label parts of forms such as <fieldset> and <legend>.
-
-HTML also contains attributes that enable web developers to indicate which fields are required, and even the type of content that needs to be entered. If the user enters something unexpected, or leaves a required field blank, the browser can show an error message. Different browsers vary with one another in how much styling and customization they allow for such items.
-
-Styling text input elements
-Elements that allow for text input, such as <input type="text">, and the more specific <input type="email">, and the <textarea> element are quite easy to style and tend to behave just like other boxes on your page. The default styling of these elements will differ, however, based on the operating system and browser that your user visits the site with.
-
-In the example below we have styled some text inputs using CSS — you can see that things such as borders, margins and padding all apply as you would expect. We are using attribute selectors to target the different input types. Try changing how this form looks by adjusting the borders, adding background colors to the fields, and changing fonts and padding.
-
-
-Warning: You should take care when changing the styling of form elements to make sure it is still obvious to the user they are form elements. You could create a form input with no borders and background that is almost indistinguishable from the content around it, but this would make it very hard to recognize and fill in.
-
-As explained in the lessons on styling web forms, many of the more complex input types are rendered by the operating system and are inaccessible to styling. You should, therefore, always assume that forms are going to look quite different for different visitors and test complex forms in a number of browsers.
-
-Inheritance and form elements
-In some browsers, form elements do not inherit font styling by default. Therefore, if you want to be sure that your form fields use the font defined on the body, or on a parent element, you should add this rule to your CSS.
-
-CSS
-Copy to Clipboard
-button,
-input,
-select,
-textarea {
-  font-family: inherit;
-  font-size: 100%;
-}
-Form elements and box-sizing
-Across browsers, form elements use different box sizing rules for different widgets. You learned about the box-sizing property in our box model lesson and you can use this knowledge when styling forms to ensure a consistent experience when setting widths and heights on form elements.
-
-For consistency, it is a good idea to set margins and padding to 0 on all elements, then add these back in when styling particular controls:
-
-CSS
-Copy to Clipboard
-button,
-input,
-select,
-textarea {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-Other useful settings
-In addition to the rules mentioned above, you should also set overflow: auto on <textarea>s to stop IE showing a scrollbar when there is no need for one:
-
-CSS
-Copy to Clipboard
-textarea {
-  overflow: auto;
-}
-Putting it all together into a "reset"
-As a final step, we can wrap up the various properties discussed above into the following "form reset" to provide a consistent base to work from. This includes all the items mentioned in the last three sections:
-
-CSS
-Copy to Clipboard
-button,
-input,
-select,
-textarea {
-  font-family: inherit;
-  font-size: 100%;
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-textarea {
-  overflow: auto;
-}
-Note: Normalizing stylesheets are used by many developers to create a set of baseline styles to use on all projects. Typically these do similar things to those described above, making sure that anything different across browsers is set to a consistent default before you do your own work on the CSS. They are not as important as they once were, as browsers are typically more consistent than in the past. However if you want to take a look at one example, check out Normalize.css, which is a very popular stylesheet used as a base by many projects.
-
-For further information on styling forms, take a look at the two articles in the HTML section of these guides.
-
-Styling web forms
-Advanced form styling
-Test your skills!
-You've reached the end of this article, but can you remember the most important information? You can find some further tests to verify that you've retained this information before you move on — see Test your skills: Images and form elements.
-
-Summary
-This lesson has highlighted some of the differences you will encounter when working with images, media, and other unusual elements in CSS.
-
-In the next article, we'll learn how to style HTML tables.
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <div class="mt-5 small">
+                    <h2 id="feedback">
+                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
+                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
-                      <footer class="mt-3 small">
-                        <div class="row">
-                            <div class="col-md-4 text-start">
-                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
-                            </div>
-                            <div class="col-md-4 text-center">
-                                <a href="#" class="link-offset-2">Topic</a>
-                            </div>
-                            <div class="col-md-4 text-end">
-                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
-                            </div>
-                        </div>
-                      </footer>
+                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container px-4 px-md-3">
+            <div class="container py-4 py-md-5 px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1623,9 +1198,6 @@ In the next article, we'll learn how to style HTML tables.
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
-                            <li class="mb-2">
-                              <a href="https://newsletter.datarist.com">Newsletter</a>
-                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">

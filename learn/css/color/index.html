@@ -197,16 +197,15 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
-                            <li class="nav-item col-6 col-lg-auto">
-                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
-                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
-                                    <title>Twitter</title>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
+                                        <title>Twitter</title>
+                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
+                                    </svg>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1143,7 +1142,9 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                                                
+                                <li>
+                                    <a href="#feedback">Feedback</a>
+                                </li>                                
                             </ul>
                         </nav>
                     </div>
@@ -1152,165 +1153,30 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
-                    Color 
-
-bookmark_border
-The CSS Podcast - 006: Color Part One 
-
-Color is an important part of any website and in CSS there are many options for color types, functions and treatments.
-
-How do you decide which color type to use? How do you make your colors semi-transparent? In this lesson, you're going to learn which options you have to help you make the right decisions for your project and team.
-
-CSS has various different data types, such as strings and numbers. Color is one of these types and uses other types, such as numbers for its own definitions.
-
-Numeric colors
-It is very likely that your first exposure to colors in CSS is via numeric colors. We can work with numerical color values in a few different forms.
-
-Hex colors
-
-h1 {
-  color: #b71540;
-}
-Hexadecimal notation (often shortened to hex) is a shorthand syntax for RGB, which assigns a numeric value to red green and blue, which are the three primary colors.
-
-Note: According to the Web Almanac, hex is the most popular color syntax type.
-The hexadecimal ranges are 0-9 and A-F. When used in a six digit sequence, they are translated to the RGB numerical ranges which are 0-255 which correspond to the red, green, and blue color channels respectively.
-
-
-You can also define an alpha value with any numerical colors. An alpha value is a percentage of transparency. In hex code, you add another two digits to the six digit sequence, making an eight digit sequence. For example, to set black in hex code, write #000000. To add a 50% transparency, change it to #00000080.
-
-Because the hex scale is 0-9 and A-F, the transparency values are probably not quite what you'd expect them to be. Here are some key, common values added to the black hex code, #000000:
-
-0% alpha—which is fully transparent—is 00: #00000000
-50% alpha is 80: #00000080
-75% alpha is BF: #000000BF
-
-To convert a two digit hex to a decimal, take the first digit and multiply it by 16 (because hex is base 16), then add the second digit. Using BF as an example for 75% alpha:
-
-B is equal to 11, which when multiplied by 16 equals 176
-F is equal to 15
-176 + 15 = 191
-The alpha value is 191—75% of 255
-Note: You can also write hex codes in a three digit shorthand. A three digit hex code is a shortcut to an equivalent six digit sequence. For example, #a4e is identical to #aa44ee. To add alpha, then #a4e8 would expand to #aa44ee88.
-RGB (Red, Green, Blue)
-
-h1 {
-  color: rgb(183, 21, 64);
-}
-RGB colors are defined with the rgb() color function, using either numbers or percentages as parameters. The numbers need to be within the 0-255 range and the percentages are between 0% and 100%‌. RGB works on the 0-255 scale, so 255 would be equivalent to 100%, and 0 to 0%.
-
-To set black in RGB, define it as rgb(0 0 0), which is zero red, zero green and zero blue. Black can also be defined as rgb(0%, 0%, 0%). White is the exact opposite: rgb(255, 255, 255) or rgb(100%, 100%, 100%).
-
-An alpha is set in rgb() in one of two ways. Either add a / after the red, green and blue parameters, or use the rgba() function. The alpha can be defined with a percentage or a decimal between 0 and 1. For example, to set a 50% alpha black in modern browsers, write: rgb(0 0 0 / 50%) or rgb(0 0 0 / 0.5). For wider support, using the rgba() function, write: rgba(0, 0, 0, 50%) or rgba(0, 0, 0, 0.5).
-
-
-Note: Commas were removed from the rgb() and hsl() notation because newer color functions, such as lab() and lch() use spaces instead of commas as a delimiter. This change provides more consistency not just with newer color functions, but with CSS in general. For better backwards compatibility, you can still use commas to define rgb() and hsl().
-HSL (Hue, Saturation, Lightness)
-
-h1 {
-  color: hsl(344, 79%, 40%);
-}
-HSL stands for hue, saturation and lightness. Hue describes the value on the color wheel, from 0 to 360 degrees, starting with red (being both 0 and 360). A hue of 180, or 50% would be in the blue range. It's the origin of the color that we see.
-
-A color wheel with labels for degree values in 60 degree increments to help visuals what each angle value represents
-
-Saturation is how vibrant the selected hue is. A fully desaturated color (with a saturation of 0%) will appear grayscale. And finally, lightness is the parameter which describes the scale from white to black of added light. A lightness of 100% will always give you white.
-
-Using the hsl() color function, you define a true black by writing hsl(0 0% 0%), or even hsl(0deg 0% 0%). This is because the hue parameter defines the degree on the color wheel, which if you use the number type, is 0-360. You can also use the angle type, which is (0deg) or (0turn). Both saturation and lightness are defined with percentages.
-
-The HSL color function broken down visually. The hue uses the color wheel. The saturation shows grey blending into teal. The lightness shows black into white.
-
-Note: The angle type in CSS is great for defining hue because it represents the angle of the color wheel really well. This type accepts degrees, turns, radians and gradians.
-Browser Support
-
-2
-12
-3.6
-4
-Source
-
-
-Alpha is defined in hsl(), in the same way as rgb() by adding a / after the hue, saturation and lightness parameters or by using the hsla() function. The alpha can be defined with a percentage or a decimal between 0 and 1. For example, to set a 50% alpha black, use: hsl(0 0% 0% / 50%) or hsl(0 0% 0% / 0.5). Using the hsla() function, write: hsla(0, 0%, 0%, 50%) or hsla(0, 0%, 0%, 0.5).
-
-Note: There are some newer color types coming to CSS. These include lab() and lch(), which allow a far wider range of color to be specified than is possible in RGB.
-Color Keywords
-There are 148 named colors in CSS. These are plain English names such as purple, tomato and goldenrod. Some of the most popular names, according to the Web Almanac, are black, white, red, blue and gray. Our favorites include goldenrod, aliceblue, and hotpink.
-
-
-Aside from standard colors, there are also special keywords available:
-
-transparent is a fully transparent color. It is also the initial value of background-color
-currentColor is the contextual computed dynamic value of the color property. If you have a text color of red and then set the border-color to be currentColor, it will also be red. If the element that you define currentColor on doesn't have a value for color defined, currentColor will be computed by the cascade instead
-Note: System keywords are colors that are defined by your operating system theme. Some examples of these colors are Background, which is the desktop background color or Highlight, which is the highlight color of selected items. These are just two of many options. All color keywords are case-insensitive, however you will often see system colors with capitalization to differentiate them from standard color keywords.
-Where to use color in CSS rules
-If a CSS property accepts the <color> data type as a value, it will accept any of the above methods of expressing color. For styling text, use the color, text-shadow and text-decoration-color properties which all accept color as the value or color as part of the value.
-
-For backgrounds, you can set a color as the value for background or background-color. Colors can also be used in gradients, such as linear-gradient. Gradients are a type of image that can be programmatically defined in CSS. Gradients accept two or more colors in any combination of color format, such as hex, rgb or hsl.
-
-Note: There's lots to learn with gradients so we wrote a whole lesson on how to use them.
-Finally, border-color, and outline-color set the color for borders and outlines on your boxes. The box-shadow property also accepts color as one of the values.
-
-
-Check your understanding
-Test your knowledge of color
-
-Which of the following are valid colors?
-
-hsl(180deg 50% 50%)
-#OOFZ2
-rgb(255, 0, 0)
-hotpink
-#0f08
-rbga(400 0 1)
-Spot the invalid hsl color.
-
-hsl(5, 0%, 90%)
-hsl(2rad 50% 50%)
-hsl(0, 0, 0)
-hsl(.5turn 40% 60%)
-hsl(0 0% 0% / 20%)
-Resources
-A handy demo showing how you can use angles with HSL
-A comprehensive guide on color
-A comprehensive guide on wide gamut color
-[video] An explainer on how to read hex codes
-How hexadecimal codes work
-
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <div class="mt-5 small">
+                    <h2 id="feedback">
+                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
+                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
-                      <footer class="mt-3 small">
-                        <div class="row">
-                            <div class="col-md-4 text-start">
-                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
-                            </div>
-                            <div class="col-md-4 text-center">
-                                <a href="#" class="link-offset-2">Topic</a>
-                            </div>
-                            <div class="col-md-4 text-end">
-                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
-                            </div>
-                        </div>
-                      </footer>
+                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container px-4 px-md-3">
+            <div class="container py-4 py-md-5 px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1332,9 +1198,6 @@ How hexadecimal codes work
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
-                            <li class="mb-2">
-                              <a href="https://newsletter.datarist.com">Newsletter</a>
-                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">

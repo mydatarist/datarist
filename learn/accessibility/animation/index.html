@@ -197,16 +197,15 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
-                            <li class="nav-item col-6 col-lg-auto">
-                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
-                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
-                                    <title>Twitter</title>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
+                                        <title>Twitter</title>
+                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
+                                    </svg>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1143,7 +1142,9 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                                                
+                                <li>
+                                    <a href="#feedback">Feedback</a>
+                                </li>                                
                             </ul>
                         </nav>
                     </div>
@@ -1152,107 +1153,24 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
-                    Have you ever been riding in a car, boat, or plane and suddenly felt the world spin? Or had a migraine so bad that animations on your phone or tablet, created to "delight" you, suddenly make you sick? Or perhaps you've always been sensitive to all types of motion? These are examples of different types of vestibular disorders.
-
-By age 40, over 35% of adults will have experienced some form of vestibular dysfunction. This may lead to a temporary dizzy spell, migraine-induced vertigo, or a more permanent vestibular disability.
-
-Beyond triggering vertigo, many people find moving, blinking, or scrolling content distracting. People with ADHD and other attention deficit disorders might be so distracted by your animated elements that they forget why they even went to your website or app in the first place.
-
-In this module, we'll look at some of the ways to help better support people with all types of movement-triggered disorders.
-
-Flashing and moving content
-When building animation and motion, you should ask yourself whether the element's movement is excessive. For example, colors flickering from dark to light or quick movements on the screen, can cause seizures in people with photosensitive epilepsy. It is estimated that 3% of people with epilepsy suffer from photosensitivity, and it's more common in women and younger people.
-
-The WCAG's guidelines on flashing recommend against the following:
-
-Flashes for more than three times in any one second
-Flashes below the general flash and red flash threshold.
-These flashes may, at best, cause an inability to use a webpage or, at worst, lead to illness.
-
-For any extreme movement, it is imperative that you test it using the Photosensitive Epilepsy Analysis Tool (PEAT). PEAT is a free tool to identify if the screen's content, video, or animations are likely to cause seizures. Not all content needs to be evaluated by PEAT, but content that contains flashing or rapid transitions between light and dark background colors should be evaluated, just to be safe.
-
-Another question you should ask yourself about animation and motion is whether the element's movement is essential to understanding the content or actions on the screen. If it is not essential, consider removing all movement—even micro-movements—from the element you are building or designing.
-
-Suppose you believe the element's movement is not essential but could enhance the user's overall experience, or you cannot remove the movement for another reason. In that case, you should follow WCAG's guidelines on motion. The guidelines state that you must build an option for users to pause, stop or hide movement for: non-essential moving, blinking, or scrolling elements that start automatically, last more than five seconds, and are part of other page elements.
-
-Pause, stop, or hide movement
-Add a pause, stop, or hide mechanism to your page to allows users to turn off potentially problematic motion animation. You can do this on the screen level or element level.
-
-For example, suppose your digital product includes a lot of animations. Consider adding an accessible JavaScript toggle to allow users to control their experience. When the button is toggled to "motion off," all animations are frozen on that screen and all others.
-
-
-Use media queries
-In addition to being selective about your animations, giving your users options to pause, stop, hide movement, and avoiding infinite animation loops, you can also consider adding a movement-focused media query. This gives your users even more choice when it comes to what is displayed on the screen.
-
-@prefers-reduced-motion
-Similar to the color-focused media queries in the color module, the @prefers-reduced-motion media query checks the user's OS settings related to animation.
-
-MacOS Display settings UI, where Reduce motion is turned on.
-A user may set display preferences to reduce motion. These settings are different across operating systems, and may be framed positively or negatively. With @prefers-reduced-motion, you can design a site which respects these preferences.
-
-Browser Support
-
-74
-79
-63
-10.1
-Source
-
-On MacOS and Android, the user turns the setting on to reduce motion. On MacOS, a user can set Reduce motion in Settings > Accessibility > Display. Android's setting is Remove animations. On Windows, the setting is framed positively as Show animations, which is on by default. A user must turn this setting off to reduce motion.
-
-Note: As each UI uses different language, consider still allowing users to choose for themselves, rather than guessing how much animation is too much. This may differ on a situation-by-situation basis.
-
-Alternatively, as shown in the next set of examples, you can code all your animations to stop moving within five seconds or less instead of playing on an infinite loop.
-
-Progressive enhancement for movement
-As designers and developers, we have a lot of choices to make, including default movement states and how much movement to display. Let's take another look at the last example on motion.
-
-Suppose we decide the animation is unnecessary for understanding the content on the screen. In that case, we can choose to set the default state to the reduced motion animation instead of the full motion version. Unless users specifically ask for animations, the animations are turned off.
-
-Note: The motion preferences available are dependent on the operating system. Some allow you to opt-in to animations, while others require you to opt out of the animations.
-We cannot predict what level of movement will cause issues for people with seizure, vestibular, and other visual disorders. Even a small amount of motion on the screen can trigger dizziness, blurred vision, or worse. So, in the following example, we default to no animation.
-
-
-Layered media queries
-You can use multiple media queries to give your users even more choices. Let's use @prefers-color-scheme, @prefers-contrast, and @prefers-reduced-motion all together.
-
-
-Allow your users to choose
-While it can be fun to build animation into our digital products to delight users, it's critical we remember some people will be affected by these designs. Motion sensitivity can affect anyone, from feeling slight discomfort to causing a debilitating illness or seizure.
-
-You can use a number of different tools to allow the user to decide what's best for them, rather than guessing how much motion is too much. For example, add a toggle to turn on or off animation within your site or web app. Consider defaulting such a toggle to off.
-
-Check your understanding
-Test your knowledge of motion and animation accessibility
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <div class="mt-5 small">
+                    <h2 id="feedback">
+                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
+                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
-                      <footer class="mt-3 small">
-                        <div class="row">
-                            <div class="col-md-4 text-start">
-                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
-                            </div>
-                            <div class="col-md-4 text-center">
-                                <a href="#" class="link-offset-2">Topic</a>
-                            </div>
-                            <div class="col-md-4 text-end">
-                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
-                            </div>
-                        </div>
-                      </footer>
+                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
                     <p>
                         Start with the basics of <a href="https://www.w3.org/TR/2023/WD-web-animations-1-20230605/" target="_blank" rel="noopener">web animations</a>.
                     </p>                    
@@ -1260,7 +1178,7 @@ Test your knowledge of motion and animation accessibility
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container px-4 px-md-3">
+            <div class="container py-4 py-md-5 px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">                        
                         <ul class="list-unstyled">
@@ -1284,9 +1202,6 @@ Test your knowledge of motion and animation accessibility
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
-                            <li class="mb-2">
-                              <a href="https://newsletter.datarist.com">Newsletter</a>
-                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">

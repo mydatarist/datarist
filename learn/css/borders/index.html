@@ -197,16 +197,15 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
-                            <li class="nav-item col-6 col-lg-auto">
-                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
-                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
-                                    <title>Twitter</title>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
+                                        <title>Twitter</title>
+                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
+                                    </svg>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1143,7 +1142,9 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                                                
+                                <li>
+                                    <a href="#feedback">Feedback</a>
+                                </li>                                
                             </ul>
                         </nav>
                     </div>
@@ -1152,447 +1153,30 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
-                    Borders 
-
-bookmark_border
-The CSS Podcast - 016: Borders 
-
-In the box model module, we considered a frame analogy to describe each section of the box model.
-
-Three picture frames next to each other.
-The middle frame has the sections of the box model over the top of it
-
-The border box is the frame of your boxes, and the border properties give you a huge array of options to create that frame in nearly any style that you can think of.
-
-Border properties
-The individual border properties provide a way to style the various parts of a border.
-
-Browser Support
-
-1
-12
-1
-1
-Source
-
-Style
-For a border to appear, you have to define the border-style. There's a few options to choose from:
-
-
-When using the ridge, inset, outset and groove styles, the browser will darken the border color for the second shown color to provide contrast and depth. This behaviour can vary between browsers, especially for dark colors such as black. In Chrome, these border styles will appear to be solid and in Firefox, they will be lightened to then provide a darker second color.
-
-Browser behaviour can vary for other border styles too, so it's important to test your site in different browsers. A common example of this difference is how each browser renders the dotted and dashed styles.
-
-The border demo in Chrome,
-  Firefox and Safari which demonstrates the subtle differences
-  in how the borders display
-Borders displayed in Chrome, Firefox, and Safari.
-To set border style on each side of your box, you can use border-top-style, border-right-style, border-left-style, and border-bottom-style.
-
-Shorthand
-As with margin and padding, you can use the border shorthand property to define all the parts of your border in one declaration.
-
-
-.my-element {
-    border: 1px solid red;
-}
-The order of values in the border shorthand are border-width, border-style and then, border-color.
-
-Color
-You can set color on all sides of your box or on each individual side with border-color. By default, it uses the box's current text color: currentColor. This means that if you only declare border properties, like width, the color will be that computed value unless you explicitly set it.
-
-
-.my-element {
-    color: blue;
-    border: solid; /* Will be a blue border */
-}
-
-.my-element {
-    color: blue;
-    border: solid yellow;
-}
-
-To set a border color on each side of your box, use border-top-color, border-right-color, border-left-color and border-bottom-color.
-
-
-Width
-The width of a border is how thick the line is, and is controlled by border-width. The default border width is medium. This won't be visible unless you define a style, though. You can use other named widths such as thin and thick.
-
-
-The border-width properties also accept a length unit such as px, em, rem or %. To set border width on each side of your box, use border-top-width, border-right-width, border-left-width and border-bottom-width.
-
-Logical properties
-In the Logical Properties module you discovered how to refer to block flow and inline flow, rather than explicit top, right, bottom or left sides.
-
-You have this capability with borders, too:
-
-
-.my-element {
-    border: 2px dotted;
-    border-inline-end: 2px solid red;
-}
-
-In this example, .my-element has all sides defined as having a 2px, dotted border that is the current text color. The inline-end border is then defined as 2px, solid and red. This means that in left-to-right languages—like English— the red border will be on the right side of the box. In right-to-left languages—like Arabic— the red border will be on the left side of the box.
-
-Browser support is varied for logical properties in borders, so make sure you check support before using.
-
-Border radius
-To give a box rounded corners use the border-radius property.
-
-
-.my-element {
-    border-radius: 1em;
-}
-
-This shorthand adds a consistent border to each corner of your box. As with the other border properties, you can define the border radius for each side with border-top-left-radius, border-top-right-radius, border-bottom-right-radius and border-bottom-left-radius.
-
-You can also specify each corner's radius in the shorthand, which follows the order: top left, top right, bottom right then bottom left.
-
-
-.my-element {
-    border-radius: 1em 2em 3em 4em;
-}
-
-By defining a single value for a corner, you are using another shorthand because a border radius is split into two parts: the vertical and horizontal sides. This means that when you set border-top-left-radius: 1em, you are setting the top-left-top radius and the top-left-left radius.
-
-You can define both properties, per corner like this:
-
-
-.my-element {
-    border-top-left-radius: 1em 2em;
-}
-
-This adds a border-top-left-top value of 1em, and a border-top-left-left value of 2em. This converts the top left border radius into an elliptical radius, rather than the default circular radius.
-
-You can define these values in the border-radius shorthand, using a / to define the elliptical values, after the standard values. This enables you to get creative and make some complex shapes.
-
-
-.my-element {
-    border: 2px solid;
-  border-radius: 95px 155px 148px 103px / 48px 95px 130px 203px;
-}
-
-Border images
-You don't just have to use a stroke-based border in CSS. You can also use any type of image, using border-image. This shorthand property allows you to set the source image, how that image is sliced, the image width, how far the border is outset from the edge and how it should repeat.
-
-
-.my-element {
-  border-image-source: url(https://assets.codepen.io/174183/border-image-frame.jpg);
-  border-image-slice: 61 58 51 48;
-  border-image-width: 20px 20px 20px 20px;
-  border-image-outset: 0px 0px 0px 0px;
-  border-image-repeat: stretch stretch;
-}
-
-The border-image-width property is like border-width: it is how you set the width of your border image. The border-image-outset property lets you set the distance between your border image and the box that it wraps around.
-
-border-image-source
-The border-image-source (source of the border image) can be a url for any valid image, which includes CSS gradients.
-
-
-.my-element {
-    border-image-source: url('path/to/image.png');
-}
-
-.my-element {
-    border-image-source: linear-gradient(to bottom, #000, #fff);
-}
-border-image-slice
-The border-image-slice property is a useful property that allows you to slice an image into 9 parts, made up of 4 split lines. It works like the margin shorthand where you define the top, right, bottom and left offset value.
-
-
-.my-element {
-    border-image: url('image.jpg');
-    border-image-slice: 61 58 51 48;
-}
-The image used in the demo with the four slices shown with blue lines
-
-With the offset values defined, you now have 9 sections of the image: 4 corners, 4 edges and a middle section. The corners are applied to the corners of the element with the border image. The edges are applied to the edges of that element. The border-image-repeat property defines how those edges fill their space and the border-image-width property controls the size of the slices.
-
-Lastly, the fill keyword determines whether the middle section, left by the slicing, is used as the element's background image or not.
-
-border-image-repeat
-border-image-repeat is how you instruct CSS how you would like your border image to repeat. It works the same as background-repeat.
-
-The initial value is stretch, which stretches the source image to fill available space where possible.
-The repeat value tiles the source image's edges as many times as possible, and may clip the edge regions to achieve this.
-The round value is the same as repeat, but instead of clipping the image edge regions to fit as many as possible, it stretches the image as well as repeating it to achieve a seamless repeat
-The space value is again, the same as repeat, but this value adds space between each edge region to create a seamless pattern.
-
-Check your understanding
-Test your knowledge of borders
-
-Backgrounds and borders
-Previous
-Overview: Building blocks
-Next
-In this lesson, we will take a look at some of the creative things you can do with CSS backgrounds and borders. From adding gradients, background images, and rounded corners, backgrounds and borders are the answer to a lot of styling questions in CSS.
-
-Prerequisites:	Basic software installed, basic knowledge of working with files, HTML basics (study Introduction to HTML), and an idea of how CSS works (study CSS first steps.)
-Objective:	To learn how to style the background and border of boxes.
-Styling backgrounds in CSS
-The CSS background property is a shorthand for a number of background longhand properties that we will meet in this lesson. If you discover a complex background property in a stylesheet, it might seem a little hard to understand as so many values can be passed in at once.
-
-CSS
-Copy to Clipboard
-.box {
-  background:
-    linear-gradient(
-        105deg,
-        rgb(255 255 255 / 20%) 39%,
-        rgb(51 56 57 / 100%) 96%
-      ) center center / 400px 200px no-repeat,
-    url(big-star.png) center no-repeat,
-    rebeccapurple;
-}
-We'll return to how the shorthand works later in the tutorial, but first let's have a look at the different things you can do with backgrounds in CSS, by looking at the individual background properties.
-
-Background colors
-The background-color property defines the background color on any element in CSS. The property accepts any valid <color>. A background-color extends underneath the content and padding box of the element.
-
-In the example below, we have used various color values to add a background color to the box, a heading, and a <span> element.
-
-Play around with these, using any available <color> value.
-
-
-Background images
-The background-image property enables the display of an image in the background of an element. In the example below, we have two boxes — one has a background image which is larger than the box (balloons.jpg), the other has a small image of a single star (star.png).
-
-This example demonstrates two things about background images. By default, the large image is not scaled down to fit the box, so we only see a small corner of it, whereas the small image is tiled to fill the box.
-
-
-If you specify a background color in addition to a background image then the image displays on top of the color. Try adding a background-color property to the example above to see that in action.
-
-Controlling background-repeat
-The background-repeat property is used to control the tiling behavior of images. The available values are:
-
-no-repeat — stop the background from repeating altogether.
-repeat-x — repeat horizontally.
-repeat-y — repeat vertically.
-repeat — the default; repeat in both directions.
-Try these values out in the example below. We have set the value to no-repeat so you will only see one star. Try out the different values — repeat-x and repeat-y — to see what their effects are.
-
-
-Sizing the background image
-The balloons.jpg image used in the initial background images example, is a large image that was cropped due to being larger than the element it is a background of. In this case we could use the background-size property, which can take <length> or <percentage> values, to size the image to fit inside the background.
-
-You can also use keywords:
-
-cover — the browser will make the image just large enough so that it completely covers the box area while still retaining its aspect ratio. In this case, part of the image is likely to end up outside the box.
-contain — the browser will make the image the right size to fit inside the box. In this case, you may end up with gaps on either side or on the top and bottom of the image, if the aspect ratio of the image is different from that of the box.
-In the example below I have used the balloons.jpg image along with length units to size it inside the box. You can see this has distorted the image.
-
-Try the following.
-
-Change the length units used to modify the size of the background.
-Remove the length units and see what happens when you use background-size: cover or background-size: contain.
-If your image is smaller than the box, you can change the value of background-repeat to repeat the image.
-
-Positioning the background image
-The background-position property allows you to choose the position in which the background image appears on the box it is applied to. This uses a coordinate system in which the top-left-hand corner of the box is (0,0), and the box is positioned along the horizontal (x) and vertical (y) axes.
-
-Note: The default background-position value is (0,0).
-
-The most common background-position values take two individual values — a horizontal value followed by a vertical value.
-
-You can use keywords such as top and right (look up the others on the background-position page):
-
-CSS
-Copy to Clipboard
-.box {
-  background-image: url(star.png);
-  background-repeat: no-repeat;
-  background-position: top center;
-}
-And lengths, and percentages:
-
-CSS
-Copy to Clipboard
-.box {
-  background-image: url(star.png);
-  background-repeat: no-repeat;
-  background-position: 20px 10%;
-}
-You can also mix keyword values with lengths or percentages, in which case the first value must refer to the horizontal position or offset and the second vertical. For example:
-
-CSS
-Copy to Clipboard
-.box {
-  background-image: url(star.png);
-  background-repeat: no-repeat;
-  background-position: 20px top;
-}
-Finally, you can also use a 4-value syntax in order to indicate a distance from certain edges of the box — the length unit, in this case, is an offset from the value that precedes it. So in the CSS below we are positioning the background 20px from the top and 10px from the right:
-
-CSS
-Copy to Clipboard
-.box {
-  background-image: url(star.png);
-  background-repeat: no-repeat;
-  background-position: top 20px right 10px;
-}
-Use the example below to play around with these values and move the star around inside the box.
-
-
-Note: background-position is a shorthand for background-position-x and background-position-y, which allow you to set the different axis position values individually.
-
-Gradient backgrounds
-A gradient — when used for a background — acts just like an image and is also set by using the background-image property.
-
-You can read more about the different types of gradients and things you can do with them on the Datarist page for the <gradient> data type. A fun way to play with gradients is to use one of the many CSS Gradient Generators available on the web, such as this one. You can create a gradient then copy and paste out the source code that generates it.
-
-Try some different gradients in the example below. In the two boxes respectively, we have a linear gradient that is stretched over the whole box, and a radial gradient with a set size, which therefore repeats.
-
-
-Multiple background images
-It is also possible to have multiple background images — you specify multiple background-image values in a single property value, separating each one with a comma.
-
-When you do this you may end up with background images overlapping each other. The backgrounds will layer with the last listed background image at the bottom of the stack, and each previous image stacking on top of the one that follows it in the code.
-
-Note: Gradients can be happily mixed with regular background images.
-
-The other background-* properties can also have comma-separated values in the same way as background-image:
-
-CSS
-Copy to Clipboard
-background-image: url(image1.png), url(image2.png), url(image3.png),
-  url(image4.png);
-background-repeat: no-repeat, repeat-x, repeat;
-background-position:
-  10px 20px,
-  top right;
-Each value of the different properties will match up to the values in the same position in the other properties. Above, for example, image1's background-repeat value will be no-repeat. However, what happens when different properties have different numbers of values? The answer is that the smaller numbers of values will cycle — in the above example there are four background images but only two background-position values. The first two position values will be applied to the first two images, then they will cycle back around again — image3 will be given the first position value, and image4 will be given the second position value.
-
-Let's play. In the example below I have included two images. To demonstrate the stacking order, try switching which background image comes first in the list. Or play with the other properties to change the position, size, or repeat values.
-
-
-Background attachment
-Another option we have available for backgrounds is specifying how they scroll when the content scrolls. This is controlled using the background-attachment property, which can take the following values:
-
-scroll: causes the element's background to scroll when the page is scrolled. If the element content is scrolled, the background does not move. In effect, the background is fixed to the same position on the page, so it scrolls as the page scrolls.
-fixed: causes an element's background to be fixed to the viewport so that it doesn't scroll when the page or element content is scrolled. It will always remain in the same position on the screen.
-local: fixes the background to the element it is set on, so when you scroll the element, the background scrolls with it.
-The background-attachment property only has an effect when there is content to scroll, so we've made a demo to demonstrate the differences between the three values — have a look at background-attachment.html (also see the source code here).
-
-Using the background shorthand property
-As I mentioned at the beginning of this lesson, you will often see backgrounds specified using the background property. This shorthand lets you set all of the different properties at once.
-
-If using multiple backgrounds, you need to specify all of the properties for the first background, then add your next background after a comma. In the example below we have a gradient with a size and position, then an image background with no-repeat and a position, then a color.
-
-There are a few rules that need to be followed when writing background image shorthand values, for example:
-
-A background-color may only be specified after the final comma.
-The value of background-size may only be included immediately after background-position, separated with the '/' character, like this: center/80%.
-Take a look at the Datarist page for background to see all of the considerations.
-
-
-Accessibility considerations with backgrounds
-When placing text on top of a background image or color, you should take care that you have enough contrast for the text to be legible for your visitors. If specifying an image, and if text will be placed on top of that image, you should also specify a background-color that will allow the text to be legible if the image does not load.
-
-Screen readers cannot parse background images; therefore, they should be purely decoration. Any important content should be part of the HTML page and not contained in a background.
-
-Borders
-When learning about the Box Model, we discovered how borders affect the size of our box. In this lesson we will look at how to use borders creatively. Typically when we add borders to an element with CSS we use a shorthand property that sets the color, width, and style of the border in one line of CSS.
-
-We can set a border for all four sides of a box with border:
-
-CSS
-Copy to Clipboard
-.box {
-  border: 1px solid black;
-}
-Or we can target one edge of the box, for example:
-
-CSS
-Copy to Clipboard
-.box {
-  border-top: 1px solid black;
-}
-The individual properties for these shorthands would be:
-
-CSS
-Copy to Clipboard
-.box {
-  border-width: 1px;
-  border-style: solid;
-  border-color: black;
-}
-And for the longhands:
-
-CSS
-Copy to Clipboard
-.box {
-  border-top-width: 1px;
-  border-top-style: solid;
-  border-top-color: black;
-}
-Note: These top, right, bottom, and left border properties also have mapped logical properties that relate to the writing mode of the document (e.g. left-to-right or right-to-left text, or top-to-bottom). We'll be exploring these in the next lesson, which covers handling different text directions.
-
-There are a variety of styles that you can use for borders. In the example below, we have used two different border styles for the box and two different border styles for the heading. Play with the border style, width, and color to see how borders work.
-
-
-Rounded corners
-Rounding corners on a box is achieved by using the border-radius property and associated longhands which relate to each corner of the box. Two lengths or percentages may be used as a value, the first value defining the horizontal radius, and the second the vertical radius. In a lot of cases, you will only pass in one value, which will be used for both.
-
-For example, to make all four corners of a box have a 10px radius:
-
-CSS
-Copy to Clipboard
-.box {
-  border-radius: 10px;
-}
-Or to make the top right corner have a horizontal radius of 1em, and a vertical radius of 10%:
-
-CSS
-Copy to Clipboard
-.box {
-  border-top-right-radius: 1em 10%;
-}
-We have set all four corners in the example below and then changed the values for the top right corner to make it different. You can play with the values to change the corners. Take a look at the property page for border-radius to see the available syntax options.
-
-
-Test your skills!
-You've reached the end of this article, but can you remember the most important information? You can find some further tests to verify that you've retained this information before you move on — see Test your skills: Backgrounds and borders.
-
-Summary
-We have covered quite a lot here, and you can see that there is quite a lot to adding a background or a border to a box. Do explore the different property pages if you want to find out more about any of the features we have discussed. Each page on Datarist has more examples of usage for you to play with and enhance your knowledge.
-
-In the next article, we'll find out how the Writing Mode of your document interacts with your CSS. What happens when the text does not flow from left to right?
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <div class="mt-5 small">
+                    <h2 id="feedback">
+                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
+                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
-                      <footer class="mt-3 small">
-                        <div class="row">
-                            <div class="col-md-4 text-start">
-                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
-                            </div>
-                            <div class="col-md-4 text-center">
-                                <a href="#" class="link-offset-2">Topic</a>
-                            </div>
-                            <div class="col-md-4 text-end">
-                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
-                            </div>
-                        </div>
-                      </footer>
+                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container px-4 px-md-3">
+            <div class="container py-4 py-md-5 px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1614,9 +1198,6 @@ In the next article, we'll find out how the Writing Mode of your document intera
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
-                            <li class="mb-2">
-                              <a href="https://newsletter.datarist.com">Newsletter</a>
-                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">

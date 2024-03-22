@@ -197,16 +197,15 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
-                            <li class="nav-item col-6 col-lg-auto">
-                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
-                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
-                                    <title>Twitter</title>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
+                                        <title>Twitter</title>
+                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
+                                    </svg>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1143,7 +1142,9 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                                                
+                                <li>
+                                    <a href="#feedback">Feedback</a>
+                                </li>                                
                             </ul>
                         </nav>
                     </div>
@@ -1152,250 +1153,30 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
-                    OS Integration 
-
-bookmark_border
-Web apps have a big reach. They run on multiple platforms. They are easy to share via links. But traditionally they lacked integration with the operating system. Not long ago they were not even installable. Luckily that has changed and now we can take advantage of that integration to add useful features to our PWAs. Let's explore some of those options.
-
-Working with the file system
-A typical user workflow using files looks like this:
-
-Pick a file or folder from the device and open it directly.
-Make changes to those files or folders, and save the changes back directly.
-Make new files and folders.
-Before the File System Access API, web apps couldn't do this. Opening files required a file upload, saving changes required users to download them, and the web had no access at all to make new files and folders in the user's filesystem.
-
-Opening a file
-To open a file we use the window.showOpenFilePicker() method. Note that this method requires a user gesture, such as a button click. Here is the rest of the setup for opening a file:
-
-Capture the file handle from the file system access's file picker API. This gives you basic information about the file.
-Using the handle's getFile() method, you'll get a special kind of Blob called a File that includes additional read-only properties (such as name and last modified date) about the file. Because it's a Blob, Blob methods can be called on it, such as text(), to get its content.
-
-// Have the user select a file.
-const [ handle ] = await window.showOpenFilePicker();
-// Get the File object from the handle.
-const file = await handle.getFile();
-// Get the file content.
-// Also available, slice(), stream(), arrayBuffer()
-const content = await file.text();
-Saving changes
-To save changes to a file, you also need a user gesture; then:
-
-Use the file handle to create a FileSystemWritableFileStream.
-Make changes to the stream. This won't update the file in place; instead, a temporary file is typically created.
-Finally, when you've finished making changes, you close the stream, which moves the changes from temporary to permanent.
-Let's see this in code:
-
-
-// Make a writable stream from the handle.
-const writable = await handle.createWritable();
-// Write the contents of the file to the stream.
-await writable.write(contents);
-// Close the file and write the contents to disk.
-await writable.close();
-
-Caution: Safari implements the File System Access API, not for the public system, but as an origin-private sandbox. You can only read and write files in that virtual file system using this API.
-File handling
-The File System Access API lets you open files from within your app, but what about the other way around? Users want to set their favorite app as their default to open files with. The file handling API is an experimental API that lets installed PWAs: Register as a file handler on a user's device, specifying the MIME type and file extension that your PWA supports in your web app manifest. You can specify custom file icons for your supported extensions.
-
-Once registered, your installed PWA will show up as an option from the user's file system, allowing them to open the file directly into it. Here is an example of the manifest setup for a PWA to read text files:
-
-
-...
-"file_handlers": [
-     {
-         "action": "/open-file",
-         "accept": {
-             "text/*": [".txt"]
-         }
-     }
-]
-...
-URL handling
-With URL handling, your PWA can capture links that are part of its scope from the operating system and render them within a PWA window, instead of the default browser's tab. For example, if you receive a message linking to the PWA, or click on a deep link (a URL that points to a specific piece of content) in your PWA, the content will open in a standalone window.
-
-This behavior is automatically available on Android when WebAPK is used, such as when users install a PWA with Chrome. It's impossible to capture URLs on PWAs installed on iOS and iPadOS from Safari.
-
-For desktop browsers, the web browser community created a new spec. This spec is currently experimental; it adds a new manifest file member: url_handlers. This property expects an array of origins that the PWA wants to capture. The origin of your PWA will be granted automatically, and each other origin must accept that handling operating through a file named web-app-origin-association. For example, if your PWA's manifest is hosted on the web.dev, and you want to add the app.web.dev origin, it would look like this:
-
-
-"url_handlers": [
-    {"origin": "https://app.web.dev"},
-]
-In this case, the browser will check if a file exists at app.web.dev/.well-known/web-app-origin-association, accepting the URL handling from the PWA scope URL. The developer has to create this file. In the following example, the file looks like this:
-
-
-{
-    "web_apps": [
-        {
-            "manifest": "/mypwa/app.webmanifest",
-            "details": {
-                "paths": [ "/*" ]
-            }
-        }
-    ]
-}
-On Android with WebAPKs, PWAs are automatically registered as handlers for the manifest's scope with an Android intent filter, and it is not possible to add more origins or scopes to it. For iOS and iPadOS, you can only handle URLs with PWAs published in the AppStore, such as those created with PWABuilder.
-URL protocol handling
-URL handling works with standard https protocol URLs, but it is possible to use custom URI-schemes, such as pwa://. In several operating systems, installed apps gain this ability by apps registering their schemes.
-
-For PWA, this capability is enabled using the URL protocol handler API, available only on desktop devices. You can only allow custom protocols for mobile devices by distributing your PWA on app stores.
-
-Caution: For PWAs using the URL protocol handler API, the protocol name has to be one of the safelisted schemes, or it must use a web+ prefix. So, in our example, a link should point to web+pwa:// to open our PWA.
-To register, you can use the registerProtocolHandler() method, or use the protocol_handlers member in your manifest, with the desired scheme and the URL you want to load in your PWA's context, such as:
-
-
-...
-{
-  "protocol_handlers": [
-    {
-      "protocol": "web+pwa",
-      "url": "/from-protocol?value=%s"
-    },
-  ]
-}
-...
-You can route the URL from-protocol to the correct handler and get the query string value in your PWA. The %s is a placeholder for the escaped URL that triggered the operation, so if you have a link somewhere such as <a href="web+pwa://testing">, your PWA will open /from-protocol?value=testing.
-
-Calling other apps
-You can use URI schemes to connect to any other installed app (PWA or not) in users' devices on every platform. You just need to create a link or use navigator.href and point to the URI scheme you want, passing the arguments in URL-escaped form.
-
-You can use well known standard schemes, such as tel: for phone calls, mailto: for email sending, or sms: for text messaging; or you can learn about other apps' URL schemes, for example from well known messaging, maps, navigation, online meetings, social networks, and app stores.
-
-Note: Instead of using private URI schemes to communicate with messaging and social media apps, you can use the generic Web Share API
-Web Share
-Browser Support
-
-89
-93
-12.1
-Source
-
-With the Web Share API, your PWA can send content to other installed apps in the device through the shared channel.
-
-The API is only available on operating systems with a share mechanism, including Android, iOS, iPadOS, Windows, and ChromeOS. You can share an object containing:
-
-Text (title and text properties)
-A URL (url property)
-Files (files property).
-To check if the current device can share, for simple data, like text, you check for the presence of the navigator.share() method, to share files you check for the presence of the navigator.canShare() method.
-
-You request the share action by calling navigator.share(objectToShare). That call returns a Promise that resolves with undefined or rejects with an exception.
-
-
-Chrome on Android and Safari on iOS opening the Share Sheet thanks to Web Share.
-
-Web Share Target
-Web Share Target API lets your PWA be a target of a share operation from another app on that device whether it is a PWA or not. Your PWA receives the data shared by another app.
-
-It's currently available on Android with WebAPK and ChromeOS, and it works only after the user has installed your PWA. The browser registers the share target within the operating system when the app is installed.
-
-You set up web share target in the manifest with the share_target member defined in the Web Share Target draft spec. share_target is set to an object with some properties:
-
-action
-URL that will be loaded in a PWA window that is expected to receive the shared data.
-method
-HTTP verb method will be used for the action, such as GET, POST, or PUT.
-enctype
-(Optional) Encoding type for the parameters, by default is application/x-www-form-urlencoded, but it can also be set as multipart/form-data for methods such as POST.
-params
-An object that will map share data (from the keys: title, text, url and files from Web Share) to arguments that the browser will pass in the URL (on method: 'GET') or in the body of the request using the selected encoding.
-Note: You can parse a POST request server-side or within your service worker if you want to avoid a trip to the network. Check this sample for further details.
-For example, you can define for your PWA that you want to receive shared data (title and url only) by adding in your manifest:
-
-
-...
-"share_target": {
-   "action": "/receive-share/",
-   "method": "GET",
-   "params": {
-      "title": "shared_title",
-      "url": "shared_url"
-   }
-}
-...
-From the previous sample, if any app in the system is sharing a URL with a title, and the user picks your PWA from the dialog, the browser will create a new navigation to your origin's /receive-share/?shared_title=AAA&shared_url=BBB, where AAA is the shared title, and BBB is the shared URL. You can use JavaScript to read that data from the window.location string by parsing it with the URL constructor.
-
-The browser will use the PWA name and icon from your manifest to feed the operating system's share entry. You can't pick a different set for that purpose.
-
-Note: Make sure the page that handles the shared data is accessible offline. You don't want users choosing your app and finding an error because they don't have a connection at the moment.
-For more detailed examples and how to receive files, check Receiving shared data with the Web Share Target API
-
-Contact Picker
-Browser Support
-
-x
-x
-x
-x
-Source
-
-With the Contact Picker API, you can request the device to render a native dialog with all the user's contacts so the user can choose one or more. Your PWA can then receive the data you want from those contacts.
-
-The Contact Picker API is mainly available on mobile devices, and everything is done through the navigator.contacts interface on compatible platforms.
-
-You can request the available properties to query with navigator.contacts.getProperties(), and request a single or multiple contact selection with a list of desired properties.
-
-Some sample properties are name, email, address, and tel. When you ask the user to pick one or more contacts, you can call navigator.contacts.select(properties), passing an array of properties you want to get in return.
-
-Caution: The API doesn't guarantee that the returned objects will have all the requested properties, so you should recheck for their presence.
-The following sample will list the contacts received by the picker.
-
-
-async function getContacts() {
-   const properties = ['name', 'email', 'tel'];
-   const options = { multiple: true };
-   try {
-     const contacts = await navigator.contacts.select(properties, options);
-     console.log(contacts);
-   } catch (ex) {
-     // Handle any errors here.
-   }
-}
-
-Resources
-The File System Access API: simplifying access to local files
-Let installed web applications be file handlers
-Handle files in Progressive Web Apps
-Integrate with the OS Sharing UI with the Web Share API
-Share content with other apps
-Receiving shared data with the Web Share Target API
-A contact picker for the web
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <div class="mt-5 small">
+                    <h2 id="feedback">
+                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
+                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
-                      <footer class="mt-3 small">
-                        <div class="row">
-                            <div class="col-md-4 text-start">
-                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
-                            </div>
-                            <div class="col-md-4 text-center">
-                                <a href="#" class="link-offset-2">Topic</a>
-                            </div>
-                            <div class="col-md-4 text-end">
-                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
-                            </div>
-                        </div>
-                      </footer>
+                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container px-4 px-md-3">
+            <div class="container py-4 py-md-5 px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1417,9 +1198,6 @@ A contact picker for the web
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
-                            <li class="mb-2">
-                              <a href="https://newsletter.datarist.com">Newsletter</a>
-                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">

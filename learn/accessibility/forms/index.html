@@ -197,16 +197,15 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
-                            <li class="nav-item col-6 col-lg-auto">
-                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
-                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
-                                    <title>Twitter</title>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
+                                        <title>Twitter</title>
+                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
+                                    </svg>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1143,7 +1142,9 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                                                
+                                <li>
+                                    <a href="#feedback">Feedback</a>
+                                </li>                                
                             </ul>
                         </nav>
                     </div>
@@ -1152,121 +1153,30 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
-                    A form is an element that allows a user to provide data into a field or a group of fields. Forms can be as simple as a single field or as complicated as a multi-step form element with multiple fields per page, input validation, and sometimes a CAPTCHA.
-
-Forms are considered one of the most difficult elements to get right from an accessibility perspective, as they require knowledge of all the elements we have already covered, as well as additional rules specific just to forms. With some understanding and time, you can make an accessible form to suit you and your users.
-
-Forms is the last component-specific module in this course. This module will focus on the form-specific guidelines, but all other guidelines you learned about in the earlier modules, such as content structure, keyboard focus, and color contrast, also apply to form elements.
-
-Note: Review our Learn Forms course to learn how to create better forms. There is a form accessibility module in that course with additional accessibility-specific form content.
-Fields
-The backbone of forms is fields. Fields are small interactive patterns, such as an input or radio button element, that allow users to enter content or make a choice. There is a wide variety of form fields to choose from.
-
-The default recommendation is to use established HTML patterns instead of building something custom with ARIA, as certain features and functionalities—such as field states, properties, and values—are inherently built into the HTML elements, while you have to add custom ARIA manually.
-
-Note: If the situation requires you to build custom form fields, be sure to review the ARIA and HTML, Keyboard focus, and JavaScript modules to understand how to make these custom form fields as accessible as possible.
-ARIA
-
-<div role="form" id="sundae-order-form">
-  <!-- form content -->
-</div>
-HTML
-
-<form id="sundae-order-form">
-  <!-- form content -->
-</form>
-In addition to choosing the most accessible form field patterns, where applicable, you should also add HTML autocomplete attributes to your fields. Adding autocomplete attributes allows a more fine-grained definition or identification of purpose to user agents and assistive technologies (AT).
-
-Autocomplete attributes allow users to personalize visual presentations, such as showing a birthday cake icon in a field with the birthday autocomplete attribute (bday) assigned to it. More generally, autocomplete attributes make filling out forms easier and quicker. This is especially helpful for people with cognitive and reading disorders and those using ATs, such as screen readers.
-
-
-<form id="sundae-order-form">
-  <p>Name: <input type="name" autocomplete="name"></p>
-  <p>Telephone: <input type="tel" autocomplete="tel"></p>
-  <p>Email address: <input type="email" autocomplete="email"></p>
-</form>
-Lastly, form fields should not produce contextual changes when they receive focus or user input unless the user has been warned about the behavior before using the component. For example, a form should not be automatically submitted when a field receives focus or once a user adds content to the field.
-
-Labels
-Labels inform a user about the purpose of a field, if the field is required, and can also provide information about the field requirements, such as input format. Labels must be visible at all times and accurately describe the form field to users.
-
-One of the foundational tenets of accessible forms is establishing a clear and accurate connection between a field and its label. This is true both visually and programmatically. Without this context, a user might not understand how to fill out the fields in the form.
-
-
-<form id="sundae-order-form">
-  <p><label>Name (required): <input type="name" autocomplete="name" required></label></p>
-  <p><label>Telephone (required): <input type="tel" autocomplete="tel" required></label></p>
-  <p><label>Email address: <input type="email" autocomplete="email"></label></p>
-</form>
-Additionally, related form fields, such as a mailing address, need to be programmatically and visually grouped. One method is to use the fieldset/legend pattern to group elements that are similar.
-
-
-Descriptions
-Field descriptions are similar to labels in purpose in that they are used to give more context to the field and requirements. Field descriptions are not required for accessibility if the labels or form instructions are descriptive enough.
-
-However, there are situations in which adding additional information is useful to avoid form errors, such as relaying information about the minimum length of input for a password field or telling a user which calendar format to use (such as MM-DD-YYYY).
-
-There are many different methods you can use to add field descriptions to your forms. One of the best methods is to add an aria-describedby attribute to the form element, in addition to a <label> element. The screen reader will read both the description and the label.
-
-If you add the aria-labelledby attribute to your element, the attribute value overrides the text within your <label>. As always, be sure to test the final code with all of the ATs you plan to support.
-
-
-Errors
-When creating accessible forms, there's a lot you can do to prevent users from making form errors. Earlier in this module, we covered clearly marking-up fields, creating identifying labels, and adding detailed descriptions whenever possible. But no matter how clear you think your form is, eventually, a user will make a mistake.
-
-When a user encounters a form error, the first step is to make the error known. The field where the error occurred must be clearly identified, and the error itself must be described to the user in text.
-
-There are different methods for displaying error messages, such as:
-
-A pop-up modal, inline near where the error occurred
-A collection of errors grouped in one larger message at the top of the page
-Be sure to pay attention to the keyboard focus and ARIA live region options when announcing errors.
-
-Whenever possible, offer the user a detailed suggestion on how to fix the error. There are two attributes available to notify users of errors.
-
-You can use the HTML required attribute. The browser will supply a generic error message based on the filed validation parameters.
-Or you can use the aria-required attribute to share a customized error message to ATs. Only ATs will receive the message unless you add additional code to make the message visible to all users.
-Once a user thinks all of the errors have been resolved, allow them to resubmit the form and provide feedback about the results of their submission. An error message tells a user they have more updates to make, while a success message confirms that they have resolved all errors and successfully submitted the form.
-
-
-Note: While WCAG 2.2 is still under development, there are several proposed success criteria that will focus on more accessible form experiences, such as Target Size (Minimum), Consistent Help, Accessible Authentication, and Redundant Entry to be aware of for future projects.
-Check your understanding
-Test your knowledge of accessible forms
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <div class="mt-5 small">
+                    <h2 id="feedback">
+                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
+                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
-                      <footer class="mt-3 small">
-                        <div class="row">
-                            <div class="col-md-4 text-start">
-                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
-                            </div>
-                            <div class="col-md-4 text-center">
-                                <a href="#" class="link-offset-2">Topic</a>
-                            </div>
-                            <div class="col-md-4 text-end">
-                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
-                            </div>
-                        </div>
-                      </footer>
+                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container px-4 px-md-3">
+            <div class="container py-4 py-md-5 px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1288,9 +1198,6 @@ Test your knowledge of accessible forms
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
-                            <li class="mb-2">
-                              <a href="https://newsletter.datarist.com">Newsletter</a>
-                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">

@@ -197,16 +197,15 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
-                            <li class="nav-item col-6 col-lg-auto">
-                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
-                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
-                                    <title>Twitter</title>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
+                                        <title>Twitter</title>
+                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
+                                    </svg>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1143,7 +1142,9 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                                                
+                                <li>
+                                    <a href="#feedback">Feedback</a>
+                                </li>                                
                             </ul>
                         </nav>
                     </div>
@@ -1152,248 +1153,30 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
-                    Overflow 
-
-bookmark_border
-The CSS Podcast - 034: Overflow 
-
-When content extends beyond its parent, there are many options for how you can handle it. You can scroll to add additional space, clip the overflowing edges, indicate the cut-off with an ellipsis, and so much more. Overflow is especially important to consider when developing for phone applications and multiple screen sizes.
-
-
-There are two different clipping options in CSS; text-overflow will help with individual lines of text, and the overflow properties will help control overflow in the box model.
-
-Single line overflow with text-overflow
-Use the text-overflow property on any element that contains text node(s), for example a paragraph, <p>. It specifies how the text appears when it doesn’t fit in the available space of the element. All viewable HTML text on a page is in text nodes. To use text-overflow you need a single unwrapped line of text, so you must also set overflow to hidden and have a white-space value that prevents wrapping.
-
-
-p {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-}
-
-Using overflow properties
-Overflow properties are set on an element to control what happens when its children need more space than it has available. This can be intentional, like in an interactive map like Google Maps, where a user pans around a large image clipped to a specific size. It can also be unintentional like in a chat application where the user types a lengthy message that doesn’t fit in the text bubble.
-
-
-You can think of the overflow in two parts. The parent element has a firmly constrained space that will not change. You can think of this as a window. The child elements are content that want more space from the parent. You can think of this as what you are looking through the window at. Managing overflow will help guide how the window frames this content.
-
-
-Scrolling on the vertical and horizontal axis
-The overflow-y property controls physical overflow along the vertical axis of the device viewport, therefore scrolling up and down.
-
-The overflow-x property controls overflow along the horizontal axis of the device viewport, therefore scrolling left and right.
-
-
-Logical properties for scroll direction
-Browser Support
-
-x
-x
-69
-x
-Source
-
-The overflow-inline and overflow-block properties set the overflow based on the document direction and writing mode.
-
-The overflow shorthand
-The overflow shorthand sets both overflow-x and overflow-y styles in one line:
-
-
-overflow: hidden scroll;
-If two keywords are specified, the first applies to overflow-x and the second to overflow-y. Otherwise, both overflow-x and overflow-y use the same value.
-
-Values
-Let's take a closer look at the values and keywords available for the overflow properties.
-
-overflow: visible (default)
-Without setting the property, overflow: visible is the default value for the web. This ensures that content is never unintentionally hidden and follows the core tenets of "never hide content" or "safe layouts of precise layouts".
-overflow: hidden
-With overflow: hidden content is clipped in the specified direction, and no scrollbars are provided to show it.
-overflow: scroll
-overflow: scroll enables scrollbars to allow users to scroll through content. Even if content isn't currently overflowing, scrollbars will be present. This is a great way to reduce future layout shift if a container may be scrollable in the future based, for example, on resize, and visually prepare the user for scrollable areas.
-overflow: clip
-Like overflow: hidden, the content with overflow: clip is clipped to the element's padding box. The difference between clip and hidden is that the clip keyword also forbids all scrolling, including programmatic scrolling.
-overflow: auto
-Finally, the value most commonly used, overflow: auto. This respects the user's preferences and shows scrollbars if needed, but hides them by default, and gives responsibility for scrolling to the user and browser.
-
-Note: Using the overflow property with a value other than visible creates a block formatting context.
-Scrolling and overflow
-Many of these overflow behaviors introduce a scrollbar, but there’s a few specific scroll behaviors and properties that can help you control scrolling on your overflow container.
-
-Scrolling and accessibility
-It's important to make sure that the scrollable area can accept focus so that a keyboard user can tab to the box, then use the arrow keys to scroll.
-
-To allow a scrolling box to accept focus add tabindex="0", a name with the aria-labelledby attribute, and an appropriate role attribute. For example:
-
-
-<div tabindex="0" role="region" aria-labelledby="id-of-descriptive-text">
-    content
-</div>
-CSS can then be used to indicate that the box has focus, using the outline property to give a visual clue that it will now be scrollable.
-
-In Using CSS to Enforce Accessibility Adrian Roselli demonstrates how CSS can help prevent accessibility regressions. For example, to only turn on scrolling and add the focus indicator if the correct attributes are used. The following rules will only make the box scrollable if it has a tabindex, aria-labelledby, and role attribute.
-
-
-[role][aria-labelledby][tabindex] {
-  overflow: auto;
-}
-
-[role][aria-labelledby][tabindex]:focus {
-  outline: .1em solid blue;
-}
-Scrollbar positioning within the box model
-Scroll bars take up space within the padding box and can compete for space if inline and not overlaid. The box model module expands more on this potential source of layout shift.
-
-
-root-scroller vs implicit-scroller
-You may notice that some scrollers have a pull-to-refresh behavior and other special behaviors, especially when developing for mobile and hybrid applications. This scroll behavior happens on the root scroller. There is only ever one root scroller on a page. By default, the documentElement is the page's root scroller, however, by changing which element is the root scroller, the special behaviors can be applied to scrollers other than the documentElement, we call this new scroller the implicit root scroller.
-
-To create a root scroller, you can use something called scroller promotion by positioning a container as fixed, ensuring it covers the entire viewport and is z-index on top with a scroller. Experience a root scroller vs a nested implicit scroller here.
-
-The video shows a root scroller with bounce behavior and new styling features,
-compared to scrolling an implicit scroller with no enhanced scroll behavior.
-scroll-behavior
-Browser Support
-
-61
-79
-36
-15.4
-Source
-
-scroll-behavior allows you to opt into browser-controlled scrolling to elements. This allows you to specify how in-page navigation like .scrollTo() or links are handled.
-
-This is especially useful when used with prefers-reduced-motion to specify scroll behavior based on user preference.
-
-
-@media (prefers-reduced-motion: no-preference) {
-  .scroll-view {
-    scroll-behavior: auto;
-  }
-}
-
-overscroll-behavior
-Browser Support
-
-63
-18
-59
-16
-Source
-
-If you’ve ever reached the end of a modal overlay, then continued scrolling and had the page behind the overlay move, this is the scroll chaining, or bubbling up to the parent scroll container. The overscroll-behavior property allows you to prevent overflow scrolling leaking into a parent container (called scroll chaining).
-
-
-Check your understanding
-Test your knowledge of overflow
-
-Overflowing content
-Previous
-Overview: Building blocks
-Next
-Overflow is what happens when there is too much content to fit in an element box. In this guide, you will learn what overflow is and how to manage it.
-
-Prerequisites:	Basic software installed, basic knowledge of working with files, HTML basics (study Introduction to HTML), and an idea of how CSS works (study CSS first steps.)
-Objective:	To understand overflow and how to manage it.
-What is overflow?
-Everything in CSS is a box. You can constrain the size of these boxes by assigning values of width and height (or inline-size and block-size). Overflow happens when there is too much content to fit in a box. CSS provides various tools to manage overflow. As you go further with CSS layout and writing CSS, you will encounter more overflow situations.
-
-CSS tries to avoid "data loss"
-Let's consider two examples that demonstrate the default behavior of CSS when there is overflow.
-
-The first example is a box that has been restricted by setting a height. Then we add content that exceeds the allocated space. The content overflows the box and falls into the paragraph below.
-
-
-The second example is a word in a box. The box has been made too small for the word and so it breaks out of the box.
-
-
-You might wonder why CSS works in such a messy way, displaying content outside of its intended container. Why not hide overflowing content? Why not scale the size of the container to fit all the content?
-
-Wherever possible, CSS does not hide content. This would cause data loss. The problem with data loss is that you might not notice. Website visitors may not notice. If the submit button on a form disappears and no one can complete the form, this could be a big problem! Instead, CSS overflows in visible ways. You are more likely to see there is a problem. At worst, a site visitor will let you know that content is overlapping.
-
-If you restrict a box with a width or a height, CSS trusts you to know what you are doing. CSS assumes that you are managing the potential for overflow. In general, restricting the block dimension is problematic when the box contains text. There may be more text than you expected when designing the site, or the text may be larger (for example, if the user has increased their font size).
-
-The next two lessons explain different approaches to control sizing in ways that are less prone to overflow. However, if you need a fixed size, you can also control how the overflow behaves. Let's read on!
-
-The overflow property
-The overflow property helps you manage an element's content overflow. Using this property, you can convey to a browser how it should handle overflow content. The default value of the <overflow> value type is visible. With this default setting, one can see content when it overflows.
-
-To crop content when it overflows, you can set overflow: hidden. This does exactly what it says: it hides overflow. Beware that this can make some content invisible. You should only do this if hiding content won't cause problems.
-
-
-Instead, perhaps you would like to add scrollbars when content overflows? Using overflow: scroll, browsers with visible scrollbars will always display them—even if there is not enough content to overflow. This offers the advantage of keeping the layout consistent, instead of scrollbars appearing or disappearing, depending upon the amount of content in the container.
-
-Remove some content from the box below. Notice how the scrollbars remain, even if there is no need for scrolling.
-
-
-In the example above, we only need to scroll on the y axis, however we get scrollbars in both axes. To just scroll on the y axis, you could use the overflow-y property, setting overflow-y: scroll.
-
-
-You can also enable scrolling along the x-axis by using overflow-x, although this is not a recommended way to accommodate long words! If you have a long word in a small box, consider using the word-break or overflow-wrap property. In addition, some of the methods discussed in Sizing items in CSS may help you create boxes that scale better with varying amounts of content.
-
-
-As with scroll, you get a scrollbar in the scrolling dimension whether or not there is enough content to cause a scrollbar.
-
-Note: You can specify x- and y-axis scrolling using the overflow property, passing two values. If two keywords are specified, the first applies to overflow-x and the second applies to overflow-y. Otherwise, both overflow-x and overflow-y are set to the same value. For example, overflow: scroll hidden would set overflow-x to scroll and overflow-y to hidden.
-
-If you only want scrollbars to appear when there is more content than can fit in the box, use overflow: auto. This allows the browser to determine if it should display scrollbars.
-
-In the example below, remove content until it fits into the box. You should see the scrollbars disappear.
-
-
-Overflow establishes a Block Formatting Context
-When you use the <overflow> values scroll and auto, you create a Block Formatting Context (BFC). This means that the content of an element box with these overflow values acquires a self-contained layout. Content outside such an element box cannot poke into the element box, and nothing from the element box can poke into the surrounding layout. This enables scrolling behavior, as all box content needs to be contained and not overlap to create a consistent scrolling experience.
-
-Unwanted overflow in web design
-Modern layout methods (described in CSS layout) manage overflow. They largely work without assumptions or dependencies for how much content there will be on a web page.
-
-This was not always the norm. In the past, some sites were built with fixed-height containers to align box bottoms. These boxes may otherwise have had no relationship to each other. This was fragile. If you encounter a box where content is overlaying other content on the page in legacy applications, you will now recognize that this happens with overflow. Ideally, you will refactor the layout to not rely on fixed-height containers.
-
-When developing a site, always keep overflow in mind. Test designs with large and small amounts of content. Increase and decrease font sizes by at least two increments. Ensure your CSS is robust. Changing overflow values to hide content or to add scrollbars is reserved for a few select use cases (for example, where you intend to have a scrolling box).
-
-Test your skills!
-You've reached the end of this article, but can you remember the most important information? You can find some further tests to verify that you've retained this information before you move on — see Test your skills: Overflow.
-
-Summary
-This lesson introduced the concept of overflow. You should understand that default CSS avoids making overflowing content invisible. You have discovered that you can manage potential overflow, and also, that you should test work to make sure it does not accidentally cause problematic overflow.
-
-In the next article, we'll take a look at the most common values and units in CSS.
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <div class="mt-5 small">
+                    <h2 id="feedback">
+                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
+                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
-                      <footer class="mt-3 small">
-                        <div class="row">
-                            <div class="col-md-4 text-start">
-                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
-                            </div>
-                            <div class="col-md-4 text-center">
-                                <a href="#" class="link-offset-2">Topic</a>
-                            </div>
-                            <div class="col-md-4 text-end">
-                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
-                            </div>
-                        </div>
-                      </footer>
+                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container px-4 px-md-3">
+            <div class="container py-4 py-md-5 px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1415,9 +1198,6 @@ In the next article, we'll take a look at the most common values and units in CS
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
-                            <li class="mb-2">
-                              <a href="https://newsletter.datarist.com">Newsletter</a>
-                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">

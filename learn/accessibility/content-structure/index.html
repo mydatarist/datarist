@@ -197,16 +197,15 @@
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://datarist.com/learn/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Learn');">Learn</a>
                             </li>
-                            <li class="nav-item col-6 col-lg-auto">
-                                <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="https://newsletter.datarist.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Newsletter');">Newsletter</a>
-                            </li>
                         </ul>
                         <hr class="d-lg-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">                            
                             <li class="nav-item col-6 col-lg-auto">
                                 <a class="nav-link py-2 px-0 px-lg-2" href="https://twitter.com/datarist" target="_blank" rel="noopener">
-                                    <svg class="bi navbar-nav-svg"><use xlink:href="#twitter-x"/></svg>
-                                    <title>Twitter</title>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg" viewBox="0 0 512 416.32" role="img">
+                                        <title>Twitter</title>
+                                        <path fill="currentColor" d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92"/>
+                                    </svg>
                                     <small class="d-lg-none ms-2">Twitter</small>
                                 </a>
                             </li>
@@ -1143,7 +1142,9 @@
                                 <li>
                                     <a href="#see-also">See also</a>
                                 </li>  
-                                                                
+                                <li>
+                                    <a href="#feedback">Feedback</a>
+                                </li>                                
                             </ul>
                         </nav>
                     </div>
@@ -1152,240 +1153,30 @@
                     <h2 id="start-here">
                         Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
                     </h2>
-                    One of the most important aspects of digital accessibility is the underlying structure of the page. When you build your website or app using structural elements instead of relying on styles alone, you give critical context to people using assistive technologies (AT), such as screen readers.
-
-Structural elements serve as an outline of the content on the screen, but they also act as anchor points to allow for easier navigation within the content.
-
-When you use semantic HTML elements, the inherent meaning of each element is passed on to the accessibility tree and used by the AT, giving more meaning to the content than non-semantic elements. There may be cases where you need to add additional ARIA attributes to build relationships or to enhance the overall user experience, but in most situations, one of the 100+ HTML elements available should work fairly well on its own.
-
-While this module focuses on the most widely used structural elements critical to digital accessibility, there are certainly additional elements and environmental factors to consider when building structure into your website or app. These examples are an introduction to the topic, rather than all-inclusive.
-
-Note: Our Learn HTML course covers the basics of HTML and semantic structure in great detail. As such, this module builds off of that course material and is focused specifically on digital accessibility. Likewise, be sure to review the ARIA and HTML module in this course before diving into this module.
-Landmarks
-Users of AT rely on structural elements to give them information about the page's overall layout. When sectioning off large regions of content, you can use either ARIA landmark roles or the newer HTML landmark elements to add structural context to your page.
-
-Landmarks ensure content is in navigable regions. It's recommended that you supply at least one landmark per page.
-
-Some resources suggest combining ARIA and HTML landmarks together to provide better AT coverage. While this type of redundancy shouldn't cause issues for your users, test the patterns using a screen reader to be certain. When in doubt, it's best to default to using only the newer HTML landmark elements, as the browser support is very robust.
-
-Let's compare the HTML landmark elements as mapped to their counterpart ARIA landmark roles.
-
-HTML landmark element	ARIA landmark role
-<header>	banner
-<aside>	complementary
-<footer>	contentinfo
-<nav>	navigation
-<main>	main
-<form> 1	form
-<section> 1	region
-1 Requires inclusion of the name attribute to be accessible. A section must be accessibly-named for its implicit ARIA role of region to be visible to assistive technology.
-Now, let's compare examples of accessible content structure.
-
-Don't
-
-<div>
-    <div>...</div>
-</div>
-
-<div>
-    <p>Stamp collecting, also known as philately, is
-    the study of postage stamps, stamped envelopes,
-    postmarks, postcards, and other materials relating
-    to postal delivery.</p>
-</div>
-
-<div>
-<p>© 2022 - Stamps R Awesome</p>
-</div>
-Do
-
-<header>
-    <nav>...</nav>
-</header>
-<main>
-    <section aria-label="Introduction to stamp collecting">
-    <p>Stamp collecting, also known as philately, is
-    the study of postage stamps, stamped envelopes,
-    postmarks, postcards, and other materials relating
-    to postal delivery.</p>
-    </section>
-</main>
-<footer>
-<p>© 2022 - Stamps R Awesome</p>
-</footer>
-Note: Check out the ARIA Landmarks Example for more information and best practices.
-Headings
-When implemented correctly, HTML heading levels form a succinct outline of the overall page content.
-
-There are six heading levels we can use. Heading level one <h1> is used for the page's highest and most important information, moving incrementally to heading level six <h6> for the lowest and least important information.
-
-The sequence of the heading levels is important. Ideally, you won't skip heading levels, for example, starting a section with an <h1> and immediately following it with an <h5>. Instead, you should progress to the <h5> in order. Heading level order is especially important to AT users as this is one of their primary ways to navigate through content.
-
-Note: While you can use ARIA heading roles for heading levels, it's recommended you use semantic HTML heading levels whenever possible.
-To help you adhere to the proper semantic structure and order for headings, consider decoupling your CSS styles from the heading levels. This allows you more flexibility in heading styles while maintaining the heading level order. It's critical you don't use styles alone to create headings, as these aren't seen by AT as a heading.
-
-
-When we fake headings, the appropriate structure isn't conveyed to AT users.
-
-Headings are also helpful for people with cognitive and attention deficit disorders. It's important to make the heading content meaningful to help them understand what is most important on the page.
-
-Don't
-
-<div>
-    <h3>Stamps</h3>
-    <p>Stamp collecting, also known as philately, is the study of 
-  postage stamps, stamped envelopes, postmarks, postcards, and 
-  other materials relating to postal delivery.</p>
-</div>
-
-<div>
-    <h3>How do I start a stamp collection?</h3>
-  <h2>Equipment you will need</h2>
-    <h4>...</h4>
-  <h2>How to acquire stamps</h2>
-    <h4>...</h4>
-  <h2>Organizations you can join</h2>
-    <h4>...</h4>
-</div>
-Do
-
-<header>
-  <h1>Stamp collecting</h1>
-</header>
-<main>
-    <section aria-label="Introduction to stamp collecting">
-        <h2>What is stamp collecting?</h2>
-        <p>Stamp collecting, also known as philately, is the study of 
-    postage stamps, stamped envelopes, postmarks, postcards, and 
-    other materials relating to postal delivery.</p>
-    </section>
-
-    <section aria-label="Start a stamp collection">
-        <h2>How do I start a stamp collection?</h2>
-    <h3>Required equiment</h3>
-    <p>...</p>
-
-    <h3>How to acquire stamps</h3>
-    <p>...</p>
-
-    <h3>Organizations you can join</h3>
-        <p>...</p>
-    </section>
-</main>
-Lists
-HTML lists are a way to semantically group items similar to one other giving them inherent meaning, much like your grocery store list or that never-ending to-do list you keep ignoring.
-
-There are three types of HTML lists:
-
-ordered <ol>
-unordered <ul>
-description <dl>
-The list item <li> element is used to represent an item in an ordered or unordered list, while the description term <dt> and definition <dd> elements can be found in the description list.
-
-When programmed correctly, these elements can inform non-sighted AT users about the visible structure of the list. When an AT encounters a semantic list, it can tell the user the list name and how many items are in it. As the user navigates within the list, the AT will read each list item out loud and tell which number it's in the list—item one of five, item two of five, and so on.
-
-Grouping items into lists also helps sighted people who have cognitive and attention disorders and those with reading disabilities, as list content is typically styled to have more visual whitespace and the content is to the point.
-
-Don't
-
-<div>
-  <p>How do I start a stamp collection?</p>
-  <p>Equipment you will need</p>
-    <div>
-      <p>Small tongs with rounded tips</p>
-      <p>Stamp hinges</p>
-      <p>Stockbook or albumn</p>
-      <p>Magnifying glass</p>
-      <p>Stamps</p>
-    </div>
-</div>
-Do
-
-<div>
-  <h1>How do I start a stamp collection?</h1>
-  <h2>Equipment you will need</h2>
-  <ol>
-    <li>Small tongs with rounded tips</li>
-    <li>Stamp hinges</li>
-    <li>Stockbook or albumn</li>
-    <li>Magnifying glass</li>
-    <li>Stamps</li>
-  </ol>
-</div>
-Tables
-In HTML, tables are generally used for organizing data or page layout.
-
-Depending on the table's purpose, you'll use different semantic structural elements. Tables can be very complex in structure, but when you stick to the basic semantic rules, they are fairly accessible without much intervention.
-
-Layout
-In the early days of the internet, layout tables were the primary HTML element used to build visual structures. Today, we use a mix of semantic and non-semantic elements such as <div>s and landmarks to create layouts.
-
-While the days of creating layout tables are mostly over, there are times when layout tables are still used, such as in visually rich emails, newsletters, and advertisements. In these cases, tables used only for layout must not use structural elements that convey relationships and add context, such as <th> or <caption>.
-
-Layout tables must also be hidden from AT users with the ARIA presentation role or aria-hidden state.
-
-Don't
-
-<table>
-  <caption>My stamp collection</caption>
-  <tr>
-    <th>[Stamp Image 1]</th>
-    <th>[Stamp Image 2]</th>
-    <th>[Stamp Image 3]</th>
-  </tr>
-</table>
-Do
-
-<table role="presentation">
-  <tr>
-    <td>[Stamp Image 1]</td>
-    <td>[Stamp Image 2]</td>
-    <td>[Stamp Image 3]</td>
-  </tr>
-</table>
-Data
-Unlike a layout table, which should be hidden from AT users, a data table and all its elements must be exposed. The structure of data tables is critical for conveying simple and complex information to users.
-
-When a table is structured correctly, relationships form between the column headers and rows and the data within the table. When structured incorrectly, the user is left to decipher the meaning and context of the information in the table.
-
-Depending on the complexity of the table, forming relationships through code is accomplished in different ways. The first step to making a table accessible is to mark up header cells with <th> and data cells with <td> elements.
-
-For more complex tables, you may need to use additional HTML table elements such as <rowgroup>, <colgroup>, <caption>, and scope to convey meaning and relationships
                     <h2 id="see-also">
                         See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
                     </h2>
-                    <div class="mt-5 small">
+                    <h2 id="feedback">
+                        Feedback <a class="anchor-link" href="#feedback" aria-label="Link to this section: Feedback"></a>
+                    </h2><div class="pt-4 pt-md-5 mt-5 border-top">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
+                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com">docs@datarist.com</a>.</p>
                             </div>                      
                             <div class="col-12 col-md-6 mb-3">
                               <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
+                              <p><a href="https://datarist.com/contact/">Contact support</a></p>
                             </div>    
                         </div>
                     </div>
-                    <p class="font-monospace small text-secondary">Updated on March 5, 2024 by Datarist.</p>
-                      <footer class="mt-3 small">
-                        <div class="row">
-                            <div class="col-md-4 text-start">
-                                <a href="#" class="link-offset-2"><svg class="bi me-1" width="20" height="20"><use xlink:href="#arrow-left"/></svg>Previous</a>
-                            </div>
-                            <div class="col-md-4 text-center">
-                                <a href="#" class="link-offset-2">Topic</a>
-                            </div>
-                            <div class="col-md-4 text-end">
-                                <a href="#" class="link-offset-2">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#arrow-right"/></svg></a>
-                            </div>
-                        </div>
-                      </footer>
+                    <p class="font-monospace small text-secondary mt-3">Updated on March 5, 2024 by Datarist.</p>
                                         
                 </div>
             </main>
         </div>
         <footer class="dd-footer py-4 py-md-5 mt-5 small border-top">
-            <div class="container px-4 px-md-3">
+            <div class="container py-4 py-md-5 px-4 px-md-3">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
                         <ul class="list-unstyled">
@@ -1407,9 +1198,6 @@ For more complex tables, you may need to use additional HTML table elements such
                             <li class="mb-2">
                                 <a href="https://datarist.com/learn/">Learn</a>
                             </li>
-                            <li class="mb-2">
-                              <a href="https://newsletter.datarist.com">Newsletter</a>
-                          </li>
                         </ul>
                     </div>
                     <div class="col-6 col-lg-2 mb-3">
