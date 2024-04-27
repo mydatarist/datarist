@@ -1172,38 +1172,405 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                    
+                    
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Security</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
+                        <section aria-labelledby="the_story_of_your_first_website">
+                                   
+                            
+
+
+
+                            <header>
+                                <h1>Website security</h1>
+                            </header>
+                            <div class="section-content">
+                                <ul class="prev-next">
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/Server-side/First_steps/Web_frameworks">
+                                            <span class="button-wrap">Previous </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/Server-side/First_steps">
+                                            <span class="button-wrap">Overview: Server-side website programming first steps</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <p>Website security requires vigilance in all aspects of website design and usage. This introductory article won't make you a website security guru, but it will help you understand where threats come from, and what you can do to harden your web application against the most common attacks.</p>
+                                <figure class="table-container">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">Prerequisites:</th>
+                                                <td>Basic computer literacy.</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Objective:</th>
+                                                <td>To understand the most common threats to web application security and
+        what you can do to reduce the risk of your site being hacked.
+      </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </figure>
+                            </div>
+                            <section aria-labelledby="what_is_website_security">
+                                <h2 id="what_is_website_security">
+                                    <a href="#what_is_website_security">What is website security?</a>
+                                </h2>
+                                <div class="section-content">
+                                    <p>The Internet is a dangerous place! With great regularity, we hear about websites becoming unavailable due to denial of service attacks, or displaying modified (and often damaging) information on their homepages. In other high-profile cases, millions of passwords, email addresses, and credit card details have been leaked into the public domain, exposing website users to both personal embarrassment and financial risk.</p>
+                                    <p>
+                                        The purpose of website security is to prevent these (or any) sorts of attacks. The more formal definition of website security <em>is the act/practice of protecting websites from unauthorized access, use, modification, destruction, or disruption</em>
+                                        .
+                                    </p>
+                                    <p>Effective website security requires design effort across the whole of the website: in your web application, the configuration of the web server, your policies for creating and renewing passwords, and the client-side code. While all that sounds very ominous, the good news is that if you're using a server-side web framework, it will almost certainly enable "by default" robust and well-thought-out defense mechanisms against a number of the more common attacks. Other attacks can be mitigated through your web server configuration, for example by enabling HTTPS. Finally, there are publicly available vulnerability scanner tools that can help you find out if you've made any obvious mistakes.</p>
+                                    <p>The rest of this article gives you more details about a few common threats and some of the simple steps you can take to protect your site.</p>
+                                    <div class="notecard note" id="sect1">
+                                        <p>
+                                            <strong>Note:</strong>
+                                            This is an introductory topic, designed to help you start thinking about website security, but it is not exhaustive.
+                                        </p>
+                                    </div>
+                                </div>
+                            </section>
+                            <section aria-labelledby="website_security_threats">
+                                <h2 id="website_security_threats">
+                                    <a href="#website_security_threats">Website security threats</a>
+                                </h2>
+                                <div class="section-content">
+                                    <p>
+                                        This section lists just a few of the most common website threats and how they are mitigated. As you read, note how threats are most successful when the web application either trusts, or is <em>not paranoid enough</em>
+                                        about the data coming from the browser.
+                                    </p>
+                                </div>
+                            </section>
+                            <section aria-labelledby="cross-site_scripting_xss">
+                                <h3 id="cross-site_scripting_xss">
+                                    <a href="#cross-site_scripting_xss">Cross-Site Scripting (XSS)</a>
+                                </h3>
+                                <div class="section-content">
+                                    <p>
+                                        XSS is a term used to describe a class of attacks that allow an attacker to inject client-side scripts <em>through</em>
+                                        the website into the browsers of other users. Because the injected code comes to the browser from the site, the code is <em>trusted</em>
+                                        and can do things like send the user's site authorization cookie to the attacker. When the attacker has the cookie, they can log into a site as though they were the user and do anything the user can, such as access their credit card details, see contact details, or change passwords.
+                                    </p>
+                                    <div class="notecard note" id="sect2">
+                                        <p>
+                                            <strong>Note:</strong>
+                                            XSS vulnerabilities have been historically more common than any other type of security threat.
+                                        </p>
+                                    </div>
+                                    <p>
+                                        The XSS vulnerabilities are divided into <em>reflected</em>
+                                        and <em>persistent</em>
+                                        , based on how the site returns the injected scripts to a browser.
+                                    </p>
+                                    <ul>
+                                        <li>
+                                            A <em>reflected</em>
+                                            XSS vulnerability occurs when user content that is passed to the server is returned <em>immediately</em>
+                                            and <em>unmodified</em>
+                                            for display in the browser. Any scripts in the original user content will be run when the new page is loaded.
+    For example, consider a site search function where the search terms are encoded as URL parameters, and these terms are displayed along with the results. An attacker can construct a search link that contains a malicious script as a parameter (e.g., <code>http://developer.mozilla.org?q=beer &lt;script%20src="http://example.com/tricky.js"&gt;&lt;/script &gt;</code>
+                                            ) and email it to another user. If the target user clicks this "interesting link", the script will be executed when the search results are displayed. As discussed earlier, this gives the attacker all the information they need to enter the site as the target user, potentially making purchases as the user or sharing their contact information.
+  
+                                        </li>
+                                        <li>
+                                            A <em>persistent</em>
+                                            XSS vulnerability occurs when the malicious script is <em>stored</em>
+                                            on the website and then later redisplayed unmodified for other users to execute unwittingly.
+    For example, a discussion board that accepts comments that contain unmodified HTML could store a malicious script from an attacker. When the comments are displayed, the script is executed and can send to the attacker the information required to access the user's account. This sort of attack is extremely popular and powerful, because the attacker might not even have any direct engagement with the victims.
+  
+                                        </li>
+                                    </ul>
+                                    <p>
+                                        While the data from <code>POST</code>
+                                        or <code>GET</code>
+                                        requests is the most common source of XSS vulnerabilities, any data from the browser is potentially vulnerable, such as cookie data rendered by the browser, or user files that are uploaded and displayed.
+                                    </p>
+                                    <p>
+                                        The best defense against XSS vulnerabilities is to remove or disable any markup that can potentially contain instructions to run the code. For HTML this includes elements, such as <code>&lt;script &gt;</code>
+                                        , <code>&lt;object &gt;</code>
+                                        , <code>&lt;embed &gt;</code>
+                                        , and <code>&lt;link &gt;</code>
+                                        .
+                                    </p>
+                                    <p>The process of modifying user data so that it can't be used to run scripts or otherwise affect the execution of server code is known as input sanitization. Many web frameworks automatically sanitize user input from HTML forms by default.</p>
+                                </div>
+                            </section>
+                            <section aria-labelledby="sql_injection">
+                                <h3 id="sql_injection">
+                                    <a href="#sql_injection">SQL injection</a>
+                                </h3>
+                                <div class="section-content">
+                                    <p>SQL injection vulnerabilities enable malicious users to execute arbitrary SQL code on a database, allowing data to be accessed, modified, or deleted irrespective of the user's permissions. A successful injection attack might spoof identities, create new identities with administration rights, access all data on the server, or destroy/modify the data to make it unusable.</p>
+                                    <p>SQL injection types include Error-based SQL injection, SQL injection based on boolean errors, and Time-based SQL injection.</p>
+                                    <p>
+                                        This vulnerability is present if user input that is passed to an underlying SQL statement can change the meaning of the statement. For example, the following code is intended to list all users with a particular name (<code>userName</code>
+                                        ) that has been supplied from an HTML form:
+                                    </p>
+                                    <div class="code-example">
+                                        <div class="example-header">
+                                            <span class="language-name">sql</span>
+                                        </div>
+                                        <pre class="brush: sql notranslate" data-signature="keVNfTH4yZkkI+CouocL7RbQJqhI3rOA85SkIBn2MR8=">
+                                            <code>
+                                                statement <span class="token operator">=</span>
+                                                <span class="token string">"SELECT * FROM users WHERE name = '"</span>
+                                                <span class="token operator">+</span>
+                                                userName <span class="token operator">+</span>
+                                                <span class="token string">"';"</span>
+                                            </code>
+                                        </pre>
+                                    </div>
+                                    <p>
+                                        If the user specifies a real name, the statement will work as intended. However, a malicious user could completely change the behavior of this SQL statement to the new statement in the following example, by specifying <code>a';DROP TABLE users; SELECT * FROM userinfo WHERE 't' = 't</code>
+                                        for the <code>userName</code>
+                                        .
+                                    </p>
+                                    <div class="code-example">
+                                        <div class="example-header">
+                                            <span class="language-name">sql</span>
+                                        </div>
+                                        <pre class="brush: sql notranslate" data-signature="h6VE6Eph/87sBpAXP6cT0zhdiFV/A9wYmIyGyjD4Ldw=">
+                                            <code>
+                                                <span class="token keyword">SELECT</span>
+                                                <span class="token operator">*</span>
+                                                <span class="token keyword">FROM</span>
+                                                users <span class="token keyword">WHERE</span>
+                                                name <span class="token operator">=</span>
+                                                <span class="token string">'a'</span>
+                                                <span class="token punctuation">;</span>
+                                                <span class="token keyword">DROP</span>
+                                                <span class="token keyword">TABLE</span>
+                                                users<span class="token punctuation">;</span>
+                                                <span class="token keyword">SELECT</span>
+                                                <span class="token operator">*</span>
+                                                <span class="token keyword">FROM</span>
+                                                userinfo <span class="token keyword">WHERE</span>
+                                                <span class="token string">'t'</span>
+                                                <span class="token operator">=</span>
+                                                <span class="token string">'t'</span>
+                                                <span class="token punctuation">;</span>
+                                            </code>
+                                        </pre>
+                                    </div>
+                                    <p>
+                                        The modified statement creates a valid SQL statement that deletes the <code>users</code>
+                                        table and selects all data from the <code>userinfo</code>
+                                        table (which reveals the information of every user). This works because the first part of the injected text (<code>a';</code>
+                                        ) completes the original statement.
+                                    </p>
+                                    <p>
+                                        To avoid this sort of attack, you must ensure that any user data that is passed to an SQL query cannot change the nature of the query. One way to do this is to <a href="https://en.wikipedia.org/wiki/Escape_character" class="external" target="_blank">escape</a>
+                                        all the characters in the user input that have a special meaning in SQL.
+                                    </p>
+                                    <div class="notecard note" id="sect3">
+                                        <p>
+                                            <strong>Note:</strong>
+                                            The SQL statement treats the <strong>'</strong>
+                                            character as the beginning and end of a string literal. By putting a backslash in front of this character (<strong>\'</strong>
+                                            ), we escape the symbol, and tell SQL to instead treat it as a character (just a part of the string).
+                                        </p>
+                                    </div>
+                                    <p>
+                                        In the following statement, we escape the <strong>'</strong>
+                                        character. The SQL will now interpret the name as the whole string in bold (which is a very odd name indeed, but not harmful).
+                                    </p>
+                                    <div class="code-example">
+                                        <div class="example-header">
+                                            <span class="language-name">sql</span>
+                                        </div>
+                                        <pre class="brush: sql notranslate" data-signature="YaLJ5FAyK0V2BK5mnkX2Nr/95hb9r/34bhme2oL6k50=">
+                                            <code>
+                                                <span class="token keyword">SELECT</span>
+                                                <span class="token operator">*</span>
+                                                <span class="token keyword">FROM</span>
+                                                users <span class="token keyword">WHERE</span>
+                                                name <span class="token operator">=</span>
+                                                <span class="token string">'a\';DROP TABLE users; SELECT * FROM userinfo WHERE \'t\' = \'t'</span>
+                                                <span class="token punctuation">;</span>
+                                            </code>
+                                        </pre>
+                                    </div>
+                                    <p>Web frameworks will often take care of the character escaping for you. Django, for example, ensures that any user-data passed to querysets (model queries) is escaped.</p>
+                                    <div class="notecard note" id="sect4">
+                                        <p>
+                                            <strong>Note:</strong>
+                                            This section draws heavily on the information in <a href="https://en.wikipedia.org/wiki/SQL_injection" class="external" target="_blank">Wikipedia here</a>
+                                            .
+                                        </p>
+                                    </div>
+                                </div>
+                            </section>
+                            <section aria-labelledby="cross-site_request_forgery_csrf">
+                                <h3 id="cross-site_request_forgery_csrf">
+                                    <a href="#cross-site_request_forgery_csrf">Cross-Site Request Forgery (CSRF)</a>
+                                </h3>
+                                <div class="section-content">
+                                    <p>CSRF attacks allow a malicious user to execute actions using the credentials of another user without that user's knowledge or consent.</p>
+                                    <p>
+                                        This type of attack is best explained by example. Josh is a malicious user who knows that a particular site allows logged-in users to send money to a specified account using an HTTP <code>POST</code>
+                                        request that includes the account name and an amount of money. Josh constructs a form that includes his bank details and an amount of money as hidden fields, and emails it to other site users (with the <em>Submit</em>
+                                        button disguised as a link to a "get rich quick" site).
+                                    </p>
+                                    <p>
+                                        If a user clicks the submit button, an HTTP <code>POST</code>
+                                        request will be sent to the server containing the transaction details and any client-side cookies that the browser associated with the site (adding associated site cookies to requests is normal browser behavior). The server will check the cookies, and use them to determine whether or not the user is logged in and has permission to make the transaction.
+                                    </p>
+                                    <p>
+                                        The result is that any user who clicks the <em>Submit</em>
+                                        button while they are logged in to the trading site will make the transaction. Josh gets rich.
+                                    </p>
+                                    <div class="notecard note" id="sect5">
+                                        <p>
+                                            <strong>Note:</strong>
+                                            The trick here is that Josh doesn't need to have access to the user's cookies (or access credentials). The browser of the user stores this information and automatically includes it in all requests to the associated server.
+                                        </p>
+                                    </div>
+                                    <p>
+                                        One way to prevent this type of attack is for the server to require that <code>POST</code>
+                                        requests include a user-specific site-generated secret. The secret would be supplied by the server when sending the web form used to make transfers. This approach prevents Josh from creating his own form, because he would have to know the secret that the server is providing for the user. Even if he found out the secret and created a form for a particular user, he would no longer be able to use that same form to attack every user.
+                                    </p>
+                                    <p>Web frameworks often include such CSRF prevention mechanisms.</p>
+                                </div>
+                            </section>
+                            <section aria-labelledby="other_threats">
+                                <h3 id="other_threats">
+                                    <a href="#other_threats">Other threats</a>
+                                </h3>
+                                <div class="section-content">
+                                    <p>Other common attacks/vulnerabilities include:</p>
+                                    <ul>
+                                        <li>
+                                            <a href="/en-US/docs/Glossary/Clickjacking">Clickjacking</a>
+                                            . In this attack, a malicious user hijacks clicks meant for a visible top-level site and routes them to a hidden page beneath. This technique might be used, for example, to display a legitimate bank site but capture the login credentials into an invisible 
+                                            <a href="/en-US/docs/Web/HTML/Element/iframe">
+                                                <code>&lt;iframe &gt;</code>
+                                            </a>
+                                            controlled by the attacker. Clickjacking could also be used to get the user to click a button on a visible site, but in doing so actually unwittingly click a completely different button. As a defense, your site can prevent itself from being embedded in an iframe in another site by setting the appropriate HTTP headers.
+                                        </li>
+                                        <li>
+                                            <a href="/en-US/docs/Glossary/Distributed_Denial_of_Service">Denial of Service</a>
+                                            (DoS). DoS is usually achieved by flooding a target site with fake requests so that access to a site is disrupted for legitimate users. The requests may be numerous, or they may individually consume large amounts of resource (e.g., slow reads or uploading of large files). DoS defenses usually work by identifying and blocking "bad" traffic while allowing legitimate messages through. These defenses are typically located before or in the web server (they are not part of the web application itself).
+                                        </li>
+                                        <li>
+                                            <a href="https://en.wikipedia.org/wiki/Directory_traversal_attack" class="external" target="_blank">Directory Traversal</a>
+                                            (File and disclosure). In this attack, a malicious user attempts to access parts of the web server file system that they should not be able to access. This vulnerability occurs when the user is able to pass filenames that include file system navigation characters (for example, <code>../../</code>
+                                            ). The solution is to sanitize input before using it.
+                                        </li>
+                                        <li>
+                                            <a href="https://en.wikipedia.org/wiki/File_inclusion_vulnerability" class="external" target="_blank">File Inclusion</a>
+                                            . In this attack, a user is able to specify an "unintended" file for display or execution in data passed to the server. When loaded, this file might be executed on the web server or the client-side (leading to an XSS attack). The solution is to sanitize input before using it.
+                                        </li>
+                                        <li>
+                                            <a href="https://owasp.org/www-community/attacks/Command_Injection" class="external" target="_blank">Command Injection</a>
+                                            . Command injection attacks allow a malicious user to execute arbitrary system commands on the host operating system. The solution is to sanitize user input before it might be used in system calls.
+                                        </li>
+                                    </ul>
+                                    <p>
+                                        For a comprehensive listing of website security threats see <a href="https://en.wikipedia.org/wiki/Category:Web_security_exploits" class="external" target="_blank">Category: Web security exploits</a>
+                                        (Wikipedia) and <a href="https://owasp.org/www-community/attacks/" class="external" target="_blank">Category: Attack</a>
+                                        (Open Web Application Security Project).
+                                    </p>
+                                </div>
+                            </section>
+                            <section aria-labelledby="a_few_key_messages">
+                                <h2 id="a_few_key_messages">
+                                    <a href="#a_few_key_messages">A few key messages</a>
+                                </h2>
+                                <div class="section-content">
+                                    <p>Almost all of the security exploits in the previous sections are successful when the web application trusts data from the browser. Whatever else you do to improve the security of your website, you should sanitize all user-originating data before it is displayed in the browser, used in SQL queries, or passed to an operating system or file system call.</p>
+                                    <div class="notecard warning" id="sect6">
+                                        <p>
+                                            <strong>Warning:</strong>
+                                            The single most important lesson you can learn about website security is to <strong>never trust data from the browser</strong>
+                                            . This includes, but is not limited to data in URL parameters of <code>GET</code>
+                                            requests, <code>POST</code>
+                                            requests, HTTP headers and cookies, and user-uploaded files. Always check and sanitize all incoming data. Always assume the worst.
+                                        </p>
+                                    </div>
+                                    <p>A number of other concrete steps you can take are:</p>
+                                    <ul>
+                                        <li>Use more effective password management. Encourage strong passwords. Consider two-factor authentication for your site, so that in addition to a password the user must enter another authentication code (usually one that is delivered via some physical hardware that only the user will have, such as a code in an SMS sent to their phone).</li>
+                                        <li>
+                                            Configure your web server to use <a href="/en-US/docs/Glossary/HTTPS">HTTPS</a>
+                                            and <a href="/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security">HTTP Strict Transport Security</a>
+                                            (HSTS). HTTPS encrypts data sent between your client and server. This ensures that login credentials, cookies, <code>POST</code>
+                                            requests data and header information are not easily available to attackers.
+                                        </li>
+                                        <li>
+                                            Keep track of the most popular threats (the <a href="https://owasp.org/www-project-top-ten/" class="external" target="_blank">current OWASP list is here</a>
+                                            ) and address the most common vulnerabilities first.
+                                        </li>
+                                        <li>
+                                            Use <a href="https://owasp.org/www-community/Vulnerability_Scanning_Tools" class="external" target="_blank">vulnerability scanning tools</a>
+                                            to perform automated security testing on your site. Later on, your very successful website may also find bugs by offering a bug bounty <a href="https://www.mozilla.org/en-US/security/bug-bounty/faq-webapp/" class="external" target="_blank">like Mozilla does here</a>
+                                            .
+                                        </li>
+                                        <li>Only store and display data that you need. For example, if your users must store sensitive information like credit card details, only display enough of the card number that it can be identified by the user, and not enough that it can be copied by an attacker and used on another site. The most common pattern at this time is to only display the last 4 digits of a credit card number.</li>
+                                    </ul>
+                                    <p>Web frameworks can help mitigate many of the more common vulnerabilities.</p>
+                                </div>
+                            </section>
+                            <section aria-labelledby="summary">
+                                <h2 id="summary">
+                                    <a href="#summary">Summary</a>
+                                </h2>
+                                <div class="section-content">
+                                    <p>This article has explained the concept of web security and some of the more common threats against which your website should attempt to protect. Most importantly, you should understand that a web application cannot trust any data from the web browser. All user data should be sanitized before it is displayed, or used in SQL queries and file system calls.</p>
+                                    <p>
+                                        With this article, you've come to the end of <a href="/en-US/docs/Learn/Server-side/First_steps">this module</a>
+                                        , covering your first steps in server-side website programming. We hope you've enjoyed learning these fundamental concepts, and you're now ready to select a Web Framework and start programming.
+                                    </p>
+                                    <ul class="prev-next">
+                                        <li>
+                                            <a class="button secondary" href="/en-US/docs/Learn/Server-side/First_steps/Web_frameworks">
+                                                <span class="button-wrap">Previous </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="button secondary" href="/en-US/docs/Learn/Server-side/First_steps">
+                                                <span class="button-wrap">Overview: Server-side website programming first steps</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </section>
+
+
+
+
+
+
+
+                        </section>
+                    </article>
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
                     </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
-                            </ul>
-                        </nav>
-                    </footer>
+                    
                                         
                 </div>
             </main>

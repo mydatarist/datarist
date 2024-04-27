@@ -1172,38 +1172,1055 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
-                        </div>
-                    </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
+                    
+                    
+
+
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>CSS performance optimization</h1>
+                        </header>
+                        <div class="section-content">
+                            <ul class="prev-next">
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/Performance/HTML">
+                                        <span class="button-wrap">Previous </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/Performance">
+                                        <span class="button-wrap">Overview: Performance</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/Performance/business_case_for_performance">
+                                        <span class="button-wrap">Next  </span>
+                                    </a>
+                                </li>
                             </ul>
-                        </nav>
-                    </footer>
+                            <p>
+                                When developing a website, you need to consider how the browser is handling the CSS on your site. To mitigate any performance issues that CSS might be causing, you should optimize it. For example, you should optimize the CSS to mitigate <a href="/en-US/docs/Glossary/Render_blocking">render-blocking</a>
+                                and minimize the number of required reflows. This article walks you through key CSS performance optimization techniques.
+                            </p>
+                            <figure class="table-container">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Prerequisites:</th>
+                                            <td>
+                                                <a href="/en-US/docs/Learn/Getting_started_with_the_web/Installing_basic_software">Basic software installed</a>
+                                                , and basic knowledge of
+    <a href="/en-US/docs/Learn/Getting_started_with_the_web">client-side web technologies</a>
+                                                .
+  
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Objective:</th>
+                                            <td>To learn about the impact of CSS on website performance
+    and how to optimize your CSS to improve performance.
+  </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </figure>
+                        </div>
+                        <section aria-labelledby="to_optimize_or_not_to_optimize">
+                            <h2 id="to_optimize_or_not_to_optimize">
+                                <a href="#to_optimize_or_not_to_optimize">To optimize or not to optimize</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>The first question you should answer before starting to optimize your CSS is "what do I need to optimize?". Some of the tips and techniques discussed below are good practices that will benefit just about any web project, whereas some are only needed in certain situations. Trying to apply all these techniques everywhere is probably unnecessary, and may be a waste of your time. You should figure out what performance optimizations are actually needed in each project.</p>
+                                <p>
+                                    To do this, you need to <a href="/en-US/docs/Learn/Performance/Measuring_performance">measure the performance</a>
+                                    of your site. As the previous link shows, there are several different ways to measure performance, some involving sophisticated <a href="/en-US/docs/Web/API/Performance_API">performance APIs</a>
+                                    . The best way to get started however, is to learn how to use tools such as built-in browser <a href="/en-US/docs/Learn/Performance/Measuring_performance#network_monitor_tools">network</a>
+                                    and <a href="/en-US/docs/Learn/Performance/Measuring_performance#performance_monitor_tools">performance</a>
+                                    tools, to see what parts of the page load are taking a long time and need optimizing.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="optimizing_rendering">
+                            <h2 id="optimizing_rendering">
+                                <a href="#optimizing_rendering">Optimizing rendering</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>Browsers follow a specific rendering path — paint only occurs after layout, which occurs after the render tree is created, which in turn requires both the DOM and the CSSOM trees.</p>
+                                <p>
+                                    Showing users an unstyled page and then repainting it after the CSS styles have been parsed would be a bad user experience. For this reason, CSS is render blocking until the browser determines that the CSS is required. The browser can paint the page after it has downloaded the CSS and built the <a href="/en-US/docs/Glossary/CSSOM">CSS object model (CSSOM)</a>
+                                    .
+                                </p>
+                                <p>To optimize the CSSOM construction and improve page performance, you can do one or more of the following based on the current state of your CSS:</p>
+                                <ul>
+                                    <li>
+                                        <strong>Remove unnecessary styles</strong>
+                                        : This may sound obvious, but it is surprising how many developers forget to clean up unused CSS rules that were added to their stylesheets during development and ended up not being used. All styles get parsed, whether they are being used during layout and painting or not, so it can speed up page rendering to get rid of unused ones. As <a href="https://css-tricks.com/how-do-you-remove-unused-css-from-a-site/" class="external" target="_blank">How Do You Remove Unused CSS From a Site?</a>
+                                        (csstricks.com, 2019) summarizes, this is a difficult problem to solve for a large codebase, and there isn't a magic bullet to reliably find and remove unused CSS. You need to do the hard work of keeping your CSS modular and being careful and deliberate about what is added and removed.
+                                    </li>
+                                    <li>
+                                        <strong>Split CSS into separate modules</strong>
+                                        : Keeping CSS modular means that CSS not required at page load can be loaded later on, reducing initial CSS render-blocking and loading times. The simplest way to do this is by splitting up your CSS into separate files and loading only what is needed:
+
+                                        <div class="code-example">
+                                            <div class="example-header">
+                                                <span class="language-name">html</span>
+                                            </div>
+                                            <pre class="brush: html notranslate" data-signature="7TtANnOpBkoKkHqJFM/VV+zc4FDXfY112NpyJnvCDZc=">
+                                                <code>
+                                                    <span class="token comment">&lt;!-- Loading and parsing styles.css is render-blocking --&gt;</span>
+                                                    <span class="token tag">
+                                                        <span class="token tag">
+                                                            <span class="token punctuation">&lt;</span>
+                                                            link
+                                                        </span>
+                                                        <span class="token attr-name">rel</span>
+                                                        <span class="token attr-value">
+                                                            <span class="token punctuation attr-equals">=</span>
+                                                            <span class="token punctuation">"</span>
+                                                            stylesheet<span class="token punctuation">"</span>
+                                                        </span>
+                                                        <span class="token attr-name">href</span>
+                                                        <span class="token attr-value">
+                                                            <span class="token punctuation attr-equals">=</span>
+                                                            <span class="token punctuation">"</span>
+                                                            styles.css<span class="token punctuation">"</span>
+                                                        </span>
+                                                        <span class="token punctuation">/&gt;</span>
+                                                    </span>
+                                                    <span class="token comment">&lt;!-- Loading and parsing print.css is not render-blocking --&gt;</span>
+                                                    <span class="token tag">
+                                                        <span class="token tag">
+                                                            <span class="token punctuation">&lt;</span>
+                                                            link
+                                                        </span>
+                                                        <span class="token attr-name">rel</span>
+                                                        <span class="token attr-value">
+                                                            <span class="token punctuation attr-equals">=</span>
+                                                            <span class="token punctuation">"</span>
+                                                            stylesheet<span class="token punctuation">"</span>
+                                                        </span>
+                                                        <span class="token attr-name">href</span>
+                                                        <span class="token attr-value">
+                                                            <span class="token punctuation attr-equals">=</span>
+                                                            <span class="token punctuation">"</span>
+                                                            print.css<span class="token punctuation">"</span>
+                                                        </span>
+                                                        <span class="token attr-name">media</span>
+                                                        <span class="token attr-value">
+                                                            <span class="token punctuation attr-equals">=</span>
+                                                            <span class="token punctuation">"</span>
+                                                            print<span class="token punctuation">"</span>
+                                                        </span>
+                                                        <span class="token punctuation">/&gt;</span>
+                                                    </span>
+                                                    <span class="token comment">&lt;!-- Loading and parsing mobile.css is not render-blocking on large screens --&gt;</span>
+                                                    <span class="token tag">
+                                                        <span class="token tag">
+                                                            <span class="token punctuation">&lt;</span>
+                                                            link
+                                                        </span>
+                                                        <span class="token attr-name">rel</span>
+                                                        <span class="token attr-value">
+                                                            <span class="token punctuation attr-equals">=</span>
+                                                            <span class="token punctuation">"</span>
+                                                            stylesheet<span class="token punctuation">"</span>
+                                                        </span>
+                                                        <span class="token attr-name">href</span>
+                                                        <span class="token attr-value">
+                                                            <span class="token punctuation attr-equals">=</span>
+                                                            <span class="token punctuation">"</span>
+                                                            mobile.css<span class="token punctuation">"</span>
+                                                        </span>
+                                                        <span class="token attr-name">media</span>
+                                                        <span class="token attr-value">
+                                                            <span class="token punctuation attr-equals">=</span>
+                                                            <span class="token punctuation">"</span>
+                                                            screen and (max-width: 480px)<span class="token punctuation">"</span>
+                                                        </span>
+                                                        <span class="token punctuation">/&gt;</span>
+                                                    </span>
+                                                </code>
+                                            </pre>
+                                        </div>
+                                        The above example provides three sets of styles — default styles that will always load, styles that will only be loaded when the document is being printed, and styles that will be loaded only by devices with narrow screens. By default, the browser assumes that each specified style sheet is render-blocking. You can tell the browser when a style sheet should be applied by adding a <code>media</code>
+                                        attribute containing a <a href="/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries">media query</a>
+                                        . When the browser sees a style sheet that it only needs to apply in a specific scenario, it still downloads the stylesheet, but doesn't render-block. By separating the CSS into multiple files, the main render-blocking file, in this case <code>styles.css</code>
+                                        , is much smaller, reducing the time for which rendering is blocked.
+
+                                    </li>
+                                    <li>
+                                        <strong>Minify and compress your CSS</strong>
+                                        : Minifying involves removing all the whitespace in the file that is only there for human readability, once the code is put into production. You can reduce loading times considerably by minifying your CSS. Minification is generally done as part of a build process (for example, most JavaScript frameworks will minify code when you build a project ready for deployment). In addition to minification, make sure that the server that your site is hosted on uses compression such as gzip on files before serving them.
+                                    </li>
+                                    <li>
+                                        <strong>Simplify selectors</strong>
+                                        : People often write selectors that are more complex than needed for applying the required styles. This not only increases file sizes, but also the parsing time for those selectors. For example:
+
+                                        <div class="code-example">
+                                            <div class="example-header">
+                                                <span class="language-name">css</span>
+                                            </div>
+                                            <pre class="brush: css notranslate" data-signature="odArthtc7RBj/zfGk4psaN5oVndFNaLPqznu5UMkE04=">
+                                                <code>
+                                                    <span class="token comment">/* Very specific selector */</span>
+                                                    <span class="token selector">body div#main-content article.post h2.headline</span>
+                                                    <span class="token punctuation">{</span>
+                                                    <span class="token property">font-size</span>
+                                                    <span class="token punctuation">:</span>
+                                                    24px<span class="token punctuation">;</span>
+                                                    <span class="token punctuation">}</span>
+                                                    <span class="token comment">/* You probably only need this */</span>
+                                                    <span class="token selector">.headline</span>
+                                                    <span class="token punctuation">{</span>
+                                                    <span class="token property">font-size</span>
+                                                    <span class="token punctuation">:</span>
+                                                    24px<span class="token punctuation">;</span>
+                                                    <span class="token punctuation">}</span>
+                                                </code>
+                                            </pre>
+                                        </div>
+                                        Making your selectors less complex and specific is also good for maintenance. It is easy to understand what simple selectors are doing, and it is easy to override styles when needed later on if the selectors are less <a href="/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance#specificity_2">specific</a>
+                                        .
+
+                                    </li>
+                                    <li>
+                                        <strong>Don't apply styles to more elements than needed</strong>
+                                        : A common mistake is to apply styles to all elements using the <a href="/en-US/docs/Web/CSS/Universal_selectors">universal selector</a>
+                                        , or at least, to more elements than needed. This kind of styling can impact performance negatively, especially on larger sites.
+
+                                        <div class="code-example">
+                                            <div class="example-header">
+                                                <span class="language-name">css</span>
+                                            </div>
+                                            <pre class="brush: css notranslate" data-signature="hBdhAw/5zP9cmi/tTjIHE5V8ktZKVNed5jV3v9gRtxo=">
+                                                <code>
+                                                    <span class="token comment">/* Selects every element inside the &lt;body &gt;*/</span>
+                                                    <span class="token selector">body *</span>
+                                                    <span class="token punctuation">{</span>
+                                                    <span class="token property">font-size</span>
+                                                    <span class="token punctuation">:</span>
+                                                    14px<span class="token punctuation">;</span>
+                                                    <span class="token property">display</span>
+                                                    <span class="token punctuation">:</span>
+                                                    flex<span class="token punctuation">;</span>
+                                                    <span class="token punctuation">}</span>
+                                                </code>
+                                            </pre>
+                                        </div>
+                                        Remember that many properties (such as 
+                                        <a href="/en-US/docs/Web/CSS/font-size">
+                                            <code>font-size</code>
+                                        </a>
+                                        ) inherit their values from their parents, so you don't need to apply them everywhere. And powerful tools such as <a href="/en-US/docs/Learn/CSS/CSS_layout/Flexbox">Flexbox</a>
+                                        need to be used sparingly. Using them everywhere can cause all kinds of unexpected behavior.
+
+                                    </li>
+                                    <li>
+                                        <strong>Cut down on image HTTP requests with CSS sprites</strong>
+                                        : <a href="https://css-tricks.com/css-sprites/" class="external" target="_blank">CSS sprites</a>
+                                        is a technique that places several small images (such as icons) that you want to use on your site into a single image file, and then uses different 
+                                        <a href="/en-US/docs/Web/CSS/background-position">
+                                            <code>background-position</code>
+                                        </a>
+                                        values to display the chunk of image that you want to show in each different place. This can dramatically cut down on the number of HTTP requests needed to fetch the images.
+                                    </li>
+                                    <li>
+                                        <strong>Preload important assets</strong>
+                                        : You can use 
+                                        <a href="/en-US/docs/Web/HTML/Attributes/rel/preload">
+                                            <code>rel="preload"</code>
+                                        </a>
+                                        to turn 
+                                        <a href="/en-US/docs/Web/HTML/Element/link">
+                                            <code>&lt;link &gt;</code>
+                                        </a>
+                                        elements into preloaders for critical assets. This includes CSS files, fonts, and images:
+
+                                        <div class="code-example">
+                                            <div class="example-header">
+                                                <span class="language-name">html</span>
+                                            </div>
+                                            <pre class="brush: html notranslate" data-signature="4AvSx5RuCIWogk/C4xjvNYrRdnA1NCSx+BTobofL+zw=">
+                                                <code>
+                                                    <span class="token tag">
+                                                        <span class="token tag">
+                                                            <span class="token punctuation">&lt;</span>
+                                                            link
+                                                        </span>
+                                                        <span class="token attr-name">rel</span>
+                                                        <span class="token attr-value">
+                                                            <span class="token punctuation attr-equals">=</span>
+                                                            <span class="token punctuation">"</span>
+                                                            preload<span class="token punctuation">"</span>
+                                                        </span>
+                                                        <span class="token attr-name">href</span>
+                                                        <span class="token attr-value">
+                                                            <span class="token punctuation attr-equals">=</span>
+                                                            <span class="token punctuation">"</span>
+                                                            style.css<span class="token punctuation">"</span>
+                                                        </span>
+                                                        <span class="token attr-name">as</span>
+                                                        <span class="token attr-value">
+                                                            <span class="token punctuation attr-equals">=</span>
+                                                            <span class="token punctuation">"</span>
+                                                            style<span class="token punctuation">"</span>
+                                                        </span>
+                                                        <span class="token punctuation">/&gt;</span>
+                                                    </span>
+                                                    <span class="token tag">
+                                                        <span class="token tag">
+                                                            <span class="token punctuation">&lt;</span>
+                                                            link
+                                                        </span>
+                                                        <span class="token attr-name">rel</span>
+                                                        <span class="token attr-value">
+                                                            <span class="token punctuation attr-equals">=</span>
+                                                            <span class="token punctuation">"</span>
+                                                            preload<span class="token punctuation">"</span>
+                                                        </span>
+                                                        <span class="token attr-name">href</span>
+                                                        <span class="token attr-value">
+                                                            <span class="token punctuation attr-equals">=</span>
+                                                            <span class="token punctuation">"</span>
+                                                            ComicSans.woff2<span class="token punctuation">"</span>
+                                                        </span>
+                                                        <span class="token attr-name">as</span>
+                                                        <span class="token attr-value">
+                                                            <span class="token punctuation attr-equals">=</span>
+                                                            <span class="token punctuation">"</span>
+                                                            font<span class="token punctuation">"</span>
+                                                        </span>
+                                                        <span class="token attr-name">type</span>
+                                                        <span class="token attr-value">
+                                                            <span class="token punctuation attr-equals">=</span>
+                                                            <span class="token punctuation">"</span>
+                                                            font/woff2<span class="token punctuation">"</span>
+                                                        </span>
+                                                        <span class="token attr-name">crossorigin</span>
+                                                        <span class="token punctuation">/&gt;</span>
+                                                    </span>
+                                                    <span class="token tag">
+                                                        <span class="token tag">
+                                                            <span class="token punctuation">&lt;</span>
+                                                            link
+                                                        </span>
+                                                        <span class="token attr-name">rel</span>
+                                                        <span class="token attr-value">
+                                                            <span class="token punctuation attr-equals">=</span>
+                                                            <span class="token punctuation">"</span>
+                                                            preload<span class="token punctuation">"</span>
+                                                        </span>
+                                                        <span class="token attr-name">href</span>
+                                                        <span class="token attr-value">
+                                                            <span class="token punctuation attr-equals">=</span>
+                                                            <span class="token punctuation">"</span>
+                                                            bg-image-wide.png<span class="token punctuation">"</span>
+                                                        </span>
+                                                        <span class="token attr-name">as</span>
+                                                        <span class="token attr-value">
+                                                            <span class="token punctuation attr-equals">=</span>
+                                                            <span class="token punctuation">"</span>
+                                                            image<span class="token punctuation">"</span>
+                                                        </span>
+                                                        <span class="token attr-name">media</span>
+                                                        <span class="token attr-value">
+                                                            <span class="token punctuation attr-equals">=</span>
+                                                            <span class="token punctuation">"</span>
+                                                            (min-width: 601px)<span class="token punctuation">"</span>
+                                                        </span>
+                                                        <span class="token punctuation">/&gt;</span>
+                                                    </span>
+                                                </code>
+                                            </pre>
+                                        </div>
+                                        With <code>preload</code>
+                                        , the browser will fetch the referenced resources as soon as possible and make them available in the browser cache so that they will be ready for use sooner when they are referenced in subsequent code. It is useful to preload high-priority resources that the user will encounter early on in a page so that the experience is as smooth as possible. Note how you can also use <code>media</code>
+                                        attributes to create responsive preloaders.
+See also <a href="https://web.dev/articles/preload-critical-assets" class="external" target="_blank">Preload critical assets to improve loading speed</a>
+                                        on web.dev (2020)
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section aria-labelledby="handling_animations">
+                            <h2 id="handling_animations">
+                                <a href="#handling_animations">Handling animations</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>Animations can improve perceived performance, making interfaces feel snappier and making users feel like progress is being made when they are waiting for a page to load (loading spinners, for example). However, larger animations and a higher number of animations will naturally require more processing power to handle, which can degrade performance.</p>
+                                <p>
+                                    The simplest advice is to cut down on all unnecessary animations. You could also provide users with a control/site preference to turn off animations if they are using a low-powered device or a mobile device with limited battery power. You could also use JavaScript to control whether or not animation is applied to the page in the first place. There is also a media query called 
+                                    <a href="/en-US/docs/Web/CSS/@media/prefers-reduced-motion">
+                                        <code>prefers-reduced-motion</code>
+                                    </a>
+                                    that can be used to selectively serve animation styles or not based on a user's OS-level preferences for animation.
+                                </p>
+                                <p>
+                                    For essential DOM animations, you are advised to use <a href="/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations">CSS animations</a>
+                                    where possible, rather than JavaScript animations (the <a href="/en-US/docs/Web/API/Web_Animations_API">Web Animations API</a>
+                                    provides a way to directly hook into CSS animations using JavaScript).
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="choosing_properties_to_animate">
+                            <h3 id="choosing_properties_to_animate">
+                                <a href="#choosing_properties_to_animate">Choosing properties to animate</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    Next, animation performance relies heavily on what properties you are animating. Certain properties, when animated, trigger a <a href="/en-US/docs/Glossary/Reflow">reflow</a>
+                                    (and therefore also a <a href="/en-US/docs/Glossary/Repaint">repaint</a>
+                                    ) and should be avoided. These include properties that:
+                                </p>
+                                <ul>
+                                    <li>
+                                        Alter an element's dimensions, such as 
+                                        <a href="/en-US/docs/Web/CSS/width">
+                                            <code>width</code>
+                                        </a>
+                                        , 
+                                        <a href="/en-US/docs/Web/CSS/height">
+                                            <code>height</code>
+                                        </a>
+                                        , 
+                                        <a href="/en-US/docs/Web/CSS/border">
+                                            <code>border</code>
+                                        </a>
+                                        , and 
+                                        <a href="/en-US/docs/Web/CSS/padding">
+                                            <code>padding</code>
+                                        </a>
+                                        .
+                                    </li>
+                                    <li>
+                                        Reposition an element, such as 
+                                        <a href="/en-US/docs/Web/CSS/margin">
+                                            <code>margin</code>
+                                        </a>
+                                        , 
+                                        <a href="/en-US/docs/Web/CSS/top">
+                                            <code>top</code>
+                                        </a>
+                                        , 
+                                        <a href="/en-US/docs/Web/CSS/bottom">
+                                            <code>bottom</code>
+                                        </a>
+                                        , 
+                                        <a href="/en-US/docs/Web/CSS/left">
+                                            <code>left</code>
+                                        </a>
+                                        , and 
+                                        <a href="/en-US/docs/Web/CSS/right">
+                                            <code>right</code>
+                                        </a>
+                                        .
+                                    </li>
+                                    <li>
+                                        Change an element's layout, such as 
+                                        <a href="/en-US/docs/Web/CSS/align-content">
+                                            <code>align-content</code>
+                                        </a>
+                                        , 
+                                        <a href="/en-US/docs/Web/CSS/align-items">
+                                            <code>align-items</code>
+                                        </a>
+                                        , and 
+                                        <a href="/en-US/docs/Web/CSS/flex">
+                                            <code>flex</code>
+                                        </a>
+                                        .
+                                    </li>
+                                    <li>
+                                        Add visual effects that change the element geometry, such as 
+                                        <a href="/en-US/docs/Web/CSS/box-shadow">
+                                            <code>box-shadow</code>
+                                        </a>
+                                        .
+                                    </li>
+                                </ul>
+                                <p>Modern browsers are smart enough to repaint only the changed area of the document, rather than the entire page. As a result, larger animations are more costly.</p>
+                                <p>If at all possible, it is better to animate properties that do not cause reflow/repaint. This includes:</p>
+                                <ul>
+                                    <li>
+                                        <a href="/en-US/docs/Web/CSS/CSS_transforms">Transforms</a>
+                                    </li>
+                                    <li>
+                                        <a href="/en-US/docs/Web/CSS/opacity">
+                                            <code>opacity</code>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/en-US/docs/Web/CSS/filter">
+                                            <code>filter</code>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section aria-labelledby="animating_on_the_gpu">
+                            <h3 id="animating_on_the_gpu">
+                                <a href="#animating_on_the_gpu">Animating on the GPU</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>To further improve performance, you should consider moving animation work off the main thread and onto the device's GPU (also referred to as compositing). This is done by choosing specific types of animations that the browser will automatically send to the GPU to handle; these include:</p>
+                                <ul>
+                                    <li>
+                                        3D transform animations such as 
+                                        <a href="/en-US/docs/Web/CSS/transform">
+                                            <code>transform: translateZ()</code>
+                                        </a>
+                                        and 
+                                        <a href="/en-US/docs/Web/CSS/transform-function/rotate3d">
+                                            <code>rotate3d()</code>
+                                        </a>
+                                        .
+                                    </li>
+                                    <li>
+                                        Elements with certain other properties animated such as 
+                                        <a href="/en-US/docs/Web/CSS/position">
+                                            <code>position: fixed</code>
+                                        </a>
+                                        .
+                                    </li>
+                                    <li>
+                                        Elements with 
+                                        <a href="/en-US/docs/Web/CSS/will-change">
+                                            <code>will-change</code>
+                                        </a>
+                                        applied (see the section below).
+                                    </li>
+                                    <li>
+                                        Certain elements that are rendered in their own layer, including 
+                                        <a href="/en-US/docs/Web/HTML/Element/video">
+                                            <code>&lt;video &gt;</code>
+                                        </a>
+                                        , 
+                                        <a href="/en-US/docs/Web/HTML/Element/canvas">
+                                            <code>&lt;canvas &gt;</code>
+                                        </a>
+                                        , and 
+                                        <a href="/en-US/docs/Web/HTML/Element/iframe">
+                                            <code>&lt;iframe &gt;</code>
+                                        </a>
+                                        .
+                                    </li>
+                                </ul>
+                                <p>
+                                    Animation on the GPU can result in improved performance, especially on mobile. However, moving animations to GPU is not always that simple. Read <a href="https://www.smashingmagazine.com/2016/12/gpu-animation-doing-it-right/" class="external" target="_blank">CSS GPU Animation: Doing It Right</a>
+                                    (smashingmagazine.com, 2016) for a very useful and detailed analysis.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="optimizing_element_changes_with_will-change">
+                            <h2 id="optimizing_element_changes_with_will-change">
+                                <a href="#optimizing_element_changes_with_will-change">
+                                    Optimizing element changes with <code>will-change</code>
+                                </a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    Browsers may set up optimizations before an element is actually changed. These kinds of optimizations can increase the responsiveness of a page by doing potentially expensive work before it is required. The CSS 
+                                    <a href="/en-US/docs/Web/CSS/will-change">
+                                        <code>will-change</code>
+                                    </a>
+                                    property hints to browsers how an element is expected to change.
+                                </p>
+                                <div class="notecard note" id="sect1">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        <code>will-change</code>
+                                        is intended to be used as a last resort to try to deal with existing performance problems. It should not be used to anticipate performance problems.
+                                    </p>
+                                </div>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="JmcxP9TyAeqyk9oVv3R8+U9ZZypEkqdhwwXct3L26qs=">
+                                        <code>
+                                            <span class="token selector">.element</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">will-change</span>
+                                            <span class="token punctuation">:</span>
+                                            opacity<span class="token punctuation">,</span>
+                                            transform<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="optimizing_for_render_blocking">
+                            <h2 id="optimizing_for_render_blocking">
+                                <a href="#optimizing_for_render_blocking">Optimizing for render blocking</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    CSS can scope styles to particular conditions with media queries. Media queries are important for a responsive web design and help us optimize a critical rendering path. The browser blocks rendering until it parses all of these styles but will not block rendering on styles it knows it will not use, such as the print stylesheets. By splitting the CSS into multiple files based on media queries, you can prevent render blocking during download of unused CSS. To create a non-blocking CSS link, move the not-immediately used styles, such as print styles, into separate file, add a 
+                                    <a href="/en-US/docs/Web/HTML/Element/link">
+                                        <code>&lt;link &gt;</code>
+                                    </a>
+                                    to the HTML mark up, and add a media query, in this case stating it's a print stylesheet.
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">html</span>
+                                    </div>
+                                    <pre class="brush: html notranslate" data-signature="7TtANnOpBkoKkHqJFM/VV+zc4FDXfY112NpyJnvCDZc=">
+                                        <code>
+                                            <span class="token comment">&lt;!-- Loading and parsing styles.css is render-blocking --&gt;</span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    link
+                                                </span>
+                                                <span class="token attr-name">rel</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    stylesheet<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">href</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    styles.css<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">/&gt;</span>
+                                            </span>
+                                            <span class="token comment">&lt;!-- Loading and parsing print.css is not render-blocking --&gt;</span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    link
+                                                </span>
+                                                <span class="token attr-name">rel</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    stylesheet<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">href</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    print.css<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">media</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    print<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">/&gt;</span>
+                                            </span>
+                                            <span class="token comment">&lt;!-- Loading and parsing mobile.css is not render-blocking on large screens --&gt;</span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    link
+                                                </span>
+                                                <span class="token attr-name">rel</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    stylesheet<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">href</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    mobile.css<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">media</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    screen and (max-width: 480px)<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">/&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    By default, the browser assumes that each specified style sheet is render blocking. Tell the browser when the style sheet should be applied by adding a <code>media</code>
+                                    attribute with the <a href="/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries">media query</a>
+                                    . When the browser sees a style sheet it knows that it only needs to apply it for a specific scenario, it still downloads the stylesheet, but doesn't render block. By separating out the CSS into multiple files, the main render-blocking file, in this case <code>styles.css</code>
+                                    , is much smaller, reducing the time that rendering is blocked.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="improving_font_performance">
+                            <h2 id="improving_font_performance">
+                                <a href="#improving_font_performance">Improving font performance</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>This section contains some useful tips for improving web font performance.</p>
+                                <p>
+                                    In general, think carefully about the fonts you use on your site. Some font files can be very large (multiple megabytes). While it can be tempting to use lots of fonts for visual excitement, this can slow down page load significantly, and cause your site to look like a mess. You probably only need about two or three fonts, and you can get away with less if you choose to use <a href="/en-US/docs/Learn/CSS/Styling_text/Fundamentals#web_safe_fonts">web safe fonts</a>
+                                    .
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="font_loading">
+                            <h3 id="font_loading">
+                                <a href="#font_loading">Font loading</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    Bear in mind that a font is only loaded when it is actually applied to an element using the 
+                                    <a href="/en-US/docs/Web/CSS/font-family">
+                                        <code>font-family</code>
+                                    </a>
+                                    property, not when it is first referenced using the 
+                                    <a href="/en-US/docs/Web/CSS/@font-face">
+                                        <code>@font-face</code>
+                                    </a>
+                                    at-rule:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="A+fTe2zu6bAPsqiXrPETRVgcHF6/b7VOx4fTpbk2f8A=">
+                                        <code>
+                                            <span class="token comment">/* Font not loaded here */</span>
+                                            <span class="token atrule">
+                                                <span class="token rule">@font-face</span>
+                                            </span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">font-family</span>
+                                            <span class="token punctuation">:</span>
+                                            <span class="token string">"Open Sans"</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token property">src</span>
+                                            <span class="token punctuation">:</span>
+                                            <span class="token url">
+                                                <span class="token function">url</span>
+                                                <span class="token punctuation">(</span>
+                                                <span class="token string url">"OpenSans-Regular-webfont.woff2"</span>
+                                                <span class="token punctuation">)</span>
+                                            </span>
+                                            <span class="token function">format</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"woff2"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token selector">h1,
+h2,
+h3</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token comment">/* It is actually loaded here */</span>
+                                            <span class="token property">font-family</span>
+                                            <span class="token punctuation">:</span>
+                                            <span class="token string">"Open Sans"</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    It can therefore be beneficial to use <code>rel="preload"</code>
+                                    to load important fonts early, so they will be available more quickly when they are actually needed:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">html</span>
+                                    </div>
+                                    <pre class="brush: html notranslate" data-signature="jf4ZkXDFJqIMr5g4++HOaYQOfErPo7zSQsSGBakFCjo=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    link
+                                                </span>
+                                                <span class="token attr-name">rel</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    preload<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">href</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    OpenSans-Regular-webfont.woff2<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">as</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    font<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">type</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    font/woff2<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">crossorigin</span>
+                                                <span class="token punctuation">/&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    This is more likely to be beneficial if your <code>font-family</code>
+                                    declaration is hidden inside a large external stylesheet, and won't be reached until significantly later in the parsing process. It is a tradeoff however — font files are quite large, and if you preload too many of them, you may delay other resources.
+                                </p>
+                                <p>You can also consider:</p>
+                                <ul>
+                                    <li>
+                                        Using 
+                                        <a href="/en-US/docs/Web/HTML/Attributes/rel/preconnect">
+                                            <code>rel="preconnect"</code>
+                                        </a>
+                                        to make an early connection with the font provider. See <a href="https://web.dev/articles/font-best-practices#preconnect_to_critical_third-party_origins" class="external" target="_blank">Preconnect to critical third-party origins</a>
+                                        for details.
+                                    </li>
+                                    <li>
+                                        Using the <a href="/en-US/docs/Web/API/CSS_Font_Loading_API">CSS Font Loading API</a>
+                                        to customize the font loading behavior via JavaScript.
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section aria-labelledby="loading_only_the_glyphs_you_need">
+                            <h3 id="loading_only_the_glyphs_you_need">
+                                <a href="#loading_only_the_glyphs_you_need">Loading only the glyphs you need</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>When choosing a font for body copy, it is harder to be sure of the glyphs that will be used in it, especially if you are dealing with user-generated content and/or content across multiple languages.</p>
+                                <p>
+                                    However, if you know you are going to use a specific set of glyphs (for example, glyphs for headings or specific punctuation characters only), you could limit the number of glyphs the browser has to download. This can be done by creating a font file that only contains the required subset. A process called <a href="https://fonts.google.com/knowledge/glossary/subsetting" class="external" target="_blank">subsetting</a>
+                                    . The 
+                                    <a href="/en-US/docs/Web/CSS/@font-face/unicode-range">
+                                        <code>unicode-range</code>
+                                    </a>
+                                    <code>@font-face</code>
+                                    descriptor can then be used to specify when your subset font is used. If the page doesn't use any character in this range, the font is not downloaded.
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="mweRLRZ+rhfcPb+NUaSygivfdpJNrlaUlnS4HVjTPzY=">
+                                        <code>
+                                            <span class="token atrule">
+                                                <span class="token rule">@font-face</span>
+                                            </span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">font-family</span>
+                                            <span class="token punctuation">:</span>
+                                            <span class="token string">"Open Sans"</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token property">src</span>
+                                            <span class="token punctuation">:</span>
+                                            <span class="token url">
+                                                <span class="token function">url</span>
+                                                <span class="token punctuation">(</span>
+                                                <span class="token string url">"OpenSans-Regular-webfont.woff2"</span>
+                                                <span class="token punctuation">)</span>
+                                            </span>
+                                            <span class="token function">format</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"woff2"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token property">unicode-range</span>
+                                            <span class="token punctuation">:</span>
+                                            U+0025-00FF<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="defining_font_display_behavior_with_the_font-display_descriptor">
+                            <h3 id="defining_font_display_behavior_with_the_font-display_descriptor">
+                                <a href="#defining_font_display_behavior_with_the_font-display_descriptor">
+                                    Defining font display behavior with the <code>font-display</code>
+                                    descriptor
+                                </a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    Applied to the <code>@font-face</code>
+                                    at-rule, the 
+                                    <a href="/en-US/docs/Web/CSS/@font-face/font-display">
+                                        <code>font-display</code>
+                                    </a>
+                                    descriptor defines how font files are loaded and displayed by the browser, allowing text to appear with a fallback font while a font loads, or fails to load. This improves performance by making the text visible instead of having a blank screen, with a trade-off being a flash of unstyled text.
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="5NIJcSSWFKjNNQ3bQW+Eyji0VdpjC/1225v+xbVenL4=">
+                                        <code>
+                                            <span class="token atrule">
+                                                <span class="token rule">@font-face</span>
+                                            </span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">font-family</span>
+                                            <span class="token punctuation">:</span>
+                                            someFont<span class="token punctuation">;</span>
+                                            <span class="token property">src</span>
+                                            <span class="token punctuation">:</span>
+                                            <span class="token url">
+                                                <span class="token function">url</span>
+                                                <span class="token punctuation">(</span>
+                                                /path/to/fonts/someFont.woff<span class="token punctuation">)</span>
+                                            </span>
+                                            <span class="token function">format</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"woff"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token property">font-weight</span>
+                                            <span class="token punctuation">:</span>
+                                            400<span class="token punctuation">;</span>
+                                            <span class="token property">font-style</span>
+                                            <span class="token punctuation">:</span>
+                                            normal<span class="token punctuation">;</span>
+                                            <span class="token property">font-display</span>
+                                            <span class="token punctuation">:</span>
+                                            fallback<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="optimizing_styling_recalculation_with_css_containment">
+                            <h2 id="optimizing_styling_recalculation_with_css_containment">
+                                <a href="#optimizing_styling_recalculation_with_css_containment">Optimizing styling recalculation with CSS containment</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    By using the properties defined in the <a href="/en-US/docs/Web/CSS/CSS_containment">CSS containment</a>
+                                    module, you can instruct the browser to isolate different parts of a page and optimize their rendering independently from one another. This allows for improved performance in rendering individual sections. As an example, you can specify to the browser to not render certain containers until they are visible in the viewport.
+                                </p>
+                                <p>
+                                    The 
+                                    <a href="/en-US/docs/Web/CSS/contain">
+                                        <code>contain</code>
+                                    </a>
+                                    property allows an author to specify exactly what <a href="/en-US/docs/Web/CSS/CSS_containment/Using_CSS_containment">containment types</a>
+                                    they want applied to individual containers on the page. This allows the browser to recalculate layout, style, paint, size, or any combination of them for a limited part of the DOM.
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="1RayVnyFxauu/Q1ePpI9233A++3xa995x+HOna99edU=">
+                                        <code>
+                                            <span class="token selector">article</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">contain</span>
+                                            <span class="token punctuation">:</span>
+                                            content<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    The 
+                                    <a href="/en-US/docs/Web/CSS/content-visibility">
+                                        <code>content-visibility</code>
+                                    </a>
+                                    property is a useful shortcut, which allows authors to apply a strong set of containments on a set of containers and specify that the browser should not lay out and render those containers until needed.
+                                </p>
+                                <p>
+                                    A second property, 
+                                    <a href="/en-US/docs/Web/CSS/contain-intrinsic-size">
+                                        <code>contain-intrinsic-size</code>
+                                    </a>
+                                    , is also available, which allows you to provide a placeholder size for containers while they are under the effects of containment. This means that the containers will take up space even if their contents have not yet been rendered, allowing containment to do its performance magic without the risk of scroll bar shift and jank as elements render and come into view. This improves the quality of the user experience as the content is loaded.
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="FqPPfn75JLSjBr7ST1dWLpnc7uHICRD/m6F12dzu03c=">
+                                        <code>
+                                            <span class="token selector">article</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">content-visibility</span>
+                                            <span class="token punctuation">:</span>
+                                            auto<span class="token punctuation">;</span>
+                                            <span class="token property">contain-intrinsic-size</span>
+                                            <span class="token punctuation">:</span>
+                                            1000px<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <ul class="prev-next">
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/Performance/HTML">
+                                            <span class="button-wrap">Previous </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/Performance">
+                                            <span class="button-wrap">Overview: Performance</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/Performance/business_case_for_performance">
+                                            <span class="button-wrap">Next  </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section aria-labelledby="see_also">
+                            <h2 id="see_also">
+                                <a href="#see_also">See also</a>
+                            </h2>
+                            <div class="section-content">
+                                <ul>
+                                    <li>
+                                        <a href="/en-US/docs/Web/Performance/CSS_JavaScript_animation_performance">CSS animation performance</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://web.dev/articles/font-best-practices" class="external" target="_blank">Best practices for fonts</a>
+                                        on web.dev (2022)
+                                    </li>
+                                    <li>
+                                        <a href="https://web.dev/articles/content-visibility" class="external" target="_blank">content-visibility: the new CSS property that boosts your rendering performance</a>
+                                        on web.dev (2022)
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
+                    </div>
+                    
                                         
                 </div>
             </main>

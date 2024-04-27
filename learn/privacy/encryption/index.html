@@ -1172,38 +1172,281 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                    
+                    
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Encryption</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
+                        <section aria-labelledby="the_story_of_your_first_website">
+                               
+                            
+
+
+
+
+
+                            <p>Encryption is often a topic for security, but it&#39;s important for privacy too. The goal of encryption is to prevent others
+                                from reading the encrypted information… but preventing others from reading your information is one way to keep it private.
+                                A user is often limited in how much they can do that themselves, but with your assistance as provider of a service they&#39;re using,
+                                encryption can help to keep their data theirs.</p>
+                                
+                                <p>There are three relevant ways to apply encryption to aid user privacy: encryption in transit, encryption at rest,
+                                and encryption end-to-end:</p>
+                                
+                                <ul>
+                                <li><strong>Encryption in transit</strong> is keeping data encrypted between the user and your site: that is, HTTPS. You probably have HTTPS
+                                set up for your sites already, but are you sure <em>all</em> the data in transit to your sites is encrypted? This is what redirection
+                                and HSTS are for, and they are described below and should be part of your HTTPS setup.</li>
+                                <li><strong>Encryption at rest</strong> is the encryption of data stored on your servers. This protects against data breaches and is an
+                                important part of your security stance.</li>
+                                <li><strong>End-to-end encryption</strong> is the encryption of data on the client before it ever reaches your server. This protects
+                                user data even from you: you can store your users&#39; data, but you can&#39;t read it. This is difficult to implement, and isn&#39;t
+                                suitable for all types of application, but it&#39;s a strong aid to user privacy, because nobody can see their data other than themselves.</li>
+                                </ul>
+                                
+                                <h2 id="https" data-text="HTTPS" tabindex="-1">HTTPS</h2>
+                                
+                                <p>The first move is serving your web service over HTTPS. It is very likely that you will have already done this, but if not it
+                                is an important step. HTTPS is HTTP, the protocol that a browser uses to request web pages from a server, but encrypted using SSL.
+                                This means that an outside attacker can&#39;t read or interfere with an HTTPS request in between the sender (your user) and the
+                                recipient (you), because it&#39;s encrypted and so they can&#39;t read it or change it. This is encryption in transit: while data is
+                                moving from user to you, or from you to user. HTTPS encryption in transit also prevents the user&#39;s ISP, or the provider of
+                                the Wi-Fi they&#39;re using, from being able to read the data they&#39;re sending to you as part of their relationship with your service.
+                                It may impact your service&#39;s features, too: many uses of existing JavaScript APIs require the website to be served over HTTPS.
+                                <a href="https://developer.mozilla.org/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts">MDN</a> has a more comprehensive list,
+                                but APIs gatewayed behind a secure context include service workers, push notifications, web share and web crypto, and some device APIs.</p>
+                                
+                                <p>To serve your website over HTTPS you will need an SSL certificate. These can be created for free via <a href="https://letsencrypt.org/">Let&#39;s Encrypt</a>,
+                                or can often be provided by your hosting service if you are using one. It is also possible to use a third-party service which &quot;proxies&quot; your
+                                web service and can provide HTTPS, as well as caching and CDN services. There are numerous examples of such services, such as Cloudflare
+                                and Fastly—exactly which to use depends on your current infrastructure. In the past, HTTPS could be burdensome or expensive to implement,
+                                which is why it tended to be used only on payment pages or particularly secure origins; but freely available certificates, standards improvements,
+                                and greater proliferation of browsers have removed all those obstacles.</p>
+                                
+                                <h3 id="do" data-text="Do" tabindex="-1">Do</h3>
+                                
+                                <ul>
+                                <li>Enable HTTPS on your servers for everything (whichever method you choose).</li>
+                                <li>Consider using a proxy in front of your servers, such as Cloudflare (<a href="https://httpsiseasy.com/">httpsiseasy.com/</a> explains the process).</li>
+                                <li><a href="https://letsencrypt.org/">Let&#39;s Encrypt</a> will walk you through the process of creating your own Let&#39;s Encrypt SSL certificate.</li>
+                                <li>Or use OpenSSL directly to create your own certificate and have it signed by your choice of certificate authority (CA)
+                                (<a href="/articles/enable-https">Enable HTTPS</a> explains how to do this in detail).</li>
+                                </ul>
+                                
+                                <p>Which approach you choose depends on business tradeoffs. Having a third-party manage the SSL connection for you is the easiest to set up,
+                                and does come with other benefits such as load balancing, caching, and analytics. But it also comes with an obvious ceding of some control
+                                to that third-party, and an unavoidable dependency on their services (and possible payment, depending on the services you use and your traffic levels).</p>
+                                
+                                <p>Generating certificates and having them signed by a CA is how the SSL process used to be conducted, but using Let&#39;s Encrypt can be easier if it&#39;s
+                                supported by your provider or if your server team is technically adept enough for it, and it&#39;s free. It&#39;s also common for your provider to offer
+                                SSL as a service if you&#39;re using something at a higher level than cloud hosting, so it&#39;s worth checking.</p>
+                                
+                                <h3 id="why" data-text="Why" tabindex="-1">Why</h3>
+                                
+                                <p>Security is a part of your privacy story: being able to demonstrate that you keep user data secure against interference helps
+                                to build trust. If you don&#39;t use HTTPS, your sites are also flagged as being &quot;not secure&quot; by browsers (and have been for some time).
+                                <a href="https://developer.mozilla.org/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts">Existing JavaScript APIs are often only available to HTTPS pages (&quot;secure origins&quot;)</a>.
+                                It also protects your users against their <a href="https://spreadprivacy.com/protection-from-isp-spying/">web usage being seen by their ISP</a>.
+                                This is certainly a best practice; there&#39;s little to no reason to not use HTTPS for websites now.</p>
+                                
+                                <h2 id="how_browsers_present_an_http_not_secure_page" data-text="How browsers present an HTTP (not secure) page" tabindex="-1">How browsers present an HTTP (not secure) page</h2>
+                                
+                                <figure>
+                                <img src="/static/learn/privacy/encryption/image/chrome-desktop-url-warnin-bfa3e46e4810b.png" alt="Chrome desktop URL warning 'Not Secure'." width="524" height="235" srcset="https://web.dev/static/learn/privacy/encryption/image/chrome-desktop-url-warnin-bfa3e46e4810b_36.png 36w,https://web.dev/static/learn/privacy/encryption/image/chrome-desktop-url-warnin-bfa3e46e4810b_48.png 48w,https://web.dev/static/learn/privacy/encryption/image/chrome-desktop-url-warnin-bfa3e46e4810b_72.png 72w,https://web.dev/static/learn/privacy/encryption/image/chrome-desktop-url-warnin-bfa3e46e4810b_96.png 96w,https://web.dev/static/learn/privacy/encryption/image/chrome-desktop-url-warnin-bfa3e46e4810b_480.png 480w,https://web.dev/static/learn/privacy/encryption/image/chrome-desktop-url-warnin-bfa3e46e4810b_720.png 720w,https://web.dev/static/learn/privacy/encryption/image/chrome-desktop-url-warnin-bfa3e46e4810b_856.png 856w,https://web.dev/static/learn/privacy/encryption/image/chrome-desktop-url-warnin-bfa3e46e4810b_960.png 960w,https://web.dev/static/learn/privacy/encryption/image/chrome-desktop-url-warnin-bfa3e46e4810b_1440.png 1440w,https://web.dev/static/learn/privacy/encryption/image/chrome-desktop-url-warnin-bfa3e46e4810b_1920.png 1920w,https://web.dev/static/learn/privacy/encryption/image/chrome-desktop-url-warnin-bfa3e46e4810b_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px">
+                                <figcaption class="wd-caption">Google Chrome (desktop)</figcaption>
+                                </figure>
+                                
+                                <figure>
+                                
+                                <img src="/static/learn/privacy/encryption/image/firefox-http-url-warning-f595c7c9b58e.png" alt="Firefox HTTP URL warning." width="543" height="307" srcset="https://web.dev/static/learn/privacy/encryption/image/firefox-http-url-warning-f595c7c9b58e_36.png 36w,https://web.dev/static/learn/privacy/encryption/image/firefox-http-url-warning-f595c7c9b58e_48.png 48w,https://web.dev/static/learn/privacy/encryption/image/firefox-http-url-warning-f595c7c9b58e_72.png 72w,https://web.dev/static/learn/privacy/encryption/image/firefox-http-url-warning-f595c7c9b58e_96.png 96w,https://web.dev/static/learn/privacy/encryption/image/firefox-http-url-warning-f595c7c9b58e_480.png 480w,https://web.dev/static/learn/privacy/encryption/image/firefox-http-url-warning-f595c7c9b58e_720.png 720w,https://web.dev/static/learn/privacy/encryption/image/firefox-http-url-warning-f595c7c9b58e_856.png 856w,https://web.dev/static/learn/privacy/encryption/image/firefox-http-url-warning-f595c7c9b58e_960.png 960w,https://web.dev/static/learn/privacy/encryption/image/firefox-http-url-warning-f595c7c9b58e_1440.png 1440w,https://web.dev/static/learn/privacy/encryption/image/firefox-http-url-warning-f595c7c9b58e_1920.png 1920w,https://web.dev/static/learn/privacy/encryption/image/firefox-http-url-warning-f595c7c9b58e_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px">
+                                <figcaption class="wd-caption">Mozilla Firefox (desktop)</figcaption>
+                                </figure>
+                                
+                                <figure>
+                                
+                                <img src="/static/learn/privacy/encryption/image/safari-desktop-http-url-w-37a7de313afe4.png" alt="Safari desktop HTTP URL warning." width="800" height="166" srcset="https://web.dev/static/learn/privacy/encryption/image/safari-desktop-http-url-w-37a7de313afe4_36.png 36w,https://web.dev/static/learn/privacy/encryption/image/safari-desktop-http-url-w-37a7de313afe4_48.png 48w,https://web.dev/static/learn/privacy/encryption/image/safari-desktop-http-url-w-37a7de313afe4_72.png 72w,https://web.dev/static/learn/privacy/encryption/image/safari-desktop-http-url-w-37a7de313afe4_96.png 96w,https://web.dev/static/learn/privacy/encryption/image/safari-desktop-http-url-w-37a7de313afe4_480.png 480w,https://web.dev/static/learn/privacy/encryption/image/safari-desktop-http-url-w-37a7de313afe4_720.png 720w,https://web.dev/static/learn/privacy/encryption/image/safari-desktop-http-url-w-37a7de313afe4_856.png 856w,https://web.dev/static/learn/privacy/encryption/image/safari-desktop-http-url-w-37a7de313afe4_960.png 960w,https://web.dev/static/learn/privacy/encryption/image/safari-desktop-http-url-w-37a7de313afe4_1440.png 1440w,https://web.dev/static/learn/privacy/encryption/image/safari-desktop-http-url-w-37a7de313afe4_1920.png 1920w,https://web.dev/static/learn/privacy/encryption/image/safari-desktop-http-url-w-37a7de313afe4_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px">
+                                <figcaption class="wd-caption">Apple Safari (macOS desktop)</figcaption>
+                                </figure>
+                                
+                                <figure>
+                                
+                                <img src="/static/learn/privacy/encryption/image/android-mobile-http-warni-a6aaf4250e57c.png" alt="Android mobile HTTP warning." width="800" height="168" srcset="https://web.dev/static/learn/privacy/encryption/image/android-mobile-http-warni-a6aaf4250e57c_36.png 36w,https://web.dev/static/learn/privacy/encryption/image/android-mobile-http-warni-a6aaf4250e57c_48.png 48w,https://web.dev/static/learn/privacy/encryption/image/android-mobile-http-warni-a6aaf4250e57c_72.png 72w,https://web.dev/static/learn/privacy/encryption/image/android-mobile-http-warni-a6aaf4250e57c_96.png 96w,https://web.dev/static/learn/privacy/encryption/image/android-mobile-http-warni-a6aaf4250e57c_480.png 480w,https://web.dev/static/learn/privacy/encryption/image/android-mobile-http-warni-a6aaf4250e57c_720.png 720w,https://web.dev/static/learn/privacy/encryption/image/android-mobile-http-warni-a6aaf4250e57c_856.png 856w,https://web.dev/static/learn/privacy/encryption/image/android-mobile-http-warni-a6aaf4250e57c_960.png 960w,https://web.dev/static/learn/privacy/encryption/image/android-mobile-http-warni-a6aaf4250e57c_1440.png 1440w,https://web.dev/static/learn/privacy/encryption/image/android-mobile-http-warni-a6aaf4250e57c_1920.png 1920w,https://web.dev/static/learn/privacy/encryption/image/android-mobile-http-warni-a6aaf4250e57c_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px">
+                                <figcaption class="wd-caption">Google Chrome (Android mobile)</figcaption>
+                                </figure>
+                                
+                                <figure>
+                                
+                                <img src="/static/learn/privacy/encryption/image/apple-safari-ios-http-war-b6524a62aa8df.png" alt="Apple Safari iOS HTTP warning." width="800" height="397" srcset="https://web.dev/static/learn/privacy/encryption/image/apple-safari-ios-http-war-b6524a62aa8df_36.png 36w,https://web.dev/static/learn/privacy/encryption/image/apple-safari-ios-http-war-b6524a62aa8df_48.png 48w,https://web.dev/static/learn/privacy/encryption/image/apple-safari-ios-http-war-b6524a62aa8df_72.png 72w,https://web.dev/static/learn/privacy/encryption/image/apple-safari-ios-http-war-b6524a62aa8df_96.png 96w,https://web.dev/static/learn/privacy/encryption/image/apple-safari-ios-http-war-b6524a62aa8df_480.png 480w,https://web.dev/static/learn/privacy/encryption/image/apple-safari-ios-http-war-b6524a62aa8df_720.png 720w,https://web.dev/static/learn/privacy/encryption/image/apple-safari-ios-http-war-b6524a62aa8df_856.png 856w,https://web.dev/static/learn/privacy/encryption/image/apple-safari-ios-http-war-b6524a62aa8df_960.png 960w,https://web.dev/static/learn/privacy/encryption/image/apple-safari-ios-http-war-b6524a62aa8df_1440.png 1440w,https://web.dev/static/learn/privacy/encryption/image/apple-safari-ios-http-war-b6524a62aa8df_1920.png 1920w,https://web.dev/static/learn/privacy/encryption/image/apple-safari-ios-http-war-b6524a62aa8df_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px">
+                                <figcaption class="wd-caption">Apple Safari (iOS mobile)</figcaption>
+                                </figure>
+                                
+                                <h2 id="redirect_to_https" data-text="Redirect to HTTPS" tabindex="-1">Redirect to HTTPS</h2>
+                                
+                                <p>If your site is available on both http: and https: URLs, you should redirect all http URL accesses to https. This is for
+                                the reasons above, and it also ensures that your site won&#39;t show up on <a href="https://whynohttps.com/">whynohttps.com</a> if it becomes popular.
+                                How to do this depends a great deal on your infrastructure. If you&#39;re hosted on AWS you can use a <a href="https://aws.amazon.com/premiumsupport/knowledge-center/redirect-http-https-elb/">Classic</a>
+                                or <a href="https://aws.amazon.com/premiumsupport/knowledge-center/elb-redirect-http-to-https-using-alb/">Application</a> load balancer.
+                                <a href="https://cloud.google.com/load-balancing/docs/https/setting-up-http-https-redirect">Google Cloud</a> is similar. In Azure you can
+                                create a <a href="https://docs.microsoft.com/en-us/azure/frontdoor/front-door-how-to-redirect-https">Front Door</a>; in Node with Express
+                                <a href="https://docs.divio.com/en/latest/how-to/node-express-force-https/">check for request.secure</a>; in Nginx
+                                <a href="https://serversforhackers.com/c/redirect-http-to-https-nginx">catch all port 80 and return 301</a>; and in Apache,
+                                <a href="https://www.ssl.com/how-to/redirect-http-to-https-with-apache/">use a RewriteRule</a>. If you&#39;re using a hosting service,
+                                it&#39;s quite likely that they&#39;ll automatically handle redirecting to HTTPS URLs for you: Netlify, Firebase, and GitHub Pages do,
+                                among many others.</p>
+                                
+                                <h2 id="hsts" data-text="HSTS" tabindex="-1">HSTS</h2>
+                                
+                                <p>HSTS is short for &quot;HTTP Strict-Transport-Security&quot;, and is a way of locking a browser into using HTTPS for your service forevermore.
+                                Once you&#39;re happy with your migration to HTTPS, or if you&#39;ve already done that, then you can add a
+                                <a href="https://developer.mozilla.org/docs/Web/HTTP/Headers/Strict-Transport-Security">Strict-Transport-Security HTTP response header</a> to your
+                                outgoing responses. A browser which has accessed your site before will record having seen this header, and from then on will automatically
+                                access this site as HTTPS even if you request HTTP. This avoids going through your redirect as above: it&#39;s as if the browser silently &quot;upgrades&quot;
+                                all requests to your service to use HTTPS.</p>
+                                
+                                <p>Similarly, you can serve an <a href="https://developer.mozilla.org/docs/Web/HTTP/Headers/Upgrade-Insecure-Requests">Upgrade-Insecure-Requests</a>
+                                header along with your pages. This does something different from but related to <code translate="no" dir="ltr">Strict-Transport-Security</code>. If you
+                                add <code translate="no" dir="ltr">Upgrade-Insecure-Requests: 1</code>, then requests from this page to other resources (images, scripts) will be requested
+                                as https even if the link is http. However, the browser will not re-request the page itself as https, and the browser will
+                                not remember for next time. In practice, Upgrade-Insecure-Requests is useful if you&#39;re converting an existing site with
+                                lots of links to HTTPS and converting the link URLs in content is hard, but it&#39;s better to change the content where possible.</p>
+                                
+                                <p>HSTS is primarily a security feature: it &quot;locks&quot; your site to HTTPS for users who have been there before. However,
+                                as above, HTTPS is good for privacy, and HSTS is good for HTTPS. Similarly, Upgrade-Insecure-Requests isn&#39;t really needed if
+                                you&#39;re updating all your content, but it is a useful “belt-and-braces” approach to add defence in depth in ensuring that
+                                your site will always be HTTPS.</p>
+                                
+                                <h3 id="do_2" data-text="Do" tabindex="-1">Do</h3>
+                                
+                                <p>Add the HSTS header to your outgoing responses:</p>
+                                
+                                <p><code translate="no" dir="ltr">Strict-Transport-Security: max-age=300; includeSubDomains</code></p>
+                                
+                                <p>The max-age parameter dictates how long, in seconds, the browser should remember and enforce the HTTPS upgrade.
+                                (Here we set it to 300 seconds, i.e., five minutes.) Eventually you would want this to be 6,3072,000, which is two years,
+                                and is the figure that <a href="https://hstspreload.org/">hstspreload.org</a> recommends, but it is quite difficult to recover
+                                if there are issues. So it is recommended that you set this with a low number at first (300), test to confirm nothing
+                                has broken, and then increase the number in stages.</p>
+                                
+                                <p>Add the <code translate="no" dir="ltr">Upgrade-Insecure-Requests</code> headers to your outgoing responses:</p>
+                                
+                                <p><code translate="no" dir="ltr">Upgrade-Insecure-Requests: 1
+                                Content-Security-Policy: upgrade-insecure-requests</code></p>
+                                
+                                <aside class="note"><b>Note: </b> <strong>Should I add HSTS/UIR headers and add redirects?</strong> Yes. You should redirect http URLs to https, and continue to do so even after HSTS is in place—it's important to do both. It's a best practice anyway (<a href="/redirects-https">https://web.dev/redirects-http/</a> explains) but it's also required in order to be added to the automatic preload list (see <a href="https://hstspreload.org">https://hstspreload.org</a> for more details). </aside>
+                                
+                                <h2 id="end-to-end_encryption" data-text="End-to-end encryption" tabindex="-1">End-to-end encryption</h2>
+                                
+                                <p>A good way of keeping user data private is to not show it to anyone other than the user, including you. This helps a lot with
+                                your trust stance: if you don&#39;t have your user&#39;s data then it is clear that you can&#39;t do anything with it that they would
+                                not want. One way to do this is to not let user data leave their device at all, by storing everything client-side. This
+                                approach works, but there are limitations to a pure client-side application: browser data storage can be limited in size,
+                                and in some browsers may be cleared with little or no warning. It&#39;s also difficult or impossible to access your data
+                                across two devices, such as a laptop and a mobile phone. For this reason, it can be useful to send data to the server
+                                as normal, but encrypt it with a key known only to the user, so that the server cannot access it (because it can&#39;t decrypt it)
+                                but can store it.</p>
+                                
+                                <h3 id="how_does_it_work" data-text="How does it work?" tabindex="-1">How does it work?</h3>
+                                
+                                <p>This approach is frequently used by messaging applications, where it&#39;s referred to as &quot;end-to-end encryption&quot;, or
+                                &quot;e2e&quot;. In this way, two people who know one another&#39;s keys can encrypt and decrypt their messages back and forth,
+                                and send those messages via the messaging provider, but the messaging provider (who does not have those keys) can&#39;t
+                                read the messages. Most applications are not messaging apps, but it is possible to combine the two approaches—a solely
+                                client-side data store, and data encryption with a key known to the client—to store data locally but also send it encrypted
+                                to the server. It is important to realise that there are limitations to this approach: this isn&#39;t possible for all services,
+                                and in particular it can&#39;t be used if you, as the service provider, need access to what the user is storing. As described
+                                in <a href="/learn/privacy/data">part 2</a> of this series, it is best to obey the principle of data minimisation; avoid collecting data at all if you can.
+                                If the user needs data storage, but you do not need access to that data to provide the service, then end-to-end encryption
+                                is a useful alternative. If you provide services which require being able to see what the user stores to provide the service,
+                                then end-to-end encryption is not suitable. But if you do not, then you can have the client-side JavaScript of your web
+                                service encrypt any data it sends to the server, and decrypt any data it receives.</p>
+                                
+                                <h3 id="an_example_excalidraw" data-text="An example: Excalidraw" tabindex="-1">An example: Excalidraw</h3>
+                                
+                                <p><a href="https://blog.excalidraw.com/end-to-end-encryption/">Excalidraw</a> does this and explains how in a blog post. It is a vector
+                                drawing app that stores drawings on the server, which are encrypted with a randomly chosen key. Part of the reason that
+                                Excalidraw can implement this end-to-end encryption with relatively little code is that cryptographic libraries are now built
+                                into the browser with <a href="https://developer.mozilla.org/docs/Web/API/SubtleCrypto/encrypt">window.crypto</a>, which is a set
+                                of JavaScript APIs <a href="https://caniuse.com/cryptography">supported in all modern browsers</a>. Cryptography is hard and implementing
+                                the algorithms comes with many edge cases. Having the browser do the heavy lifting here makes encryption more accessible to
+                                web developers and therefore makes it easier to implement privacy via encrypted data. As Excalidraw describes in their writeup,
+                                the encryption key remains on the client-side, because it&#39;s part of the URL fragment: when a browser visits a URL
+                                <code translate="no" dir="ltr">https://example.com/path?param=1#fraghere</code>, the path of the URL (<code translate="no" dir="ltr">/path</code>) and the parameters (<code translate="no" dir="ltr">param=1</code>) are passed to the server
+                                (<code translate="no" dir="ltr">example.com</code>), but the fragment (<code translate="no" dir="ltr">fraghere</code>) is not, and so the server never sees it. This means that even if the encrypted
+                                data goes through the server, the encryption key does not and thus privacy is preserved because the data is end-to-end encrypted.</p>
+                                
+                                <h3 id="limitations" data-text="Limitations" tabindex="-1">Limitations</h3>
+                                
+                                <p>This approach to encrypting user data is not foolproof. It contributes to your trust stance for your users but it cannot fully
+                                replace it. Your users will still have to trust your service, because you could, at any moment, swap out client-side JavaScript
+                                for some subtly similar JavaScript that does not impenetrably encrypt data; and although it is possible as a user to detect
+                                whether a website you&#39;re using has done that, it&#39;s extremely difficult to do so. In practice, your users will still need to
+                                trust that you will not deliberately read and abuse their data while promising to not do so. However, demonstrating that data
+                                is encrypted and not readable by you as a (not malicious) service provider can contribute a lot to demonstrating why you are trustworthy.</p>
+                                
+                                <p>It&#39;s also important to remember that one of the goals of end-to-end encryption is to stop you, the site owner, from being able
+                                to read the data. This is good for privacy, but it also means that if there are problems, you can&#39;t help. In essence, a service
+                                using end-to-end encryption puts the user in charge of the encryption keys. (This may not be obvious or overt, but someone has
+                                to have the key, and if data is kept private from you, then that&#39;s not you.) If those keys are lost, then there will be nothing
+                                you can do to help, and probably any data encrypted with those keys may also be lost. There is a fine balancing act here
+                                between privacy and usability: keep data private from everybody using encryption, but also avoid forcing users into having
+                                to be cryptology experts who manage their own keys in a secure manner.</p>
+                                
+                                <h2 id="encryption_at_rest" data-text="Encryption at rest" tabindex="-1">Encryption at rest</h2>
+                                
+                                <p>As well as encrypting your users&#39; data in transit, it&#39;s also important to consider encrypting data that you have stored on the server.
+                                This helps to protect against data breaches, because anyone who obtains unauthorised access to your stored data will have encrypted data,
+                                which they will hopefully not have the keys to decrypt. There are two different and complementary approaches to encrypting data at rest:
+                                encryption that you add, and encryption that your cloud storage provider adds (if you&#39;re using a cloud storage provider).
+                                The storage provider encryption doesn&#39;t provide much protection against data breaches via your software (because storage provider
+                                encryption is usually transparent to you as a user of their service), but it does help against breaches that happen at the provider&#39;s
+                                infrastructure. It&#39;s often simple to turn on and so is worth considering. This field changes rapidly and your security team (or
+                                security-savvy engineers on your team) are the best to advise on it, but all cloud storage providers offer encryption at rest for
+                                block storage <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-encryption.html">Amazon S3</a> by setting,
+                                <a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption">Azure Storage</a>, and
+                                <a href="https://cloud.google.com/storage/docs/encryption">Google Cloud Storage</a> by default, and for database data storage
+                                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.html">AWS RDS</a>,
+                                <a href="https://docs.microsoft.com/en-us/azure/azure-sql/database/transparent-data-encryption-tde-overview?view=azuresql&amp;tabs=azure-portal">Azure SQL</a>,
+                                <a href="https://cloud.google.com/docs/security/encryption/default-encryption">Google Cloud SQL</a> among others. Check this out with
+                                your cloud storage provider, if you&#39;re using one. Handling encryption of data at rest yourself to help protect user data
+                                from data breaches is more difficult, because the logistics of securely managing encryption keys and making them available
+                                to code without also making them available to attackers is challenging. This isn&#39;t the best place to advise on security issues at
+                                that level; talk with your security-savvy engineers or dedicated team about this, or external security agencies.</p>
+
+
+
+
+
+
+
+
+
+
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
                     </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
-                            </ul>
-                        </nav>
-                    </footer>
+                    
                                         
                 </div>
             </main>

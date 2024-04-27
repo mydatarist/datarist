@@ -1172,38 +1172,731 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                    
+                    
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Coding Standards</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
+                        <section aria-labelledby="the_story_of_your_first_website">
+                              
+                            
+
+
+
+                            <div>
+                                <h3 id="html"><a href="#html">HTML</a></h3>
+                              
+                                <ul>
+                                  <li><a href="#html-syntax">HTML syntax</a></li>
+                                  <li><a href="#html5-doctype">HTML5 doctype</a></li>
+                                  <li><a href="#language-attribute">Language attribute</a></li>
+                                  <li><a href="#ie-compatibility-mode">IE compatibility mode</a></li>
+                                  <li><a href="#character-encoding">Character encoding</a></li>
+                                  <li><a href="#css-and-javascript-includes">CSS and JavaScript includes</a></li>
+                                  <li><a href="#practicality-over-purity">Practicality over purity</a></li>
+                                  <li><a href="#attribute-order">Attribute order</a></li>
+                                  <li><a href="#boolean-attributes">Boolean attributes</a></li>
+                                  <li><a href="#reduce-markup">Reduce markup</a></li>
+                                  <li><a href="#editor-preferences">Editor preferences</a></li>
+                                </ul>
+                              </div>
+                              
+                              <div>
+                                <h3 id="css"><a href="#css">CSS</a></h3>
+                              
+                                <ul>
+                                  <li><a href="#css-syntax">CSS syntax</a></li>
+                                  <li><a href="#declaration-order">Declaration order</a></li>
+                                  <li><a href="#colors">Colors</a></li>
+                                  <li><a href="#logical-properties">Logical properties</a></li>
+                                  <li><a href="#avoid-imports">Avoid @import`s</a></li>
+                                  <li><a href="#media-query-placement">Media query placement</a></li>
+                                  <li><a href="#single-declarations">Single declarations</a></li>
+                                  <li><a href="#shorthand-notation">Shorthand notation</a></li>
+                                  <li><a href="#nesting-in-preprocessors">Nesting in preprocessors</a></li>
+                                  <li><a href="#operators-in-preprocessors">Operators in preprocessors</a></li>
+                                  <li><a href="#comments">Comments</a></li>
+                                  <li><a href="#class-names">Class names</a></li>
+                                  <li><a href="#selectors">Selectors</a></li>
+                                  <li><a href="#child-and-descendant-selectors">Child and descendant selectors</a></li>
+                                  <li><a href="#organization">Organization</a></li>
+                                </ul>
+                              </div>
+                              
+                              <h2 id="golden-rule">Golden rule</h2>
+                              
+                              <p>Enforce these, or your own, agreed upon guidelines at all times. Small or large, call out what’s incorrect. For additions or contributions to this Code Guide, please <a href="https://github.com/mdo/code-guide/issues/new">open an issue on GitHub</a>.</p>
+                              
+                              <blockquote>
+                                <p>Every line of code should appear to be written by a single person, no matter the number of contributors.</p>
+                              </blockquote>
+                              
+                              <h2 id="html">HTML</h2>
+                              
+                              <div>
+                                <h3 id="html-syntax">Syntax</h3>
+                              
+                                <ul>
+                                  <li>Don’t capitalize tags, including the doctype.</li>
+                                  <li>Use soft tabs with two spaces—they’re the only way to guarantee code renders the same in any environment.</li>
+                                  <li>Nested elements should be indented once (two spaces).</li>
+                                  <li>Always use double quotes, never single quotes, on attributes.</li>
+                                  <li>Don’t include a trailing slash in self-closing elements—the <a href="https://html.spec.whatwg.org/multipage/syntax.html#syntax-start-tag">HTML5 spec</a> says they’re optional.</li>
+                                  <li>Don’t omit optional closing tags (e.g. <code class="language-plaintext highlighter-rouge">&lt;/li&gt;</code> or <code class="language-plaintext highlighter-rouge">&lt;/body&gt;</code>).</li>
+                                </ul>
+                              </div>
+                              
+                              <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!doctype html&gt;</span>
+                              <span class="nt">&lt;html&gt;</span>
+                                <span class="nt">&lt;head&gt;</span>
+                                  <span class="nt">&lt;title&gt;</span>Page title<span class="nt">&lt;/title&gt;</span>
+                                <span class="nt">&lt;/head&gt;</span>
+                                <span class="nt">&lt;body&gt;</span>
+                                  <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"images/company-logo.png"</span> <span class="na">alt=</span><span class="s">"Company"</span><span class="nt">&gt;</span>
+                                  <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"hello-world"</span><span class="nt">&gt;</span>Hello, world!<span class="nt">&lt;/h1&gt;</span>
+                                <span class="nt">&lt;/body&gt;</span>
+                              <span class="nt">&lt;/html&gt;</span>
+                              </code></pre></div></div>
+                              
+                              <div>
+                                <h3 id="html5-doctype">HTML5 doctype</h3>
+                              
+                                <p>Enforce <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Quirks_Mode_and_Standards_Mode">standards mode</a> and more consistent rendering in every browser possible with this simple doctype at the beginning of every HTML page. In keeping with the suggested syntax, keep it lowercase.</p>
+                              
+                              </div>
+                              
+                              <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!doctype html&gt;</span>
+                              <span class="nt">&lt;html&gt;</span>
+                                <span class="nt">&lt;head&gt;</span>
+                                  <span class="c">&lt;!-- ... --&gt;</span>
+                                <span class="nt">&lt;/head&gt;</span>
+                                <span class="nt">&lt;body&gt;</span>
+                                  <span class="c">&lt;!-- ... --&gt;</span>
+                                <span class="nt">&lt;/body&gt;</span>
+                              <span class="nt">&lt;/html&gt;</span>
+                              </code></pre></div></div>
+                              
+                              <div>
+                                <h3 id="language-attribute">Language attribute</h3>
+                              
+                                <p>From the HTML5 spec:</p>
+                              
+                                <blockquote>
+                                  <p>Authors are encouraged to specify a lang attribute on the root html element, giving the document’s language. This aids speech synthesis tools to determine what pronunciations to use, translation tools to determine what rules to use, and so forth.</p>
+                                </blockquote>
+                              
+                                <p>Read more about the <code class="language-plaintext highlighter-rouge">lang</code> attribute <a href="https://html.spec.whatwg.org/multipage/semantics.html#the-html-element">in the spec</a>. Head to the <abbr title="Internet Assigned Numbers Authority">IANA</abbr> for a <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">list of language codes</a>.</p>
+                              </div>
+                              
+                              <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+                                <span class="c">&lt;!-- ... --&gt;</span>
+                              <span class="nt">&lt;/html&gt;</span>
+                              </code></pre></div></div>
+                              
+                              <div>
+                                <h3 id="ie-compatibility-mode">IE compatibility mode</h3>
+                              
+                                <p>There’s no need to include the Internet Explorer document compatibility <code class="language-plaintext highlighter-rouge">&lt;meta&gt;</code> tag these days, unless you need support for IE10 and older. The tag was dropped in IE11 and isn’t used in Microsoft Edge (legacy or otherwise).</p>
+                              
+                                <p>For more information, <a href="https://stackoverflow.com/questions/6771258/what-does-meta-http-equiv-x-ua-compatible-content-ie-edge-do">read this awesome Stack Overflow article</a>.</p>
+                              </div>
+                              
+                              <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- IE10 and below only --&gt;</span>
+                              <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">"x-ua-compatible"</span> <span class="na">content=</span><span class="s">"ie=edge"</span><span class="nt">&gt;</span>
+                              </code></pre></div></div>
+                              
+                              <div>
+                                <h3 id="character-encoding">Character encoding</h3>
+                              
+                                <p>Ensure proper content rendering by declaring an explicit character encoding. This also allows you to use regular characters instead of their HTML entities, like <code class="language-plaintext highlighter-rouge">—</code> instead of <code class="language-plaintext highlighter-rouge">&amp;emdash;</code>, provided their encoding matches that of the document. For some reserved XML characters—like ampersand, non-breaking spaces, less/greater than, and quotes—you may still need to use the HTML character entities.</p>
+                              
+                                <p>UTF-8 is the recommended encoding.</p>
+                              </div>
+                              
+                              <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;head&gt;</span>
+                                <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+                              <span class="nt">&lt;/head&gt;</span>
+                              <span class="nt">&lt;body&gt;</span>
+                                <span class="nt">&lt;p&gt;</span>Use an em dash like so—no HTML entity required.<span class="nt">&lt;/p&gt;</span>
+                              <span class="nt">&lt;/body&gt;</span>
+                              </code></pre></div></div>
+                              
+                              <div>
+                                <h3 id="css-and-javascript-includes">CSS and JavaScript includes</h3>
+                              
+                                <p>Per HTML5 spec, typically there is no need to specify a <code class="language-plaintext highlighter-rouge">type</code> when including CSS and JavaScript files as <code class="language-plaintext highlighter-rouge">text/css</code> and <code class="language-plaintext highlighter-rouge">text/javascript</code> are their respective defaults.</p>
+                              
+                                <h4 id="html5-spec-links">HTML5 spec links</h4>
+                              
+                                <ul>
+                                  <li><a href="https://www.w3.org/TR/2011/WD-html5-20110525/semantics.html#the-link-element">Using link</a></li>
+                                  <li><a href="https://www.w3.org/TR/2011/WD-html5-20110525/semantics.html#the-style-element">Using style</a></li>
+                                  <li><a href="https://www.w3.org/TR/2011/WD-html5-20110525/scripting-1.html#the-script-element">Using script</a></li>
+                                </ul>
+                              </div>
+                              
+                              <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- External CSS --&gt;</span>
+                              <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"code-guide.css"</span><span class="nt">&gt;</span>
+                              
+                              <span class="c">&lt;!-- In-document CSS --&gt;</span>
+                              <span class="nt">&lt;style&gt;</span>
+                                <span class="c">/* ... */</span>
+                              <span class="nt">&lt;/style&gt;</span>
+                              
+                              <span class="c">&lt;!-- JavaScript --&gt;</span>
+                              <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"code-guide.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+                              </code></pre></div></div>
+                              
+                              <div>
+                                <h3 id="practicality-over-purity">Practicality over purity</h3>
+                              
+                                <p>Strive to maintain HTML standards and semantics, but not at the expense of practicality. Use the least amount of markup with the fewest intricacies whenever possible.</p>
+                              </div>
+                              
+                              <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- Good --&gt;</span>
+                              <span class="nt">&lt;button&gt;</span>...<span class="nt">&lt;/button&gt;</span>
+                              
+                              <span class="c">&lt;!-- Not good --&gt;</span>
+                              <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"btn"</span> <span class="na">onClick=</span><span class="s">"..."</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+                              </code></pre></div></div>
+                              
+                              <div>
+                                <h3 id="attribute-order">Attribute order</h3>
+                              
+                                <p>HTML attributes should come in this particular order for easier reading of code.</p>
+                              
+                                <ul>
+                                  <li><code class="language-plaintext highlighter-rouge">class</code></li>
+                                  <li><code class="language-plaintext highlighter-rouge">id</code>, <code class="language-plaintext highlighter-rouge">name</code></li>
+                                  <li><code class="language-plaintext highlighter-rouge">data-*</code></li>
+                                  <li><code class="language-plaintext highlighter-rouge">src</code>, <code class="language-plaintext highlighter-rouge">for</code>, <code class="language-plaintext highlighter-rouge">type</code>, <code class="language-plaintext highlighter-rouge">href</code>, <code class="language-plaintext highlighter-rouge">value</code></li>
+                                  <li><code class="language-plaintext highlighter-rouge">title</code>, <code class="language-plaintext highlighter-rouge">alt</code></li>
+                                  <li><code class="language-plaintext highlighter-rouge">role</code>, <code class="language-plaintext highlighter-rouge">aria-*</code></li>
+                                  <li><code class="language-plaintext highlighter-rouge">tabindex</code></li>
+                                  <li><code class="language-plaintext highlighter-rouge">style</code></li>
+                                </ul>
+                              
+                                <p>Attributes that are most commonly used for identifying elements should come first—<code class="language-plaintext highlighter-rouge">class</code>, <code class="language-plaintext highlighter-rouge">id</code>, <code class="language-plaintext highlighter-rouge">name</code>, and <code class="language-plaintext highlighter-rouge">data</code> attributes. Miscellaneous attributes unique to specific elements come second, followed by accessibility and style related attributes.</p>
+                              </div>
+                              
+                              <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"..."</span> <span class="na">id=</span><span class="s">"..."</span> <span class="na">data-toggle=</span><span class="s">"modal"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+                                Example link
+                              <span class="nt">&lt;/a&gt;</span>
+                              
+                              <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span>
+                              
+                              <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"..."</span> <span class="na">alt=</span><span class="s">"..."</span><span class="nt">&gt;</span>
+                              </code></pre></div></div>
+                              
+                              <div>
+                                <h3 id="boolean-attributes">Boolean attributes</h3>
+                              
+                                <p>A boolean attribute is one that needs no declared value. XHTML required you to declare a value, but HTML5 has no such requirement.</p>
+                              
+                                <p>For further reading, consult the <a href="https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#boolean-attributes">WhatWG section on boolean attributes</a></p>
+                              
+                                <blockquote>
+                                  <p>The presence of a boolean attribute on an element represents the true value, and the absence of the attribute represents the false value.</p>
+                                </blockquote>
+                              
+                                <p>If you <em>must</em> include the attribute’s value, and <strong>you don’t need to</strong>, follow this WhatWG guideline:</p>
+                              
+                                <blockquote>
+                                  <p>If the attribute is present, its value must either be the empty string or […] the attribute’s canonical name, with no leading or trailing whitespace.</p>
+                                </blockquote>
+                              
+                                <p>In short, <strong>don’t add a value</strong>.</p>
+                              </div>
+                              
+                              <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">disabled</span><span class="nt">&gt;</span>
+                              
+                              <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">value=</span><span class="s">"1"</span> <span class="na">checked</span><span class="nt">&gt;</span>
+                              
+                              <span class="nt">&lt;select&gt;</span>
+                                <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"1"</span> <span class="na">selected</span><span class="nt">&gt;</span>1<span class="nt">&lt;/option&gt;</span>
+                              <span class="nt">&lt;/select&gt;</span>
+                              </code></pre></div></div>
+                              
+                              <div>
+                                <h3 id="reduce-markup">Reduce markup</h3>
+                              
+                                <p>Whenever possible, avoid superfluous parent elements when writing HTML. Many times this requires iteration and refactoring, but produces less HTML.</p>
+                              </div>
+                              
+                              <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- Not so great --&gt;</span>
+                              <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"avatar"</span><span class="nt">&gt;</span>
+                                <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"..."</span><span class="nt">&gt;</span>
+                              <span class="nt">&lt;/span&gt;</span>
+                              
+                              <span class="c">&lt;!-- Better --&gt;</span>
+                              <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"avatar"</span> <span class="na">src=</span><span class="s">"..."</span><span class="nt">&gt;</span>
+                              </code></pre></div></div>
+                              
+                              <div>
+                                <h3 id="editor-preferences">Editor preferences</h3>
+                              
+                                <p>Set your editor to the following settings to avoid common code inconsistencies and dirty diffs:</p>
+                              
+                                <ul>
+                                  <li>Use soft-tabs set to two spaces.</li>
+                                  <li>Trim trailing white space on save.</li>
+                                  <li>Set encoding to UTF-8.</li>
+                                  <li>Add new line at end of files.</li>
+                                </ul>
+                              
+                                <p>Consider documenting and applying these preferences to your project’s <code class="language-plaintext highlighter-rouge">.editorconfig</code> file. For an example, see <a href="https://github.com/twbs/bootstrap/blob/main/.editorconfig">the one in Bootstrap</a>. Learn more <a href="https://editorconfig.org">about EditorConfig</a>.</p>
+                              </div>
+                              
+                              <h2 id="css">CSS</h2>
+                              
+                              <div>
+                                <h3 id="css-syntax">Syntax</h3>
+                              
+                                <ul>
+                                  <li>Use soft tabs with two spaces—they’re the only way to guarantee code renders the same in any environment.</li>
+                                  <li>When grouping selectors, keep individual selectors to a single line.</li>
+                                  <li>Include one space before the opening brace of declaration blocks for legibility.</li>
+                                  <li>Place closing braces of declaration blocks on a new line.</li>
+                                  <li>Include one space after <code class="language-plaintext highlighter-rouge">:</code> for each declaration.</li>
+                                  <li>Each declaration should appear on its own line for more accurate error reporting.</li>
+                                  <li>End all declarations with a semi-colon. The last declaration’s is optional, but your code is more error prone without it.</li>
+                                  <li>Comma-separated property values should include a space after each comma (e.g., <code class="language-plaintext highlighter-rouge">box-shadow</code>).</li>
+                                  <li>Use space-separated values for color properties (e.g., <code class="language-plaintext highlighter-rouge">color: rgb(0 0 0 / .5)</code>). <a href="#colors">See the Colors section for more information.</a></li>
+                                  <li>Don’t prefix property values or color parameters with a leading zero (e.g., <code class="language-plaintext highlighter-rouge">.5</code> instead of <code class="language-plaintext highlighter-rouge">0.5</code> and <code class="language-plaintext highlighter-rouge">-.5px</code> instead of <code class="language-plaintext highlighter-rouge">-0.5px</code>).</li>
+                                  <li>Lowercase all hex values, e.g., <code class="language-plaintext highlighter-rouge">#fff</code>. Lowercase letters are much easier to discern when scanning a document as they tend to have more unique shapes.</li>
+                                  <li>Use shorthand hex values where available, e.g., <code class="language-plaintext highlighter-rouge">#fff</code> instead of <code class="language-plaintext highlighter-rouge">#ffffff</code>.</li>
+                                  <li>Quote attribute values in selectors, e.g., <code class="language-plaintext highlighter-rouge">input[type="text"]</code>. <a href="https://mathiasbynens.be/notes/unquoted-attribute-values#css">They’re only optional in some cases</a>, and it’s a good practice for consistency.</li>
+                                  <li>Avoid specifying units for zero values, e.g., <code class="language-plaintext highlighter-rouge">margin: 0;</code> instead of <code class="language-plaintext highlighter-rouge">margin: 0px;</code>.</li>
+                                </ul>
+                              
+                                <p>Questions on the terms used here? See the <a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets#Syntax">syntax section of the Cascading Style Sheets article</a> on Wikipedia.</p>
+                              </div>
+                              
+                              <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Bad CSS</span>
+                              <span class="nc">.selector</span><span class="o">,</span> <span class="nc">.selector-secondary</span><span class="o">,</span> <span class="nc">.selector</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="nt">text</span><span class="o">]</span> <span class="p">{</span>
+                                <span class="nl">padding</span><span class="p">:</span><span class="m">15px</span><span class="p">;</span>
+                                <span class="nl">margin</span><span class="p">:</span><span class="m">0px</span> <span class="m">0px</span> <span class="m">15px</span><span class="p">;</span>
+                                <span class="nt">background-color</span><span class="nd">:rgba</span><span class="o">(</span><span class="nt">0</span><span class="o">,</span> <span class="nt">0</span><span class="o">,</span> <span class="nt">0</span><span class="o">,</span> <span class="nt">0</span><span class="nc">.5</span><span class="o">)</span><span class="p">;</span>
+                                <span class="nl">box-shadow</span><span class="p">:</span><span class="m">0px</span> <span class="m">1px</span> <span class="m">2px</span> <span class="mh">#CCC</span><span class="o">,</span><span class="nb">inset</span> <span class="m">0</span> <span class="m">1px</span> <span class="m">0</span> <span class="mh">#FFFFFF</span>
+                              <span class="p">}</span>
+                              
+                              <span class="c1">// Good CSS</span>
+                              <span class="nc">.selector</span><span class="o">,</span>
+                              <span class="nc">.selector-secondary</span><span class="o">,</span>
+                              <span class="nc">.selector</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="s2">"text"</span><span class="o">]</span> <span class="p">{</span>
+                                <span class="nl">padding</span><span class="p">:</span> <span class="m">15px</span><span class="p">;</span>
+                                <span class="nl">margin-bottom</span><span class="p">:</span> <span class="m">15px</span><span class="p">;</span>
+                                <span class="nl">background-color</span><span class="p">:</span> <span class="nf">rgb</span><span class="p">(</span><span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="o">/</span> <span class="mi">.5</span><span class="p">);</span>
+                                <span class="nl">box-shadow</span><span class="p">:</span> <span class="m">0</span> <span class="m">1px</span> <span class="m">2px</span> <span class="mh">#ccc</span><span class="o">,</span> <span class="nb">inset</span> <span class="m">0</span> <span class="m">1px</span> <span class="m">0</span> <span class="mh">#fff</span><span class="p">;</span>
+                              <span class="p">}</span>
+                              </code></pre></div></div>
+                              
+                              <div>
+                                <h3 id="declaration-order">Declaration order</h3>
+                              
+                                <p>Property declarations should be grouped together in the following order:</p>
+                              
+                                <ol>
+                                  <li>Positioning</li>
+                                  <li>Box model</li>
+                                  <li>Typographic</li>
+                                  <li>Visual</li>
+                                  <li>Misc</li>
+                                </ol>
+                              
+                                <p>Positioning comes first because it can remove an element from the normal document flow and override box model related styles. The box model—whether it’s flex, float, grid, or table—follows as it dictates a component’s dimensions, placement, and alignment. Everything else takes place <em>inside</em> the component or without impacting the previous two sections, and thus they come last.</p>
+                              
+                                <p>While <code class="language-plaintext highlighter-rouge">border</code> is part of the box model, most systems globally reset the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing"><code class="language-plaintext highlighter-rouge">box-sizing</code></a> to <code class="language-plaintext highlighter-rouge">border-box</code> so that <code class="language-plaintext highlighter-rouge">border-width</code> doesn’t affect overall dimensions. This, combined with keeping <code class="language-plaintext highlighter-rouge">border</code> near <code class="language-plaintext highlighter-rouge">border-radius</code>, is why it’s under the Visual section instead.</p>
+                              
+                                <p>Preprocessor mixins and functions should appear wherever most appropriate. For example, a <code class="language-plaintext highlighter-rouge">border-top-radius()</code> mixin would go in place of <code class="language-plaintext highlighter-rouge">border-radius</code> properties, while a <code class="language-plaintext highlighter-rouge">responsive-font-size()</code> function would go in place of <code class="language-plaintext highlighter-rouge">font-size</code> properties.</p>
+                              
+                                <p>For a complete list of properties and their order, please see the <a href="https://github.com/stormwarning/stylelint-config-recess-order">property order for Stylelint</a> used by <a href="https://getbootstrap.com">Bootstrap</a>.</p>
+                              </div>
+                              
+                              <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.declaration-order</span> <span class="p">{</span>
+                                <span class="c1">// Positioning</span>
+                                <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span>
+                                <span class="nl">top</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+                                <span class="nl">right</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+                                <span class="nl">bottom</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+                                <span class="nl">left</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+                                <span class="nl">z-index</span><span class="p">:</span> <span class="m">100</span><span class="p">;</span>
+                              
+                                <span class="c1">// Box model</span>
+                                <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+                                <span class="nl">flex-direction</span><span class="p">:</span> <span class="n">column</span><span class="p">;</span>
+                                <span class="nl">justify-content</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+                                <span class="nl">align-items</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+                                <span class="nl">width</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span>
+                                <span class="nl">height</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span>
+                              
+                                <span class="c1">// Typography</span>
+                                <span class="nl">font</span><span class="p">:</span> <span class="nb">normal</span> <span class="m">14px</span> <span class="s2">"Helvetica Neue"</span><span class="o">,</span> <span class="nb">sans-serif</span><span class="p">;</span>
+                                <span class="nl">line-height</span><span class="p">:</span> <span class="m">1</span><span class="mi">.5</span><span class="p">;</span>
+                                <span class="nl">color</span><span class="p">:</span> <span class="mh">#333</span><span class="p">;</span>
+                                <span class="nl">text-align</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+                                <span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">underline</span><span class="p">;</span>
+                              
+                                <span class="c1">// Visual</span>
+                                <span class="nl">background-color</span><span class="p">:</span> <span class="mh">#f5f5f5</span><span class="p">;</span>
+                                <span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="mh">#e5e5e5</span><span class="p">;</span>
+                                <span class="nl">border-radius</span><span class="p">:</span> <span class="m">3px</span><span class="p">;</span>
+                              
+                                <span class="c1">// Misc</span>
+                                <span class="nl">opacity</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span>
+                              <span class="p">}</span>
+                              </code></pre></div></div>
+                              
+                              <div>
+                                <h3 id="logical-properties">Logical properties</h3>
+                              
+                                <p>Logical properties are alternatives to directional and dimensonal properties based on abstract terms like <em>block</em> and <em>inline</em>. By default, block refers to the vertical direction (top and bottom) while inline refers to the horizontal direction (right and left). You can begin to use these values in your CSS in all modern, evergreen browsers.</p>
+                              
+                                <p><strong>Why use logical properties?</strong> Not every language flows left-ro-right like English, so the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/writing-mode">writing mode</a> needs to be flexible. With logical properties, you can easily support languages that can be written horizontally or vertically (like Chinese, Japanese, and Korean). Plus, they’re usually shorter and simpler to write.</p>
+                              
+                                <p><strong>Additional reading:</strong></p>
+                              
+                                <ul>
+                                  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties">CSS Logical Properties and Values – MDN</a></li>
+                                  <li><a href="https://css-tricks.com/css-logical-properties-and-values/">CSS Logical Properties and Values — CSS Tricks</a></li>
+                                  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Writing_Modes">CSS Writing Modes – MDN</a></li>
+                                </ul>
+                              </div>
+                              
+                              <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Without logical properties</span>
+                              <span class="nc">.element</span> <span class="p">{</span>
+                                <span class="nl">margin-right</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span>
+                                <span class="nl">margin-left</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span>
+                                <span class="nl">border-top</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="mh">#eee</span><span class="p">;</span>
+                                <span class="nl">border-bottom</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="mh">#eee</span><span class="p">;</span>
+                              <span class="p">}</span>
+                              
+                              <span class="c1">// With logical properties</span>
+                              <span class="nc">.element</span> <span class="p">{</span>
+                                <span class="na">margin-inline</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span>
+                                <span class="na">border-block</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="mh">#eee</span><span class="p">;</span>
+                              <span class="p">}</span>
+                              </code></pre></div></div>
+                              
+                              <div>
+                                <h3 id="colors">Colors</h3>
+                              
+                                <p>With the support of <a href="https://www.w3.org/TR/css-color-4/">CSS Color Levels 4</a> <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/rgb#space-separated_values">in all major browsers</a>, <code class="language-plaintext highlighter-rouge">rgba()</code> and <code class="language-plaintext highlighter-rouge">hsla()</code> are now aliases for <code class="language-plaintext highlighter-rouge">rgb()</code> and <code class="language-plaintext highlighter-rouge">hsl()</code>, meaning you can modify alpha values in <code class="language-plaintext highlighter-rouge">rgb()</code> and <code class="language-plaintext highlighter-rouge">hsl()</code>. Along with this comes support for new space-separated syntax for color values. For compability with future CSS color functions, use this new syntax.</p>
+                              
+                                <p>Regardless of your color values and syntax, always ensure your color choices meet <a href="https://webaim.org/articles/contrast/">WCAG minimum contrast ratios</a> (4.5:1 for 16px and smaller, 3:1 for larger).</p>
+                              
+                                <p><strong>Additional reading:</strong></p>
+                              
+                                <ul>
+                                  <li><a href="https://www.smashingmagazine.com/2021/11/guide-modern-css-colors/">Smashing Magazine - A Guide To Modern CSS Colors</a></li>
+                                  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/rgb"><code class="language-plaintext highlighter-rouge">rgb()</code> - MDN</a></li>
+                                </ul>
+                              </div>
+                              
+                              <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.element</span> <span class="p">{</span>
+                                <span class="nl">color</span><span class="p">:</span> <span class="nb">rgb</span><span class="p">(</span><span class="m">255</span> <span class="m">255</span> <span class="m">255</span> <span class="p">/</span> <span class="m">.65</span><span class="p">);</span>
+                                <span class="nl">background-color</span><span class="p">:</span> <span class="nb">rgb</span><span class="p">(</span><span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="p">/</span> <span class="m">.95</span><span class="p">);</span>
+                              <span class="p">}</span>
+                              </code></pre></div></div>
+                              
+                              <div>
+                                <h3 id="avoid-imports">Avoid <code class="language-plaintext highlighter-rouge">@import</code>s</h3>
+                              
+                                <p>Compared to <code class="language-plaintext highlighter-rouge">&lt;link&gt;</code>s, <code class="language-plaintext highlighter-rouge">@import</code> is slower, adds extra page requests, and can cause other unforeseen problems. Avoid them and instead opt for an alternate approach:</p>
+                              
+                                <ul>
+                                  <li>Use multiple <code class="language-plaintext highlighter-rouge">&lt;link&gt;</code>elements</li>
+                                  <li>Compile your CSS with a preprocessor like <a href="https://sass-lang.com/">Sass</a> or <a href="https://lesscss.org/">Less</a> into a single file</li>
+                                  <li>Concatenate your CSS files with features provided in Rails, Jekyll, and other environments</li>
+                                </ul>
+                              
+                                <p>For more information, <a href="https://www.stevesouders.com/blog/2009/04/09/dont-use-import/">read this article by Steve Souders</a>.</p>
+                              </div>
+                              
+                              <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- Use link elements --&gt;</span>
+                              <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"core.css"</span><span class="nt">&gt;</span>
+                              
+                              <span class="c">&lt;!-- Avoid @imports --&gt;</span>
+                              <span class="nt">&lt;style&gt;</span>
+                                <span class="k">@import</span> <span class="sx">url("more.css")</span><span class="p">;</span>
+                              <span class="nt">&lt;/style&gt;</span>
+                              </code></pre></div></div>
+                              
+                              <div>
+                                <h3 id="media-query-placement">Media query placement</h3>
+                              
+                                <p>Place media queries as close to their relevant rule sets whenever possible. Don’t bundle them all in a separate stylesheet or at the end of the document. Doing so only makes it easier for folks to miss them in the future. Here’s a typical setup.</p>
+                              </div>
+                              
+                              <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.element</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span>
+                              <span class="nc">.element-avatar</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span>
+                              <span class="nc">.element-selected</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span>
+                              
+                              <span class="k">@media</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="m">480px</span><span class="p">)</span> <span class="p">{</span>
+                                <span class="nc">.element</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span>
+                                <span class="nc">.element-avatar</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span>
+                                <span class="nc">.element-selected</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span>
+                              <span class="p">}</span>
+                              </code></pre></div></div>
+                              
+                              <div>
+                                <h3 id="single-declarations">Single declarations</h3>
+                              
+                                <p>In instances where a rule set includes <strong>only one declaration</strong>, consider removing line breaks for readability and faster editing. Any rule set with multiple declarations should be split to separate lines.</p>
+                              
+                                <p>The key factor here is error detection—e.g., a CSS validator stating you have a syntax error on Line 183. With a single declaration, there’s no missing it. With multiple declarations, separate lines is a must for your sanity.</p>
+                              </div>
+                              
+                              <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Single declarations on one line</span>
+                              <span class="nc">.span1</span> <span class="p">{</span> <span class="nl">width</span><span class="p">:</span> <span class="m">60px</span><span class="p">;</span> <span class="p">}</span>
+                              <span class="nc">.span2</span> <span class="p">{</span> <span class="nl">width</span><span class="p">:</span> <span class="m">140px</span><span class="p">;</span> <span class="p">}</span>
+                              <span class="nc">.span3</span> <span class="p">{</span> <span class="nl">width</span><span class="p">:</span> <span class="m">220px</span><span class="p">;</span> <span class="p">}</span>
+                              
+                              <span class="c1">// Multiple declarations, one per line</span>
+                              <span class="nc">.sprite</span> <span class="p">{</span>
+                                <span class="nl">display</span><span class="p">:</span> <span class="n">inline-block</span><span class="p">;</span>
+                                <span class="nl">width</span><span class="p">:</span> <span class="m">16px</span><span class="p">;</span>
+                                <span class="nl">height</span><span class="p">:</span> <span class="m">15px</span><span class="p">;</span>
+                                <span class="nl">background-image</span><span class="p">:</span> <span class="sx">url("../img/sprite.png")</span><span class="p">;</span>
+                              <span class="p">}</span>
+                              <span class="nc">.icon</span>           <span class="p">{</span> <span class="nl">background-position</span><span class="p">:</span> <span class="m">0</span> <span class="m">0</span><span class="p">;</span> <span class="p">}</span>
+                              <span class="nc">.icon-home</span>      <span class="p">{</span> <span class="nl">background-position</span><span class="p">:</span> <span class="m">0</span> <span class="m">-20px</span><span class="p">;</span> <span class="p">}</span>
+                              <span class="nc">.icon-account</span>   <span class="p">{</span> <span class="nl">background-position</span><span class="p">:</span> <span class="m">0</span> <span class="m">-40px</span><span class="p">;</span> <span class="p">}</span>
+                              </code></pre></div></div>
+                              
+                              <div>
+                                <h3 id="shorthand-notation">Shorthand notation</h3>
+                              
+                                <p>Limit shorthand declaration usage to instances where you must explicitly set all available values. Frequently overused shorthand properties include:</p>
+                              
+                                <ul>
+                                  <li><code class="language-plaintext highlighter-rouge">padding</code></li>
+                                  <li><code class="language-plaintext highlighter-rouge">margin</code></li>
+                                  <li><code class="language-plaintext highlighter-rouge">font</code></li>
+                                  <li><code class="language-plaintext highlighter-rouge">background</code></li>
+                                  <li><code class="language-plaintext highlighter-rouge">border</code></li>
+                                  <li><code class="language-plaintext highlighter-rouge">border-radius</code></li>
+                                </ul>
+                              
+                                <p>Usually we don’t need to set all the values a shorthand property represents. For example, HTML headings only set top and bottom margin, so when necessary, only override those two values. A <code class="language-plaintext highlighter-rouge">0</code> value implies an override of either a browser default or previously specified value.</p>
+                              
+                                <p>Excessive use of shorthand properties leads to sloppier code with unnecessary overrides and unintended side effects.</p>
+                              
+                                <p>The Mozilla Developer Network has a great article on <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties">shorthand properties</a> for those unfamiliar with notation and behavior.</p>
+                              </div>
+                              
+                              <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Bad example</span>
+                              <span class="nc">.element</span> <span class="p">{</span>
+                                <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span> <span class="m">0</span> <span class="m">10px</span><span class="p">;</span>
+                                <span class="nl">background</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+                                <span class="nl">background</span><span class="p">:</span> <span class="sx">url("image.jpg")</span><span class="p">;</span>
+                                <span class="nl">border-radius</span><span class="p">:</span> <span class="m">3px</span> <span class="m">3px</span> <span class="m">0</span> <span class="m">0</span><span class="p">;</span>
+                              <span class="p">}</span>
+                              
+                              <span class="c1">// Good example</span>
+                              <span class="nc">.element</span> <span class="p">{</span>
+                                <span class="nl">margin-bottom</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+                                <span class="nl">background-color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+                                <span class="nl">background-image</span><span class="p">:</span> <span class="sx">url("image.jpg")</span><span class="p">;</span>
+                                <span class="nl">border-top-left-radius</span><span class="p">:</span> <span class="m">3px</span><span class="p">;</span>
+                                <span class="nl">border-top-right-radius</span><span class="p">:</span> <span class="m">3px</span><span class="p">;</span>
+                              <span class="p">}</span>
+                              </code></pre></div></div>
+                              
+                              <div>
+                                <h3 id="nesting-in-preprocessors">Nesting in preprocessors</h3>
+                              
+                                <p>Avoid unnecessary nesting in preprocessors whenever possible—keep it simple and avoid reverse nesting. Consider nesting only if you must scope styles to a parent and if there are multiple elements to be nested.</p>
+                              
+                                <p><strong>Additional reading:</strong></p>
+                              
+                                <ul>
+                                  <li><a href="https://markdotto.com/2015/07/20/css-nesting/">Nesting in Sass and Less</a></li>
+                                </ul>
+                              </div>
+                              
+                              <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Without nesting</span>
+                              <span class="nc">.table</span> <span class="o">&gt;</span> <span class="nt">thead</span> <span class="o">&gt;</span> <span class="nt">tr</span> <span class="o">&gt;</span> <span class="nt">th</span> <span class="p">{</span> <span class="err">…</span> <span class="p">}</span>
+                              <span class="nc">.table</span> <span class="o">&gt;</span> <span class="nt">thead</span> <span class="o">&gt;</span> <span class="nt">tr</span> <span class="o">&gt;</span> <span class="nt">td</span> <span class="p">{</span> <span class="err">…</span> <span class="p">}</span>
+                              
+                              <span class="c1">// With nesting</span>
+                              <span class="nc">.table</span> <span class="o">&gt;</span> <span class="nt">thead</span> <span class="o">&gt;</span> <span class="nt">tr</span> <span class="p">{</span>
+                                <span class="o">&gt;</span> <span class="nt">th</span> <span class="p">{</span> <span class="err">…</span> <span class="p">}</span>
+                                <span class="o">&gt;</span> <span class="nt">td</span> <span class="p">{</span> <span class="err">…</span> <span class="p">}</span>
+                              <span class="p">}</span>
+                              </code></pre></div></div>
+                              
+                              <div>
+                                <h3 id="operators-in-preprocessors">Operators in preprocessors</h3>
+                              
+                                <p>For improved readability, wrap all math operations in parentheses with a single space between values, variables, and operators.</p>
+                              </div>
+                              
+                              <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Bad example</span>
+                              <span class="nc">.element</span> <span class="p">{</span>
+                                <span class="nl">margin</span><span class="p">:</span> <span class="m">10px</span> <span class="m">0</span> <span class="o">@</span><span class="n">variable</span><span class="o">*</span><span class="m">2</span> <span class="m">10px</span><span class="p">;</span>
+                              <span class="p">}</span>
+                              
+                              <span class="c1">// Good example</span>
+                              <span class="nc">.element</span> <span class="p">{</span>
+                                <span class="nl">margin</span><span class="p">:</span> <span class="m">10px</span> <span class="nf">0</span> <span class="p">(</span><span class="o">@</span><span class="n">variable</span> <span class="o">*</span> <span class="m">2</span><span class="p">)</span> <span class="m">10px</span><span class="p">;</span>
+                              <span class="p">}</span>
+                              </code></pre></div></div>
+                              
+                              <div>
+                                <h3 id="comments">Comments</h3>
+                              
+                                <p>Code is written and maintained by people. Ensure your code is descriptive, well commented, and approachable by others. Great code comments convey context or purpose. Do not simply reiterate a component or class name. Use the <code class="language-plaintext highlighter-rouge">//</code> syntax when writing CSS with preprocessors. When shipping CSS to production, remove all comments.</p>
+                              
+                                <p>Be sure to write in complete sentences for larger comments and succinct phrases for general notes.</p>
+                              </div>
+                              
+                              <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Bad example</span>
+                              <span class="c1">// Modal header</span>
+                              <span class="nc">.modal-header</span> <span class="p">{</span>
+                                <span class="nc">...</span>
+                              <span class="p">}</span>
+                              
+                              <span class="c1">// Good example</span>
+                              <span class="c1">// Wrapping element for .modal-title and .modal-close</span>
+                              <span class="nc">.modal-header</span> <span class="p">{</span>
+                                <span class="nc">...</span>
+                              <span class="p">}</span>
+                              </code></pre></div></div>
+                              
+                              <div>
+                                <h3 id="class-names">Class names</h3>
+                              
+                                <ul>
+                                  <li>Keep classes lowercase and use dashes (not underscores or camelCase). Dashes serve as natural breaks in related class (e.g., <code class="language-plaintext highlighter-rouge">.btn</code> and <code class="language-plaintext highlighter-rouge">.btn-danger</code>).</li>
+                                  <li>Avoid excessive and arbitrary shorthand notation. <code class="language-plaintext highlighter-rouge">.btn</code> is useful for <em>button</em>, but <code class="language-plaintext highlighter-rouge">.s</code> doesn’t mean anything.</li>
+                                  <li>Keep classes as short and succinct as possible.</li>
+                                  <li>Use meaningful names; use structural or purposeful names over presentational.</li>
+                                  <li>Prefix classes based on the closest parent or base class.</li>
+                                  <li>Use <code class="language-plaintext highlighter-rouge">.js-*</code> classes to denote behavior (as opposed to style), but keep these classes out of your CSS.</li>
+                                </ul>
+                              
+                                <p>It’s also useful to apply many of these same rules when creating custom properties and preprocessor variable names.</p>
+                              </div>
+                              
+                              <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Bad example</span>
+                              <span class="nc">.t</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+                              <span class="nc">.red</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+                              <span class="nc">.header</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+                              
+                              <span class="c1">// Good example</span>
+                              <span class="nc">.tweet</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+                              <span class="nc">.important</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+                              <span class="nc">.tweet-header</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+                              </code></pre></div></div>
+                              
+                              <div>
+                                <h3 id="selectors">Selectors</h3>
+                              
+                                <ul>
+                                  <li>Use classes over generic element tags for more explicit and reliable styling that isn’t dependent on your markup.</li>
+                                  <li>Avoid using several attribute selectors (e.g., <code class="language-plaintext highlighter-rouge">[class^="..."]</code>) on commonly occuring components. Browser performance is known to be impacted by these.</li>
+                                  <li>Keep selectors short and strive to limit the number of elements in each selector to three.</li>
+                                  <li>Scope classes to the closest parent <code class="language-plaintext highlighter-rouge">only</code> when necessary (e.g., when not using prefixed classes).</li>
+                                </ul>
+                              
+                                <p><strong>Additional reading:</strong></p>
+                              
+                                <ul>
+                                  <li><a href="https://markdotto.com/2012/02/16/scope-css-classes-with-prefixes/">Scope CSS classes with prefixes</a></li>
+                                  <li><a href="https://markdotto.com/2012/03/02/stop-the-cascade/">Stop the cascade</a></li>
+                                </ul>
+                              </div>
+                              
+                              <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Bad example</span>
+                              <span class="nt">span</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+                              <span class="nc">.page-container</span> <span class="nn">#stream</span> <span class="nc">.stream-item</span> <span class="nc">.tweet</span> <span class="nc">.tweet-header</span> <span class="nc">.username</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+                              <span class="nc">.avatar</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+                              
+                              <span class="c1">// Good example</span>
+                              <span class="nc">.avatar</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+                              <span class="nc">.tweet-header</span> <span class="nc">.username</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+                              <span class="nc">.tweet</span> <span class="nc">.avatar</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+                              </code></pre></div></div>
+                              
+                              <div>
+                                <h3 id="child-and-descendant-selectors">Child and descendant selectors</h3>
+                              
+                                <p>When necessary, it may be helpful to use <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Child_combinator">the child combinator (<code class="language-plaintext highlighter-rouge">&gt;</code>)</a> to limit the cascade of some styles in elements like <code class="language-plaintext highlighter-rouge">&lt;table&gt;</code>s that are often recursively nested. Use it to limit styles to the immediate children elements of a parent element to avoid unnecessary overrides later on.</p>
+                              </div>
+                              
+                              <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.custom-table</span> <span class="o">&gt;</span> <span class="nt">tbody</span> <span class="o">&gt;</span> <span class="nt">tr</span> <span class="o">&gt;</span> <span class="nt">td</span><span class="o">,</span>
+                              <span class="nc">.custom-table</span> <span class="o">&gt;</span> <span class="nt">tbody</span> <span class="o">&gt;</span> <span class="nt">tr</span> <span class="o">&gt;</span> <span class="nt">th</span> <span class="p">{</span>
+                                <span class="c">/* ... */</span>
+                              <span class="p">}</span>
+                              </code></pre></div></div>
+                              
+                              <div>
+                                <h3 id="organization">Organization</h3>
+                              
+                                <ul>
+                                  <li>Organize sections of code by component.</li>
+                                  <li>Develop a consistent commenting hierarchy.</li>
+                                  <li>Use consistent white space to your advantage when separating sections of code for scanning larger documents.</li>
+                                  <li>When using multiple CSS files, break them down by component instead of page. Pages can be rearranged and components moved.</li>
+                                </ul>
+                              </div>
+                              
+                              <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//</span>
+                              <span class="c1">// Component section heading</span>
+                              <span class="c1">//</span>
+                              
+                              <span class="nc">.element</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+                              
+                              
+                              <span class="c1">//</span>
+                              <span class="c1">// Component section heading</span>
+                              <span class="c1">//</span>
+                              <span class="c1">// Sometimes you need to include optional context for the entire component. Do that up here if it's important enough.</span>
+                              <span class="c1">//</span>
+                              
+                              <span class="nc">.element</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+                              
+                              <span class="c1">// Contextual sub-component or modifer</span>
+                              <span class="nc">.element-heading</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+                              </code></pre></div></div>
+
+
+
+
+
+
+
+
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
                     </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
-                            </ul>
-                        </nav>
-                    </footer>
+                    
                                         
                 </div>
             </main>

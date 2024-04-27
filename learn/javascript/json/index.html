@@ -1172,38 +1172,1200 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
-                        </div>
-                    </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
+                    
+                    
+
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Working with JSON</h1>
+                        </header>
+                        <div class="section-content">
+                            <ul class="prev-next">
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Objects/Classes_in_JavaScript">
+                                        <span class="button-wrap">Previous </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Objects">
+                                        <span class="button-wrap">Overview: Objects</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Objects/Object_building_practice">
+                                        <span class="button-wrap">Next  </span>
+                                    </a>
+                                </li>
                             </ul>
-                        </nav>
-                    </footer>
+                            <p>JavaScript Object Notation (JSON) is a standard text-based format for representing structured data based on JavaScript object syntax. It is commonly used for transmitting data in web applications (e.g., sending some data from the server to the client, so it can be displayed on a web page, or vice versa). You'll come across it quite often, so in this article, we give you all you need to work with JSON using JavaScript, including parsing JSON so you can access data within it, and creating JSON.</p>
+                            <figure class="table-container">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Prerequisites:</th>
+                                            <td>
+                                                A basic understanding of HTML and CSS, familiarity with JavaScript basics (see <a href="/en-US/docs/Learn/JavaScript/First_steps">First steps</a>
+                                                and <a href="/en-US/docs/Learn/JavaScript/Building_blocks">Building blocks</a>
+                                                ) and OOJS basics (see <a href="/en-US/docs/Learn/JavaScript/Objects/Basics">Introduction to objects</a>
+                                                ).
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Objective:</th>
+                                            <td>To understand how to work with data stored in JSON, and create your own JSON strings.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </figure>
+                        </div>
+                        <section aria-labelledby="no_really_what_is_json">
+                            <h2 id="no_really_what_is_json">
+                                <a href="#no_really_what_is_json">No, really, what is JSON?</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    <a href="/en-US/docs/Glossary/JSON">JSON</a>
+                                    is a text-based data format following JavaScript object syntax, which was popularized by <a href="https://en.wikipedia.org/wiki/Douglas_Crockford" class="external" target="_blank">Douglas Crockford</a>
+                                    .
+Even though it closely resembles JavaScript object literal syntax, it can be used independently from JavaScript, and many programming environments feature the ability to read (parse) and generate JSON.
+
+                                </p>
+                                <p>
+                                    JSON exists as a string — useful when you want to transmit data across a network.
+It needs to be converted to a native JavaScript object when you want to access the data.
+This is not a big issue — JavaScript provides a global <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON">JSON</a>
+                                    object that has methods available for converting between the two.
+
+                                </p>
+                                <div class="notecard note" id="sect1">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        Converting a string to a native object is called <em>deserialization</em>
+                                        , while converting a native object to a string so it can be transmitted across the network is called <em>serialization</em>
+                                        .
+                                    </p>
+                                </div>
+                                <p>
+                                    A JSON string can be stored in its own file, which is basically just a text file with an extension of <code>.json</code>
+                                    , and a <a href="/en-US/docs/Glossary/MIME_type">MIME type</a>
+                                    of <code>application/json</code>
+                                    .
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="json_structure">
+                            <h3 id="json_structure">
+                                <a href="#json_structure">JSON structure</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>As described above, JSON is a string whose format very much resembles JavaScript object literal format.
+You can include the same basic data types inside JSON as you can in a standard JavaScript object — strings, numbers, arrays, booleans, and other object literals.
+This allows you to construct a data hierarchy, like so:
+</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">json</span>
+                                    </div>
+                                    <pre class="brush: json notranslate" data-signature="AlSvyctXWEukYQAVrGSqRE5OwWxxRK7pKAunmyD3wBQ=">
+                                        <code>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">"squadName"</span>
+                                            <span class="token operator">:</span>
+                                            <span class="token string">"Super hero squad"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token property">"homeTown"</span>
+                                            <span class="token operator">:</span>
+                                            <span class="token string">"Metro City"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token property">"formed"</span>
+                                            <span class="token operator">:</span>
+                                            <span class="token number">2016</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token property">"secretBase"</span>
+                                            <span class="token operator">:</span>
+                                            <span class="token string">"Super tower"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token property">"active"</span>
+                                            <span class="token operator">:</span>
+                                            <span class="token boolean">true</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token property">"members"</span>
+                                            <span class="token operator">:</span>
+                                            <span class="token punctuation">[</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">"name"</span>
+                                            <span class="token operator">:</span>
+                                            <span class="token string">"Molecule Man"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token property">"age"</span>
+                                            <span class="token operator">:</span>
+                                            <span class="token number">29</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token property">"secretIdentity"</span>
+                                            <span class="token operator">:</span>
+                                            <span class="token string">"Dan Jukes"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token property">"powers"</span>
+                                            <span class="token operator">:</span>
+                                            <span class="token punctuation">[</span>
+                                            <span class="token string">"Radiation resistance"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token string">"Turning tiny"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token string">"Radiation blast"</span>
+                                            <span class="token punctuation">]</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">"name"</span>
+                                            <span class="token operator">:</span>
+                                            <span class="token string">"Madame Uppercut"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token property">"age"</span>
+                                            <span class="token operator">:</span>
+                                            <span class="token number">39</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token property">"secretIdentity"</span>
+                                            <span class="token operator">:</span>
+                                            <span class="token string">"Jane Wilson"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token property">"powers"</span>
+                                            <span class="token operator">:</span>
+                                            <span class="token punctuation">[</span>
+                                            <span class="token string">"Million tonne punch"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token string">"Damage resistance"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token string">"Superhuman reflexes"</span>
+                                            <span class="token punctuation">]</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">"name"</span>
+                                            <span class="token operator">:</span>
+                                            <span class="token string">"Eternal Flame"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token property">"age"</span>
+                                            <span class="token operator">:</span>
+                                            <span class="token number">1000000</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token property">"secretIdentity"</span>
+                                            <span class="token operator">:</span>
+                                            <span class="token string">"Unknown"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token property">"powers"</span>
+                                            <span class="token operator">:</span>
+                                            <span class="token punctuation">[</span>
+                                            <span class="token string">"Immortality"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token string">"Heat Immunity"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token string">"Inferno"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token string">"Teleportation"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token string">"Interdimensional travel"</span>
+                                            <span class="token punctuation">]</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">]</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    If we loaded this string into a JavaScript program and parsed it into a variable called <code>superHeroes</code>
+                                    for example, we could then access the data inside it using the same dot/bracket notation we looked at in the <a href="/en-US/docs/Learn/JavaScript/Objects/Basics">JavaScript object basics</a>
+                                    article.
+For example:
+
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="bntQnKTlrAW/LP43y5y2z18TEaRVpeKvdTI1rZ9p3wE=">
+                                        <code>
+                                            superHeroes<span class="token punctuation">.</span>
+                                            homeTown<span class="token punctuation">;</span>
+                                            superHeroes<span class="token punctuation">[</span>
+                                            <span class="token string">"active"</span>
+                                            <span class="token punctuation">]</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>To access data further down the hierarchy, you have to chain the required property names and array indexes together. For example, to access the third superpower of the second hero listed in the members list, you'd do this:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="dGtRLlZ2e+bI1e2QUsYbgR7SzlfJDlMMUHDW/Mumfm8=">
+                                        <code>
+                                            superHeroes<span class="token punctuation">[</span>
+                                            <span class="token string">"members"</span>
+                                            <span class="token punctuation">]</span>
+                                            <span class="token punctuation">[</span>
+                                            <span class="token number">1</span>
+                                            <span class="token punctuation">]</span>
+                                            <span class="token punctuation">[</span>
+                                            <span class="token string">"powers"</span>
+                                            <span class="token punctuation">]</span>
+                                            <span class="token punctuation">[</span>
+                                            <span class="token number">2</span>
+                                            <span class="token punctuation">]</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <ol>
+                                    <li>
+                                        First, we have the variable name — <code>superHeroes</code>
+                                        .
+                                    </li>
+                                    <li>
+                                        Inside that, we want to access the <code>members</code>
+                                        property, so we use <code>["members"]</code>
+                                        .
+                                    </li>
+                                    <li>
+                                        <code>members</code>
+                                        contains an array populated by objects. We want to access the second object inside the array, so we use <code>[1]</code>
+                                        .
+                                    </li>
+                                    <li>
+                                        Inside this object, we want to access the <code>powers</code>
+                                        property, so we use <code>["powers"]</code>
+                                        .
+                                    </li>
+                                    <li>
+                                        Inside the <code>powers</code>
+                                        property is an array containing the selected hero's superpowers. We want the third one, so we use <code>[2]</code>
+                                        .
+                                    </li>
+                                </ol>
+                                <div class="notecard note" id="sect2">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        We've made the JSON seen above available inside a variable in our <a href="https://mdn.github.io/learning-area/javascript/oojs/json/JSONTest.html" class="external" target="_blank">JSONTest.html</a>
+                                        example (see the <a href="https://github.com/mdn/learning-area/blob/main/javascript/oojs/json/JSONTest.html" class="external" target="_blank">source code</a>
+                                        ).
+Try loading this up and then accessing data inside the variable via your browser's JavaScript console.
+
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="arrays_as_json">
+                            <h3 id="arrays_as_json">
+                                <a href="#arrays_as_json">Arrays as JSON</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>Above we mentioned that JSON text basically looks like a JavaScript object inside a string.
+We can also convert arrays to/from JSON. Below is also valid JSON, for example:
+</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">json</span>
+                                    </div>
+                                    <pre class="brush: json notranslate" data-signature="4NnyEcrS7ZfDmBTsTPSBhMq+dZ7dqV0L0gKiyzvt+ds=">
+                                        <code>
+                                            <span class="token punctuation">[</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">"name"</span>
+                                            <span class="token operator">:</span>
+                                            <span class="token string">"Molecule Man"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token property">"age"</span>
+                                            <span class="token operator">:</span>
+                                            <span class="token number">29</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token property">"secretIdentity"</span>
+                                            <span class="token operator">:</span>
+                                            <span class="token string">"Dan Jukes"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token property">"powers"</span>
+                                            <span class="token operator">:</span>
+                                            <span class="token punctuation">[</span>
+                                            <span class="token string">"Radiation resistance"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token string">"Turning tiny"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token string">"Radiation blast"</span>
+                                            <span class="token punctuation">]</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">"name"</span>
+                                            <span class="token operator">:</span>
+                                            <span class="token string">"Madame Uppercut"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token property">"age"</span>
+                                            <span class="token operator">:</span>
+                                            <span class="token number">39</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token property">"secretIdentity"</span>
+                                            <span class="token operator">:</span>
+                                            <span class="token string">"Jane Wilson"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token property">"powers"</span>
+                                            <span class="token operator">:</span>
+                                            <span class="token punctuation">[</span>
+                                            <span class="token string">"Million tonne punch"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token string">"Damage resistance"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token string">"Superhuman reflexes"</span>
+                                            <span class="token punctuation">]</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">]</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    The above is perfectly valid JSON. You'd just have to access array items (in its parsed version) by starting with an array index, for example <code>[0]["powers"][0]</code>
+                                    .
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="other_notes">
+                            <h3 id="other_notes">
+                                <a href="#other_notes">Other notes</a>
+                            </h3>
+                            <div class="section-content">
+                                <ul>
+                                    <li>JSON is purely a string with a specified data format — it contains only properties, no methods.</li>
+                                    <li>JSON requires double quotes to be used around strings and property names.
+Single quotes are not valid other than surrounding the entire JSON string.
+</li>
+                                    <li>
+                                        Even a single misplaced comma or colon can cause a JSON file to go wrong, and not work.
+You should be careful to validate any data you are attempting to use (although computer-generated JSON is less likely to include errors, as long as the generator program is working correctly).
+You can validate JSON using an application like <a href="https://jsonlint.com/" class="external" target="_blank">JSONLint</a>
+                                        .
+
+                                    </li>
+                                    <li>JSON can actually take the form of any data type that is valid for inclusion inside JSON, not just arrays or objects.
+So for example, a single string or number would be valid JSON.
+</li>
+                                    <li>Unlike in JavaScript code in which object properties may be unquoted, in JSON only quoted strings may be used as properties.</li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section aria-labelledby="active_learning_working_through_a_json_example">
+                            <h2 id="active_learning_working_through_a_json_example">
+                                <a href="#active_learning_working_through_a_json_example">Active learning: Working through a JSON example</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>So, let's work through an example to show how we could make use of some JSON formatted data on a website.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="getting_started">
+                            <h3 id="getting_started">
+                                <a href="#getting_started">Getting started</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    To begin with, make local copies of our <a href="https://github.com/mdn/learning-area/blob/main/javascript/oojs/json/heroes.html" class="external" target="_blank">heroes.html</a>
+                                    and <a href="https://github.com/mdn/learning-area/blob/main/javascript/oojs/json/style.css" class="external" target="_blank">style.css</a>
+                                    files.
+The latter contains some simple CSS to style our page, while the former contains some very simple body HTML, plus a 
+                                    <a href="/en-US/docs/Web/HTML/Element/script">
+                                        <code>&lt;script &gt;</code>
+                                    </a>
+                                    element to contain the JavaScript code we will be writing in this exercise:
+
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">html</span>
+                                    </div>
+                                    <pre class="brush: html notranslate" data-signature="HwsBMxNzAYD4T+AZCZNJwsxvERLJP5pebe/H/XHrUGU=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    header
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            ...
+
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    header
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    section
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            ...
+
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    section
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    script
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token script">
+                                                <span class="token language-javascript">
+                                                    <span class="token operator">...</span>
+                                                </span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    script
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    We have made our JSON data available on our GitHub, at <a href="https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json" class="external" target="_blank">https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json</a>
+                                    .
+                                </p>
+                                <p>We are going to load the JSON into our script, and use some nifty DOM manipulation to display it, like this:</p>
+                                <p>
+                                    <img src="/en-US/docs/Learn/JavaScript/Objects/JSON/json-superheroes.png" alt="Image of a document titled &quot;Super hero squad&quot; (in a fancy font) and subtitled &quot;Hometown: Metro City // Formed: 2016&quot;. Three columns below the heading are titled &quot;Molecule Man&quot;, &quot;Madame Uppercut&quot;, and &quot;Eternal Flame&quot;, respectively. Each column lists the hero's secret identity name, age, and superpowers." width="839" height="535" loading="lazy">
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="top-level_function">
+                            <h3 id="top-level_function">
+                                <a href="#top-level_function">Top-level function</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>The top-level function looks like this:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="rXnW91u+Qd3GMcDVeLyZJin6qj0UwFlKqrbL9h+5g5Q=">
+                                        <code>
+                                            <span class="token keyword">async</span>
+                                            <span class="token keyword">function</span>
+                                            <span class="token function">populate</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">const</span>
+                                            requestURL <span class="token operator">=</span>
+                                            <span class="token string">"https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json"</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            request <span class="token operator">=</span>
+                                            <span class="token keyword">new</span>
+                                            <span class="token class-name">Request</span>
+                                            <span class="token punctuation">(</span>
+                                            requestURL<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            response <span class="token operator">=</span>
+                                            <span class="token keyword">await</span>
+                                            <span class="token function">fetch</span>
+                                            <span class="token punctuation">(</span>
+                                            request<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            superHeroes <span class="token operator">=</span>
+                                            <span class="token keyword">await</span>
+                                            response<span class="token punctuation">.</span>
+                                            <span class="token function">json</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token function">populateHeader</span>
+                                            <span class="token punctuation">(</span>
+                                            superHeroes<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token function">populateHeroes</span>
+                                            <span class="token punctuation">(</span>
+                                            superHeroes<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    To obtain the JSON, we use an API called <a href="/en-US/docs/Web/API/Fetch_API">Fetch</a>
+                                    .
+This API allows us to make network requests to retrieve resources from a server via JavaScript (e.g. images, text, JSON, even HTML snippets), meaning that we can update small sections of content without having to reload the entire page.
+
+                                </p>
+                                <p>In our function, the first four lines use the Fetch API to fetch the JSON from the server:</p>
+                                <ul>
+                                    <li>
+                                        we declare the <code>requestURL</code>
+                                        variable to store the GitHub URL
+                                    </li>
+                                    <li>
+                                        we use the URL to initialize a new 
+                                        <a href="/en-US/docs/Web/API/Request">
+                                            <code>Request</code>
+                                        </a>
+                                        object.
+                                    </li>
+                                    <li>
+                                        we make the network request using the 
+                                        <a href="/en-US/docs/Web/API/fetch" title="fetch()">
+                                            <code>fetch()</code>
+                                        </a>
+                                        function, and this returns a 
+                                        <a href="/en-US/docs/Web/API/Response">
+                                            <code>Response</code>
+                                        </a>
+                                        object
+                                    </li>
+                                    <li>
+                                        we retrieve the response as JSON using the 
+                                        <a href="/en-US/docs/Web/API/Response/json" title="json()">
+                                            <code>json()</code>
+                                        </a>
+                                        function of the <code>Response</code>
+                                        object.
+                                    </li>
+                                </ul>
+                                <div class="notecard note" id="sect3">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        The <code>fetch()</code>
+                                        API is <strong>asynchronous</strong>
+                                        . We'll learn a lot about asynchronous functions in <a href="/en-US/docs/Learn/JavaScript/Asynchronous">the next module</a>
+                                        , but for now, we'll just say that we need to add the keyword 
+                                        <a href="/en-US/docs/Web/JavaScript/Reference/Statements/async_function">
+                                            <code>async</code>
+                                        </a>
+                                        before the name of the function that uses the fetch API, and add the keyword 
+                                        <a href="/en-US/docs/Web/JavaScript/Reference/Operators/await">
+                                            <code>await</code>
+                                        </a>
+                                        before the calls to any asynchronous functions.
+                                    </p>
+                                </div>
+                                <p>
+                                    After all that, the <code>superHeroes</code>
+                                    variable will contain the JavaScript object based on the JSON. We are then passing that object to two function calls — the first one fills the <code>&lt;header &gt;</code>
+                                    with the correct data, while the second one creates an information card for each hero on the team, and inserts it into the <code>&lt;section &gt;</code>
+                                    .
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="populating_the_header">
+                            <h3 id="populating_the_header">
+                                <a href="#populating_the_header">Populating the header</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>Now that we've retrieved the JSON data and converted it into a JavaScript object, let's make use of it by writing the two functions we referenced above. First of all, add the following function definition below the previous code:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="0maWdjOfFRpBzTBWkIxtAb37CQez/8DkQBQPiIwwD0k=">
+                                        <code>
+                                            <span class="token keyword">function</span>
+                                            <span class="token function">populateHeader</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">obj</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">const</span>
+                                            header <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">querySelector</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"header"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            myH1 <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">createElement</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"h1"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            myH1<span class="token punctuation">.</span>
+                                            textContent <span class="token operator">=</span>
+                                            obj<span class="token punctuation">.</span>
+                                            squadName<span class="token punctuation">;</span>
+                                            header<span class="token punctuation">.</span>
+                                            <span class="token function">appendChild</span>
+                                            <span class="token punctuation">(</span>
+                                            myH1<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            myPara <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">createElement</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"p"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            myPara<span class="token punctuation">.</span>
+                                            textContent <span class="token operator">=</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">Hometown: </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    obj<span class="token punctuation">.</span>
+                                                    homeTown<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token string">// Formed: </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    obj<span class="token punctuation">.</span>
+                                                    formed<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">;</span>
+                                            header<span class="token punctuation">.</span>
+                                            <span class="token function">appendChild</span>
+                                            <span class="token punctuation">(</span>
+                                            myPara<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    Here we first create an <a href="/en-US/docs/Web/HTML/Element/Heading_Elements">h1</a>
+                                    element with 
+                                    <a href="/en-US/docs/Web/API/Document/createElement">
+                                        <code>createElement()</code>
+                                    </a>
+                                    , set its 
+                                    <a href="/en-US/docs/Web/API/Node/textContent">
+                                        <code>textContent</code>
+                                    </a>
+                                    to equal the <code>squadName</code>
+                                    property of the object, then append it to the header using 
+                                    <a href="/en-US/docs/Web/API/Node/appendChild">
+                                        <code>appendChild()</code>
+                                    </a>
+                                    . We then do a very similar operation with a paragraph: create it, set its text content and append it to the header. The only difference is that its text is set to a <a href="/en-US/docs/Web/JavaScript/Reference/Template_literals">template literal</a>
+                                    containing both the <code>homeTown</code>
+                                    and <code>formed</code>
+                                    properties of the object.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="creating_the_hero_information_cards">
+                            <h3 id="creating_the_hero_information_cards">
+                                <a href="#creating_the_hero_information_cards">Creating the hero information cards</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>Next, add the following function at the bottom of the code, which creates and displays the superhero cards:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="7E6U4E+nikOio1cIqJkgqTTDfz9DMYKnqT42pSQEHM4=">
+                                        <code>
+                                            <span class="token keyword">function</span>
+                                            <span class="token function">populateHeroes</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">obj</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">const</span>
+                                            section <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">querySelector</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"section"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            heroes <span class="token operator">=</span>
+                                            obj<span class="token punctuation">.</span>
+                                            members<span class="token punctuation">;</span>
+                                            <span class="token keyword">for</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token keyword">const</span>
+                                            hero <span class="token keyword">of</span>
+                                            heroes<span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">const</span>
+                                            myArticle <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">createElement</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"article"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            myH2 <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">createElement</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"h2"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            myPara1 <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">createElement</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"p"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            myPara2 <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">createElement</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"p"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            myPara3 <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">createElement</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"p"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            myList <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">createElement</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"ul"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            myH2<span class="token punctuation">.</span>
+                                            textContent <span class="token operator">=</span>
+                                            hero<span class="token punctuation">.</span>
+                                            name<span class="token punctuation">;</span>
+                                            myPara1<span class="token punctuation">.</span>
+                                            textContent <span class="token operator">=</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">Secret identity: </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    hero<span class="token punctuation">.</span>
+                                                    secretIdentity<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">;</span>
+                                            myPara2<span class="token punctuation">.</span>
+                                            textContent <span class="token operator">=</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">Age: </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    hero<span class="token punctuation">.</span>
+                                                    age<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">;</span>
+                                            myPara3<span class="token punctuation">.</span>
+                                            textContent <span class="token operator">=</span>
+                                            <span class="token string">"Superpowers:"</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            superPowers <span class="token operator">=</span>
+                                            hero<span class="token punctuation">.</span>
+                                            powers<span class="token punctuation">;</span>
+                                            <span class="token keyword">for</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token keyword">const</span>
+                                            power <span class="token keyword">of</span>
+                                            superPowers<span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">const</span>
+                                            listItem <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">createElement</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"li"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            listItem<span class="token punctuation">.</span>
+                                            textContent <span class="token operator">=</span>
+                                            power<span class="token punctuation">;</span>
+                                            myList<span class="token punctuation">.</span>
+                                            <span class="token function">appendChild</span>
+                                            <span class="token punctuation">(</span>
+                                            listItem<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            myArticle<span class="token punctuation">.</span>
+                                            <span class="token function">appendChild</span>
+                                            <span class="token punctuation">(</span>
+                                            myH2<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            myArticle<span class="token punctuation">.</span>
+                                            <span class="token function">appendChild</span>
+                                            <span class="token punctuation">(</span>
+                                            myPara1<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            myArticle<span class="token punctuation">.</span>
+                                            <span class="token function">appendChild</span>
+                                            <span class="token punctuation">(</span>
+                                            myPara2<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            myArticle<span class="token punctuation">.</span>
+                                            <span class="token function">appendChild</span>
+                                            <span class="token punctuation">(</span>
+                                            myPara3<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            myArticle<span class="token punctuation">.</span>
+                                            <span class="token function">appendChild</span>
+                                            <span class="token punctuation">(</span>
+                                            myList<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            section<span class="token punctuation">.</span>
+                                            <span class="token function">appendChild</span>
+                                            <span class="token punctuation">(</span>
+                                            myArticle<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    To start with, we store the <code>members</code>
+                                    property of the JavaScript object in a new variable. This array contains multiple objects that contain the information for each hero.
+                                </p>
+                                <p>
+                                    Next, we use a <a href="/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code#the_for...of_loop">for...of loop</a>
+                                    to loop through each object in the array. For each one, we:
+                                </p>
+                                <ol>
+                                    <li>
+                                        Create several new elements: an <code>&lt;article &gt;</code>
+                                        , an <code>&lt;h2 &gt;</code>
+                                        , three <code>&lt;p &gt;</code>
+                                        s, and a <code>&lt;ul &gt;</code>
+                                        .
+                                    </li>
+                                    <li>
+                                        Set the <code>&lt;h2 &gt;</code>
+                                        to contain the current hero's <code>name</code>
+                                        .
+                                    </li>
+                                    <li>
+                                        Fill the three paragraphs with their <code>secretIdentity</code>
+                                        , <code>age</code>
+                                        , and a line saying "Superpowers:" to introduce the information in the list.
+                                    </li>
+                                    <li>
+                                        Store the <code>powers</code>
+                                        property in another new constant called <code>superPowers</code>
+                                        — this contains an array that lists the current hero's superpowers.
+                                    </li>
+                                    <li>
+                                        Use another <code>for...of</code>
+                                        loop to loop through the current hero's superpowers — for each one we create an <code>&lt;li &gt;</code>
+                                        element, put the superpower inside it, then put the <code>listItem</code>
+                                        inside the <code>&lt;ul &gt;</code>
+                                        element (<code>myList</code>
+                                        ) using <code>appendChild()</code>
+                                        .
+                                    </li>
+                                    <li>
+                                        The very last thing we do is to append the <code>&lt;h2 &gt;</code>
+                                        , <code>&lt;p &gt;</code>
+                                        s, and <code>&lt;ul &gt;</code>
+                                        inside the <code>&lt;article &gt;</code>
+                                        (<code>myArticle</code>
+                                        ), then append the <code>&lt;article &gt;</code>
+                                        inside the <code>&lt;section &gt;</code>
+                                        . The order in which things are appended is important, as this is the order they will be displayed inside the HTML.
+                                    </li>
+                                </ol>
+                                <div class="notecard note" id="sect4">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        If you are having trouble getting the example to work, try referring to our <a href="https://github.com/mdn/learning-area/blob/main/javascript/oojs/json/heroes-finished.html" class="external" target="_blank">heroes-finished.html</a>
+                                        source code (see it <a href="https://mdn.github.io/learning-area/javascript/oojs/json/heroes-finished.html" class="external" target="_blank">running live</a>
+                                        also.)
+                                    </p>
+                                </div>
+                                <div class="notecard note" id="sect5">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        If you are having trouble following the dot/bracket notation we are using to access the JavaScript object, it can help to have the <a href="https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json" class="external" target="_blank">superheroes.json</a>
+                                        file open in another tab or your text editor, and refer to it as you look at our JavaScript.
+You should also refer back to our <a href="/en-US/docs/Learn/JavaScript/Objects/Basics">JavaScript object basics</a>
+                                        article for more information on dot and bracket notation.
+
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="calling_the_top-level_function">
+                            <h3 id="calling_the_top-level_function">
+                                <a href="#calling_the_top-level_function">Calling the top-level function</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    Finally, we need to call our top-level <code>populate()</code>
+                                    function:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="Adoo3zrESgAXNuwbcukr62tBnMT4BjmzLCCGZngLiS4=">
+                                        <code>
+                                            <span class="token function">populate</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="converting_between_objects_and_text">
+                            <h2 id="converting_between_objects_and_text">
+                                <a href="#converting_between_objects_and_text">Converting between objects and text</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    The above example was simple in terms of accessing the JavaScript object, because we converted the network response directly into a JavaScript object using <code>response.json()</code>
+                                    .
+                                </p>
+                                <p>
+                                    But sometimes we aren't so lucky — sometimes we receive a raw JSON string, and we need to convert it to an object ourselves. And when we want to send a JavaScript object across the network, we need to convert it to JSON (a string) before sending it. Luckily, these two problems are so common in web development that a built-in <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON">JSON</a>
+                                    object is available in browsers, which contains the following two methods:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse">
+                                            <code>parse()</code>
+                                        </a>
+                                        : Accepts a JSON string as a parameter, and returns the corresponding JavaScript object.
+                                    </li>
+                                    <li>
+                                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify">
+                                            <code>stringify()</code>
+                                        </a>
+                                        : Accepts an object as a parameter, and returns the equivalent JSON string.
+                                    </li>
+                                </ul>
+                                <p>
+                                    You can see the first one in action in our <a href="https://mdn.github.io/learning-area/javascript/oojs/json/heroes-finished-json-parse.html" class="external" target="_blank">heroes-finished-json-parse.html</a>
+                                    example (see the <a href="https://github.com/mdn/learning-area/blob/main/javascript/oojs/json/heroes-finished-json-parse.html" class="external" target="_blank">source code</a>
+                                    ) — this does exactly the same thing as the example we built up earlier, except that:
+                                </p>
+                                <ul>
+                                    <li>
+                                        we retrieve the response as text rather than JSON, by calling the 
+                                        <a href="/en-US/docs/Web/API/Response/text" title="text()">
+                                            <code>text()</code>
+                                        </a>
+                                        method of the response
+                                    </li>
+                                    <li>
+                                        we then use <code>parse()</code>
+                                        to convert the text to a JavaScript object.
+                                    </li>
+                                </ul>
+                                <p>The key snippet of code is here:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="PXj4sUWCCkx6AVF+cz+8Id/fSMx4ExOUbKKk+JNkjHQ=">
+                                        <code>
+                                            <span class="token keyword">async</span>
+                                            <span class="token keyword">function</span>
+                                            <span class="token function">populate</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">const</span>
+                                            requestURL <span class="token operator">=</span>
+                                            <span class="token string">"https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json"</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            request <span class="token operator">=</span>
+                                            <span class="token keyword">new</span>
+                                            <span class="token class-name">Request</span>
+                                            <span class="token punctuation">(</span>
+                                            requestURL<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            response <span class="token operator">=</span>
+                                            <span class="token keyword">await</span>
+                                            <span class="token function">fetch</span>
+                                            <span class="token punctuation">(</span>
+                                            request<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            superHeroesText <span class="token operator">=</span>
+                                            <span class="token keyword">await</span>
+                                            response<span class="token punctuation">.</span>
+                                            <span class="token function">text</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            superHeroes <span class="token operator">=</span>
+                                            <span class="token constant">JSON</span>
+                                            <span class="token punctuation">.</span>
+                                            <span class="token function">parse</span>
+                                            <span class="token punctuation">(</span>
+                                            superHeroesText<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token function">populateHeader</span>
+                                            <span class="token punctuation">(</span>
+                                            superHeroes<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token function">populateHeroes</span>
+                                            <span class="token punctuation">(</span>
+                                            superHeroes<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    As you might guess, <code>stringify()</code>
+                                    works the opposite way. Try entering the following lines into your browser's JavaScript console one by one to see it in action:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="aZ9+iFcjyFOUTRFtRQO4oSHY/TbIeo/pTvG05fz7WCk=">
+                                        <code>
+                                            <span class="token keyword">let</span>
+                                            myObj <span class="token operator">=</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token literal-property property">name</span>
+                                            <span class="token operator">:</span>
+                                            <span class="token string">"Chris"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token literal-property property">age</span>
+                                            <span class="token operator">:</span>
+                                            <span class="token number">38</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">;</span>
+                                            myObj<span class="token punctuation">;</span>
+                                            <span class="token keyword">let</span>
+                                            myString <span class="token operator">=</span>
+                                            <span class="token constant">JSON</span>
+                                            <span class="token punctuation">.</span>
+                                            <span class="token function">stringify</span>
+                                            <span class="token punctuation">(</span>
+                                            myObj<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            myString<span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    Here we're creating a JavaScript object, then checking what it contains, then converting it to a JSON string using <code>stringify()</code>
+                                    — saving the return value in a new variable — then checking it again.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="test_your_skills!">
+                            <h2 id="test_your_skills!">
+                                <a href="#test_your_skills!">Test your skills!</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    You've reached the end of this article, but can you remember the most important information? You can find some further tests to verify that you've retained this information before you move on — see <a href="/en-US/docs/Learn/JavaScript/Objects/Test_your_skills:_JSON">Test your skills: JSON</a>
+                                    .
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="summary">
+                            <h2 id="summary">
+                                <a href="#summary">Summary</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>In this article, we've given you a simple guide to using JSON in your programs, including how to create and parse JSON, and how to access data locked inside it. In the next article, we'll begin looking at object-oriented JavaScript.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="see_also">
+                            <h2 id="see_also">
+                                <a href="#see_also">See also</a>
+                            </h2>
+                            <div class="section-content">
+                                <ul>
+                                    <li>
+                                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON">JSON reference</a>
+                                    </li>
+                                    <li>
+                                        <a href="/en-US/docs/Web/API/Fetch_API">Fetch API overview</a>
+                                    </li>
+                                    <li>
+                                        <a href="/en-US/docs/Web/API/Fetch_API/Using_Fetch">Using Fetch</a>
+                                    </li>
+                                    <li>
+                                        <a href="/en-US/docs/Web/HTTP/Methods">HTTP request methods</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://json.org" class="external" target="_blank">Official JSON website with link to ECMA standard</a>
+                                    </li>
+                                </ul>
+                                <ul class="prev-next">
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Objects/Classes_in_JavaScript">
+                                            <span class="button-wrap">Previous </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Objects">
+                                            <span class="button-wrap">Overview: Objects</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Objects/Object_building_practice">
+                                            <span class="button-wrap">Next  </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
+                    </div>
+                    
                                         
                 </div>
             </main>

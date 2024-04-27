@@ -1172,38 +1172,852 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
-                        </div>
-                    </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
+                    
+                    
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Handling text — strings in JavaScript</h1>
+                        </header>
+                        <div class="section-content">
+                            <ul class="prev-next">
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/JavaScript/First_steps/Math">
+                                        <span class="button-wrap">Previous </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/JavaScript/First_steps">
+                                        <span class="button-wrap">Overview: First steps</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/JavaScript/First_steps/Useful_string_methods">
+                                        <span class="button-wrap">Next  </span>
+                                    </a>
+                                </li>
                             </ul>
-                        </nav>
-                    </footer>
+                            <p>Next, we'll turn our attention to strings — this is what pieces of text are called in programming. In this article, we'll look at all the common things that you really ought to know about strings when learning JavaScript, such as creating strings, escaping quotes in strings, and joining strings together.</p>
+                            <figure class="table-container">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Prerequisites:</th>
+                                            <td>A basic understanding of HTML and CSS, an
+    understanding of what JavaScript is.
+  </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Objective:</th>
+                                            <td>To gain familiarity with the basics of strings in JavaScript.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </figure>
+                        </div>
+                        <section aria-labelledby="the_power_of_words">
+                            <h2 id="the_power_of_words">
+                                <a href="#the_power_of_words">The power of words</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    Words are very important to humans — they are a large part of how we communicate. Since the web is a largely text-based medium designed to allow humans to communicate and share information, it is useful for us to have control over the words that appear on it. <a href="/en-US/docs/Glossary/HTML">HTML</a>
+                                    provides structure and meaning to text, <a href="/en-US/docs/Glossary/CSS">CSS</a>
+                                    allows us to precisely style it, and JavaScript offers many features for manipulating strings. These include creating custom welcome messages and prompts, showing the right text labels when needed, sorting terms into the desired order, and much more.
+                                </p>
+                                <p>Pretty much all of the programs we've shown you so far in the course have involved some string manipulation.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="declaring_strings">
+                            <h2 id="declaring_strings">
+                                <a href="#declaring_strings">Declaring strings</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    Strings are dealt with similarly to numbers at first glance, but when you dig deeper you'll start to see some notable differences. Let's start by entering some basic lines into the <a href="/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools">browser developer console</a>
+                                    to familiarize ourselves.
+                                </p>
+                                <p>To start with, enter the following lines:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="IyENn+UO00Pft/iH2CrmcYGk1pXX0h8baGRJhNo0a+o=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            string <span class="token operator">=</span>
+                                            <span class="token string">"The revolution will not be televised."</span>
+                                            <span class="token punctuation">;</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            string<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>Just like we did with numbers, we are declaring a variable, initializing it with a string value, and then returning the value. The only difference here is that when writing a string, you need to surround the value with quotes.</p>
+                                <p>If you don't do this, or miss one of the quotes, you'll get an error. Try entering the following lines:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js example-bad notranslate" data-signature="Pjf2PtgTa9E4r2sdgvLnzsFmf8oEr5ynxpvVn2IQVfo=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            badString1 <span class="token operator">=</span>
+                                            This is a test<span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            badString2 <span class="token operator">=</span>
+                                            'This is a test<span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            badString3 <span class="token operator">=</span>
+                                            This is a test'<span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>These lines don't work because any text without quotes around it is interpreted as a variable name, property name, reserved word, or similar. If the browser doesn't recognize the unquoted text, then an error is raised (e.g., "missing; before statement"). If the browser can detect where a string starts but not its end (owing to the missing second quote), it reports an "unterminated string literal" error. If your program is raising such errors, then go back and check all your strings to make sure you have no missing quotation marks.</p>
+                                <p>
+                                    The following will work if you previously defined the variable <code>string</code>
+                                    — try it now:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="9CPuD8yrIchNrUa1hoiuvbwNFFiLF27Ogh6wPBM6Fm0=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            badString <span class="token operator">=</span>
+                                            string<span class="token punctuation">;</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            badString<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    <code>badString</code>
+                                    is now set to have the same value as <code>string</code>
+                                    .
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="single_quotes_double_quotes_and_backticks">
+                            <h3 id="single_quotes_double_quotes_and_backticks">
+                                <a href="#single_quotes_double_quotes_and_backticks">Single quotes, double quotes, and backticks</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    In JavaScript, you can choose single quotes (<code>'</code>
+                                    ), double quotes (<code>"</code>
+                                    ), or backticks (<code>`</code>
+                                    ) to wrap your strings in. All of the following will work:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="PP9Z2QFSB44datMHt5lXe54cRfRF3nvtlGcBvsLH0LE=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            single <span class="token operator">=</span>
+                                            <span class="token string">'Single quotes'</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            double <span class="token operator">=</span>
+                                            <span class="token string">"Double quotes"</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            backtick <span class="token operator">=</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">Backtick</span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">;</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            single<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            double<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            backtick<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>You must use the same character for the start and end of a string, or you will get an error:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js example-bad notranslate" data-signature="ru4RPqpXaDMwQgfbMrSi96tyzxEv8kKqxMD4ethzEoM=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            badQuotes <span class="token operator">=</span>
+                                            'This is not allowed<span class="token operator">!</span>
+                                            "<span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>Strings declared using single quotes and strings declared using double quotes are the same, and which you use is down to personal preference — although it is good practice to choose one style and use it consistently in your code.</p>
+                                <p>
+                                    Strings declared using backticks are a special kind of string called a 
+                                    <a href="/en-US/docs/Web/JavaScript/Reference/Template_literals">
+                                        <em>template literal</em>
+                                    </a>
+                                    . In most ways, template literals are like normal strings, but they have some special properties:
+                                </p>
+                                <ul>
+                                    <li>
+                                        you can <a href="#embedding_javascript">embed JavaScript</a>
+                                        in them
+                                    </li>
+                                    <li>
+                                        you can declare template literals over <a href="#multiline_strings">multiple lines</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section aria-labelledby="embedding_javascript">
+                            <h2 id="embedding_javascript">
+                                <a href="#embedding_javascript">Embedding JavaScript</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    Inside a template literal, you can wrap JavaScript variables or expressions inside <code>${ }</code>
+                                    , and the result will be included in the string:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="i66gRRxcon2qsrV4fgnKMAMkXQjeufBkI5xTW4hYQyk=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            name <span class="token operator">=</span>
+                                            <span class="token string">"Chris"</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            greeting <span class="token operator">=</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">Hello, </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    name<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">;</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            greeting<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// "Hello, Chris"</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>You can use the same technique to join together two variables:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="ozrjzgqP9rvYrFWBXifQHDd0f9DYkKgAbXYEbvFftNo=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            one <span class="token operator">=</span>
+                                            <span class="token string">"Hello, "</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            two <span class="token operator">=</span>
+                                            <span class="token string">"how are you?"</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            joined <span class="token operator">=</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    one<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    two<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">;</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            joined<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// "Hello, how are you?"</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    Joining strings together like this is called <em>concatenation</em>
+                                    .
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="concatenation_in_context">
+                            <h3 id="concatenation_in_context">
+                                <a href="#concatenation_in_context">Concatenation in context</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>Let's have a look at concatenation being used in action:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">html</span>
+                                    </div>
+                                    <pre class="brush: html notranslate" data-signature="/YTFRkJj8/j6bYnqPmbmHvP0m9AOHsQirUBg0lds/10=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    button
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Press me
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    button
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    div
+                                                </span>
+                                                <span class="token attr-name">id</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    greeting<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    div
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="KXlvFJisUB82B4Md0by+V1+JB2B76Ktj+PnWLw8Pfhk=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            button <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">querySelector</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"button"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">function</span>
+                                            <span class="token function">greet</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">const</span>
+                                            name <span class="token operator">=</span>
+                                            <span class="token function">prompt</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"What is your name?"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            greeting <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">querySelector</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"#greeting"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            greeting<span class="token punctuation">.</span>
+                                            textContent <span class="token operator">=</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">Hello </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    name<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token string">, nice to see you!</span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            button<span class="token punctuation">.</span>
+                                            <span class="token function">addEventListener</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"click"</span>
+                                            <span class="token punctuation">,</span>
+                                            greet<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="code-example" id="sect1">
+                                    <div class="example-header" id="sect2"></div>
+                                    <iframe class="sample-code-frame" title="Concatenation in context sample" id="frame_concatenation_in_context" width="100%" height="60" src="https://live.mdnplay.dev/en-US/docs/Learn/JavaScript/First_steps/Strings/runner.html?id=concatenation_in_context" loading="lazy"></iframe>
+                                </div>
+                                <p>
+                                    Here, we are using the 
+                                    <a href="/en-US/docs/Web/API/Window/prompt" title="window.prompt()">
+                                        <code>window.prompt()</code>
+                                    </a>
+                                    function, which prompts the user to answer a question via a popup dialog box and then stores the text they enter inside a given variable — in this case <code>name</code>
+                                    . We then display a string that inserts the name into a generic greeting message.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="concatenation_using">
+                            <h3 id="concatenation_using">
+                                <a href="#concatenation_using">Concatenation using "+"</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    You can use <code>${}</code>
+                                    only with template literals, not normal strings. You can concatenate normal strings using the <code>+</code>
+                                    operator:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="UWpifwfpO1DZr1xcsEOTZFn1nh2M83OZyR76o7CkHzw=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            greeting <span class="token operator">=</span>
+                                            <span class="token string">"Hello"</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            name <span class="token operator">=</span>
+                                            <span class="token string">"Chris"</span>
+                                            <span class="token punctuation">;</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            greeting <span class="token operator">+</span>
+                                            <span class="token string">", "</span>
+                                            <span class="token operator">+</span>
+                                            name<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// "Hello, Chris"</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>However, template literals usually give you more readable code:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="6yt/i7tY/NU0qbMEbZqza9hZdL+ukqhoGJ0cF9R8m+M=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            greeting <span class="token operator">=</span>
+                                            <span class="token string">"Hello"</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            name <span class="token operator">=</span>
+                                            <span class="token string">"Chris"</span>
+                                            <span class="token punctuation">;</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    greeting<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token string">, </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    name<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// "Hello, Chris"</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="including_expressions_in_strings">
+                            <h3 id="including_expressions_in_strings">
+                                <a href="#including_expressions_in_strings">Including expressions in strings</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>You can include JavaScript expressions in template literals, as well as just variables, and the results will be included in the result:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="QacX2VnzjnpGnvBnsJ3YWQBuzn6py1Fdxjoj2sar3H0=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            song <span class="token operator">=</span>
+                                            <span class="token string">"Fight the Youth"</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            score <span class="token operator">=</span>
+                                            <span class="token number">9</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            highestScore <span class="token operator">=</span>
+                                            <span class="token number">10</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            output <span class="token operator">=</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">I like the song </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    song<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token string">. I gave it a score of </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    <span class="token punctuation">(</span>
+                                                    score <span class="token operator">/</span>
+                                                    highestScore<span class="token punctuation">)</span>
+                                                    <span class="token operator">*</span>
+                                                    <span class="token number">100</span>
+                                                    <span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token string">%.</span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">;</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            output<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// "I like the song Fight the Youth. I gave it a score of 90%."</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="multiline_strings">
+                            <h2 id="multiline_strings">
+                                <a href="#multiline_strings">Multiline strings</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>Template literals respect the line breaks in the source code, so you can write strings that span multiple lines like this:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="ra6B1CH0M/s/gIGkuwUkKqV0WiaRYYCiqih26rXaudE=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            newline <span class="token operator">=</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">One day you finally knew
+what you had to do, and began,</span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">;</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            newline<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">/*
+One day you finally knew
+what you had to do, and began,
+*/</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    To have the equivalent output using a normal string you'd have to include line break characters (<code>\n</code>
+                                    ) in the string:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="W4jmd9f3uHaDqsKDdmFkiz135/CjKBFiVcZLu7hVDHw=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            newline <span class="token operator">=</span>
+                                            <span class="token string">"One day you finally knew\nwhat you had to do, and began,"</span>
+                                            <span class="token punctuation">;</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            newline<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">/*
+One day you finally knew
+what you had to do, and began,
+*/</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    See our <a href="/en-US/docs/Web/JavaScript/Reference/Template_literals">Template literals</a>
+                                    reference page for more examples and details of advanced features.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="including_quotes_in_strings">
+                            <h2 id="including_quotes_in_strings">
+                                <a href="#including_quotes_in_strings">Including quotes in strings</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>Since we use quotes to indicate the start and end of strings, how can we include actual quotes in strings? We know that this won't work:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js example-bad notranslate" data-signature="klUTbXc+tNfn6a/BmAiJTROsHbekHGQwRpiAD6eQgLA=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            badQuotes <span class="token operator">=</span>
+                                            <span class="token string">"She said "</span>
+                                            <span class="token constant">I</span>
+                                            think so<span class="token operator">!</span>
+                                            <span class="token string">""</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>One common option is to use one of the other characters to declare the string:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="kZ+RikXLclnbAh3G8EBymplFk78Zl7zYglfSFfu2roY=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            goodQuotes1 <span class="token operator">=</span>
+                                            <span class="token string">'She said "I think so!"'</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            goodQuotes2 <span class="token operator">=</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">She said "I'm not going in there!"</span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    Another option is to <em>escape</em>
+                                    the problem quotation mark. Escaping characters means that we do something to them to make sure they are recognized as text, not part of the code. In JavaScript, we do this by putting a backslash just before the character. Try this:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="UClBOyrl99q8R4kcnD1E5KVWnx+s1fMNOoF3QcViqVI=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            bigmouth <span class="token operator">=</span>
+                                            <span class="token string">'I\'ve got no right to take my place…'</span>
+                                            <span class="token punctuation">;</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            bigmouth<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    You can use the same technique to insert other special characters. See <a href="/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#escape_sequences">Escape sequences</a>
+                                    for more details.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="numbers_vs._strings">
+                            <h2 id="numbers_vs._strings">
+                                <a href="#numbers_vs._strings">Numbers vs. strings</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>What happens when we try to concatenate a string and a number? Let's try it in our console:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="mqGARWXfdeU62mu4ZZpur3nEbUvBZqkWgBG9hFlmu/0=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            name <span class="token operator">=</span>
+                                            <span class="token string">"Front "</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            number <span class="token operator">=</span>
+                                            <span class="token number">242</span>
+                                            <span class="token punctuation">;</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            name <span class="token operator">+</span>
+                                            number<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// "Front 242"</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>You might expect this to return an error, but it works just fine. How numbers should be displayed as strings is fairly well-defined, so the browser automatically converts the number to a string and concatenates the two strings.</p>
+                                <p>If you have a numeric variable that you want to convert to a string or a string variable that you want to convert to a number, you can use the following two constructs:</p>
+                                <ul>
+                                    <li>
+                                        The 
+                                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/Number">
+                                            <code>Number()</code>
+                                        </a>
+                                        function converts anything passed to it into a number if it can. Try the following:
+
+                                        <div class="code-example">
+                                            <div class="example-header">
+                                                <span class="language-name">js</span>
+                                            </div>
+                                            <pre class="brush: js notranslate" data-signature="w37iMA91BLCpra4BzixdnViHPdF45qj2DwhBHDtTl0g=">
+                                                <code>
+                                                    <span class="token keyword">const</span>
+                                                    myString <span class="token operator">=</span>
+                                                    <span class="token string">"123"</span>
+                                                    <span class="token punctuation">;</span>
+                                                    <span class="token keyword">const</span>
+                                                    myNum <span class="token operator">=</span>
+                                                    <span class="token function">Number</span>
+                                                    <span class="token punctuation">(</span>
+                                                    myString<span class="token punctuation">)</span>
+                                                    <span class="token punctuation">;</span>
+                                                    console<span class="token punctuation">.</span>
+                                                    <span class="token function">log</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token keyword">typeof</span>
+                                                    myNum<span class="token punctuation">)</span>
+                                                    <span class="token punctuation">;</span>
+                                                    <span class="token comment">// number</span>
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        Conversely, the 
+                                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/String">
+                                            <code>String()</code>
+                                        </a>
+                                        function converts its argument to a string. Try this:
+
+                                        <div class="code-example">
+                                            <div class="example-header">
+                                                <span class="language-name">js</span>
+                                            </div>
+                                            <pre class="brush: js notranslate" data-signature="RP3xqwfoVzm20OszUTBHcavzvu4/jZx3qOk83zTtym4=">
+                                                <code>
+                                                    <span class="token keyword">const</span>
+                                                    myNum2 <span class="token operator">=</span>
+                                                    <span class="token number">123</span>
+                                                    <span class="token punctuation">;</span>
+                                                    <span class="token keyword">const</span>
+                                                    myString2 <span class="token operator">=</span>
+                                                    <span class="token function">String</span>
+                                                    <span class="token punctuation">(</span>
+                                                    myNum2<span class="token punctuation">)</span>
+                                                    <span class="token punctuation">;</span>
+                                                    console<span class="token punctuation">.</span>
+                                                    <span class="token function">log</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token keyword">typeof</span>
+                                                    myString2<span class="token punctuation">)</span>
+                                                    <span class="token punctuation">;</span>
+                                                    <span class="token comment">// string</span>
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <p>
+                                    These constructs can be really useful in some situations. For example, if a user enters a number into a form's text field, it's a string. However, if you want to add this number to something, you'll need it to be a number, so you could pass it through <code>Number()</code>
+                                    to handle this. We did exactly this in our <a href="https://github.com/mdn/learning-area/blob/main/javascript/introduction-to-js-1/first-splash/number-guessing-game.html#L59" class="external" target="_blank">Number Guessing Game, in line 59</a>
+                                    .
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="conclusion">
+                            <h2 id="conclusion">
+                                <a href="#conclusion">Conclusion</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>So that's the very basics of strings covered in JavaScript. In the next article, we'll build on this, looking at some of the built-in methods available to strings in JavaScript and how we can use them to manipulate our strings into just the form we want.</p>
+                                <ul class="prev-next">
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/JavaScript/First_steps/Math">
+                                            <span class="button-wrap">Previous </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/JavaScript/First_steps">
+                                            <span class="button-wrap">Overview: First steps</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/JavaScript/First_steps/Useful_string_methods">
+                                            <span class="button-wrap">Next  </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
+                    </div>
+                    
                                         
                 </div>
             </main>

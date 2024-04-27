@@ -1172,38 +1172,1147 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
-                        </div>
-                    </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
+                    
+                    
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Object building practice</h1>
+                        </header>
+                        <div class="section-content">
+                            <ul class="prev-next">
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Objects/JSON">
+                                        <span class="button-wrap">Previous </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Objects">
+                                        <span class="button-wrap">Overview: Objects</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Objects/Adding_bouncing_balls_features">
+                                        <span class="button-wrap">Next  </span>
+                                    </a>
+                                </li>
                             </ul>
-                        </nav>
-                    </footer>
+                            <p>In previous articles we looked at all the essential JavaScript object theory and syntax details, giving you a solid base to start from. In this article we dive into a practical exercise, giving you some more practice in building custom JavaScript objects, with a fun and colorful result.</p>
+                            <figure class="table-container">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Prerequisites:</th>
+                                            <td>
+                                                A basic understanding of HTML and CSS,
+    familiarity with JavaScript basics (see
+    <a href="/en-US/docs/Learn/JavaScript/First_steps">First steps</a>
+                                                and
+    <a href="/en-US/docs/Learn/JavaScript/Building_blocks">Building blocks</a>
+                                                ) and OOJS basics (see
+    <a href="/en-US/docs/Learn/JavaScript/Objects/Basics">Introduction to objects</a>
+                                                ).
+  
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Objective:</th>
+                                            <td>To get some practice with using objects and object-oriented techniques
+    in a real-world context.
+  </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </figure>
+                        </div>
+                        <section aria-labelledby="lets_bounce_some_balls">
+                            <h2 id="lets_bounce_some_balls">
+                                <a href="#lets_bounce_some_balls">Let's bounce some balls</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>In this article we will write a classic "bouncing balls" demo, to show you how useful objects can be in JavaScript. Our little balls will bounce around on the screen, and change color when they touch each other. The finished example will look a little something like this:</p>
+                                <p>
+                                    <img src="/en-US/docs/Learn/JavaScript/Objects/Object_building_practice/bouncing-balls.png" alt="Screenshot of a webpage titled &quot;Bouncing balls&quot;. 23 balls of various pastel colors and sizes are visible across a black screen with long trails behind them indicating motion." width="800" height="614" loading="lazy">
+                                </p>
+                                <p>
+                                    This example will make use of the <a href="/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Drawing_graphics">Canvas API</a>
+                                    for drawing the balls to the screen, and the 
+                                    <a href="/en-US/docs/Web/API/window/requestAnimationFrame">
+                                        <code>requestAnimationFrame</code>
+                                    </a>
+                                    API for animating the whole display — you don't need to have any previous knowledge of these APIs, and we hope that by the time you've finished this article you'll be interested in exploring them more. Along the way, we'll make use of some nifty objects, and show you a couple of nice techniques like bouncing balls off walls, and checking whether they have hit each other (otherwise known as <em>collision detection</em>
+                                    ).
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="getting_started">
+                            <h2 id="getting_started">
+                                <a href="#getting_started">Getting started</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    To begin with, make local copies of our 
+                                    <a href="https://github.com/mdn/learning-area/blob/main/javascript/oojs/bouncing-balls/index.html" class="external" target="_blank">
+                                        <code>index.html</code>
+                                    </a>
+                                    , 
+                                    <a href="https://github.com/mdn/learning-area/blob/main/javascript/oojs/bouncing-balls/style.css" class="external" target="_blank">
+                                        <code>style.css</code>
+                                    </a>
+                                    , and 
+                                    <a href="https://github.com/mdn/learning-area/blob/main/javascript/oojs/bouncing-balls/main.js" class="external" target="_blank">
+                                        <code>main.js</code>
+                                    </a>
+                                    files. These contain the following, respectively:
+                                </p>
+                                <ol>
+                                    <li>
+                                        A very simple HTML document featuring an <a href="/en-US/docs/Web/HTML/Element/Heading_Elements">h1</a>
+                                        element, a 
+                                        <a href="/en-US/docs/Web/HTML/Element/canvas">
+                                            <code>&lt;canvas &gt;</code>
+                                        </a>
+                                        element to draw our balls on, and elements to apply our CSS and JavaScript to our HTML.
+                                    </li>
+                                    <li>
+                                        Some very simple styles, which mainly serve to style and position the <code>&lt;h1 &gt;</code>
+                                        , and get rid of any scrollbars or margin around the edge of the page (so that it looks nice and neat).
+                                    </li>
+                                    <li>
+                                        Some JavaScript that serves to set up the <code>&lt;canvas &gt;</code>
+                                        element and provide a general function that we're going to use.
+                                    </li>
+                                </ol>
+                                <p>The first part of the script looks like so:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="iwxsyoBIPAWhvpvx21Pgf+w26oRIromi0swu5vRw6RA=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            canvas <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">querySelector</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"canvas"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            ctx <span class="token operator">=</span>
+                                            canvas<span class="token punctuation">.</span>
+                                            <span class="token function">getContext</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"2d"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            width <span class="token operator">=</span>
+                                            <span class="token punctuation">(</span>
+                                            canvas<span class="token punctuation">.</span>
+                                            width <span class="token operator">=</span>
+                                            window<span class="token punctuation">.</span>
+                                            innerWidth<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            height <span class="token operator">=</span>
+                                            <span class="token punctuation">(</span>
+                                            canvas<span class="token punctuation">.</span>
+                                            height <span class="token operator">=</span>
+                                            window<span class="token punctuation">.</span>
+                                            innerHeight<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    This script gets a reference to the <code>&lt;canvas &gt;</code>
+                                    element, then calls the 
+                                    <a href="/en-US/docs/Web/API/HTMLCanvasElement/getContext">
+                                        <code>getContext()</code>
+                                    </a>
+                                    method on it to give us a context on which we can start to draw. The resulting constant (<code>ctx</code>
+                                    ) is the object that directly represents the drawing area of the canvas and allows us to draw 2D shapes on it.
+                                </p>
+                                <p>
+                                    Next, we set constants called <code>width</code>
+                                    and <code>height</code>
+                                    , and the width and height of the canvas element (represented by the <code>canvas.width</code>
+                                    and <code>canvas.height</code>
+                                    properties) to equal the width and height of the browser viewport (the area which the webpage appears on — this can be gotten from the 
+                                    <a href="/en-US/docs/Web/API/Window/innerWidth">
+                                        <code>Window.innerWidth</code>
+                                    </a>
+                                    and 
+                                    <a href="/en-US/docs/Web/API/Window/innerHeight">
+                                        <code>Window.innerHeight</code>
+                                    </a>
+                                    properties).
+                                </p>
+                                <p>Note that we are chaining multiple assignments together, to get the variables all set quicker — this is perfectly OK.</p>
+                                <p>Then we have two helper functions:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="hUWi8vngsB4yDw7OAmmJT5U40CGhabknL7Uioi+oVjM=">
+                                        <code>
+                                            <span class="token keyword">function</span>
+                                            <span class="token function">random</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">
+                                                min<span class="token punctuation">,</span>
+                                                max
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">return</span>
+                                            Math<span class="token punctuation">.</span>
+                                            <span class="token function">floor</span>
+                                            <span class="token punctuation">(</span>
+                                            Math<span class="token punctuation">.</span>
+                                            <span class="token function">random</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">*</span>
+                                            <span class="token punctuation">(</span>
+                                            max <span class="token operator">-</span>
+                                            min <span class="token operator">+</span>
+                                            <span class="token number">1</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">+</span>
+                                            min<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token keyword">function</span>
+                                            <span class="token function">randomRGB</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">return</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">rgb(</span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    <span class="token function">random</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token number">0</span>
+                                                    <span class="token punctuation">,</span>
+                                                    <span class="token number">255</span>
+                                                    <span class="token punctuation">)</span>
+                                                    <span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token string"></span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    <span class="token function">random</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token number">0</span>
+                                                    <span class="token punctuation">,</span>
+                                                    <span class="token number">255</span>
+                                                    <span class="token punctuation">)</span>
+                                                    <span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token string"></span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    <span class="token function">random</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token number">0</span>
+                                                    <span class="token punctuation">,</span>
+                                                    <span class="token number">255</span>
+                                                    <span class="token punctuation">)</span>
+                                                    <span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token string">)</span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    The <code>random()</code>
+                                    function takes two numbers as arguments, and returns a random number in the range between the two. The <code>randomRGB()</code>
+                                    function generates a random color represented as an 
+                                    <a href="/en-US/docs/Web/CSS/color_value/rgb">
+                                        <code>rgb()</code>
+                                    </a>
+                                    string.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="modeling_a_ball_in_our_program">
+                            <h2 id="modeling_a_ball_in_our_program">
+                                <a href="#modeling_a_ball_in_our_program">Modeling a ball in our program</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>Our program will feature lots of balls bouncing around the screen. Since these balls will all behave in the same way, it makes sense to represent them with an object. Let's start by adding the following class definition to the bottom of our code.</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="GrkYVPZendbZV7/vtLqQSw3+zSxJ3fk2jayiBhqjXng=">
+                                        <code>
+                                            <span class="token keyword">class</span>
+                                            <span class="token class-name">Ball</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token function">constructor</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">
+                                                x<span class="token punctuation">,</span>
+                                                y<span class="token punctuation">,</span>
+                                                velX<span class="token punctuation">,</span>
+                                                velY<span class="token punctuation">,</span>
+                                                color<span class="token punctuation">,</span>
+                                                size
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token punctuation">.</span>
+                                            x <span class="token operator">=</span>
+                                            x<span class="token punctuation">;</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token punctuation">.</span>
+                                            y <span class="token operator">=</span>
+                                            y<span class="token punctuation">;</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token punctuation">.</span>
+                                            velX <span class="token operator">=</span>
+                                            velX<span class="token punctuation">;</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token punctuation">.</span>
+                                            velY <span class="token operator">=</span>
+                                            velY<span class="token punctuation">;</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token punctuation">.</span>
+                                            color <span class="token operator">=</span>
+                                            color<span class="token punctuation">;</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token punctuation">.</span>
+                                            size <span class="token operator">=</span>
+                                            size<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>So far this class only contains a constructor, in which we can initialize the properties each ball needs in order to function in our program:</p>
+                                <ul>
+                                    <li>
+                                        <code>x</code>
+                                        and <code>y</code>
+                                        coordinates — the horizontal and vertical coordinates where the ball starts on the screen. This can range between 0 (top left hand corner) to the width and height of the browser viewport (bottom right-hand corner).
+                                    </li>
+                                    <li>
+                                        horizontal and vertical velocity (<code>velX</code>
+                                        and <code>velY</code>
+                                        ) — each ball is given a horizontal and vertical velocity; in real terms these values are regularly added to the <code>x</code>
+                                        /<code>y</code>
+                                        coordinate values when we animate the balls, to move them by this much on each frame.
+                                    </li>
+                                    <li>
+                                        <code>color</code>
+                                        — each ball gets a color.
+                                    </li>
+                                    <li>
+                                        <code>size</code>
+                                        — each ball gets a size — this is its radius, in pixels.
+                                    </li>
+                                </ul>
+                                <p>This handles the properties, but what about the methods? We want to get our balls to actually do something in our program.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="drawing_the_ball">
+                            <h3 id="drawing_the_ball">
+                                <a href="#drawing_the_ball">Drawing the ball</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    First add the following <code>draw()</code>
+                                    method to the <code>Ball</code>
+                                    class:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="w9cCoI4cYaqeVVqTtDeCukhCLD1uxZ0MB0Qcons6nUE=">
+                                        <code>
+                                            <span class="token function">draw</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            ctx<span class="token punctuation">.</span>
+                                            <span class="token function">beginPath</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            ctx<span class="token punctuation">.</span>
+                                            fillStyle <span class="token operator">=</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token punctuation">.</span>
+                                            color<span class="token punctuation">;</span>
+                                            ctx<span class="token punctuation">.</span>
+                                            <span class="token function">arc</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token punctuation">.</span>
+                                            x<span class="token punctuation">,</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token punctuation">.</span>
+                                            y<span class="token punctuation">,</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token punctuation">.</span>
+                                            size<span class="token punctuation">,</span>
+                                            <span class="token number">0</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token number">2</span>
+                                            <span class="token operator">*</span>
+                                            Math<span class="token punctuation">.</span>
+                                            <span class="token constant">PI</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            ctx<span class="token punctuation">.</span>
+                                            <span class="token function">fill</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    Using this function, we can tell the ball to draw itself onto the screen, by calling a series of members of the 2D canvas context we defined earlier (<code>ctx</code>
+                                    ). The context is like the paper, and now we want to command our pen to draw something on it:
+                                </p>
+                                <ul>
+                                    <li>
+                                        First, we use 
+                                        <a href="/en-US/docs/Web/API/CanvasRenderingContext2D/beginPath">
+                                            <code>beginPath()</code>
+                                        </a>
+                                        to state that we want to draw a shape on the paper.
+                                    </li>
+                                    <li>
+                                        Next, we use 
+                                        <a href="/en-US/docs/Web/API/CanvasRenderingContext2D/fillStyle">
+                                            <code>fillStyle</code>
+                                        </a>
+                                        to define what color we want the shape to be — we set it to our ball's <code>color</code>
+                                        property.
+                                    </li>
+                                    <li>
+                                        Next, we use the 
+                                        <a href="/en-US/docs/Web/API/CanvasRenderingContext2D/arc">
+                                            <code>arc()</code>
+                                        </a>
+                                        method to trace an arc shape on the paper. Its parameters are:
+
+                                        <ul>
+                                            <li>
+                                                The <code>x</code>
+                                                and <code>y</code>
+                                                position of the arc's center — we are specifying the ball's <code>x</code>
+                                                and <code>y</code>
+                                                properties.
+                                            </li>
+                                            <li>
+                                                The radius of the arc — in this case, the ball's <code>size</code>
+                                                property.
+                                            </li>
+                                            <li>
+                                                The last two parameters specify the start and end number of degrees around the circle that the arc is drawn between. Here we specify 0 degrees, and <code>2 * PI</code>
+                                                , which is the equivalent of 360 degrees in radians (annoyingly, you have to specify this in radians). That gives us a complete circle. If you had specified only <code>1 * PI</code>
+                                                , you'd get a semi-circle (180 degrees).
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Last of all, we use the 
+                                        <a href="/en-US/docs/Web/API/CanvasRenderingContext2D/fill">
+                                            <code>fill()</code>
+                                        </a>
+                                        method, which basically states "finish drawing the path we started with <code>beginPath()</code>
+                                        , and fill the area it takes up with the color we specified earlier in <code>fillStyle</code>
+                                        ."
+                                    </li>
+                                </ul>
+                                <p>You can start testing your object out already.</p>
+                                <ol>
+                                    <li>Save the code so far, and load the HTML file in a browser.</li>
+                                    <li>Open the browser's JavaScript console, and then refresh the page so that the canvas size changes to the smaller visible viewport that remains when the console opens.</li>
+                                    <li>
+                                        Type in the following to create a new ball instance:
+
+                                        <div class="code-example">
+                                            <div class="example-header">
+                                                <span class="language-name">js</span>
+                                            </div>
+                                            <pre class="brush: js notranslate" data-signature="/950EeRvWHgcMMGLb61m4zF+R6yXEDGNr2DwLF3SMxs=">
+                                                <code>
+                                                    <span class="token keyword">const</span>
+                                                    testBall <span class="token operator">=</span>
+                                                    <span class="token keyword">new</span>
+                                                    <span class="token class-name">Ball</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token number">50</span>
+                                                    <span class="token punctuation">,</span>
+                                                    <span class="token number">100</span>
+                                                    <span class="token punctuation">,</span>
+                                                    <span class="token number">4</span>
+                                                    <span class="token punctuation">,</span>
+                                                    <span class="token number">4</span>
+                                                    <span class="token punctuation">,</span>
+                                                    <span class="token string">"blue"</span>
+                                                    <span class="token punctuation">,</span>
+                                                    <span class="token number">10</span>
+                                                    <span class="token punctuation">)</span>
+                                                    <span class="token punctuation">;</span>
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        Try calling its members:
+
+                                        <div class="code-example">
+                                            <div class="example-header">
+                                                <span class="language-name">js</span>
+                                            </div>
+                                            <pre class="brush: js notranslate" data-signature="8F9/AUIzfMBvXSHu9brF4wdBJKoSRG+rQ4fHTeH6hfk=">
+                                                <code>
+                                                    testBall<span class="token punctuation">.</span>
+                                                    x<span class="token punctuation">;</span>
+                                                    testBall<span class="token punctuation">.</span>
+                                                    size<span class="token punctuation">;</span>
+                                                    testBall<span class="token punctuation">.</span>
+                                                    color<span class="token punctuation">;</span>
+                                                    testBall<span class="token punctuation">.</span>
+                                                    <span class="token function">draw</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token punctuation">)</span>
+                                                    <span class="token punctuation">;</span>
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </li>
+                                    <li>When you enter the last line, you should see the ball draw itself somewhere on the canvas.</li>
+                                </ol>
+                            </div>
+                        </section>
+                        <section aria-labelledby="updating_the_balls_data">
+                            <h3 id="updating_the_balls_data">
+                                <a href="#updating_the_balls_data">Updating the ball's data</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    We can draw the ball in position, but to actually move the ball, we need an update function of some kind. Add the following code inside the class definition for <code>Ball</code>
+                                    :
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="V95npY7/t8bNwYJrXV77LNQjmMEh38MgxoDh2YskPUM=">
+                                        <code>
+                                            <span class="token function">update</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">if</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token punctuation">.</span>
+                                            x <span class="token operator">+</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token punctuation">.</span>
+                                            size<span class="token punctuation">)</span>
+                                            <span class="token operator">&gt;=</span>
+                                            width<span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token punctuation">.</span>
+                                            velX <span class="token operator">=</span>
+                                            <span class="token operator">-</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token punctuation">.</span>
+                                            velX<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token keyword">if</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token punctuation">.</span>
+                                            x <span class="token operator">-</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token punctuation">.</span>
+                                            size<span class="token punctuation">)</span>
+                                            <span class="token operator">&lt;=</span>
+                                            <span class="token number">0</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token punctuation">.</span>
+                                            velX <span class="token operator">=</span>
+                                            <span class="token operator">-</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token punctuation">.</span>
+                                            velX<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token keyword">if</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token punctuation">.</span>
+                                            y <span class="token operator">+</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token punctuation">.</span>
+                                            size<span class="token punctuation">)</span>
+                                            <span class="token operator">&gt;=</span>
+                                            height<span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token punctuation">.</span>
+                                            velY <span class="token operator">=</span>
+                                            <span class="token operator">-</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token punctuation">.</span>
+                                            velY<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token keyword">if</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token punctuation">.</span>
+                                            y <span class="token operator">-</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token punctuation">.</span>
+                                            size<span class="token punctuation">)</span>
+                                            <span class="token operator">&lt;=</span>
+                                            <span class="token number">0</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token punctuation">.</span>
+                                            velY <span class="token operator">=</span>
+                                            <span class="token operator">-</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token punctuation">.</span>
+                                            velY<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token punctuation">.</span>
+                                            x <span class="token operator">+=</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token punctuation">.</span>
+                                            velX<span class="token punctuation">;</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token punctuation">.</span>
+                                            y <span class="token operator">+=</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token punctuation">.</span>
+                                            velY<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    The first four parts of the function check whether the ball has reached the edge of the canvas. If it has, we reverse the polarity of the relevant velocity to make the ball travel in the opposite direction. So for example, if the ball was traveling upwards (negative <code>velY</code>
+                                    ), then the vertical velocity is changed so that it starts to travel downwards instead (positive <code>velY</code>
+                                    ).
+                                </p>
+                                <p>In the four cases, we are checking to see:</p>
+                                <ul>
+                                    <li>
+                                        if the <code>x</code>
+                                        coordinate is greater than the width of the canvas (the ball is going off the right edge).
+                                    </li>
+                                    <li>
+                                        if the <code>x</code>
+                                        coordinate is smaller than 0 (the ball is going off the left edge).
+                                    </li>
+                                    <li>
+                                        if the <code>y</code>
+                                        coordinate is greater than the height of the canvas (the ball is going off the bottom edge).
+                                    </li>
+                                    <li>
+                                        if the <code>y</code>
+                                        coordinate is smaller than 0 (the ball is going off the top edge).
+                                    </li>
+                                </ul>
+                                <p>
+                                    In each case, we include the <code>size</code>
+                                    of the ball in the calculation because the <code>x</code>
+                                    /<code>y</code>
+                                    coordinates are in the center of the ball, but we want the edge of the ball to bounce off the perimeter — we don't want the ball to go halfway off the screen before it starts to bounce back.
+                                </p>
+                                <p>
+                                    The last two lines add the <code>velX</code>
+                                    value to the <code>x</code>
+                                    coordinate, and the <code>velY</code>
+                                    value to the <code>y</code>
+                                    coordinate — the ball is in effect moved each time this method is called.
+                                </p>
+                                <p>This will do for now; let's get on with some animation!</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="animating_the_ball">
+                            <h2 id="animating_the_ball">
+                                <a href="#animating_the_ball">Animating the ball</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>Now let's make this fun. We are now going to start adding balls to the canvas, and animating them.</p>
+                                <p>First, we need to create somewhere to store all our balls and then populate it. The following will do this job — add it to the bottom of your code now:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="6QoDJQ7U1TE6KNnMJTmrGfgRw94S8tokGTI0DaQxoFM=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            balls <span class="token operator">=</span>
+                                            <span class="token punctuation">[</span>
+                                            <span class="token punctuation">]</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">while</span>
+                                            <span class="token punctuation">(</span>
+                                            balls<span class="token punctuation">.</span>
+                                            length <span class="token operator">&lt;</span>
+                                            <span class="token number">25</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">const</span>
+                                            size <span class="token operator">=</span>
+                                            <span class="token function">random</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token number">10</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token number">20</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            ball <span class="token operator">=</span>
+                                            <span class="token keyword">new</span>
+                                            <span class="token class-name">Ball</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token comment">// ball position always drawn at least one ball width</span>
+                                            <span class="token comment">// away from the edge of the canvas, to avoid drawing errors</span>
+                                            <span class="token function">random</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token number">0</span>
+                                            <span class="token operator">+</span>
+                                            size<span class="token punctuation">,</span>
+                                            width <span class="token operator">-</span>
+                                            size<span class="token punctuation">)</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token function">random</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token number">0</span>
+                                            <span class="token operator">+</span>
+                                            size<span class="token punctuation">,</span>
+                                            height <span class="token operator">-</span>
+                                            size<span class="token punctuation">)</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token function">random</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token operator">-</span>
+                                            <span class="token number">7</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token number">7</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token function">random</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token operator">-</span>
+                                            <span class="token number">7</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token number">7</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token function">randomRGB</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">,</span>
+                                            size<span class="token punctuation">,</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            balls<span class="token punctuation">.</span>
+                                            <span class="token function">push</span>
+                                            <span class="token punctuation">(</span>
+                                            ball<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    The <code>while</code>
+                                    loop creates a new instance of our <code>Ball()</code>
+                                    using random values generated with our <code>random()</code>
+                                    and <code>randomRGB()</code>
+                                    functions, then <code>push()</code>
+                                    es it onto the end of our balls array, but only while the number of balls in the array is less than 25. So when we have 25 balls in the array, no more balls will be pushed. You can try varying the number in <code>balls.length &lt;25</code>
+                                    to get more or fewer balls in the array. Depending on how much processing power your computer/browser has, specifying several thousand balls might slow down the animation rather a lot!
+                                </p>
+                                <p>Next, add the following to the bottom of your code:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="cCh14fn4IS+NyhlY/b8/HdPniSrpbL6qE0s0IhjmyBw=">
+                                        <code>
+                                            <span class="token keyword">function</span>
+                                            <span class="token function">loop</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            ctx<span class="token punctuation">.</span>
+                                            fillStyle <span class="token operator">=</span>
+                                            <span class="token string">"rgb(0 0 0 / 25%)"</span>
+                                            <span class="token punctuation">;</span>
+                                            ctx<span class="token punctuation">.</span>
+                                            <span class="token function">fillRect</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token number">0</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token number">0</span>
+                                            <span class="token punctuation">,</span>
+                                            width<span class="token punctuation">,</span>
+                                            height<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">for</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token keyword">const</span>
+                                            ball <span class="token keyword">of</span>
+                                            balls<span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            ball<span class="token punctuation">.</span>
+                                            <span class="token function">draw</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            ball<span class="token punctuation">.</span>
+                                            <span class="token function">update</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token function">requestAnimationFrame</span>
+                                            <span class="token punctuation">(</span>
+                                            loop<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    All programs that animate things generally involve an animation loop, which serves to update the information in the program and then render the resulting view on each frame of the animation; this is the basis for most games and other such programs. Our <code>loop()</code>
+                                    function does the following:
+                                </p>
+                                <ul>
+                                    <li>
+                                        Sets the canvas fill color to semi-transparent black, then draws a rectangle of the color across the whole width and height of the canvas, using <code>fillRect()</code>
+                                        (the four parameters provide a start coordinate, and a width and height for the rectangle drawn). This serves to cover up the previous frame's drawing before the next one is drawn. If you don't do this, you'll just see long snakes worming their way around the canvas instead of balls moving! The color of the fill is set to semi-transparent, <code>rgb(0 0 0 / 25%)</code>
+                                        , to allow the previous few frames to shine through slightly, producing the little trails behind the balls as they move. If you changed 0.25 to 1, you won't see them at all any more. Try varying this number to see the effect it has.
+                                    </li>
+                                    <li>
+                                        Loops through all the balls in the <code>balls</code>
+                                        array, and runs each ball's <code>draw()</code>
+                                        and <code>update()</code>
+                                        function to draw each one on the screen, then do the necessary updates to position and velocity in time for the next frame.
+                                    </li>
+                                    <li>
+                                        Runs the function again using the <code>requestAnimationFrame()</code>
+                                        method — when this method is repeatedly run and passed the same function name, it runs that function a set number of times per second to create a smooth animation. This is generally done recursively — which means that the function is calling itself every time it runs, so it runs over and over again.
+                                    </li>
+                                </ul>
+                                <p>Finally, add the following line to the bottom of your code — we need to call the function once to get the animation started.</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="YI8KphO6rLUYJOo0S31cD1WE5okWpX30ydz0gq9XO60=">
+                                        <code>
+                                            <span class="token function">loop</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>That's it for the basics — try saving and refreshing to test your bouncing balls out!</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="adding_collision_detection">
+                            <h2 id="adding_collision_detection">
+                                <a href="#adding_collision_detection">Adding collision detection</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>Now for a bit of fun, let's add some collision detection to our program, so our balls know when they have hit another ball.</p>
+                                <p>
+                                    First, add the following method definition to your <code>Ball</code>
+                                    class.
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="3XLmjQoSrkuQ6FTHStwnegbgyiWbi3SDDYY1pRrODjA=">
+                                        <code>
+                                            <span class="token function">collisionDetect</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">for</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token keyword">const</span>
+                                            ball <span class="token keyword">of</span>
+                                            balls<span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">if</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token operator">!==</span>
+                                            ball<span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">const</span>
+                                            dx <span class="token operator">=</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token punctuation">.</span>
+                                            x <span class="token operator">-</span>
+                                            ball<span class="token punctuation">.</span>
+                                            x<span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            dy <span class="token operator">=</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token punctuation">.</span>
+                                            y <span class="token operator">-</span>
+                                            ball<span class="token punctuation">.</span>
+                                            y<span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            distance <span class="token operator">=</span>
+                                            Math<span class="token punctuation">.</span>
+                                            <span class="token function">sqrt</span>
+                                            <span class="token punctuation">(</span>
+                                            dx <span class="token operator">*</span>
+                                            dx <span class="token operator">+</span>
+                                            dy <span class="token operator">*</span>
+                                            dy<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">if</span>
+                                            <span class="token punctuation">(</span>
+                                            distance <span class="token operator">&lt;</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token punctuation">.</span>
+                                            size <span class="token operator">+</span>
+                                            ball<span class="token punctuation">.</span>
+                                            size<span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            ball<span class="token punctuation">.</span>
+                                            color <span class="token operator">=</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token punctuation">.</span>
+                                            color <span class="token operator">=</span>
+                                            <span class="token function">randomRGB</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>This method is a little complex, so don't worry if you don't understand exactly how it works for now. An explanation follows:</p>
+                                <ul>
+                                    <li>
+                                        For each ball, we need to check every other ball to see if it has collided with the current ball. To do this, we start another <code>for...of</code>
+                                        loop to loop through all the balls in the <code>balls[]</code>
+                                        array.
+                                    </li>
+                                    <li>
+                                        Immediately inside the for loop, we use an <code>if</code>
+                                        statement to check whether the current ball being looped through is the same ball as the one we are currently checking. We don't want to check whether a ball has collided with itself! To do this, we check whether the current ball (i.e., the ball whose collisionDetect method is being invoked) is the same as the loop ball (i.e., the ball that is being referred to by the current iteration of the for loop in the collisionDetect method). We then use <code>!</code>
+                                        to negate the check, so that the code inside the <code>if</code>
+                                        statement only runs if they are <strong>not</strong>
+                                        the same.
+                                    </li>
+                                    <li>
+                                        We then use a common algorithm to check the collision of two circles. We are basically checking whether any of the two circle's areas overlap. This is explained further in <a href="/en-US/docs/Games/Techniques/2D_collision_detection">2D collision detection</a>
+                                        .
+                                    </li>
+                                    <li>
+                                        If a collision is detected, the code inside the inner <code>if</code>
+                                        statement is run. In this case, we only set the <code>color</code>
+                                        property of both the circles to a new random color. We could have done something far more complex, like get the balls to bounce off each other realistically, but that would have been far more complex to implement. For such physics simulations, developers tend to use a games or physics libraries such as <a href="https://wellcaffeinated.net/PhysicsJS/" class="external" target="_blank">PhysicsJS</a>
+                                        , <a href="https://brm.io/matter-js/" class="external" target="_blank">matter.js</a>
+                                        , <a href="https://phaser.io/" class="external" target="_blank">Phaser</a>
+                                        , etc.
+                                    </li>
+                                </ul>
+                                <p>
+                                    You also need to call this method in each frame of the animation. Update your <code>loop()</code>
+                                    function to call <code>ball.collisionDetect()</code>
+                                    after <code>ball.update()</code>
+                                    :
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="BYw3+VkEzSIiFaBXzOlPstG4KN/5BdVoVrgqqb1eMZo=">
+                                        <code>
+                                            <span class="token keyword">function</span>
+                                            <span class="token function">loop</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            ctx<span class="token punctuation">.</span>
+                                            fillStyle <span class="token operator">=</span>
+                                            <span class="token string">"rgb(0 0 0 / 25%)"</span>
+                                            <span class="token punctuation">;</span>
+                                            ctx<span class="token punctuation">.</span>
+                                            <span class="token function">fillRect</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token number">0</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token number">0</span>
+                                            <span class="token punctuation">,</span>
+                                            width<span class="token punctuation">,</span>
+                                            height<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">for</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token keyword">const</span>
+                                            ball <span class="token keyword">of</span>
+                                            balls<span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            ball<span class="token punctuation">.</span>
+                                            <span class="token function">draw</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            ball<span class="token punctuation">.</span>
+                                            <span class="token function">update</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            ball<span class="token punctuation">.</span>
+                                            <span class="token function">collisionDetect</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token function">requestAnimationFrame</span>
+                                            <span class="token punctuation">(</span>
+                                            loop<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>Save and refresh the demo again, and you'll see your balls change color when they collide!</p>
+                                <div class="notecard note" id="sect1">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        If you have trouble getting this example to work, try comparing your JavaScript code against our <a href="https://github.com/mdn/learning-area/blob/main/javascript/oojs/bouncing-balls/main-finished.js" class="external" target="_blank">finished version</a>
+                                        (also see it <a href="https://mdn.github.io/learning-area/javascript/oojs/bouncing-balls/index-finished.html" class="external" target="_blank">running live</a>
+                                        ).
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="summary">
+                            <h2 id="summary">
+                                <a href="#summary">Summary</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>We hope you had fun writing your own real-world random bouncing balls example, using various object and object-oriented techniques from throughout the module! This should have given you some useful practice in using objects, and good real-world context.</p>
+                                <p>That's it for object articles — all that remains now is for you to test your skills in the object assessment.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="see_also">
+                            <h2 id="see_also">
+                                <a href="#see_also">See also</a>
+                            </h2>
+                            <div class="section-content">
+                                <ul>
+                                    <li>
+                                        <a href="/en-US/docs/Web/API/Canvas_API/Tutorial">Canvas tutorial</a>
+                                        — a beginner's guide to using 2D canvas.
+                                    </li>
+                                    <li>
+                                        <a href="/en-US/docs/Web/API/window/requestAnimationFrame">requestAnimationFrame()</a>
+                                    </li>
+                                    <li>
+                                        <a href="/en-US/docs/Games/Techniques/2D_collision_detection">2D collision detection</a>
+                                    </li>
+                                    <li>
+                                        <a href="/en-US/docs/Games/Techniques/3D_collision_detection">3D collision detection</a>
+                                    </li>
+                                    <li>
+                                        <a href="/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript">2D breakout game using pure JavaScript</a>
+                                        — a great beginner's tutorial showing how to build a 2D game.
+                                    </li>
+                                    <li>
+                                        <a href="/en-US/docs/Games/Tutorials/2D_breakout_game_Phaser">2D breakout game using Phaser</a>
+                                        — explains the basics of building a 2D game using a JavaScript game library.
+                                    </li>
+                                </ul>
+                                <ul class="prev-next">
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Objects/JSON">
+                                            <span class="button-wrap">Previous </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Objects">
+                                            <span class="button-wrap">Overview: Objects</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Objects/Adding_bouncing_balls_features">
+                                            <span class="button-wrap">Next  </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
+                    </div>
+                    
                                         
                 </div>
             </main>

@@ -1172,38 +1172,1643 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
-                        </div>
-                    </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
+                    
+                    
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Functions — reusable blocks of code</h1>
+                        </header>
+                        <div class="section-content">
+                            <ul class="prev-next">
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code">
+                                        <span class="button-wrap">Previous </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Building_blocks">
+                                        <span class="button-wrap">Overview: Building blocks</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Building_blocks/Build_your_own_function">
+                                        <span class="button-wrap">Next  </span>
+                                    </a>
+                                </li>
                             </ul>
-                        </nav>
-                    </footer>
+                            <p>
+                                Another essential concept in coding is <strong>functions</strong>
+                                , which allow you to store a piece of code that does a single task inside a defined block, and then call that code whenever you need it using a single short command — rather than having to type out the same code multiple times. In this article we'll explore fundamental concepts behind functions such as basic syntax, how to invoke and define them, scope, and parameters.
+                            </p>
+                            <figure class="table-container">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Prerequisites:</th>
+                                            <td>
+                                                A basic understanding of HTML, CSS, and
+    <a href="/en-US/docs/Learn/JavaScript/First_steps">JavaScript first steps</a>
+                                                .
+  
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Objective:</th>
+                                            <td>To understand the fundamental concepts behind JavaScript functions.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </figure>
+                        </div>
+                        <section aria-labelledby="where_do_i_find_functions">
+                            <h2 id="where_do_i_find_functions">
+                                <a href="#where_do_i_find_functions">Where do I find functions?</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>In JavaScript, you'll find functions everywhere. In fact, we've been using functions all the way through the course so far; we've just not been talking about them very much. Now is the time, however, for us to start talking about functions explicitly, and really exploring their syntax.</p>
+                                <p>
+                                    Pretty much anytime you make use of a JavaScript structure that features a pair of parentheses — <code>()</code>
+                                    — and you're <strong>not</strong>
+                                    using a common built-in language structure like a <a href="/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code#the_standard_for_loop">for loop</a>
+                                    , <a href="/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code#while_and_do_..._while">while or do...while loop</a>
+                                    , or <a href="/en-US/docs/Learn/JavaScript/Building_blocks/conditionals#if...else_statements">if...else statement</a>
+                                    , you are making use of a function.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="built-in_browser_functions">
+                            <h2 id="built-in_browser_functions">
+                                <a href="#built-in_browser_functions">Built-in browser functions</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>We've used functions built into the browser a lot in this course.</p>
+                                <p>Every time we manipulated a text string, for example:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="Rzq29Z6FZ6nOm6LD7tVZ2lwpVC0EIXwfcjnMrA+hWwc=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            myText <span class="token operator">=</span>
+                                            <span class="token string">"I am a string"</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            newString <span class="token operator">=</span>
+                                            myText<span class="token punctuation">.</span>
+                                            <span class="token function">replace</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"string"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token string">"sausage"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            newString<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// the replace() string function takes a source string,</span>
+                                            <span class="token comment">// and a target string and replaces the source string,</span>
+                                            <span class="token comment">// with the target string, and returns the newly formed string</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>Or every time we manipulated an array:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="XOH7p58CISpkOeNqDo+4QVM+h3nGchxwIPML76A2SAE=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            myArray <span class="token operator">=</span>
+                                            <span class="token punctuation">[</span>
+                                            <span class="token string">"I"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token string">"love"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token string">"chocolate"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token string">"frogs"</span>
+                                            <span class="token punctuation">]</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            madeAString <span class="token operator">=</span>
+                                            myArray<span class="token punctuation">.</span>
+                                            <span class="token function">join</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">" "</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            madeAString<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// the join() function takes an array, joins</span>
+                                            <span class="token comment">// all the array items together into a single</span>
+                                            <span class="token comment">// string, and returns this new string</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>Or every time we generate a random number:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="ami9HZXp84B7mMjio8r3N3h9axsRMsq8XgdJ1OIxa9k=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            myNumber <span class="token operator">=</span>
+                                            Math<span class="token punctuation">.</span>
+                                            <span class="token function">random</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// the random() function generates a random number between</span>
+                                            <span class="token comment">// 0 and up to but not including 1, and returns that number</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    We were using a <em>function</em>
+                                    !
+                                </p>
+                                <div class="notecard note" id="sect1">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        Feel free to enter these lines into your browser's JavaScript console to re-familiarize yourself with their functionality, if needed.
+                                    </p>
+                                </div>
+                                <p>
+                                    The JavaScript language has many built-in functions to allow you to do useful things without having to write all that code yourself. In fact, some of the code you are calling when you <strong>invoke</strong>
+                                    (a fancy word for run, or execute) a built-in browser function couldn't be written in JavaScript — many of these functions are calling parts of the background browser code, which is written largely in low-level system languages like C++, not web languages like JavaScript.
+                                </p>
+                                <p>
+                                    Bear in mind that some built-in browser functions are not part of the core JavaScript language — some are defined as part of browser APIs, which build on top of the default language to provide even more functionality (refer to <a href="/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript#so_what_can_it_really_do">this early section of our course</a>
+                                    for more descriptions). We'll look at using browser APIs in more detail in a later module.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="functions_versus_methods">
+                            <h2 id="functions_versus_methods">
+                                <a href="#functions_versus_methods">Functions versus methods</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    <strong>Functions</strong>
+                                    that are part of objects are called <strong>methods</strong>
+                                    . You don't need to learn about the inner workings of structured JavaScript objects yet — you can wait until our later module that will teach you all about the inner workings of objects, and how to create your own. For now, we just wanted to clear up any possible confusion about method versus function — you are likely to meet both terms as you look at the available related resources across the Web.
+                                </p>
+                                <p>
+                                    The built-in code we've made use of so far comes in both forms: <strong>functions</strong>
+                                    and <strong>methods.</strong>
+                                    You can check the full list of the built-in functions, as well as the built-in objects and their corresponding methods <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects">here</a>
+                                    .
+                                </p>
+                                <p>
+                                    You've also seen a lot of <strong>custom functions</strong>
+                                    in the course so far — functions defined in your code, not inside the browser. Anytime you saw a custom name with parentheses straight after it, you were using a custom function. In our <a href="https://mdn.github.io/learning-area/javascript/building-blocks/loops/random-canvas-circles.html" class="external" target="_blank">random-canvas-circles.html</a>
+                                    example (see also the full <a href="https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/loops/random-canvas-circles.html" class="external" target="_blank">source code</a>
+                                    ) from our <a href="/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code">loops article</a>
+                                    , we included a custom <code>draw()</code>
+                                    function that looked like this:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="a5onmb+bOmUDpcdpEBLM9nGxxzPvusb9LbyS7Az3Juw=">
+                                        <code>
+                                            <span class="token keyword">function</span>
+                                            <span class="token function">draw</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            ctx<span class="token punctuation">.</span>
+                                            <span class="token function">clearRect</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token number">0</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token number">0</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token constant">WIDTH</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token constant">HEIGHT</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">for</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token keyword">let</span>
+                                            i <span class="token operator">=</span>
+                                            <span class="token number">0</span>
+                                            <span class="token punctuation">;</span>
+                                            i <span class="token operator">&lt;</span>
+                                            <span class="token number">100</span>
+                                            <span class="token punctuation">;</span>
+                                            i<span class="token operator">++</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            ctx<span class="token punctuation">.</span>
+                                            <span class="token function">beginPath</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            ctx<span class="token punctuation">.</span>
+                                            fillStyle <span class="token operator">=</span>
+                                            <span class="token string">"rgb(255 0 0 / 50%)"</span>
+                                            <span class="token punctuation">;</span>
+                                            ctx<span class="token punctuation">.</span>
+                                            <span class="token function">arc</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token function">random</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token constant">WIDTH</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token function">random</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token constant">HEIGHT</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token function">random</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token number">50</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token number">0</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token number">2</span>
+                                            <span class="token operator">*</span>
+                                            Math<span class="token punctuation">.</span>
+                                            <span class="token constant">PI</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            ctx<span class="token punctuation">.</span>
+                                            <span class="token function">fill</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    This function draws 100 random circles inside a 
+                                    <a href="/en-US/docs/Web/HTML/Element/canvas">
+                                        <code>&lt;canvas &gt;</code>
+                                    </a>
+                                    element. Every time we want to do that, we can just invoke the function with this:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="RtlDQ6x1PCPNfqo/cqEt+MjLkSyy7CHivcqz/37hV5w=">
+                                        <code>
+                                            <span class="token function">draw</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    rather than having to write all that code out again every time we want to repeat it. Functions can contain whatever code you like — you can even call other functions from inside functions. The above function for example calls the <code>random()</code>
+                                    function three times, which is defined by the following code:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="F7D/lz/Nw1EBT/9OXeKYWRNPLEpt+eCHAI7y0uaDoh4=">
+                                        <code>
+                                            <span class="token keyword">function</span>
+                                            <span class="token function">random</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">number</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">return</span>
+                                            Math<span class="token punctuation">.</span>
+                                            <span class="token function">floor</span>
+                                            <span class="token punctuation">(</span>
+                                            Math<span class="token punctuation">.</span>
+                                            <span class="token function">random</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">*</span>
+                                            number<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    We needed this function because the browser's built-in <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random">Math.random()</a>
+                                    function only generates a random decimal number between 0 and 1. We wanted a random whole number between 0 and a specified number.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="invoking_functions">
+                            <h2 id="invoking_functions">
+                                <a href="#invoking_functions">Invoking functions</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>You are probably clear on this by now, but just in case, to actually use a function after it has been defined, you've got to run — or invoke — it. This is done by including the name of the function in the code somewhere, followed by parentheses.</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="t0L1vSAoepPwOVX6Wmuaycy6LulJZ7CMOUXHxisW/hI=">
+                                        <code>
+                                            <span class="token keyword">function</span>
+                                            <span class="token function">myFunction</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token function">alert</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"hello"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token function">myFunction</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// calls the function once</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="notecard note" id="sect2">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        This form of creating a function is also known as <em>function declaration</em>
+                                        . It is always hoisted so that you can call the function above the function definition and it will work fine.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="function_parameters">
+                            <h2 id="function_parameters">
+                                <a href="#function_parameters">Function parameters</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    Some functions require <strong>parameters</strong>
+                                    to be specified when you are invoking them — these are values that need to be included inside the function parentheses, which it needs to do its job properly.
+                                </p>
+                                <div class="notecard note" id="sect3">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        Parameters are sometimes called arguments, properties, or even attributes.
+                                    </p>
+                                </div>
+                                <p>
+                                    As an example, the browser's built-in <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random">Math.random()</a>
+                                    function doesn't require any parameters. When called, it always returns a random number between 0 and 1:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="r1uBKjuatVy+ECF1xMdbcZq4vl+d1zya1rc/8ZvWWj8=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            myNumber <span class="token operator">=</span>
+                                            Math<span class="token punctuation">.</span>
+                                            <span class="token function">random</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    The browser's built-in string <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace">replace()</a>
+                                    function however needs two parameters — the substring to find in the main string, and the substring to replace that string with:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="IiiRQqhnNv7fa66vUafzqu6tdQFUP/jtgqmuFXv1imE=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            myText <span class="token operator">=</span>
+                                            <span class="token string">"I am a string"</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            newString <span class="token operator">=</span>
+                                            myText<span class="token punctuation">.</span>
+                                            <span class="token function">replace</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"string"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token string">"sausage"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="notecard note" id="sect4">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        When you need to specify multiple parameters, they are separated by commas.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="optional_parameters">
+                            <h3 id="optional_parameters">
+                                <a href="#optional_parameters">Optional parameters</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    Sometimes parameters are optional — you don't have to specify them. If you don't, the function will generally adopt some kind of default behavior. As an example, the array <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join">join()</a>
+                                    function's parameter is optional:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="eD41A6qgTJON0HeBYGwnKKCn8OBFCidvUTntlHZS1EI=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            myArray <span class="token operator">=</span>
+                                            <span class="token punctuation">[</span>
+                                            <span class="token string">"I"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token string">"love"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token string">"chocolate"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token string">"frogs"</span>
+                                            <span class="token punctuation">]</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            madeAString <span class="token operator">=</span>
+                                            myArray<span class="token punctuation">.</span>
+                                            <span class="token function">join</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">" "</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            madeAString<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// returns 'I love chocolate frogs'</span>
+                                            <span class="token keyword">const</span>
+                                            madeAnotherString <span class="token operator">=</span>
+                                            myArray<span class="token punctuation">.</span>
+                                            <span class="token function">join</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            madeAnotherString<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// returns 'I,love,chocolate,frogs'</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>If no parameter is included to specify a joining/delimiting character, a comma is used by default.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="default_parameters">
+                            <h3 id="default_parameters">
+                                <a href="#default_parameters">Default parameters</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    If you're writing a function and want to support optional parameters, you can specify default values by adding <code>=</code>
+                                    after the name of the parameter, followed by the default value:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="4Cv0HpuCBbNuo89xmMRc3hCvxvyD9KoDdD2+d5WplSU=">
+                                        <code>
+                                            <span class="token keyword">function</span>
+                                            <span class="token function">hello</span>
+                                            <span class="token punctuation">(</span>
+                                            name <span class="token operator">=</span>
+                                            <span class="token string">"Chris"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">Hello </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    name<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token string">!</span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token function">hello</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"Ari"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// Hello Ari!</span>
+                                            <span class="token function">hello</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// Hello Chris!</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="anonymous_functions_and_arrow_functions">
+                            <h2 id="anonymous_functions_and_arrow_functions">
+                                <a href="#anonymous_functions_and_arrow_functions">Anonymous functions and arrow functions</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>So far we have just created a function like so:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="QwWzUw8XRmMfcQ6mELGA+txVHehkqJQab3Bd94ilNQM=">
+                                        <code>
+                                            <span class="token keyword">function</span>
+                                            <span class="token function">myFunction</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token function">alert</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"hello"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>But you can also create a function that doesn't have a name:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="9+op+UZBj7WrVRLr9MtLxCYZ4u7zVz0paxIi/Hb6XXs=">
+                                        <code>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token keyword">function</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token function">alert</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"hello"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    This is called an <strong>anonymous function</strong>
+                                    , because it has no name. You'll often see anonymous functions when a function expects to receive another function as a parameter. In this case, the function parameter is often passed as an anonymous function.
+                                </p>
+                                <div class="notecard note" id="sect5">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        This form of creating a function is also known as <em>function expression</em>
+                                        . Unlike function declarations, function expressions are not hoisted.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="anonymous_function_example">
+                            <h3 id="anonymous_function_example">
+                                <a href="#anonymous_function_example">Anonymous function example</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    For example, let's say you want to run some code when the user types into a text box. To do this you can call the 
+                                    <a href="/en-US/docs/Web/API/EventTarget/addEventListener" title="addEventListener()">
+                                        <code>addEventListener()</code>
+                                    </a>
+                                    function of the text box. This function expects you to pass it (at least) two parameters:
+                                </p>
+                                <ul>
+                                    <li>
+                                        the name of the event to listen for, which in this case is 
+                                        <a href="/en-US/docs/Web/API/Element/keydown_event" title="keydown">
+                                            <code>keydown</code>
+                                        </a>
+                                    </li>
+                                    <li>a function to run when the event happens.</li>
+                                </ul>
+                                <p>When the user presses a key, the browser will call the function you provided, and will pass it a parameter containing information about this event, including the particular key that the user pressed:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="PZe6Asymv3oWARl8DbWPNbCfb1eREMpnp+i7ryPpHM8=">
+                                        <code>
+                                            <span class="token keyword">function</span>
+                                            <span class="token function">logKey</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">event</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">You pressed "</span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    event<span class="token punctuation">.</span>
+                                                    key<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token string">".</span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            textBox<span class="token punctuation">.</span>
+                                            <span class="token function">addEventListener</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"keydown"</span>
+                                            <span class="token punctuation">,</span>
+                                            logKey<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    Instead of defining a separate <code>logKey()</code>
+                                    function, you can pass an anonymous function into <code>addEventListener()</code>
+                                    :
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="3ls2SDTOowatoWFN8tRlFIz0LPzI8zDl70Tz8Yj11+8=">
+                                        <code>
+                                            textBox<span class="token punctuation">.</span>
+                                            <span class="token function">addEventListener</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"keydown"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token keyword">function</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">event</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">You pressed "</span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    event<span class="token punctuation">.</span>
+                                                    key<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token string">".</span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="arrow_functions">
+                            <h3 id="arrow_functions">
+                                <a href="#arrow_functions">Arrow functions</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    If you pass an anonymous function like this, there's an alternative form you can use, called an <strong>arrow function</strong>
+                                    . Instead of <code>function(event)</code>
+                                    , you write <code>(event) =&gt;</code>
+                                    :
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="utqrByG6Mi8IIr6Fva1D7oLBdurWTaqg1f8XoXlrLf4=">
+                                        <code>
+                                            textBox<span class="token punctuation">.</span>
+                                            <span class="token function">addEventListener</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"keydown"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">event</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">=&gt;</span>
+                                            <span class="token punctuation">{</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">You pressed "</span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    event<span class="token punctuation">.</span>
+                                                    key<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token string">".</span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>If the function only takes one parameter, you can omit the parentheses around the parameter:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="bX03y1vOML4a8dMTbsT2fXM6f5JedkZFS5d3GG7lZMA=">
+                                        <code>
+                                            textBox<span class="token punctuation">.</span>
+                                            <span class="token function">addEventListener</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"keydown"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token parameter">event</span>
+                                            <span class="token operator">=&gt;</span>
+                                            <span class="token punctuation">{</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">You pressed "</span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    event<span class="token punctuation">.</span>
+                                                    key<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token string">".</span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    Finally, if your function contains only one line that's a <code>return</code>
+                                    statement, you can also omit the braces and the <code>return</code>
+                                    keyword and implicitly return the expression. In the following example, we're using the 
+                                    <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map">
+                                        <code>map()</code>
+                                    </a>
+                                    method of <code>Array</code>
+                                    to double every value in the original array:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="MYbUVvPhLrQOKNw68x99j3gGSVdRXHYbFzQ+tkjQeSQ=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            originals <span class="token operator">=</span>
+                                            <span class="token punctuation">[</span>
+                                            <span class="token number">1</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token number">2</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token number">3</span>
+                                            <span class="token punctuation">]</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            doubled <span class="token operator">=</span>
+                                            originals<span class="token punctuation">.</span>
+                                            <span class="token function">map</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">item</span>
+                                            <span class="token operator">=&gt;</span>
+                                            item <span class="token operator">*</span>
+                                            <span class="token number">2</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            doubled<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// [2, 4, 6]</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    The <code>map()</code>
+                                    method takes each item in the array in turn, passing it into the given function. It then takes the value returned by that function and adds it to a new array.
+                                </p>
+                                <p>
+                                    So in the example above, <code>item =&gt;item * 2</code>
+                                    is the arrow function equivalent of:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="TI5mOJFlwkflUKmRL1EWFvzqyiKAiCh2XbpOH1lavvQ=">
+                                        <code>
+                                            <span class="token keyword">function</span>
+                                            <span class="token function">doubleItem</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">item</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">return</span>
+                                            item <span class="token operator">*</span>
+                                            <span class="token number">2</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    You can use the same concise syntax to rewrite the <code>addEventListener</code>
+                                    example.
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="Wl24mYppuJMZFrfGJc9nLYg2Vzi3iLTcTeK/EQy0j2I=">
+                                        <code>
+                                            textBox<span class="token punctuation">.</span>
+                                            <span class="token function">addEventListener</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"keydown"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">event</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">=&gt;</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">You pressed "</span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    event<span class="token punctuation">.</span>
+                                                    key<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token string">".</span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    In this case, the value of <code>console.log()</code>
+                                    , which is <code>undefined</code>
+                                    , is implicitly returned from the callback function.
+                                </p>
+                                <p>
+                                    We recommend that you use arrow functions, as they can make your code shorter and more readable. To learn more, see the <a href="/en-US/docs/Web/JavaScript/Guide/Functions#arrow_functions">section on arrow functions in the JavaScript guide</a>
+                                    , and our <a href="/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">reference page on arrow functions</a>
+                                    .
+                                </p>
+                                <div class="notecard note" id="sect6">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        There are some subtle differences between arrow functions and normal functions. They're outside the scope of this introductory guide and are unlikely to make a difference in the cases we've discussed here. To learn more, see the <a href="/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">arrow function reference documentation</a>
+                                        .
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="arrow_function_live_sample">
+                            <h3 id="arrow_function_live_sample">
+                                <a href="#arrow_function_live_sample">Arrow function live sample</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>Here's a complete working example of the "keydown" example we discussed above:</p>
+                                <p>The HTML:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">html</span>
+                                    </div>
+                                    <pre class="brush: html notranslate" data-signature="45tCTlv/JyAshnfoV5BbvjLSUPoAHNzVbBzPmFB/U9w=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    input
+                                                </span>
+                                                <span class="token attr-name">id</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    textBox<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">type</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    text<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">/&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    div
+                                                </span>
+                                                <span class="token attr-name">id</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    output<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    div
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>The JavaScript:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="J5Pki5zu2QKOlgEONx+UELBmHnmlld13OHl/AeiedKY=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            textBox <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">querySelector</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"#textBox"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            output <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">querySelector</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"#output"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            textBox<span class="token punctuation">.</span>
+                                            <span class="token function">addEventListener</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"keydown"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">event</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">=&gt;</span>
+                                            <span class="token punctuation">{</span>
+                                            output<span class="token punctuation">.</span>
+                                            textContent <span class="token operator">=</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">You pressed "</span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    event<span class="token punctuation">.</span>
+                                                    key<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token string">".</span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="code-example">
+                                    <pre class="brush: css hidden notranslate" data-signature="SQrXTBOUqPCNvUXG6fqQSkoaGUucuZb4KmQFfyx2Vt0=">
+                                        <code>
+                                            <span class="token selector">div</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">margin</span>
+                                            <span class="token punctuation">:</span>
+                                            0.5rem 0<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>The result - try typing into the text box and see the output:</p>
+                                <div class="code-example" id="sect7">
+                                    <div class="example-header" id="sect8"></div>
+                                    <iframe class="sample-code-frame" title="Arrow function live sample sample" id="frame_arrow_function_live_sample" width="100" height="100" src="https://live.mdnplay.dev/en-US/docs/Learn/JavaScript/Building_blocks/Functions/runner.html?id=arrow_function_live_sample" loading="lazy"></iframe>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="function_scope_and_conflicts">
+                            <h2 id="function_scope_and_conflicts">
+                                <a href="#function_scope_and_conflicts">Function scope and conflicts</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    Let's talk a bit about <a href="/en-US/docs/Glossary/Scope">scope</a>
+                                    — a very important concept when dealing with functions. When you create a function, the variables and other things defined inside the function are inside their own separate <strong>scope</strong>
+                                    , meaning that they are locked away in their own separate compartments, unreachable from code outside the functions.
+                                </p>
+                                <p>
+                                    The top-level outside all your functions is called the <strong>global scope</strong>
+                                    . Values defined in the global scope are accessible from everywhere in the code.
+                                </p>
+                                <p>JavaScript is set up like this for various reasons — but mainly because of security and organization. Sometimes you don't want variables to be accessible from everywhere in the code — external scripts that you call in from elsewhere could start to mess with your code and cause problems because they happen to be using the same variable names as other parts of the code, causing conflicts. This might be done maliciously, or just by accident.</p>
+                                <p>For example, say you have an HTML file that is calling in two external JavaScript files, and both of them have a variable and a function defined that use the same name:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">html</span>
+                                    </div>
+                                    <pre class="brush: html notranslate" data-signature="bNRap6+9dRfV7WDhO/Iq0K+6N7Acp8saacNgp3en46g=">
+                                        <code>
+                                            <span class="token comment">&lt;!-- Excerpt from my HTML --&gt;</span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    script
+                                                </span>
+                                                <span class="token attr-name">src</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    first.js<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token script"></span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    script
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    script
+                                                </span>
+                                                <span class="token attr-name">src</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    second.js<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token script"></span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    script
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    script
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token script">
+                                                <span class="token language-javascript">
+                                                    <span class="token function">greeting</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token punctuation">)</span>
+                                                    <span class="token punctuation">;</span>
+                                                </span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    script
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="gcbjDGhpxsohZWzBOVb1idhNdZvxsLSv6k59o7kBN9c=">
+                                        <code>
+                                            <span class="token comment">// first.js</span>
+                                            <span class="token keyword">const</span>
+                                            name <span class="token operator">=</span>
+                                            <span class="token string">"Chris"</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">function</span>
+                                            <span class="token function">greeting</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token function">alert</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">Hello </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    name<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token string">: welcome to our company.</span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="uFqmlcI6Uv17+3N+S51C8vu0OOJatfqDEe6smV+4fc0=">
+                                        <code>
+                                            <span class="token comment">// second.js</span>
+                                            <span class="token keyword">const</span>
+                                            name <span class="token operator">=</span>
+                                            <span class="token string">"Zaptec"</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">function</span>
+                                            <span class="token function">greeting</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token function">alert</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">Our company is called </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    name<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token string">.</span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    Both functions you want to call are called <code>greeting()</code>
+                                    , but you can only ever access the <code>first.js</code>
+                                    file's <code>greeting()</code>
+                                    function (the second one is ignored). In addition, an error results when attempting (in the <code>second.js</code>
+                                    file) to assign a new value to the <code>name</code>
+                                    variable — because it was already declared with <code>const</code>
+                                    , and so can't be reassigned.
+                                </p>
+                                <div class="notecard note" id="sect9">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        You can see this example <a href="https://mdn.github.io/learning-area/javascript/building-blocks/functions/conflict.html" class="external" target="_blank">running live on GitHub</a>
+                                        (see also the <a href="https://github.com/mdn/learning-area/tree/main/javascript/building-blocks/functions" class="external" target="_blank">source code</a>
+                                        ).
+                                    </p>
+                                </div>
+                                <p>Keeping parts of your code locked away in functions avoids such problems, and is considered the best practice.</p>
+                                <p>It is a bit like a zoo. The lions, zebras, tigers, and penguins are kept in their own enclosures and only have access to the things inside their enclosures — in the same manner as the function scopes. If they were able to get into other enclosures, problems would occur. At best, different animals would feel really uncomfortable inside unfamiliar habitats — a lion or tiger would feel terrible inside the penguins' watery, icy domain. At worst, the lions and tigers might try to eat the penguins!</p>
+                                <p>
+                                    <img src="/en-US/docs/Learn/JavaScript/Building_blocks/Functions/mdn-mozilla-zoo.png" alt="Four different animals enclosed in their respective habitat in a Zoo" width="656" height="416" loading="lazy">
+                                </p>
+                                <p>The zoo keeper is like the global scope — they have the keys to access every enclosure, restock food, tend to sick animals, etc.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="active_learning_playing_with_scope">
+                            <h3 id="active_learning_playing_with_scope">
+                                <a href="#active_learning_playing_with_scope">Active learning: Playing with scope</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>Let's look at a real example to demonstrate scoping.</p>
+                                <ol>
+                                    <li>
+                                        First, make a local copy of our <a href="https://github.com/mdn/learning-area/blob/main/javascript/building-blocks/functions/function-scope.html" class="external" target="_blank">function-scope.html</a>
+                                        example. This contains two functions called <code>a()</code>
+                                        and <code>b()</code>
+                                        , and three variables — <code>x</code>
+                                        , <code>y</code>
+                                        , and <code>z</code>
+                                        — two of which are defined inside the functions, and one in the global scope. It also contains a third function called <code>output()</code>
+                                        , which takes a single parameter and outputs it in a paragraph on the page.
+                                    </li>
+                                    <li>Open the example up in a browser and in your text editor.</li>
+                                    <li>
+                                        Open the JavaScript console in your browser developer tools. In the JavaScript console, enter the following command:
+
+                                        <div class="code-example">
+                                            <div class="example-header">
+                                                <span class="language-name">js</span>
+                                            </div>
+                                            <pre class="brush: js notranslate" data-signature="8tfuOZLF2/9S5zBqoqH79hHre9eNFDZN0IAe4K1EyOw=">
+                                                <code>
+                                                    <span class="token function">output</span>
+                                                    <span class="token punctuation">(</span>
+                                                    x<span class="token punctuation">)</span>
+                                                    <span class="token punctuation">;</span>
+                                                </code>
+                                            </pre>
+                                        </div>
+                                        You should see the value of variable <code>x</code>
+                                        printed to the browser viewport.
+
+                                    </li>
+                                    <li>
+                                        Now try entering the following in your console
+
+                                        <div class="code-example">
+                                            <div class="example-header">
+                                                <span class="language-name">js</span>
+                                            </div>
+                                            <pre class="brush: js notranslate" data-signature="+8QnKeL1tXglzK1U9gTGDffmK2GAtOYR8YR/Ih5xTw4=">
+                                                <code>
+                                                    <span class="token function">output</span>
+                                                    <span class="token punctuation">(</span>
+                                                    y<span class="token punctuation">)</span>
+                                                    <span class="token punctuation">;</span>
+                                                    <span class="token function">output</span>
+                                                    <span class="token punctuation">(</span>
+                                                    z<span class="token punctuation">)</span>
+                                                    <span class="token punctuation">;</span>
+                                                </code>
+                                            </pre>
+                                        </div>
+                                        Both of these should throw an error into the console along the lines of "<a href="/en-US/docs/Web/JavaScript/Reference/Errors/Not_defined">ReferenceError: y is not defined</a>
+                                        ". Why is that? Because of function scope, <code>y</code>
+                                        and <code>z</code>
+                                        are locked inside the <code>a()</code>
+                                        and <code>b()</code>
+                                        functions, so <code>output()</code>
+                                        can't access them when called from the global scope.
+
+                                    </li>
+                                    <li>
+                                        However, what about when it's called from inside another function? Try editing <code>a()</code>
+                                        and <code>b()</code>
+                                        so they look like this:
+
+                                        <div class="code-example">
+                                            <div class="example-header">
+                                                <span class="language-name">js</span>
+                                            </div>
+                                            <pre class="brush: js notranslate" data-signature="xGelomq+U02zgnKGTsHO/B/6nqVp3ShjDwzBeKvK6Sg=">
+                                                <code>
+                                                    <span class="token keyword">function</span>
+                                                    <span class="token function">a</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token punctuation">)</span>
+                                                    <span class="token punctuation">{</span>
+                                                    <span class="token keyword">const</span>
+                                                    y <span class="token operator">=</span>
+                                                    <span class="token number">2</span>
+                                                    <span class="token punctuation">;</span>
+                                                    <span class="token function">output</span>
+                                                    <span class="token punctuation">(</span>
+                                                    y<span class="token punctuation">)</span>
+                                                    <span class="token punctuation">;</span>
+                                                    <span class="token punctuation">}</span>
+                                                    <span class="token keyword">function</span>
+                                                    <span class="token function">b</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token punctuation">)</span>
+                                                    <span class="token punctuation">{</span>
+                                                    <span class="token keyword">const</span>
+                                                    z <span class="token operator">=</span>
+                                                    <span class="token number">3</span>
+                                                    <span class="token punctuation">;</span>
+                                                    <span class="token function">output</span>
+                                                    <span class="token punctuation">(</span>
+                                                    z<span class="token punctuation">)</span>
+                                                    <span class="token punctuation">;</span>
+                                                    <span class="token punctuation">}</span>
+                                                </code>
+                                            </pre>
+                                        </div>
+                                        Save the code and reload it in your browser, then try calling the <code>a()</code>
+                                        and <code>b()</code>
+                                        functions from the JavaScript console:
+
+                                        <div class="code-example">
+                                            <div class="example-header">
+                                                <span class="language-name">js</span>
+                                            </div>
+                                            <pre class="brush: js notranslate" data-signature="oO8r7kEpdhVYAog0RECQKwy+1f25O0paYzs9BHTjO+U=">
+                                                <code>
+                                                    <span class="token function">a</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token punctuation">)</span>
+                                                    <span class="token punctuation">;</span>
+                                                    <span class="token function">b</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token punctuation">)</span>
+                                                    <span class="token punctuation">;</span>
+                                                </code>
+                                            </pre>
+                                        </div>
+                                        You should see the <code>y</code>
+                                        and <code>z</code>
+                                        values printed in the browser viewport. This works fine, as the <code>output()</code>
+                                        function is being called inside the other functions — in the same scope as the variables it is printing are defined in, in each case. <code>output()</code>
+                                        itself is available from anywhere, as it is defined in the global scope.
+
+                                    </li>
+                                    <li>
+                                        Now try updating your code like this:
+
+                                        <div class="code-example">
+                                            <div class="example-header">
+                                                <span class="language-name">js</span>
+                                            </div>
+                                            <pre class="brush: js notranslate" data-signature="aJWQjeD55vpjSZhJpkUaYO9MZJrO7iqSraHJkfJA33w=">
+                                                <code>
+                                                    <span class="token keyword">function</span>
+                                                    <span class="token function">a</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token punctuation">)</span>
+                                                    <span class="token punctuation">{</span>
+                                                    <span class="token keyword">const</span>
+                                                    y <span class="token operator">=</span>
+                                                    <span class="token number">2</span>
+                                                    <span class="token punctuation">;</span>
+                                                    <span class="token function">output</span>
+                                                    <span class="token punctuation">(</span>
+                                                    x<span class="token punctuation">)</span>
+                                                    <span class="token punctuation">;</span>
+                                                    <span class="token punctuation">}</span>
+                                                    <span class="token keyword">function</span>
+                                                    <span class="token function">b</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token punctuation">)</span>
+                                                    <span class="token punctuation">{</span>
+                                                    <span class="token keyword">const</span>
+                                                    z <span class="token operator">=</span>
+                                                    <span class="token number">3</span>
+                                                    <span class="token punctuation">;</span>
+                                                    <span class="token function">output</span>
+                                                    <span class="token punctuation">(</span>
+                                                    x<span class="token punctuation">)</span>
+                                                    <span class="token punctuation">;</span>
+                                                    <span class="token punctuation">}</span>
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        Save and reload again, and try this again in your JavaScript console:
+
+                                        <div class="code-example">
+                                            <div class="example-header">
+                                                <span class="language-name">js</span>
+                                            </div>
+                                            <pre class="brush: js notranslate" data-signature="oO8r7kEpdhVYAog0RECQKwy+1f25O0paYzs9BHTjO+U=">
+                                                <code>
+                                                    <span class="token function">a</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token punctuation">)</span>
+                                                    <span class="token punctuation">;</span>
+                                                    <span class="token function">b</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token punctuation">)</span>
+                                                    <span class="token punctuation">;</span>
+                                                </code>
+                                            </pre>
+                                        </div>
+                                        Both the <code>a()</code>
+                                        and <code>b()</code>
+                                        call should print the value of x to the browser viewport. These work fine because even though the <code>output()</code>
+                                        calls are not in the same scope as <code>x</code>
+                                        is defined in, <code>x</code>
+                                        is a global variable so is available inside all code, everywhere.
+
+                                    </li>
+                                    <li>
+                                        Finally, try updating your code like this:
+
+                                        <div class="code-example">
+                                            <div class="example-header">
+                                                <span class="language-name">js</span>
+                                            </div>
+                                            <pre class="brush: js notranslate" data-signature="H7PbGm3zeyxwuAtxOkwIbWuBQoiSKdr7jnRS5yE/PMU=">
+                                                <code>
+                                                    <span class="token keyword">function</span>
+                                                    <span class="token function">a</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token punctuation">)</span>
+                                                    <span class="token punctuation">{</span>
+                                                    <span class="token keyword">const</span>
+                                                    y <span class="token operator">=</span>
+                                                    <span class="token number">2</span>
+                                                    <span class="token punctuation">;</span>
+                                                    <span class="token function">output</span>
+                                                    <span class="token punctuation">(</span>
+                                                    z<span class="token punctuation">)</span>
+                                                    <span class="token punctuation">;</span>
+                                                    <span class="token punctuation">}</span>
+                                                    <span class="token keyword">function</span>
+                                                    <span class="token function">b</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token punctuation">)</span>
+                                                    <span class="token punctuation">{</span>
+                                                    <span class="token keyword">const</span>
+                                                    z <span class="token operator">=</span>
+                                                    <span class="token number">3</span>
+                                                    <span class="token punctuation">;</span>
+                                                    <span class="token function">output</span>
+                                                    <span class="token punctuation">(</span>
+                                                    y<span class="token punctuation">)</span>
+                                                    <span class="token punctuation">;</span>
+                                                    <span class="token punctuation">}</span>
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        Save and reload again, and try this again in your JavaScript console:
+
+                                        <div class="code-example">
+                                            <div class="example-header">
+                                                <span class="language-name">js</span>
+                                            </div>
+                                            <pre class="brush: js notranslate" data-signature="oO8r7kEpdhVYAog0RECQKwy+1f25O0paYzs9BHTjO+U=">
+                                                <code>
+                                                    <span class="token function">a</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token punctuation">)</span>
+                                                    <span class="token punctuation">;</span>
+                                                    <span class="token function">b</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token punctuation">)</span>
+                                                    <span class="token punctuation">;</span>
+                                                </code>
+                                            </pre>
+                                        </div>
+                                        This time the <code>a()</code>
+                                        and <code>b()</code>
+                                        calls will throw that annoying 
+                                        <a href="/en-US/docs/Web/JavaScript/Reference/Errors/Not_defined">
+                                            ReferenceError: <em>variable name</em>
+                                            is not defined
+                                        </a>
+                                        error into the console — this is because the <code>output()</code>
+                                        calls and the variables they are trying to print are not in the same function scopes — the variables are effectively invisible to those function calls.
+
+                                    </li>
+                                </ol>
+                                <div class="notecard note" id="sect10">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        The same scoping rules do not apply to loop (e.g. <code>for() { }</code>
+                                        ) and conditional blocks (e.g. <code>if () { }</code>
+                                        ) — they look very similar, but they are not the same thing! Take care not to get these confused.
+                                    </p>
+                                </div>
+                                <div class="notecard note" id="sect11">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        The <a href="/en-US/docs/Web/JavaScript/Reference/Errors/Not_defined">ReferenceError: "x" is not defined</a>
+                                        error is one of the most common you'll encounter. If you get this error and you are sure that you have defined the variable in question, check what scope it is in.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="test_your_skills!">
+                            <h2 id="test_your_skills!">
+                                <a href="#test_your_skills!">Test your skills!</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    You've reached the end of this article, but can you remember the most important information? You can find some further tests to verify that you've retained this information before you move on — see <a href="/en-US/docs/Learn/JavaScript/Building_blocks/Test_your_skills:_Functions">Test your skills: Functions</a>
+                                    . These tests require skills that are covered in the next two articles, so you might want to read those first before trying them.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="conclusion">
+                            <h2 id="conclusion">
+                                <a href="#conclusion">Conclusion</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>This article has explored the fundamental concepts behind functions, paving the way for the next one in which we get practical and take you through the steps to building up your own custom function.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="see_also">
+                            <h2 id="see_also">
+                                <a href="#see_also">See also</a>
+                            </h2>
+                            <div class="section-content">
+                                <ul>
+                                    <li>
+                                        <a href="/en-US/docs/Web/JavaScript/Guide/Functions">Functions detailed guide</a>
+                                        — covers some advanced features not included here.
+                                    </li>
+                                    <li>
+                                        <a href="/en-US/docs/Web/JavaScript/Reference/Functions">Functions reference</a>
+                                    </li>
+                                    <li>
+                                        <a href="/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters">Default parameters</a>
+                                        , <a href="/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">Arrow functions</a>
+                                        — advanced concept references
+                                    </li>
+                                </ul>
+                                <ul class="prev-next">
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code">
+                                            <span class="button-wrap">Previous </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Building_blocks">
+                                            <span class="button-wrap">Overview: Building blocks</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Building_blocks/Build_your_own_function">
+                                            <span class="button-wrap">Next  </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
+                    </div>
+                    
                                         
                 </div>
             </main>

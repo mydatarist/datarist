@@ -1172,38 +1172,1152 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
-                        </div>
-                    </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
+                    
+                    
+
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>How to implement a promise-based API</h1>
+                        </header>
+                        <div class="section-content">
+                            <ul class="prev-next">
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Asynchronous/Promises">
+                                        <span class="button-wrap">Previous </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Asynchronous">
+                                        <span class="button-wrap">Overview: Asynchronous</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Asynchronous/Introducing_workers">
+                                        <span class="button-wrap">Next  </span>
+                                    </a>
+                                </li>
                             </ul>
-                        </nav>
-                    </footer>
+                            <p>
+                                In the last article we discussed how to use APIs that return promises. In this article we'll look at the other side — how to <em>implement</em>
+                                APIs that return promises. This is a much less common task than using promise-based APIs, but it's still worth knowing about.
+                            </p>
+                            <figure class="table-container">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Prerequisites:</th>
+                                            <td>A reasonable understanding of JavaScript
+    fundamentals, including event handling and the basics of promises.
+  </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Objective:</th>
+                                            <td>To understand how to implement promise-based APIs.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </figure>
+                            <p>
+                                Generally, when you implement a promise-based API, you'll be wrapping an asynchronous operation, which might use events, or plain callbacks, or a message-passing model. You'll arrange for a <code>Promise</code>
+                                object to handle the success or failure of that operation properly.
+                            </p>
+                        </div>
+                        <section aria-labelledby="implementing_an_alarm_api">
+                            <h2 id="implementing_an_alarm_api">
+                                <a href="#implementing_an_alarm_api">Implementing an alarm() API</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    In this example we'll implement a promise-based alarm API, called <code>alarm()</code>
+                                    . It will take as arguments the name of the person to wake up and a delay in milliseconds to wait before waking the person up. After the delay, the function will send a "Wake up!" message, including the name of the person we need to wake up.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="wrapping_settimeout">
+                            <h3 id="wrapping_settimeout">
+                                <a href="#wrapping_settimeout">Wrapping setTimeout()</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    We'll use the 
+                                    <a href="/en-US/docs/Web/API/setTimeout">
+                                        <code>setTimeout()</code>
+                                    </a>
+                                    API to implement our <code>alarm()</code>
+                                    function. The <code>setTimeout()</code>
+                                    API takes as arguments a callback function and a delay, given in milliseconds. When <code>setTimeout()</code>
+                                    is called, it starts a timer set to the given delay, and when the time expires, it calls the given function.
+                                </p>
+                                <p>
+                                    In the example below, we call <code>setTimeout()</code>
+                                    with a callback function and a delay of 1000 milliseconds:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">html</span>
+                                    </div>
+                                    <pre class="brush: html notranslate" data-signature="YrcmueBRJbsbb7dwFFEsQizAbwH7e6EI++IVdkL50I0=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    button
+                                                </span>
+                                                <span class="token attr-name">id</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    set-alarm<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Set alarm
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    button
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    div
+                                                </span>
+                                                <span class="token attr-name">id</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    output<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    div
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="code-example">
+                                    <pre class="brush: css hidden notranslate" data-signature="SQrXTBOUqPCNvUXG6fqQSkoaGUucuZb4KmQFfyx2Vt0=">
+                                        <code>
+                                            <span class="token selector">div</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">margin</span>
+                                            <span class="token punctuation">:</span>
+                                            0.5rem 0<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="XX2q1zFp7GEp4tj+1++Ua8ZtgcJchvsOvRu3xyV4bT0=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            output <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">querySelector</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"#output"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            button <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">querySelector</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"#set-alarm"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">function</span>
+                                            <span class="token function">setAlarm</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token function">setTimeout</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">=&gt;</span>
+                                            <span class="token punctuation">{</span>
+                                            output<span class="token punctuation">.</span>
+                                            textContent <span class="token operator">=</span>
+                                            <span class="token string">"Wake up!"</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token number">1000</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            button<span class="token punctuation">.</span>
+                                            <span class="token function">addEventListener</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"click"</span>
+                                            <span class="token punctuation">,</span>
+                                            setAlarm<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="code-example" id="sect1">
+                                    <div class="example-header" id="sect2"></div>
+                                    <iframe class="sample-code-frame" title="Wrapping setTimeout() sample" id="frame_wrapping_settimeout" width="600" height="100" src="https://live.mdnplay.dev/en-US/docs/Learn/JavaScript/Asynchronous/Implementing_a_promise-based_API/runner.html?id=wrapping_settimeout" loading="lazy"></iframe>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="the_promise_constructor">
+                            <h3 id="the_promise_constructor">
+                                <a href="#the_promise_constructor">The Promise() constructor</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    Our <code>alarm()</code>
+                                    function will return a <code>Promise</code>
+                                    that is fulfilled when the timer expires. It will pass a "Wake up!" message into the <code>then()</code>
+                                    handler, and will reject the promise if the caller supplies a negative delay value.
+                                </p>
+                                <p>
+                                    The key component here is the 
+                                    <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise">
+                                        <code>Promise()</code>
+                                    </a>
+                                    constructor. The <code>Promise()</code>
+                                    constructor takes a single function as an argument. We'll call this function the <code>executor</code>
+                                    . When you create a new promise you supply the implementation of the executor.
+                                </p>
+                                <p>
+                                    This executor function itself takes two arguments, which are both also functions, and which are conventionally called <code>resolve</code>
+                                    and <code>reject</code>
+                                    . In your executor implementation, you call the underlying asynchronous function. If the asynchronous function succeeds, you call <code>resolve</code>
+                                    , and if it fails, you call <code>reject</code>
+                                    . If the executor function throws an error, <code>reject</code>
+                                    is called automatically. You can pass a single parameter of any type into <code>resolve</code>
+                                    and <code>reject</code>
+                                    .
+                                </p>
+                                <p>
+                                    So we can implement <code>alarm()</code>
+                                    like this:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="XWvA+AtSywcPKSEEGCkGcMI3ta9OWT99EXax++TXMHI=">
+                                        <code>
+                                            <span class="token keyword">function</span>
+                                            <span class="token function">alarm</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">
+                                                person<span class="token punctuation">,</span>
+                                                delay
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">return</span>
+                                            <span class="token keyword">new</span>
+                                            <span class="token class-name">Promise</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">
+                                                resolve<span class="token punctuation">,</span>
+                                                reject
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">=&gt;</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">if</span>
+                                            <span class="token punctuation">(</span>
+                                            delay <span class="token operator">&lt;</span>
+                                            <span class="token number">0</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">throw</span>
+                                            <span class="token keyword">new</span>
+                                            <span class="token class-name">Error</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"Alarm delay must not be negative"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token function">setTimeout</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">=&gt;</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token function">resolve</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">Wake up, </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    person<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token string">!</span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">,</span>
+                                            delay<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    This function creates and returns a new <code>Promise</code>
+                                    . Inside the executor for the promise, we:
+                                </p>
+                                <ul>
+                                    <li>
+                                        check that <code>delay</code>
+                                        is not negative, and throw an error if it is.
+                                    </li>
+                                    <li>
+                                        call <code>setTimeout()</code>
+                                        , passing a callback and <code>delay</code>
+                                        . The callback will be called when the timer expires, and in the callback we call <code>resolve</code>
+                                        , passing in our <code>"Wake up!"</code>
+                                        message.
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section aria-labelledby="using_the_alarm_api">
+                            <h2 id="using_the_alarm_api">
+                                <a href="#using_the_alarm_api">Using the alarm() API</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    This part should be quite familiar from the last article. We can call <code>alarm()</code>
+                                    , and on the returned promise call <code>then()</code>
+                                    and <code>catch()</code>
+                                    to set handlers for promise fulfillment and rejection.
+                                </p>
+                                <div class="code-example">
+                                    <pre class="brush: html hidden notranslate" data-signature="Jig8tP485nlArpJSpVRbuYJ/elIeH9iquZooFv363uk=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    div
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    label
+                                                </span>
+                                                <span class="token attr-name">for</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    name<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Name:
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    label
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    input
+                                                </span>
+                                                <span class="token attr-name">type</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    text<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">id</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    name<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">name</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    name<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">size</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    4<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">value</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    Matilda<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">/&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    div
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    div
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    label
+                                                </span>
+                                                <span class="token attr-name">for</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    delay<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Delay:
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    label
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    input
+                                                </span>
+                                                <span class="token attr-name">type</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    text<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">id</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    delay<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">name</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    delay<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">size</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    4<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">value</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    1000<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">/&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    div
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    button
+                                                </span>
+                                                <span class="token attr-name">id</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    set-alarm<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Set alarm
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    button
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    div
+                                                </span>
+                                                <span class="token attr-name">id</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    output<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    div
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="code-example">
+                                    <pre class="brush: css hidden notranslate" data-signature="Tw/47fVxszP0fWrXAVhGSSe3Ed8KDgNGTzVF2l9vOcc=">
+                                        <code>
+                                            <span class="token selector">button</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">display</span>
+                                            <span class="token punctuation">:</span>
+                                            block<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token selector">div,
+button</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">margin</span>
+                                            <span class="token punctuation">:</span>
+                                            0.5rem 0<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="AWUyEaNY84Qig8MIe9D7EOqrJ2pHzS4YTFdgi1vJdCI=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            name <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">querySelector</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"#name"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            delay <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">querySelector</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"#delay"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            button <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">querySelector</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"#set-alarm"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            output <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">querySelector</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"#output"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">function</span>
+                                            <span class="token function">alarm</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">
+                                                person<span class="token punctuation">,</span>
+                                                delay
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">return</span>
+                                            <span class="token keyword">new</span>
+                                            <span class="token class-name">Promise</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">
+                                                resolve<span class="token punctuation">,</span>
+                                                reject
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">=&gt;</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">if</span>
+                                            <span class="token punctuation">(</span>
+                                            delay <span class="token operator">&lt;</span>
+                                            <span class="token number">0</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">throw</span>
+                                            <span class="token keyword">new</span>
+                                            <span class="token class-name">Error</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"Alarm delay must not be negative"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token function">setTimeout</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">=&gt;</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token function">resolve</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">Wake up, </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    person<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token string">!</span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">,</span>
+                                            delay<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            button<span class="token punctuation">.</span>
+                                            <span class="token function">addEventListener</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"click"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">=&gt;</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token function">alarm</span>
+                                            <span class="token punctuation">(</span>
+                                            name<span class="token punctuation">.</span>
+                                            value<span class="token punctuation">,</span>
+                                            delay<span class="token punctuation">.</span>
+                                            value<span class="token punctuation">)</span>
+                                            <span class="token punctuation">.</span>
+                                            <span class="token function">then</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">message</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">=&gt;</span>
+                                            <span class="token punctuation">(</span>
+                                            output<span class="token punctuation">.</span>
+                                            textContent <span class="token operator">=</span>
+                                            message<span class="token punctuation">)</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">.</span>
+                                            <span class="token function">catch</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">error</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">=&gt;</span>
+                                            <span class="token punctuation">(</span>
+                                            output<span class="token punctuation">.</span>
+                                            textContent <span class="token operator">=</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">Couldn't set alarm: </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    error<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="code-example" id="sect3">
+                                    <div class="example-header" id="sect4"></div>
+                                    <iframe class="sample-code-frame" title="Using the alarm() API sample" id="frame_using_the_alarm_api" width="600" height="160" src="https://live.mdnplay.dev/en-US/docs/Learn/JavaScript/Asynchronous/Implementing_a_promise-based_API/runner.html?id=using_the_alarm_api" loading="lazy"></iframe>
+                                </div>
+                                <p>Try setting different values for "Name" and "Delay". Try setting a negative value for "Delay".</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="using_async_and_await_with_the_alarm_api">
+                            <h2 id="using_async_and_await_with_the_alarm_api">
+                                <a href="#using_async_and_await_with_the_alarm_api">Using async and await with the alarm() API</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    Since <code>alarm()</code>
+                                    returns a <code>Promise</code>
+                                    , we can do everything with it that we could do with any other promise: promise chaining, <code>Promise.all()</code>
+                                    , and <code>async</code>
+                                    / <code>await</code>
+                                    :
+                                </p>
+                                <div class="code-example">
+                                    <pre class="brush: html hidden notranslate" data-signature="Jig8tP485nlArpJSpVRbuYJ/elIeH9iquZooFv363uk=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    div
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    label
+                                                </span>
+                                                <span class="token attr-name">for</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    name<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Name:
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    label
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    input
+                                                </span>
+                                                <span class="token attr-name">type</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    text<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">id</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    name<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">name</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    name<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">size</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    4<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">value</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    Matilda<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">/&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    div
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    div
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    label
+                                                </span>
+                                                <span class="token attr-name">for</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    delay<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Delay:
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    label
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    input
+                                                </span>
+                                                <span class="token attr-name">type</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    text<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">id</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    delay<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">name</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    delay<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">size</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    4<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">value</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    1000<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">/&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    div
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    button
+                                                </span>
+                                                <span class="token attr-name">id</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    set-alarm<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Set alarm
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    button
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    div
+                                                </span>
+                                                <span class="token attr-name">id</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    output<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    div
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="code-example">
+                                    <pre class="brush: css hidden notranslate" data-signature="Tw/47fVxszP0fWrXAVhGSSe3Ed8KDgNGTzVF2l9vOcc=">
+                                        <code>
+                                            <span class="token selector">button</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">display</span>
+                                            <span class="token punctuation">:</span>
+                                            block<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token selector">div,
+button</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">margin</span>
+                                            <span class="token punctuation">:</span>
+                                            0.5rem 0<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="MbvAkr1+wDQL9nw4+bA2ba3XWF4TfxHhdeuQ43sL9RA=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            name <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">querySelector</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"#name"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            delay <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">querySelector</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"#delay"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            button <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">querySelector</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"#set-alarm"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            output <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">querySelector</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"#output"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">function</span>
+                                            <span class="token function">alarm</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">
+                                                person<span class="token punctuation">,</span>
+                                                delay
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">return</span>
+                                            <span class="token keyword">new</span>
+                                            <span class="token class-name">Promise</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">
+                                                resolve<span class="token punctuation">,</span>
+                                                reject
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">=&gt;</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">if</span>
+                                            <span class="token punctuation">(</span>
+                                            delay <span class="token operator">&lt;</span>
+                                            <span class="token number">0</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">throw</span>
+                                            <span class="token keyword">new</span>
+                                            <span class="token class-name">Error</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"Alarm delay must not be negative"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token function">setTimeout</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">=&gt;</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token function">resolve</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">Wake up, </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    person<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token string">!</span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">,</span>
+                                            delay<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            button<span class="token punctuation">.</span>
+                                            <span class="token function">addEventListener</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"click"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token keyword">async</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">=&gt;</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">try</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">const</span>
+                                            message <span class="token operator">=</span>
+                                            <span class="token keyword">await</span>
+                                            <span class="token function">alarm</span>
+                                            <span class="token punctuation">(</span>
+                                            name<span class="token punctuation">.</span>
+                                            value<span class="token punctuation">,</span>
+                                            delay<span class="token punctuation">.</span>
+                                            value<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            output<span class="token punctuation">.</span>
+                                            textContent <span class="token operator">=</span>
+                                            message<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token keyword">catch</span>
+                                            <span class="token punctuation">(</span>
+                                            error<span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            output<span class="token punctuation">.</span>
+                                            textContent <span class="token operator">=</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">Couldn't set alarm: </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    error<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="code-example" id="sect5">
+                                    <div class="example-header" id="sect6"></div>
+                                    <iframe class="sample-code-frame" title="Using async and await with the alarm() API sample" id="frame_using_async_and_await_with_the_alarm_api" width="600" height="160" src="https://live.mdnplay.dev/en-US/docs/Learn/JavaScript/Asynchronous/Implementing_a_promise-based_API/runner.html?id=using_async_and_await_with_the_alarm_api" loading="lazy"></iframe>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="see_also">
+                            <h2 id="see_also">
+                                <a href="#see_also">See also</a>
+                            </h2>
+                            <div class="section-content">
+                                <ul>
+                                    <li>
+                                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise">
+                                            <code>Promise()</code>
+                                            constructor
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/en-US/docs/Web/JavaScript/Guide/Using_promises">Using promises</a>
+                                    </li>
+                                </ul>
+                                <ul class="prev-next">
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Asynchronous/Promises">
+                                            <span class="button-wrap">Previous </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Asynchronous">
+                                            <span class="button-wrap">Overview: Asynchronous</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Asynchronous/Introducing_workers">
+                                            <span class="button-wrap">Next  </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
+                    </div>
+                    
                                         
                 </div>
             </main>

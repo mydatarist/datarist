@@ -1172,38 +1172,237 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
-                        </div>
-                    </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
+                    
+                    
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Measuring performance</h1>
+                        </header>
+                        <div class="section-content">
+                            <ul class="prev-next">
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/Performance/Perceived_performance">
+                                        <span class="button-wrap">Previous </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/Performance">
+                                        <span class="button-wrap">Overview: Performance</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/Performance/Multimedia">
+                                        <span class="button-wrap">Next  </span>
+                                    </a>
+                                </li>
                             </ul>
-                        </nav>
-                    </footer>
+                            <p>Measuring performance provides an important metric to help you assess the success of your app, site, or web service.</p>
+                            <p>For example, you can use performance metrics to determine how your app performs compared to a competitor or compare your app's performance across releases. Your metrics should be relevant to your users, site, and business goals. They should be collected, measured consistently, and analyzed in a format that non-technical stakeholders can consume and understand.</p>
+                            <p>This article introduces tools you can use to access web performance metrics, which can be used to measure and optimize your site's performance.</p>
+                            <figure class="table-container">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Prerequisites:</th>
+                                            <td>
+                                                <a href="/en-US/docs/Learn/Getting_started_with_the_web/Installing_basic_software">Basic software installed</a>
+                                                , and basic knowledge of
+    <a href="/en-US/docs/Learn/Getting_started_with_the_web">client-side web technologies</a>
+                                                .
+  
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Objective:</th>
+                                            <td>
+                                                <p>To provide information about web performance metrics that you can
+      collect through various web performance APIs and tools that you can
+      use to visualize that data.
+    </p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </figure>
+                        </div>
+                        <section aria-labelledby="performance_tools">
+                            <h2 id="performance_tools">
+                                <a href="#performance_tools">Performance tools</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>There are several different tools available to help you measure and improve performance. These can generally be classified into two categories:</p>
+                                <ul>
+                                    <li>
+                                        Tools that indicate or measure performance, such as <a href="https://pagespeed.web.dev/" class="external" target="_blank">PageSpeed Insights</a>
+                                        or the Firefox <a href="https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/index.html" class="external" target="_blank">Network Monitor</a>
+                                        and <a href="https://firefox-source-docs.mozilla.org/devtools-user/performance/index.html" class="external" target="_blank">Performance Monitor</a>
+                                        . These tools show you how fast or slow your website is loading. They also indicate areas that can be improved to optimize your web app.
+                                    </li>
+                                    <li>
+                                        <a href="/en-US/docs/Web/API/Performance_API">Performance APIs</a>
+                                        that you can use to build custom performance tools.
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section aria-labelledby="general_performance_reporting_tools">
+                            <h2 id="general_performance_reporting_tools">
+                                <a href="#general_performance_reporting_tools">General performance reporting tools</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    Tools like <a href="https://pagespeed.web.dev/" class="external" target="_blank">PageSpeed Insights</a>
+                                    can provide quick performance measurements. You can enter a URL and get a performance report in seconds. The report contains scores indicating how your website performs for mobile and desktop. This is a good start for understanding what you are doing well and what could be improved.
+                                </p>
+                                <p>At the time of writing, MDN's performance report summary looks similar to the following:</p>
+                                <p>
+                                    <img src="/en-US/docs/Learn/Performance/Measuring_performance/pagespeed-insight-mozilla-homepage.png" alt="A screenshot of PageSpeed Insights report for the Mozilla homepage." width="1944" height="1354" loading="lazy">
+                                </p>
+                                <p>
+                                    A performance report contains information about things like how long a user has to wait before <em>anything</em>
+                                    is displayed on the page, how many bytes need to be downloaded to display a page, and much more. It also lets you know if the measured values are considered good or bad.
+                                </p>
+                                <p>
+                                    <a href="https://webpagetest.org" class="external" target="_blank">webpagetest.org</a>
+                                    is another example of a tool that automatically tests your site and returns valuable metrics.
+                                </p>
+                                <p>You can try running your favorite website through these tools and see the scores.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="network_monitor_tools">
+                            <h2 id="network_monitor_tools">
+                                <a href="#network_monitor_tools">Network monitor tools</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    Modern browsers have tools available that you can use to run against loaded pages and determine how they are performing; most of them work similarly. For example, the Firefox <a href="https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/index.html" class="external" target="_blank">Network Monitor</a>
+                                    returns detailed information on all the assets downloaded from the network, along with a waterfall time graph that shows how long each one took to download.
+                                </p>
+                                <p>
+                                    <img src="/en-US/docs/Learn/Performance/Measuring_performance/network-monitor.png" alt="Firefox network monitor showing a list of assets that has loaded as well as load time per asset" width="900" height="325" loading="lazy">
+                                </p>
+                                <p>
+                                    You should also check out <a href="https://developer.chrome.com/docs/devtools/network/" class="external" target="_blank">Chrome's Network Monitor documentation</a>
+                                    .
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="performance_monitor_tools">
+                            <h2 id="performance_monitor_tools">
+                                <a href="#performance_monitor_tools">Performance monitor tools</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    You can also use browser performance tools such as the <a href="https://firefox-source-docs.mozilla.org/devtools-user/performance/index.html" class="external" target="_blank">Firefox Performance Monitor</a>
+                                    to measure the performance of a web app or site's user interface as you perform different actions. This indicates the features that might slow down your web app or site.
+                                </p>
+                                <p>
+                                    <img src="/en-US/docs/Learn/Performance/Measuring_performance/perf-monitor.png" alt="Developer tools performance panel showing the waterfall of recording #1." width="800" height="343" loading="lazy">
+                                </p>
+                                <p>
+                                    See also <a href="https://developer.chrome.com/docs/devtools/performance/" class="external" target="_blank">Chrome's Performance tool documentation</a>
+                                    .
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="performance_apis">
+                            <h2 id="performance_apis">
+                                <a href="#performance_apis">Performance APIs</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    When writing code for the Web, many <a href="/en-US/docs/Web/API">Web APIs</a>
+                                    are available to create your own performance-measuring tools.
+                                </p>
+                                <p>
+                                    You can use the <a href="/en-US/docs/Web/API/Performance_API/Navigation_timing">Navigation Timing API</a>
+                                    to measure client-side web performance, including the amount of time needed to unload the previous page, how long domain lookups take, the total time spent executing the window's load handler, and more. You can use the API for metrics related to all the navigation events in the diagram below.
+                                </p>
+                                <p>
+                                    <img src="/en-US/docs/Learn/Performance/Measuring_performance/navigationtimingapi.jpg" alt="The various handlers that the navigation timing API can handle including Navigation timing API metrics Prompt for unload redirect unload App cache DNS TCP Request Response Processing onLoad navigationStart redirectStart redirectEnd fetchStart domainLookupEnd domainLookupStart connectStart (secureConnectionStart) connectEnd requestStart responseStart responseEnd unloadStart unloadEnd domLoading domInteractive domContentLoaded domComplete loadEventStart loadEventEnd" width="959" height="612" loading="lazy">
+                                </p>
+                                <p>
+                                    The <a href="/en-US/docs/Web/API/Performance_API">Performance API</a>
+                                    , which provides access to performance-related information for the current page, includes several APIs including the <a href="/en-US/docs/Web/API/Performance_API/Navigation_timing">Navigation Timing API</a>
+                                    , the <a href="/en-US/docs/Web/API/Performance_API/User_timing">User Timing API</a>
+                                    , and the <a href="/en-US/docs/Web/API/Performance_API/Resource_timing">Resource Timing API</a>
+                                    . These interfaces allow the accurate measurement of the time it takes for JavaScript tasks to complete.
+                                </p>
+                                <p>
+                                    The <a href="/en-US/docs/Web/API/PerformanceEntry">PerformanceEntry</a>
+                                    object is part of the <em>performance timeline</em>
+                                    . A <em>performance entry</em>
+                                    can be directly created by making a performance 
+                                    <em>
+                                        <a href="/en-US/docs/Web/API/PerformanceMark" title="mark">
+                                            <code>mark</code>
+                                        </a>
+                                    </em>
+                                    or 
+                                    <em>
+                                        <a href="/en-US/docs/Web/API/PerformanceMeasure" title="measure">
+                                            <code>measure</code>
+                                        </a>
+                                    </em>
+                                    (for example by calling the 
+                                    <a href="/en-US/docs/Web/API/Performance/mark" title="mark()">
+                                        <code>mark()</code>
+                                    </a>
+                                    method) at an explicit point in an application. Performance entries are also created in indirect ways, such as loading a resource like an image.
+                                </p>
+                                <p>
+                                    The <a href="/en-US/docs/Web/API/PerformanceObserver">PerformanceObserver API</a>
+                                    can be used to observe performance measurement events and to notify you of new <a href="/en-US/docs/Web/API/PerformanceEntry">performance entries</a>
+                                    as they are recorded in the browser's performance timeline.
+                                </p>
+                                <p>
+                                    While this article does not dive into using these APIs, it is helpful to know they exist. Refer to the <a href="/en-US/docs/Web/Performance/Navigation_and_resource_timings">Navigation and timings</a>
+                                    article for further examples of using performance Web APIs.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="conclusion">
+                            <h2 id="conclusion">
+                                <a href="#conclusion">Conclusion</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>This article briefly overviews some tools that can help you measure performance on a web app or site. In the following article, we'll see how you can optimize images on your site to improve its performance.</p>
+                                <ul class="prev-next">
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/Performance/Perceived_performance">
+                                            <span class="button-wrap">Previous </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/Performance">
+                                            <span class="button-wrap">Overview: Performance</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/Performance/Multimedia">
+                                            <span class="button-wrap">Next  </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
+                    </div>
+                    
                                         
                 </div>
             </main>

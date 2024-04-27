@@ -1172,38 +1172,280 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
-                        </div>
-                    </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
+                   
+                    
+
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Sequencing animations</h1>
+                        </header>
+                        <div class="section-content">
+                            <ul class="prev-next">
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Asynchronous/Introducing_workers">
+                                        <span class="button-wrap">Previous </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Asynchronous">
+                                        <span class="button-wrap">Overview: Asynchronous</span>
+                                    </a>
+                                </li>
                             </ul>
-                        </nav>
-                    </footer>
+                            <p>
+                                In this assessment you'll update a page to play a series of animations in a sequence. To do this you'll use some of the techniques we learned in the <a href="/en-US/docs/Learn/JavaScript/Asynchronous/Promises">How to use Promises</a>
+                                article.
+                            </p>
+                            <figure class="table-container">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Prerequisites:</th>
+                                            <td>A reasonable understanding of JavaScript
+    fundamentals, how to use promise-based APIs.
+  </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Objective:</th>
+                                            <td>To test understanding of how to use promise-based APIs.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </figure>
+                        </div>
+                        <section aria-labelledby="starting_point">
+                            <h2 id="starting_point">
+                                <a href="#starting_point">Starting point</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    Make a local copy of the files at <a href="https://github.com/mdn/learning-area/tree/main/javascript/asynchronous/sequencing-animations/start" class="external" target="_blank">https://github.com/mdn/learning-area/tree/main/javascript/asynchronous/sequencing-animations/start</a>
+                                    . It contains four files:
+                                </p>
+                                <ul>
+                                    <li>alice.svg</li>
+                                    <li>index.html</li>
+                                    <li>main.js</li>
+                                    <li>style.css</li>
+                                </ul>
+                                <p>The only file you'll need to edit is "main.js".</p>
+                                <p>If you open "index.html" in a browser you'll see three images arranged diagonally:</p>
+                                <p>
+                                    <img src="/en-US/docs/Learn/JavaScript/Asynchronous/Sequencing_animations/sequencing-animations.png" alt="Screenshot of sequencing-animations assessment page" width="434" height="434" loading="lazy">
+                                </p>
+                                <p>
+                                    The images are taken from our guide to <a href="/en-US/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API">Using the Web Animations API</a>
+                                    .
+                                </p>
+                                <div class="notecard note" id="sect1">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        If you get stuck, you can reach out to us in one of our <a href="/en-US/docs/MDN/Community/Communication_channels">communication channels</a>
+                                        .
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="project_brief">
+                            <h2 id="project_brief">
+                                <a href="#project_brief">Project brief</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>We want to update this page so we apply an animation to all three images, one after the other. So when the first has finished we animate the second, and when the second has finished we animate the third.</p>
+                                <p>The animation is already defined in "main.js": it just rotates the image and shrinks it until it disappears.</p>
+                                <p>
+                                    To give you more of an idea of how we want the page to work, <a href="https://mdn.github.io/learning-area/javascript/asynchronous/sequencing-animations/finished/" class="external" target="_blank">have a look at the finished example</a>
+                                    . Note that the animations only run once: to see them run again, reload the page.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="steps_to_complete">
+                            <h2 id="steps_to_complete">
+                                <a href="#steps_to_complete">Steps to complete</a>
+                            </h2>
+                            <div class="section-content"></div>
+                        </section>
+                        <section aria-labelledby="animating_the_first_image">
+                            <h3 id="animating_the_first_image">
+                                <a href="#animating_the_first_image">Animating the first image</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    We're using the <a href="/en-US/docs/Web/API/Web_Animations_API">Web Animations API</a>
+                                    to animate the images, specifically the 
+                                    <a href="/en-US/docs/Web/API/Element/animate" title="element.animate()">
+                                        <code>element.animate()</code>
+                                    </a>
+                                    method.
+                                </p>
+                                <p>
+                                    Update "main.js" to add a call to <code>alice1.animate()</code>
+                                    , like this:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="DHMP4NTm3MiqiwP687GDM89OOVV/5UJ6atn0B0EP8Vg=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            aliceTumbling <span class="token operator">=</span>
+                                            <span class="token punctuation">[</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token literal-property property">transform</span>
+                                            <span class="token operator">:</span>
+                                            <span class="token string">"rotate(0) scale(1)"</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token literal-property property">transform</span>
+                                            <span class="token operator">:</span>
+                                            <span class="token string">"rotate(360deg) scale(0)"</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token punctuation">]</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            aliceTiming <span class="token operator">=</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token literal-property property">duration</span>
+                                            <span class="token operator">:</span>
+                                            <span class="token number">2000</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token literal-property property">iterations</span>
+                                            <span class="token operator">:</span>
+                                            <span class="token number">1</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token literal-property property">fill</span>
+                                            <span class="token operator">:</span>
+                                            <span class="token string">"forwards"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            alice1 <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">querySelector</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"#alice1"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            alice2 <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">querySelector</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"#alice2"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            alice3 <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">querySelector</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"#alice3"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            alice1<span class="token punctuation">.</span>
+                                            <span class="token function">animate</span>
+                                            <span class="token punctuation">(</span>
+                                            aliceTumbling<span class="token punctuation">,</span>
+                                            aliceTiming<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>Reload the page, and you should see the first image rotate and shrink.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="animating_all_the_images">
+                            <h3 id="animating_all_the_images">
+                                <a href="#animating_all_the_images">Animating all the images</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    Next, we want to animate <code>alice2</code>
+                                    when <code>alice1</code>
+                                    has finished, and <code>alice3</code>
+                                    when <code>alice2</code>
+                                    has finished.
+                                </p>
+                                <p>
+                                    The <code>animate()</code>
+                                    method returns an 
+                                    <a href="/en-US/docs/Web/API/Animation">
+                                        <code>Animation</code>
+                                    </a>
+                                    object. This object has a <code>finished</code>
+                                    property, which is a <code>Promise</code>
+                                    that is fulfilled when the animation has finished playing. So we can use this promise to know when to start the next animation.
+                                </p>
+                                <p>We'd like you to try a few different ways to implement this, to reinforce different ways of using promises.</p>
+                                <ol>
+                                    <li>
+                                        First, implement something that works, but has the promise version of the "callback hell" problem we saw in our <a href="/en-US/docs/Learn/JavaScript/Asynchronous/Introducing#callbacks">discussion of using callbacks</a>
+                                        .
+                                    </li>
+                                    <li>
+                                        Next, implement it as a <a href="/en-US/docs/Learn/JavaScript/Asynchronous/Promises#chaining_promises">promise chain</a>
+                                        . Note that there are a few different ways you can write this, because of the different forms you can use for an <a href="/en-US/docs/Learn/JavaScript/Building_blocks/Functions#arrow_functions">arrow function</a>
+                                        . Try some different forms. Which is the most concise? Which do you find the most readable?
+                                    </li>
+                                    <li>
+                                        Finally, implement it using 
+                                        <a href="/en-US/docs/Learn/JavaScript/Asynchronous/Promises#async_and_await">
+                                            <code>async</code>
+                                            and <code>await</code>
+                                        </a>
+                                        .
+                                    </li>
+                                </ol>
+                                <p>
+                                    Remember that <code>element.animate()</code>
+                                    does <em>not</em>
+                                    return a <code>Promise</code>
+                                    : it returns an <code>Animation</code>
+                                    object with a <code>finished</code>
+                                    property that is a <code>Promise</code>
+                                    .
+                                </p>
+                                <ul class="prev-next">
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Asynchronous/Introducing_workers">
+                                            <span class="button-wrap">Previous </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Asynchronous">
+                                            <span class="button-wrap">Overview: Asynchronous</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
+                    </div>
+                    
                                         
                 </div>
             </main>

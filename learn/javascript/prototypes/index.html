@@ -1172,38 +1172,716 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
-                        </div>
-                    </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
+                    
+                    
+
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Object prototypes</h1>
+                        </header>
+                        <div class="section-content">
+                            <ul class="prev-next">
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Objects/Basics">
+                                        <span class="button-wrap">Previous </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Objects">
+                                        <span class="button-wrap">Overview: Objects</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Objects/Object-oriented_programming">
+                                        <span class="button-wrap">Next  </span>
+                                    </a>
+                                </li>
                             </ul>
-                        </nav>
-                    </footer>
+                            <p>Prototypes are the mechanism by which JavaScript objects inherit features from one another. In this article, we explain what a prototype is, how prototype chains work, and how a prototype for an object can be set.</p>
+                            <figure class="table-container">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Prerequisites:</th>
+                                            <td>
+                                                Understanding JavaScript functions, familiarity with JavaScript basics
+    (see
+    <a href="/en-US/docs/Learn/JavaScript/First_steps">First steps</a>
+                                                and
+    <a href="/en-US/docs/Learn/JavaScript/Building_blocks">Building blocks</a>
+                                                ), and OOJS basics (see
+    <a href="/en-US/docs/Learn/JavaScript/Objects/Basics">Introduction to objects</a>
+                                                ).
+  
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Objective:</th>
+                                            <td>To understand JavaScript object prototypes, how prototype chains work,
+    and how to set the prototype of an object.
+  </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </figure>
+                        </div>
+                        <section aria-labelledby="the_prototype_chain">
+                            <h2 id="the_prototype_chain">
+                                <a href="#the_prototype_chain">The prototype chain</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>In the browser's console, try creating an object literal:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="qeI5dkurYAgmG82McjOIV7q/Fr2XM5u1nLG4bm57p/s=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            myObject <span class="token operator">=</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token literal-property property">city</span>
+                                            <span class="token operator">:</span>
+                                            <span class="token string">"Madrid"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token function">greet</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">Greetings from </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    <span class="token keyword">this</span>
+                                                    <span class="token punctuation">.</span>
+                                                    city<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">;</span>
+                                            myObject<span class="token punctuation">.</span>
+                                            <span class="token function">greet</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// Greetings from Madrid</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    This is an object with one data property, <code>city</code>
+                                    , and one method, <code>greet()</code>
+                                    . If you type the object's name <em>followed by a period</em>
+                                    into the console, like <code>myObject.</code>
+                                    , then the console will pop up a list of all the properties available to this object. You'll see that as well as <code>city</code>
+                                    and <code>greet</code>
+                                    , there are lots of other properties!
+                                </p>
+                                <pre class="brush: plain notranslate">__defineGetter__
+__defineSetter__
+__lookupGetter__
+__lookupSetter__
+__proto__
+city
+constructor
+greet
+hasOwnProperty
+isPrototypeOf
+propertyIsEnumerable
+toLocaleString
+toString
+valueOf
+</pre>
+                                <p>Try accessing one of them:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="RAt1QWw1EihwzFjxJtQj3UtGpiAEUUhqlZbOiIXIveE=">
+                                        <code>
+                                            myObject<span class="token punctuation">.</span>
+                                            <span class="token function">toString</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// "[object Object]"</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    It works (even if it's not obvious what <code>toString()</code>
+                                    does).
+                                </p>
+                                <p>What are these extra properties, and where do they come from?</p>
+                                <p>
+                                    Every object in JavaScript has a built-in property, which is called its <strong>prototype</strong>
+                                    . The prototype is itself an object, so the prototype will have its own prototype, making what's called a <strong>prototype chain</strong>
+                                    . The chain ends when we reach a prototype that has <code>null</code>
+                                    for its own prototype.
+                                </p>
+                                <div class="notecard note" id="sect1">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        The property of an object that points to its prototype is <strong>not</strong>
+                                        called <code>prototype</code>
+                                        . Its name is not standard, but in practice all browsers use 
+                                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/proto">
+                                            <code>__proto__</code>
+                                        </a>
+                                        . The standard way to access an object's prototype is the 
+                                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf">
+                                            <code>Object.getPrototypeOf()</code>
+                                        </a>
+                                        method.
+                                    </p>
+                                </div>
+                                <p>
+                                    When you try to access a property of an object: if the property can't be found in the object itself, the prototype is searched for the property. If the property still can't be found, then the prototype's prototype is searched, and so on until either the property is found, or the end of the chain is reached, in which case <code>undefined</code>
+                                    is returned.
+                                </p>
+                                <p>
+                                    So when we call <code>myObject.toString()</code>
+                                    , the browser:
+                                </p>
+                                <ul>
+                                    <li>
+                                        looks for <code>toString</code>
+                                        in <code>myObject</code>
+                                    </li>
+                                    <li>
+                                        can't find it there, so looks in the prototype object of <code>myObject</code>
+                                        for <code>toString</code>
+                                    </li>
+                                    <li>finds it there, and calls it.</li>
+                                </ul>
+                                <p>
+                                    What is the prototype for <code>myObject</code>
+                                    ? To find out, we can use the function <code>Object.getPrototypeOf()</code>
+                                    :
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="UZZN0B8mubW8zAAAT00svzibm0ABEX6SuZHPx/hfI2o=">
+                                        <code>
+                                            Object<span class="token punctuation">.</span>
+                                            <span class="token function">getPrototypeOf</span>
+                                            <span class="token punctuation">(</span>
+                                            myObject<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// Object { }</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    This is an object called <code>Object.prototype</code>
+                                    , and it is the most basic prototype, that all objects have by default. The prototype of <code>Object.prototype</code>
+                                    is <code>null</code>
+                                    , so it's at the end of the prototype chain:
+                                </p>
+                                <p>
+                                    <img src="/en-US/docs/Learn/JavaScript/Objects/Object_prototypes/myobject-prototype-chain.svg" alt="Prototype chain for myObject" width="792" height="192" loading="lazy">
+                                </p>
+                                <p>
+                                    The prototype of an object is not always <code>Object.prototype</code>
+                                    . Try this:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="Gf9vN+wSE8aZA9nI53JuL0r9gFUNz3ctgjktj5haB2o=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            myDate <span class="token operator">=</span>
+                                            <span class="token keyword">new</span>
+                                            <span class="token class-name">Date</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">let</span>
+                                            object <span class="token operator">=</span>
+                                            myDate<span class="token punctuation">;</span>
+                                            <span class="token keyword">do</span>
+                                            <span class="token punctuation">{</span>
+                                            object <span class="token operator">=</span>
+                                            Object<span class="token punctuation">.</span>
+                                            <span class="token function">getPrototypeOf</span>
+                                            <span class="token punctuation">(</span>
+                                            object<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            object<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token keyword">while</span>
+                                            <span class="token punctuation">(</span>
+                                            object<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// Date.prototype</span>
+                                            <span class="token comment">// Object { }</span>
+                                            <span class="token comment">// null</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    This code creates a <code>Date</code>
+                                    object, then walks up the prototype chain, logging the prototypes. It shows us that the prototype of <code>myDate</code>
+                                    is a <code>Date.prototype</code>
+                                    object, and the prototype of <em>that</em>
+                                    is <code>Object.prototype</code>
+                                    .
+                                </p>
+                                <p>
+                                    <img src="/en-US/docs/Learn/JavaScript/Objects/Object_prototypes/mydate-prototype-chain.svg" alt="Prototype chain for myDate" width="1087" height="192" loading="lazy">
+                                </p>
+                                <p>
+                                    In fact, when you call familiar methods, like <code>myDate2.getMonth()</code>
+                                    ,
+you are calling a method that's defined on <code>Date.prototype</code>
+                                    .
+
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="shadowing_properties">
+                            <h2 id="shadowing_properties">
+                                <a href="#shadowing_properties">Shadowing properties</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>What happens if you define a property in an object, when a property with the same name is defined in the object's prototype? Let's see:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="+HZlgIs1yQTszPUot9IblgYzLEtHt0bRGPVt+v5pPAU=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            myDate <span class="token operator">=</span>
+                                            <span class="token keyword">new</span>
+                                            <span class="token class-name">Date</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token number">1995</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token number">11</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token number">17</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            myDate<span class="token punctuation">.</span>
+                                            <span class="token function">getYear</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// 95</span>
+                                            myDate<span class="token punctuation">.</span>
+                                            <span class="token function-variable function">getYear</span>
+                                            <span class="token operator">=</span>
+                                            <span class="token keyword">function</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"something else!"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">;</span>
+                                            myDate<span class="token punctuation">.</span>
+                                            <span class="token function">getYear</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// 'something else!'</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    This should be predictable, given the description of the prototype chain. When we call <code>getYear()</code>
+                                    the browser first looks in <code>myDate</code>
+                                    for a property with that name, and only checks the prototype if <code>myDate</code>
+                                    does not define it. So when we add <code>getYear()</code>
+                                    to <code>myDate</code>
+                                    , then the version in <code>myDate</code>
+                                    is called.
+                                </p>
+                                <p>This is called "shadowing" the property.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="setting_a_prototype">
+                            <h2 id="setting_a_prototype">
+                                <a href="#setting_a_prototype">Setting a prototype</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    There are various ways of setting an object's prototype in JavaScript, and here we'll describe two: <code>Object.create()</code>
+                                    and constructors.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="using_object.create">
+                            <h3 id="using_object.create">
+                                <a href="#using_object.create">Using Object.create</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    The <code>Object.create()</code>
+                                    method creates a new object and allows you to specify an object that will be used as the new object's prototype.
+                                </p>
+                                <p>Here's an example:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="lQtZ9nRntUpXdEtxvGWRa45NlCPEGpY8hSJym5Tl96E=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            personPrototype <span class="token operator">=</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token function">greet</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"hello!"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            carl <span class="token operator">=</span>
+                                            Object<span class="token punctuation">.</span>
+                                            <span class="token function">create</span>
+                                            <span class="token punctuation">(</span>
+                                            personPrototype<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            carl<span class="token punctuation">.</span>
+                                            <span class="token function">greet</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// hello!</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    Here we create an object <code>personPrototype</code>
+                                    , which has a <code>greet()</code>
+                                    method. We then use <code>Object.create()</code>
+                                    to create a new object with <code>personPrototype</code>
+                                    as its prototype. Now we can call <code>greet()</code>
+                                    on the new object, and the prototype provides its implementation.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="using_a_constructor">
+                            <h3 id="using_a_constructor">
+                                <a href="#using_a_constructor">Using a constructor</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    In JavaScript, all functions have a property named <code>prototype</code>
+                                    . When you call a function as a constructor, this property is set as the prototype of the newly constructed object (by convention, in the property named <code>__proto__</code>
+                                    ).
+                                </p>
+                                <p>
+                                    So if we set the <code>prototype</code>
+                                    of a constructor, we can ensure that all objects created with that constructor are given that prototype:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="cTNqhFeF3PUjYmue2seEIOYtR2uiiHn8TPKGRk7Lrok=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            personPrototype <span class="token operator">=</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token function">greet</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">hello, my name is </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    <span class="token keyword">this</span>
+                                                    <span class="token punctuation">.</span>
+                                                    name<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token string">!</span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">function</span>
+                                            <span class="token function">Person</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">name</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token punctuation">.</span>
+                                            name <span class="token operator">=</span>
+                                            name<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            Object<span class="token punctuation">.</span>
+                                            <span class="token function">assign</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token class-name">Person</span>
+                                            <span class="token punctuation">.</span>
+                                            prototype<span class="token punctuation">,</span>
+                                            personPrototype<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// or</span>
+                                            <span class="token comment">// Person.prototype.greet = personPrototype.greet;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>Here we create:</p>
+                                <ul>
+                                    <li>
+                                        an object <code>personPrototype</code>
+                                        , which has a <code>greet()</code>
+                                        method
+                                    </li>
+                                    <li>
+                                        a <code>Person()</code>
+                                        constructor function which initializes the name of the person to create.
+                                    </li>
+                                </ul>
+                                <p>
+                                    We then put the methods defined in <code>personPrototype</code>
+                                    onto the <code>Person</code>
+                                    function's <code>prototype</code>
+                                    property using <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign">Object.assign</a>
+                                    .
+                                </p>
+                                <p>
+                                    After this code, objects created using <code>Person()</code>
+                                    will get <code>Person.prototype</code>
+                                    as their prototype, which automatically contains the <code>greet</code>
+                                    method.
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="55Jl2wVfaJC2ENgdVUsDmigrzcVEn8fxzjc+cjtsWhk=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            reuben <span class="token operator">=</span>
+                                            <span class="token keyword">new</span>
+                                            <span class="token class-name">Person</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"Reuben"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            reuben<span class="token punctuation">.</span>
+                                            <span class="token function">greet</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// hello, my name is Reuben!</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    This also explains why we said earlier that the prototype of <code>myDate</code>
+                                    is called <code>Date.prototype</code>
+                                    : it's the <code>prototype</code>
+                                    property of the <code>Date</code>
+                                    constructor.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="own_properties">
+                            <h3 id="own_properties">
+                                <a href="#own_properties">Own properties</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    The objects we create using the <code>Person</code>
+                                    constructor above have two properties:
+                                </p>
+                                <ul>
+                                    <li>
+                                        a <code>name</code>
+                                        property, which is set in the constructor, so it appears directly on <code>Person</code>
+                                        objects
+                                    </li>
+                                    <li>
+                                        a <code>greet()</code>
+                                        method, which is set in the prototype.
+                                    </li>
+                                </ul>
+                                <p>It's common to see this pattern, in which methods are defined on the prototype, but data properties are defined in the constructor. That's because methods are usually the same for every object we create, while we often want each object to have its own value for its data properties (just as here where every person has a different name).</p>
+                                <p>
+                                    Properties that are defined directly in the object, like <code>name</code>
+                                    here, are called <strong>own properties</strong>
+                                    , and you can check whether a property is an own property using the static 
+                                    <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwn">
+                                        <code>Object.hasOwn()</code>
+                                    </a>
+                                    method:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="El3FAuVrkbg8WKQWqWCYb/+T5jQEsV+RgmgQyGYlztI=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            irma <span class="token operator">=</span>
+                                            <span class="token keyword">new</span>
+                                            <span class="token class-name">Person</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"Irma"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            Object<span class="token punctuation">.</span>
+                                            <span class="token function">hasOwn</span>
+                                            <span class="token punctuation">(</span>
+                                            irma<span class="token punctuation">,</span>
+                                            <span class="token string">"name"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// true</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            Object<span class="token punctuation">.</span>
+                                            <span class="token function">hasOwn</span>
+                                            <span class="token punctuation">(</span>
+                                            irma<span class="token punctuation">,</span>
+                                            <span class="token string">"greet"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// false</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="notecard note" id="sect2">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        You can also use the non-static 
+                                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty">
+                                            <code>Object.hasOwnProperty()</code>
+                                        </a>
+                                        method here, but we recommend that you use <code>Object.hasOwn()</code>
+                                        if you can.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="prototypes_and_inheritance">
+                            <h2 id="prototypes_and_inheritance">
+                                <a href="#prototypes_and_inheritance">Prototypes and inheritance</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>Prototypes are a powerful and very flexible feature of JavaScript, making it possible to reuse code and combine objects.</p>
+                                <p>
+                                    In particular they support a version of <strong>inheritance</strong>
+                                    . Inheritance is a feature of object-oriented programming languages that lets programmers express the idea that some objects in a system are more specialized versions of other objects.
+                                </p>
+                                <p>
+                                    For example, if we're modeling a school, we might have <em>professors</em>
+                                    and <em>students</em>
+                                    : they are both <em>people</em>
+                                    , so have some features in common (for example, they both have names), but each might add extra features (for example, professors have a subject that they teach), or might implement the same feature in different ways. In an OOP system we might say that professors and students both <strong>inherit from</strong>
+                                    people.
+                                </p>
+                                <p>
+                                    You can see how in JavaScript, if <code>Professor</code>
+                                    and <code>Student</code>
+                                    objects can have <code>Person</code>
+                                    prototypes, then they can inherit the common properties, while adding and redefining those properties which need to differ.
+                                </p>
+                                <p>In the next article we'll discuss inheritance along with the other main features of object-oriented programming languages, and see how JavaScript supports them.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="summary">
+                            <h2 id="summary">
+                                <a href="#summary">Summary</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>This article has covered JavaScript object prototypes, including how prototype object chains allow objects to inherit features from one another, the prototype property and how it can be used to add methods to constructors, and other related topics.</p>
+                                <p>In the next article we'll look at the concepts underlying object-oriented programming.</p>
+                                <ul class="prev-next">
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Objects/Basics">
+                                            <span class="button-wrap">Previous </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Objects">
+                                            <span class="button-wrap">Overview: Objects</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Objects/Object-oriented_programming">
+                                            <span class="button-wrap">Next  </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
+                    </div>
+                    
                                         
                 </div>
             </main>

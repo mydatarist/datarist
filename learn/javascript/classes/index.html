@@ -1172,38 +1172,702 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
-                        </div>
-                    </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
+                    
+                    
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Classes in JavaScript</h1>
+                        </header>
+                        <div class="section-content">
+                            <ul class="prev-next">
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Objects/Object-oriented_programming">
+                                        <span class="button-wrap">Previous </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Objects">
+                                        <span class="button-wrap">Overview: Objects</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Objects/JSON">
+                                        <span class="button-wrap">Next  </span>
+                                    </a>
+                                </li>
                             </ul>
-                        </nav>
-                    </footer>
+                            <p>
+                                In <a href="/en-US/docs/Learn/JavaScript/Objects/Object-oriented_programming">the last article</a>
+                                , we introduced some basic concepts of object-oriented programming (OOP), and discussed an example where we used OOP principles to model professors and students in a school.
+                            </p>
+                            <p>
+                                We also talked about how it's possible to use <a href="/en-US/docs/Learn/JavaScript/Objects/Object_prototypes">prototypes</a>
+                                and <a href="/en-US/docs/Learn/JavaScript/Objects/Basics#introducing_constructors">constructors</a>
+                                to implement a model like this, and that JavaScript also provides features that map more closely to classical OOP concepts.
+                            </p>
+                            <p>In this article, we'll go through these features. It's worth keeping in mind that the features described here are not a new way of combining objects: under the hood, they still use prototypes. They're just a way to make it easier to set up a prototype chain.</p>
+                            <figure class="table-container">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Prerequisites:</th>
+                                            <td>
+                                                A basic understanding of HTML and CSS,
+    familiarity with JavaScript basics (see
+    <a href="/en-US/docs/Learn/JavaScript/First_steps">First steps</a>
+                                                and
+    <a href="/en-US/docs/Learn/JavaScript/Building_blocks">Building blocks</a>
+                                                ) and OOJS basics (see
+    <a href="/en-US/docs/Learn/JavaScript/Objects/Basics">Introduction to objects</a>
+                                                , <a href="/en-US/docs/Learn/JavaScript/Objects/Object_prototypes">Object prototypes</a>
+                                                , and <a href="/en-US/docs/Learn/JavaScript/Objects/Object-oriented_programming">Object-oriented programming</a>
+                                                ).
+  
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Objective:</th>
+                                            <td>To understand how to use the features JavaScript provides to implement "classical" object-oriented programs.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </figure>
+                        </div>
+                        <section aria-labelledby="classes_and_constructors">
+                            <h2 id="classes_and_constructors">
+                                <a href="#classes_and_constructors">Classes and constructors</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    You can declare a class using the 
+                                    <a href="/en-US/docs/Web/JavaScript/Reference/Statements/class">
+                                        <code>class</code>
+                                    </a>
+                                    keyword. Here's a class declaration for our <code>Person</code>
+                                    from the previous article:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="WvQ+IUDBLyzg/pu0W6FsdtfCkUZDIn8uyEffDJJR2/k=">
+                                        <code>
+                                            <span class="token keyword">class</span>
+                                            <span class="token class-name">Person</span>
+                                            <span class="token punctuation">{</span>
+                                            name<span class="token punctuation">;</span>
+                                            <span class="token function">constructor</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">name</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token punctuation">.</span>
+                                            name <span class="token operator">=</span>
+                                            name<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token function">introduceSelf</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">Hi! I'm </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    <span class="token keyword">this</span>
+                                                    <span class="token punctuation">.</span>
+                                                    name<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    This declares a class called <code>Person</code>
+                                    , with:
+                                </p>
+                                <ul>
+                                    <li>
+                                        a <code>name</code>
+                                        property.
+                                    </li>
+                                    <li>
+                                        a constructor that takes a <code>name</code>
+                                        parameter that is used to initialize the new object's <code>name</code>
+                                        property
+                                    </li>
+                                    <li>
+                                        an <code>introduceSelf()</code>
+                                        method that can refer to the object's properties using <code>this</code>
+                                        .
+                                    </li>
+                                </ul>
+                                <p>
+                                    The <code>name;</code>
+                                    declaration is optional: you could omit it, and the line <code>this.name = name;</code>
+                                    in the constructor will create the <code>name</code>
+                                    property before initializing it. However, listing properties explicitly in the class declaration might make it easier for people reading your code to see which properties are part of this class.
+                                </p>
+                                <p>
+                                    You could also initialize the property to a default value when you declare it, with a line like <code>name = '';</code>
+                                    .
+                                </p>
+                                <p>
+                                    The constructor is defined using the 
+                                    <a href="/en-US/docs/Web/JavaScript/Reference/Classes/constructor">
+                                        <code>constructor</code>
+                                    </a>
+                                    keyword. Just like a <a href="/en-US/docs/Learn/JavaScript/Objects/Basics#introducing_constructors">constructor outside a class definition</a>
+                                    , it will:
+                                </p>
+                                <ul>
+                                    <li>create a new object</li>
+                                    <li>
+                                        bind <code>this</code>
+                                        to the new object, so you can refer to <code>this</code>
+                                        in your constructor code
+                                    </li>
+                                    <li>run the code in the constructor</li>
+                                    <li>return the new object.</li>
+                                </ul>
+                                <p>
+                                    Given the class declaration code above, you can create and use a new <code>Person</code>
+                                    instance like this:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="vnRx10SbSXy47/lB5DMNpo9AWkQKqtaKllYC4kMvL+0=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            giles <span class="token operator">=</span>
+                                            <span class="token keyword">new</span>
+                                            <span class="token class-name">Person</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"Giles"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            giles<span class="token punctuation">.</span>
+                                            <span class="token function">introduceSelf</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// Hi! I'm Giles</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    Note that we call the constructor using the name of the class, <code>Person</code>
+                                    in this example.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="omitting_constructors">
+                            <h3 id="omitting_constructors">
+                                <a href="#omitting_constructors">Omitting constructors</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>If you don't need to do any special initialization, you can omit the constructor, and a default constructor will be generated for you:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="JUHNfIZX4jDhHEpt+I8mQ8EShwq6NYKWRak8ia4OI5A=">
+                                        <code>
+                                            <span class="token keyword">class</span>
+                                            <span class="token class-name">Animal</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token function">sleep</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"zzzzzzz"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token keyword">const</span>
+                                            spot <span class="token operator">=</span>
+                                            <span class="token keyword">new</span>
+                                            <span class="token class-name">Animal</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            spot<span class="token punctuation">.</span>
+                                            <span class="token function">sleep</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// 'zzzzzzz'</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="inheritance">
+                            <h2 id="inheritance">
+                                <a href="#inheritance">Inheritance</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    Given our <code>Person</code>
+                                    class above, let's define the <code>Professor</code>
+                                    subclass.
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="e93IXvH3e/h688Iy2R9jIHPZVCNSGMwuXjTCOPk5EFs=">
+                                        <code>
+                                            <span class="token keyword">class</span>
+                                            <span class="token class-name">Professor</span>
+                                            <span class="token keyword">extends</span>
+                                            <span class="token class-name">Person</span>
+                                            <span class="token punctuation">{</span>
+                                            teaches<span class="token punctuation">;</span>
+                                            <span class="token function">constructor</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">
+                                                name<span class="token punctuation">,</span>
+                                                teaches
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">super</span>
+                                            <span class="token punctuation">(</span>
+                                            name<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token punctuation">.</span>
+                                            teaches <span class="token operator">=</span>
+                                            teaches<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token function">introduceSelf</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">My name is </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    <span class="token keyword">this</span>
+                                                    <span class="token punctuation">.</span>
+                                                    name<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token string">, and I will be your </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    <span class="token keyword">this</span>
+                                                    <span class="token punctuation">.</span>
+                                                    teaches<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token string">professor.</span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token function">grade</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">paper</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">const</span>
+                                            grade <span class="token operator">=</span>
+                                            Math<span class="token punctuation">.</span>
+                                            <span class="token function">floor</span>
+                                            <span class="token punctuation">(</span>
+                                            Math<span class="token punctuation">.</span>
+                                            <span class="token function">random</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">*</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token number">5</span>
+                                            <span class="token operator">-</span>
+                                            <span class="token number">1</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">+</span>
+                                            <span class="token number">1</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            grade<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    We use the 
+                                    <a href="/en-US/docs/Web/JavaScript/Reference/Classes/extends">
+                                        <code>extends</code>
+                                    </a>
+                                    keyword to say that this class inherits from another class.
+                                </p>
+                                <p>
+                                    The <code>Professor</code>
+                                    class adds a new property <code>teaches</code>
+                                    , so we declare that.
+                                </p>
+                                <p>
+                                    Since we want to set <code>teaches</code>
+                                    when a new <code>Professor</code>
+                                    is created, we define a constructor, which takes the <code>name</code>
+                                    and <code>teaches</code>
+                                    as arguments. The first thing this constructor does is call the superclass constructor using 
+                                    <a href="/en-US/docs/Web/JavaScript/Reference/Operators/super">
+                                        <code>super()</code>
+                                    </a>
+                                    , passing up the <code>name</code>
+                                    parameter. The superclass constructor takes care of setting <code>name</code>
+                                    . After that, the <code>Professor</code>
+                                    constructor sets the <code>teaches</code>
+                                    property.
+                                </p>
+                                <div class="notecard note" id="sect1">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        If a subclass has any of its own initialization to do, it <strong>must</strong>
+                                        first call the superclass constructor using <code>super()</code>
+                                        , passing up any parameters that the superclass constructor is expecting.
+                                    </p>
+                                </div>
+                                <p>
+                                    We've also overridden the <code>introduceSelf()</code>
+                                    method from the superclass, and added a new method <code>grade()</code>
+                                    , to grade a paper (our professor isn't very good, and just assigns random grades to papers).
+                                </p>
+                                <p>With this declaration we can now create and use professors:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="WurkIxxi7GV7PIyXu6cQp895HaqWzJEgaIsiF7nrch4=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            walsh <span class="token operator">=</span>
+                                            <span class="token keyword">new</span>
+                                            <span class="token class-name">Professor</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"Walsh"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token string">"Psychology"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            walsh<span class="token punctuation">.</span>
+                                            <span class="token function">introduceSelf</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// 'My name is Walsh, and I will be your Psychology professor'</span>
+                                            walsh<span class="token punctuation">.</span>
+                                            <span class="token function">grade</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"my paper"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// some random grade</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="encapsulation">
+                            <h2 id="encapsulation">
+                                <a href="#encapsulation">Encapsulation</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    Finally, let's see how to implement encapsulation in JavaScript. In the last article we discussed how we would like to make the <code>year</code>
+                                    property of <code>Student</code>
+                                    private, so we could change the rules about archery classes without breaking any code that uses the <code>Student</code>
+                                    class.
+                                </p>
+                                <p>
+                                    Here's a declaration of the <code>Student</code>
+                                    class that does just that:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="I4pKrViw+3X/i0xule5u2PYcL5c0N7pREZdAvyyWWBY=">
+                                        <code>
+                                            <span class="token keyword">class</span>
+                                            <span class="token class-name">Student</span>
+                                            <span class="token keyword">extends</span>
+                                            <span class="token class-name">Person</span>
+                                            <span class="token punctuation">{</span>
+                                            #year<span class="token punctuation">;</span>
+                                            <span class="token function">constructor</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">
+                                                name<span class="token punctuation">,</span>
+                                                year
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">super</span>
+                                            <span class="token punctuation">(</span>
+                                            name<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token punctuation">.</span>
+                                            #year <span class="token operator">=</span>
+                                            year<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token function">introduceSelf</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">Hi! I'm </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    <span class="token keyword">this</span>
+                                                    <span class="token punctuation">.</span>
+                                                    name<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token string">, and I'm in year </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    <span class="token keyword">this</span>
+                                                    <span class="token punctuation">.</span>
+                                                    #year<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token string">.</span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token function">canStudyArchery</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">return</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token punctuation">.</span>
+                                            #year <span class="token operator">&gt;</span>
+                                            <span class="token number">1</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    In this class declaration, <code>#year</code>
+                                    is a <a href="/en-US/docs/Web/JavaScript/Reference/Classes/Private_properties">private data property</a>
+                                    . We can construct a <code>Student</code>
+                                    object, and it can use <code>#year</code>
+                                    internally, but if code outside the object tries to access <code>#year</code>
+                                    the browser throws an error:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="1PpwwTZvhh8su0XjU60kxhVFR0nPBxWHhy/3XYMdUcE=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            summers <span class="token operator">=</span>
+                                            <span class="token keyword">new</span>
+                                            <span class="token class-name">Student</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"Summers"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token number">2</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            summers<span class="token punctuation">.</span>
+                                            <span class="token function">introduceSelf</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// Hi! I'm Summers, and I'm in year 2.</span>
+                                            summers<span class="token punctuation">.</span>
+                                            <span class="token function">canStudyArchery</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// true</span>
+                                            summers<span class="token punctuation">.</span>
+                                            #year<span class="token punctuation">;</span>
+                                            <span class="token comment">// SyntaxError</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="notecard note" id="sect2">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        Code run in the Chrome console can access private properties outside the class. This is a DevTools-only relaxation of the JavaScript syntax restriction.
+                                    </p>
+                                </div>
+                                <p>
+                                    Private data properties must be declared in the class declaration, and their names start with <code>#</code>
+                                    .
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="private_methods">
+                            <h3 id="private_methods">
+                                <a href="#private_methods">Private methods</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    You can have private methods as well as private data properties. Just like private data properties, their names start with <code>#</code>
+                                    , and they can only be called by the object's own methods:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="s6pZJ+Cq7k8V3BsJE6pFpDX7PN3fdW4FdJ/G+3lU0bM=">
+                                        <code>
+                                            <span class="token keyword">class</span>
+                                            <span class="token class-name">Example</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token function">somePublicMethod</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">this</span>
+                                            <span class="token punctuation">.</span>
+                                            <span class="token function">#somePrivateMethod</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token function">#somePrivateMethod</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"You called me?"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token keyword">const</span>
+                                            myExample <span class="token operator">=</span>
+                                            <span class="token keyword">new</span>
+                                            <span class="token class-name">Example</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            myExample<span class="token punctuation">.</span>
+                                            <span class="token function">somePublicMethod</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// 'You called me?'</span>
+                                            myExample<span class="token punctuation">.</span>
+                                            <span class="token function">#somePrivateMethod</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// SyntaxError</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="test_your_skills!">
+                            <h2 id="test_your_skills!">
+                                <a href="#test_your_skills!">Test your skills!</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    You've reached the end of this article, but can you remember the most important information? You can find some further tests to verify that you've retained this information before you move on — see <a href="/en-US/docs/Learn/JavaScript/Objects/Test_your_skills:_Object-oriented_JavaScript">Test your skills: Object-oriented JavaScript</a>
+                                    .
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="summary">
+                            <h2 id="summary">
+                                <a href="#summary">Summary</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    In this article, we've gone through the main tools available in JavaScript for writing object-oriented programs. We haven't covered everything here, but this should be enough to get you started. Our <a href="/en-US/docs/Web/JavaScript/Reference/Classes">article on Classes</a>
+                                    is a good place to learn more.
+
+                                </p>
+                                <ul class="prev-next">
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Objects/Object-oriented_programming">
+                                            <span class="button-wrap">Previous </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Objects">
+                                            <span class="button-wrap">Overview: Objects</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Objects/JSON">
+                                            <span class="button-wrap">Next  </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <p></p>
+                                <figure class="table-container">
+                                    <table></table>
+                                </figure>
+                            </div>
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
+                    </div>
+                    
                                         
                 </div>
             </main>

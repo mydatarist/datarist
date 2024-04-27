@@ -1172,38 +1172,1524 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
-                        </div>
-                    </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
+                    
+                    
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>How to use promises</h1>
+                        </header>
+                        <div class="section-content">
+                            <ul class="prev-next">
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Asynchronous/Introducing">
+                                        <span class="button-wrap">Previous </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Asynchronous">
+                                        <span class="button-wrap">Overview: Asynchronous</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Asynchronous/Implementing_a_promise-based_API">
+                                        <span class="button-wrap">Next  </span>
+                                    </a>
+                                </li>
                             </ul>
-                        </nav>
-                    </footer>
+                            <p>
+                                <strong>Promises</strong>
+                                are the foundation of asynchronous programming in modern JavaScript. A promise is an object returned by an asynchronous function, which represents the current state of the operation. At the time the promise is returned to the caller, the operation often isn't finished, but the promise object provides methods to handle the eventual success or failure of the operation.
+                            </p>
+                            <figure class="table-container">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Prerequisites:</th>
+                                            <td>A reasonable understanding of JavaScript
+    fundamentals, including event handling.
+  </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Objective:</th>
+                                            <td>To understand how to use promises in JavaScript.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </figure>
+                            <p>
+                                In the <a href="/en-US/docs/Learn/JavaScript/Asynchronous/Introducing">previous article</a>
+                                , we talked about the use of callbacks to implement asynchronous functions. With that design, you call the asynchronous function, passing in your callback function. The function returns immediately and calls your callback when the operation is finished.
+                            </p>
+                            <p>
+                                With a promise-based API, the asynchronous function starts the operation and returns a 
+                                <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">
+                                    <code>Promise</code>
+                                </a>
+                                object. You can then attach handlers to this promise object, and these handlers will be executed when the operation has succeeded or failed.
+                            </p>
+                        </div>
+                        <section aria-labelledby="using_the_fetch_api">
+                            <h2 id="using_the_fetch_api">
+                                <a href="#using_the_fetch_api">Using the fetch() API</a>
+                            </h2>
+                            <div class="section-content">
+                                <div class="notecard note" id="sect1">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        In this article, we will explore promises by copying code samples from the page into your browser's JavaScript console. To set this up:
+                                    </p>
+                                    <ol>
+                                        <li>
+                                            open a browser tab and visit <a href="https://example.org" class="external" target="_blank">https://example.org</a>
+                                        </li>
+                                        <li>
+                                            in that tab, open the JavaScript console in your <a href="/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools">browser's developer tools</a>
+                                        </li>
+                                        <li>
+                                            when we show an example, copy it into the console. You will have to reload the page each time you enter a new example, or the console will complain that you have redeclared <code>fetchPromise</code>
+                                            .
+                                        </li>
+                                    </ol>
+                                </div>
+                                <p>
+                                    In this example, we'll download the JSON file from <a href="https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json" class="external" target="_blank">https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json</a>
+                                    , and log some information about it.
+                                </p>
+                                <p>
+                                    To do this, we'll make an <strong>HTTP request</strong>
+                                    to the server. In an HTTP request, we send a request message to a remote server, and it sends us back a response. In this case, we'll send a request to get a JSON file from the server. Remember in the last article, where we made HTTP requests using the 
+                                    <a href="/en-US/docs/Web/API/XMLHttpRequest">
+                                        <code>XMLHttpRequest</code>
+                                    </a>
+                                    API? Well, in this article, we'll use the 
+                                    <a href="/en-US/docs/Web/API/fetch" title="fetch()">
+                                        <code>fetch()</code>
+                                    </a>
+                                    API, which is the modern, promise-based replacement for <code>XMLHttpRequest</code>
+                                    .
+                                </p>
+                                <p>Copy this into your browser's JavaScript console:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="1axnSr7LjAyBnoz+w6BTcKw0kxW+ei2e699I0ru429o=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            fetchPromise <span class="token operator">=</span>
+                                            <span class="token function">fetch</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            fetchPromise<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            fetchPromise<span class="token punctuation">.</span>
+                                            <span class="token function">then</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">response</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">=&gt;</span>
+                                            <span class="token punctuation">{</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">Received response: </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    response<span class="token punctuation">.</span>
+                                                    status<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"Started request…"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>Here we are:</p>
+                                <ol>
+                                    <li>
+                                        calling the <code>fetch()</code>
+                                        API, and assigning the return value to the <code>fetchPromise</code>
+                                        variable
+                                    </li>
+                                    <li>
+                                        immediately after, logging the <code>fetchPromise</code>
+                                        variable. This should output something like: <code>Promise { &lt;state &gt;: "pending" }</code>
+                                        , telling us that we have a <code>Promise</code>
+                                        object, and it has a <code>state</code>
+                                        whose value is <code>"pending"</code>
+                                        . The <code>"pending"</code>
+                                        state means that the fetch operation is still going on.
+                                    </li>
+                                    <li>
+                                        passing a handler function into the Promise's 
+                                        <strong>
+                                            <code>then()</code>
+                                        </strong>
+                                        method. When (and if) the fetch operation succeeds, the promise will call our handler, passing in a 
+                                        <a href="/en-US/docs/Web/API/Response">
+                                            <code>Response</code>
+                                        </a>
+                                        object, which contains the server's response.
+                                    </li>
+                                    <li>logging a message that we have started the request.</li>
+                                </ol>
+                                <p>The complete output should be something like:</p>
+                                <pre class="brush: plain notranslate">Promise { &lt;state &gt;: "pending" }
+Started request…
+Received response: 200
+</pre>
+                                <p>
+                                    Note that <code>Started request…</code>
+                                    is logged before we receive the response. Unlike a synchronous function, <code>fetch()</code>
+                                    returns while the request is still going on, enabling our program to stay responsive. The response shows the <code>200</code>
+                                    (OK) <a href="/en-US/docs/Web/HTTP/Status">status code</a>
+                                    , meaning that our request succeeded.
+                                </p>
+                                <p>
+                                    This probably seems a lot like the example in the last article, where we added event handlers to the 
+                                    <a href="/en-US/docs/Web/API/XMLHttpRequest">
+                                        <code>XMLHttpRequest</code>
+                                    </a>
+                                    object. Instead of that, we're passing a handler into the <code>then()</code>
+                                    method of the returned promise.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="chaining_promises">
+                            <h2 id="chaining_promises">
+                                <a href="#chaining_promises">Chaining promises</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    With the <code>fetch()</code>
+                                    API, once you get a <code>Response</code>
+                                    object, you need to call another function to get the response data. In this case, we want to get the response data as JSON, so we would call the 
+                                    <a href="/en-US/docs/Web/API/Response/json" title="json()">
+                                        <code>json()</code>
+                                    </a>
+                                    method of the <code>Response</code>
+                                    object. It turns out that <code>json()</code>
+                                    is also asynchronous. So this is a case where we have to call two successive asynchronous functions.
+                                </p>
+                                <p>Try this:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="ekZ3EF/ZRhUoMV0qYSB9Ncfptg8TxIACOkN0mXLYAvs=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            fetchPromise <span class="token operator">=</span>
+                                            <span class="token function">fetch</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            fetchPromise<span class="token punctuation">.</span>
+                                            <span class="token function">then</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">response</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">=&gt;</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">const</span>
+                                            jsonPromise <span class="token operator">=</span>
+                                            response<span class="token punctuation">.</span>
+                                            <span class="token function">json</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            jsonPromise<span class="token punctuation">.</span>
+                                            <span class="token function">then</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">data</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">=&gt;</span>
+                                            <span class="token punctuation">{</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            data<span class="token punctuation">[</span>
+                                            <span class="token number">0</span>
+                                            <span class="token punctuation">]</span>
+                                            <span class="token punctuation">.</span>
+                                            name<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    In this example, as before, we add a <code>then()</code>
+                                    handler to the promise returned by <code>fetch()</code>
+                                    . But this time, our handler calls <code>response.json()</code>
+                                    , and then passes a new <code>then()</code>
+                                    handler into the promise returned by <code>response.json()</code>
+                                    .
+                                </p>
+                                <p>This should log "baked beans" (the name of the first product listed in "products.json").</p>
+                                <p>
+                                    But wait! Remember the last article, where we said that by calling a callback inside another callback, we got successively more nested levels of code? And we said that this "callback hell" made our code hard to understand? Isn't this just the same, only with <code>then()</code>
+                                    calls?
+                                </p>
+                                <p>
+                                    It is, of course. But the elegant feature of promises is that 
+                                    <em>
+                                        <code>then()</code>
+                                        itself returns a promise, which will be completed with the result of the function passed to it
+                                    </em>
+                                    . This means that we can (and certainly should) rewrite the above code like this:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="4a/DJr2PBx+43uZzijRI4WYGgiSIFF5ZYyJ+SGAeX8w=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            fetchPromise <span class="token operator">=</span>
+                                            <span class="token function">fetch</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            fetchPromise
+<span class="token punctuation">.</span>
+                                            <span class="token function">then</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">response</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">=&gt;</span>
+                                            response<span class="token punctuation">.</span>
+                                            <span class="token function">json</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">.</span>
+                                            <span class="token function">then</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">data</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">=&gt;</span>
+                                            <span class="token punctuation">{</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            data<span class="token punctuation">[</span>
+                                            <span class="token number">0</span>
+                                            <span class="token punctuation">]</span>
+                                            <span class="token punctuation">.</span>
+                                            name<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    Instead of calling the second <code>then()</code>
+                                    inside the handler for the first <code>then()</code>
+                                    , we can <em>return</em>
+                                    the promise returned by <code>json()</code>
+                                    , and call the second <code>then()</code>
+                                    on that return value. This is called <strong>promise chaining</strong>
+                                    and means we can avoid ever-increasing levels of indentation when we need to make consecutive asynchronous function calls.
+                                </p>
+                                <p>Before we move on to the next step, there's one more piece to add. We need to check that the server accepted and was able to handle the request, before we try to read it. We'll do this by checking the status code in the response and throwing an error if it wasn't "OK":</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="Zy2DDLVCPLGntrJQv1tFkYwZ2YDvmU1vOEOTLia/dA8=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            fetchPromise <span class="token operator">=</span>
+                                            <span class="token function">fetch</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            fetchPromise
+<span class="token punctuation">.</span>
+                                            <span class="token function">then</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">response</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">=&gt;</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">if</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token operator">!</span>
+                                            response<span class="token punctuation">.</span>
+                                            ok<span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">throw</span>
+                                            <span class="token keyword">new</span>
+                                            <span class="token class-name">Error</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">HTTP error: </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    response<span class="token punctuation">.</span>
+                                                    status<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token keyword">return</span>
+                                            response<span class="token punctuation">.</span>
+                                            <span class="token function">json</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">.</span>
+                                            <span class="token function">then</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">data</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">=&gt;</span>
+                                            <span class="token punctuation">{</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            data<span class="token punctuation">[</span>
+                                            <span class="token number">0</span>
+                                            <span class="token punctuation">]</span>
+                                            <span class="token punctuation">.</span>
+                                            name<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="catching_errors">
+                            <h2 id="catching_errors">
+                                <a href="#catching_errors">Catching errors</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    This brings us to the last piece: how do we handle errors? The <code>fetch()</code>
+                                    API can throw an error for many reasons (for example, because there was no network connectivity or the URL was malformed in some way) and we are throwing an error ourselves if the server returned an error.
+                                </p>
+                                <p>In the last article, we saw that error handling can get very difficult with nested callbacks, making us handle errors at every nesting level.</p>
+                                <p>
+                                    To support error handling, <code>Promise</code>
+                                    objects provide a 
+                                    <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch">
+                                        <code>catch()</code>
+                                    </a>
+                                    method. This is a lot like <code>then()</code>
+                                    : you call it and pass in a handler function. However, while the handler passed to <code>then()</code>
+                                    is called when the asynchronous operation <em>succeeds</em>
+                                    , the handler passed to <code>catch()</code>
+                                    is called when the asynchronous operation <em>fails</em>
+                                    .
+                                </p>
+                                <p>
+                                    If you add <code>catch()</code>
+                                    to the end of a promise chain, then it will be called when any of the asynchronous function calls fail. So you can implement an operation as several consecutive asynchronous function calls, and have a single place to handle all errors.
+                                </p>
+                                <p>
+                                    Try this version of our <code>fetch()</code>
+                                    code. We've added an error handler using <code>catch()</code>
+                                    , and also modified the URL so the request will fail.
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="tHB7DuRTqDoEmL1F3BldYjFtrJtvc5stdoaJexMR6Gg=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            fetchPromise <span class="token operator">=</span>
+                                            <span class="token function">fetch</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"bad-scheme://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            fetchPromise
+<span class="token punctuation">.</span>
+                                            <span class="token function">then</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">response</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">=&gt;</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">if</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token operator">!</span>
+                                            response<span class="token punctuation">.</span>
+                                            ok<span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">throw</span>
+                                            <span class="token keyword">new</span>
+                                            <span class="token class-name">Error</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">HTTP error: </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    response<span class="token punctuation">.</span>
+                                                    status<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token keyword">return</span>
+                                            response<span class="token punctuation">.</span>
+                                            <span class="token function">json</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">.</span>
+                                            <span class="token function">then</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">data</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">=&gt;</span>
+                                            <span class="token punctuation">{</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            data<span class="token punctuation">[</span>
+                                            <span class="token number">0</span>
+                                            <span class="token punctuation">]</span>
+                                            <span class="token punctuation">.</span>
+                                            name<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">.</span>
+                                            <span class="token function">catch</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">error</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">=&gt;</span>
+                                            <span class="token punctuation">{</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">error</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">Could not get products: </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    error<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    Try running this version: you should see the error logged by our <code>catch()</code>
+                                    handler.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="promise_terminology">
+                            <h2 id="promise_terminology">
+                                <a href="#promise_terminology">Promise terminology</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>Promises come with some quite specific terminology that it's worth getting clear about.</p>
+                                <p>First, a promise can be in one of three states:</p>
+                                <ul>
+                                    <li>
+                                        <strong>pending</strong>
+                                        : the promise has been created, and the asynchronous function it's associated with has not succeeded or failed yet. This is the state your promise is in when it's returned from a call to <code>fetch()</code>
+                                        , and the request is still being made.
+                                    </li>
+                                    <li>
+                                        <strong>fulfilled</strong>
+                                        : the asynchronous function has succeeded. When a promise is fulfilled, its <code>then()</code>
+                                        handler is called.
+                                    </li>
+                                    <li>
+                                        <strong>rejected</strong>
+                                        : the asynchronous function has failed. When a promise is rejected, its <code>catch()</code>
+                                        handler is called.
+                                    </li>
+                                </ul>
+                                <p>
+                                    Note that what "succeeded" or "failed" means here is up to the API in question. For example, <code>fetch()</code>
+                                    rejects the returned promise if (among other reasons) a network error prevented the request being sent, but fulfills the promise if the server sent a response, even if the response was an error like <a href="/en-US/docs/Web/HTTP/Status/404">404 Not Found</a>
+                                    .
+                                </p>
+                                <p>
+                                    Sometimes, we use the term <strong>settled</strong>
+                                    to cover both <strong>fulfilled</strong>
+                                    and <strong>rejected</strong>
+                                    .
+                                </p>
+                                <p>
+                                    A promise is <strong>resolved</strong>
+                                    if it is settled, or if it has been "locked in" to follow the state of another promise.
+                                </p>
+                                <p>
+                                    The article <a href="https://thenewtoys.dev/blog/2021/02/08/lets-talk-about-how-to-talk-about-promises/" class="external" target="_blank">Let's talk about how to talk about promises</a>
+                                    gives a great explanation of the details of this terminology.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="combining_multiple_promises">
+                            <h2 id="combining_multiple_promises">
+                                <a href="#combining_multiple_promises">Combining multiple promises</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    The promise chain is what you need when your operation consists of several asynchronous functions, and you need each one to complete before starting the next one. But there are other ways you might need to combine asynchronous function calls, and the <code>Promise</code>
+                                    API provides some helpers for them.
+                                </p>
+                                <p>
+                                    Sometimes, you need all the promises to be fulfilled, but they don't depend on each other. In a case like that, it's much more efficient to start them all off together, then be notified when they have all fulfilled. The 
+                                    <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all">
+                                        <code>Promise.all()</code>
+                                    </a>
+                                    method is what you need here. It takes an array of promises and returns a single promise.
+                                </p>
+                                <p>
+                                    The promise returned by <code>Promise.all()</code>
+                                    is:
+                                </p>
+                                <ul>
+                                    <li>
+                                        fulfilled when and if <em>all</em>
+                                        the promises in the array are fulfilled. In this case, the <code>then()</code>
+                                        handler is called with an array of all the responses, in the same order that the promises were passed into <code>all()</code>
+                                        .
+                                    </li>
+                                    <li>
+                                        rejected when and if <em>any</em>
+                                        of the promises in the array are rejected. In this case, the <code>catch()</code>
+                                        handler is called with the error thrown by the promise that rejected.
+                                    </li>
+                                </ul>
+                                <p>For example:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="Q5xf7OqvXF04GCMsnALAFE9COZ9XjYWsQyhJrlR6oE4=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            fetchPromise1 <span class="token operator">=</span>
+                                            <span class="token function">fetch</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            fetchPromise2 <span class="token operator">=</span>
+                                            <span class="token function">fetch</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/not-found"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            fetchPromise3 <span class="token operator">=</span>
+                                            <span class="token function">fetch</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            Promise<span class="token punctuation">.</span>
+                                            <span class="token function">all</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">[</span>
+                                            fetchPromise1<span class="token punctuation">,</span>
+                                            fetchPromise2<span class="token punctuation">,</span>
+                                            fetchPromise3<span class="token punctuation">]</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">.</span>
+                                            <span class="token function">then</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">responses</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">=&gt;</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">for</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token keyword">const</span>
+                                            response <span class="token keyword">of</span>
+                                            responses<span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    response<span class="token punctuation">.</span>
+                                                    url<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token string">: </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    response<span class="token punctuation">.</span>
+                                                    status<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">.</span>
+                                            <span class="token function">catch</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">error</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">=&gt;</span>
+                                            <span class="token punctuation">{</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">error</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">Failed to fetch: </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    error<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    Here, we're making three <code>fetch()</code>
+                                    requests to three different URLs. If they all succeed, we will log the response status of each one. If any of them fail, then we're logging the failure.
+                                </p>
+                                <p>
+                                    With the URLs we've provided, all the requests should be fulfilled, although for the second, the server will return <code>404</code>
+                                    (Not Found) instead of <code>200</code>
+                                    (OK) because the requested file does not exist. So the output should be:
+                                </p>
+                                <pre class="brush: plain notranslate">https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json: 200
+https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/not-found: 404
+https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json: 200
+</pre>
+                                <p>If we try the same code with a badly formed URL, like this:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="wpI93XfRE12AeSqamaEutR+k8ZWyd0HTzyk85F08Aro=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            fetchPromise1 <span class="token operator">=</span>
+                                            <span class="token function">fetch</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            fetchPromise2 <span class="token operator">=</span>
+                                            <span class="token function">fetch</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/not-found"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            fetchPromise3 <span class="token operator">=</span>
+                                            <span class="token function">fetch</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"bad-scheme://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            Promise<span class="token punctuation">.</span>
+                                            <span class="token function">all</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">[</span>
+                                            fetchPromise1<span class="token punctuation">,</span>
+                                            fetchPromise2<span class="token punctuation">,</span>
+                                            fetchPromise3<span class="token punctuation">]</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">.</span>
+                                            <span class="token function">then</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">responses</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">=&gt;</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">for</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token keyword">const</span>
+                                            response <span class="token keyword">of</span>
+                                            responses<span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    response<span class="token punctuation">.</span>
+                                                    url<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token string">: </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    response<span class="token punctuation">.</span>
+                                                    status<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">.</span>
+                                            <span class="token function">catch</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">error</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">=&gt;</span>
+                                            <span class="token punctuation">{</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">error</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">Failed to fetch: </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    error<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    Then we can expect the <code>catch()</code>
+                                    handler to run, and we should see something like:
+                                </p>
+                                <pre class="brush: plain notranslate">Failed to fetch: TypeError: Failed to fetch
+</pre>
+                                <p>
+                                    Sometimes, you might need any one of a set of promises to be fulfilled, and don't care which one. In that case, you want 
+                                    <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/any">
+                                        <code>Promise.any()</code>
+                                    </a>
+                                    . This is like <code>Promise.all()</code>
+                                    , except that it is fulfilled as soon as any of the array of promises is fulfilled, or rejected if all of them are rejected:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="MZ9atOtClaZAZz0fFXqQsEAN/c16x5NFht8dIahUteg=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            fetchPromise1 <span class="token operator">=</span>
+                                            <span class="token function">fetch</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            fetchPromise2 <span class="token operator">=</span>
+                                            <span class="token function">fetch</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/not-found"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            fetchPromise3 <span class="token operator">=</span>
+                                            <span class="token function">fetch</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            Promise<span class="token punctuation">.</span>
+                                            <span class="token function">any</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">[</span>
+                                            fetchPromise1<span class="token punctuation">,</span>
+                                            fetchPromise2<span class="token punctuation">,</span>
+                                            fetchPromise3<span class="token punctuation">]</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">.</span>
+                                            <span class="token function">then</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">response</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">=&gt;</span>
+                                            <span class="token punctuation">{</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    response<span class="token punctuation">.</span>
+                                                    url<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token string">: </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    response<span class="token punctuation">.</span>
+                                                    status<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">.</span>
+                                            <span class="token function">catch</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">error</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">=&gt;</span>
+                                            <span class="token punctuation">{</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">error</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">Failed to fetch: </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    error<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>Note that in this case we can't predict which fetch request will complete first.</p>
+                                <p>
+                                    These are just two of the extra <code>Promise</code>
+                                    functions for combining multiple promises. To learn about the rest, see the 
+                                    <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">
+                                        <code>Promise</code>
+                                    </a>
+                                    reference documentation.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="async_and_await">
+                            <h2 id="async_and_await">
+                                <a href="#async_and_await">async and await</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    The 
+                                    <a href="/en-US/docs/Web/JavaScript/Reference/Statements/async_function">
+                                        <code>async</code>
+                                    </a>
+                                    keyword gives you a simpler way to work with asynchronous promise-based code. Adding <code>async</code>
+                                    at the start of a function makes it an async function:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="E7TYiLn06izWE+aEUdNnKyyWK2avCSv+0Bw8VcMa+ko=">
+                                        <code>
+                                            <span class="token keyword">async</span>
+                                            <span class="token keyword">function</span>
+                                            <span class="token function">myFunction</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token comment">// This is an async function</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    Inside an async function, you can use the <code>await</code>
+                                    keyword before a call to a function that returns a promise. This makes the code wait at that point until the promise is settled, at which point the fulfilled value of the promise is treated as a return value, or the rejected value is thrown.
+                                </p>
+                                <p>This enables you to write code that uses asynchronous functions but looks like synchronous code. For example, we could use it to rewrite our fetch example:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="MmSQkQ92hGSKOBfwHAqo+YkmmOHfTDXHsqyGE1lOfZU=">
+                                        <code>
+                                            <span class="token keyword">async</span>
+                                            <span class="token keyword">function</span>
+                                            <span class="token function">fetchProducts</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">try</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token comment">// after this line, our function will wait for the `fetch()` call to be settled</span>
+                                            <span class="token comment">// the `fetch()` call will either return a Response or throw an error</span>
+                                            <span class="token keyword">const</span>
+                                            response <span class="token operator">=</span>
+                                            <span class="token keyword">await</span>
+                                            <span class="token function">fetch</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">if</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token operator">!</span>
+                                            response<span class="token punctuation">.</span>
+                                            ok<span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">throw</span>
+                                            <span class="token keyword">new</span>
+                                            <span class="token class-name">Error</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">HTTP error: </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    response<span class="token punctuation">.</span>
+                                                    status<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token comment">// after this line, our function will wait for the `response.json()` call to be settled</span>
+                                            <span class="token comment">// the `response.json()` call will either return the parsed JSON object or throw an error</span>
+                                            <span class="token keyword">const</span>
+                                            data <span class="token operator">=</span>
+                                            <span class="token keyword">await</span>
+                                            response<span class="token punctuation">.</span>
+                                            <span class="token function">json</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            data<span class="token punctuation">[</span>
+                                            <span class="token number">0</span>
+                                            <span class="token punctuation">]</span>
+                                            <span class="token punctuation">.</span>
+                                            name<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token keyword">catch</span>
+                                            <span class="token punctuation">(</span>
+                                            error<span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">error</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">Could not get products: </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    error<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token function">fetchProducts</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    Here, we are calling <code>await fetch()</code>
+                                    , and instead of getting a <code>Promise</code>
+                                    , our caller gets back a fully complete <code>Response</code>
+                                    object, just as if <code>fetch()</code>
+                                    were a synchronous function!
+                                </p>
+                                <p>
+                                    We can even use a <code>try...catch</code>
+                                    block for error handling, exactly as we would if the code were synchronous.
+                                </p>
+                                <p>Note though that async functions always return a promise, so you can't do something like:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js example-bad notranslate" data-signature="PZ1uoVy5si2Vs8iywk/6XY8dVFvIqLhUXqvZUkqx6qI=">
+                                        <code>
+                                            <span class="token keyword">async</span>
+                                            <span class="token keyword">function</span>
+                                            <span class="token function">fetchProducts</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">try</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">const</span>
+                                            response <span class="token operator">=</span>
+                                            <span class="token keyword">await</span>
+                                            <span class="token function">fetch</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">if</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token operator">!</span>
+                                            response<span class="token punctuation">.</span>
+                                            ok<span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">throw</span>
+                                            <span class="token keyword">new</span>
+                                            <span class="token class-name">Error</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">HTTP error: </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    response<span class="token punctuation">.</span>
+                                                    status<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token keyword">const</span>
+                                            data <span class="token operator">=</span>
+                                            <span class="token keyword">await</span>
+                                            response<span class="token punctuation">.</span>
+                                            <span class="token function">json</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">return</span>
+                                            data<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token keyword">catch</span>
+                                            <span class="token punctuation">(</span>
+                                            error<span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">error</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">Could not get products: </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    error<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token keyword">const</span>
+                                            promise <span class="token operator">=</span>
+                                            <span class="token function">fetchProducts</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            promise<span class="token punctuation">[</span>
+                                            <span class="token number">0</span>
+                                            <span class="token punctuation">]</span>
+                                            <span class="token punctuation">.</span>
+                                            name<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// "promise" is a Promise object, so this will not work</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>Instead, you'd need to do something like:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="XItTpFtfXJAadc2wtd7UHdBSlz1+pwghOgCcbLwUod4=">
+                                        <code>
+                                            <span class="token keyword">async</span>
+                                            <span class="token keyword">function</span>
+                                            <span class="token function">fetchProducts</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">try</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">const</span>
+                                            response <span class="token operator">=</span>
+                                            <span class="token keyword">await</span>
+                                            <span class="token function">fetch</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">if</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token operator">!</span>
+                                            response<span class="token punctuation">.</span>
+                                            ok<span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">throw</span>
+                                            <span class="token keyword">new</span>
+                                            <span class="token class-name">Error</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">HTTP error: </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    response<span class="token punctuation">.</span>
+                                                    status<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token keyword">const</span>
+                                            data <span class="token operator">=</span>
+                                            <span class="token keyword">await</span>
+                                            response<span class="token punctuation">.</span>
+                                            <span class="token function">json</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">return</span>
+                                            data<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token keyword">catch</span>
+                                            <span class="token punctuation">(</span>
+                                            error<span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">error</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">Could not get products: </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    error<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token keyword">const</span>
+                                            promise <span class="token operator">=</span>
+                                            <span class="token function">fetchProducts</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            promise<span class="token punctuation">.</span>
+                                            <span class="token function">then</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">data</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">=&gt;</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            data<span class="token punctuation">[</span>
+                                            <span class="token number">0</span>
+                                            <span class="token punctuation">]</span>
+                                            <span class="token punctuation">.</span>
+                                            name<span class="token punctuation">)</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    Also, note that you can only use <code>await</code>
+                                    inside an <code>async</code>
+                                    function, unless your code is in a <a href="/en-US/docs/Web/JavaScript/Guide/Modules">JavaScript module</a>
+                                    . That means you can't do this in a normal script:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="azPmpTpDLJ2lhqX2h6buZLdJ/KVeHkpA/LjWluzWWNM=">
+                                        <code>
+                                            <span class="token keyword">try</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token comment">// using await outside an async function is only allowed in a module</span>
+                                            <span class="token keyword">const</span>
+                                            response <span class="token operator">=</span>
+                                            <span class="token keyword">await</span>
+                                            <span class="token function">fetch</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">if</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token operator">!</span>
+                                            response<span class="token punctuation">.</span>
+                                            ok<span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">throw</span>
+                                            <span class="token keyword">new</span>
+                                            <span class="token class-name">Error</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">HTTP error: </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    response<span class="token punctuation">.</span>
+                                                    status<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token keyword">const</span>
+                                            data <span class="token operator">=</span>
+                                            <span class="token keyword">await</span>
+                                            response<span class="token punctuation">.</span>
+                                            <span class="token function">json</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            data<span class="token punctuation">[</span>
+                                            <span class="token number">0</span>
+                                            <span class="token punctuation">]</span>
+                                            <span class="token punctuation">.</span>
+                                            name<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token keyword">catch</span>
+                                            <span class="token punctuation">(</span>
+                                            error<span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">error</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">Could not get products: </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    error<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    You'll probably use <code>async</code>
+                                    functions a lot where you might otherwise use promise chains, and they make working with promises much more intuitive.
+                                </p>
+                                <p>
+                                    Keep in mind that just like a promise chain, <code>await</code>
+                                    forces asynchronous operations to be completed in series. This is necessary if the result of the next operation depends on the result of the last one, but if that's not the case then something like <code>Promise.all()</code>
+                                    will be more performant.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="conclusion">
+                            <h2 id="conclusion">
+                                <a href="#conclusion">Conclusion</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    Promises are the foundation of asynchronous programming in modern JavaScript. They make it easier to express and reason about sequences of asynchronous operations without deeply nested callbacks, and they support a style of error handling that is similar to the synchronous <code>try...catch</code>
+                                    statement.
+                                </p>
+                                <p>
+                                    The <code>async</code>
+                                    and <code>await</code>
+                                    keywords make it easier to build an operation from a series of consecutive asynchronous function calls, avoiding the need to create explicit promise chains, and allowing you to write code that looks just like synchronous code.
+                                </p>
+                                <p>Promises work in the latest versions of all modern browsers; the only place where promise support will be a problem is in Opera Mini and IE11 and earlier versions.</p>
+                                <p>We didn't touch on all features of promises in this article, just the most interesting and useful ones. As you start to learn more about promises, you'll come across more features and techniques.</p>
+                                <p>
+                                    Many modern Web APIs are promise-based, including <a href="/en-US/docs/Web/API/WebRTC_API">WebRTC</a>
+                                    , <a href="/en-US/docs/Web/API/Web_Audio_API">Web Audio API</a>
+                                    , <a href="/en-US/docs/Web/API/Media_Capture_and_Streams_API">Media Capture and Streams API</a>
+                                    , and many more.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="see_also">
+                            <h2 id="see_also">
+                                <a href="#see_also">See also</a>
+                            </h2>
+                            <div class="section-content">
+                                <ul>
+                                    <li>
+                                        <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">
+                                            <code>Promise()</code>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/en-US/docs/Web/JavaScript/Guide/Using_promises">Using promises</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://pouchdb.com/2015/05/18/we-have-a-problem-with-promises.html" class="external" target="_blank">We have a problem with promises</a>
+                                        by Nolan Lawson
+                                    </li>
+                                    <li>
+                                        <a href="https://thenewtoys.dev/blog/2021/02/08/lets-talk-about-how-to-talk-about-promises/" class="external" target="_blank">Let's talk about how to talk about promises</a>
+                                    </li>
+                                </ul>
+                                <ul class="prev-next">
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Asynchronous/Introducing">
+                                            <span class="button-wrap">Previous </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Asynchronous">
+                                            <span class="button-wrap">Overview: Asynchronous</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Asynchronous/Implementing_a_promise-based_API">
+                                            <span class="button-wrap">Next  </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
+                    </div>
+                    
                                         
                 </div>
             </main>

@@ -1172,38 +1172,436 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
-                        </div>
-                    </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
+                   
+                    
+
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Image gallery</h1>
+                        </header>
+                        <div class="section-content">
+                            <ul class="prev-next">
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Building_blocks/Events">
+                                        <span class="button-wrap">Previous </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Building_blocks">
+                                        <span class="button-wrap">Overview: Building blocks</span>
+                                    </a>
+                                </li>
                             </ul>
-                        </nav>
-                    </footer>
+                            <p>Now that we've looked at the fundamental building blocks of JavaScript, we'll test your knowledge of loops, functions, conditionals and events by getting you to build a fairly common item you'll see on a lot of websites — a JavaScript-powered image gallery.</p>
+                            <figure class="table-container">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Prerequisites:</th>
+                                            <td>Before attempting this assessment you should have already worked through
+    all the articles in this module.
+  </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Objective:</th>
+                                            <td>To test comprehension of JavaScript loops, functions, conditionals, and
+    events.
+  </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </figure>
+                        </div>
+                        <section aria-labelledby="starting_point">
+                            <h2 id="starting_point">
+                                <a href="#starting_point">Starting point</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    To get this assessment started, you should go and <a href="https://raw.githubusercontent.com/mdn/learning-area/main/javascript/building-blocks/gallery/gallery-start.zip" class="external" target="_blank">grab the ZIP</a>
+                                    file for the example, unzip it somewhere on your computer, and do the exercise locally to begin with.
+                                </p>
+                                <p>
+                                    Alternatively, you could use an online editor such as <a href="https://codepen.io/" class="external" target="_blank">CodePen</a>
+                                    , <a href="https://jsfiddle.net/" class="external" target="_blank">JSFiddle</a>
+                                    , or <a href="https://glitch.com/" class="external" target="_blank">Glitch</a>
+                                    .
+                                </p>
+                                <div class="notecard note" id="sect1">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        If you get stuck, you can reach out to us in one of our <a href="/en-US/docs/MDN/Community/Communication_channels">communication channels</a>
+                                        .
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="project_brief">
+                            <h2 id="project_brief">
+                                <a href="#project_brief">Project brief</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>You have been provided with some HTML, CSS and image assets and a few lines of JavaScript code; you need to write the necessary JavaScript to turn this into a working program. The HTML body looks like this:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">html</span>
+                                    </div>
+                                    <pre class="brush: html notranslate" data-signature="m3ViJfd4Wm5KyCj0tu1d37WHZ6DkEg5w0KvLzGS7VoE=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    h1
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Image gallery example
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    h1
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    div
+                                                </span>
+                                                <span class="token attr-name">class</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    full-img<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    img
+                                                </span>
+                                                <span class="token attr-name">class</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    displayed-img<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">src</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    images/pic1.jpg<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">alt</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    Closeup of a blue human eye<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">/&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    div
+                                                </span>
+                                                <span class="token attr-name">class</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    overlay<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    div
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    button
+                                                </span>
+                                                <span class="token attr-name">class</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    dark<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Darken
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    button
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    div
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    div
+                                                </span>
+                                                <span class="token attr-name">class</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    thumb-bar<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    div
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>The example looks like this:</p>
+                                <p>
+                                    <img src="/en-US/docs/Learn/JavaScript/Building_blocks/Image_gallery/gallery.png" alt="An image gallery with a large image on top and five thumbnails below" width="652" height="647" loading="lazy">
+                                </p>
+                                <p>The most interesting parts of the example's CSS file:</p>
+                                <ul>
+                                    <li>
+                                        It absolutely positions the three elements inside the <code>full-img &lt;div &gt;</code>
+                                        — the <code>&lt;img &gt;</code>
+                                        in which the full-sized image is displayed, an empty <code>&lt;div &gt;</code>
+                                        that is sized to be the same size as the <code>&lt;img &gt;</code>
+                                        and put right over the top of it (this is used to apply a darkening effect to the image via a semi-transparent background color), and a <code>&lt;button &gt;</code>
+                                        that is used to control the darkening effect.
+                                    </li>
+                                    <li>
+                                        It sets the width of any images inside the <code>thumb-bar &lt;div &gt;</code>
+                                        (so-called "thumbnail" images) to 20%, and floats them to the left so they sit next to one another on a line.
+                                    </li>
+                                </ul>
+                                <p>Your JavaScript needs to:</p>
+                                <ul>
+                                    <li>
+                                        Declare a <code>const</code>
+                                        array listing the filenames of each image, such as <code>'pic1.jpg'</code>
+                                        .
+                                    </li>
+                                    <li>
+                                        Declare a <code>const</code>
+                                        object listing the alternative text for each image.
+                                    </li>
+                                    <li>
+                                        Loop through the array of filenames, and for each one, insert an <code>&lt;img &gt;</code>
+                                        element inside the <code>thumb-bar &lt;div &gt;</code>
+                                        that embeds that image in the page along with its alternative text.
+                                    </li>
+                                    <li>
+                                        Add a click event listener to each <code>&lt;img &gt;</code>
+                                        inside the <code>thumb-bar &lt;div &gt;</code>
+                                        so that, when they are clicked, the corresponding image and alternative text are displayed in the <code>displayed-img &lt;img &gt;</code>
+                                        element.
+                                    </li>
+                                    <li>
+                                        Add a click event listener to the <code>&lt;button &gt;</code>
+                                        so that when it is clicked, a darken effect is applied to the full-size image. When it is clicked again, the darken effect is removed again.
+                                    </li>
+                                </ul>
+                                <p>
+                                    To give you more of an idea, have a look at the <a href="https://mdn.github.io/learning-area/javascript/building-blocks/gallery/" class="external" target="_blank">finished example</a>
+                                    (no peeking at the source code!)
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="steps_to_complete">
+                            <h2 id="steps_to_complete">
+                                <a href="#steps_to_complete">Steps to complete</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>The following sections describe what you need to do.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="declare_an_array_of_image_filenames">
+                            <h2 id="declare_an_array_of_image_filenames">
+                                <a href="#declare_an_array_of_image_filenames">Declare an array of image filenames</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>You need to create an array listing the filenames of all the images to include in the gallery. The array should be declared as a constant.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="looping_through_the_images">
+                            <h3 id="looping_through_the_images">
+                                <a href="#looping_through_the_images">Looping through the images</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    We've already provided you with lines that store a reference to the <code>thumb-bar &lt;div &gt;</code>
+                                    inside a constant called <code>thumbBar</code>
+                                    , create a new <code>&lt;img &gt;</code>
+                                    element, set its <code>src</code>
+                                    and <code>alt</code>
+                                    attributes to a placeholder value <code>xxx</code>
+                                    , and append this new <code>&lt;img &gt;</code>
+                                    element inside <code>thumbBar</code>
+                                    .
+                                </p>
+                                <p>You need to:</p>
+                                <ol>
+                                    <li>Put the section of code below the "Looping through images" comment inside a loop that loops through all the filenames in the array.</li>
+                                    <li>
+                                        In each loop iteration, replace the <code>xxx</code>
+                                        placeholder values with a string that will equal the path to the image and alt attributes in each case. Set the value of the <code>src</code>
+                                        and <code>alt</code>
+                                        attributes to these values in each case. Remember that the image is inside the images directory, and its name is <code>pic1.jpg</code>
+                                        , <code>pic2.jpg</code>
+                                        , etc.
+                                    </li>
+                                </ol>
+                            </div>
+                        </section>
+                        <section aria-labelledby="adding_a_click_event_listener_to_each_thumbnail_image">
+                            <h3 id="adding_a_click_event_listener_to_each_thumbnail_image">
+                                <a href="#adding_a_click_event_listener_to_each_thumbnail_image">Adding a click event listener to each thumbnail image</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    In each loop iteration, you need to add a click event listener to the current <code>newImage</code>
+                                    — this listener should find the value of the <code>src</code>
+                                    attribute of the current image. Set the <code>src</code>
+                                    attribute value of the <code>displayed-img &lt;img &gt;</code>
+                                    to the <code>src</code>
+                                    value passed in as a parameter. Then do the same for the <code>alt</code>
+                                    attribute.
+                                </p>
+                                <p>Alternatively, you can add one event listener to the thumb bar.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="writing_a_handler_that_runs_the_darkenlighten_button">
+                            <h3 id="writing_a_handler_that_runs_the_darkenlighten_button">
+                                <a href="#writing_a_handler_that_runs_the_darkenlighten_button">Writing a handler that runs the darken/lighten button</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    That just leaves our darken/lighten <code>&lt;button &gt;</code>
+                                    — we've already provided a line that stores a reference to the <code>&lt;button &gt;</code>
+                                    in a constant called <code>btn</code>
+                                    . You need to add a click event listener that:
+                                </p>
+                                <ol>
+                                    <li>
+                                        Checks the current class name set on the <code>&lt;button &gt;</code>
+                                        — you can again achieve this by using <code>getAttribute()</code>
+                                        .
+                                    </li>
+                                    <li>
+                                        If the class name is <code>"dark"</code>
+                                        , changes the <code>&lt;button &gt;</code>
+                                        class to <code>"light"</code>
+                                        (using 
+                                        <a href="/en-US/docs/Web/API/Element/setAttribute">
+                                            <code>setAttribute()</code>
+                                        </a>
+                                        ), its text content to "Lighten", and the 
+                                        <a href="/en-US/docs/Web/CSS/background-color">
+                                            <code>background-color</code>
+                                        </a>
+                                        of the overlay <code>&lt;div &gt;</code>
+                                        to <code>"rgb(0 0 0 / 50%)"</code>
+                                        .
+                                    </li>
+                                    <li>
+                                        If the class name is not <code>"dark"</code>
+                                        , changes the <code>&lt;button &gt;</code>
+                                        class to <code>"dark"</code>
+                                        , its text content back to "Darken", and the 
+                                        <a href="/en-US/docs/Web/CSS/background-color">
+                                            <code>background-color</code>
+                                        </a>
+                                        of the overlay <code>&lt;div &gt;</code>
+                                        to <code>"rgb(0 0 0 / 0%)"</code>
+                                        .
+                                    </li>
+                                </ol>
+                                <p>The following lines provide a basis for achieving the changes stipulated in points 2 and 3 above.</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="fSrY8QZ+aEkVKwbZ/jgHUpmDXhjS/CHkAEgo/pkcTjc=">
+                                        <code>
+                                            btn<span class="token punctuation">.</span>
+                                            <span class="token function">setAttribute</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"class"</span>
+                                            <span class="token punctuation">,</span>
+                                            xxx<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            btn<span class="token punctuation">.</span>
+                                            textContent <span class="token operator">=</span>
+                                            xxx<span class="token punctuation">;</span>
+                                            overlay<span class="token punctuation">.</span>
+                                            style<span class="token punctuation">.</span>
+                                            backgroundColor <span class="token operator">=</span>
+                                            xxx<span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="hints_and_tips">
+                            <h2 id="hints_and_tips">
+                                <a href="#hints_and_tips">Hints and tips</a>
+                            </h2>
+                            <div class="section-content">
+                                <ul>
+                                    <li>You don't need to edit the HTML or CSS in any way.</li>
+                                </ul>
+                                <ul class="prev-next">
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Building_blocks/Events">
+                                            <span class="button-wrap">Previous </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/JavaScript/Building_blocks">
+                                            <span class="button-wrap">Overview: Building blocks</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
+                    </div>
+                    
                                         
                 </div>
             </main>

@@ -1172,38 +1172,1184 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
-                        </div>
-                    </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
+                   
+                    
+
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Storing the information you need — Variables</h1>
+                        </header>
+                        <div class="section-content">
+                            <ul class="prev-next">
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/JavaScript/First_steps/What_went_wrong">
+                                        <span class="button-wrap">Previous </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/JavaScript/First_steps">
+                                        <span class="button-wrap">Overview: First steps</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/JavaScript/First_steps/Math">
+                                        <span class="button-wrap">Next  </span>
+                                    </a>
+                                </li>
                             </ul>
-                        </nav>
-                    </footer>
+                            <p>After reading the last couple of articles you should now know what JavaScript is, what it can do for you, how you use it alongside other web technologies, and what its main features look like from a high level. In this article, we will get down to the real basics, looking at how to work with the most basic building blocks of JavaScript — Variables.</p>
+                            <figure class="table-container">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Prerequisites:</th>
+                                            <td>A basic understanding of HTML and CSS, an
+    understanding of what JavaScript is.
+  </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Objective:</th>
+                                            <td>To gain familiarity with the basics of JavaScript variables.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </figure>
+                        </div>
+                        <section aria-labelledby="tools_you_need">
+                            <h2 id="tools_you_need">
+                                <a href="#tools_you_need">Tools you need</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    Throughout this article, you'll be asked to type in lines of code to test your understanding of the content. If you are using a desktop browser, the best place to type your sample code is your browser's JavaScript console (see <a href="/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools">What are browser developer tools</a>
+                                    for more information on how to access this tool).
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="what_is_a_variable">
+                            <h2 id="what_is_a_variable">
+                                <a href="#what_is_a_variable">What is a variable?</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>A variable is a container for a value, like a number we might use in a sum, or a string that we might use as part of a sentence.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="variable_example">
+                            <h3 id="variable_example">
+                                <a href="#variable_example">Variable example</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>Let's look at a simple example:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">html</span>
+                                    </div>
+                                    <pre class="brush: html notranslate" data-signature="BBR7OrMRoXg/MR/etJwDNk9Ik8G9QwmuRzlPPLjtjhg=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    button
+                                                </span>
+                                                <span class="token attr-name">id</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    button_A<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Press me
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    button
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    h3
+                                                </span>
+                                                <span class="token attr-name">id</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    heading_A<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    h3
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="OLx3aW8AhvjSPT/P7bVPEOFPAXxGo+cKQyh6cBUhrbg=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            buttonA <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">querySelector</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"#button_A"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            headingA <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">querySelector</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"#heading_A"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            buttonA<span class="token punctuation">.</span>
+                                            <span class="token function-variable function">onclick</span>
+                                            <span class="token operator">=</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">=&gt;</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">const</span>
+                                            name <span class="token operator">=</span>
+                                            <span class="token function">prompt</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"What is your name?"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token function">alert</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">Hello </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    name<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token string">, nice to see you!</span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            headingA<span class="token punctuation">.</span>
+                                            textContent <span class="token operator">=</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">Welcome </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    name<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="code-example" id="sect1">
+                                    <div class="example-header" id="sect2"></div>
+                                    <iframe class="sample-code-frame" title="Variable example sample" id="frame_variable_example" width="100%" height="120" src="https://live.mdnplay.dev/en-US/docs/Learn/JavaScript/First_steps/Variables/runner.html?id=variable_example" loading="lazy"></iframe>
+                                </div>
+                                <p>In this example pressing the button runs some code. The first line pops a box up on the screen that asks the reader to enter their name, and then stores the value in a variable. The second line displays a welcome message that includes their name, taken from the variable value and the third line displays that name on the page.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="without_a_variable">
+                            <h3 id="without_a_variable">
+                                <a href="#without_a_variable">Without a variable</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>To understand why this is so useful, let's think about how we'd write this example without using a variable. It would end up looking something like this:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">html</span>
+                                    </div>
+                                    <pre class="brush: html example-bad notranslate" data-signature="0W6Lihejeux0cZjTzsXyiDaXL4IxTEDuHKIywKih7I8=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    button
+                                                </span>
+                                                <span class="token attr-name">id</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    button_B<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Press me
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    button
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    h3
+                                                </span>
+                                                <span class="token attr-name">id</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    heading_B<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    h3
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js example-bad notranslate" data-signature="Kq45bkA6cbhU+1umheWmYOGcCPvBe+W08q6s3n3AuI8=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            buttonB <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">querySelector</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"#button_B"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            headingB <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">querySelector</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"#heading_B"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            buttonB<span class="token punctuation">.</span>
+                                            <span class="token function-variable function">onclick</span>
+                                            <span class="token operator">=</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">=&gt;</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token function">alert</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">Hello </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    <span class="token function">prompt</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token string">"What is your name?"</span>
+                                                    <span class="token punctuation">)</span>
+                                                    <span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token string">, nice to see you!</span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            headingB<span class="token punctuation">.</span>
+                                            textContent <span class="token operator">=</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">Welcome </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    <span class="token function">prompt</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token string">"What is your name?"</span>
+                                                    <span class="token punctuation">)</span>
+                                                    <span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="code-example" id="sect3">
+                                    <div class="example-header" id="sect4"></div>
+                                    <iframe class="sample-code-frame" title="Without a variable sample" id="frame_without_a_variable" width="100%" height="120" src="https://live.mdnplay.dev/en-US/docs/Learn/JavaScript/First_steps/Variables/runner.html?id=without_a_variable" loading="lazy"></iframe>
+                                </div>
+                                <p>You may not fully understand the syntax we are using (yet!), but you should be able to get the idea. If we didn't have variables available, we'd have to ask the reader for their name every time we needed to use it!</p>
+                                <p>Variables just make sense, and as you learn more about JavaScript they will start to become second nature.</p>
+                                <p>One special thing about variables is that they can contain just about anything — not just strings and numbers. Variables can also contain complex data and even entire functions to do amazing things. You'll learn more about this as you go along.</p>
+                                <div class="notecard note" id="sect5">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        We say variables contain values. This is an important distinction to make. Variables aren't the values themselves; they are containers for values. You can think of them being like little cardboard boxes that you can store things in.
+                                    </p>
+                                </div>
+                                <p>
+                                    <img src="/en-US/docs/Learn/JavaScript/First_steps/Variables/boxes.png" alt="A screenshot of three 3-dimensional cardboard boxes demonstrating examples of JavaScript variables. Each box contains hypothetical values that represent various JavaScript data types. The sample values are &quot;Bob&quot;, true and 35 respectively." width="1052" height="436" loading="lazy">
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="declaring_a_variable">
+                            <h2 id="declaring_a_variable">
+                                <a href="#declaring_a_variable">Declaring a variable</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    To use a variable, you've first got to create it — more accurately, we call this declaring the variable. To do this, we type the keyword <code>let</code>
+                                    followed by the name you want to call your variable:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="i3oTv42PWAEEBuGJG3jLBxzb0d5SsoXMi43I2A1/pMY=">
+                                        <code>
+                                            <span class="token keyword">let</span>
+                                            myName<span class="token punctuation">;</span>
+                                            <span class="token keyword">let</span>
+                                            myAge<span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    Here we're creating two variables called <code>myName</code>
+                                    and <code>myAge</code>
+                                    . Try typing these lines into your web browser's console. After that, try creating a variable (or two) with your own name choices.
+                                </p>
+                                <div class="notecard note" id="sect6">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        In JavaScript, all code instructions should end with a semicolon (<code>;</code>
+                                        ) — your code may work correctly for single lines, but probably won't when you are writing multiple lines of code together. Try to get into the habit of including it.
+                                    </p>
+                                </div>
+                                <p>You can test whether these values now exist in the execution environment by typing just the variable's name, e.g.</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="oZq8IZyq6Vcb7r8Erf47jIrN2CFipgBcDQMYfgdc6e8=">
+                                        <code>
+                                            myName<span class="token punctuation">;</span>
+                                            myAge<span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    They currently have no value; they are empty containers. When you enter the variable names, you should get a value of <code>undefined</code>
+                                    returned. If they don't exist, you'll get an error message — try typing in
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="hDEmb01zdmlDaXMIVcJR7GpLX4muq16uzNz8/R8h1f8=">
+                                        <code>
+                                            scoobyDoo<span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="notecard note" id="sect7">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        Don't confuse a variable that exists but has no defined value with a variable that doesn't exist at all — they are very different things. In the box analogy you saw above, not existing would mean there's no box (variable) for a value to go in. No value defined would mean that there is a box, but it has no value inside it.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="initializing_a_variable">
+                            <h2 id="initializing_a_variable">
+                                <a href="#initializing_a_variable">Initializing a variable</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    Once you've declared a variable, you can initialize it with a value. You do this by typing the variable name, followed by an equals sign (<code>=</code>
+                                    ), followed by the value you want to give it. For example:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="dggb64EtYvKawtLfcMoeHaU1QLdAI2MTxjmXUTEFeqY=">
+                                        <code>
+                                            myName <span class="token operator">=</span>
+                                            <span class="token string">"Chris"</span>
+                                            <span class="token punctuation">;</span>
+                                            myAge <span class="token operator">=</span>
+                                            <span class="token number">37</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>Try going back to the console now and typing in these lines. You should see the value you've assigned to the variable returned in the console to confirm it, in each case. Again, you can return your variable values by typing their name into the console — try these again:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="oZq8IZyq6Vcb7r8Erf47jIrN2CFipgBcDQMYfgdc6e8=">
+                                        <code>
+                                            myName<span class="token punctuation">;</span>
+                                            myAge<span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>You can declare and initialize a variable at the same time, like this:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="/RQEevD3F5S8XirGSo5Tm3QtM2geU3/mGvHzqCXKNZs=">
+                                        <code>
+                                            <span class="token keyword">let</span>
+                                            myDog <span class="token operator">=</span>
+                                            <span class="token string">"Rover"</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>This is probably what you'll do most of the time, as it is quicker than doing the two actions on two separate lines.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="a_note_about_var">
+                            <h2 id="a_note_about_var">
+                                <a href="#a_note_about_var">A note about var</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    You'll probably also see a different way to declare variables, using the <code>var</code>
+                                    keyword:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="Pz1fC2yAyGxLGGmPwGJ4ySyGYF6POagJ3j+dF09D5Zc=">
+                                        <code>
+                                            <span class="token keyword">var</span>
+                                            myName<span class="token punctuation">;</span>
+                                            <span class="token keyword">var</span>
+                                            myAge<span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    Back when JavaScript was first created, this was the only way to declare variables. The design of <code>var</code>
+                                    is confusing and error-prone. So <code>let</code>
+                                    was created in modern versions of JavaScript, a new keyword for creating variables that works somewhat differently to <code>var</code>
+                                    , fixing its issues in the process.
+                                </p>
+                                <p>
+                                    A couple of simple differences are explained below. We won't go into all the differences now, but you'll start to discover them as you learn more about JavaScript (if you really want to read about them now, feel free to check out our <a href="/en-US/docs/Web/JavaScript/Reference/Statements/let">let reference page</a>
+                                    ).
+                                </p>
+                                <p>
+                                    For a start, if you write a multiline JavaScript program that declares and initializes a variable, you can actually declare a variable with <code>var</code>
+                                    after you initialize it and it will still work. For example:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="BrYERtSLimH9C7V+LrU0Ua8PwMns29rpCSVFTrky0MY=">
+                                        <code>
+                                            myName <span class="token operator">=</span>
+                                            <span class="token string">"Chris"</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">function</span>
+                                            <span class="token function">logName</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            myName<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token function">logName</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">var</span>
+                                            myName<span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="notecard note" id="sect8">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        This won't work when typing individual lines into a JavaScript console, just when running multiple lines of JavaScript in a web document.
+                                    </p>
+                                </div>
+                                <p>
+                                    This works because of <strong>hoisting</strong>
+                                    — read <a href="/en-US/docs/Web/JavaScript/Reference/Statements/var#hoisting">var hoisting</a>
+                                    for more detail on the subject.
+                                </p>
+                                <p>
+                                    Hoisting no longer works with <code>let</code>
+                                    . If we changed <code>var</code>
+                                    to <code>let</code>
+                                    in the above example, it would fail with an error. This is a good thing — declaring a variable after you initialize it results in confusing, harder to understand code.
+                                </p>
+                                <p>
+                                    Secondly, when you use <code>var</code>
+                                    , you can declare the same variable as many times as you like, but with <code>let</code>
+                                    you can't. The following would work:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="qfsipTFZFuqRhX6fxC9LuFpjG+spwvAKghO+jtfWzjQ=">
+                                        <code>
+                                            <span class="token keyword">var</span>
+                                            myName <span class="token operator">=</span>
+                                            <span class="token string">"Chris"</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">var</span>
+                                            myName <span class="token operator">=</span>
+                                            <span class="token string">"Bob"</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>But the following would throw an error on the second line:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js example-bad notranslate" data-signature="o5/H2NdftwOdjA1z18nT4oN4GP//URVSNXcoeULzQVw=">
+                                        <code>
+                                            <span class="token keyword">let</span>
+                                            myName <span class="token operator">=</span>
+                                            <span class="token string">"Chris"</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">let</span>
+                                            myName <span class="token operator">=</span>
+                                            <span class="token string">"Bob"</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>You'd have to do this instead:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="kRLS1oJWdIMpY0MysNnx7CXmUmr1lzAPFX8Zx/Uf1Ok=">
+                                        <code>
+                                            <span class="token keyword">let</span>
+                                            myName <span class="token operator">=</span>
+                                            <span class="token string">"Chris"</span>
+                                            <span class="token punctuation">;</span>
+                                            myName <span class="token operator">=</span>
+                                            <span class="token string">"Bob"</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>Again, this is a sensible language decision. There is no reason to redeclare variables — it just makes things more confusing.</p>
+                                <p>
+                                    For these reasons and more, we recommend that you use <code>let</code>
+                                    in your code, rather than <code>var</code>
+                                    . Unless you are explicitly writing support for ancient browsers, there is no longer any reason to use <code>var</code>
+                                    as all modern browsers have supported <code>let</code>
+                                    since 2015.
+                                </p>
+                                <div class="notecard note" id="sect9">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        If you are trying this code in your browser's console, prefer to copy &amp;paste each of the code blocks here as a whole. There's a <a href="https://goo.gle/devtools-const-repl" class="external" target="_blank">feature in Chrome's console</a>
+                                        where variable re-declarations with <code>let</code>
+                                        and <code>const</code>
+                                        are allowed:
+                                    </p>
+                                    <pre class="brush: plain notranslate">&gt;let myName = "Chris";
+let myName = "Bob";
+// As one input: SyntaxError: Identifier 'myName' has already been declared
+
+&gt;let myName = "Chris";
+&gt;let myName = "Bob";
+// As two inputs: both succeed
+</pre>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="updating_a_variable">
+                            <h2 id="updating_a_variable">
+                                <a href="#updating_a_variable">Updating a variable</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>Once a variable has been initialized with a value, you can change (or update) that value by giving it a different value. Try entering the following lines into your console:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="nyCbhDJxcCKU3m3ng/aiWmFzsFlqWWtQBBWm8sV9uoo=">
+                                        <code>
+                                            myName <span class="token operator">=</span>
+                                            <span class="token string">"Bob"</span>
+                                            <span class="token punctuation">;</span>
+                                            myAge <span class="token operator">=</span>
+                                            <span class="token number">40</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="an_aside_on_variable_naming_rules">
+                            <h3 id="an_aside_on_variable_naming_rules">
+                                <a href="#an_aside_on_variable_naming_rules">An aside on variable naming rules</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>You can call a variable pretty much anything you like, but there are limitations. Generally, you should stick to just using Latin characters (0-9, a-z, A-Z) and the underscore character.</p>
+                                <ul>
+                                    <li>You shouldn't use other characters because they may cause errors or be hard to understand for an international audience.</li>
+                                    <li>Don't use underscores at the start of variable names — this is used in certain JavaScript constructs to mean specific things, so may get confusing.</li>
+                                    <li>Don't use numbers at the start of variables. This isn't allowed and causes an error.</li>
+                                    <li>
+                                        A safe convention to stick to is <a href="/en-US/docs/Glossary/Camel_case">lower camel case</a>
+                                        , where you stick together multiple words, using lower case for the whole first word and then capitalize subsequent words. We've been using this for our variable names in the article so far.
+                                    </li>
+                                    <li>Make variable names intuitive, so they describe the data they contain. Don't just use single letters/numbers, or big long phrases.</li>
+                                    <li>
+                                        Variables are case sensitive — so <code>myage</code>
+                                        is a different variable from <code>myAge</code>
+                                        .
+                                    </li>
+                                    <li>
+                                        One last point: you also need to avoid using JavaScript reserved words as your variable names — by this, we mean the words that make up the actual syntax of JavaScript! So, you can't use words like <code>var</code>
+                                        , <code>function</code>
+                                        , <code>let</code>
+                                        , and <code>for</code>
+                                        as variable names. Browsers recognize them as different code items, and so you'll get errors.
+                                    </li>
+                                </ul>
+                                <div class="notecard note" id="sect10">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        You can find a fairly complete list of reserved keywords to avoid at <a href="/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#keywords">Lexical grammar — keywords</a>
+                                        .
+                                    </p>
+                                </div>
+                                <p>Good name examples:</p>
+                                <pre class="brush: plain example-good notranslate">age
+myAge
+init
+initialColor
+finalOutputValue
+audio1
+audio2
+</pre>
+                                <p>Bad name examples:</p>
+                                <pre class="brush: plain example-bad notranslate">1
+a
+_12
+myage
+MYAGE
+var
+Document
+skjfndskjfnbdskjfb
+thisisareallylongvariablenameman
+</pre>
+                                <p>Try creating a few more variables now, with the above guidance in mind.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="variable_types">
+                            <h2 id="variable_types">
+                                <a href="#variable_types">Variable types</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>There are a few different types of data we can store in variables. In this section we'll describe these in brief, then in future articles, you'll learn about them in more detail.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="numbers">
+                            <h3 id="numbers">
+                                <a href="#numbers">Numbers</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>You can store numbers in variables, either whole numbers like 30 (also called integers) or decimal numbers like 2.456 (also called floats or floating point numbers). You don't need to declare variable types in JavaScript, unlike some other programming languages. When you give a variable a number value, you don't include quotes:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="OFRx0zG0XHhAXC7B4N4t2UCEXnQqApOUMvVSN42SxFI=">
+                                        <code>
+                                            <span class="token keyword">let</span>
+                                            myAge <span class="token operator">=</span>
+                                            <span class="token number">17</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="strings">
+                            <h3 id="strings">
+                                <a href="#strings">Strings</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>Strings are pieces of text. When you give a variable a string value, you need to wrap it in single or double quote marks; otherwise, JavaScript tries to interpret it as another variable name.</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="vZ+qb6QCjw1zvdZizuBeNIDZCqYvZDNTH5r3rllIlTk=">
+                                        <code>
+                                            <span class="token keyword">let</span>
+                                            dolphinGoodbye <span class="token operator">=</span>
+                                            <span class="token string">"So long and thanks for all the fish"</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="booleans">
+                            <h3 id="booleans">
+                                <a href="#booleans">Booleans</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    Booleans are true/false values — they can have two values, <code>true</code>
+                                    or <code>false</code>
+                                    . These are generally used to test a condition, after which code is run as appropriate. So for example, a simple case would be:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="CRRidapfRPn2MZ2z0fTuFbR3Ow7Ve/iIv5eveNpUpN4=">
+                                        <code>
+                                            <span class="token keyword">let</span>
+                                            iAmAlive <span class="token operator">=</span>
+                                            <span class="token boolean">true</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>Whereas in reality it would be used more like this:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="4v8rMddcKh2SFczCY3/QSFCAzlM9jPDv8kUucA0E+xI=">
+                                        <code>
+                                            <span class="token keyword">let</span>
+                                            test <span class="token operator">=</span>
+                                            <span class="token number">6</span>
+                                            <span class="token operator">&lt;</span>
+                                            <span class="token number">3</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    This is using the "less than" operator (<code>&lt;</code>
+                                    ) to test whether 6 is less than 3. As you might expect, it returns <code>false</code>
+                                    , because 6 is not less than 3! You will learn a lot more about such operators later on in the course.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="arrays">
+                            <h3 id="arrays">
+                                <a href="#arrays">Arrays</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>An array is a single object that contains multiple values enclosed in square brackets and separated by commas. Try entering the following lines into your console:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="Nzv59yCjTr05vumGu7Vsr/SZsla4RqFWALvloYlcrZM=">
+                                        <code>
+                                            <span class="token keyword">let</span>
+                                            myNameArray <span class="token operator">=</span>
+                                            <span class="token punctuation">[</span>
+                                            <span class="token string">"Chris"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token string">"Bob"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token string">"Jim"</span>
+                                            <span class="token punctuation">]</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">let</span>
+                                            myNumberArray <span class="token operator">=</span>
+                                            <span class="token punctuation">[</span>
+                                            <span class="token number">10</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token number">15</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token number">40</span>
+                                            <span class="token punctuation">]</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>Once these arrays are defined, you can access each value by their location within the array. Try these lines:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="LTbuuIbOkzTZ9iCfuXSRlDHOQ524vnB3cNuFCMC5jgU=">
+                                        <code>
+                                            myNameArray<span class="token punctuation">[</span>
+                                            <span class="token number">0</span>
+                                            <span class="token punctuation">]</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// should return 'Chris'</span>
+                                            myNumberArray<span class="token punctuation">[</span>
+                                            <span class="token number">2</span>
+                                            <span class="token punctuation">]</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// should return 40</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>The square brackets specify an index value corresponding to the position of the value you want returned. You might have noticed that arrays in JavaScript are zero-indexed: the first element is at index 0.</p>
+                                <p>
+                                    To learn more, see our article on <a href="/en-US/docs/Learn/JavaScript/First_steps/Arrays">Arrays</a>
+                                    .
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="objects">
+                            <h3 id="objects">
+                                <a href="#objects">Objects</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>In programming, an object is a structure of code that models a real-life object. You can have a simple object that represents a box and contains information about its width, length, and height, or you could have an object that represents a person, and contains data about their name, height, weight, what language they speak, how to say hello to them, and more.</p>
+                                <p>Try entering the following line into your console:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="g34wtCt4YfZj9eQ+Tg2HdKN7/LjsjGeOqDXlN9eQDKA=">
+                                        <code>
+                                            <span class="token keyword">let</span>
+                                            dog <span class="token operator">=</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token literal-property property">name</span>
+                                            <span class="token operator">:</span>
+                                            <span class="token string">"Spot"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token literal-property property">breed</span>
+                                            <span class="token operator">:</span>
+                                            <span class="token string">"Dalmatian"</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>To retrieve the information stored in the object, you can use the following syntax:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="NBDtQG9U/dW8XjkQ4Oxhf5Oy7C36rX72+PbOyGAf6cY=">
+                                        <code>
+                                            dog<span class="token punctuation">.</span>
+                                            name<span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    For more on this topic, see the <a href="/en-US/docs/Learn/JavaScript/Objects">Introducing JavaScript objects</a>
+                                    module.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="dynamic_typing">
+                            <h2 id="dynamic_typing">
+                                <a href="#dynamic_typing">Dynamic typing</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>JavaScript is a "dynamically typed language", which means that, unlike some other languages, you don't need to specify what data type a variable will contain (numbers, strings, arrays, etc.).</p>
+                                <p>For example, if you declare a variable and give it a value enclosed in quotes, the browser treats the variable as a string:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="8wcaZf79dFTBfyvN6K3i/R38pfILlbuWqg4NybJa4Pk=">
+                                        <code>
+                                            <span class="token keyword">let</span>
+                                            myString <span class="token operator">=</span>
+                                            <span class="token string">"Hello"</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>Even if the value enclosed in quotes is just digits, it is still a string — not a number — so be careful:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="v8zWdxijfl+d2vJlKQfDaPGjvUTYLVQwuMRBmeI8E04=">
+                                        <code>
+                                            <span class="token keyword">let</span>
+                                            myNumber <span class="token operator">=</span>
+                                            <span class="token string">"500"</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// oops, this is still a string</span>
+                                            <span class="token keyword">typeof</span>
+                                            myNumber<span class="token punctuation">;</span>
+                                            myNumber <span class="token operator">=</span>
+                                            <span class="token number">500</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// much better — now this is a number</span>
+                                            <span class="token keyword">typeof</span>
+                                            myNumber<span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    Try entering the four lines above into your console one by one, and see what the results are. You'll notice that we are using a special operator called 
+                                    <a href="/en-US/docs/Web/JavaScript/Reference/Operators/typeof">
+                                        <code>typeof</code>
+                                    </a>
+                                    — this returns the data type of the variable you type after it. The first time it is called, it should return <code>string</code>
+                                    , as at that point the <code>myNumber</code>
+                                    variable contains a string, <code>'500'</code>
+                                    . Have a look and see what it returns the second time you call it.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="constants_in_javascript">
+                            <h2 id="constants_in_javascript">
+                                <a href="#constants_in_javascript">Constants in JavaScript</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>As well as variables, you can declare constants. These are like variables, except that:</p>
+                                <ul>
+                                    <li>you must initialize them when you declare them</li>
+                                    <li>you can't assign them a new value after you've initialized them.</li>
+                                </ul>
+                                <p>
+                                    For example, using <code>let</code>
+                                    you can declare a variable without initializing it:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="S32FPHwVdD56T5ybQPb6cCUgcnxc+AizrSyl/Kb6HcI=">
+                                        <code>
+                                            <span class="token keyword">let</span>
+                                            count<span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    If you try to do this using <code>const</code>
+                                    you will see an error:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js example-bad notranslate" data-signature="tE74cPzqTLqyxrMuqeFn3sJliejUlGgnf334cuEBiUQ=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            count<span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    Similarly, with <code>let</code>
+                                    you can initialize a variable, and then assign it a new value (this is also called <em>reassigning</em>
+                                    the variable):
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="WVaVwKoDUjg1T0U0uPe0zYNvUZxjvcmPswmaSGMD4x4=">
+                                        <code>
+                                            <span class="token keyword">let</span>
+                                            count <span class="token operator">=</span>
+                                            <span class="token number">1</span>
+                                            <span class="token punctuation">;</span>
+                                            count <span class="token operator">=</span>
+                                            <span class="token number">2</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    If you try to do this using <code>const</code>
+                                    you will see an error:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js example-bad notranslate" data-signature="ImAc2+GXnxQO74cVMQa8gV8FG6mZI8No5ghMvD1swDM=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            count <span class="token operator">=</span>
+                                            <span class="token number">1</span>
+                                            <span class="token punctuation">;</span>
+                                            count <span class="token operator">=</span>
+                                            <span class="token number">2</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>Note that although a constant in JavaScript must always name the same value, you can change the content of the value that it names. This isn't a useful distinction for simple types like numbers or booleans, but consider an object:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="KGx4NOUIiALMkL4gwN0t432esFYw2JXHeDp0v+8CXuw=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            bird <span class="token operator">=</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token literal-property property">species</span>
+                                            <span class="token operator">:</span>
+                                            <span class="token string">"Kestrel"</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">;</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            bird<span class="token punctuation">.</span>
+                                            species<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// "Kestrel"</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    You can update, add, or remove properties of an object declared using <code>const</code>
+                                    , because even though the content of the object has changed, the constant is still pointing to the same object:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="jdWJL3w9+fTZIyiQ0UVGr7Kf/5Mv3RyMAtC85h1PAJk=">
+                                        <code>
+                                            bird<span class="token punctuation">.</span>
+                                            species <span class="token operator">=</span>
+                                            <span class="token string">"Striated Caracara"</span>
+                                            <span class="token punctuation">;</span>
+                                            console<span class="token punctuation">.</span>
+                                            <span class="token function">log</span>
+                                            <span class="token punctuation">(</span>
+                                            bird<span class="token punctuation">.</span>
+                                            species<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// "Striated Caracara"</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="when_to_use_const_and_when_to_use_let">
+                            <h2 id="when_to_use_const_and_when_to_use_let">
+                                <a href="#when_to_use_const_and_when_to_use_let">When to use const and when to use let</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    If you can't do as much with <code>const</code>
+                                    as you can with <code>let</code>
+                                    , why would you prefer to use it rather than <code>let</code>
+                                    ? In fact <code>const</code>
+                                    is very useful. If you use <code>const</code>
+                                    to name a value, it tells anyone looking at your code that this name will never be assigned to a different value. Any time they see this name, they will know what it refers to.
+                                </p>
+                                <p>
+                                    In this course, we adopt the following principle about when to use <code>let</code>
+                                    and when to use <code>const</code>
+                                    :
+                                </p>
+                                <p>
+                                    <em>
+                                        Use <code>const</code>
+                                        when you can, and use <code>let</code>
+                                        when you have to.
+                                    </em>
+                                </p>
+                                <p>This means that if you can initialize a variable when you declare it, and don't need to reassign it later, make it a constant.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="test_your_skills!">
+                            <h2 id="test_your_skills!">
+                                <a href="#test_your_skills!">Test your skills!</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    You've reached the end of this article, but can you remember the most important information? You can find some further tests to verify that you've retained this information before you move on — see <a href="/en-US/docs/Learn/JavaScript/First_steps/Test_your_skills:_variables">Test your skills: variables</a>
+                                    .
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="summary">
+                            <h2 id="summary">
+                                <a href="#summary">Summary</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>By now you should know a reasonable amount about JavaScript variables and how to create them. In the next article, we'll focus on numbers in more detail, looking at how to do basic math in JavaScript.</p>
+                                <ul class="prev-next">
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/JavaScript/First_steps/What_went_wrong">
+                                            <span class="button-wrap">Previous </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/JavaScript/First_steps">
+                                            <span class="button-wrap">Overview: First steps</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/JavaScript/First_steps/Math">
+                                            <span class="button-wrap">Next  </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
+                    </div>
+                    
                                         
                 </div>
             </main>
