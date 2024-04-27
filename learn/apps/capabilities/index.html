@@ -1172,38 +1172,211 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                    
+                    
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Capabilities</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
-                    </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
+                        <section aria-labelledby="the_story_of_your_first_website">
+                                 
+                            
+
+
+
+                            <p>Progressive Web Apps can do more than just rendering content on the screen or connecting to web services. PWAs can deal with files from the file system, they can interact with the system&#39;s clipboard, they can access hardware that is connected to the device, and much more. Every Web API is available for your PWA, and there are some extra APIs available when your app is installed.</p>
+
+                            <p>You can use <a href="https://whatwebcando.today/">What Web Can Do Today</a> to know what&#39;s possible on each platform. For individual APIs or capabilities, you can use <a href="https://caniuse.com">Can I Use</a> or the browser compatibility tables on <a href="https://developer.mozilla.org/">MDN</a>.</p>
+                            
+                            <h2 id="always_check_for_feature_support" data-text="Always check for feature support" tabindex="-1">Always check for feature support</h2>
+                            
+                            <p>The first letter in PWA stands for progressive, and it comes from the idea of <a href="https://developer.mozilla.org/docs/Glossary/Progressive_Enhancement">progressive enhancement</a> and <a href="https://developer.mozilla.org/docs/Learn/Tools_and_testing/Cross_browser_testing/Feature_detection">feature detection</a>. You should not expect your app to work the same way on every device. The diversity of contexts and abilities on billions of devices in different countries makes PWAs an excellent platform, thanks to their progressiveness.</p>
+                            
+                            <p>This means that you need to develop your app in layers that may not be available on every device and to check availability before usage.</p>
+                            
+                            <p>You need to check with JavaScript if an API exists before using it or ask an API if a service is available on that particular device.</p>
+                            
+                            <h2 id="powerful_web" data-text="Powerful web" tabindex="-1">Powerful web</h2>
+                            
+                            <p>The web is super powerful today. For example:</p>
+                            
+                            <ul>
+                            <li>You can build a <a href="https://en.wikipedia.org/wiki/Hyperlocal">hyperlocal</a> video chat app with WebRTC, geolocation, and push messages.</li>
+                            <li>You can make an app installable.</li>
+                            <li>You can add video effects with WebAssembly.</li>
+                            <li>You can even bring it into virtual reality with WebGL and WebXR.</li>
                             </ul>
-                        </nav>
-                    </footer>
+                            
+                            <aside class="tip">While there are many capabilities on the web, there are still gaps, and that's where the <a href="https://www.chromium.org/teams/web-capabilities-fugu/">web capabilities project</a> comes in. The project  describes a group of APIs to increase what the web is capable of. We discussed this project and how you can participate in it in the <a href="/learn/pwa/experimental">Experimental chapter</a>. </aside>
+                            
+                            <h2 id="empowering_your_pwa" data-text="Empowering your PWA" tabindex="-1">Empowering your PWA</h2>
+                            
+                            <p>Let&#39;s split the PWA capabilities APIs into four groups:</p>
+                            
+                            <ul>
+                            <li>Green: APIs available on every browser on every platform, when technically possible. Most of them have been shipped for many years, they are considered mature, and you can use them with confidence. An example API from this group is the geolocation API.</li>
+                            <li>Light green: APIs are available only on some browsers. Considering the lack of support on some platforms, they matured within the supported subgroup of browsers so that you can use the capability confidently on them. An example API from this group is WebUSB.</li>
+                            <li>Yellow: experimental APIs. These APIs are not yet mature; they are only available on some browsers, and within tests or trials. We talked some about these capabilities in the <a href="/learn/pwa/experimental">Experimental chapter</a>.</li>
+                            <li>Red: the group for APIs that you can&#39;t use in a PWA, and where plans to add them are still long term. An example API from this group is geofencing.</li>
+                            </ul>
+                            
+                            <aside class="note"><b>Note: </b> Some capabilities require user permission: in most cases, the permission dialog appears on first usage. Today, you can request a single permission at a time, but in the future, it may be possible to request many permissions in one dialog on some platforms, using the <a href="https://w3c.github.io/permissions/">Permissions API</a>. </aside>
+                            
+                            <h3 id="green_capabilities" data-text="Green capabilities" tabindex="-1">Green capabilities</h3>
+                            
+                            <p>Below is a list of the most important capabilities you can use in your PWA.</p>
+                            
+                            <h4 id="basics" data-text="Basics" tabindex="-1">Basics</h4>
+                            
+                            <ul>
+                            <li><em>Caching files locally</em> using the Cache API, as seen in the <a href="/learn/pwa/caching">Caching chapter</a>.</li>
+                            <li><em>Executing tasks in threads</em> using web workers, as we saw in the <a href="/learn/pwa/complexity">Complexity management chapter</a>.</li>
+                            <li><em>Managing network requests</em> with different strategies in a service worker, as seen in the <a href="/learn/pwa/service-worker">Service workers chapter</a>.</li>
+                            <li><em>2D Canvas</em> for rendering 2D graphics on the screen using the <a href="https://developer.mozilla.org/docs/Web/API/Canvas_API">Canvas API</a>.</li>
+                            <li><em>2D and 3D high-performance Canvas</em>, or <a href="https://developer.mozilla.org/docs/Web/API/WebGL_API">WebGL</a>, for rendering 3D graphics.</li>
+                            <li><em>WebAssembly</em>, or <a href="https://developer.mozilla.org/docs/WebAssembly">WASM</a>, for executing low-level compiled code for performance.</li>
+                            <li><em>Real-Time communication</em>, using the <a href="https://developer.mozilla.org/docs/Web/API/WebRTC_API">WebRTC API</a>.</li>
+                            <li><em>Web Performance</em> APIs to measure and help provide a better experience. See <a href="https://developer.mozilla.org/docs/Web/API/Performance_API">the Performance API guide</a> for more information.</li>
+                            <li><em>Store data locally</em> with IndexedDB and storage management to query quota and request persistent storage, as seen in the <a href="/learn/pwa/offline-data">Offline data chapter</a>.</li>
+                            <li><em>Low-level audio</em> thanks to the <a href="https://developer.mozilla.org/docs/Web/API/Web_Audio_API">Web Audio API</a>.</li>
+                            <li><em>Foreground detection</em> using the <a href="https://developer.mozilla.org/docs/Web/API/Page_Visibility_API">Page Visibility API</a>.</li>
+                            <li><em>Network communication</em> using the <a href="https://developer.mozilla.org/docs/Web/API/Fetch_API">Fetch API</a> and the <a href="https://developer.mozilla.org/docs/Web/API/WebSockets_API">WebSocket API</a>.</li>
+                            </ul>
+                            
+                            <h4 id="hardware_and_sensors" data-text="Hardware and sensors" tabindex="-1">Hardware and sensors</h4>
+                            
+                            <ul>
+                            <li><em>Geolocation</em> obtains the user&#39;s location through different providers, such as satellite or Wi-Fi through the <a href="https://developer.mozilla.org/docs/Web/API/Geolocation_API">Geolocation API</a>.</li>
+                            <li><em>Camera and microphone</em> receive media streams from cameras and microphones using the <a href="https://developer.mozilla.org/docs/Web/API/MediaDevices">Media devices</a> interface.</li>
+                            <li><em>Sensors</em>  gather real-time information from the accelerometer, gyroscope, magnetometer, and others using the <a href="https://developer.mozilla.org/docs/Web/API/Sensor_APIs">Sensors API</a> or older interfaces, such as <a href="https://developer.mozilla.org/docs/Web/API/DeviceMotionEvent">DeviceMotionEvent</a> and <a href="https://developer.mozilla.org/docs/Web/API/DeviceOrientationEvent">DeviceOrientationEvent</a>. On Safari, you need to use a <a href="https://medium.com/flawless-app-stories/how-to-request-device-motion-and-orientation-permission-in-ios-13-74fc9d6cd140">non-standard permission dialog request</a> to use them.</li>
+                            <li><em>Touch and pointer</em> access information about all the touches and pointer-based clicks you make with your finger, a mouse, a trackpad, or a pen, thanks to <a href="https://developer.mozilla.org/docs/Web/API/Pointer_events">Pointer events</a> and <a href="https://developer.mozilla.org/docs/Web/API/Touch_events">Touch events</a>.</li>
+                            </ul>
+                            
+                            <aside class="note"><b>Note: </b> Safari also supports <a href="https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/HandlingEvents/HandlingEvents.html#//apple_ref/doc/uid/TP40006511-SW23">Gesture events</a>, a non-standard API for detecting rotation and pinching gestures, which should be used with care. </aside>
+                            
+                            <ul>
+                            <li><em>Gamepads</em> to read information coming from standard gamepads and joysticks connected to the device using the <a href="https://developer.mozilla.org/docs/Web/API/Gamepad_API/Using_the_Gamepad_API">Gamepad API</a>.</li>
+                            <li><em>Biometric authentication</em> (such as face or fingerprint recognition) using <a href="https://webauthn.guide/">Web Authentication or WebAuthn</a>.</li>
+                            </ul>
+                            
+                            <h4 id="operating_system_integration" data-text="Operating system integration" tabindex="-1">Operating system integration</h4>
+                            
+                            <ul>
+                            <li><em>Speech synthesis and voice recognition</em> use the platform&#39;s installed voices to speak to the user and to recognize what the user is saying, thanks to the <a href="https://developer.mozilla.org/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API">Web Speech API</a>.</li>
+                            <li><em>Share content</em> from your PWA to other apps and places on the device, thanks to the <a href="https://developer.mozilla.org/docs/Web/API/Web_Share_API">Web Share API</a>, as we&#39;ll see in the <a href="/learn/pwa/os-integration">OS integration chapter</a>.</li>
+                            <li><em>Access the clipboard</em> to save and retrieve content from the clipboard in different formats, thanks to the <a href="https://developer.mozilla.org/docs/Web/API/Clipboard_API">Clipboard API</a>, as I showed in the <a href="/learn/pwa/os-integration">OS integration chapter</a>.</li>
+                            <li><em>Manage user&#39;s credentials and passwords</em> using the <a href="https://developer.mozilla.org/docs/Web/API/Credential_Management_API">Credential Management API</a>.</li>
+                            <li><em>Enable picture-in-picture</em> video playing within the OS using the <a href="https://developer.mozilla.org/docs/Web/API/Picture-in-Picture_API">picture-in-picture API</a>.</li>
+                            <li><em>Render content in fullscreen</em> thanks to the <a href="https://developer.mozilla.org/docs/Web/API/Fullscreen_API">Fullscreen API</a>, as I showed in the <a href="/learn/pwa/windows">Windows chapter</a>.</li>
+                            </ul>
+                            
+                            <aside class="note"><b>Note: </b> You can integrate your PWA with many platform-specific apps using URI schemes and universal URLs, as I showed in the <a href="/learn/pwa/os-integration">OS Integration chapter</a>. </aside>
+                            
+                            <h3 id="light-green_capabilities" data-text="Light-green capabilities" tabindex="-1">Light-green capabilities</h3>
+                            
+                            <p>Here is a list of the most important capabilities you can use in your PWA, with the caveat that they may not be available on every browser.</p>
+                            
+                            <h4 id="the_basics" data-text="The basics" tabindex="-1">The basics</h4>
+                            
+                            <ul>
+                            <li><em>WebGL 2.0</em>, the <a href="https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext">new version of the WebGL spec</a> to match OpenGL 3.0.</li>
+                            <li><em>Codecs</em>, low-level access to the individual frames of a video stream and chunks of audio; useful for web applications that require full control over the way media is processed through <a href="https://developer.mozilla.org/docs/Web/API/WebCodecs_API">the Web Codecs API</a>.</li>
+                            </ul>
+                            
+                            <h4 id="hardware_and_sensors_2" data-text="Hardware and sensors" tabindex="-1">Hardware and sensors</h4>
+                            
+                            <ul>
+                            <li><em>Advanced camera controls</em> to access <a href="/articles/camera-pan-tilt-zoom">pan, tilt, and zoom controls</a>, in addition to the Media APIs.</li>
+                            <li><em>Bluetooth LE</em> to communicate with Bluetooth low-energy devices near the user using the <a href="https://developer.mozilla.org/docs/Web/API/Web_Bluetooth_API">Web Bluetooth API</a>. Check out <a href="/bluetooth">communicating with Bluetooth devices over JavaScript</a> for more information.</li>
+                            <li><em>Near-field communication</em> to exchange data over NFC via light-weight NFC data exchange format (NDEF) messages, such as an NFC tag or card using the <a href="https://developer.mozilla.org/docs/Web/API/Web_NFC_API">WebNFC API</a>. You can also read <a href="/articles/nfc">Interact with NFC devices on Chrome for Android</a> for more details.</li>
+                            <li><p><em>Serial peripheral</em> for low-level access to devices connected to the device using a serial port, USB, or serial over Bluetooth using the <a href="https://developer.mozilla.org/docs/Web/API/Web_Serial_API">Web Serial WPI</a>. In the following link you can learn how to <a href="/articles/serial">read from and write to a serial port</a>.</p></li>
+                            <li><p><em>USB device</em> access to communicate with devices connected via USB <a href="https://developer.mozilla.org/docs/Web/API/WebUSB_API">WebUSB API</a>. Check out <a href="/usb">access to USB devices on the web</a> for more information.</p></li>
+                            <li><p><em>Human interface devices</em> let your PWA interact with any kind of device prepared for human interaction that is <a href="/hid">uncommon</a>, using the <a href="https://developer.mozilla.org/docs/Web/API/WebHID_API">WebHID API</a>. Check out this guide on <a href="/articles/hid">connecting to uncommon HID devices</a>.</p></li>
+                            </ul>
+                            
+                            <aside class="note"><b>Note: </b> <a href="/articles/devices-introduction">Accessing hardware devices on the web</a> offers a comprehensive guide to understanding how different hardware APIs interact with each other. </aside>
+                            
+                            <ul>
+                            <li><em>Ambient Light</em> reads the current light level or illuminance of the ambient light around the device, in addition to the <a href="https://developer.mozilla.org/docs/Web/API/AmbientLightSensor">Sensors API</a>.</li>
+                            <li><em>Vibration</em> gives the user haptic feedback when something happens, if the device supports it, through the <a href="https://developer.mozilla.org/docs/Web/API/Vibration_API">Vibration API</a>.</li>
+                            <li><em>Recording media</em> captures the data generated by a MediaStream or HTMLMediaElement object (such as a <code translate="no" dir="ltr">&lt;video&gt;</code> tag) for analysis, processing, or saving to disk, thanks to the <a href="https://developer.mozilla.org/docs/Web/API/MediaRecorder">MediaRecorder API</a>.</li>
+                            <li><em>Applying a wake Lock to the screen</em>  prevents the device from dimming, or locking the screen, when your PWA needs to keep running, using the <a href="https://developer.mozilla.org/docs/Web/API/Screen_Wake_Lock_API">Screen Wake Lock API</a>.</li>
+                            <li><em>Virtual reality</em> enables you to use a headset and other devices in your PWA, thanks to the <a href="https://developer.mozilla.org/docs/Web/API/WebXR_Device_API">WebXR Device API</a>.</li>
+                            <li><em>Augmented reality</em> can be achieved in your PWA in many ways, such as using the <a href="https://developer.mozilla.org/docs/Web/API/WebXR_Device_API">WebXR Device API</a> or the <a href="https://webkit.org/blog/8421/viewing-augmented-reality-assets-in-safari-for-ios/">Safari Quick Look app for AR content</a>.</li>
+                            <li><em>Detect inactive users</em> with the <a href="/idle-detection">Idle Detection API</a>.</li>
+                            <li><em>Orientation lock</em> locks the orientation to portrait or landscape while the PWA is on the screen, thanks to the <a href="https://developer.mozilla.org/docs/Web/API/Screen_Orientation_API">Screen Orientation API</a>, or the <code translate="no" dir="ltr">orientation</code> property of the <a href="/learn/pwa/web-app-manifest">Web App Manifest</a> for installed apps.</li>
+                            <li><em>Present content</em> on projectors and secondary displays, thanks to the <a href="https://developer.mozilla.org/docs/Web/API/Presentation_API">Presentation API</a>.</li>
+                            <li><em>Lock a pointer</em> to receive delta movement information from pointers (mice, trackpads, and pointers) instead of position values—useful for some games—thanks to the <a href="https://developer.mozilla.org/docs/Web/API/Pointer_Lock_API">Pointer Lock API</a>.</li>
+                            </ul>
+                            
+                            <h4 id="operating_system_integration_2" data-text="Operating system integration" tabindex="-1">Operating system integration</h4>
+                            
+                            <ul>
+                            <li><em>Read and write files</em> on the device, thanks to the <a href="https://developer.mozilla.org/docs/Web/API/File_System_Access_API">File System Access API</a>, as you saw in the <a href="/learn/pwa/os-integration">OS Integration</a> chapter.</li>
+                            <li><em>Get content from other apps</em> thanks to <a href="/web-share-target">Web Share Target</a>, as I showed in the <a href="/learn/pwa/os-integration">OS integration</a> chapter.</li>
+                            <li><em>Get contact data</em> using the <a href="https://developer.mozilla.org/docs/Web/API/Contact_Picker_API">Contact Picker API</a>, as shown in the <a href="/learn/pwa/os-integration">OS integration</a> chapter.</li>
+                            <li><em>Sync in the background</em> while the PWA is not used, thanks to the <a href="https://developer.mozilla.org/docs/Web/API/Background_Synchronization_API">Background Synchronization API</a>.</li>
+                            <li><em>Task scheduling</em> while the PWA is not in use, thanks to the <a href="https://developer.mozilla.org/docs/Web/API/Web_Periodic_Background_Synchronization_API">Web Periodic Background Synchronization API</a>.</li>
+                            <li><em>Send notifications</em> using <a href="https://developer.mozilla.org/docs/Web/API/Push_API">Web Push</a> and <a href="https://developer.mozilla.org/docs/Web/API/Notifications_API">Web Notifications APIs</a>.</li>
+                            <li><em>Transfer files in the background</em> while the user is not using your PWA, thanks to the <a href="https://developer.mozilla.org/docs/Web/API/Background_Fetch_API">Background Fetch API</a>.</li>
+                            <li><em>Integrate your media playing</em> with the operating system using the <a href="https://developer.mozilla.org/docs/Web/API/Media_Session_API">Media Session API</a>.</li>
+                            <li><em>Manage payments in your PWA</em>, thanks to the <a href="https://developer.mozilla.org/docs/Web/API/Payment_Request_API">Payment Request API</a>. Apple also offers an <a href="https://developer.apple.com/documentation/apple_pay_on_the_web/apple_pay_js_api">Apple Pay JS library</a> on top of the Payment Request API.</li>
+                            <li><em>Query network status</em>, such as connection type (4G, WiFi) and a Save Data flag using the <a href="https://developer.mozilla.org/docs/Web/API/Network_Information_API">Network Information API</a>.</li>
+                            <li><em>Capture the user&#39;s screen</em> for screencast or screen sharing using the <a href="https://developer.mozilla.org/docs/Web/API/Screen_Capture_API/Using_Screen_Capture">Screen Capture API</a>.</li>
+                            <li><em>Detect shapes</em> using on-device hardware-accelerated detectors, including barcodes (human faces and text OCR are still in development) using the <a href="/shape-detection">Shape Detection API</a>.</li>
+                            <li><em>Query a device&#39;s memory</em> using the <a href="https://developer.mozilla.org/docs/Web/API/Device_Memory_API">Device Memory interface</a>.</li>
+                            <li><em>One-time passwords over SMS</em> let you automatically receive a code via SMS sent from your server using the <a href="https://developer.mozilla.org/docs/Web/API/WebOTP_API">WebOTP API</a>. Safari implements a solution subset based on the <code translate="no" dir="ltr">&lt;input&gt;</code> element. Read more about it in <a href="https://developer.apple.com/news/?id=z0i801mg">WebKit&#39;s blog</a>.</li>
+                            <li><em>Manage the virtual keyboard</em> that appears on mobile devices screens using the <a href="/virtualkeyboard">Virtual Keyboard API</a>.</li>
+                            </ul>
+                            
+                            <aside class="note"><b>Note: </b> If you publish a PWA to some app catalogs and stores, you may access additional APIs. For example, if you publish a PWA to Google Play using a <a href="https://developer.chrome.com/docs/android/trusted-web-activity">Trusted Web Activity</a>, you can use the <a href="https://github.com/WICG/digital-goods/blob/main/explainer.md">Digital Goods API</a> to charge your users for subscriptions and premium content. </aside>
+                            
+                            <aside class="tip">If you have a legitimate use case that cannot be realized with the present set of APIs, you can submit a request to analyze the use case for a possible future web API, as we'll see in the <a href="/learn/pwa/experimental">Experimental chapter</a>. </aside>
+                            
+                            <h2 id="resources" data-text="Resources" tabindex="-1">Resources</h2>
+                            
+                            <ul>
+                            <li><a href="https://developer.chrome.com/docs/capabilities/fugu-showcase">Project Fugu API Showcase</a></li>
+                            <li><a href="https://developer.chrome.com/docs/capabilities">Project Fugu</a></li>
+                            <li><a href="https://developer.mozilla.org/docs/Web/API">MDN: Web APIs</a></li>
+                            <li><a href="https://whatwebcando.today/">What Web Can Do Today</a></li>
+                            <li><a href="https://whatpwacando.today/">What PWA Can Do Today</a></li>
+                            <li><a href="https://caniuse.com/">Can I Use</a></li>
+                            <li><a href="https://firt.dev/ios-14/#geolocation-changes">iOS/iPadOS Approximate location</a></li>
+                            <li><a href="https://webkit.org/blog/11312/meet-face-id-and-touch-id-for-the-web/">Meet Face ID and Touch ID for the Web</a></li>
+                            </ul>
+                            
+                              
+                            
+
+
+
+
+
+
+
+                        </section>
+                    </article>
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
+                    </div>
+                    
                                         
                 </div>
             </main>

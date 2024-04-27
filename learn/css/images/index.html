@@ -1172,38 +1172,440 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
-                        </div>
-                    </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
+                   
+                    
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Images, media, and form elements</h1>
+                        </header>
+                        <div class="section-content">
+                            <ul class="prev-next">
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks/Sizing_items_in_CSS">
+                                        <span class="button-wrap">Previous </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks">
+                                        <span class="button-wrap">Overview: Building blocks</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks/Styling_tables">
+                                        <span class="button-wrap">Next  </span>
+                                    </a>
+                                </li>
                             </ul>
-                        </nav>
-                    </footer>
+                            <p>In this lesson we will take a look at how certain special elements are treated in CSS. Images, other media, and form elements behave a little differently from regular boxes in terms of your ability to style them with CSS. Understanding what is and isn't possible can save some frustration, and this lesson will highlight some of the main things that you need to know.</p>
+                            <figure class="table-container">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Prerequisites:</th>
+                                            <td>
+                                                <a href="/en-US/docs/Learn/Getting_started_with_the_web/Installing_basic_software">Basic software installed</a>
+                                                , basic knowledge of
+    <a href="/en-US/docs/Learn/Getting_started_with_the_web/Dealing_with_files">working with files</a>
+                                                , HTML basics (study
+    <a href="/en-US/docs/Learn/HTML/Introduction_to_HTML">Introduction to HTML</a>
+                                                ), and an idea of how CSS works (study
+    <a href="/en-US/docs/Learn/CSS/First_steps">CSS first steps</a>
+                                                .)
+  
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Objective:</th>
+                                            <td>To understand the way that some elements behave unusually when styled
+    with CSS.
+  </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </figure>
+                        </div>
+                        <section aria-labelledby="replaced_elements">
+                            <h2 id="replaced_elements">
+                                <a href="#replaced_elements">Replaced elements</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    Images and video are described as 
+                                    <strong>
+                                        <a href="/en-US/docs/Web/CSS/Replaced_element">replaced elements</a>
+                                    </strong>
+                                    . This means that CSS cannot affect the internal layout of these elements — only their position on the page amongst other elements. As we will see however, there are various things that CSS can do with an image.
+                                </p>
+                                <p>
+                                    Certain replaced elements, such as images and video, are also described as having an <strong>aspect ratio</strong>
+                                    . This means that it has a size in both the horizontal (x) and vertical (y) dimensions, and will be displayed using the intrinsic dimensions of the file by default.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="sizing_images">
+                            <h2 id="sizing_images">
+                                <a href="#sizing_images">Sizing images</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>As you already know from following these lessons, everything in CSS generates a box. If you place an image inside a box that is smaller or larger than the intrinsic dimensions of the image file in either direction, it will either appear smaller than the box, or overflow the box. You need to make a decision about what happens with the overflow.</p>
+                                <p>In the example below we have two boxes, both 200 pixels in size:</p>
+                                <ul>
+                                    <li>One contains an image which is smaller than 200 pixels — it is smaller than the box and doesn't stretch to fill it.</li>
+                                    <li>The other is larger than 200 pixels and overflows the box.</li>
+                                </ul>
+                                <iframe width="100%" height="1000" src="https://mdn.github.io/css-examples/learn/images/size.html" loading="lazy"></iframe>
+                                <p>So what can we do about the overflowing issue?</p>
+                                <p>
+                                    As we learned in <a href="/en-US/docs/Learn/CSS/Building_blocks/Sizing_items_in_CSS">our previous lesson</a>
+                                    , a common technique is to make the 
+                                    <a href="/en-US/docs/Web/CSS/max-width">
+                                        <code>max-width</code>
+                                    </a>
+                                    of an image 100%. This will enable the image to become smaller in size than the box but not larger. This technique will also work with other replaced elements such as 
+                                    <a href="/en-US/docs/Web/HTML/Element/video">
+                                        <code>&lt;video &gt;</code>
+                                    </a>
+                                    s, or 
+                                    <a href="/en-US/docs/Web/HTML/Element/iframe">
+                                        <code>&lt;iframe &gt;</code>
+                                    </a>
+                                    s.
+                                </p>
+                                <p>
+                                    <strong>
+                                        Try adding <code>max-width: 100%</code>
+                                        to the <code>&lt;img &gt;</code>
+                                        element in the example above. You will see that the smaller image remains unchanged, but the larger one becomes smaller to fit into the box.
+                                    </strong>
+                                </p>
+                                <p>You can make other choices about images inside containers. For example, you may want to size an image so it completely covers a box.</p>
+                                <p>
+                                    The 
+                                    <a href="/en-US/docs/Web/CSS/object-fit">
+                                        <code>object-fit</code>
+                                    </a>
+                                    property can help you here. When using <code>object-fit</code>
+                                    the replaced element can be sized to fit a box in a variety of ways.
+                                </p>
+                                <p>
+                                    Below we have used the value <code>cover</code>
+                                    , which sizes the image down, maintaining the aspect ratio so that it neatly fills the box. As the aspect ratio is maintained, some parts of the image will be cropped by the box.
+                                </p>
+                                <iframe width="100%" height="1000" src="https://mdn.github.io/css-examples/learn/images/object-fit.html" loading="lazy"></iframe>
+                                <p>
+                                    If we use <code>contain</code>
+                                    as a value, the image will be scaled down until it is small enough to fit inside the box. This will result in "letterboxing" if it is not the same aspect ratio as the box.
+                                </p>
+                                <p>
+                                    You could also try the value of <code>fill</code>
+                                    , which will fill the box but not maintain the aspect ratio.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="replaced_elements_in_layout">
+                            <h2 id="replaced_elements_in_layout">
+                                <a href="#replaced_elements_in_layout">Replaced elements in layout</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>When using various CSS layout techniques on replaced elements, you may well find that they behave slightly differently from other elements. For example, in a flex or grid layout, elements are stretched by default to fill the entire area. Images will not stretch, and instead will be aligned to the start of the grid area or flex container.</p>
+                                <p>
+                                    You can see this happening in the example below where we have a two column, two row grid container, which has four items in it. All of the <code>&lt;div &gt;</code>
+                                    elements have a background color and stretch to fill the row and column. The image, however, does not stretch.
+                                </p>
+                                <iframe width="100%" height="1000" src="https://mdn.github.io/css-examples/learn/images/layout.html" loading="lazy"></iframe>
+                                <p>If you are following these lessons in order then you may not have looked at layout yet. Just keep in mind that replaced elements, when they become part of a grid or flex layout, have different default behaviors, essentially to avoid them being stretched strangely by the layout.</p>
+                                <p>To force the image to stretch to fill the grid cell it is in, you'd have to do something like the following:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="U1r5/nb5sRDluzv6VybPNWz6Zrbj/+8SYwEG/b4sXj0=">
+                                        <code>
+                                            <span class="token selector">img</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">width</span>
+                                            <span class="token punctuation">:</span>
+                                            100%<span class="token punctuation">;</span>
+                                            <span class="token property">height</span>
+                                            <span class="token punctuation">:</span>
+                                            100%<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>This would, however, stretch the image, so it's probably not what you'd want to do.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="form_elements">
+                            <h2 id="form_elements">
+                                <a href="#form_elements">Form elements</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    Form elements can be a tricky issue when it comes to styling with CSS. The <a href="/en-US/docs/Learn/Forms">Web Forms module</a>
+                                    contains detailed guides to the trickier aspects of styling these, which I will not fully reproduce here. There are, however, a few key basics worth highlighting in this section.
+                                </p>
+                                <p>
+                                    Many form controls are added to your page by way of the 
+                                    <a href="/en-US/docs/Web/HTML/Element/input">
+                                        <code>&lt;input &gt;</code>
+                                    </a>
+                                    element — this defines simple form fields such as text inputs, through to more complex fields such as color and date pickers. There are some additional elements, such as 
+                                    <a href="/en-US/docs/Web/HTML/Element/textarea">
+                                        <code>&lt;textarea &gt;</code>
+                                    </a>
+                                    for multiline text input, and also elements used to contain and label parts of forms such as 
+                                    <a href="/en-US/docs/Web/HTML/Element/fieldset">
+                                        <code>&lt;fieldset &gt;</code>
+                                    </a>
+                                    and 
+                                    <a href="/en-US/docs/Web/HTML/Element/legend">
+                                        <code>&lt;legend &gt;</code>
+                                    </a>
+                                    .
+                                </p>
+                                <p>HTML also contains attributes that enable web developers to indicate which fields are required, and even the type of content that needs to be entered. If the user enters something unexpected, or leaves a required field blank, the browser can show an error message. Different browsers vary with one another in how much styling and customization they allow for such items.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="styling_text_input_elements">
+                            <h3 id="styling_text_input_elements">
+                                <a href="#styling_text_input_elements">Styling text input elements</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    Elements that allow for text input, such as <code>&lt;input type="text"&gt;</code>
+                                    , and the more specific <code>&lt;input type="email"&gt;</code>
+                                    , and the <code>&lt;textarea &gt;</code>
+                                    element are quite easy to style and tend to behave just like other boxes on your page. The default styling of these elements will differ, however, based on the operating system and browser that your user visits the site with.
+                                </p>
+                                <p>In the example below we have styled some text inputs using CSS — you can see that things such as borders, margins and padding all apply as you would expect. We are using attribute selectors to target the different input types. Try changing how this form looks by adjusting the borders, adding background colors to the fields, and changing fonts and padding.</p>
+                                <iframe width="100%" height="1000" src="https://mdn.github.io/css-examples/learn/images/form.html" loading="lazy"></iframe>
+                                <div class="notecard warning" id="sect1">
+                                    <p>
+                                        <strong>Warning:</strong>
+                                        You should take care when changing the styling of form elements to make sure it is still obvious to the user they are form elements. You could create a form input with no borders and background that is almost indistinguishable from the content around it, but this would make it very hard to recognize and fill in.
+                                    </p>
+                                </div>
+                                <p>
+                                    As explained in the lessons on <a href="/en-US/docs/Learn/Forms/Styling_web_forms">styling web forms</a>
+                                    , many of the more complex input types are rendered by the operating system and are inaccessible to styling. You should, therefore, always assume that forms are going to look quite different for different visitors and test complex forms in a number of browsers.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="inheritance_and_form_elements">
+                            <h3 id="inheritance_and_form_elements">
+                                <a href="#inheritance_and_form_elements">Inheritance and form elements</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>In some browsers, form elements do not inherit font styling by default. Therefore, if you want to be sure that your form fields use the font defined on the body, or on a parent element, you should add this rule to your CSS.</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="Qp9PG37JEmXnQsqD/o12qkiWZqib7iMgQ2m2VbI56xo=">
+                                        <code>
+                                            <span class="token selector">button,
+input,
+select,
+textarea</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">font-family</span>
+                                            <span class="token punctuation">:</span>
+                                            inherit<span class="token punctuation">;</span>
+                                            <span class="token property">font-size</span>
+                                            <span class="token punctuation">:</span>
+                                            100%<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="form_elements_and_box-sizing">
+                            <h3 id="form_elements_and_box-sizing">
+                                <a href="#form_elements_and_box-sizing">Form elements and box-sizing</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    Across browsers, form elements use different box sizing rules for different widgets. You learned about the <code>box-sizing</code>
+                                    property in <a href="/en-US/docs/Learn/CSS/Building_blocks/The_box_model">our box model lesson</a>
+                                    and you can use this knowledge when styling forms to ensure a consistent experience when setting widths and heights on form elements.
+                                </p>
+                                <p>
+                                    For consistency, it is a good idea to set margins and padding to <code>0</code>
+                                    on all elements, then add these back in when styling particular controls:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="gF6JL51jwYZn+TIqQ4drPdsM1bQ66dCQGjE9pmGy0go=">
+                                        <code>
+                                            <span class="token selector">button,
+input,
+select,
+textarea</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">box-sizing</span>
+                                            <span class="token punctuation">:</span>
+                                            border-box<span class="token punctuation">;</span>
+                                            <span class="token property">padding</span>
+                                            <span class="token punctuation">:</span>
+                                            0<span class="token punctuation">;</span>
+                                            <span class="token property">margin</span>
+                                            <span class="token punctuation">:</span>
+                                            0<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="other_useful_settings">
+                            <h3 id="other_useful_settings">
+                                <a href="#other_useful_settings">Other useful settings</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    In addition to the rules mentioned above, you should also set <code>overflow: auto</code>
+                                    on <code>&lt;textarea &gt;</code>
+                                    s to stop IE showing a scrollbar when there is no need for one:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="jZI3HpvxWo7iDyUKqlqAoXE4ns7IsZlhrC6qKPQbi5I=">
+                                        <code>
+                                            <span class="token selector">textarea</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">overflow</span>
+                                            <span class="token punctuation">:</span>
+                                            auto<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="putting_it_all_together_into_a_reset">
+                            <h3 id="putting_it_all_together_into_a_reset">
+                                <a href="#putting_it_all_together_into_a_reset">Putting it all together into a "reset"</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>As a final step, we can wrap up the various properties discussed above into the following "form reset" to provide a consistent base to work from. This includes all the items mentioned in the last three sections:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="tqnBNRxA+WQHU/3yfZXVnt1B14OrlL/gSiEUKqynd0U=">
+                                        <code>
+                                            <span class="token selector">button,
+input,
+select,
+textarea</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">font-family</span>
+                                            <span class="token punctuation">:</span>
+                                            inherit<span class="token punctuation">;</span>
+                                            <span class="token property">font-size</span>
+                                            <span class="token punctuation">:</span>
+                                            100%<span class="token punctuation">;</span>
+                                            <span class="token property">box-sizing</span>
+                                            <span class="token punctuation">:</span>
+                                            border-box<span class="token punctuation">;</span>
+                                            <span class="token property">padding</span>
+                                            <span class="token punctuation">:</span>
+                                            0<span class="token punctuation">;</span>
+                                            <span class="token property">margin</span>
+                                            <span class="token punctuation">:</span>
+                                            0<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token selector">textarea</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">overflow</span>
+                                            <span class="token punctuation">:</span>
+                                            auto<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="notecard note" id="sect2">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        Normalizing stylesheets are used by many developers to create a set of baseline styles to use on all projects. Typically these do similar things to those described above, making sure that anything different across browsers is set to a consistent default before you do your own work on the CSS. They are not as important as they once were, as browsers are typically more consistent than in the past. However if you want to take a look at one example, check out <a href="https://necolas.github.io/normalize.css/" class="external" target="_blank">Normalize.css</a>
+                                        , which is a very popular stylesheet used as a base by many projects.
+                                    </p>
+                                </div>
+                                <p>For further information on styling forms, take a look at the two articles in the HTML section of these guides.</p>
+                                <ul>
+                                    <li>
+                                        <a href="/en-US/docs/Learn/Forms/Styling_web_forms">Styling web forms</a>
+                                    </li>
+                                    <li>
+                                        <a href="/en-US/docs/Learn/Forms/Advanced_form_styling">Advanced form styling</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section aria-labelledby="test_your_skills!">
+                            <h2 id="test_your_skills!">
+                                <a href="#test_your_skills!">Test your skills!</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    You've reached the end of this article, but can you remember the most important information? You can find some further tests to verify that you've retained this information before you move on — see <a href="/en-US/docs/Learn/CSS/Building_blocks/Images_tasks">Test your skills: Images and form elements</a>
+                                    .
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="summary">
+                            <h2 id="summary">
+                                <a href="#summary">Summary</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>This lesson has highlighted some of the differences you will encounter when working with images, media, and other unusual elements in CSS.</p>
+                                <p>
+                                    In the next article, we'll learn how to <a href="/en-US/docs/Learn/CSS/Building_blocks/Styling_tables">style HTML tables</a>
+                                    .
+                                </p>
+                                <ul class="prev-next">
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks/Sizing_items_in_CSS">
+                                            <span class="button-wrap">Previous </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks">
+                                            <span class="button-wrap">Overview: Building blocks</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks/Styling_tables">
+                                            <span class="button-wrap">Next  </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
+                    </div>
+                    
                                         
                 </div>
             </main>

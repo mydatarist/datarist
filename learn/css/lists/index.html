@@ -1172,38 +1172,2045 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
-                        </div>
-                    </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
+                    
+                    
+
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Styling lists</h1>
+                        </header>
+                        <div class="section-content">
+                            <ul class="prev-next">
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/CSS/Styling_text/Fundamentals">
+                                        <span class="button-wrap">Previous </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/CSS/Styling_text">
+                                        <span class="button-wrap">Overview: Styling text</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/CSS/Styling_text/Styling_links">
+                                        <span class="button-wrap">Next  </span>
+                                    </a>
+                                </li>
                             </ul>
-                        </nav>
-                    </footer>
+                            <p>
+                                <a href="/en-US/docs/Learn/HTML/Introduction_to_HTML/HTML_text_fundamentals#lists">Lists</a>
+                                behave like any other text for the most part, but there are some CSS properties specific to lists that you need to know about, as well as some best practices to consider. This article explains all.
+                            </p>
+                            <figure class="table-container">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Prerequisites:</th>
+                                            <td>
+                                                HTML basics (study
+    <a href="/en-US/docs/Learn/HTML/Introduction_to_HTML">Introduction to HTML</a>
+                                                ), CSS basics (study
+    <a href="/en-US/docs/Learn/CSS/First_steps">Introduction to CSS</a>
+                                                ),
+    <a href="/en-US/docs/Learn/CSS/Styling_text/Fundamentals">CSS text and font fundamentals</a>
+                                                .
+  
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Objective:</th>
+                                            <td>To become familiar with the best practices and properties related to
+    styling lists.
+  </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </figure>
+                        </div>
+                        <section aria-labelledby="a_simple_list_example">
+                            <h2 id="a_simple_list_example">
+                                <a href="#a_simple_list_example">A simple list example</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    To begin with, let's look at a simple list example. Throughout this article, we'll look at unordered, ordered, and description lists — all have styling features that are similar, as well as some that are particular to themselves. The unstyled example is <a href="https://mdn.github.io/learning-area/css/styling-text/styling-lists/unstyled-list.html" class="external" target="_blank">available on GitHub</a>
+                                    (check out the <a href="https://github.com/mdn/learning-area/blob/main/css/styling-text/styling-lists/unstyled-list.html" class="external" target="_blank">source code</a>
+                                    too.)
+                                </p>
+                                <p>The HTML for our list example looks like so:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">html</span>
+                                    </div>
+                                    <pre class="brush: html notranslate" data-signature="EOoMqjpoX90NFYcnf8nfgtsUXvDbc9fPKkpibfhOzEg=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    h2
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Shopping (unordered) list
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    h2
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Paragraph for reference, paragraph for reference, paragraph for reference,
+paragraph for reference, paragraph for reference, paragraph for reference.
+
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    ul
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Hummus
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Pita
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Green salad
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Halloumi
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    ul
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    h2
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Recipe (ordered) list
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    h2
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Paragraph for reference, paragraph for reference, paragraph for reference,
+paragraph for reference, paragraph for reference, paragraph for reference.
+
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    ol
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Toast pita, leave to cool, then slice down the edge.
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Fry the halloumi in a shallow, non-stick pan, until browned on both sides.
+
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Wash and chop the salad.
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Fill pita with salad, hummus, and fried halloumi.
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    ol
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    h2
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Ingredient description list
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    h2
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Paragraph for reference, paragraph for reference, paragraph for reference,
+paragraph for reference, paragraph for reference, paragraph for reference.
+
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    dl
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    dt
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Hummus
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    dt
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    dd
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            A thick dip/sauce generally made from chick peas blended with tahini, lemon
+juice, salt, garlic, and other ingredients.
+
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    dd
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    dt
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Pita
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    dt
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    dd
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            A soft, slightly leavened flatbread.
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    dd
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    dt
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Halloumi
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    dt
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    dd
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            A semi-hard, unripened, brined cheese with a higher-than-usual melting
+point, usually made from goat/sheep milk.
+
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    dd
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    dt
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Green salad
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    dt
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    dd
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            That green healthy stuff that many of us just use to garnish kebabs.
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    dd
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    dl
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    If you go to the live example now and investigate the list elements using <a href="/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools">browser developer tools</a>
+                                    , you'll notice a couple of styling defaults:
+                                </p>
+                                <ul>
+                                    <li>
+                                        The 
+                                        <a href="/en-US/docs/Web/HTML/Element/ul">
+                                            <code>&lt;ul &gt;</code>
+                                        </a>
+                                        and 
+                                        <a href="/en-US/docs/Web/HTML/Element/ol">
+                                            <code>&lt;ol &gt;</code>
+                                        </a>
+                                        elements have a top and bottom 
+                                        <a href="/en-US/docs/Web/CSS/margin">
+                                            <code>margin</code>
+                                        </a>
+                                        of <code>16px</code>
+                                        (<code>1em</code>
+                                        ) and a 
+                                        <a href="/en-US/docs/Web/CSS/padding-left">
+                                            <code>padding-left</code>
+                                        </a>
+                                        of <code>40px</code>
+                                        (<code>2.5em</code>
+                                        ). If the directionality attribute 
+                                        <a href="/en-US/docs/Web/HTML/Global_attributes/dir">
+                                            <code>dir</code>
+                                        </a>
+                                        is set to right-to-left (<code>rtl</code>
+                                        ) for <code>ul</code>
+                                        and <code>ol</code>
+                                        elements, in that case 
+                                        <a href="/en-US/docs/Web/CSS/padding-right">
+                                            <code>padding-right</code>
+                                        </a>
+                                        comes into effect and its default value is <code>40px</code>
+                                        (<code>2.5em</code>
+                                        ) .
+                                    </li>
+                                    <li>
+                                        The list items (
+                                        <a href="/en-US/docs/Web/HTML/Element/li">
+                                            <code>&lt;li &gt;</code>
+                                        </a>
+                                        elements) have no set defaults for spacing.
+                                    </li>
+                                    <li>
+                                        The 
+                                        <a href="/en-US/docs/Web/HTML/Element/dl">
+                                            <code>&lt;dl &gt;</code>
+                                        </a>
+                                        element has a top and bottom 
+                                        <a href="/en-US/docs/Web/CSS/margin">
+                                            <code>margin</code>
+                                        </a>
+                                        of <code>16px</code>
+                                        (<code>1em</code>
+                                        ), but no padding set.
+                                    </li>
+                                    <li>
+                                        The 
+                                        <a href="/en-US/docs/Web/HTML/Element/dd">
+                                            <code>&lt;dd &gt;</code>
+                                        </a>
+                                        elements have 
+                                        <a href="/en-US/docs/Web/CSS/margin-left">
+                                            <code>margin-left</code>
+                                        </a>
+                                        of <code>40px</code>
+                                        (<code>2.5em</code>
+                                        ).
+                                    </li>
+                                    <li>
+                                        The 
+                                        <a href="/en-US/docs/Web/HTML/Element/p">
+                                            <code>&lt;p &gt;</code>
+                                        </a>
+                                        elements we've included for reference have a top and bottom 
+                                        <a href="/en-US/docs/Web/CSS/margin">
+                                            <code>margin</code>
+                                        </a>
+                                        of <code>16px</code>
+                                        (<code>1em</code>
+                                        ) — the same as the different list types.
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section aria-labelledby="handling_list_spacing">
+                            <h2 id="handling_list_spacing">
+                                <a href="#handling_list_spacing">Handling list spacing</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    When styling lists, you need to adjust their styles so they keep the same vertical spacing as their surrounding elements (such as paragraphs and images; sometimes called vertical rhythm), and the same horizontal spacing as each other (you can see the <a href="https://mdn.github.io/learning-area/css/styling-text/styling-lists/" class="external" target="_blank">finished styled example</a>
+                                    on GitHub, and <a href="https://github.com/mdn/learning-area/blob/main/css/styling-text/styling-lists/index.html" class="external" target="_blank">find the source code</a>
+                                    too).
+                                </p>
+                                <p>The CSS used for the text styling and spacing is as follows:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="Wi3hLYh2LIMIG/abZUPFyQdOuNox3xi6SIFHbznTfkw=">
+                                        <code>
+                                            <span class="token comment">/* General styles */</span>
+                                            <span class="token selector">html</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">font-family</span>
+                                            <span class="token punctuation">:</span>
+                                            Helvetica<span class="token punctuation">,</span>
+                                            Arial<span class="token punctuation">,</span>
+                                            sans-serif<span class="token punctuation">;</span>
+                                            <span class="token property">font-size</span>
+                                            <span class="token punctuation">:</span>
+                                            10px<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token selector">h2</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">font-size</span>
+                                            <span class="token punctuation">:</span>
+                                            2rem<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token selector">ul,
+ol,
+dl,
+p</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">font-size</span>
+                                            <span class="token punctuation">:</span>
+                                            1.5rem<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token selector">li,
+p</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">line-height</span>
+                                            <span class="token punctuation">:</span>
+                                            1.5<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token comment">/* Description list styles */</span>
+                                            <span class="token selector">dd,
+dt</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">line-height</span>
+                                            <span class="token punctuation">:</span>
+                                            1.5<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token selector">dt</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">font-weight</span>
+                                            <span class="token punctuation">:</span>
+                                            bold<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <ul>
+                                    <li>The first rule sets a sitewide font and a baseline font size of 10px. These are inherited by everything on the page.</li>
+                                    <li>Rules 2 and 3 set relative font sizes for the headings, different list types (the children of the list elements inherit these), and paragraphs. This means that each paragraph and list will have the same font size and top and bottom spacing, helping to keep the vertical rhythm consistent.</li>
+                                    <li>
+                                        Rule 4 sets the same 
+                                        <a href="/en-US/docs/Web/CSS/line-height">
+                                            <code>line-height</code>
+                                        </a>
+                                        on the paragraphs and list items — so the paragraphs and each individual list item will have the same spacing between lines. This will also help to keep the vertical rhythm consistent.
+                                    </li>
+                                    <li>
+                                        Rules 5 and 6 apply to the description list. We set the same <code>line-height</code>
+                                        on the description list terms and descriptions as we did with the paragraphs and list items. Again, consistency is good! We also make the description terms have bold font, so they visually stand out easier.
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section aria-labelledby="list-specific_styles">
+                            <h2 id="list-specific_styles">
+                                <a href="#list-specific_styles">List-specific styles</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    Now that we've looked at general spacing techniques for lists, let's explore some list-specific properties. There are three properties you should know about to start with, which can be set on 
+                                    <a href="/en-US/docs/Web/HTML/Element/ul">
+                                        <code>&lt;ul &gt;</code>
+                                    </a>
+                                    or 
+                                    <a href="/en-US/docs/Web/HTML/Element/ol">
+                                        <code>&lt;ol &gt;</code>
+                                    </a>
+                                    elements:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <a href="/en-US/docs/Web/CSS/list-style-type">
+                                            <code>list-style-type</code>
+                                        </a>
+                                        : Sets the type of bullets to use for the list, for example, square or circle bullets for an unordered list, or numbers, letters, or roman numerals for an ordered list.
+                                    </li>
+                                    <li>
+                                        <a href="/en-US/docs/Web/CSS/list-style-position">
+                                            <code>list-style-position</code>
+                                        </a>
+                                        : Sets whether the bullets, at the start of each item, appear inside or outside the lists.
+                                    </li>
+                                    <li>
+                                        <a href="/en-US/docs/Web/CSS/list-style-image">
+                                            <code>list-style-image</code>
+                                        </a>
+                                        : Allows you to use a custom image for the bullet, rather than a simple square or circle.
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section aria-labelledby="bullet_styles">
+                            <h3 id="bullet_styles">
+                                <a href="#bullet_styles">Bullet styles</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    As mentioned above, the 
+                                    <a href="/en-US/docs/Web/CSS/list-style-type">
+                                        <code>list-style-type</code>
+                                    </a>
+                                    property allows you to set what type of bullet to use for the bullet points. In our example, we've set the ordered list to use uppercase roman numerals with:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="jGbZUrEJJAdhsw5YROqAZdt/yFspOJ708/S8/7/DTqI=">
+                                        <code>
+                                            <span class="token selector">ol</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">list-style-type</span>
+                                            <span class="token punctuation">:</span>
+                                            upper-roman<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>This gives us the following look:</p>
+                                <p>
+                                    <img src="/en-US/docs/Learn/CSS/Styling_text/Styling_lists/outer-bullets.png" alt="an ordered list with the bullet points set to appear outside the list item text." width="376" height="119" loading="lazy">
+                                </p>
+                                <p>
+                                    You can find a lot more options by checking out the 
+                                    <a href="/en-US/docs/Web/CSS/list-style-type">
+                                        <code>list-style-type</code>
+                                    </a>
+                                    reference page.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="bullet_position">
+                            <h3 id="bullet_position">
+                                <a href="#bullet_position">Bullet position</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    The 
+                                    <a href="/en-US/docs/Web/CSS/list-style-position">
+                                        <code>list-style-position</code>
+                                    </a>
+                                    property sets whether the bullets appear inside the list items, or outside them before the start of each item. The default value is <code>outside</code>
+                                    , which causes the bullets to sit outside the list items, as seen above.
+                                </p>
+                                <p>
+                                    If you set the value to <code>inside</code>
+                                    , the bullets will sit inside the lines:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="XwF0CuiSQBHsjTZ9HZCYekIm/NobiQhkjYyfA4uat5Q=">
+                                        <code>
+                                            <span class="token selector">ol</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">list-style-type</span>
+                                            <span class="token punctuation">:</span>
+                                            upper-roman<span class="token punctuation">;</span>
+                                            <span class="token property">list-style-position</span>
+                                            <span class="token punctuation">:</span>
+                                            inside<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    <img src="/en-US/docs/Learn/CSS/Styling_text/Styling_lists/inner-bullets.png" alt="an ordered list with the bullet points set to appear inside the list item text." width="370" height="123" loading="lazy">
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="using_a_custom_bullet_image">
+                            <h3 id="using_a_custom_bullet_image">
+                                <a href="#using_a_custom_bullet_image">Using a custom bullet image</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    The 
+                                    <a href="/en-US/docs/Web/CSS/list-style-image">
+                                        <code>list-style-image</code>
+                                    </a>
+                                    property allows you to use a custom image for your bullet. The syntax is pretty simple:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="q2Gk+JWMRpgmNmap+RoVyu+ICtpcPBQKhmLpXLUrh6g=">
+                                        <code>
+                                            <span class="token selector">ul</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">list-style-image</span>
+                                            <span class="token punctuation">:</span>
+                                            <span class="token url">
+                                                <span class="token function">url</span>
+                                                <span class="token punctuation">(</span>
+                                                star.svg<span class="token punctuation">)</span>
+                                            </span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    However, this property is a bit limited in terms of controlling the position, size, etc. of the bullets. You are better off using the 
+                                    <a href="/en-US/docs/Web/CSS/background">
+                                        <code>background</code>
+                                    </a>
+                                    family of properties, which you've learned in the <a href="/en-US/docs/Learn/CSS/Building_blocks/Backgrounds_and_borders">Backgrounds and borders</a>
+                                    article. For now, here's a taster!
+                                </p>
+                                <p>In our finished example, we have styled the unordered list like so (on top of what you've already seen above):</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="ru8y6ZbGx/T07u1AUwDf3y61Z4XkGgKLmDLNqRhjCkY=">
+                                        <code>
+                                            <span class="token selector">ul</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">padding-left</span>
+                                            <span class="token punctuation">:</span>
+                                            2rem<span class="token punctuation">;</span>
+                                            <span class="token property">list-style-type</span>
+                                            <span class="token punctuation">:</span>
+                                            none<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token selector">ul li</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">padding-left</span>
+                                            <span class="token punctuation">:</span>
+                                            2rem<span class="token punctuation">;</span>
+                                            <span class="token property">background-image</span>
+                                            <span class="token punctuation">:</span>
+                                            <span class="token url">
+                                                <span class="token function">url</span>
+                                                <span class="token punctuation">(</span>
+                                                star.svg<span class="token punctuation">)</span>
+                                            </span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token property">background-position</span>
+                                            <span class="token punctuation">:</span>
+                                            0 0<span class="token punctuation">;</span>
+                                            <span class="token property">background-size</span>
+                                            <span class="token punctuation">:</span>
+                                            1.6rem 1.6rem<span class="token punctuation">;</span>
+                                            <span class="token property">background-repeat</span>
+                                            <span class="token punctuation">:</span>
+                                            no-repeat<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>Here we've done the following:</p>
+                                <ul>
+                                    <li>
+                                        Set the 
+                                        <a href="/en-US/docs/Web/CSS/padding-left">
+                                            <code>padding-left</code>
+                                        </a>
+                                        of the 
+                                        <a href="/en-US/docs/Web/HTML/Element/ul">
+                                            <code>&lt;ul &gt;</code>
+                                        </a>
+                                        down from the default <code>40px</code>
+                                        to <code>20px</code>
+                                        , then set the same amount on the list items. This is so that, overall, the list items are still lined up with the ordered list items and the description list descriptions, but the list items have some padding for the background images to sit inside. If we didn't do this, the background images would overlap with the list item text, which would look messy.
+                                    </li>
+                                    <li>
+                                        Set the 
+                                        <a href="/en-US/docs/Web/CSS/list-style-type">
+                                            <code>list-style-type</code>
+                                        </a>
+                                        to <code>none</code>
+                                        , so that no bullet appears by default. We're going to use 
+                                        <a href="/en-US/docs/Web/CSS/background">
+                                            <code>background</code>
+                                        </a>
+                                        properties to handle the bullets instead.
+                                    </li>
+                                    <li>
+                                        Inserted a bullet onto each unordered list item. The relevant properties are as follows:
+
+                                        <ul>
+                                            <li>
+                                                <a href="/en-US/docs/Web/CSS/background-image">
+                                                    <code>background-image</code>
+                                                </a>
+                                                : This references the path to the image file you want to use as the bullet.
+                                            </li>
+                                            <li>
+                                                <a href="/en-US/docs/Web/CSS/background-position">
+                                                    <code>background-position</code>
+                                                </a>
+                                                : This defines where in the background of the selected element the image will appear — in this case we are saying <code>0 0</code>
+                                                , which means the bullet will appear in the very top left of each list item.
+                                            </li>
+                                            <li>
+                                                <a href="/en-US/docs/Web/CSS/background-size">
+                                                    <code>background-size</code>
+                                                </a>
+                                                : This sets the size of the background image. We ideally want the bullets to be the same size as the list items (or very slightly smaller or larger). We are using a size of <code>1.6rem</code>
+                                                (<code>16px</code>
+                                                ), which fits very nicely with the <code>20px</code>
+                                                padding we've allowed for the bullet to sit inside — 16px plus 4px of space between the bullet and the list item text works well.
+                                            </li>
+                                            <li>
+                                                <a href="/en-US/docs/Web/CSS/background-repeat">
+                                                    <code>background-repeat</code>
+                                                </a>
+                                                : By default, background images repeat until they fill up the available background space. We only want one copy of the image inserted in each case, so we set this to a value of <code>no-repeat</code>
+                                                .
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <p>This gives us the following result:</p>
+                                <p>
+                                    <img src="/en-US/docs/Learn/CSS/Styling_text/Styling_lists/list_formatting.png" alt="an unordered list with the bullet points set as little star images" width="124" height="106" loading="lazy">
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="list-style_shorthand">
+                            <h3 id="list-style_shorthand">
+                                <a href="#list-style_shorthand">list-style shorthand</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    The three properties mentioned above can all be set using a single shorthand property, 
+                                    <a href="/en-US/docs/Web/CSS/list-style">
+                                        <code>list-style</code>
+                                    </a>
+                                    . For example, the following CSS:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="TWC5rqj/NO1UPWH6jDiTYQJ/MxaiSjLzL7GoxiziMXc=">
+                                        <code>
+                                            <span class="token selector">ul</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">list-style-type</span>
+                                            <span class="token punctuation">:</span>
+                                            square<span class="token punctuation">;</span>
+                                            <span class="token property">list-style-image</span>
+                                            <span class="token punctuation">:</span>
+                                            <span class="token url">
+                                                <span class="token function">url</span>
+                                                <span class="token punctuation">(</span>
+                                                example.png<span class="token punctuation">)</span>
+                                            </span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token property">list-style-position</span>
+                                            <span class="token punctuation">:</span>
+                                            inside<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>Could be replaced by this:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="ziS6R8YkppVQueA1DLL9fjzB0lwb7zM7A79M+68n2GU=">
+                                        <code>
+                                            <span class="token selector">ul</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">list-style</span>
+                                            <span class="token punctuation">:</span>
+                                            square 
+                                            <span class="token url">
+                                                <span class="token function">url</span>
+                                                <span class="token punctuation">(</span>
+                                                example.png<span class="token punctuation">)</span>
+                                            </span>
+                                            inside<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    The values can be listed in any order, and you can use one, two, or all three (the default values used for the properties that are not included are <code>disc</code>
+                                    , <code>none</code>
+                                    , and <code>outside</code>
+                                    ). If both a <code>type</code>
+                                    and an <code>image</code>
+                                    are specified, the type is used as a fallback if the image can't be loaded for some reason.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="controlling_list_counting">
+                            <h2 id="controlling_list_counting">
+                                <a href="#controlling_list_counting">Controlling list counting</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>Sometimes you might want to count differently on an ordered list — e.g., starting from a number other than 1, or counting backwards, or counting in steps of more than 1. HTML and CSS have some tools to help you here.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="start">
+                            <h3 id="start">
+                                <a href="#start">start</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    The 
+                                    <a href="/en-US/docs/Web/HTML/Element/ol#start">
+                                        <code>start</code>
+                                    </a>
+                                    attribute allows you to start the list counting from a number other than 1. The following example:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">html</span>
+                                    </div>
+                                    <pre class="brush: html notranslate" data-signature="yvjScOBkHaxJ8QWm1AqbhEzUJHL4XSNb3iEOAkG9YvQ=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    ol
+                                                </span>
+                                                <span class="token attr-name">start</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    4<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Toast pita, leave to cool, then slice down the edge.
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Fry the halloumi in a shallow, non-stick pan, until browned on both sides.
+
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Wash and chop the salad.
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Fill pita with salad, hummus, and fried halloumi.
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    ol
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>Gives you this output:</p>
+                                <div class="code-example" id="sect1">
+                                    <div class="example-header" id="sect2"></div>
+                                    <iframe class="sample-code-frame" title="start sample" id="frame_start" width="100%" height="150" src="https://live.mdnplay.dev/en-US/docs/Learn/CSS/Styling_text/Styling_lists/runner.html?id=start" loading="lazy"></iframe>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="reversed">
+                            <h3 id="reversed">
+                                <a href="#reversed">reversed</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    The 
+                                    <a href="/en-US/docs/Web/HTML/Element/ol#reversed">
+                                        <code>reversed</code>
+                                    </a>
+                                    attribute will start the list counting down instead of up. The following example:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">html</span>
+                                    </div>
+                                    <pre class="brush: html notranslate" data-signature="ltQp+6dptzzwZOe6fUNe6the3awlgUUqZBwTMWYJ54Q=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    ol
+                                                </span>
+                                                <span class="token attr-name">start</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    4<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">reversed</span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Toast pita, leave to cool, then slice down the edge.
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Fry the halloumi in a shallow, non-stick pan, until browned on both sides.
+
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Wash and chop the salad.
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Fill pita with salad, hummus, and fried halloumi.
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    ol
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>Gives you this output:</p>
+                                <div class="code-example" id="sect3">
+                                    <div class="example-header" id="sect4"></div>
+                                    <iframe class="sample-code-frame" title="reversed sample" id="frame_reversed" width="100%" height="150" src="https://live.mdnplay.dev/en-US/docs/Learn/CSS/Styling_text/Styling_lists/runner.html?id=reversed" loading="lazy"></iframe>
+                                </div>
+                                <div class="notecard note" id="sect5">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        If there are more list items in a reversed list than the value of the <code>start</code>
+                                        attribute, the count will continue to zero and then into negative values.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="value">
+                            <h3 id="value">
+                                <a href="#value">value</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    The 
+                                    <a href="/en-US/docs/Web/HTML/Element/li#value">
+                                        <code>value</code>
+                                    </a>
+                                    attribute allows you to set your list items to specific numerical values. The following example:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">html</span>
+                                    </div>
+                                    <pre class="brush: html notranslate" data-signature="x280+l33cvMiZHnno16amjHSirssVqp64TTmUroh5Yo=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    ol
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    li
+                                                </span>
+                                                <span class="token attr-name">value</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    2<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Toast pita, leave to cool, then slice down the edge.
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    li
+                                                </span>
+                                                <span class="token attr-name">value</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    4<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Fry the halloumi in a shallow, non-stick pan, until browned on both sides.
+
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    li
+                                                </span>
+                                                <span class="token attr-name">value</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    6<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Wash and chop the salad.
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    li
+                                                </span>
+                                                <span class="token attr-name">value</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    8<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Fill pita with salad, hummus, and fried halloumi.
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    ol
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>Gives you this output:</p>
+                                <div class="code-example" id="sect6">
+                                    <div class="example-header" id="sect7"></div>
+                                    <iframe class="sample-code-frame" title="value sample" id="frame_value" width="100%" height="150" src="https://live.mdnplay.dev/en-US/docs/Learn/CSS/Styling_text/Styling_lists/runner.html?id=value" loading="lazy"></iframe>
+                                </div>
+                                <div class="notecard note" id="sect8">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        Even if you are using a non-number 
+                                        <a href="/en-US/docs/Web/CSS/list-style-type">
+                                            <code>list-style-type</code>
+                                        </a>
+                                        , you still need to use the equivalent numerical values in the <code>value</code>
+                                        attribute.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="active_learning_styling_a_nested_list">
+                            <h2 id="active_learning_styling_a_nested_list">
+                                <a href="#active_learning_styling_a_nested_list">Active learning: Styling a nested list</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>In this active learning session, we want you to take what you've learned above and have a go at styling a nested list. We've provided you with the HTML, and we want you to:</p>
+                                <ol>
+                                    <li>Give the unordered list square bullets.</li>
+                                    <li>Give the unordered list items and the ordered list items a line-height of 1.5 of their font-size.</li>
+                                    <li>Give the ordered list lower alphabetical bullets.</li>
+                                    <li>Feel free to play with the list example as much as you like, experimenting with bullet types, spacing, or whatever else you can find.</li>
+                                </ol>
+                                <p>
+                                    If you make a mistake, you can always reset it using the <em>Reset</em>
+                                    button. If you get really stuck, press the <em>Show solution</em>
+                                    button to see a potential answer.
+                                </p>
+                                <div class="code-example">
+                                    <pre class="brush: html hidden notranslate" data-signature="kwrCgzJB1mdFtLGBO6y1XMBgaCuegL9PYXEalYuJOI8=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    div
+                                                </span>
+                                                <span class="token attr-name">class</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    body-wrapper<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token special-attr">
+                                                    <span class="token attr-name">style</span>
+                                                    <span class="token attr-value">
+                                                        <span class="token punctuation attr-equals">=</span>
+                                                        <span class="token punctuation">"</span>
+                                                        <span class="token value css language-css">
+                                                            <span class="token property">font-family</span>
+                                                            <span class="token punctuation">:</span>
+                                                            <span class="token string">'Open Sans Light'</span>
+                                                            <span class="token punctuation">,</span>
+                                                            Helvetica<span class="token punctuation">,</span>
+                                                            Arial<span class="token punctuation">,</span>
+                                                            sans-serif<span class="token punctuation">;</span>
+                                                        </span>
+                                                        <span class="token punctuation">"</span>
+                                                    </span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    h2
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            HTML Input
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    h2
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    textarea
+                                                </span>
+                                                <span class="token attr-name">id</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    code<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">class</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    html-input<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token special-attr">
+                                                    <span class="token attr-name">style</span>
+                                                    <span class="token attr-value">
+                                                        <span class="token punctuation attr-equals">=</span>
+                                                        <span class="token punctuation">"</span>
+                                                        <span class="token value css language-css">
+                                                            <span class="token property">width</span>
+                                                            <span class="token punctuation">:</span>
+                                                            90%<span class="token punctuation">;</span>
+                                                            <span class="token property">height</span>
+                                                            <span class="token punctuation">:</span>
+                                                            10em<span class="token punctuation">;</span>
+                                                            <span class="token property">padding</span>
+                                                            <span class="token punctuation">:</span>
+                                                            10px<span class="token punctuation">;</span>
+                                                            <span class="token property">border</span>
+                                                            <span class="token punctuation">:</span>
+                                                            1px solid #0095dd<span class="token punctuation">;</span>
+                                                        </span>
+                                                        <span class="token punctuation">"</span>
+                                                    </span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    ul
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            First, light the candle.
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Next, open the box.
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Finally, place the three magic items in the box, in this exact order, to complete the spell:
+
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    ol
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            The book of spells
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            The shiny rod
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            The goblin statue
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    ol
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    ul
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    textarea
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    h2
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            CSS Input
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    h2
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    textarea
+                                                </span>
+                                                <span class="token attr-name">id</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    code<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">class</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    css-input<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token special-attr">
+                                                    <span class="token attr-name">style</span>
+                                                    <span class="token attr-value">
+                                                        <span class="token punctuation attr-equals">=</span>
+                                                        <span class="token punctuation">"</span>
+                                                        <span class="token value css language-css">
+                                                            <span class="token property">width</span>
+                                                            <span class="token punctuation">:</span>
+                                                            90%<span class="token punctuation">;</span>
+                                                            <span class="token property">height</span>
+                                                            <span class="token punctuation">:</span>
+                                                            10em<span class="token punctuation">;</span>
+                                                            <span class="token property">padding</span>
+                                                            <span class="token punctuation">:</span>
+                                                            10px<span class="token punctuation">;</span>
+                                                            <span class="token property">border</span>
+                                                            <span class="token punctuation">:</span>
+                                                            1px solid #0095dd<span class="token punctuation">;</span>
+                                                        </span>
+                                                        <span class="token punctuation">"</span>
+                                                    </span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    textarea
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    h2
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Output
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    h2
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    div
+                                                </span>
+                                                <span class="token attr-name">class</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    output<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token special-attr">
+                                                    <span class="token attr-name">style</span>
+                                                    <span class="token attr-value">
+                                                        <span class="token punctuation attr-equals">=</span>
+                                                        <span class="token punctuation">"</span>
+                                                        <span class="token value css language-css">
+                                                            <span class="token property">width</span>
+                                                            <span class="token punctuation">:</span>
+                                                            90%<span class="token punctuation">;</span>
+                                                            <span class="token property">height</span>
+                                                            <span class="token punctuation">:</span>
+                                                            12em<span class="token punctuation">;</span>
+                                                            <span class="token property">padding</span>
+                                                            <span class="token punctuation">:</span>
+                                                            10px<span class="token punctuation">;</span>
+                                                            <span class="token property">border</span>
+                                                            <span class="token punctuation">:</span>
+                                                            1px solid #0095dd<span class="token punctuation">;</span>
+                                                            <span class="token property">overflow</span>
+                                                            <span class="token punctuation">:</span>
+                                                            auto<span class="token punctuation">;</span>
+                                                        </span>
+                                                        <span class="token punctuation">"</span>
+                                                    </span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    div
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    div
+                                                </span>
+                                                <span class="token attr-name">class</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    controls<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    input
+                                                </span>
+                                                <span class="token attr-name">id</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    reset<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">type</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    button<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">value</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    Reset<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token special-attr">
+                                                    <span class="token attr-name">style</span>
+                                                    <span class="token attr-value">
+                                                        <span class="token punctuation attr-equals">=</span>
+                                                        <span class="token punctuation">"</span>
+                                                        <span class="token value css language-css">
+                                                            <span class="token property">margin</span>
+                                                            <span class="token punctuation">:</span>
+                                                            10px 10px 0 0<span class="token punctuation">;</span>
+                                                        </span>
+                                                        <span class="token punctuation">"</span>
+                                                    </span>
+                                                </span>
+                                                <span class="token punctuation">/&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    input
+                                                </span>
+                                                <span class="token attr-name">id</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    solution<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">type</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    button<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">value</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    Show solution<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token special-attr">
+                                                    <span class="token attr-name">style</span>
+                                                    <span class="token attr-value">
+                                                        <span class="token punctuation attr-equals">=</span>
+                                                        <span class="token punctuation">"</span>
+                                                        <span class="token value css language-css">
+                                                            <span class="token property">margin</span>
+                                                            <span class="token punctuation">:</span>
+                                                            10px 0 0 10px<span class="token punctuation">;</span>
+                                                        </span>
+                                                        <span class="token punctuation">"</span>
+                                                    </span>
+                                                </span>
+                                                <span class="token punctuation">/&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    div
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    div
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="code-example">
+                                    <pre class="brush: js hidden notranslate" data-signature="tHHkf60Kbgz9PsjNrjTL2FRspizzexF04klCtDSfnbw=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            htmlInput <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">querySelector</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">".html-input"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            cssInput <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">querySelector</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">".css-input"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            reset <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">getElementById</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"reset"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            htmlCode <span class="token operator">=</span>
+                                            htmlInput<span class="token punctuation">.</span>
+                                            value<span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            cssCode <span class="token operator">=</span>
+                                            cssInput<span class="token punctuation">.</span>
+                                            value<span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            output <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">querySelector</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">".output"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            solution <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">getElementById</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"solution"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            styleElem <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">createElement</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"style"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            headElem <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">querySelector</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"head"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            headElem<span class="token punctuation">.</span>
+                                            <span class="token function">appendChild</span>
+                                            <span class="token punctuation">(</span>
+                                            styleElem<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">function</span>
+                                            <span class="token function">drawOutput</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            output<span class="token punctuation">.</span>
+                                            innerHTML <span class="token operator">=</span>
+                                            htmlInput<span class="token punctuation">.</span>
+                                            value<span class="token punctuation">;</span>
+                                            styleElem<span class="token punctuation">.</span>
+                                            textContent <span class="token operator">=</span>
+                                            cssInput<span class="token punctuation">.</span>
+                                            value<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            reset<span class="token punctuation">.</span>
+                                            <span class="token function">addEventListener</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"click"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">=&gt;</span>
+                                            <span class="token punctuation">{</span>
+                                            htmlInput<span class="token punctuation">.</span>
+                                            value <span class="token operator">=</span>
+                                            htmlCode<span class="token punctuation">;</span>
+                                            cssInput<span class="token punctuation">.</span>
+                                            value <span class="token operator">=</span>
+                                            cssCode<span class="token punctuation">;</span>
+                                            <span class="token function">drawOutput</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            solution<span class="token punctuation">.</span>
+                                            <span class="token function">addEventListener</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"click"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">=&gt;</span>
+                                            <span class="token punctuation">{</span>
+                                            htmlInput<span class="token punctuation">.</span>
+                                            value <span class="token operator">=</span>
+                                            htmlCode<span class="token punctuation">;</span>
+                                            cssInput<span class="token punctuation">.</span>
+                                            value <span class="token operator">=</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">ul {
+list-style-type: square;
+}
+
+ul li,
+ol li {
+line-height: 1.5;
+}
+
+ol {
+list-style-type: lower-alpha;
+}</span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token function">drawOutput</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            htmlInput<span class="token punctuation">.</span>
+                                            <span class="token function">addEventListener</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"input"</span>
+                                            <span class="token punctuation">,</span>
+                                            drawOutput<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            cssInput<span class="token punctuation">.</span>
+                                            <span class="token function">addEventListener</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"input"</span>
+                                            <span class="token punctuation">,</span>
+                                            drawOutput<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            window<span class="token punctuation">.</span>
+                                            <span class="token function">addEventListener</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"load"</span>
+                                            <span class="token punctuation">,</span>
+                                            drawOutput<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="code-example" id="sect9">
+                                    <div class="example-header" id="sect10"></div>
+                                    <iframe class="sample-code-frame" title="Active learning Styling a nested list sample" id="frame_active_learning_styling_a_nested_list" width="700" height="800" src="https://live.mdnplay.dev/en-US/docs/Learn/CSS/Styling_text/Styling_lists/runner.html?id=active_learning_styling_a_nested_list" loading="lazy"></iframe>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="summary">
+                            <h2 id="summary">
+                                <a href="#summary">Summary</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    Lists are relatively easy to get the hang of styling once you know a few associated basic principles and specific properties. In the next article, we'll move on to <a href="/en-US/docs/Learn/CSS/Styling_text/Styling_links">link styling techniques</a>
+                                    .
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="see_also">
+                            <h2 id="see_also">
+                                <a href="#see_also">See also</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>CSS counters provide advanced tools for customizing list counting and styling, but they are quite complex. We recommend looking into these if you want to stretch yourself. See:</p>
+                                <ul>
+                                    <li>
+                                        <a href="/en-US/docs/Web/CSS/@counter-style">
+                                            <code>@counter-style</code>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/en-US/docs/Web/CSS/counter-increment">
+                                            <code>counter-increment</code>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/en-US/docs/Web/CSS/counter-reset">
+                                            <code>counter-reset</code>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
+                    </div>
+                    
                                         
                 </div>
             </main>

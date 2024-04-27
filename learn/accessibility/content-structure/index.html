@@ -1172,38 +1172,427 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
+                    
+                    
+
+
+
+
+                      <article class="main-page-content" lang="en-US">
+                                    <header>
+                                      <h1>Content Structure</h1>
+                                    </header>
+                                    <div class="section-content">
+                                      <p>
+                                        <em>Getting started with ...</em>
+                                        is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your simple code.
+                                      </p>
+                                    </div>
+                                    <section aria-labelledby="the_story_of_your_first_website">
+                                          
+                                      
+                        
+                        
+                        
+                        
+                                      <p>One of the most important aspects of digital accessibility is the underlying
+                                        structure of the page. When you build your website or app using
+                                        <a href="https://www.w3.org/WAI/tutorials/page-structure/">structural elements</a> instead
+                                        of relying on styles alone, you give critical context to people using assistive
+                                        technologies (AT), such as screen readers.</p>
+                                        
+                                        <p>Structural elements serve as an outline of the content on the screen, but they
+                                        also act as anchor points to allow for easier navigation within the content.</p>
+                                        
+                                        <p>When you use <a href="https://developer.mozilla.org/docs/Glossary/Semantics#semantics_in_html">semantic HTML elements</a>,
+                                        the inherent meaning of each element is passed on to the accessibility tree and
+                                        used by the AT, giving more meaning to the content than non-semantic elements.
+                                        There may be cases where you need to add additional ARIA attributes to build
+                                        relationships or to enhance the overall user experience, but in most
+                                        situations, one of the <a href="https://developer.mozilla.org/docs/Web/HTML/Element">100+ HTML elements</a>
+                                        available should work fairly well on its own.</p>
+                                        
+                                        <p>While this module focuses on the most widely used structural elements critical
+                                        to digital accessibility, there are certainly additional elements and
+                                        environmental factors to consider when building structure into your website or
+                                        app. These examples are an introduction to the topic, rather than all-inclusive.</p>
+                                        
+                                        <aside class="note"><b>Note: </b> Our <a href="/learn/html">Learn HTML course</a> covers the basics of HTML and <a href="/learn/html/semantic-html">semantic structure</a> in great detail. As such, this module builds off of that course material and is focused specifically on digital accessibility. Likewise, be sure to review the <a href="/learn/accessibility/aria-html">ARIA and HTML module</a> in this course before diving into this module. </aside>
+                                        
+                                        <h2 id="landmarks" data-text="Landmarks" tabindex="-1">Landmarks</h2>
+                                        
+                                        <p>Users of AT rely on structural elements to give them information about the
+                                        page&#39;s overall layout. When sectioning off large regions of content, you can
+                                        use either ARIA landmark roles or the newer HTML landmark elements to add
+                                        structural context to your page.</p>
+                                        
+                                        <p>Landmarks ensure content is in navigable regions. It&#39;s recommended that you supply at least one landmark per page.</p>
+                                        
+                                        <p>Some resources suggest combining <a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/landmark_role#best_practices">ARIA and HTML landmarks</a>
+                                        together to provide better AT coverage. While this type of redundancy shouldn&#39;t
+                                        cause issues for your users, test the patterns using a screen reader
+                                        to be certain. When in doubt, it&#39;s best to default to using only the newer HTML
+                                        landmark elements, as the
+                                        <a href="https://stevefaulkner.github.io/HTML5accessibility/">browser support</a> is very
+                                        robust.</p>
+                                        
+                                        <p>Let&#39;s compare the HTML landmark elements as
+                                        <a href="https://www.a11yproject.com/posts/aria-landmark-roles/">mapped</a> to their
+                                        counterpart ARIA landmark roles.</p>
+                                        
+                                        <div class="table-wrapper">
+                                         <table>
+                                          <thead>
+                                           <tr>
+                                            <th>HTML landmark element</th>
+                                            <th>ARIA landmark role</th>
+                                           </tr>
+                                          </thead>
+                                          <tbody>
+                                           <tr>
+                                            <td><a href="https://developer.mozilla.org/docs/Web/HTML/Element/header"><code translate="no" dir="ltr">&lt;header&gt;</code></a></td>
+                                            <td><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/banner_role">banner</a></td>
+                                           </tr>
+                                           <tr>
+                                            <td><a href="https://developer.mozilla.org/docs/Web/HTML/Element/aside"><code translate="no" dir="ltr">&lt;aside&gt;</code></a></td>
+                                            <td><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/complementary_role">complementary</a></td>
+                                           </tr>
+                                           <tr>
+                                            <td><a href="https://developer.mozilla.org/docs/Web/HTML/Element/footer">
+                                             <code translate="no" dir="ltr">&lt;footer&gt;</code></a></td>
+                                            <td><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/contentinfo_role">contentinfo</a></td>
+                                           </tr>
+                                           <tr>
+                                            <td>
+                                             <a href="https://developer.mozilla.org/docs/Web/HTML/Element/nav"><code translate="no" dir="ltr">&lt;nav&gt;</code></a>
+                                             </td>
+                                            <td><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/navigation_role">navigation</a></td>
+                                           </tr>
+                                           <tr>
+                                            <td><a href="https://developer.mozilla.org/docs/Web/HTML/Element/main"><code translate="no" dir="ltr">&lt;main&gt;</code></a></td>
+                                            <td><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/main_role">main</a></td>
+                                           </tr>
+                                           <tr>
+                                            <td><a href="https://developer.mozilla.org/docs/Web/HTML/Element/form"><code translate="no" dir="ltr">&lt;form&gt;</code></a> <sup>1</sup></td>
+                                            <td><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/form_role">form</a></td>
+                                           </tr>
+                                           <tr>
+                                            <td>
+                                             <a href="https://developer.mozilla.org/docs/Web/HTML/Element/section"><code translate="no" dir="ltr">&lt;section&gt;</code></a> <sup>1</sup></td>
+                                            <td><a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/region_role">region</a></td>
+                                           </tr>
+                                         </tbody>
+                                         <caption>
+                                          <sup>1</sup> Requires inclusion of the <code translate="no" dir="ltr">name</code> attribute to be accessible. A <code translate="no" dir="ltr">section</code> must be <a href="https://www.w3.org/WAI/ARIA/apg/practices/names-and-descriptions/#whatareaccessiblenamesanddescriptions?">accessibly-named</a> for its implicit ARIA role of <a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/region_role"><code translate="no" dir="ltr">region</code></a> to be visible to assistive technology.
+                                         </caption>
+                                        </table>
+                                        </div>
+                                        
+                                        <p>Now, let&#39;s compare examples of accessible content structure.</p>
+                                        
+                                        <div class="wd-switcher">
+                                        <div class="wd-compare">
+                                         <div class="compare-worse">Don't</div>
+                                         <pre class="prettyprint lang-html" translate="no" dir="ltr">&lt;div&gt;
+                                          &lt;div&gt;...&lt;/div&gt;
+                                        &lt;/div&gt;
+                                        
+                                        &lt;div&gt;
+                                          &lt;p&gt;Stamp collecting, also known as philately, is
+                                          the study of postage stamps, stamped envelopes,
+                                          postmarks, postcards, and other materials relating
+                                          to postal delivery.&lt;/p&gt;
+                                        &lt;/div&gt;
+                                        
+                                        &lt;div&gt;
+                                        &lt;p&gt;© 2022 - Stamps R Awesome&lt;/p&gt;
+                                        &lt;/div&gt;
+                                        </pre>
+                                        
+                                        </div>
+                                        
+                                        <div class="wd-compare">
+                                         <div class="compare-better">Do</div>
+                                         <pre class="prettyprint lang-html" translate="no" dir="ltr">&lt;header&gt;
+                                          &lt;nav&gt;...&lt;/nav&gt;
+                                        &lt;/header&gt;
+                                        &lt;main&gt;
+                                          &lt;section aria-label="Introduction to stamp collecting"&gt;
+                                          &lt;p&gt;Stamp collecting, also known as philately, is
+                                          the study of postage stamps, stamped envelopes,
+                                          postmarks, postcards, and other materials relating
+                                          to postal delivery.&lt;/p&gt;
+                                          &lt;/section&gt;
+                                        &lt;/main&gt;
+                                        &lt;footer&gt;
+                                        &lt;p&gt;© 2022 - Stamps R Awesome&lt;/p&gt;
+                                        &lt;/footer&gt;
+                                        </pre>
+                                        
+                                        </div>
+                                        </div>
+                                        
+                                        <aside class="note"><b>Note: </b> Check out the <a href="https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/main.html">ARIA Landmarks Example</a> for more information and best practices. </aside>
+                                        
+                                        <h2 id="headings" data-text="Headings" tabindex="-1">Headings</h2>
+                                        
+                                        <p>When implemented correctly, <a href="https://developer.mozilla.org/docs/Web/HTML/Element/Heading_Elements">HTML heading levels</a>
+                                        form a succinct outline of the overall page content.</p>
+                                        
+                                        <p>There are six heading levels we can use. Heading level one <code translate="no" dir="ltr">&lt;h1&gt;</code> is used for the page&#39;s highest and most important information, moving incrementally to
+                                        heading level six <code translate="no" dir="ltr">&lt;h6&gt;</code> for the lowest and least important information.</p>
+                                        
+                                        <p>The sequence of the heading levels is important. Ideally, you won&#39;t skip
+                                        heading levels, for example, starting a section with an <code translate="no" dir="ltr">&lt;h1&gt;</code> and immediately
+                                        following it with an <code translate="no" dir="ltr">&lt;h5&gt;</code>. Instead, you should progress to the <code translate="no" dir="ltr">&lt;h5&gt;</code> in
+                                        order. <a href="https://youtu.be/vAAzdi1xuUY">Heading level order is especially important to AT users</a>
+                                        as this is one of their primary ways to navigate through content.</p>
+                                        
+                                        <aside class="note"><b>Note: </b> While you can use <a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/heading_role">ARIA heading roles</a> for heading levels, it's recommended you use semantic HTML heading levels whenever possible. </aside>
+                                        
+                                        <p>To help you adhere to the proper semantic structure and order for headings,
+                                        consider decoupling your CSS styles from the heading levels. This allows you
+                                        more flexibility in heading styles while maintaining the heading level order.
+                                        It&#39;s critical you don&#39;t use styles alone to create headings, as these
+                                        aren&#39;t seen by AT as a heading.</p>
+                                        
+                                        <div class="wd-embed" style="height: 400px; width: 100%">
+                                         <iframe
+                                         allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                         loading="lazy"
+                                         src="https://codepen.io/web-dev-codepen-external/embed/Vwdajpe?height=400&theme-id=auto&default-tab=html%2Ccss%2Cresult&editable=true"
+                                         style="height: 100%; width: 100%; border: 0;"
+                                         title="Pen Vwdajpe by web-dev-codepen-external on Codepen"
+                                        ></iframe>
+                                        </div>
+                                        
+                                        <p>When we fake headings, the appropriate structure isn&#39;t conveyed to AT users.</p>
+                                        
+                                        <p>Headings are also helpful for people with cognitive and attention deficit
+                                        disorders. It&#39;s important to make the heading content meaningful to help them
+                                        understand what is most important on the page.</p>
+                                        
+                                        <div class="wd-switcher">
+                                        <div class="wd-compare">
+                                         <div class="compare-worse">Don't</div>
+                                         <pre class="prettyprint lang-html" translate="no" dir="ltr">&lt;div&gt;
+                                          &lt;h3&gt;Stamps&lt;/h3&gt;
+                                          &lt;p&gt;Stamp collecting, also known as philately, is the study of 
+                                         postage stamps, stamped envelopes, postmarks, postcards, and 
+                                         other materials relating to postal delivery.&lt;/p&gt;
+                                        &lt;/div&gt;
+                                        
+                                        &lt;div&gt;
+                                          &lt;h3&gt;How do I start a stamp collection?&lt;/h3&gt;
+                                         &lt;h2&gt;Equipment you will need&lt;/h2&gt;
+                                          &lt;h4&gt;...&lt;/h4&gt;
+                                         &lt;h2&gt;How to acquire stamps&lt;/h2&gt;
+                                          &lt;h4&gt;...&lt;/h4&gt;
+                                         &lt;h2&gt;Organizations you can join&lt;/h2&gt;
+                                          &lt;h4&gt;...&lt;/h4&gt;
+                                        &lt;/div&gt;
+                                        </pre>
+                                        </div>
+                                        
+                                        <div class="wd-compare">
+                                         <div class="compare-better">Do</div>
+                                         <pre class="prettyprint lang-html" translate="no" dir="ltr">&lt;header&gt;
+                                         &lt;h1&gt;Stamp collecting&lt;/h1&gt;
+                                        &lt;/header&gt;
+                                        &lt;main&gt;
+                                          &lt;section aria-label="Introduction to stamp collecting"&gt;
+                                            &lt;h2&gt; What is stamp collecting?&lt;/h2&gt;
+                                            &lt;p&gt;Stamp collecting, also known as philately, is the study of 
+                                          postage stamps, stamped envelopes, postmarks, postcards, and 
+                                          other materials relating to postal delivery.&lt;/p&gt;
+                                          &lt;/section&gt;
+                                        
+                                          &lt;section aria-label="Start a stamp collection"&gt;
+                                            &lt;h2&gt;How do I start a stamp collection?&lt;/h2&gt;
+                                          &lt;h3&gt;Required equiment&lt;/h3&gt;
+                                          &lt;p&gt;...&lt;/p&gt;
+                                        
+                                          &lt;h3&gt;How to acquire stamps&lt;/h3&gt;
+                                          &lt;p&gt;...&lt;/p&gt;
+                                        
+                                          &lt;h3&gt;Organizations you can join&lt;/h3&gt;
+                                            &lt;p&gt;...&lt;/p&gt;
+                                          &lt;/section&gt;
+                                        &lt;/main&gt;
+                                        </pre>
+                                        </div>
+                                        </div>
+                                        
+                                        <h2 id="lists" data-text="Lists" tabindex="-1">Lists</h2>
+                                        
+                                        <p><a href="https://www.w3.org/WAI/tutorials/page-structure/content/#lists">HTML lists</a>
+                                        are a way to semantically group items similar to one other giving them inherent
+                                        meaning, much like your grocery store list or that never-ending to-do list you
+                                        keep ignoring.</p>
+                                        
+                                        <p>There are three types of HTML lists:</p>
+                                        
+                                        <ul>
+                                        <li>ordered <a href="https://developer.mozilla.org/docs/Web/HTML/Element/ol"><code translate="no" dir="ltr">&lt;ol&gt;</code></a></li>
+                                        <li>unordered <a href="https://developer.mozilla.org/docs/Web/HTML/Element/ul"><code translate="no" dir="ltr">&lt;ul&gt;</code></a></li>
+                                        <li>description <a href="https://developer.mozilla.org/docs/Web/HTML/Element/dl"><code translate="no" dir="ltr">&lt;dl&gt;</code></a></li>
+                                        </ul>
+                                        
+                                        <p>The list item <a href="https://developer.mozilla.org/docs/Web/HTML/Element/li"><code translate="no" dir="ltr">&lt;li&gt;</code></a>
+                                        element is used to represent an item in an ordered or unordered list, while the
+                                        description term
+                                        <a href="https://developer.mozilla.org/docs/Web/HTML/Element/dt"><code translate="no" dir="ltr">&lt;dt&gt;</code></a> and definition
+                                        <a href="https://developer.mozilla.org/docs/Web/HTML/Element/dd"><code translate="no" dir="ltr">&lt;dd&gt;</code></a> elements can
+                                         be found in the description list.</p>
+                                        
+                                        <p>When programmed correctly, these elements can inform non-sighted AT users about
+                                        the visible structure of the list. When an AT encounters a semantic list, it
+                                        can tell the user the list name and how many items are in it. As the user
+                                        navigates within the list, the AT will read each list item out loud and tell
+                                        which number it&#39;s in the list—item one of five, item two of five, and so on.</p>
+                                        
+                                        <p>Grouping items into lists also helps sighted people who have cognitive and
+                                        attention disorders and those with reading disabilities, as the list content is
+                                        typically styled to have more visual whitespace and the content is to the point.</p>
+                                        
+                                        <div class="wd-switcher">
+                                        <div class="wd-compare">
+                                         <div class="compare-worse">Don't</div>
+                                         <pre class="prettyprint lang-html" translate="no" dir="ltr">&lt;div&gt;
+                                         &lt;p&gt;How do I start a stamp collection?&lt;/p&gt;
+                                         &lt;p&gt;Equipment you will need&lt;/p&gt;
+                                          &lt;div&gt;
+                                           &lt;p&gt;Small tongs with rounded tips&lt;/p&gt;
+                                           &lt;p&gt;Stamp hinges&lt;/p&gt;
+                                           &lt;p&gt;Stockbook or albumn&lt;/p&gt;
+                                           &lt;p&gt;Magnifying glass&lt;/p&gt;
+                                           &lt;p&gt;Stamps&lt;/p&gt;
+                                          &lt;/div&gt;
+                                        &lt;/div&gt;
+                                        </pre>
+                                        
+                                        </div>
+                                        
+                                        <div class="wd-compare">
+                                         <div class="compare-better">Do</div>
+                                         <pre class="prettyprint lang-html" translate="no" dir="ltr">&lt;div&gt;
+                                         &lt;h1&gt;How do I start a stamp collection?&lt;/h1&gt;
+                                         &lt;h2&gt;Equipment you will need&lt;/h2&gt;
+                                         &lt;ol&gt;
+                                          &lt;li&gt;Small tongs with rounded tips&lt;/li&gt;
+                                          &lt;li&gt;Stamp hinges&lt;/li&gt;
+                                          &lt;li&gt;Stockbook or albumn&lt;/li&gt;
+                                          &lt;li&gt;Magnifying glass&lt;/li&gt;
+                                          &lt;li&gt;Stamps&lt;/li&gt;
+                                         &lt;/ol&gt;
+                                        &lt;/div&gt;
+                                        </pre>
+                                        
+                                        </div>
+                                        </div>
+                                        
+                                        <h2 id="tables" data-text="Tables" tabindex="-1">Tables</h2>
+                                        
+                                        <p>In HTML, tables are generally used for organizing data or page layout.</p>
+                                        
+                                        <p>Depending on the table&#39;s purpose, you&#39;ll use different semantic structural
+                                        elements. Tables can be very complex in structure, but when you stick to the
+                                        basic semantic rules, they are fairly accessible without much intervention.</p>
+                                        
+                                        <h3 id="layout" data-text="Layout" tabindex="-1">Layout</h3>
+                                        
+                                        <p>In the early days of the internet, layout tables were the primary HTML element
+                                        used to build visual structures. Today, we use a mix of semantics and
+                                        non-semantic elements such as <code translate="no" dir="ltr">&lt;div&gt;</code>s and landmarks to create layouts.</p>
+                                        
+                                        <p>While the days of creating layout tables are mostly over, there are times when
+                                        layout tables are still used, such as in visually rich emails, newsletters, and
+                                        advertisements. In these cases, tables used only for layout must not
+                                        use structural elements that convey relationships and add context, such as
+                                        <code translate="no" dir="ltr">&lt;th&gt;</code> or <code translate="no" dir="ltr">&lt;caption&gt;</code>.</p>
+                                        
+                                        <p>Layout tables must also be hidden from AT users with the ARIA
+                                        <a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/presentation_role">presentation role</a>
+                                        or <a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Attributes/aria-hidden">aria-hidden state</a>.</p>
+                                        
+                                        <div class="wd-switcher">
+                                        <div class="wd-compare">
+                                         <div class="compare-worse">Don't</div>
+                                         <pre class="prettyprint lang-html" translate="no" dir="ltr">&lt;table&gt;
+                                         &lt;caption&gt;My stamp collection&lt;/caption&gt;
+                                         &lt;tr&gt;
+                                          &lt;th&gt;[Stamp Image 1]&lt;/th&gt;
+                                          &lt;th&gt;[Stamp Image 2]&lt;/th&gt;
+                                          &lt;th&gt;[Stamp Image 3]&lt;/th&gt;
+                                         &lt;/tr&gt;
+                                        &lt;/table&gt;
+                                        </pre>
+                                        
+                                        </div>
+                                        
+                                        <div class="wd-compare">
+                                         <div class="compare-better">Do</div>
+                                         <pre class="prettyprint lang-html" translate="no" dir="ltr">&lt;table role="presentation"&gt;
+                                         &lt;tr&gt;
+                                          &lt;td&gt;[Stamp Image 1]&lt;/td&gt;
+                                          &lt;td&gt;[Stamp Image 2]&lt;/td&gt;
+                                          &lt;td&gt;[Stamp Image 3]&lt;/td&gt;
+                                         &lt;/tr&gt;
+                                        &lt;/table&gt;
+                                        </pre>
+                                        
+                                        </div>
+                                        </div>
+                                        
+                                        <h3 id="data" data-text="Data" tabindex="-1">Data</h3>
+                                        
+                                        <p>Unlike a layout table, which should be hidden from AT users, a
+                                        <a href="https://www.w3.org/WAI/tutorials/tables/">data table</a> and all its elements
+                                        must be exposed. The structure of data tables is critical for conveying simple
+                                        and complex information to users.</p>
+                                        
+                                        <p>When a table is structured correctly, relationships form between the column
+                                        headers and rows and the data within the table. When structured incorrectly,
+                                        the user is left to decipher the meaning and context of the information in the
+                                        table.</p>
+                                        
+                                        <p>Depending on the complexity of the table, forming relationships through code is
+                                        accomplished in different ways. The first step to making a table accessible is
+                                        to mark up header cells with
+                                        <a href="https://developer.mozilla.org/docs/Web/HTML/Element/th"><code translate="no" dir="ltr">&lt;th&gt;</code></a> and data cells
+                                        with <a href="https://developer.mozilla.org/docs/Web/HTML/Element/td"><code translate="no" dir="ltr">&lt;td&gt;</code></a> elements.</p>
+                                        
+                                        <p>For more complex tables, you may need to use additional HTML table elements
+                                        such as
+                                        <a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/rowgroup_role"><code translate="no" dir="ltr">&lt;rowgroup&gt;</code></a>,
+                                        <a href="https://developer.mozilla.org/docs/Web/HTML/Element/colgroup"><code translate="no" dir="ltr">&lt;colgroup&gt;</code></a>,
+                                        <a href="https://developer.mozilla.org/docs/Web/HTML/Element/caption"><code translate="no" dir="ltr">&lt;caption&gt;</code></a>,
+                                        and
+                                        <a href="https://developer.mozilla.org/docs/Web/HTML/Element/th#attr-scope"><code translate="no" dir="ltr">scope</code></a> to
+                                        convey meaning and relationships.</p>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                                    </section>
+                                  </article>
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
 <div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
-                        </div>
+    
                     </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
-                            </ul>
-                        </nav>
-                    </footer>
+                    
                                         
                 </div>
             </main>

@@ -1172,38 +1172,439 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                    
+                    
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Spacing</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
-                    </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
+                        <section aria-labelledby="the_story_of_your_first_website">
+
+
+
+
+
+
+                            <p>Suppose that you&#39;re working with the following HTML and CSS:</p>
+                            <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;button class=&#34;branding&#34;&gt;Hello, Specificity!&lt;/button&gt;
+                            </code></pre><pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">button {
+                              color: red;
+                            }
+                            
+                            .branding {
+                              color: blue;
+                            }
+                            </code></pre>
+                            <p>There&#39;s two competing rules here.
+                            One will color the button red and the other will color it blue.
+                            Which rule gets applied to the element?
+                            Understanding the CSS specification&#39;s algorithm about specificity
+                            is the key to understanding how CSS decides between competing rules.</p>
+                            
+                            <p>Specificity is one of the four distinct stages of the cascade,
+                            which was covered in the last module, on <a href="/learn/css/the-cascade">the cascade</a>.</p>
+                            
+                            <figure>
+                            <div class="wd-embed" style="height: 200px; width: 100%">
+                              <iframe
+                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                              loading="lazy"
+                              src="https://codepen.io/web-dot-dev/embed/YzNKMXm?height=200&theme-id=light&default-tab=result&editable=true"
+                              style="height: 100%; width: 100%; border: 0;"
+                              title="Pen YzNKMXm by web-dot-dev on Codepen"
+                            ></iframe>
+                            </div>
+                            </figure>
+                            
+                            <h2 id="specificity_scoring" data-text="Specificity scoring" tabindex="-1">Specificity scoring</h2>
+                            
+                            <p>Each selector rule gets a scoring.
+                            You can think of specificity as a total score and each selector type earns points towards that score.
+                            The selector with the highest score wins.</p>
+                            
+                            <p>With specificity in a real project,
+                            the balancing act is making sure the CSS rules you expect to apply, actually <em>do apply,</em>
+                            while generally keeping scores low to prevent complexity.
+                            The score should only be as high as we need it to be,
+                            rather than aiming for the highest score possible.
+                            In the future, some genuinely more important CSS might need to be applied.
+                            If you go for the highest score, you&#39;ll make that job hard.</p>
+                            
+                            <h2 id="scoring_each_selector_type" data-text="Scoring each selector type" tabindex="-1">Scoring each selector type</h2>
+                            
+                            <p>Each selector type earns points.
+                            You add all of these points up to calculate a selector&#39;s overall specificity.</p>
+                            
+                            <h3 id="universal_selector" data-text="Universal selector" tabindex="-1">Universal selector</h3>
+                            
+                            <p>A <a href="https://developer.mozilla.org/docs/Web/CSS/Universal_selectors">universal selector</a> (<code translate="no" dir="ltr">*</code>)
+                            has <strong>no specificity</strong> and gets <strong>0 points</strong>.
+                            This means that any rule with 1 or more points will override it</p>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">* {
+                              color: red;
+                            }
+                            </code></pre>
+                            <h3 id="element_or_pseudo-element_selector" data-text="Element or pseudo-element selector" tabindex="-1">Element or pseudo-element selector</h3>
+                            
+                            <p>An <a href="https://developer.mozilla.org/docs/Web/CSS/Type_selectors">element</a> (type)
+                            or <a href="https://developer.mozilla.org/docs/Web/CSS/Pseudo-elements">pseudo-element</a>
+                            selector gets <strong>1 point of specificity</strong> .</p>
+                            
+                            <h4 id="type_selector" data-text="Type selector" tabindex="-1">Type selector</h4>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">div {
+                              color: red;
+                            }
+                            </code></pre>
+                            <h4 id="pseudo-element_selector" data-text="Pseudo-element selector" tabindex="-1">Pseudo-element selector</h4>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">::selection {
+                              color: red;
+                            }
+                            </code></pre>
+                            <h3 id="class_pseudo-class_or_attribute_selector" data-text="Class, pseudo-class, or attribute selector" tabindex="-1">Class, pseudo-class, or attribute selector</h3>
+                            
+                            <p>A <a href="https://developer.mozilla.org/docs/Web/CSS/Class_selectors">class</a>,
+                            <a href="https://developer.mozilla.org/docs/Web/CSS/Pseudo-classes">pseudo-class</a> or
+                            <a href="https://developer.mozilla.org/docs/Web/CSS/Attribute_selectors">attribute</a> selector gets <strong>10 points of specificity</strong>.</p>
+                            
+                            <h4 id="class_selector" data-text="Class selector" tabindex="-1">Class selector</h4>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">.my-class {
+                              color: red;
+                            }
+                            </code></pre>
+                            <h4 id="pseudo-class_selector" data-text="Pseudo-class selector" tabindex="-1">Pseudo-class selector</h4>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">:hover {
+                              color: red;
+                            }
+                            </code></pre>
+                            <h4 id="attribute_selector" data-text="Attribute selector" tabindex="-1">Attribute selector</h4>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">[href=&#39;#&#39;] {
+                              color: red;
+                            }
+                            </code></pre>
+                            <p>The <a href="https://developer.mozilla.org/docs/Web/CSS/:not"><code translate="no" dir="ltr">:not()</code></a>
+                            pseudo-class itself adds nothing to the specificity calculation.
+                            However, the selectors passed in as arguments do get added to the specificity calculation.</p>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">div:not(.my-class) {
+                              color: red;
+                            }
+                            </code></pre>
+                            <p>This sample would have <strong>11 points</strong> of specificity
+                            because it has one type selector (<code translate="no" dir="ltr">div</code>) and one class <em>inside</em> the <code translate="no" dir="ltr">:not()</code>.</p>
+                            
+                            <h3 id="id_selector" data-text="ID selector" tabindex="-1">ID selector</h3>
+                            
+                            <p>An <a href="https://developer.mozilla.org/docs/Web/CSS/ID_selectors">ID</a>
+                            selector gets <strong>100 points of specificity</strong>,
+                            as long as you use an ID selector (<code translate="no" dir="ltr">#myID</code>) and not an attribute selector (<code translate="no" dir="ltr">[id=&quot;myID&quot;]</code>).</p>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">#myID {
+                              color: red;
+                            }
+                            </code></pre>
+                            <h3 id="inline_style_attribute" data-text="Inline style attribute" tabindex="-1">Inline style attribute</h3>
+                            
+                            <p>CSS applied directly to the <code translate="no" dir="ltr">style</code> attribute of the HTML element,
+                            gets a <strong>specificity score of 1,000 points</strong>.
+                            This means that in order to override it in CSS,
+                            you have to write an extremely specific selector.</p>
+                            <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;div style=&#34;color: red&#34;&gt;&lt;/div&gt;
+                            </code></pre>
+                            <h3 id="important_rule" data-text="!important rule" tabindex="-1"><code translate="no" dir="ltr">!important</code> rule</h3>
+                            
+                            <p>Lastly, an <code translate="no" dir="ltr">!important</code> at the end of a CSS value gets a specificity score of <strong>10,000 points</strong>.
+                            This is the highest specificity that one individual item can get.</p>
+                            
+                            <p>An <code translate="no" dir="ltr">!important</code> rule is applied to a CSS property,
+                            so everything in the overall rule (selector and properties) does not get the same specificity score.</p>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">.my-class {
+                              color: red !important; /* 10,000 points */
+                              background: white; /* 10 points */
+                            }
+                            </code></pre>
+                            <h3 id="check_your_understanding" class="hide-from-toc" data-text="Check your understanding" tabindex="-1">Check your understanding</h3>
+                            
+                            <p>Test your knowledge of specificity scoring</p>
+                            
+                            <div class="wd-assessment"><devsite-multiple-choice>
+                               <div><p>What is the specificity score of <code translate="no" dir="ltr">a[href=&quot;#&quot;]</code>?</p>
+                            </div>
+                            
+                            <div>
+                               <div>1</div>
+                               <div>The <code translate="no" dir="ltr">a</code> is worth 1 point, but the <code translate="no" dir="ltr">[href=&quot;#&quot;]</code> is worth 10 points.</div>
+                            </div>
+                            
+                            <div>
+                               <div>5</div>
+                               <div>Try again!</div>
+                            </div>
+                            
+                            <div correct>
+                               <div>11</div>
+                               <div>The <code translate="no" dir="ltr">a</code> is worth 1 point and the <code translate="no" dir="ltr">[href=&quot;#&quot;]</code> is worth 10 points, making a total score of <strong>11 points</strong>.</div>
+                            </div>
+                            </devsite-multiple-choice>
+                            </div>
+                            
+                            <h2 id="specificity_in_context" data-text="Specificity in context" tabindex="-1">Specificity in context</h2>
+                            
+                            <p>The specificity of each selector that matches an element is added together.
+                            Consider this example HTML:</p>
+                            <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;a class=&#34;my-class another-class&#34; href=&#34;#&#34;&gt;A link&lt;/a&gt;
+                            </code></pre>
+                            <p>This link has two classes on it.
+                            Add the following CSS, and it gets <strong>1 point of specificity</strong>:</p>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">a {
+                              color: red;
+                            }
+                            </code></pre>
+                            <p>Reference one of the classes in this rule,
+                            it now has <strong>11 points of specificity</strong>:</p>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">a.my-class {
+                              color: green;
+                            }
+                            </code></pre>
+                            <p>Add the other class to the selector,
+                            it now has <strong>21 points of specificity</strong>:</p>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">a.my-class.another-class {
+                              color: rebeccapurple;
+                            }
+                            </code></pre>
+                            <p>Add the <code translate="no" dir="ltr">href</code> attribute to the selector,
+                            it now has <strong>31 points of specificity</strong>:</p>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">a.my-class.another-class[href] {
+                              color: goldenrod;
+                            }
+                            </code></pre>
+                            <p>Finally,add a <code translate="no" dir="ltr">:hover</code> pseudo-class to all of that,
+                            the selector ends up with <strong>41 points of specificity</strong>:</p>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">a.my-class.another-class[href]:hover {
+                              color: lightgrey;
+                            }
+                            </code></pre>
+                            <h3 id="check_your_understanding_2" class="hide-from-toc" data-text="Check your understanding" tabindex="-1">Check your understanding</h3>
+                            
+                            <p>Test your knowledge of specificity scoring</p>
+                            
+                            <div class="wd-assessment"><devsite-multiple-choice>
+                               <div><p>Which of the following selectors is worth <strong>21 points</strong>?</p>
+                            </div>
+                            
+                            <div>
+                               <div><code translate="no" dir="ltr">article &gt; section</code></div>
+                               <div>Elements are worth 1 point, there are 2 elements in the selector, making this worth <strong>2 points</strong>.</div>
+                            </div>
+                            
+                            <div correct>
+                               <div><code translate="no" dir="ltr">article.card.dark</code></div>
+                               <div>Elements are worth 1 point, classes are worth 10 points, and with 2 classes and 1 element, that makes this selector worth <strong>21 points</strong>.</div>
+                            </div>
+                            
+                            <div>
+                               <div><code translate="no" dir="ltr">article:hover a[href]</code></div>
+                               <div>Elements are worth 1 point, pseudo-classes and attributes are worth 10 points, there are 2 points for the elements, and 20 points for the attributes and classes, makes this selector worth <strong>22 points</strong>.</div>
+                            </div>
+                            </devsite-multiple-choice>
+                            </div>
+                            
+                            <h2 id="visualizing_specificity" data-text="Visualizing specificity" tabindex="-1">Visualizing specificity</h2>
+                            
+                            <p>In diagrams and specificity calculators,
+                            the specificity is often visualized like this:</p>
+                            
+                            <p><img src="/static/learn/css/specificity/image/a-diagram-demonstrating-e1f97df6e065a.svg" alt="A diagram demonstrating most specific to least specific selectors" width="800" height="474"></p>
+                            
+                            <p>The left group is <code translate="no" dir="ltr">id</code> selectors.
+                            The second group is class, attribute, and pseudo-class selectors.
+                            The final group is element and pseudo-element selectors.</p>
+                            
+                            <p>For reference, the following selector is <code translate="no" dir="ltr">0-4-1</code>:</p>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">a.my-class.another-class[href]:hover {
+                              color: lightgrey;
+                            }
+                            </code></pre>
+                            <h3 id="check_your_understanding_3" class="hide-from-toc" data-text="Check your understanding" tabindex="-1">Check your understanding</h3>
+                            
+                            <p>Test your knowledge of specificity visualizing</p>
+                            
+                            <div class="wd-assessment"><devsite-multiple-choice>
+                               <div><p>Which of the following selectors is <code translate="no" dir="ltr">1-2-1</code>?</p>
+                            </div>
+                            
+                            <div>
+                               <div><code translate="no" dir="ltr">section#specialty.dark</code></div>
+                               <div>This selector is visualized as <code translate="no" dir="ltr">1-1-1</code>.</div>
+                            </div>
+                            
+                            <div correct>
+                               <div><code translate="no" dir="ltr">#specialty:hover li.dark</code></div>
+                               <div>🎉</div>
+                            </div>
+                            
+                            <div>
+                               <div><code translate="no" dir="ltr">[data-state-rad].dark#specialty:hover</code></div>
+                               <div>This selector is visualized as <code translate="no" dir="ltr">1-3-0</code>.</div>
+                            </div>
+                            
+                            <div>
+                               <div><code translate="no" dir="ltr">li#specialty section.dark</code></div>
+                               <div>This selector is visualized as <code translate="no" dir="ltr">1-1-2</code>.</div>
+                            </div>
+                            </devsite-multiple-choice>
+                            </div>
+                            
+                            <h2 id="pragmatically_increasing_specificity" data-text="Pragmatically increasing specificity" tabindex="-1">Pragmatically increasing specificity</h2>
+                            
+                            <p>Let&#39;s say we have some CSS that looks like this:</p>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">.my-button {
+                              background: blue;
+                            }
+                            
+                            button[onclick] {
+                              background: grey;
+                            }
+                            </code></pre>
+                            <p>With HTML that looks like this:</p>
+                            <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;button class=&#34;my-button&#34; onclick=&#34;alert(&#39;hello&#39;)&#34;&gt;Click me&lt;/button&gt;
+                            </code></pre>
+                            <figure>
+                            <div class="wd-embed" style="height: 500px; width: 100%">
+                              <iframe
+                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                              loading="lazy"
+                              src="https://codepen.io/web-dot-dev/embed/abpoxdR?height=500&theme-id=light&default-tab=css%2Cresult&editable=true"
+                              style="height: 100%; width: 100%; border: 0;"
+                              title="Pen abpoxdR by web-dot-dev on Codepen"
+                            ></iframe>
+                            </div>
+                            </figure>
+                            
+                            <p>The button has a grey background,
+                            because the second selector earns <strong>11 points of specificity</strong> (<code translate="no" dir="ltr">0-1-1</code>).
+                            This is because it has one type selector (<code translate="no" dir="ltr">button</code>),
+                            which is <strong>1 point</strong> and an attribute selector (<code translate="no" dir="ltr">[onclick]</code>), which is <strong>10 points</strong>.</p>
+                            
+                            <p>The previous rule—<code translate="no" dir="ltr">.my-button</code>—gets <strong>10 points</strong> (<code translate="no" dir="ltr">0-1-0</code>),
+                            because it has one class selector.</p>
+                            
+                            <p>If you want to give this rule a boost,
+                            repeat the class selector like this:</p>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">.my-button.my-button {
+                              background: blue;
+                            }
+                            
+                            button[onclick] {
+                              background: grey;
+                            }
+                            </code></pre>
+                            <figure>
+                            <div class="wd-embed" style="height: 500px; width: 100%">
+                              <iframe
+                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                              loading="lazy"
+                              src="https://codepen.io/web-dot-dev/embed/zYNOXBJ?height=500&theme-id=light&default-tab=css%2Cresult&editable=true"
+                              style="height: 100%; width: 100%; border: 0;"
+                              title="Pen zYNOXBJ by web-dot-dev on Codepen"
+                            ></iframe>
+                            </div>
+                            </figure>
+                            
+                            <p>Now, the button will have a blue background,
+                            because the new selector gets a specificity score of <strong>20 points</strong> (<code translate="no" dir="ltr">0-2-0</code>).</p>
+                            
+                            <aside class="caution"><b>Caution: </b> If you find that you are needing to boost specificity like this frequently, it may indicate that you are writing overly specific selectors. Consider whether you can refactor your CSS to reduce the specificity of other selectors to avoid this problem. </aside>
+                            
+                            <h2 id="a_matching_specificity_score_sees_the_newest_instance_win" data-text="A matching specificity score sees the newest instance win" tabindex="-1">A matching specificity score sees the newest instance win</h2>
+                            
+                            <p>Let&#39;s stay with the button example for now and switch the CSS around to this:</p>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">.my-button {
+                              background: blue;
+                            }
+                            
+                            [onclick] {
+                              background: grey;
+                            }
+                            </code></pre>
+                            <p>The button has a grey background,
+                            because <strong>both selectors have an identical specificity score</strong> (<code translate="no" dir="ltr">0-1-0</code>).</p>
+                            
+                            <figure>
+                            <div class="wd-embed" style="height: 500px; width: 100%">
+                              <iframe
+                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                              loading="lazy"
+                              src="https://codepen.io/web-dot-dev/embed/zYNOXKJ?height=500&theme-id=light&default-tab=css%2Cresult&editable=true"
+                              style="height: 100%; width: 100%; border: 0;"
+                              title="Pen zYNOXKJ by web-dot-dev on Codepen"
+                            ></iframe>
+                            </div>
+                            </figure>
+                            
+                            <p>If you switch the rules in the source order,
+                            the button would then be blue.</p>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">[onclick] {
+                              background: grey;
+                            }
+                            
+                            .my-button {
+                              background: blue;
+                            }
+                            </code></pre>
+                            <figure>
+                            <div class="wd-embed" style="height: 500px; width: 100%">
+                              <iframe
+                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                              loading="lazy"
+                              src="https://codepen.io/web-dot-dev/embed/WNReWRO?height=500&theme-id=light&default-tab=css%2Cresult&editable=true"
+                              style="height: 100%; width: 100%; border: 0;"
+                              title="Pen WNReWRO by web-dot-dev on Codepen"
+                            ></iframe>
+                            </div>
+                            </figure>
+                            
+                            <p>This is the only instance where newer CSS wins.
+                            To do so it must match the specificity of another selector that targets the same element.</p>
+                            
+                            <h2 id="resources" data-text="Resources" tabindex="-1">Resources</h2>
+                            
+                            <ul>
+                            <li><a href="http://specifishity.com">CSS SpeciFISHity</a></li>
+                            <li><a href="https://specificity.keegan.st">Specificity Calculator</a></li>
+                            <li><a href="https://developer.mozilla.org/docs/Web/CSS/Specificity">MDN Specificity</a></li>
+                            <li><a href="https://css-tricks.com/specifics-on-css-specificity/">Specifics on CSS Specificity</a></li>
+                            <li><a href="https://polypane.app/css-specificity-calculator">Another Specificity Calculator</a></li>
                             </ul>
-                        </nav>
-                    </footer>
+
+
+
+
+
+                                                    
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
+                    </div>
+                    
                                         
                 </div>
             </main>

@@ -1172,38 +1172,216 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                    
+                    
+
+
+
+
+
+
+
+                    <p>Say you&#39;ve got a couple of elements that are absolutely positioned,
+                        and are supposed to be positioned on top of each other.
+                        You might write a bit of a HTML like this:</p>
+                        <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;div class=&#34;stacked-items&#34;&gt;
+                            &lt;div class=&#34;item-1&#34;&gt;Item 1&lt;/div&gt;
+                            &lt;div class=&#34;item-2&#34;&gt;Item 2&lt;/div&gt;
+                        &lt;/div&gt;
+                        </code></pre>
+                        <p>But which one sits on top of the other, by default?
+                        To know which item would do that,
+                        you need to understand z-index and stacking contexts.</p>
+                        
+                        <h2 id="z-index" data-text="Z-index" tabindex="-1">Z-index</h2>
+                        
+                        <p>The <a href="https://developer.mozilla.org/docs/Web/CSS/z-index"><code translate="no" dir="ltr">z-index</code></a>
+                        property explicitly sets a layer order for HTML based on the 3D space of the browser—the Z axis.
+                        This is the axis which shows which layers are closer to and further from you.
+                        The vertical axis on the web is the Y axis and the horizontal axis is the X axis.</p>
+                        
+                        <p><img src="/static/learn/css/z-index/image/each-axis-surrounding-el-6a38535cc8004.svg" alt="Each axis surrounding the element" width="760" height="467"></p>
+                        
+                        <p>The <code translate="no" dir="ltr">z-index</code> property accepts a numerical value which can be a positive or negative number.
+                        Elements will appear above another element if they have a higher <code translate="no" dir="ltr">z-index</code> value.
+                        If no <code translate="no" dir="ltr">z-index</code> is set on your elements
+                        then the default behaviour is that document source order dictates the Z axis.
+                        This means that elements further down the document sit on top of elements that appear before them.</p>
+                        
+                        <figure>
+                        <div class="wd-embed" style="height: 500px; width: 100%">
+                          <iframe
+                          allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                          loading="lazy"
+                          src="https://codepen.io/web-dot-dev/embed/GRrMEjZ?height=500&theme-id=light&default-tab=result&editable=true"
+                          style="height: 100%; width: 100%; border: 0;"
+                          title="Pen GRrMEjZ by web-dot-dev on Codepen"
+                        ></iframe>
                         </div>
+                        </figure>
+                        
+                        <p>In normal flow,
+                        if you set a specific value for <code translate="no" dir="ltr">z-index</code> and it isn&#39;t working,
+                        you need to set the element&#39;s <code translate="no" dir="ltr">position</code> value to anything other than <code translate="no" dir="ltr">static</code>.
+                        This is a common place where people struggle with <code translate="no" dir="ltr">z-index</code>.</p>
+                        
+                        <figure>
+                        <div class="wd-embed" style="height: 500px; width: 100%">
+                          <iframe
+                          allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                          loading="lazy"
+                          src="https://codepen.io/web-dot-dev/embed/bGgoRzv?height=500&theme-id=light&default-tab=result&editable=true"
+                          style="height: 100%; width: 100%; border: 0;"
+                          title="Pen bGgoRzv by web-dot-dev on Codepen"
+                        ></iframe>
+                        </div>
+                        </figure>
+                        
+                        <p>This isn&#39;t the case if you are in a flexbox or grid context, though,
+                        because you can modify the z-index of flex or grid items without adding <code translate="no" dir="ltr">position: relative</code>.</p>
+                        
+                        <figure>
+                        <div class="wd-embed" style="height: 500px; width: 100%">
+                          <iframe
+                          allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                          loading="lazy"
+                          src="https://codepen.io/web-dot-dev/embed/QWdqMOP?height=500&theme-id=light&default-tab=result&editable=true"
+                          style="height: 100%; width: 100%; border: 0;"
+                          title="Pen QWdqMOP by web-dot-dev on Codepen"
+                        ></iframe>
+                        </div>
+                        </figure>
+                        
+                        <h2 id="negative_z-index" data-text="Negative z-index" tabindex="-1">Negative z-index</h2>
+                        
+                        <p>To set an element <em>behind</em> another element,
+                        add a negative value for <code translate="no" dir="ltr">z-index</code>.</p>
+                        <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">.my-element {
+                            background: rgb(232 240 254 / 0.4);
+                        }
+                        
+                        .my-element .child {
+                            position: relative;
+                            z-index: -1;
+                        }
+                        </code></pre>
+                        <p>As long as <code translate="no" dir="ltr">.my-element</code> has the initial value for <code translate="no" dir="ltr">z-index</code> of <code translate="no" dir="ltr">auto</code>,
+                        the <code translate="no" dir="ltr">.child</code> element will sit behind it.</p>
+                        
+                        <figure>
+                        <div class="wd-embed" style="height: 400px; width: 100%">
+                          <iframe
+                          allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                          loading="lazy"
+                          src="https://codepen.io/web-dot-dev/embed/XWpeayj?height=400&theme-id=light&default-tab=result&editable=true"
+                          style="height: 100%; width: 100%; border: 0;"
+                          title="Pen XWpeayj by web-dot-dev on Codepen"
+                        ></iframe>
+                        </div>
+                        </figure>
+                        
+                        <p>Add the following CSS to <code translate="no" dir="ltr">.my-element</code>,
+                        and the <code translate="no" dir="ltr">.child</code> element will not sit behind it.</p>
+                        <pre class="prettyprint lang-css/1-2" translate="no" dir="ltr"><code translate="no" dir="ltr">.my-element {
+                          position: relative;
+                          z-index: 0;
+                          background: rgb(232 240 254 / 0.4);
+                        }
+                        </code></pre>
+                        <figure>
+                        <div class="wd-embed" style="height: 400px; width: 100%">
+                          <iframe
+                          allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                          loading="lazy"
+                          src="https://codepen.io/web-dot-dev/embed/bGgorZy?height=400&theme-id=light&default-tab=result&editable=true"
+                          style="height: 100%; width: 100%; border: 0;"
+                          title="Pen bGgorZy by web-dot-dev on Codepen"
+                        ></iframe>
+                        </div>
+                        </figure>
+                        
+                        <p>Because <code translate="no" dir="ltr">.my-element</code> now has a <code translate="no" dir="ltr">position</code> value that&#39;s not <code translate="no" dir="ltr">static</code>
+                        and a <code translate="no" dir="ltr">z-index</code> value that&#39;s not <code translate="no" dir="ltr">auto</code>,
+                        it has created a new <strong>stacking context</strong>.
+                        This means that even if you set <code translate="no" dir="ltr">.child</code> to have a <code translate="no" dir="ltr">z-index</code> of <code translate="no" dir="ltr">-999</code>,
+                        it would still not sit behind <code translate="no" dir="ltr">.my-parent</code>.</p>
+                        
+                        <h2 id="stacking_context" data-text="Stacking context" tabindex="-1">Stacking context</h2>
+                        
+                        <p>A stacking context is a group of elements that have a common parent and move up and down the z axis together.</p>
+                        
+                        <figure>
+                        <div class="wd-embed" style="height: 600px; width: 100%">
+                          <iframe
+                          allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                          loading="lazy"
+                          src="https://codepen.io/web-dot-dev/embed/JjErOXV?height=600&theme-id=light&default-tab=result&editable=true"
+                          style="height: 100%; width: 100%; border: 0;"
+                          title="Pen JjErOXV by web-dot-dev on Codepen"
+                        ></iframe>
+                        </div>
+                        </figure>
+                        
+                        <p>In this example,
+                        the first parent element has a <code translate="no" dir="ltr">z-index</code> of <code translate="no" dir="ltr">1</code>,
+                        so creates a new stacking context.
+                        Its child element has a <code translate="no" dir="ltr">z-index</code> of <code translate="no" dir="ltr">999</code>.
+                        Next to this parent, there is another parent element with one child.
+                        The parent has a <code translate="no" dir="ltr">z-index</code> of <code translate="no" dir="ltr">2</code> and the child element also has a <code translate="no" dir="ltr">z-index</code> of <code translate="no" dir="ltr">2</code>.
+                        Because both parents create a stacking context,
+                        the <code translate="no" dir="ltr">z-index</code> of all children is based on that of their parent.</p>
+                        
+                        <p>The <code translate="no" dir="ltr">z-index</code> of elements inside of a stacking context
+                        are always relative to the parent&#39;s current order in its own stacking context.</p>
+                        
+                        <aside class="note"><b>Note: </b> The <code translate="no" dir="ltr">&lt;html&gt;</code> element is a stacking context itself and nothing can ever go behind it. You can put stuff behind the <code translate="no" dir="ltr">&lt;body&gt;</code> until you create a stacking context with it. </aside>
+                        
+                        <h2 id="creating_a_stacking_context" data-text="Creating a stacking context" tabindex="-1">Creating a stacking context</h2>
+                        
+                        <p>You don&#39;t need to apply <code translate="no" dir="ltr">z-index</code> and <code translate="no" dir="ltr">position</code> to create a new
+                        <a href="https://developer.mozilla.org/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context">stacking context</a>.
+                        You can create a new stacking context by adding a value for properties which create a new composite layer
+                        such as <code translate="no" dir="ltr">opacity</code>, <code translate="no" dir="ltr">will-change</code> and <code translate="no" dir="ltr">transform</code>.
+                        You can
+                        <a href="https://developer.mozilla.org/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context">see a full list of properties here</a>.</p>
+                        
+                        <p>To explain what a composite layer is, imagine a web page is a canvas.
+                        A browser takes your HTML and CSS and uses these to work out how big to make the canvas.
+                        It then paints the page on this canvas.
+                        If an element was to change—say,
+                        it changes position—the browser then has to go back and re-work out what to paint.</p>
+                        
+                        <p>To help with performance,
+                        the browser creates new composite layers which are layered on top of the canvas.
+                        These are a bit like post-it notes:
+                        moving one around and changing it doesn&#39;t have a huge impact on the overall canvas.
+                        A new composite layer is created for elements with <code translate="no" dir="ltr">opacity</code>,
+                        <code translate="no" dir="ltr">transform</code> and <code translate="no" dir="ltr">will-change</code> because these are very likely to change,
+                        so the browser makes sure that change is performant as possible by using the GPU to apply style adjustments.</p>
+                        
+                        <aside class="note"><b>Note: </b> You can also create a stacking context by adding a <code translate="no" dir="ltr">filter</code> and setting <code translate="no" dir="ltr">backface-visibility: hidden</code>. </aside>
+                        
+                        <h2 id="resources" data-text="Resources" tabindex="-1">Resources</h2>
+                        
+                        <ul>
+                        <li><a href="https://surma.dev/things/forcing-layers/">Forcing layers</a></li>
+                        <li><a href="/articles/animations-guide#force">Animations Guide: Force layer creation</a></li>
+                        <li><a href="https://ishadeed.com/article/understanding-z-index/">Understanding z-index</a></li>
+                        </ul>
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
                     </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
-                            </ul>
-                        </nav>
-                    </footer>
+                    
                                         
                 </div>
             </main>

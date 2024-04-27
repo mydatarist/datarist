@@ -1172,38 +1172,192 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                    
+                    
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Workbox</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
-                    </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
+                        <section aria-labelledby="the_story_of_your_first_website">
+                                
+                            
+
+
+
+
+                            <p>Maintaining your service worker and cache storage logic can be a challenge as your PWA grows. <a href="https://developer.chrome.com/docs/workbox/what-is-workbox">Workbox</a>, is a set of open-source libraries to help with that. Workbox encapsulates the low-level APIs, like the Service Worker API and Cache Storage API, and exposes more developer-friendly interfaces.</p>
+
+                            <p>Some tasks that it can help with are matching caching strategies to paths (or routing patterns), working with streams, and using features like background sync with proper fallbacks.</p>
+                            
+                            <p>Workbox can help you with managing your asset caching and serving needs. It&#39;s also the most used library for service workers; used by <a href="https://almanac.httparchive.org/en/2022/pwa#workbox-usage">54% of mobile sites</a> and it is used in many build tools and CLIs, including the Angular CLI, Create-React-App, and Vue CLI. There are plugins to most other libraries and frameworks, too, such as Next.js.</p>
+                            
+                            <div class="wd-stats">
+                              <div class="wd-stats__item">
+                                <p class="wd-stats__figure">54<sub class="wd-stats__sub">%</sub></p>
+                                <p class="wd-stats__desc">Mobile sites with service workers use the Workbox library</p>
+                              </div>
+                             </div>
+                            
+                            <aside class="note"><b>Note: </b> While Workbox is the most common set of libraries for service workers in the PWA community, there are other solutions such as <a href="https://github.com/veiss-com/sw-tools">sw-tools</a> and <a href="https://www.talater.com/upup/">UpUp</a> </aside>
+                            
+                            <h2 id="workbox_modules" data-text="Workbox modules" tabindex="-1">Workbox modules</h2>
+                            
+                            <p>Workbox includes several <a href="https://developer.chrome.com/docs/workbox/modules">libraries</a>&mdash;called modules internally&mdash;each focused on a different aspect of managing your assets and service worker behavior.</p>
+                            
+                            <p>Workbox modules work in different contexts, such as:</p>
+                            
+                            <ul>
+                            <li><strong>Within a service worker context</strong>: you import the modules you need and use them from your service worker file, for example to help manage caching and serve files with different strategies.</li>
+                            <li><strong>Within the main <code translate="no" dir="ltr">window</code> context</strong>: helping to register a service worker and communicating with it</li>
+                            <li><strong>As part of a build system</strong>: for example, webpack, for purposes such as creating a manifest of your assets, or even generating your entire service worker.</li>
                             </ul>
-                        </nav>
-                    </footer>
+                            
+                            <p>Some popular modules are:</p>
+                            
+                            <ul>
+                            <li><a href="https://developer.chrome.com/docs/workbox/modules/workbox-routing">workbox-routing</a>: When the service worker intercepts requests this module routes those requests to different functions that provide responses; it&#39;s an implementation of the <code translate="no" dir="ltr">fetch</code> event handler as mentioned in the <a href="/learn/pwa/serving">Serving chapter</a>.</li>
+                            <li><a href="https://developer.chrome.com/docs/workbox/modules/workbox-strategies">workbox-strategies</a>: A set of runtime caching strategies that handle responding to a request, such as cache first and stale while revalidate; it&#39;s an implementation of the different strategies mentioned in the <a href="/learn/pwa/serving">Serving chapter</a>.</li>
+                            <li><a href="https://developer.chrome.com/docs/workbox/modules/workbox-precaching">workbox-precaching</a>: It&#39;s an implementation of caching files in the <code translate="no" dir="ltr">install</code> event handler of the service worker (also known as precaching), as mentioned in the <a href="/learn/pwa/caching">Caching chapter</a>. With this module you can easily precache a set of files and efficiently manage updates to those assets. We&#39;ll cover updating assets in the <a href="/learn/pwa/update">Update chapter</a>.</li>
+                            <li><a href="https://developer.chrome.com/docs/workbox/modules/workbox-expiration">workbox-expiration</a>: It is a plugin used with the caching strategies to remove cached requests based on the number of items in a cache or based on the age of the cached request. It helps manage your caches and sets limits on time and the number of items in each cache.</li>
+                            <li><a href="https://developer.chrome.com/docs/workbox/modules/workbox-window">workbox-window</a>: A set of modules intended to run in the window context, which is to say, inside of your PWA web pages. You can simplify the process of service worker registration and updates and enable easier communication between code running in the service worker context and the window context.</li>
+                            </ul>
+                            
+                            <h2 id="using_workbox" data-text="Using Workbox" tabindex="-1">Using Workbox</h2>
+                            
+                            <p>Workbox provides different ways to integrate into your PWA. You can choose which fits best with your app&#39;s architecture:</p>
+                            
+                            <ul>
+                            <li><a href="https://developer.chrome.com/docs/workbox/modules/workbox-cli">Workbox CLI</a>: A command-line utility that generates a complete service worker, injects a precache manifest, or copies needed Workbox files.</li>
+                            <li><a href="https://developer.chrome.com/docs/workbox/modules/workbox-build">Workbox Build</a>: An npm module that generates a complete service worker, injects a precache manifest, and copies the Workbox files. This is meant to be integrated with your own build process.</li>
+                            <li><a href="https://developer.chrome.com/docs/workbox/modules/workbox-sw">workbox-sw</a>: A way to load Workbox service worker packages from a CDN that doesn&#39;t use a build process.</li>
+                            </ul>
+                            
+                            <p>Workbox CLI provides a wizard that steps you through creating your service worker. To run the wizard, type the following at a command line:</p>
+                            <pre class="prettyprint lang-bash" translate="no" dir="ltr"><code translate="no" dir="ltr">npx workbox-cli wizard
+                            </code></pre>
+                            <p><img src="/static/learn/pwa/workbox/image/workbox-cli-action-a-te-cdda129657c2f.png" alt="Workbox CLI in action in a terminal" width="800" height="394" srcset="https://web.dev/static/learn/pwa/workbox/image/workbox-cli-action-a-te-cdda129657c2f_36.png 36w,https://web.dev/static/learn/pwa/workbox/image/workbox-cli-action-a-te-cdda129657c2f_48.png 48w,https://web.dev/static/learn/pwa/workbox/image/workbox-cli-action-a-te-cdda129657c2f_72.png 72w,https://web.dev/static/learn/pwa/workbox/image/workbox-cli-action-a-te-cdda129657c2f_96.png 96w,https://web.dev/static/learn/pwa/workbox/image/workbox-cli-action-a-te-cdda129657c2f_480.png 480w,https://web.dev/static/learn/pwa/workbox/image/workbox-cli-action-a-te-cdda129657c2f_720.png 720w,https://web.dev/static/learn/pwa/workbox/image/workbox-cli-action-a-te-cdda129657c2f_856.png 856w,https://web.dev/static/learn/pwa/workbox/image/workbox-cli-action-a-te-cdda129657c2f_960.png 960w,https://web.dev/static/learn/pwa/workbox/image/workbox-cli-action-a-te-cdda129657c2f_1440.png 1440w,https://web.dev/static/learn/pwa/workbox/image/workbox-cli-action-a-te-cdda129657c2f_1920.png 1920w,https://web.dev/static/learn/pwa/workbox/image/workbox-cli-action-a-te-cdda129657c2f_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                            
+                            <h2 id="caching_and_serving_with_workbox" data-text="Caching and serving with Workbox" tabindex="-1">Caching and serving with Workbox</h2>
+                            
+                            <p>A common use of Workbox is using the routing and strategies modules together to cache and serve files.</p>
+                            
+                            <p>The module <a href="https://developer.chrome.com/docs/workbox/modules/workbox-strategies"><em>workbox-strategies</em></a> provides, out of the box, the caching strategies discussed in the <a href="/learn/pwa/assets-and-data">Assets and data</a> and <a href="/learn/pwa/serving">Serving</a> chapters.</p>
+                            
+                            <p>The <a href="https://developer.chrome.com/docs/workbox/modules/workbox-routing"><em>workbox-routing</em></a> module helps to sort incoming requests to your service worker and match them to the caching strategies or functions to get responses for those requests.</p>
+                            
+                            <p>After the matching of routes to strategies, Workbox also offers the ability to filter which responses will be added to the cache with the <a href="https://developer.chrome.com/docs/workbox/modules/workbox-cacheable-response"><em>workbox-cacheable-response</em> plugin</a>. With this plugin you can for example cache only responses that returned without errors.</p>
+                            
+                            <aside class="caution"><b>Caution: </b> While Workbox is distributed as npm modules, service workers themselves don't support ES modules syntax in every browser, so it's better to compile this sample code with a bundler before deploying it. </aside>
+                            
+                            <p>The following code sample uses a cache first strategy (via the <code translate="no" dir="ltr">CacheFirst</code> module) to cache and serve page navigations.</p>
+                            <pre class="prettyprint lang-js" translate="no" dir="ltr"><code translate="no" dir="ltr">import { registerRoute } from &#39;workbox-routing&#39;;
+                            import { CacheFirst } from &#39;workbox-strategies&#39;;
+                            import { CacheableResponsePlugin } from &#39;workbox-cacheable-response&#39;;
+                            
+                            const pageStrategy = new CacheFirst({
+                              // Put all cached files in a cache named &#39;pages&#39;
+                              cacheName: &#39;pages&#39;,
+                              plugins: [
+                                // Only requests that return with a 200 status are cached
+                                new CacheableResponsePlugin({
+                                  statuses: [200],
+                                }),
+                              ],
+                            });
+                            </code></pre>
+                            <p>The plugin allows you to tap into Workbox&#39;s caching and request resolution lifecycle. Here, the <code translate="no" dir="ltr">CacheableResponsePlugin</code> is used to only cache requests that result in a 200 status, preventing bad requests from being saved into the cache.</p>
+                            
+                            <p>With the strategy created, it&#39;s time to register a route to use it. The following example calls <code translate="no" dir="ltr">registerRoute()</code>, passing a Request object to its callback. If <code translate="no" dir="ltr">request.mode</code> is <code translate="no" dir="ltr">&quot;navigate&quot;</code> it uses the <code translate="no" dir="ltr">CacheFirst</code> strategy (here called <code translate="no" dir="ltr">pageStrategy</code>) defined in the previous code example.</p>
+                            <pre class="prettyprint lang-js" translate="no" dir="ltr"><code translate="no" dir="ltr">// Cache page navigations (HTML) with a Cache First strategy
+                            registerRoute( ({ request }) =&gt; request.mode === &#39;navigate&#39;,
+                              pageStrategy );
+                            </code></pre>
+                            <p>Read the <a href="https://developer.chrome.com/docs/workbox">Workbox documentation</a> for more examples and best practices.</p>
+                            
+                            <h2 id="offline_fallback" data-text="Offline fallback" tabindex="-1">Offline fallback</h2>
+                            
+                            <p>The <em>workbox-routing</em> module also has an exported <code translate="no" dir="ltr">setCatchHandler()</code>, that provides handling if a route throws an error. You can use this to set up an offline fallback to notify users that their requested route isn&#39;t currently available.</p>
+                            
+                            <p>Here, a combination of Workbox and the Cache Storage API provides an offline fallback using a cache-only strategy.
+                            First, during the service worker&#39;s install lifecycle, the <code translate="no" dir="ltr">offline-fallbacks</code> cache is opened, and the array of offline fallbacks is added to the cache.</p>
+                            <pre class="prettyprint lang-js" translate="no" dir="ltr"><code translate="no" dir="ltr">import { setCatchHandler } from &#39;workbox-routing&#39;;
+                            
+                            // Warm the cache when the service worker installs
+                            self.addEventListener(&#39;install&#39;, event =&gt; {
+                              const files = [&#39;/offline.html&#39;]; // you can add more resources here
+                              event.waitUntil(
+                                self.caches.open(&#39;offline-fallbacks&#39;)
+                                    .then(cache =&gt; cache.addAll(files))
+                              );
+                            });
+                            </code></pre>
+                            <p>Then, in <code translate="no" dir="ltr">setCatchHandler()</code>, the destination of the request that threw an error is determined, and the <code translate="no" dir="ltr">offline-fallbacks</code> cache is opened. If the destination is a document, the content of the offline fallback is returned to the user. If that doesn&#39;t exist, or the destination isn&#39;t a document (such as an image or stylesheet), an error response is returned. You can extend this pattern not just for documents but for images, videos, fonts, really anything that you&#39;d want to provide as an offline fallback.</p>
+                            <pre class="prettyprint lang-js" translate="no" dir="ltr"><code translate="no" dir="ltr">// Respond with the fallback if a route throws an error
+                            setCatchHandler(async (options) =&gt; {
+                              const destination = options.request.destination;
+                              const cache = await self.caches.open(&#39;offline-fallbacks&#39;);
+                              if (destination === &#39;document&#39;) {
+                                return (await cache.match(&#39;/offline.html&#39;)) || Response.error();
+                              }
+                              return Response.error();
+                            });
+                            </code></pre>
+                            <h2 id="recipes" data-text="Recipes" tabindex="-1">Recipes</h2>
+                            
+                            <p>Several routing and caching patterns, like <code translate="no" dir="ltr">NetworkFirst</code> navigations and offline fallbacks, are common enough to be encapsulated into reusable recipes. Check <a href="https://developer.chrome.com/docs/workbox/modules/workbox-recipes">workbox-recipes</a> as they can help you if they provide a solution suitable for your architecture. They are usually available as one line of code that you need to add to your service worker&#39;s code.</p>
+                            
+                            <h3 id="caching_and_updating_assets" data-text="Caching and updating assets" tabindex="-1">Caching and updating assets</h3>
+                            
+                            <p>Caching assets also involves updating them. Workbox helps with updating your assets in whatever way you decide is best. It could be keeping them updated if they change on the server, or waiting until you have a new version of your app.
+                            You&#39;ll learn more about updating in the <a href="/learn/pwa/update">Update chapter</a>.</p>
+                            
+                            <h2 id="play_with_workbox" data-text="Play with Workbox" tabindex="-1">Play with Workbox</h2>
+                            
+                            <p>You can play with Workbox right away using the following code lab:</p>
+                            
+                            <aside class="beta"><b>Try it: </b> <a href="https://developers.google.com/codelabs/pwa-training/pwa03--working-with-workbox">Working With Workbox</a>. </aside>
+                            
+                            <h2 id="resources" data-text="Resources" tabindex="-1">Resources</h2>
+                            
+                            <ul>
+                            <li><a href="https://developer.chrome.com/docs/workbox">Get Started with Workbox</a></li>
+                            <li><a href="https://developer.chrome.com/docs/workbox/modules">Workbox Modules</a></li>
+                            <li><a href="https://developer.chrome.com/docs/workbox/the-ways-of-workbox">The ways of Workbox</a></li>
+                            </ul>
+                            
+
+
+
+
+
+
+
+
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
+                    </div>
+                    
                                         
                 </div>
             </main>

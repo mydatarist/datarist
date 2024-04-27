@@ -1172,38 +1172,183 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                    
+                    
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Assets</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
+                        <section aria-labelledby="the_story_of_your_first_website">
+                               
+                            
+
+
+
+                            <p>A Progressive Web App is a website; all its assets are the same as on the web,
+                                but with new tools to make those assets load fast when online and available
+                                when offline.</p>
+                              
+                              
+                              
+                              
+                              
+                              <h2 id="app_components" data-text="App components" tabindex="-1">App components</h2>
+                              
+                              <p>Developing an application typically involves several assets and resources,
+                              from the logic and code (compiled or not) to the user interface elements such as screen designs, images, logos, and fonts.</p>
+                              
+                              <p>A Progressive Web App is a website, so all its assets are the same as on the web:</p>
+                              
+                              <ul>
+                              <li>HTML for content and initial page rendering.</li>
+                              <li>JavaScript for logic, including the ability to run WebAssembly modules (compiled code) and render 2D and 3D hardware-optimized graphics.</li>
+                              <li>CSS for layout, styling, and animations.</li>
+                              <li>Images in web formats, such as PNG, JPEG, WebP, and SVG.</li>
+                              <li>Videos in web formats, such as MPEG-4 and WebM.</li>
+                              <li>Web fonts.</li>
+                              <li>Data in JSON or other formats.</li>
+                              </ul>
+                              
+                              <p>By default, websites download assets over the network,
+                              <a href="/articles/critical-rendering-path">starting with HTML</a>
+                              and continuing to the rest of the resources.</p>
+                              
+                              <p>Managing those resources to load fast and be available offline has been a challenge for the web.
+                              Nowadays, PWAs use capabilities previously associated only with platform-specific apps.</p>
+                              
+                              <h3 id="platform-specific_apps_vs_pwa" data-text="Platform-specific apps vs. PWA" tabindex="-1">Platform-specific apps vs. PWA</h3>
+                              
+                              <p>When you install a platform-specific app you are typically downloading a package that includes all the app&#39;s assets: code, images, fonts, videos, and so on.
+                              Therefore, all these resources are available, from your device storage, even when the app is offline.</p>
+                              
+                              <p>On the other hand, a classic website needs a network connection to download the assets when required.
+                              If you are offline, you will see an error from the browser as there are no assets client-side.</p>
+                              
+                              <p>The PWA approach enhances the traditional web experience by making some or all the assets available client-side as with platform-specific apps. Therefore, when you open a PWA, the initial rendering can be as instantaneous as a platform app because the assets are available without going to the network.</p>
+                              
+                              <aside class="note"><b>Note: </b> An app that is available offline will always render a basic user interface instead of a technical error from the operating system or browser. Some apps still offer all their functionality, some a limited experience, and others a simple message with the app's branding. This applies to both platform-specific apps and PWAs. </aside>
+                              
+                              <h2 id="caches_and_storage" data-text="Caches and storage" tabindex="-1">Caches and storage</h2>
+                              
+                              <p>Since the beginning of the web, developers have not had complete control of how a resource is cached.
+                              The browser is in charge of the HTTP cache and it may or may not cache and serve resources based on different policies.
+                              Other storage options like Web Storage and IndexedDB were meant to save simple data and objects.</p>
+                              
+                              <p>PWAs don&#39;t need to rely on those policies alone for their content.
+                              Instead, we have solutions today to gain better control over when and how to cache resources and when and how to deliver them locally: the Cache Storage API.
+                              The web has a few of client-side storage solutions available:</p>
+                              
+                              <ul>
+                              <li><strong>Web storage</strong>: Includes <code translate="no" dir="ltr">localStorage</code> and <code translate="no" dir="ltr">sessionStorage</code>. These APIs store simple key/value string pairs. Web storage is limited, and has a synchronous API, so it should be avoided whenever possible.</li>
+                              <li><strong>IndexedDB</strong>: An object-based database (No-SQL) with an asynchronous API that is good for web performance. IndexedDB can store structured and binary data client-side. It is typically what you will use to store data, like what you&#39;d get from or send as an API request. It&#39;s also useful to save data locally immediately and later on sync it to the server. The <a href="https://developer.mozilla.org/docs/Web/API/IndexedDB_API">IndexedDB API</a> is used to interact with the database.</li>
+                              <li><strong>Cache storage</strong>: A collection of HTTP request and response pairs you can use to store and retrieve resources — with their HTTP headers — exactly as they are delivered from the server. The <a href="https://developer.mozilla.org/docs/Web/API/CacheStorage">Cache Storage API</a> allows you to store, retrieve, update and delete network requests, for example for your assets, even when offline.</li>
+                              </ul>
+                              
+                              <aside class="warning"><b>Warning: </b> You may have heard about WebSQL and ApplicationCache. These two solutions are deprecated, and you shouldn't use them in your PWA. </aside>
+                              
+                              <h3 id="the_need_for_service_workers" data-text="The need for service workers" tabindex="-1">The need for service workers</h3>
+                              
+                              <p>A PWA can store its assets in Cache Storage and IndexedDB,
+                              but how can we use those assets to deliver a fast and offline experience to your users. The answer? Service workers.</p>
+                              
+                              <p>With a service worker, you can serve assets without going to the network, send notifications to a user, add a badge to your PWA icon, update content in the background, and even make your whole PWA work offline. Learn more about service workers in the <a href="/learn/pwa/service-workers">next chapter</a>.</p>
+                              
+                              <h2 id="offline-ready" data-text="Offline-ready" tabindex="-1">Offline-ready</h2>
+                              
+                              <p>Users expect your application to offer a fast and always-ready experience.
+                              That means your app should work offline.</p>
+                              
+                              <p>Being offline-ready doesn&#39;t mean that all your content or services should be available without a network connection.
+                              However having at least a basic experience when the user is offline, like a page that asks you to connect to the Internet to continue, will provide for a better user experience, keeping the user within the experience of your app instead of a generic browser error.
+                              In some browsers this is a must-have feature to pass the PWA installation criteria.
+                              Displaying your PWA&#39;s user interface, along with cached content, is better.
+                              Letting users continue using your whole PWA and syncing server changes when they&#39;re back online is the gold standard for working offline.</p>
+                              
+                              <p>To make your app available offline, you will need to cache the assets necessary for your offline experience and make your service worker serve them later. Make sure to add the offline assets to your cache before you need them. This is a particular case where you cannot cache them when requested.</p>
+                              
+                              <aside class="note"><b>Note: </b> Asset caching happens independently from PWA installation, and will work even from a browser tab, allowing for faster asset delivery and an offline experience regardless of how a user chooses to use your PWA. </aside>
+                              
+                              <h3 id="frequently_used_cache_approaches" data-text="Frequently used cache approaches" tabindex="-1">Frequently used cache approaches</h3>
+                              
+                              <p>In your PWA, you are in charge of all the decisions. You can choose the best approach to cache or install assets based on your needs.
+                              Some decisions to make are:</p>
+                              
+                              <ul>
+                              <li>Precaching: pick the assets you&#39;d like to install on the first load; those should include the HTML and the minimal assets to render the app. When using precache keep in mind you are using the device&#39;s space and network. Be conscious and responsible when downloading assets and caching them.</li>
+                              <li>Cache as needed: used to add assets to the cache when they are requested. Typically these are assets that can change independently of your app version, like images or content. See the <a href="/learn/pwa/caching">caching</a> section for different strategies on how to cache as needed.</li>
+                              <li>APIs and web services: API calls can be cached; or, instead of caching the API responses, you can store their data in IndexedDB.</li>
+                              </ul>
+                              
+                              <aside class="tip">With platform-specific apps, the most common pattern is to include all the app's assets in its package; that's why these apps are commonly larger than 500 MB. On the other hand, A PWA can initially install only the minimum set of resources to offer an offline and fast experience and download the rest later, with PWAs using considerably less storage on installation. </aside>
+                              
+                              <h3 id="updating_assets" data-text="Updating assets" tabindex="-1">Updating assets</h3>
+                              
+                              <p>In the standard app model for app catalog installed apps, when developers need to update their app, they publish a new package. Users need to download the whole package again, even if most of the assets haven&#39;t changed.
+                              With PWAs, using the approaches on the section above, you decide how and when to update assets.
+                              Here are different options for how to update assets:</p>
+                              
+                              <ul>
+                              <li>Full Update: in this case, every time you make a change in the app, even a minor one, your code will download all the assets again in the cache.</li>
+                              <li>Partial Update: in this approach, you create a method to define which assets have been updated, and you update only those, with or without the user&#39;s intervention.</li>
+                              <li>Continuous Update: using this technique, your assets will be checked and updated automatically on every PWA usage individually</li>
+                              </ul>
+                              
+                              <aside class="note"><b>Note: </b> When caching assets, you need to decide on a cache swap or clean up policy that defines when the user will see an updated asset; taking into account storage usage and the balance between a fast experience and displaying a slightly stale asset. </aside>
+                              
+                              <h2 id="size_and_lifespan" data-text="Size and Lifespan" tabindex="-1">Size and Lifespan</h2>
+                              
+                              <p>Usually platform-specific apps don&#39;t deal with size limits; at installation, apps can be gigabytes or more in size. As long as the device has the capacity the installation will be allowed. Also, while the app is installed, it will use that total amount of storage no matter if you use the app or not.
+                              Storage is handled differently for PWAs. The browser will store your assets based on policies that you define in your PWA&#39;s logic.</p>
+                              
+                              <aside class="note"><b>Note: </b> The users are always in control, and they can delete the assets at any time. For PWAs, manual eviction happens via the browser's settings. </aside>
+                              
+                              <p>Size limits depend on the browser.
+                              It&#39;s not as flexible as for platform-specific apps, but it&#39;s typically good enough for most web apps. You can find the specific limitations by browser in <a href="/articles/storage-for-the-web#how-much">this article</a>.</p>
+                              
+                              <p>Browsers can evict assets based on storage pressure, or after some weeks of inactivity, if the user is using your PWA in the browser. On some platforms, if the user installs your PWA, eviction won&#39;t happen. Where available, code can request persistent storage through an API to avoid that eviction.</p>
+                              
+                              <aside class="note"><b>Note: </b> If storage eviction happens for any reason and the user installed your PWA, the PWA will still work if you have a network connection. When you open that app again, the browser will start the service worker lifecycle again, loading your app from the network. </aside>
+                              
+                              <h2 id="resources" data-text="Resources" tabindex="-1">Resources</h2>
+                              
+                              <ul>
+                              <li><a href="/articles/storage-for-the-web">Storage on the Web</a></li>
+                              <li><a href="https://developer.mozilla.org/docs/Web/API/Web_Storage_API">MDN: Web Storage</a></li>
+                              <li><a href="https://developer.mozilla.org/docs/Web/API/IndexedDB_API">MDN: IndexedDB</a></li>
+                              </ul>
+                              
+                                
+
+
+
+
+
+
+
+
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
                     </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
-                            </ul>
-                        </nav>
-                    </footer>
+                    
                                         
                 </div>
             </main>

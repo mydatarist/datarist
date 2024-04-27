@@ -1172,38 +1172,818 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
-                        </div>
-                    </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
+                    
+                    
+
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Backgrounds and borders</h1>
+                        </header>
+                        <div class="section-content">
+                            <ul class="prev-next">
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks/The_box_model">
+                                        <span class="button-wrap">Previous </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks">
+                                        <span class="button-wrap">Overview: Building blocks</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks/Handling_different_text_directions">
+                                        <span class="button-wrap">Next  </span>
+                                    </a>
+                                </li>
                             </ul>
-                        </nav>
-                    </footer>
+                            <p>In this lesson, we will take a look at some of the creative things you can do with CSS backgrounds and borders. From adding gradients, background images, and rounded corners, backgrounds and borders are the answer to a lot of styling questions in CSS.</p>
+                            <figure class="table-container">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Prerequisites:</th>
+                                            <td>
+                                                <a href="/en-US/docs/Learn/Getting_started_with_the_web/Installing_basic_software">Basic software installed</a>
+                                                , basic knowledge of
+    <a href="/en-US/docs/Learn/Getting_started_with_the_web/Dealing_with_files">working with files</a>
+                                                , HTML basics (study
+    <a href="/en-US/docs/Learn/HTML/Introduction_to_HTML">Introduction to HTML</a>
+                                                ), and an idea of how CSS works (study
+    <a href="/en-US/docs/Learn/CSS/First_steps">CSS first steps</a>
+                                                .)
+  
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Objective:</th>
+                                            <td>To learn how to style the background and border of boxes.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </figure>
+                        </div>
+                        <section aria-labelledby="styling_backgrounds_in_css">
+                            <h2 id="styling_backgrounds_in_css">
+                                <a href="#styling_backgrounds_in_css">Styling backgrounds in CSS</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    The CSS 
+                                    <a href="/en-US/docs/Web/CSS/background">
+                                        <code>background</code>
+                                    </a>
+                                    property is a shorthand for a number of background longhand properties that we will meet in this lesson. If you discover a complex background property in a stylesheet, it might seem a little hard to understand as so many values can be passed in at once.
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="GGmMDUoxtc0k4UETyaZfNxjTFprV1lNdo3xY+7/VNYs=">
+                                        <code>
+                                            <span class="token selector">.box</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">background</span>
+                                            <span class="token punctuation">:</span>
+                                            <span class="token function">linear-gradient</span>
+                                            <span class="token punctuation">(</span>
+                                            105deg<span class="token punctuation">,</span>
+                                            <span class="token function">rgb</span>
+                                            <span class="token punctuation">(</span>
+                                            255 255 255 / 20%<span class="token punctuation">)</span>
+                                            39%<span class="token punctuation">,</span>
+                                            <span class="token function">rgb</span>
+                                            <span class="token punctuation">(</span>
+                                            51 56 57 / 100%<span class="token punctuation">)</span>
+                                            96%
+  <span class="token punctuation">)</span>
+                                            center center / 400px 200px no-repeat<span class="token punctuation">,</span>
+                                            <span class="token url">
+                                                <span class="token function">url</span>
+                                                <span class="token punctuation">(</span>
+                                                big-star.png<span class="token punctuation">)</span>
+                                            </span>
+                                            center no-repeat<span class="token punctuation">,</span>
+                                            rebeccapurple<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>We'll return to how the shorthand works later in the tutorial, but first let's have a look at the different things you can do with backgrounds in CSS, by looking at the individual background properties.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="background_colors">
+                            <h3 id="background_colors">
+                                <a href="#background_colors">Background colors</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    The 
+                                    <a href="/en-US/docs/Web/CSS/background-color">
+                                        <code>background-color</code>
+                                    </a>
+                                    property defines the background color on any element in CSS. The property accepts any valid 
+                                    <a href="/en-US/docs/Web/CSS/color_value">
+                                        <code>&lt;color &gt;</code>
+                                    </a>
+                                    . A <code>background-color</code>
+                                    extends underneath the content and padding box of the element.
+                                </p>
+                                <p>
+                                    In the example below, we have used various color values to add a background color to the box, a heading, and a 
+                                    <a href="/en-US/docs/Web/HTML/Element/span">
+                                        <code>&lt;span &gt;</code>
+                                    </a>
+                                    element.
+                                </p>
+                                <p>
+                                    <strong>
+                                        Play around with these, using any available <a href="/en-US/docs/Web/CSS/color_value">&lt;color &gt;</a>
+                                        value.
+                                    </strong>
+                                </p>
+                                <iframe width="100%" height="700" src="https://mdn.github.io/css-examples/learn/backgrounds-borders/color.html" loading="lazy"></iframe>
+                            </div>
+                        </section>
+                        <section aria-labelledby="background_images">
+                            <h3 id="background_images">
+                                <a href="#background_images">Background images</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    The 
+                                    <a href="/en-US/docs/Web/CSS/background-image">
+                                        <code>background-image</code>
+                                    </a>
+                                    property enables the display of an image in the background of an element. In the example below, we have two boxes — one has a background image which is larger than the box (<a href="https://mdn.github.io/css-examples/learn/backgrounds-borders/balloons.jpg" class="external" target="_blank">balloons.jpg</a>
+                                    ), the other has a small image of a single star (<a href="https://mdn.github.io/css-examples/learn/backgrounds-borders/star.png" class="external" target="_blank">star.png</a>
+                                    ).
+                                </p>
+                                <p>This example demonstrates two things about background images. By default, the large image is not scaled down to fit the box, so we only see a small corner of it, whereas the small image is tiled to fill the box.</p>
+                                <iframe width="100%" height="700" src="https://mdn.github.io/css-examples/learn/backgrounds-borders/background-image.html" loading="lazy"></iframe>
+                                <p>
+                                    <strong>
+                                        If you specify a background color in addition to a background image then the image displays on top of the color. Try adding a <code>background-color</code>
+                                        property to the example above to see that in action.
+                                    </strong>
+                                </p>
+                                <h4 id="controlling_background-repeat">Controlling background-repeat</h4>
+                                <p>
+                                    The 
+                                    <a href="/en-US/docs/Web/CSS/background-repeat">
+                                        <code>background-repeat</code>
+                                    </a>
+                                    property is used to control the tiling behavior of images. The available values are:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <code>no-repeat</code>
+                                        — stop the background from repeating altogether.
+                                    </li>
+                                    <li>
+                                        <code>repeat-x</code>
+                                        — repeat horizontally.
+                                    </li>
+                                    <li>
+                                        <code>repeat-y</code>
+                                        — repeat vertically.
+                                    </li>
+                                    <li>
+                                        <code>repeat</code>
+                                        — the default; repeat in both directions.
+                                    </li>
+                                </ul>
+                                <p>
+                                    <strong>
+                                        Try these values out in the example below. We have set the value to <code>no-repeat</code>
+                                        so you will only see one star. Try out the different values — <code>repeat-x</code>
+                                        and <code>repeat-y</code>
+                                        — to see what their effects are.
+                                    </strong>
+                                </p>
+                                <iframe width="100%" height="600" src="https://mdn.github.io/css-examples/learn/backgrounds-borders/repeat.html" loading="lazy"></iframe>
+                                <h4 id="sizing_the_background_image">Sizing the background image</h4>
+                                <p>
+                                    The <em>balloons.jpg</em>
+                                    image used in the initial background images example, is a large image that was cropped due to being larger than the element it is a background of. In this case we could use the 
+                                    <a href="/en-US/docs/Web/CSS/background-size">
+                                        <code>background-size</code>
+                                    </a>
+                                    property, which can take 
+                                    <a href="/en-US/docs/Web/CSS/length">
+                                        <code>&lt;length &gt;</code>
+                                    </a>
+                                    or 
+                                    <a href="/en-US/docs/Web/CSS/percentage">
+                                        <code>&lt;percentage &gt;</code>
+                                    </a>
+                                    values, to size the image to fit inside the background.
+                                </p>
+                                <p>You can also use keywords:</p>
+                                <ul>
+                                    <li>
+                                        <code>cover</code>
+                                        — the browser will make the image just large enough so that it completely covers the box area while still retaining its aspect ratio. In this case, part of the image is likely to end up outside the box.
+                                    </li>
+                                    <li>
+                                        <code>contain</code>
+                                        — the browser will make the image the right size to fit inside the box. In this case, you may end up with gaps on either side or on the top and bottom of the image, if the aspect ratio of the image is different from that of the box.
+                                    </li>
+                                </ul>
+                                <p>
+                                    In the example below I have used the <em>balloons.jpg</em>
+                                    image along with length units to size it inside the box. You can see this has distorted the image.
+                                </p>
+                                <p>Try the following.</p>
+                                <ul>
+                                    <li>Change the length units used to modify the size of the background.</li>
+                                    <li>
+                                        Remove the length units and see what happens when you use <code>background-size: cover</code>
+                                        or <code>background-size: contain</code>
+                                        .
+                                    </li>
+                                    <li>
+                                        If your image is smaller than the box, you can change the value of <code>background-repeat</code>
+                                        to repeat the image.
+                                    </li>
+                                </ul>
+                                <iframe width="100%" height="800" src="https://mdn.github.io/css-examples/learn/backgrounds-borders/size.html" loading="lazy"></iframe>
+                                <h4 id="positioning_the_background_image">Positioning the background image</h4>
+                                <p>
+                                    The 
+                                    <a href="/en-US/docs/Web/CSS/background-position">
+                                        <code>background-position</code>
+                                    </a>
+                                    property allows you to choose the position in which the background image appears on the box it is applied to. This uses a coordinate system in which the top-left-hand corner of the box is <code>(0,0)</code>
+                                    , and the box is positioned along the horizontal (<code>x</code>
+                                    ) and vertical (<code>y</code>
+                                    ) axes.
+                                </p>
+                                <div class="notecard note" id="sect1">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        The default <code>background-position</code>
+                                        value is <code>(0,0)</code>
+                                        .
+                                    </p>
+                                </div>
+                                <p>
+                                    The most common <code>background-position</code>
+                                    values take two individual values — a horizontal value followed by a vertical value.
+                                </p>
+                                <p>
+                                    You can use keywords such as <code>top</code>
+                                    and <code>right</code>
+                                    (look up the others on the 
+                                    <a href="/en-US/docs/Web/CSS/background-position">
+                                        <code>background-position</code>
+                                    </a>
+                                    page):
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="y85f9C9RDYQSUeGQiUrzHMTlvyV6rm3WkRg7LwpjNXY=">
+                                        <code>
+                                            <span class="token selector">.box</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">background-image</span>
+                                            <span class="token punctuation">:</span>
+                                            <span class="token url">
+                                                <span class="token function">url</span>
+                                                <span class="token punctuation">(</span>
+                                                star.png<span class="token punctuation">)</span>
+                                            </span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token property">background-repeat</span>
+                                            <span class="token punctuation">:</span>
+                                            no-repeat<span class="token punctuation">;</span>
+                                            <span class="token property">background-position</span>
+                                            <span class="token punctuation">:</span>
+                                            top center<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    And 
+                                    <a href="/en-US/docs/Web/CSS/length">
+                                        <code>lengths</code>
+                                    </a>
+                                    , and 
+                                    <a href="/en-US/docs/Web/CSS/percentage">
+                                        <code>percentages</code>
+                                    </a>
+                                    :
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="4sSNbNZhwP8oq5Ot73UsdoLQ4bwRgP53JddPO2QISOk=">
+                                        <code>
+                                            <span class="token selector">.box</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">background-image</span>
+                                            <span class="token punctuation">:</span>
+                                            <span class="token url">
+                                                <span class="token function">url</span>
+                                                <span class="token punctuation">(</span>
+                                                star.png<span class="token punctuation">)</span>
+                                            </span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token property">background-repeat</span>
+                                            <span class="token punctuation">:</span>
+                                            no-repeat<span class="token punctuation">;</span>
+                                            <span class="token property">background-position</span>
+                                            <span class="token punctuation">:</span>
+                                            20px 10%<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>You can also mix keyword values with lengths or percentages, in which case the first value must refer to the horizontal position or offset and the second vertical. For example:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="EBJi/T8bQVKcH6JU5X9QnQFoPZdPWd9PDTa8LemzM50=">
+                                        <code>
+                                            <span class="token selector">.box</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">background-image</span>
+                                            <span class="token punctuation">:</span>
+                                            <span class="token url">
+                                                <span class="token function">url</span>
+                                                <span class="token punctuation">(</span>
+                                                star.png<span class="token punctuation">)</span>
+                                            </span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token property">background-repeat</span>
+                                            <span class="token punctuation">:</span>
+                                            no-repeat<span class="token punctuation">;</span>
+                                            <span class="token property">background-position</span>
+                                            <span class="token punctuation">:</span>
+                                            20px top<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>Finally, you can also use a 4-value syntax in order to indicate a distance from certain edges of the box — the length unit, in this case, is an offset from the value that precedes it. So in the CSS below we are positioning the background 20px from the top and 10px from the right:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="QjItTZxCH9L01CNJlRKbWNPjthuLIy4dvb8xXC4u+28=">
+                                        <code>
+                                            <span class="token selector">.box</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">background-image</span>
+                                            <span class="token punctuation">:</span>
+                                            <span class="token url">
+                                                <span class="token function">url</span>
+                                                <span class="token punctuation">(</span>
+                                                star.png<span class="token punctuation">)</span>
+                                            </span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token property">background-repeat</span>
+                                            <span class="token punctuation">:</span>
+                                            no-repeat<span class="token punctuation">;</span>
+                                            <span class="token property">background-position</span>
+                                            <span class="token punctuation">:</span>
+                                            top 20px right 10px<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    <strong>Use the example below to play around with these values and move the star around inside the box.</strong>
+                                </p>
+                                <iframe width="100%" height="600" src="https://mdn.github.io/css-examples/learn/backgrounds-borders/position.html" loading="lazy"></iframe>
+                                <div class="notecard note" id="sect2">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        <code>background-position</code>
+                                        is a shorthand for 
+                                        <a href="/en-US/docs/Web/CSS/background-position-x">
+                                            <code>background-position-x</code>
+                                        </a>
+                                        and 
+                                        <a href="/en-US/docs/Web/CSS/background-position-y">
+                                            <code>background-position-y</code>
+                                        </a>
+                                        , which allow you to set the different axis position values individually.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="gradient_backgrounds">
+                            <h3 id="gradient_backgrounds">
+                                <a href="#gradient_backgrounds">Gradient backgrounds</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    A gradient — when used for a background — acts just like an image and is also set by using the 
+                                    <a href="/en-US/docs/Web/CSS/background-image">
+                                        <code>background-image</code>
+                                    </a>
+                                    property.
+                                </p>
+                                <p>
+                                    You can read more about the different types of gradients and things you can do with them on the MDN page for the 
+                                    <a href="/en-US/docs/Web/CSS/gradient">
+                                        <code>&lt;gradient &gt;</code>
+                                    </a>
+                                    data type. A fun way to play with gradients is to use one of the many CSS Gradient Generators available on the web, such as <a href="https://cssgradient.io/" class="external" target="_blank">this one</a>
+                                    . You can create a gradient then copy and paste out the source code that generates it.
+                                </p>
+                                <p>Try some different gradients in the example below. In the two boxes respectively, we have a linear gradient that is stretched over the whole box, and a radial gradient with a set size, which therefore repeats.</p>
+                                <iframe width="100%" height="700" src="https://mdn.github.io/css-examples/learn/backgrounds-borders/gradients.html" loading="lazy"></iframe>
+                            </div>
+                        </section>
+                        <section aria-labelledby="multiple_background_images">
+                            <h3 id="multiple_background_images">
+                                <a href="#multiple_background_images">Multiple background images</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    It is also possible to have multiple background images — you specify multiple <code>background-image</code>
+                                    values in a single property value, separating each one with a comma.
+                                </p>
+                                <p>When you do this you may end up with background images overlapping each other. The backgrounds will layer with the last listed background image at the bottom of the stack, and each previous image stacking on top of the one that follows it in the code.</p>
+                                <div class="notecard note" id="sect3">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        Gradients can be happily mixed with regular background images.
+                                    </p>
+                                </div>
+                                <p>
+                                    The other <code>background-*</code>
+                                    properties can also have comma-separated values in the same way as <code>background-image</code>
+                                    :
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="6v1AuIBZx8vSRwEd/FiNBg2F/+JQ8O+wbcgRC/E0JeY=">
+                                        <code>
+                                            <span class="token property">background-image</span>
+                                            <span class="token punctuation">:</span>
+                                            <span class="token url">
+                                                <span class="token function">url</span>
+                                                <span class="token punctuation">(</span>
+                                                image1.png<span class="token punctuation">)</span>
+                                            </span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token url">
+                                                <span class="token function">url</span>
+                                                <span class="token punctuation">(</span>
+                                                image2.png<span class="token punctuation">)</span>
+                                            </span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token url">
+                                                <span class="token function">url</span>
+                                                <span class="token punctuation">(</span>
+                                                image3.png<span class="token punctuation">)</span>
+                                            </span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token url">
+                                                <span class="token function">url</span>
+                                                <span class="token punctuation">(</span>
+                                                image4.png<span class="token punctuation">)</span>
+                                            </span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token property">background-repeat</span>
+                                            <span class="token punctuation">:</span>
+                                            no-repeat<span class="token punctuation">,</span>
+                                            repeat-x<span class="token punctuation">,</span>
+                                            repeat<span class="token punctuation">;</span>
+                                            <span class="token property">background-position</span>
+                                            <span class="token punctuation">:</span>
+                                            10px 20px<span class="token punctuation">,</span>
+                                            top right<span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    Each value of the different properties will match up to the values in the same position in the other properties. Above, for example, <code>image1</code>
+                                    's <code>background-repeat</code>
+                                    value will be <code>no-repeat</code>
+                                    . However, what happens when different properties have different numbers of values? The answer is that the smaller numbers of values will cycle — in the above example there are four background images but only two <code>background-position</code>
+                                    values. The first two position values will be applied to the first two images, then they will cycle back around again — <code>image3</code>
+                                    will be given the first position value, and <code>image4</code>
+                                    will be given the second position value.
+                                </p>
+                                <p>
+                                    <strong>Let's play. In the example below I have included two images. To demonstrate the stacking order, try switching which background image comes first in the list. Or play with the other properties to change the position, size, or repeat values.</strong>
+                                </p>
+                                <iframe width="100%" height="600" src="https://mdn.github.io/css-examples/learn/backgrounds-borders/multiple-background-image.html" loading="lazy"></iframe>
+                            </div>
+                        </section>
+                        <section aria-labelledby="background_attachment">
+                            <h3 id="background_attachment">
+                                <a href="#background_attachment">Background attachment</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    Another option we have available for backgrounds is specifying how they scroll when the content scrolls. This is controlled using the 
+                                    <a href="/en-US/docs/Web/CSS/background-attachment">
+                                        <code>background-attachment</code>
+                                    </a>
+                                    property, which can take the following values:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <code>scroll</code>
+                                        : causes the element's background to scroll when the page is scrolled. If the element content is scrolled, the background does not move. In effect, the background is fixed to the same position on the page, so it scrolls as the page scrolls.
+                                    </li>
+                                    <li>
+                                        <code>fixed</code>
+                                        : causes an element's background to be fixed to the viewport so that it doesn't scroll when the page or element content is scrolled. It will always remain in the same position on the screen.
+                                    </li>
+                                    <li>
+                                        <code>local</code>
+                                        : fixes the background to the element it is set on, so when you scroll the element, the background scrolls with it.
+                                    </li>
+                                </ul>
+                                <p>
+                                    The 
+                                    <a href="/en-US/docs/Web/CSS/background-attachment">
+                                        <code>background-attachment</code>
+                                    </a>
+                                    property only has an effect when there is content to scroll, so we've made a demo to demonstrate the differences between the three values — have a look at <a href="https://mdn.github.io/learning-area/css/styling-boxes/backgrounds/background-attachment.html" class="external" target="_blank">background-attachment.html</a>
+                                    (also <a href="https://github.com/mdn/learning-area/tree/main/css/styling-boxes/backgrounds" class="external" target="_blank">see the source code</a>
+                                    here).
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="using_the_background_shorthand_property">
+                            <h3 id="using_the_background_shorthand_property">
+                                <a href="#using_the_background_shorthand_property">Using the background shorthand property</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    As I mentioned at the beginning of this lesson, you will often see backgrounds specified using the 
+                                    <a href="/en-US/docs/Web/CSS/background">
+                                        <code>background</code>
+                                    </a>
+                                    property. This shorthand lets you set all of the different properties at once.
+                                </p>
+                                <p>
+                                    If using multiple backgrounds, you need to specify all of the properties for the first background, then add your next background after a comma. In the example below we have a gradient with a size and position, then an image background with <code>no-repeat</code>
+                                    and a position, then a color.
+                                </p>
+                                <p>There are a few rules that need to be followed when writing background image shorthand values, for example:</p>
+                                <ul>
+                                    <li>
+                                        A <code>background-color</code>
+                                        may only be specified after the final comma.
+                                    </li>
+                                    <li>
+                                        The value of <code>background-size</code>
+                                        may only be included immediately after <code>background-position</code>
+                                        , separated with the '/' character, like this: <code>center/80%</code>
+                                        .
+                                    </li>
+                                </ul>
+                                <p>
+                                    Take a look at the MDN page for 
+                                    <a href="/en-US/docs/Web/CSS/background">
+                                        <code>background</code>
+                                    </a>
+                                    to see all of the considerations.
+                                </p>
+                                <iframe width="100%" height="900" src="https://mdn.github.io/css-examples/learn/backgrounds-borders/background.html" loading="lazy"></iframe>
+                            </div>
+                        </section>
+                        <section aria-labelledby="accessibility_considerations_with_backgrounds">
+                            <h3 id="accessibility_considerations_with_backgrounds">
+                                <a href="#accessibility_considerations_with_backgrounds">Accessibility considerations with backgrounds</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    When placing text on top of a background image or color, you should take care that you have enough contrast for the text to be legible for your visitors. If specifying an image, and if text will be placed on top of that image, you should also specify a <code>background-color</code>
+                                    that will allow the text to be legible if the image does not load.
+                                </p>
+                                <p>Screen readers cannot parse background images; therefore, they should be purely decoration. Any important content should be part of the HTML page and not contained in a background.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="borders">
+                            <h2 id="borders">
+                                <a href="#borders">Borders</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>When learning about the Box Model, we discovered how borders affect the size of our box. In this lesson we will look at how to use borders creatively. Typically when we add borders to an element with CSS we use a shorthand property that sets the color, width, and style of the border in one line of CSS.</p>
+                                <p>
+                                    We can set a border for all four sides of a box with 
+                                    <a href="/en-US/docs/Web/CSS/border">
+                                        <code>border</code>
+                                    </a>
+                                    :
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="2RoKAz37SMYamUDdgATibYTkp9BlFoSUW/AYIANAXdo=">
+                                        <code>
+                                            <span class="token selector">.box</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">border</span>
+                                            <span class="token punctuation">:</span>
+                                            1px solid black<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>Or we can target one edge of the box, for example:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="YOprHJGiNSM+0+y2Gc9D/U1Sa8yAMIeE1wkLyFdA7uQ=">
+                                        <code>
+                                            <span class="token selector">.box</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">border-top</span>
+                                            <span class="token punctuation">:</span>
+                                            1px solid black<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>The individual properties for these shorthands would be:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="HAk33Nx0Z79ywHTlHJ0+CI/cEcRp29DEI3RfgykGo+Q=">
+                                        <code>
+                                            <span class="token selector">.box</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">border-width</span>
+                                            <span class="token punctuation">:</span>
+                                            1px<span class="token punctuation">;</span>
+                                            <span class="token property">border-style</span>
+                                            <span class="token punctuation">:</span>
+                                            solid<span class="token punctuation">;</span>
+                                            <span class="token property">border-color</span>
+                                            <span class="token punctuation">:</span>
+                                            black<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>And for the longhands:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="r3dUlAromSwGaVkOO0Oqpdhnf8zXEkl11S9icP3KhLw=">
+                                        <code>
+                                            <span class="token selector">.box</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">border-top-width</span>
+                                            <span class="token punctuation">:</span>
+                                            1px<span class="token punctuation">;</span>
+                                            <span class="token property">border-top-style</span>
+                                            <span class="token punctuation">:</span>
+                                            solid<span class="token punctuation">;</span>
+                                            <span class="token property">border-top-color</span>
+                                            <span class="token punctuation">:</span>
+                                            black<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="notecard note" id="sect4">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        These top, right, bottom, and left border properties also have mapped <em>logical</em>
+                                        properties that relate to the writing mode of the document (e.g. left-to-right or right-to-left text, or top-to-bottom). We'll be exploring these in the next lesson, which covers <a href="/en-US/docs/Learn/CSS/Building_blocks/Handling_different_text_directions">handling different text directions</a>
+                                        .
+                                    </p>
+                                </div>
+                                <p>There are a variety of styles that you can use for borders. In the example below, we have used two different border styles for the box and two different border styles for the heading. Play with the border style, width, and color to see how borders work.</p>
+                                <iframe width="100%" height="800" src="https://mdn.github.io/css-examples/learn/backgrounds-borders/borders.html" loading="lazy"></iframe>
+                            </div>
+                        </section>
+                        <section aria-labelledby="rounded_corners">
+                            <h3 id="rounded_corners">
+                                <a href="#rounded_corners">Rounded corners</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    Rounding corners on a box is achieved by using the 
+                                    <a href="/en-US/docs/Web/CSS/border-radius">
+                                        <code>border-radius</code>
+                                    </a>
+                                    property and associated longhands which relate to each corner of the box. Two lengths or percentages may be used as a value, the first value defining the horizontal radius, and the second the vertical radius. In a lot of cases, you will only pass in one value, which will be used for both.
+                                </p>
+                                <p>For example, to make all four corners of a box have a 10px radius:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="8P0hIR40L+UrHE59WdOnm58hMnb5G8nX8orZBRinvZY=">
+                                        <code>
+                                            <span class="token selector">.box</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">border-radius</span>
+                                            <span class="token punctuation">:</span>
+                                            10px<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>Or to make the top right corner have a horizontal radius of 1em, and a vertical radius of 10%:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="3LjlYtr1AE6e9ogUe2BQiKUKHP7SfW659lKA4oxAKyU=">
+                                        <code>
+                                            <span class="token selector">.box</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">border-top-right-radius</span>
+                                            <span class="token punctuation">:</span>
+                                            1em 10%<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    We have set all four corners in the example below and then changed the values for the top right corner to make it different. You can play with the values to change the corners. Take a look at the property page for 
+                                    <a href="/en-US/docs/Web/CSS/border-radius">
+                                        <code>border-radius</code>
+                                    </a>
+                                    to see the available syntax options.
+                                </p>
+                                <iframe width="100%" height="800" src="https://mdn.github.io/css-examples/learn/backgrounds-borders/corners.html" loading="lazy"></iframe>
+                            </div>
+                        </section>
+                        <section aria-labelledby="test_your_skills!">
+                            <h2 id="test_your_skills!">
+                                <a href="#test_your_skills!">Test your skills!</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    You've reached the end of this article, but can you remember the most important information? You can find some further tests to verify that you've retained this information before you move on — see <a href="/en-US/docs/Learn/CSS/Building_blocks/Test_your_skills_backgrounds_and_borders">Test your skills: Backgrounds and borders</a>
+                                    .
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="summary">
+                            <h2 id="summary">
+                                <a href="#summary">Summary</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>We have covered quite a lot here, and you can see that there is quite a lot to adding a background or a border to a box. Do explore the different property pages if you want to find out more about any of the features we have discussed. Each page on MDN has more examples of usage for you to play with and enhance your knowledge.</p>
+                                <p>In the next article, we'll find out how the Writing Mode of your document interacts with your CSS. What happens when the text does not flow from left to right?</p>
+                                <ul class="prev-next">
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks/The_box_model">
+                                            <span class="button-wrap">Previous </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks">
+                                            <span class="button-wrap">Overview: Building blocks</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks/Handling_different_text_directions">
+                                            <span class="button-wrap">Next  </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
+                    </div>
+                    
                                         
                 </div>
             </main>

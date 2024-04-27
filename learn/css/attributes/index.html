@@ -1172,38 +1172,331 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
-                        </div>
-                    </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
+                    
+                    
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Attribute selectors</h1>
+                        </header>
+                        <div class="section-content">
+                            <ul class="prev-next">
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks/Selectors/Type_Class_and_ID_Selectors">
+                                        <span class="button-wrap">Previous </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks">
+                                        <span class="button-wrap">Overview: Building blocks</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks/Selectors/Pseudo-classes_and_pseudo-elements">
+                                        <span class="button-wrap">Next  </span>
+                                    </a>
+                                </li>
                             </ul>
-                        </nav>
-                    </footer>
+                            <p>As you know from your study of HTML, elements can have attributes that give further detail about the element being marked up. In CSS you can use attribute selectors to target elements with certain attributes. This lesson will show you how to use these very useful selectors.</p>
+                            <figure class="table-container">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Prerequisites:</th>
+                                            <td>
+                                                <a href="/en-US/docs/Learn/Getting_started_with_the_web/Installing_basic_software">Basic software installed</a>
+                                                , basic knowledge of
+    <a href="/en-US/docs/Learn/Getting_started_with_the_web/Dealing_with_files">working with files</a>
+                                                , HTML basics (study
+    <a href="/en-US/docs/Learn/HTML/Introduction_to_HTML">Introduction to HTML</a>
+                                                ), and an idea of how CSS works (study
+    <a href="/en-US/docs/Learn/CSS/First_steps">CSS first steps</a>
+                                                .)
+  
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Objective:</th>
+                                            <td>To learn what attribute selectors are and how to use them.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </figure>
+                        </div>
+                        <section aria-labelledby="presence_and_value_selectors">
+                            <h2 id="presence_and_value_selectors">
+                                <a href="#presence_and_value_selectors">Presence and value selectors</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    These selectors enable the selection of an element based on the presence of an attribute alone (for example <code>href</code>
+                                    ), or on various different matches against the value of the attribute.
+                                </p>
+                                <figure class="table-container">
+                                    <table class="standard-table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Selector</th>
+                                                <th scope="col">Example</th>
+                                                <th scope="col">Description</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <code>
+                                                        [<em>attr</em>
+                                                        ]
+                                                    </code>
+                                                </td>
+                                                <td>
+                                                    <code>a[title]</code>
+                                                </td>
+                                                <td>
+                                                    Matches elements with an <em>attr</em>
+                                                    attribute (whose name is the
+    value in square brackets).
+  
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <code>
+                                                        [<em>attr</em>
+                                                        =<em>value</em>
+                                                        ]
+                                                    </code>
+                                                </td>
+                                                <td>
+                                                    <code>a[href="https://example.com"]</code>
+                                                </td>
+                                                <td>
+                                                    Matches elements with an <em>attr</em>
+                                                    attribute whose value is exactly
+    <em>value</em>
+                                                    — the string inside the quotes.
+  
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <code>
+                                                        [<em>attr</em>
+                                                        ~=<em>value</em>
+                                                        ]
+                                                    </code>
+                                                </td>
+                                                <td>
+                                                    <code>p[class~="special"]</code>
+                                                </td>
+                                                <td>
+                                                    <p>
+                                                        <br>
+                                                        Matches elements with an <em>attr</em>
+                                                        attribute whose value is
+      exactly <em>value</em>
+                                                        , or contains <em>value</em>
+                                                        in its (space
+      separated) list of values.
+    
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <code>
+                                                        [<em>attr</em>
+                                                        |=<em>value</em>
+                                                        ]
+                                                    </code>
+                                                </td>
+                                                <td>
+                                                    <code>div[lang|="zh"]</code>
+                                                </td>
+                                                <td>
+                                                    Matches elements with an <em>attr</em>
+                                                    attribute whose value is exactly
+    <em>value</em>
+                                                    or begins with <em>value</em>
+                                                    immediately followed by a
+    hyphen.
+  
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </figure>
+                                <p>In the example below you can see these selectors being used.</p>
+                                <ul>
+                                    <li>
+                                        By using <code>li[class]</code>
+                                        we can match any list item with a class attribute. This matches all of the list items except the first one.
+                                    </li>
+                                    <li>
+                                        <code>li[class="a"]</code>
+                                        matches a selector with a class of <code>a</code>
+                                        , but not a selector with a class of <code>a</code>
+                                        with another space-separated class as part of the value. It selects the second list item.
+                                    </li>
+                                    <li>
+                                        <code>li[class~="a"]</code>
+                                        will match a class of <code>a</code>
+                                        but also a value that contains the class of <code>a</code>
+                                        as part of a whitespace-separated list. It selects the second and third list items.
+                                    </li>
+                                </ul>
+                                <iframe width="100%" height="800" src="https://mdn.github.io/css-examples/learn/selectors/attribute.html" loading="lazy"></iframe>
+                            </div>
+                        </section>
+                        <section aria-labelledby="substring_matching_selectors">
+                            <h2 id="substring_matching_selectors">
+                                <a href="#substring_matching_selectors">Substring matching selectors</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    These selectors allow for more advanced matching of substrings inside the value of your attribute. For example, if you had classes of <code>box-warning</code>
+                                    and <code>box-error</code>
+                                    and wanted to match everything that started with the string "box-", you could use <code>[class^="box-"]</code>
+                                    to select them both (or <code>[class|="box"]</code>
+                                    as described in section above).
+                                </p>
+                                <figure class="table-container">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Selector</th>
+                                                <th>Example</th>
+                                                <th>Description</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <code>[attr^=value]</code>
+                                                </td>
+                                                <td>
+                                                    <code>li[class^="box-"]</code>
+                                                </td>
+                                                <td>
+                                                    Matches elements with an <em>attr</em>
+                                                    attribute, whose value begins with <em>value</em>
+                                                    .
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <code>[attr$=value]</code>
+                                                </td>
+                                                <td>
+                                                    <code>li[class$="-box"]</code>
+                                                </td>
+                                                <td>
+                                                    Matches elements with an <em>attr</em>
+                                                    attribute whose value ends with <em>value</em>
+                                                    .
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <code>[attr*=value]</code>
+                                                </td>
+                                                <td>
+                                                    <code>li[class*="box"]</code>
+                                                </td>
+                                                <td>
+                                                    Matches elements with an <em>attr</em>
+                                                    attribute whose value contains <em>value</em>
+                                                    anywhere within the string.
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </figure>
+                                <p>
+                                    (Aside: It may help to note that <code>^</code>
+                                    and <code>$</code>
+                                    have long been used as <em>anchors</em>
+                                    in so-called <em>regular expressions</em>
+                                    to mean <em>begins with</em>
+                                    and <em>ends with</em>
+                                    respectively.)
+                                </p>
+                                <p>The next example shows usage of these selectors:</p>
+                                <ul>
+                                    <li>
+                                        <code>li[class^="a"]</code>
+                                        matches any attribute value which starts with <code>a</code>
+                                        , so matches the first two list items.
+                                    </li>
+                                    <li>
+                                        <code>li[class$="a"]</code>
+                                        matches any attribute value that ends with <code>a</code>
+                                        , so matches the first and third list item.
+                                    </li>
+                                    <li>
+                                        <code>li[class*="a"]</code>
+                                        matches any attribute value where <code>a</code>
+                                        appears anywhere in the string, so it matches all of our list items.
+                                    </li>
+                                </ul>
+                                <iframe width="100%" height="800" src="https://mdn.github.io/css-examples/learn/selectors/attribute-substring.html" loading="lazy"></iframe>
+                            </div>
+                        </section>
+                        <section aria-labelledby="case-sensitivity">
+                            <h2 id="case-sensitivity">
+                                <a href="#case-sensitivity">Case-sensitivity</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    If you want to match attribute values case-insensitively you can use the value <code>i</code>
+                                    before the closing bracket. This flag tells the browser to match <a href="/en-US/docs/Glossary/ASCII">ASCII</a>
+                                    characters case-insensitively. Without the flag the values will be matched according to the case-sensitivity of the document language — in HTML's case it will be case sensitive.
+                                </p>
+                                <p>
+                                    In the example below, the first selector will match a value that begins with <code>a</code>
+                                    — it only matches the first list item because the other two list items start with an uppercase A. The second selector uses the case-insensitive flag and so matches all of the list items.
+                                </p>
+                                <iframe width="100%" height="800" src="https://mdn.github.io/css-examples/learn/selectors/attribute-case.html" loading="lazy"></iframe>
+                                <div class="notecard note" id="sect1">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        There is also a newer value <code>s</code>
+                                        , which will force case-sensitive matching in contexts where matching is normally case-insensitive, however this is less well supported in browsers and isn't very useful in an HTML context.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="summary">
+                            <h2 id="summary">
+                                <a href="#summary">Summary</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    Now that we are done with attribute selectors, you can continue on to the next article and read about <a href="/en-US/docs/Learn/CSS/Building_blocks/Selectors/Pseudo-classes_and_pseudo-elements">pseudo-class and pseudo-element selectors</a>
+                                    .
+                                </p>
+                            </div>
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
+                    </div>
+                    
                                         
                 </div>
             </main>

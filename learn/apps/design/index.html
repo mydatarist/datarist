@@ -1172,38 +1172,264 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                    
+                    
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Design</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
-                    </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
+                        <section aria-labelledby="the_story_of_your_first_website">
+                                 
+                            
+
+
+
+                            <p>This chapter focuses on some critical aspects of rendering content outside of the browser tab.</p>
+
+                            <h2 id="the_window" data-text="The window" tabindex="-1">The window</h2>
+                            
+                            <p>Different operating systems have different ideas about what an application window is.
+                            For example, on iPhones, an application always takes up 100% of the screen. On Android and iPads applications usually run fullscreen but it is possible to share the screen between two apps, however there is only one app instance open at a time.
+                            In contrast, on a desktop device, an application can have more than one instance open at a time.
+                            It shares the available screen real estate with all other open applications.
+                            Each application instance can be resized and positioned anywhere on the screen, even overlapping other applications.</p>
+                            
+                            <h2 id="the_icon" data-text="The icon" tabindex="-1">The icon</h2>
+                            
+                            <p>We recognize apps by their icon. That icon appears when you search for apps, in settings, wherever you launch apps, and where you see running apps.</p>
+                            
+                            <p>These include:</p>
+                            
+                            <ul>
+                            <li>Home screen (iOS, iPadOS, Android).</li>
+                            <li>App Launcher (macOS, Android).</li>
+                            <li>Start Menu or App Menu (Windows, ChromeOS, Linux).</li>
+                            <li>Dock, TaskBar, or Multi-task panels (all operating systems).</li>
                             </ul>
-                        </nav>
-                    </footer>
+                            
+                            <p>When creating the icon for your Progressive Web App
+                            make sure its icon is platform-agnostic, as each operating system can render icons and apply different shape masks to them, like the ones in the image below.</p>
+                            
+                            <p><img src="/static/learn/pwa/app-design/image/pwa-icons-different-shap-dc4bff4c471e7.png" alt="PWA icons in different shapes for different platforms." width="800" height="207" srcset="https://web.dev/static/learn/pwa/app-design/image/pwa-icons-different-shap-dc4bff4c471e7_36.png 36w,https://web.dev/static/learn/pwa/app-design/image/pwa-icons-different-shap-dc4bff4c471e7_48.png 48w,https://web.dev/static/learn/pwa/app-design/image/pwa-icons-different-shap-dc4bff4c471e7_72.png 72w,https://web.dev/static/learn/pwa/app-design/image/pwa-icons-different-shap-dc4bff4c471e7_96.png 96w,https://web.dev/static/learn/pwa/app-design/image/pwa-icons-different-shap-dc4bff4c471e7_480.png 480w,https://web.dev/static/learn/pwa/app-design/image/pwa-icons-different-shap-dc4bff4c471e7_720.png 720w,https://web.dev/static/learn/pwa/app-design/image/pwa-icons-different-shap-dc4bff4c471e7_856.png 856w,https://web.dev/static/learn/pwa/app-design/image/pwa-icons-different-shap-dc4bff4c471e7_960.png 960w,https://web.dev/static/learn/pwa/app-design/image/pwa-icons-different-shap-dc4bff4c471e7_1440.png 1440w,https://web.dev/static/learn/pwa/app-design/image/pwa-icons-different-shap-dc4bff4c471e7_1920.png 1920w,https://web.dev/static/learn/pwa/app-design/image/pwa-icons-different-shap-dc4bff4c471e7_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                            
+                            <h2 id="theming_your_app" data-text="Theming your app" tabindex="-1">Theming your app</h2>
+                            
+                            <p>There are a number of ways you can customize app styling in your PWA&#39;s, including:</p>
+                            
+                            <ul>
+                            <li>Theme color: defines the color of the window&#39;s title bar on the desktop and the color of the status bar on mobile devices. Using a meta tag, you can have options for different schemes, such as dark or light mode and they will be used based on the user&#39;s preference.</li>
+                            <li>Background color: defines the color of the window before the app and its CSS are loaded.</li>
+                            <li>Accent color: defines the color of built-in browser components, such as form controls.</li>
+                            </ul>
+                            
+                            <figure>
+                            <img src="/static/learn/pwa/app-design/image/a-desktop-pwa-showing-the-f5e631b728a26.png" alt="A desktop PWA showing theme and accent colors, and an Android PWA splash screen showing theme and background colors." width="800" height="526" srcset="https://web.dev/static/learn/pwa/app-design/image/a-desktop-pwa-showing-the-f5e631b728a26_36.png 36w,https://web.dev/static/learn/pwa/app-design/image/a-desktop-pwa-showing-the-f5e631b728a26_48.png 48w,https://web.dev/static/learn/pwa/app-design/image/a-desktop-pwa-showing-the-f5e631b728a26_72.png 72w,https://web.dev/static/learn/pwa/app-design/image/a-desktop-pwa-showing-the-f5e631b728a26_96.png 96w,https://web.dev/static/learn/pwa/app-design/image/a-desktop-pwa-showing-the-f5e631b728a26_480.png 480w,https://web.dev/static/learn/pwa/app-design/image/a-desktop-pwa-showing-the-f5e631b728a26_720.png 720w,https://web.dev/static/learn/pwa/app-design/image/a-desktop-pwa-showing-the-f5e631b728a26_856.png 856w,https://web.dev/static/learn/pwa/app-design/image/a-desktop-pwa-showing-the-f5e631b728a26_960.png 960w,https://web.dev/static/learn/pwa/app-design/image/a-desktop-pwa-showing-the-f5e631b728a26_1440.png 1440w,https://web.dev/static/learn/pwa/app-design/image/a-desktop-pwa-showing-the-f5e631b728a26_1920.png 1920w,https://web.dev/static/learn/pwa/app-design/image/a-desktop-pwa-showing-the-f5e631b728a26_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px">
+                            <figcaption class="wd-caption">A desktop PWA showing theme and accent colors, and an Android PWA splash screen showing theme and background colors.</figcaption>
+                            </figure>
+                            
+                            <aside class="note"><b>Note: </b>  When planning your Progressive Web App user interface, beware that you can't use images, or gradients for your theme, just plain colors. It's best to pick colors without transparency, and  use the <code translate="no" dir="ltr">rgb</code> or <code translate="no" dir="ltr">hsl</code> colors, hex codes, or named colors. Theming your app may also affect browser theming even without installing the app, such as when using the <a href="/articles/add-manifest#theme-color"><code translate="no" dir="ltr">&lt;meta name=&quot;theme-color&quot;&gt;</code></a> element. </aside>
+                            
+                            <h2 id="display_modes" data-text="Display modes" tabindex="-1">Display modes</h2>
+                            
+                            <p>You can define what kind of window experience you&#39;d like for your Progressive Web App. There are three options to choose from:</p>
+                            
+                            <ul>
+                            <li>Fullscreen</li>
+                            <li>Standalone</li>
+                            <li>Minimal User Interface</li>
+                            </ul>
+                            
+                            <aside class="note"><b>Note: </b> If a particular display mode isn't supported or otherwise can't be used to display your PWA, it'll fall back to the next available display mode. Fullscreen will fall back to standalone, standalone will fall back to minimal user interface, and minimal user interface will fall back to browser, the default. The browser display mode doesn't show up as its own window, but rather displays your PWA in a tab in the browser it was installed from, like a web bookmark on a home screen. </aside>
+                            
+                            <h3 id="fullscreen_experience" data-text="Fullscreen experience" tabindex="-1">Fullscreen experience</h3>
+                            
+                            <p>A fullscreen experience is suitable for immersive experiences, such as games, VR, or AR experiences. It&#39;s currently only available on Android devices, and it hides the status bar and the navigation bar, giving your PWA 100% of the screen for your content.</p>
+                            
+                            <p>On desktop and iPadOS, fullscreen PWAs are not supported; however, you can use the <a href="https://developer.mozilla.org/docs/Web/API/Fullscreen_API">Fullscreen API</a> from within your PWA to display your app fullscreen at a user&#39;s request.</p>
+                            
+                            <h3 id="standalone_experience" data-text="Standalone experience" tabindex="-1">Standalone experience</h3>
+                            
+                            <p>The most common option for a Progressive Web App, standalone mode displays your PWA in an OS-standard window without any browser navigation UI. The window may also include a  browser-controlled menu where the user can:</p>
+                            
+                            <ul>
+                            <li>Copy the current URL.</li>
+                            <li>See, apply, or disable browser extensions.</li>
+                            <li>See and change permissions.</li>
+                            <li>Check current origin and the SSL certificate.</li>
+                            </ul>
+                            
+                            <p>The title bar may also show permissions and hardware usage replacing the omnibox or URL bar when the PWA renders in the tab.</p>
+                            
+                            <figure>
+                            <img src="/static/learn/pwa/app-design/image/a-pwa-installed-microsof-2cf3d40544ce3.png" alt="A PWA installed with Microsoft Edge on desktop showing its menu." width="800" height="459" srcset="https://web.dev/static/learn/pwa/app-design/image/a-pwa-installed-microsof-2cf3d40544ce3_36.png 36w,https://web.dev/static/learn/pwa/app-design/image/a-pwa-installed-microsof-2cf3d40544ce3_48.png 48w,https://web.dev/static/learn/pwa/app-design/image/a-pwa-installed-microsof-2cf3d40544ce3_72.png 72w,https://web.dev/static/learn/pwa/app-design/image/a-pwa-installed-microsof-2cf3d40544ce3_96.png 96w,https://web.dev/static/learn/pwa/app-design/image/a-pwa-installed-microsof-2cf3d40544ce3_480.png 480w,https://web.dev/static/learn/pwa/app-design/image/a-pwa-installed-microsof-2cf3d40544ce3_720.png 720w,https://web.dev/static/learn/pwa/app-design/image/a-pwa-installed-microsof-2cf3d40544ce3_856.png 856w,https://web.dev/static/learn/pwa/app-design/image/a-pwa-installed-microsof-2cf3d40544ce3_960.png 960w,https://web.dev/static/learn/pwa/app-design/image/a-pwa-installed-microsof-2cf3d40544ce3_1440.png 1440w,https://web.dev/static/learn/pwa/app-design/image/a-pwa-installed-microsof-2cf3d40544ce3_1920.png 1920w,https://web.dev/static/learn/pwa/app-design/image/a-pwa-installed-microsof-2cf3d40544ce3_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px">
+                            
+                            <img src="/static/learn/pwa/app-design/image/a-pwa-installed-google-c-3ecaaf8b07bbd.png" alt="A PWA installed with Google Chrome on desktop showing the drop-down menu and the plugins-icon." width="800" height="640" srcset="https://web.dev/static/learn/pwa/app-design/image/a-pwa-installed-google-c-3ecaaf8b07bbd_36.png 36w,https://web.dev/static/learn/pwa/app-design/image/a-pwa-installed-google-c-3ecaaf8b07bbd_48.png 48w,https://web.dev/static/learn/pwa/app-design/image/a-pwa-installed-google-c-3ecaaf8b07bbd_72.png 72w,https://web.dev/static/learn/pwa/app-design/image/a-pwa-installed-google-c-3ecaaf8b07bbd_96.png 96w,https://web.dev/static/learn/pwa/app-design/image/a-pwa-installed-google-c-3ecaaf8b07bbd_480.png 480w,https://web.dev/static/learn/pwa/app-design/image/a-pwa-installed-google-c-3ecaaf8b07bbd_720.png 720w,https://web.dev/static/learn/pwa/app-design/image/a-pwa-installed-google-c-3ecaaf8b07bbd_856.png 856w,https://web.dev/static/learn/pwa/app-design/image/a-pwa-installed-google-c-3ecaaf8b07bbd_960.png 960w,https://web.dev/static/learn/pwa/app-design/image/a-pwa-installed-google-c-3ecaaf8b07bbd_1440.png 1440w,https://web.dev/static/learn/pwa/app-design/image/a-pwa-installed-google-c-3ecaaf8b07bbd_1920.png 1920w,https://web.dev/static/learn/pwa/app-design/image/a-pwa-installed-google-c-3ecaaf8b07bbd_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px">
+                              <figcaption class="wd-caption">The images above show how a PWA displays in standalone mode on the desktop in Microsoft Edge, and Chrome.</figcaption>
+                            </figure>
+                            
+                            <p>On mobile devices, a standalone PWA experience will create a standard screen that keeps the status bar visible, so the user can still see notifications, time, and battery level. It often does not have any browser-controlled menu like desktop standalone experiences may include.</p>
+                            
+                            <figure>
+                              <img src="/static/learn/pwa/app-design/image/an-ios-device-rendering-4cdb81f952592.png" alt="An iOS device rendering a standalone app." width="800" height="476" srcset="https://web.dev/static/learn/pwa/app-design/image/an-ios-device-rendering-4cdb81f952592_36.png 36w,https://web.dev/static/learn/pwa/app-design/image/an-ios-device-rendering-4cdb81f952592_48.png 48w,https://web.dev/static/learn/pwa/app-design/image/an-ios-device-rendering-4cdb81f952592_72.png 72w,https://web.dev/static/learn/pwa/app-design/image/an-ios-device-rendering-4cdb81f952592_96.png 96w,https://web.dev/static/learn/pwa/app-design/image/an-ios-device-rendering-4cdb81f952592_480.png 480w,https://web.dev/static/learn/pwa/app-design/image/an-ios-device-rendering-4cdb81f952592_720.png 720w,https://web.dev/static/learn/pwa/app-design/image/an-ios-device-rendering-4cdb81f952592_856.png 856w,https://web.dev/static/learn/pwa/app-design/image/an-ios-device-rendering-4cdb81f952592_960.png 960w,https://web.dev/static/learn/pwa/app-design/image/an-ios-device-rendering-4cdb81f952592_1440.png 1440w,https://web.dev/static/learn/pwa/app-design/image/an-ios-device-rendering-4cdb81f952592_1920.png 1920w,https://web.dev/static/learn/pwa/app-design/image/an-ios-device-rendering-4cdb81f952592_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px">
+                            </figure>
+                            
+                            <p>Some browsers on Android create a fixed and silent notification while the PWA is in the foreground that lets the user copy the current URL or other options.</p>
+                            
+                            <figure>
+                              <img src="/static/learn/pwa/app-design/image/an-android-notification-r-f30030b4e3466.png" alt="An Android notification rendered by Chrome showing some actions over the current active PWA." width="730" height="428" srcset="https://web.dev/static/learn/pwa/app-design/image/an-android-notification-r-f30030b4e3466_36.png 36w,https://web.dev/static/learn/pwa/app-design/image/an-android-notification-r-f30030b4e3466_48.png 48w,https://web.dev/static/learn/pwa/app-design/image/an-android-notification-r-f30030b4e3466_72.png 72w,https://web.dev/static/learn/pwa/app-design/image/an-android-notification-r-f30030b4e3466_96.png 96w,https://web.dev/static/learn/pwa/app-design/image/an-android-notification-r-f30030b4e3466_480.png 480w,https://web.dev/static/learn/pwa/app-design/image/an-android-notification-r-f30030b4e3466_720.png 720w,https://web.dev/static/learn/pwa/app-design/image/an-android-notification-r-f30030b4e3466_856.png 856w,https://web.dev/static/learn/pwa/app-design/image/an-android-notification-r-f30030b4e3466_960.png 960w,https://web.dev/static/learn/pwa/app-design/image/an-android-notification-r-f30030b4e3466_1440.png 1440w,https://web.dev/static/learn/pwa/app-design/image/an-android-notification-r-f30030b4e3466_1920.png 1920w,https://web.dev/static/learn/pwa/app-design/image/an-android-notification-r-f30030b4e3466_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px">
+                            </figure>
+                            
+                            <h3 id="minimal_user_interface" data-text="Minimal user interface" tabindex="-1">Minimal user interface</h3>
+                            
+                            <p>This mode is available for Progressive Web Apps on Android and desktop operating systems.
+                            When you use it, the browser rendering your PWA will show a minimal user interface to help the user navigate within the application.</p>
+                            
+                            <p>On Android, you will get a title bar that renders the current <code translate="no" dir="ltr">&lt;title&gt;</code> element and the origin with a small drop-down menu available. On desktop, you will get a set of buttons in the title bar to help with navigation, including a back button and a control that swaps between a stop and a reload action, based on the current loading status.</p>
+                            
+                            <figure>
+                              <img src="/static/learn/pwa/app-design/image/a-desktop-minimal-ui-mic-ace1638dbc433.png" alt="A desktop minimal-ui on Microsoft Edge with back and reload buttons" width="800" height="399" srcset="https://web.dev/static/learn/pwa/app-design/image/a-desktop-minimal-ui-mic-ace1638dbc433_36.png 36w,https://web.dev/static/learn/pwa/app-design/image/a-desktop-minimal-ui-mic-ace1638dbc433_48.png 48w,https://web.dev/static/learn/pwa/app-design/image/a-desktop-minimal-ui-mic-ace1638dbc433_72.png 72w,https://web.dev/static/learn/pwa/app-design/image/a-desktop-minimal-ui-mic-ace1638dbc433_96.png 96w,https://web.dev/static/learn/pwa/app-design/image/a-desktop-minimal-ui-mic-ace1638dbc433_480.png 480w,https://web.dev/static/learn/pwa/app-design/image/a-desktop-minimal-ui-mic-ace1638dbc433_720.png 720w,https://web.dev/static/learn/pwa/app-design/image/a-desktop-minimal-ui-mic-ace1638dbc433_856.png 856w,https://web.dev/static/learn/pwa/app-design/image/a-desktop-minimal-ui-mic-ace1638dbc433_960.png 960w,https://web.dev/static/learn/pwa/app-design/image/a-desktop-minimal-ui-mic-ace1638dbc433_1440.png 1440w,https://web.dev/static/learn/pwa/app-design/image/a-desktop-minimal-ui-mic-ace1638dbc433_1920.png 1920w,https://web.dev/static/learn/pwa/app-design/image/a-desktop-minimal-ui-mic-ace1638dbc433_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px">
+                            </figure>
+                            
+                            <figure>
+                              <img src="/static/learn/pwa/app-design/image/on-android-browsers-a-r-94de83b266c1d.png" alt="On Android, browsers use a read-only themed navigation bar for minimal-ui, here Firefox and Chrome" width="800" height="249" srcset="https://web.dev/static/learn/pwa/app-design/image/on-android-browsers-a-r-94de83b266c1d_36.png 36w,https://web.dev/static/learn/pwa/app-design/image/on-android-browsers-a-r-94de83b266c1d_48.png 48w,https://web.dev/static/learn/pwa/app-design/image/on-android-browsers-a-r-94de83b266c1d_72.png 72w,https://web.dev/static/learn/pwa/app-design/image/on-android-browsers-a-r-94de83b266c1d_96.png 96w,https://web.dev/static/learn/pwa/app-design/image/on-android-browsers-a-r-94de83b266c1d_480.png 480w,https://web.dev/static/learn/pwa/app-design/image/on-android-browsers-a-r-94de83b266c1d_720.png 720w,https://web.dev/static/learn/pwa/app-design/image/on-android-browsers-a-r-94de83b266c1d_856.png 856w,https://web.dev/static/learn/pwa/app-design/image/on-android-browsers-a-r-94de83b266c1d_960.png 960w,https://web.dev/static/learn/pwa/app-design/image/on-android-browsers-a-r-94de83b266c1d_1440.png 1440w,https://web.dev/static/learn/pwa/app-design/image/on-android-browsers-a-r-94de83b266c1d_1920.png 1920w,https://web.dev/static/learn/pwa/app-design/image/on-android-browsers-a-r-94de83b266c1d_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px">
+                            </figure>
+                            
+                            <aside class="warning"><b>Warning: </b> Safari on iOS and iPadOS doesn't support Minimal UI mode for PWAs. Instead, a browser shortcut is used as a fallback. The user can add an icon to the home screen, but that icon will point to Safari as a bookmark, and they won't have an app experience out of the browser tab. </aside>
+                            
+                            <h2 id="optimizing_design_for_desktop" data-text="Optimizing design for desktop" tabindex="-1">Optimizing design for desktop</h2>
+                            
+                            <p>When you design a Progressive Web App to work on a desktop,
+                            you need to think about the endless possibilities for window size as compared to being in the browser&#39;s tab or as an app in a mobile operating system.</p>
+                            
+                            <p>In <a href="/learn/pwa/foundations">Chapter 3</a>, we mentioned mini-mode: a desktop app can be as small as 200 by 100 pixels. This window will use the <code translate="no" dir="ltr">&lt;title&gt;</code> element&#39;s content in your HTML as the title of the window. That content is also rendered when you <strong>alt-tab</strong> between apps and in other places.</p>
+                            
+                            <p>Pay attention to your HTML&#39;s <code translate="no" dir="ltr">&lt;title&gt;</code> element and rethink how you use it. The <code translate="no" dir="ltr">&lt;title&gt;</code> isn&#39;t just for SEO or to render just the first characters in a browser&#39;s tab; it will be part of the user experience of your standalone desktop window.</p>
+                            
+                            <aside class="note"><b>Note: </b> If you are developing your app using a client-side library, such as React or Vue, don't forget to change the <code translate="no" dir="ltr">&lt;title&gt;</code> to some practical value when moving between sections or routes of your app. It's time to reimagine the <code translate="no" dir="ltr">&lt;title&gt;</code>! </aside>
+                            
+                            <h2 id="css_best_practices" data-text="CSS best practices" tabindex="-1">CSS best practices</h2>
+                            
+                            <p>All your experience with <a href="/learn/css">CSS layout, design, and animation</a> is valid when your content is rendered in its standalone experience. However, there are a couple of tips and tricks to making the experience better for a standalone window.</p>
+                            
+                            <aside class="tip">Remember that CSS only defines styles for the content of the PWA; later in this course, we will see how to specify style declarations for the window around your content, such as properties in the <a href="/learn/pwa/web-app-manifest">web app manifest</a>. </aside>
+                            
+                            <h3 id="media_queries" data-text="Media Queries" tabindex="-1">Media Queries</h3>
+                            
+                            <p>The first <a href="/learn/design/media-queries">media query</a> that you can take advantage of in your PWA is the <code translate="no" dir="ltr">display-mode</code> property accepting the values <code translate="no" dir="ltr">browser</code>, <code translate="no" dir="ltr">standalone</code>, <code translate="no" dir="ltr">minimal-ui</code>, or <code translate="no" dir="ltr">fullscreen</code>.</p>
+                            
+                            <p>This media query applies different styles to each mode.
+                            For example, you could render an <a href="/learn/pwa/installation">installation invitation</a> only when in browser mode, or render one particular piece of information only when the user uses your app from the system icon. This might include adding a back button to use when your app launches in standalone mode.</p>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">/* It targets only the app used within the browser */
+                            @media (display-mode: browser) {
+                            }
+                            /* It targets only the app used with a system icon in standalone mode */
+                            @media (display-mode: standalone) {
+                            }
+                            /* It targets only the app used with a system icon in all mode */
+                            @media (display-mode: standalone), (display-mode: fullscreen), (display-mode: minimal-ui) {
+                            }
+                            </code></pre>
+                            <aside class="note"><b>Note: </b> Users expect apps to integrate with the platform, so consider offering dark and light modes using <a href="https://developer.mozilla.org/docs/Web/CSS/@media/prefers-color-scheme"><code translate="no" dir="ltr">prefers-colors-scheme</code></a> and honoring <a href="/articles/prefers-reduced-motion"><code translate="no" dir="ltr">prefers-reduced-motion</code></a> media queries to disable or reduce transitions and animations. </aside>
+                            
+                            <h2 id="the_app_experience" data-text="The app experience" tabindex="-1">The app experience</h2>
+                            
+                            <p>When the users are using an installed PWA, they expect app behavior. While it&#39;s not simple to define what it means, the default web behavior doesn&#39;t give the best experience in some situations.</p>
+                            
+                            <h3 id="user_selection" data-text="User selection" tabindex="-1">User selection</h3>
+                            
+                            <p>Content is generally selectable with a mouse or pointer, or a press and hold touch gesture. While helpful for content, it doesn&#39;t provide the best experience for navigation items, menus, and buttons within your PWA.</p>
+                            
+                            <p><img src="/static/learn/pwa/app-design/image/a-calculator-pwa-where-c-7cc69202499de.png" alt="A calculator PWA where you can select every interactive button, such as the numbers." width="800" height="739" srcset="https://web.dev/static/learn/pwa/app-design/image/a-calculator-pwa-where-c-7cc69202499de_36.png 36w,https://web.dev/static/learn/pwa/app-design/image/a-calculator-pwa-where-c-7cc69202499de_48.png 48w,https://web.dev/static/learn/pwa/app-design/image/a-calculator-pwa-where-c-7cc69202499de_72.png 72w,https://web.dev/static/learn/pwa/app-design/image/a-calculator-pwa-where-c-7cc69202499de_96.png 96w,https://web.dev/static/learn/pwa/app-design/image/a-calculator-pwa-where-c-7cc69202499de_480.png 480w,https://web.dev/static/learn/pwa/app-design/image/a-calculator-pwa-where-c-7cc69202499de_720.png 720w,https://web.dev/static/learn/pwa/app-design/image/a-calculator-pwa-where-c-7cc69202499de_856.png 856w,https://web.dev/static/learn/pwa/app-design/image/a-calculator-pwa-where-c-7cc69202499de_960.png 960w,https://web.dev/static/learn/pwa/app-design/image/a-calculator-pwa-where-c-7cc69202499de_1440.png 1440w,https://web.dev/static/learn/pwa/app-design/image/a-calculator-pwa-where-c-7cc69202499de_1920.png 1920w,https://web.dev/static/learn/pwa/app-design/image/a-calculator-pwa-where-c-7cc69202499de_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                            
+                            <p>Therefore, it&#39;s a good idea to disable user selection on these elements using <code translate="no" dir="ltr">user-select: none</code> and it&#39;s <code translate="no" dir="ltr">-webkit-</code> prefix version:</p>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">.unselectable {
+                               user-select: none;
+                            }
+                            </code></pre>
+                            <aside class="tip">User selection is a vital feature of every web app for usability and accessibility. Do not disable user selection on all content, only on UI elements when not doing so creates a poor or unexpected experience. </aside>
+                            
+                            <h3 id="accent_color" data-text="Accent color" tabindex="-1">Accent color</h3>
+                            
+                            <p>In your PWA, you can define a color to match your brand within HTML form controls using the property <a href="/articles/accent-color"><code translate="no" dir="ltr">accent-color</code></a>.</p>
+                            
+                            <h3 id="system_fonts" data-text="System fonts" tabindex="-1">System fonts</h3>
+                            
+                            <p>If you want an element, like dialogs or messages, to match the user&#39;s default platform font, you can use the following font family:</p>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">selector {
+                              font-family: -apple-system, BlinkMacSystemFont,
+                                &#34;Segoe UI&#34;, system-ui, Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+                                &#34;Helvetica Neue&#34;, sans-serif;
+                            }
+                            </code></pre>
+                            <h3 id="pull_to_refresh" data-text="Pull to refresh" tabindex="-1">Pull to refresh</h3>
+                            
+                            <p>Modern mobile browsers, such as Google Chrome and Safari, have a feature that refreshes the page when it is pulled down. On some browsers, such as Chrome on Android, that behavior is also enabled on standalone PWAs.</p>
+                            
+                            <p>You may want to disable this action. For example when providing your own gesture management or refresh action, or if there is a possibility that your user will trigger the action unintentionally.</p>
+                            
+                            <p>It&#39;s possible to disable this behavior by using <code translate="no" dir="ltr">overscroll-behavior-y: contain</code>:.</p>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">  body {
+                                overscroll-behavior-y: contain;
+                              }
+                            </code></pre>
+                            <h3 id="safe_areas" data-text="Safe areas" tabindex="-1">Safe areas</h3>
+                            
+                            <p>Some devices do not have unobstructed rectangular screens; instead, their screen may be a different shape, like a circle, or have portions of the screen that can&#39;t be used, like the iPhone 13&#39;s notch. In these cases, some browsers will expose <a href="https://developer.mozilla.org/docs/Web/CSS/env()">environment variables</a> with safe areas that can display content.</p>
+                            
+                            <p><img src="/static/learn/pwa/app-design/image/at-top-notch-based-devi-8193966f8a04c.png" alt="At top, a notch-based device in landscape with a standard viewport showing unrendered areas at the sides; at bottom, a device with full viewport access thanks to viewport-fit=cover." width="800" height="1006" srcset="https://web.dev/static/learn/pwa/app-design/image/at-top-notch-based-devi-8193966f8a04c_36.png 36w,https://web.dev/static/learn/pwa/app-design/image/at-top-notch-based-devi-8193966f8a04c_48.png 48w,https://web.dev/static/learn/pwa/app-design/image/at-top-notch-based-devi-8193966f8a04c_72.png 72w,https://web.dev/static/learn/pwa/app-design/image/at-top-notch-based-devi-8193966f8a04c_96.png 96w,https://web.dev/static/learn/pwa/app-design/image/at-top-notch-based-devi-8193966f8a04c_480.png 480w,https://web.dev/static/learn/pwa/app-design/image/at-top-notch-based-devi-8193966f8a04c_720.png 720w,https://web.dev/static/learn/pwa/app-design/image/at-top-notch-based-devi-8193966f8a04c_856.png 856w,https://web.dev/static/learn/pwa/app-design/image/at-top-notch-based-devi-8193966f8a04c_960.png 960w,https://web.dev/static/learn/pwa/app-design/image/at-top-notch-based-devi-8193966f8a04c_1440.png 1440w,https://web.dev/static/learn/pwa/app-design/image/at-top-notch-based-devi-8193966f8a04c_1920.png 1920w,https://web.dev/static/learn/pwa/app-design/image/at-top-notch-based-devi-8193966f8a04c_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                            
+                            <p>If you want full access to the screen, even the invisible area, to render your color or image, include <code translate="no" dir="ltr">viewport-fit=cover</code> in the content of your <code translate="no" dir="ltr">&lt;meta name=&quot;viewport&quot;&gt;</code> tag. Then use the <code translate="no" dir="ltr">safe-area-inset-*</code> environment variables to extend your content safely into those areas.</p>
+                            
+                            <aside class="caution"><b>Caution: </b> When you apply <code translate="no" dir="ltr">viewport-fit=cover</code>, remember that you can now render pixels behind rounded corners and notches, so you should always use safe margins or paddings for the critical content and interactive elements. </aside>
+                            
+                            <h2 id="resources" data-text="Resources" tabindex="-1">Resources</h2>
+                            
+                            <ul>
+                            <li><a href="https://developer.mozilla.org/docs/Web/CSS/@media/display-mode">CSS display-mode media query</a></li>
+                            <li><a href="https://developer.chrome.com/blog/overscroll-behavior">Take control of your scroll: customizing pull-to-refresh and overflow effects</a></li>
+                            <li><a href="/articles/prefers-color-scheme">prefers-color-scheme: Hello darkness, my old friend</a></li>
+                            <li><a href="/articles/prefers-reduced-motion">prefers-reduced-motion: Sometimes less movement is more</a></li>
+                            <li><a href="https://developer.mozilla.org/docs/Web/CSS/env()">env() CSS function</a></li>
+                            <li><a href="/articles/accent-color">CSS Accent Color</a></li>
+                            </ul>
+                            
+                             
+
+
+
+
+
+
+
+
+
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
+                    </div>
+                    
                                         
                 </div>
             </main>

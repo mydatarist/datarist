@@ -1172,38 +1172,305 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                    
+                    
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Detection</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
-                    </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
+                        <section aria-labelledby="the_story_of_your_first_website">
+                             
+                            
+
+
+
+                            <p>You can detect if the user is using your PWA in the browser or in standalone mode. On Chromium-based browsers (Android and desktop), you can also detect the following events:</p>
+
+                            <ul>
+                            <li>Installation invitation dialog status and result.</li>
+                            <li>Installation finished.</li>
+                            <li>Navigation transfer from browser to PWA window and conversely.</li>
+                            <li>PWA installation status.</li>
+                            <li>Related app installed from an app store.</li>
                             </ul>
-                        </nav>
-                    </footer>
+                            
+                            <p>You can use this data for analytics, to understand your user&#39;s preferences, and to customize their experience. To capture these events, you can use tools such as media queries, events from the <code translate="no" dir="ltr">window</code>, or using the capabilities APIs that you can find <a href="https://developer.chrome.com/blog/fugu-status">listed here</a>.</p>
+                            
+                            <h2 id="detecting_display_mode" data-text="Detecting display mode" tabindex="-1">Detecting display mode</h2>
+                            
+                            <p>To track how users launch your PWA, you can use <code translate="no" dir="ltr">matchMedia()</code> to test the <code translate="no" dir="ltr">display-mode</code> media query.</p>
+                            <pre class="prettyprint lang-js" translate="no" dir="ltr"><code translate="no" dir="ltr">window.addEventListener(&#39;DOMContentLoaded&#39;, () =&gt; {
+                              let displayMode = &#39;browser tab&#39;;
+                              if (window.matchMedia(&#39;(display-mode: standalone)&#39;).matches) {
+                                displayMode = &#39;standalone&#39;;
+                              }
+                              // Log launch display mode to analytics
+                              console.log(&#39;DISPLAY_MODE_LAUNCH:&#39;, displayMode);
+                            });
+                            </code></pre>
+                            <p>If you use this example, remember to match the display mode from your web app manifest, for instance, <code translate="no" dir="ltr">standalone</code>, <code translate="no" dir="ltr">minimal-ui</code> or <code translate="no" dir="ltr">fullscreen</code>. You can also match multiple queries in the media query string using comma-separated conditions.</p>
+                            
+                            <p>You can also add a query parameter to your manifest&#39;s <code translate="no" dir="ltr">start_url</code> that you can capture with analytics to track stats about when, in what way, and how much your PWA is being used.</p>
+                            
+                            <aside class="caution"><b>Caution: </b> If you use a query parameter on your <code translate="no" dir="ltr">start_url</code> to capture metrics, make sure to set the <code translate="no" dir="ltr">id</code> field on your manifest to uniquely identify your app. Read how to set up this field in <a href="https://developer.chrome.com/blog/pwa-manifest-id">Uniquely identifying PWAs with the web app manifest id property</a> </aside>
+                            
+                            <h2 id="app_installation" data-text="App installation" tabindex="-1">App installation</h2>
+                            
+                            <p>When a user accepts the install prompt in the browser, the <code translate="no" dir="ltr">appinstalled</code> event fires on Chromium-based browsers. A great use for this event handler is to remove any in-app installation promotion you&#39;ve added.</p>
+                            <pre class="prettyprint lang-js" translate="no" dir="ltr"><code translate="no" dir="ltr">window.addEventListener(&#39;appinstalled&#39;, () =&gt; {
+                              // If visible, hide the install promotion
+                              hideInAppInstallPromotion();
+                              // Log install to analytics
+                              console.log(&#39;INSTALL: Success&#39;);
+                            });
+                            </code></pre>
+                            <p>Remember, on Android devices with WebAPK, the event is fired when the user accepts the dialog, and not after the WebAPK is minted and installed. There may be a delay of some seconds before the app is fully installed.</p>
+                            
+                            <p>The <a href="/learn/pwa/installation-prompt">Installation Prompt chapter</a> explains how to detect if the installation prompt is available and what choice the user makes.</p>
+                            
+                            <aside class="warning"><b>Warning: </b> The <code translate="no" dir="ltr">appinstalled</code> event is available only in Chromium-based browsers, and it's part of an <a href="https://wicg.github.io/manifest-incubations/#onappinstalled-attribute">incubator for the manifest spec</a> </aside>
+                            
+                            <h2 id="session_transfer" data-text="Session transfer" tabindex="-1">Session transfer</h2>
+                            
+                            <p>Users can use your PWA within the browser and in the installed standalone form. On desktop browsers, you can transfer the current navigation between these contexts using badges or menu items, as seen in the following image.</p>
+                            
+                            <p><img src="/static/learn/pwa/detection/image/navigation-transfer-betwe-bd1a54572ffc9.png" alt="Navigation transfer between a browser tab and a PWA window." width="800" height="321" srcset="https://web.dev/static/learn/pwa/detection/image/navigation-transfer-betwe-bd1a54572ffc9_36.png 36w,https://web.dev/static/learn/pwa/detection/image/navigation-transfer-betwe-bd1a54572ffc9_48.png 48w,https://web.dev/static/learn/pwa/detection/image/navigation-transfer-betwe-bd1a54572ffc9_72.png 72w,https://web.dev/static/learn/pwa/detection/image/navigation-transfer-betwe-bd1a54572ffc9_96.png 96w,https://web.dev/static/learn/pwa/detection/image/navigation-transfer-betwe-bd1a54572ffc9_480.png 480w,https://web.dev/static/learn/pwa/detection/image/navigation-transfer-betwe-bd1a54572ffc9_720.png 720w,https://web.dev/static/learn/pwa/detection/image/navigation-transfer-betwe-bd1a54572ffc9_856.png 856w,https://web.dev/static/learn/pwa/detection/image/navigation-transfer-betwe-bd1a54572ffc9_960.png 960w,https://web.dev/static/learn/pwa/detection/image/navigation-transfer-betwe-bd1a54572ffc9_1440.png 1440w,https://web.dev/static/learn/pwa/detection/image/navigation-transfer-betwe-bd1a54572ffc9_1920.png 1920w,https://web.dev/static/learn/pwa/detection/image/navigation-transfer-betwe-bd1a54572ffc9_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                            
+                            <p>On Android, there is a menu item similar to the one on desktop from the browser that transfers the navigation to the app. In this case, the current URL is opened but it will be a new page navigation in the app.</p>
+                            
+                            <p>In the following image you can see the menu item in Android when the app is already installed.</p>
+                            
+                            <p><img src="/static/learn/pwa/detection/image/chrome-android-shows-men-bc4abd110c859.png" alt="Chrome on Android shows menu item to open a new navigation in a PWA window." width="800" height="1689" srcset="https://web.dev/static/learn/pwa/detection/image/chrome-android-shows-men-bc4abd110c859_36.png 36w,https://web.dev/static/learn/pwa/detection/image/chrome-android-shows-men-bc4abd110c859_48.png 48w,https://web.dev/static/learn/pwa/detection/image/chrome-android-shows-men-bc4abd110c859_72.png 72w,https://web.dev/static/learn/pwa/detection/image/chrome-android-shows-men-bc4abd110c859_96.png 96w,https://web.dev/static/learn/pwa/detection/image/chrome-android-shows-men-bc4abd110c859_480.png 480w,https://web.dev/static/learn/pwa/detection/image/chrome-android-shows-men-bc4abd110c859_720.png 720w,https://web.dev/static/learn/pwa/detection/image/chrome-android-shows-men-bc4abd110c859_856.png 856w,https://web.dev/static/learn/pwa/detection/image/chrome-android-shows-men-bc4abd110c859_960.png 960w,https://web.dev/static/learn/pwa/detection/image/chrome-android-shows-men-bc4abd110c859_1440.png 1440w,https://web.dev/static/learn/pwa/detection/image/chrome-android-shows-men-bc4abd110c859_1920.png 1920w,https://web.dev/static/learn/pwa/detection/image/chrome-android-shows-men-bc4abd110c859_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                            
+                            <h3 id="transfer_after_installation" data-text="Transfer after installation" tabindex="-1">Transfer after installation</h3>
+                            
+                            <p>From desktop browsers, the current navigation is immediately transferred to the app on installation. The browser&#39;s tab is closed, and the newly installed app is opened, continuing what the user was doing.</p>
+                            
+                            <p>On mobile browsers, your current navigation stays in the browser when you install the app. If the users want to move to the app, they need to open the app manually, and it will be a new navigation.</p>
+                            
+                            <h3 id="detecting_the_transfer" data-text="Detecting the transfer" tabindex="-1">Detecting the transfer</h3>
+                            
+                            <p>To detect the transfer between browser and window, you can use a media query:</p>
+                            <pre class="prettyprint lang-js" translate="no" dir="ltr"><code translate="no" dir="ltr">window.addEventListener(&#39;DOMContentLoaded&#39;, () =&gt; {
+                              // replace standalone with your display used in manifest
+                              window.matchMedia(&#39;(display-mode: standalone)&#39;)
+                                .addEventListener(&#39;change&#39;, (evt) =&gt; {
+                                  let displayMode = &#39;browser&#39;;
+                                  if (evt.matches) {
+                                    displayMode = &#39;standalone&#39;;
+                                  }
+                                  // Log display mode change to analytics
+                                  console.log(&#39;DISPLAY_MODE_CHANGED&#39;, displayMode);
+                                });
+                            });
+                            </code></pre>
+                            <h3 id="ios_and_ipados_storage_isolation" data-text="iOS and iPadOS storage isolation" tabindex="-1">iOS and iPadOS storage isolation</h3>
+                            
+                            <p>On iOS and iPadOS, there is no navigation or URL transfer between the browser and the installed icon. Even if it&#39;s the same PWA, every PWA icon that the user installs will have its own storage, isolated from Safari&#39;s tab and other icons.
+                            When a user opens the installed icon, no storage is shared with Safari. If your PWA needs a login, the user will need to log in again. If the app was added to the home screen several times, for each PWA instance, the user has a different session.</p>
+                            
+                            <h2 id="related_applications" data-text="Related applications" tabindex="-1">Related applications</h2>
+                            
+                            <p>
+                              
+                                
+                                
+                                
+                                
+                              
+                              
+                              
+                                
+                                  
+                                
+                              
+                                
+                                  
+                                
+                              
+                                
+                                  
+                                
+                               
+                            
+                                
+                                
+                                  
+                                  <div class="wd-browser-compat">
+                                    <p>Browser Support</p>
+                                    <ul>
+                                      
+                              
+                              
+                                
+                                  
+                                  
+                                
+                                
+                              
+                              <li
+                                data-browser="chrome"
+                                data-support="no">x</li>
+                              
+                              
+                                      
+                              
+                              
+                                
+                                  
+                                    
+                                      
+                                      
+                                    
+                                  
+                                
+                                
+                              
+                              <li
+                                data-browser="edge"
+                                data-support="yes">79</li>
+                              
+                              
+                                      
+                              
+                              
+                                
+                                  
+                                  
+                                
+                                
+                              
+                              <li
+                                data-browser="firefox"
+                                data-support="no">x</li>
+                              
+                              
+                                      
+                              
+                              
+                                
+                                  
+                                  
+                                
+                                
+                              
+                              <li
+                                data-browser="safari"
+                                data-support="no">x</li>
+                              
+                              
+                                    </ul>
+                                    
+                                    <p><a href="https://developer.mozilla.org/docs/Web/Manifest/related_applications">Source</a></p>
+                                    
+                                  </div>
+                                
+                                
+                                
+                              </p>
+                            
+                            <p>A website indicates a relationship with an app via the manifest. To do so, use the <a href="https://developer.mozilla.org/docs/Web/Manifest/related_applications"><code translate="no" dir="ltr">related_applications</code> member</a> of the Web App Manifest spec.
+                            The <code translate="no" dir="ltr">related_applications</code> key is an array of objects that represent each related application. Each entry contains <code translate="no" dir="ltr">platform</code>, <code translate="no" dir="ltr">url</code>, and an optional <code translate="no" dir="ltr">id</code>.</p>
+                            
+                            <p>These are the possible <a href="https://github.com/w3c/manifest/wiki/Platforms">platform values</a>:</p>
+                            
+                            <ul>
+                            <li><code translate="no" dir="ltr">chrome_web_store</code>: Google Chrome Web Store.</li>
+                            <li><code translate="no" dir="ltr">play</code>: Google Play apps (Android and ChromeOS).</li>
+                            <li><code translate="no" dir="ltr">chromeos_play</code>: ChromeOS Play.</li>
+                            <li><code translate="no" dir="ltr">webapp</code>: Web apps.</li>
+                            <li><code translate="no" dir="ltr">windows</code>: Microsoft Store (Windows 10 and 11).</li>
+                            <li><code translate="no" dir="ltr">f-droid</code>: F-droid.</li>
+                            <li><code translate="no" dir="ltr">amazon</code>: Amazon AppStore (FireOS).</li>
+                            </ul>
+                            
+                            <h3 id="prefer_a_related_app" data-text="Prefer a related app" tabindex="-1">Prefer a related app</h3>
+                            
+                            <p>When the user installs an app, you can redirect the user to a related app if you set the <code translate="no" dir="ltr">prefer_related_applications</code> field to <code translate="no" dir="ltr">true</code> in your manifest. With this setup, on compatible browsers the install flows won&#39;t install the PWA; instead they trigger a store installation from the <code translate="no" dir="ltr">url</code> or <code translate="no" dir="ltr">id</code> that you specified in the <code translate="no" dir="ltr">related_applications</code> entry.</p>
+                            
+                            <p>The related application could be your PWA and it will be installed via an app store. One advantage of this configuration is that, at the moment, only apps installed through the app store are recovered with a backup or when you switch to a new device.</p>
+                            <pre class="prettyprint lang-json" translate="no" dir="ltr"><code translate="no" dir="ltr">{
+                              ...
+                              &#34;related_applications:&#34; [
+                                 {
+                                   &#34;platform&#34;: &#34;play&#34;,
+                                   &#34;url&#34;: &#34;https://play.google.com/...&#34;
+                                 }
+                              ],
+                              &#34;prefer_related_applications&#34;: true
+                            }
+                            </code></pre>
+                            <aside class="note"><b>Note: </b> Using <code translate="no" dir="ltr">prefer_related_applications: true</code> with only a <code translate="no" dir="ltr">webapp</code> preferred application doesn't make any difference in how your PWA is offered and installed. </aside>
+                            
+                            <h4 id="apple_smart_app_banners" data-text="Apple Smart App Banners" tabindex="-1">Apple Smart App Banners</h4>
+                            
+                            <p>Safari doesn&#39;t support the <code translate="no" dir="ltr">related_applications</code> member, but it offers <a href="https://developer.apple.com/documentation/webkit/promoting_apps_with_smart_app_banners">Smart App Banners</a> for apps in the App Store. So if you want to promote a PWA or other app you have published in the App Store, you can include meta tags in your PWA&#39;s HTML to invite the user to install the app (see the link just provided), or transfer the navigation if it is already installed.</p>
+                            
+                            <h3 id="detecting_related_installed_apps" data-text="Detecting related installed apps" tabindex="-1">Detecting related installed apps</h3>
+                            
+                            <p>The <a href="/articles/get-installed-related-apps"><code translate="no" dir="ltr">getInstalledRelatedApps()</code></a> method allows your website to check whether your iOS/Android/desktop app or PWA is installed on the user&#39;s device.</p>
+                            
+                            <p>Checking if a related app is installed already helps you to implement features such as hiding custom-installed prompts or redirecting the user directly to the installed app, instead of going to a general purpose website.
+                            To use the <code translate="no" dir="ltr">getInstalledRelatedApps()</code> method, both the installed app and the website need to configure their connection with each other. Each app, depending on its platform, includes metadata to recognize the website and the website includes the expected installed app in the <code translate="no" dir="ltr">related_applications</code> field in the manifest.</p>
+                            
+                            <p>Tools such as <a href="https://github.com/GoogleChromeLabs/bubblewrap">BubbleWrap</a> or <a href="https://www.pwabuilder.com/">PWA Builder</a>, which allow you to publish your PWA to app stores, already add the required metadata so your website can use <code translate="no" dir="ltr">getInstalledRelatedApps()</code> right away.
+                            To detect whether a PWA is already installed using <code translate="no" dir="ltr">getInstalledRelatedApps()</code>, define <code translate="no" dir="ltr">webapp</code> in the manifest <code translate="no" dir="ltr">related_applications</code> field with the URL to your manifest:</p>
+                            <pre class="prettyprint lang-json" translate="no" dir="ltr"><code translate="no" dir="ltr">...
+                            &#34;related_applications&#34;: [{
+                               &#34;platform&#34;: &#34;webapp&#34;,
+                               &#34;url&#34;: &#34;https://example.com/manifest.json&#34;,
+                            }],
+                            ...
+                            </code></pre>
+                            <p><code translate="no" dir="ltr">getInstalledRelatedApps()</code> returns an array of app objects. If the array is empty, the related app is not installed.</p>
+                            <pre class="prettyprint lang-js" translate="no" dir="ltr"><code translate="no" dir="ltr">const relatedApps = await navigator.getInstalledRelatedApps();
+                            const PWAisInstalled = relatedApps.length &gt; 0;
+                            </code></pre>
+                            <h4 id="detect_installation_from_outside_the_pwas_scope" data-text="Detect installation from outside the PWA's scope" tabindex="-1">Detect installation from outside the PWA's scope</h4>
+                            
+                            <p>From Chrome on Android 89, you can detect if a PWA is installed, even from outside the PWA&#39;s scope. Your PWA must set a JSON file within the <code translate="no" dir="ltr">/.well-known/</code> folder, giving permission to the other scope, as described in <a href="/articles/get-installed-related-apps#check-pwa-out-of-scope">this article</a>.</p>
+                            
+                            <h2 id="resources" data-text="Resources" tabindex="-1">Resources</h2>
+                            
+                            <ul>
+                            <li><a href="/articles/get-installed-related-apps">Is your app installed? getInstalledRelatedApps() will tell you!</a></li>
+                            <li><a href="https://developer.mozilla.org/docs/Web/Manifest/related_applications">MDN: Related Applications</a></li>
+                            <li><a href="https://developer.mozilla.org/docs/Web/API/Window/appinstalled_event">MDN: AppInstalled event</a></li>
+                            <li><a href="https://developer.apple.com/documentation/webkit/promoting_apps_with_smart_app_banners">Apple: Promoting Apps with Smart App Banners</a></li>
+                            </ul>
+                            
+                              
+                            
+
+
+
+
+
+
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
+                    </div>
+                    
                                         
                 </div>
             </main>

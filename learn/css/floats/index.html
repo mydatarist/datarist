@@ -11,12 +11,12 @@
 </script>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Learn CSS Transitions for web development, and how to define transitions between states of an element and use transitions to improve user experience by providing visual feedback to user interaction.">
+        <meta name="description" content="Learn CSS Form elements in web app development. This guide will cover general best practices as demonstrated through CSS form elements and tips on how form elements behave differently from regular boxes.">
         <meta name="author" content="Datarist">
         <meta name="docsearch:language" content="en">
         <meta name="docsearch:version" content="1.0">
-        <title>Transitions — Learn web development — Datarist</title>
-        <link rel="canonical" href="https://datarist.com/learn/css/transitions/">
+        <title>Floats — Learn web development — Datarist</title>
+        <link rel="canonical" href="https://datarist.com/learn/css/forms/">
         <link rel="preconnect" href="https://test.algolia.net" crossorigin>
         <script src="https://datarist.com/assets/js/color-modes.js"></script>
         <link href="https://datarist.com/assets/css/bootstrap.min.css" rel="stylesheet">
@@ -34,11 +34,11 @@
         <meta name="twitter:site" content="@datarist">
         <meta name="twitter:creator" content="@datarist">
         <meta name="twitter:title" content="Learn web development">
-        <meta name="twitter:description" content="Learn CSS Transitions for web development, and how to define transitions between states of an element and use transitions to improve user experience by providing visual feedback to user interaction.">
+        <meta name="twitter:description" content="Learn CSS Form elements in web app development. This guide will cover general best practices as demonstrated through CSS form elements and tips on how form elements behave differently from regular boxes.">
         <meta name="twitter:image" content="https://datarist.com/assets/brand/logo-social.png">
-        <meta property="og:url" content="https://datarist.com/learn/css/transitions/">
+        <meta property="og:url" content="https://datarist.com/learn/css/forms/">
         <meta property="og:title" content="Learn web development">
-        <meta property="og:description" content="Learn CSS Transitions for web development, and how to define transitions between states of an element and use transitions to improve user experience by providing visual feedback to user interaction.">
+        <meta property="og:description" content="Learn CSS Form elements in web app development. This guide will cover general best practices as demonstrated through CSS form elements and tips on how form elements behave differently from regular boxes.">
         <meta property="og:type" content="article">
         <meta property="og:image" content="https://datarist.com/assets/brand/logo-social.png">
         <meta property="og:image:type" content="image/png">
@@ -605,7 +605,7 @@
                                             <a href="https://datarist.com/learn/javascript/text/" class="dd-links-link d-inline-block rounded " aria-current="true">Text</a>
                                         </li>
                                         <li>
-                                            <a href="https://datarist.com/learn/javascript/arrays/" class="dd-links-link d-inline-block rounded " aria-current="true">Arrays</a>
+                                            <a href="https://datarist.com/learn/javascript/array/" class="dd-links-link d-inline-block rounded " aria-current="true">Array</a>
                                         </li> 
                                         <li>
                                             <a href="https://datarist.com/learn/javascript/conditionals/" class="dd-links-link d-inline-block rounded " aria-current="true">Conditionals</a>
@@ -1143,9 +1143,9 @@
                             <a class="btn btn-sm btn-dd-light rounded-2" style="--bs-btn-font-size: .75rem;" href="https://codepen.io/datarist/" title="Edit on CodePen" target="_blank" rel="noopener">Edit on CodePen
             </a>
                         </div>
-                        <h1 class="dd-title mb-0" id="content">Transitions</h1>
+                        <h1 class="dd-title mb-0" id="content">Forms</h1>
                     </div>
-                    <p class="dd-lead">Learn CSS Transitions for web development, and how to define transitions between states of an element and use transitions to improve user experience by providing visual feedback to user interaction.</p>
+                    <p class="dd-lead">Learn CSS Form elements in web app development. This guide will cover general best practices as demonstrated through CSS form elements and tips on how form elements behave differently from regular boxes.</p>
                     <script async src="https://cdn.carbonads.com/carbon.js?serve=CKYIKKJL&placement=getbootstrapcom" id="_carbonads_js"></script>
                 </div>
                 <div class="dd-toc mt-3 mb-5 my-lg-0 mb-lg-5 px-sm-1 text-body-secondary">
@@ -1172,552 +1172,1431 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
+                   
                     
-                    
-
-
 
 
 
                     <article class="main-page-content" lang="en-US">
                         <header>
-                            <h1>Transitions</h1>
+                            <h1>Floats</h1>
                         </header>
                         <div class="section-content">
-                            <p>
-                                <em>Getting started with ...</em>
-                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
-                            </p>
-                        </div>
-                        <section aria-labelledby="the_story_of_your_first_website">
-                           
-                            
-
-
-
-
-
-                            <p>When interacting with a website, you might notice that many elements have <em>state</em>. For example, dropdowns can be in opened or closed states. Buttons might change color when focused or hovered. Modals appear and disappear.</p>
-
-                            <p>By default, CSS switches the style of these states instantly.</p>
-                            
-                            <p>Using CSS transitions, we can interpolate between the initial state and the target state of the element. The transition between the two enhances the user experience by providing visual direction, support, and hints about the cause and effect of the interaction.</p>
-                            
-                            <aside class="key-term"><b>Key term: </b> <em>Interpolation</em> is the process of creating &quot;in-between&quot; steps that smoothly transition from one state to another. </aside>
-                            
-                            <figure>
-                            <div class="wd-embed" style="height: 320px; width: 100%">
-                              <iframe
-                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
-                              loading="lazy"
-                              src="https://codepen.io/web-dot-dev/embed/zYzNrJV?height=320&theme-id=light&default-tab=result&editable=true"
-                              style="height: 100%; width: 100%; border: 0;"
-                              title="Pen zYzNrJV by web-dot-dev on Codepen"
-                            ></iframe>
-                            </div>
-                            </figure>
-                            
-                            <h2 id="transition_properties" data-text="Transition properties" tabindex="-1">Transition properties</h2>
-                            
-                            <p>
-                              
-                                
-                                
-                                
-                                
-                              
-                              
-                              
-                                
-                                  
-                                
-                              
-                                
-                                  
-                                
-                              
-                                
-                                  
-                                
-                               
-                            
-                                
-                                
-                                  
-                                  <div class="wd-browser-compat">
-                                    <p>Browser Support</p>
-                                    <ul>
-                                      
-                              
-                              
-                                
-                                  
-                                    
-                                      
-                                      
-                                    
-                                  
-                                
-                                
-                              
-                              <li
-                                data-browser="chrome"
-                                data-support="yes">26</li>
-                              
-                              
-                                      
-                              
-                              
-                                
-                                  
-                                    
-                                      
-                                      
-                                    
-                                  
-                                
-                                
-                              
-                              <li
-                                data-browser="edge"
-                                data-support="yes">12</li>
-                              
-                              
-                                      
-                              
-                              
-                                
-                                  
-                                    
-                                      
-                                      
-                                    
-                                  
-                                
-                                
-                              
-                              <li
-                                data-browser="firefox"
-                                data-support="yes">16</li>
-                              
-                              
-                                      
-                              
-                              
-                                
-                                  
-                                    
-                                      
-                                      
-                                    
-                                  
-                                
-                                
-                              
-                              <li
-                                data-browser="safari"
-                                data-support="yes">9</li>
-                              
-                              
-                                    </ul>
-                                    
-                                    <p><a href="https://developer.mozilla.org/docs/Web/CSS/transition-property">Source</a></p>
-                                    
-                                  </div>
-                                
-                                
-                                
-                              </p>
-                            
-                            <p>To use transitions in CSS, you can use the various transition properties or the <code translate="no" dir="ltr">transition</code> shorthand property.</p>
-                            
-                            <h3 id="transition-property" data-text="transition-property" tabindex="-1">transition-property</h3>
-                            
-                            <p>The <a href="https://developer.mozilla.org/docs/Web/CSS/transition-property"><code translate="no" dir="ltr">transition-property</code></a> property specifies which style(s) to transition.</p>
-                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">.my-element {
-                              transition-property: background-color;
-                            }
-                            </code></pre>
-                            <p>The <code translate="no" dir="ltr">transition-property</code> accepts one or more CSS property names in a comma-separated list.</p>
-                            
-                            <p>Optionally, you may use <code translate="no" dir="ltr">transition-property: all</code> to indicate that every property should transition.</p>
-                            
-                            <figure>
-                            <div class="wd-embed" style="height: 400px; width: 100%">
-                              <iframe
-                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
-                              loading="lazy"
-                              src="https://codepen.io/web-dot-dev/embed/VwWPeEj?height=400&theme-id=light&default-tab=result&editable=true"
-                              style="height: 100%; width: 100%; border: 0;"
-                              title="Pen VwWPeEj by web-dot-dev on Codepen"
-                            ></iframe>
-                            </div>
-                            </figure>
-                            
-                            <h3 id="transition-duration" data-text="transition-duration" tabindex="-1">transition-duration</h3>
-                            
-                            <p>The <a href="https://developer.mozilla.org/docs/Web/CSS/transition-duration"><code translate="no" dir="ltr">transition-duration</code></a> property is used to define the length of time that a transition will take to complete.</p>
-                            
-                            <figure>
-                            <div class="wd-embed" style="height: 400px; width: 100%">
-                              <iframe
-                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
-                              loading="lazy"
-                              src="https://codepen.io/web-dot-dev/embed/wvegMYp?height=400&theme-id=light&default-tab=result&editable=true"
-                              style="height: 100%; width: 100%; border: 0;"
-                              title="Pen wvegMYp by web-dot-dev on Codepen"
-                            ></iframe>
-                            </div>
-                            </figure>
-                            
-                            <p><code translate="no" dir="ltr">transition-duration</code> accepts time units, either in seconds (<code translate="no" dir="ltr">s</code>) or milliseconds (<code translate="no" dir="ltr">ms</code>) and defaults to <code translate="no" dir="ltr">0s</code>.</p>
-                            
-                            <h3 id="transition-timing-function" data-text="transition-timing-function" tabindex="-1">transition-timing-function</h3>
-                            
-                            <p>Use the <a href="https://developer.mozilla.org/docs/Web/CSS/transition-timing-function"><code translate="no" dir="ltr">transition-timing-function</code></a> property to vary the speed of a CSS transition over the course of the <code translate="no" dir="ltr">transition-duration</code>.</p>
-                            
-                            <p>By default, CSS will transition your elements at a constant speed (<code translate="no" dir="ltr">transition-timing-function: linear</code>). Linear transitions can end up looking somewhat artificial, though: in real life, objects have weight and can&#39;t stop and start instantly. Easing into or out of a transition can make your transitions more lively and natural.</p>
-                            
-                            <figure>
-                            <div class="wd-embed" style="height: 500px; width: 100%">
-                              <iframe
-                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
-                              loading="lazy"
-                              src="https://codepen.io/web-dot-dev/embed/QWgdyZx?height=500&theme-id=light&default-tab=result&editable=true"
-                              style="height: 100%; width: 100%; border: 0;"
-                              title="Pen QWgdyZx by web-dot-dev on Codepen"
-                            ></iframe>
-                            </div>
-                            </figure>
-                            
-                            <p>Our <a href="/learn/css/animations#animation-timing-function">module on CSS Animation</a> has a good overview of timing functions.</p>
-                            
-                            <p>You can use <a href="https://developer.chrome.com/docs/devtools/css/animations">DevTools</a> to experiment with different timing functions in real-time.</p>
-                            
-                            <p><img src="/static/learn/css/transitions/image/chrome-devtools-visual-tr-a81b123ee987d.png" alt="Chrome DevTools visual transition timing editor." width="800" height="418" srcset="https://web.dev/static/learn/css/transitions/image/chrome-devtools-visual-tr-a81b123ee987d_36.png 36w,https://web.dev/static/learn/css/transitions/image/chrome-devtools-visual-tr-a81b123ee987d_48.png 48w,https://web.dev/static/learn/css/transitions/image/chrome-devtools-visual-tr-a81b123ee987d_72.png 72w,https://web.dev/static/learn/css/transitions/image/chrome-devtools-visual-tr-a81b123ee987d_96.png 96w,https://web.dev/static/learn/css/transitions/image/chrome-devtools-visual-tr-a81b123ee987d_480.png 480w,https://web.dev/static/learn/css/transitions/image/chrome-devtools-visual-tr-a81b123ee987d_720.png 720w,https://web.dev/static/learn/css/transitions/image/chrome-devtools-visual-tr-a81b123ee987d_856.png 856w,https://web.dev/static/learn/css/transitions/image/chrome-devtools-visual-tr-a81b123ee987d_960.png 960w,https://web.dev/static/learn/css/transitions/image/chrome-devtools-visual-tr-a81b123ee987d_1440.png 1440w,https://web.dev/static/learn/css/transitions/image/chrome-devtools-visual-tr-a81b123ee987d_1920.png 1920w,https://web.dev/static/learn/css/transitions/image/chrome-devtools-visual-tr-a81b123ee987d_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
-                            
-                            <h3 id="transition-delay" data-text="transition-delay" tabindex="-1">transition-delay</h3>
-                            
-                            <p>Use the <a href="https://developer.mozilla.org/docs/Web/CSS/transition-delay"><code translate="no" dir="ltr">transition-delay</code></a> property to specify the time at which a transition will start. If <code translate="no" dir="ltr">transition-duration</code> is not specified, transitions will start instantly because the default value is <code translate="no" dir="ltr">0s</code>. This property accepts a time unit, for example seconds (<code translate="no" dir="ltr">s</code>) or milliseconds (<code translate="no" dir="ltr">ms</code>).</p>
-                            
-                            <figure>
-                            <div class="wd-embed" style="height: 500px; width: 100%">
-                              <iframe
-                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
-                              loading="lazy"
-                              src="https://codepen.io/web-dot-dev/embed/jOwyWep?height=500&theme-id=light&default-tab=result&editable=true"
-                              style="height: 100%; width: 100%; border: 0;"
-                              title="Pen jOwyWep by web-dot-dev on Codepen"
-                            ></iframe>
-                            </div>
-                            </figure>
-                            
-                            <p>This property is useful for staggering transitions, achieved by setting a longer <code translate="no" dir="ltr">transition-delay</code> for each subsequent element in a group.</p>
-                            
-                            <figure>
-                            <div class="wd-embed" style="height: 410px; width: 100%">
-                              <iframe
-                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
-                              loading="lazy"
-                              src="https://codepen.io/web-dot-dev/embed/yLXgeRQ?height=410&theme-id=light&default-tab=result&editable=true"
-                              style="height: 100%; width: 100%; border: 0;"
-                              title="Pen yLXgeRQ by web-dot-dev on Codepen"
-                            ></iframe>
-                            </div>
-                            </figure>
-                            
-                            <p><code translate="no" dir="ltr">transition-delay</code> is also useful for debugging. Setting the delay to a negative value can start a transition further into the timeline.</p>
-                            
-                            <h3 id="shorthand_transition" data-text="shorthand: transition" tabindex="-1">shorthand: transition</h3>
-                            
-                            <p>Like most CSS properties, there is a shorthand version. <a href="https://developer.mozilla.org/docs/Web/CSS/transition"><code translate="no" dir="ltr">transition</code></a> combines <code translate="no" dir="ltr">transition-property</code>, <code translate="no" dir="ltr">transition-duration</code>, <code translate="no" dir="ltr">transition-timing-function</code>, and <code translate="no" dir="ltr">transition-delay</code>.</p>
-                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">.longhand {
-                              transition-property: transform;
-                              transition-duration: 300ms;
-                              transition-timing-function: ease-in-out;
-                              transition-delay: 0s;
-                            }
-                            
-                            .shorthand {
-                              transition: transform 300ms ease-in-out 0s;
-                            }
-                            </code></pre>
-                            <h2 id="what_can_and_cant_transition" data-text="What can and can't transition?" tabindex="-1">What can and can't transition?</h2>
-                            
-                            <p>When writing CSS, you can specify which properties should have animated transitions. See <a href="https://developer.mozilla.org/docs/Web/CSS/CSS_animated_properties">this MDN list of animatable CSS properties</a>.</p>
-                            
-                            <p>In general, it&#39;s only possible to transition elements that can have a &quot;middle state&quot; between their start and final states. For example, it&#39;s impossible to add transitions for <code translate="no" dir="ltr">font-family</code>, because it&#39;s unclear what the &quot;middle state&quot; between <code translate="no" dir="ltr">serif</code> and <code translate="no" dir="ltr">monospace</code> should look like. On the other hand, it is possible to add transitions for <code translate="no" dir="ltr">font-size</code> because its unit is a length that can be interpolated between.</p>
-                            
-                            <p><img src="/static/learn/css/transitions/image/diagram-shapes-transitio-b51956d49a4c.jpg" alt="Diagram of shapes transitioning smoothly from one state to another, and two lines of text in different fonts that cannot be transitioned smoothly." width="800" height="600" srcset="https://web.dev/static/learn/css/transitions/image/diagram-shapes-transitio-b51956d49a4c_36.jpg 36w,https://web.dev/static/learn/css/transitions/image/diagram-shapes-transitio-b51956d49a4c_48.jpg 48w,https://web.dev/static/learn/css/transitions/image/diagram-shapes-transitio-b51956d49a4c_72.jpg 72w,https://web.dev/static/learn/css/transitions/image/diagram-shapes-transitio-b51956d49a4c_96.jpg 96w,https://web.dev/static/learn/css/transitions/image/diagram-shapes-transitio-b51956d49a4c_480.jpg 480w,https://web.dev/static/learn/css/transitions/image/diagram-shapes-transitio-b51956d49a4c_720.jpg 720w,https://web.dev/static/learn/css/transitions/image/diagram-shapes-transitio-b51956d49a4c_856.jpg 856w,https://web.dev/static/learn/css/transitions/image/diagram-shapes-transitio-b51956d49a4c_960.jpg 960w,https://web.dev/static/learn/css/transitions/image/diagram-shapes-transitio-b51956d49a4c_1440.jpg 1440w,https://web.dev/static/learn/css/transitions/image/diagram-shapes-transitio-b51956d49a4c_1920.jpg 1920w,https://web.dev/static/learn/css/transitions/image/diagram-shapes-transitio-b51956d49a4c_2880.jpg 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
-                            
-                            <p>Here are some common properties you can transition.</p>
-                            
-                            <h3 id="transform" data-text="Transform" tabindex="-1">Transform</h3>
-                            
-                            <p>
-                              
-                                
-                                
-                                
-                                
-                              
-                              
-                              
-                                
-                                  
-                                
-                              
-                                
-                                  
-                                
-                              
-                                
-                                  
-                                
-                               
-                            
-                                
-                                
-                                  
-                                  <div class="wd-browser-compat">
-                                    <p>Browser Support</p>
-                                    <ul>
-                                      
-                              
-                              
-                                
-                                  
-                                    
-                                      
-                                      
-                                    
-                                  
-                                
-                                
-                              
-                              <li
-                                data-browser="chrome"
-                                data-support="yes">36</li>
-                              
-                              
-                                      
-                              
-                              
-                                
-                                  
-                                    
-                                      
-                                      
-                                    
-                                  
-                                
-                                
-                              
-                              <li
-                                data-browser="edge"
-                                data-support="yes">12</li>
-                              
-                              
-                                      
-                              
-                              
-                                
-                                  
-                                    
-                                      
-                                      
-                                    
-                                  
-                                
-                                
-                              
-                              <li
-                                data-browser="firefox"
-                                data-support="yes">16</li>
-                              
-                              
-                                      
-                              
-                              
-                                
-                                  
-                                    
-                                      
-                                      
-                                    
-                                  
-                                
-                                
-                              
-                              <li
-                                data-browser="safari"
-                                data-support="yes">9</li>
-                              
-                              
-                                    </ul>
-                                    
-                                    <p><a href="https://developer.mozilla.org/docs/Web/CSS/transform">Source</a></p>
-                                    
-                                  </div>
-                                
-                                
-                                
-                              </p>
-                            
-                            <p>The <a href="https://developer.mozilla.org/docs/Web/CSS/transform"><code translate="no" dir="ltr">transform</code></a> CSS property is commonly transitioned because it is a GPU-accelerated property that results in smoother animation that also consumes less battery. This property lets you arbitrarily scale, rotate, translate, or skew an element.</p>
-                            
-                            <figure>
-                            <div class="wd-embed" style="height: 500px; width: 100%">
-                              <iframe
-                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
-                              loading="lazy"
-                              src="https://codepen.io/web-dot-dev/embed/GRErowE?height=500&theme-id=light&default-tab=result&editable=true"
-                              style="height: 100%; width: 100%; border: 0;"
-                              title="Pen GRErowE by web-dot-dev on Codepen"
-                            ></iframe>
-                            </div>
-                            </figure>
-                            
-                            <p>Check out <a href="/learn/css/functions#transforms">the section on transforms</a> in <a href="/learn/css/functions">our Functions module</a>.</p>
-                            
-                            <h3 id="color" data-text="Color" tabindex="-1">Color</h3>
-                            
-                            <p>Before, during, and after interaction, color can be a great indicator of state. For example, a button might change color if it&#39;s being hovered. This color change can provide feedback to the user that the button is clickable.</p>
-                            
-                            <p>The <code translate="no" dir="ltr">color</code>, <code translate="no" dir="ltr">background-color</code>, and <code translate="no" dir="ltr">border-color</code> properties are just a few places where color can
-                            be transitioned upon interaction.</p>
-                            
-                            <aside class="note"><b>Note: </b> Color transitions do not usually need to be behind a <a href="#accessibility_considerations">reduced motion</a> preference. Use your best judgment. </aside>
-                            
-                            <p>Check out <a href="/learn/css/color">our module on color</a>.</p>
-                            
-                            <h3 id="shadows" data-text="Shadows" tabindex="-1">Shadows</h3>
-                            
-                            <p>Shadows are often transitioned to indicate elevation change, like from user focus.</p>
-                            
-                            <figure>
-                            <div class="wd-embed" style="height: 300px; width: 100%">
-                              <iframe
-                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
-                              loading="lazy"
-                              src="https://codepen.io/web-dot-dev/embed/gORgPQx?height=300&theme-id=light&default-tab=result&editable=true"
-                              style="height: 100%; width: 100%; border: 0;"
-                              title="Pen gORgPQx by web-dot-dev on Codepen"
-                            ></iframe>
-                            </div>
-                            </figure>
-                            
-                            <p>Check out <a href="/learn/css/shadows">our module on shadows</a>.</p>
-                            
-                            <h3 id="filters" data-text="Filters" tabindex="-1">Filters</h3>
-                            
-                            <p><a href="https://developer.mozilla.org/docs/Web/CSS/filter"><code translate="no" dir="ltr">filter</code></a> is a powerful CSS property that lets you add graphic effects on the fly. Transitioning between different <code translate="no" dir="ltr">filter</code> states can create some pretty impressive results.</p>
-                            
-                            <figure>
-                            <div class="wd-embed" style="height: 350px; width: 100%">
-                              <iframe
-                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
-                              loading="lazy"
-                              src="https://codepen.io/web-dot-dev/embed/PojWZxJ?height=350&theme-id=light&default-tab=result&editable=true"
-                              style="height: 100%; width: 100%; border: 0;"
-                              title="Pen PojWZxJ by web-dot-dev on Codepen"
-                            ></iframe>
-                            </div>
-                            </figure>
-                            
-                            <p>Check out <a href="/learn/css/filters">our module on filters</a>.</p>
-                            
-                            <h2 id="transition_triggers" data-text="Transition triggers" tabindex="-1">Transition triggers</h2>
-                            
-                            <p>Your CSS must include a change of state <em>and</em> an event that triggers that state change for CSS transitions to activate. A typical example of such a trigger is the <code translate="no" dir="ltr">:hover</code> <a href="/learn/css/pseudo-classes">pseudo-class</a>. This pseudo-class matches when the user hovers over an element with their cursor.</p>
-                            
-                            <p>Below is a list of some pseudo-classes and events that can trigger state changes in your elements.</p>
-                            
-                            <ul>
-                            <li><a href="/learn/css/pseudo-classes#hover"><code translate="no" dir="ltr">:hover</code></a>: matches if the cursor is over the element.</li>
-                            <li><a href="/learn/css/pseudo-classes#focus_focus-within_and_focus-visible"><code translate="no" dir="ltr">:focus</code></a>: matches if the element is focused.</li>
-                            <li><a href="/learn/css/pseudo-classes#focus_focus-within_and_focus-visible"><code translate="no" dir="ltr">:focus-within</code></a> : matches if the element or any of its descendants are
-                            focused.</li>
-                            <li><a href="/learn/css/pseudo-classes#target"><code translate="no" dir="ltr">:target</code></a>: matches when the current URL&#39;s <a href="https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/Identifying_resources_on_the_Web#fragment">fragment</a> matches the element&#39;s id.</li>
-                            <li><a href="/learn/css/pseudo-classes#active"><code translate="no" dir="ltr">:active</code></a>:  matches when the element is being activated (typically when the
-                            mouse is pressed over it).</li>
-                            <li><code translate="no" dir="ltr">class</code> change from JavaScript: when an element&#39;s CSS <code translate="no" dir="ltr">class</code> changes via
-                            JavaScript, CSS will transition eligible properties that have changed.</li>
+                            <ul class="prev-next">
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/CSS/CSS_layout/Grids">
+                                        <span class="button-wrap">Previous </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/CSS/CSS_layout">
+                                        <span class="button-wrap">Overview: CSS layout</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/CSS/CSS_layout/Positioning">
+                                        <span class="button-wrap">Next  </span>
+                                    </a>
+                                </li>
                             </ul>
-                            
-                            <h2 id="different_transitions_for_enter_or_exit" data-text="Different transitions for enter or exit" tabindex="-1">Different transitions for enter or exit</h2>
-                            
-                            <p>By setting different <code translate="no" dir="ltr">transition</code> properties on hover/focus, it&#39;s possible to create some interesting effects.</p>
-                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">.my-element {
-                              background: red;
-                            
-                              /* This transition is applied on the &#34;exit&#34; transition */
-                              transition: background 2000ms ease-in;
-                            }
-                            
-                            .my-element:hover {
-                              background: blue;
-                            
-                              /* This transition is applied on the &#34;enter&#34; transition */
-                              transition: background 150ms ease;
-                            }
-                            </code></pre>
-                            <figure>
-                            <div class="wd-embed" style="height: 500px; width: 100%">
-                              <iframe
-                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
-                              loading="lazy"
-                              src="https://codepen.io/web-dot-dev/embed/OJgWMaO?height=500&theme-id=light&default-tab=result&editable=true"
-                              style="height: 100%; width: 100%; border: 0;"
-                              title="Pen OJgWMaO by web-dot-dev on Codepen"
-                            ></iframe>
-                            </div>
+                            <p>
+                                Originally for floating images inside blocks of text, the 
+                                <a href="/en-US/docs/Web/CSS/float">
+                                    <code>float</code>
+                                </a>
+                                property became one of the most commonly used tools for creating multiple column layouts on webpages. With the advent of flexbox and grid it's now returned to its original purpose, as this article explains.
+                            </p>
+                            <figure class="table-container">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Prerequisites:</th>
+                                            <td>
+                                                HTML basics (study
+    <a href="/en-US/docs/Learn/HTML/Introduction_to_HTML">Introduction to HTML</a>
+                                                ), and an idea of How CSS works (study
+    <a href="/en-US/docs/Learn/CSS/First_steps">Introduction to CSS</a>
+                                                .)
+  
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Objective:</th>
+                                            <td>To learn how to create floated features on webpages and to use the clear
+    property as well as other methods for clearing floats.
+  </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </figure>
-                            
-                            <h2 id="accessibility_considerations" data-text="Accessibility considerations" tabindex="-1">Accessibility considerations</h2>
-                            
-                            <p>CSS transitions are not for everyone. For some people, transitions and animations can cause motion sickness or discomfort. Thankfully, CSS has a media feature called <a href="https://developer.mozilla.org/docs/Web/CSS/@media/prefers-reduced-motion"><code translate="no" dir="ltr">prefers-reduced-motion</code></a> that detects if a user has indicated a preference for less motion from their device.</p>
-                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">/*
-                              If the user has expressed their preference for
-                              reduced motion, then don&#39;t use transitions.
-                            */
-                            @media (prefers-reduced-motion: reduce) {
-                              .my-element {
-                                transition: none;
-                              }
-                            }
-                            
-                            /*
-                              If the browser understands the media query and the user
-                              explicitly hasn&#39;t set a preference, then use transitions.
-                            */
-                            @media (prefers-reduced-motion: no-preference) {
-                              .my-element {
-                                transition: transform 250ms ease;
-                              }
-                            }
-                            </code></pre>
-                            <p>Check out our blog post <a href="/articles/prefers-reduced-motion">prefers-reduced-motion: Sometimes less movement is more</a> for more information on this media feature.</p>
-                            
-                            <aside class="note"><b>Note: </b> In the Learn Accessibility module on <a href="/learn/accessibility/motion">animation and motion</a> discover how to add delight to your site without causing problems for some users. </aside>
-                            
-                            <h2 id="performance_considerations" data-text="Performance considerations" tabindex="-1">Performance considerations</h2>
-                            
-                            <p>When working with CSS transitions, you may encounter performance issues if you add transitions for certain CSS properties. For example, when properties such as <code translate="no" dir="ltr">width</code> or <code translate="no" dir="ltr">height</code> change, they push content around on the rest of the page. This forces CSS to calculate new positions for every affected element for each frame of the transition. When possible, we recommend using properties like <code translate="no" dir="ltr">transform</code> and <code translate="no" dir="ltr">opacity</code> instead.</p>
-                            
-                            <p>Check out our <a href="/articles/animations-guide">guide on high-performance CSS animations</a> for a deep-dive on this topic.</p>
+                        </div>
+                        <section aria-labelledby="the_background_of_floats">
+                            <h2 id="the_background_of_floats">
+                                <a href="#the_background_of_floats">The background of floats</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    The 
+                                    <a href="/en-US/docs/Web/CSS/float">
+                                        <code>float</code>
+                                    </a>
+                                    property was introduced to allow web developers to implement layouts involving an image floating inside a column of text, with the text wrapping around the left or right of it. The kind of thing you might get in a newspaper layout.
+                                </p>
+                                <p>
+                                    But web developers quickly realized that you can float anything, not just images, so the use of float broadened, for example, to fun layout effects such as <a href="https://css-tricks.com/snippets/css/drop-caps/" class="external" target="_blank">drop-caps</a>
+                                    .
+                                </p>
+                                <p>
+                                    Floats have commonly been used to create entire website layouts featuring multiple columns of information floated so they sit alongside one another (the default behavior would be for the columns to sit below one another in the same order as they appear in the source). There are newer, better layout techniques available. Using floats in this way should be regarded as a <a href="/en-US/docs/Learn/CSS/CSS_layout/Legacy_Layout_Methods">legacy technique</a>
+                                    .
+                                </p>
+                                <p>In this article we'll just concentrate on the proper uses of floats.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="a_float_example">
+                            <h2 id="a_float_example">
+                                <a href="#a_float_example">A float example</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    Let's explore the use of floats. We'll start with an example involving floating a block of text around an element. You can follow along by creating a new <code>index.html</code>
+                                    file on your computer, filling it with an <a href="https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/getting-started/index.html" class="external" target="_blank">HTML template</a>
+                                    , and inserting the below code into it at the appropriate places. At the bottom of the section, you can see a live example of what the final code should look like.
+                                </p>
+                                <p>First, we'll start off with some HTML. Add the following to your HTML body, removing anything that was inside there before:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">html</span>
+                                    </div>
+                                    <pre class="brush: html notranslate" data-signature="s/Md8Og0/xbfzcTYZak0owtA3H4U5jfvkNkI0FqAbhI=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    h1
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Float example
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    h1
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    div
+                                                </span>
+                                                <span class="token attr-name">class</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    box<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Float
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    div
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam
+dolor, eu lacinia lorem placerat vulputate. Duis felis orci, pulvinar id metus
+ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at ultricies tellus
+laoreet sit amet.
 
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Sed auctor cursus massa at porta. Integer ligula ipsum, tristique sit amet
+orci vel, viverra egestas ligula. Curabitur vehicula tellus neque, ac ornare
+ex malesuada et. In vitae convallis lacus. Aliquam erat volutpat. Suspendisse
+ac imperdiet turpis. Aenean finibus sollicitudin eros pharetra congue. Duis
+ornare egestas augue ut luctus. Proin blandit quam nec lacus varius commodo et
+a urna. Ut id ornare felis, eget fermentum sapien.
 
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada
+ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed
+est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus
+tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies lectus
+sed lobortis finibus. Vivamus eu urna eget velit cursus viverra quis
+vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque
+penatibus et magnis dis parturient montes, nascetur ridiculus mus.
 
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    Now apply the following CSS to your HTML (using a 
+                                    <a href="/en-US/docs/Web/HTML/Element/style">
+                                        <code>&lt;style &gt;</code>
+                                    </a>
+                                    element or a 
+                                    <a href="/en-US/docs/Web/HTML/Element/link">
+                                        <code>&lt;link &gt;</code>
+                                    </a>
+                                    to a separate <code>.css</code>
+                                    file — your choice):
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="HO7EAWfhmlWQrFA1j/GH+qujRa18tnhKtXmtSGmE1Bk=">
+                                        <code>
+                                            <span class="token selector">body</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">width</span>
+                                            <span class="token punctuation">:</span>
+                                            90%<span class="token punctuation">;</span>
+                                            <span class="token property">max-width</span>
+                                            <span class="token punctuation">:</span>
+                                            900px<span class="token punctuation">;</span>
+                                            <span class="token property">margin</span>
+                                            <span class="token punctuation">:</span>
+                                            0 auto<span class="token punctuation">;</span>
+                                            <span class="token property">font</span>
+                                            <span class="token punctuation">:</span>
+                                            0.9em/1.2 Arial<span class="token punctuation">,</span>
+                                            Helvetica<span class="token punctuation">,</span>
+                                            sans-serif<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token selector">.box</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">width</span>
+                                            <span class="token punctuation">:</span>
+                                            150px<span class="token punctuation">;</span>
+                                            <span class="token property">height</span>
+                                            <span class="token punctuation">:</span>
+                                            100px<span class="token punctuation">;</span>
+                                            <span class="token property">border-radius</span>
+                                            <span class="token punctuation">:</span>
+                                            5px<span class="token punctuation">;</span>
+                                            <span class="token property">background-color</span>
+                                            <span class="token punctuation">:</span>
+                                            <span class="token function">rgb</span>
+                                            <span class="token punctuation">(</span>
+                                            207 232 220<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token property">padding</span>
+                                            <span class="token punctuation">:</span>
+                                            1em<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>If you save and refresh, you'll see something much like what you'd expect: the box is sitting above the text, in normal flow.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="floating_the_box">
+                            <h3 id="floating_the_box">
+                                <a href="#floating_the_box">Floating the box</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    To float the box, add the 
+                                    <a href="/en-US/docs/Web/CSS/float">
+                                        <code>float</code>
+                                    </a>
+                                    and 
+                                    <a href="/en-US/docs/Web/CSS/margin-right">
+                                        <code>margin-right</code>
+                                    </a>
+                                    properties to the <code>.box</code>
+                                    rule:
+                                </p>
+                                <div class="code-example">
+                                    <pre class="brush: html hidden notranslate" data-signature="s/Md8Og0/xbfzcTYZak0owtA3H4U5jfvkNkI0FqAbhI=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    h1
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Float example
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    h1
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    div
+                                                </span>
+                                                <span class="token attr-name">class</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    box<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Float
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    div
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam
+dolor, eu lacinia lorem placerat vulputate. Duis felis orci, pulvinar id metus
+ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at ultricies tellus
+laoreet sit amet.
 
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Sed auctor cursus massa at porta. Integer ligula ipsum, tristique sit amet
+orci vel, viverra egestas ligula. Curabitur vehicula tellus neque, ac ornare
+ex malesuada et. In vitae convallis lacus. Aliquam erat volutpat. Suspendisse
+ac imperdiet turpis. Aenean finibus sollicitudin eros pharetra congue. Duis
+ornare egestas augue ut luctus. Proin blandit quam nec lacus varius commodo et
+a urna. Ut id ornare felis, eget fermentum sapien.
 
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada
+ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed
+est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus
+tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies lectus
+sed lobortis finibus. Vivamus eu urna eget velit cursus viverra quis
+vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque
+penatibus et magnis dis parturient montes, nascetur ridiculus mus.
 
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="+h1NZ0qp9ZJ2fDzsZHeW5YiTLcDPhVTamMP/uuezjvk=">
+                                        <code>
+                                            <span class="token selector">.box</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">float</span>
+                                            <span class="token punctuation">:</span>
+                                            left<span class="token punctuation">;</span>
+                                            <span class="token property">margin-right</span>
+                                            <span class="token punctuation">:</span>
+                                            15px<span class="token punctuation">;</span>
+                                            <span class="token property">width</span>
+                                            <span class="token punctuation">:</span>
+                                            150px<span class="token punctuation">;</span>
+                                            <span class="token property">height</span>
+                                            <span class="token punctuation">:</span>
+                                            100px<span class="token punctuation">;</span>
+                                            <span class="token property">border-radius</span>
+                                            <span class="token punctuation">:</span>
+                                            5px<span class="token punctuation">;</span>
+                                            <span class="token property">background-color</span>
+                                            <span class="token punctuation">:</span>
+                                            <span class="token function">rgb</span>
+                                            <span class="token punctuation">(</span>
+                                            207 232 220<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token property">padding</span>
+                                            <span class="token punctuation">:</span>
+                                            1em<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>Now if you save and refresh you'll see something like the following:</p>
+                                <div class="code-example" id="sect1">
+                                    <div class="example-header" id="sect2"></div>
+                                    <iframe class="sample-code-frame" title="Floating the box sample" id="frame_floating_the_box" width="100%" height="500" src="https://live.mdnplay.dev/en-US/docs/Learn/CSS/CSS_layout/Floats/runner.html?id=floating_the_box" loading="lazy"></iframe>
+                                </div>
+                                <p>
+                                    Let's think about how the float works. The element with the float set on it (the 
+                                    <a href="/en-US/docs/Web/HTML/Element/div">
+                                        <code>&lt;div &gt;</code>
+                                    </a>
+                                    element in this case) is taken out of the normal layout flow of the document and stuck to the left-hand side of its parent container (
+                                    <a href="/en-US/docs/Web/HTML/Element/body">
+                                        <code>&lt;body &gt;</code>
+                                    </a>
+                                    , in this case). Any content that would come below the floated element in the normal layout flow will now wrap around it instead, filling up the space to the right-hand side of it as far up as the top of the floated element. There, it will stop.
+                                </p>
+                                <p>
+                                    Floating the content to the right has exactly the same effect, but in reverse: the floated element will stick to the right, and the content will wrap around it to the left. Try changing the float value to <code>right</code>
+                                    and replace 
+                                    <a href="/en-US/docs/Web/CSS/margin-right">
+                                        <code>margin-right</code>
+                                    </a>
+                                    with 
+                                    <a href="/en-US/docs/Web/CSS/margin-left">
+                                        <code>margin-left</code>
+                                    </a>
+                                    in the last ruleset to see what the result is.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="visualizing_the_float">
+                            <h3 id="visualizing_the_float">
+                                <a href="#visualizing_the_float">Visualizing the float</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>While we can add a margin to the float to push the text away, we can't add a margin to the text to move it away from the float. This is because a floated element is taken out of normal flow and the boxes of the following items actually run behind the float. You can see this by making some changes to your example.</p>
+                                <p>
+                                    Add a class of <code>special</code>
+                                    to the first paragraph of text, the one immediately following the floated box, then in your CSS add the following rules. These will give our following paragraph a background color.
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="UVM1qSkvwk3Zyg/yx+I+Hmr8SKexA0CrQ5z+Vokhito=">
+                                        <code>
+                                            <span class="token selector">.special</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">background-color</span>
+                                            <span class="token punctuation">:</span>
+                                            <span class="token function">rgb</span>
+                                            <span class="token punctuation">(</span>
+                                            148 255 172<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token property">padding</span>
+                                            <span class="token punctuation">:</span>
+                                            10px<span class="token punctuation">;</span>
+                                            <span class="token property">color</span>
+                                            <span class="token punctuation">:</span>
+                                            purple<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    To make the effect easier to see, change the <code>margin-right</code>
+                                    on your float to <code>margin</code>
+                                    so you get space all around the float. You'll be able to see the background on the paragraph running right underneath the floated box, as in the example below.
+                                </p>
+                                <div class="code-example">
+                                    <pre class="brush: html hidden notranslate" data-signature="rlqrs9vhcn3POZiBdoWl8Ah6oDK6P0XUbi6kgwgM/yI=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    h1
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Float example
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    h1
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    div
+                                                </span>
+                                                <span class="token attr-name">class</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    box<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Float
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    div
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token attr-name">class</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    special<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam
+dolor, eu lacinia lorem placerat vulputate. Duis felis orci, pulvinar id metus
+ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at ultricies tellus
+laoreet sit amet.
 
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Sed auctor cursus massa at porta. Integer ligula ipsum, tristique sit amet
+orci vel, viverra egestas ligula. Curabitur vehicula tellus neque, ac ornare
+ex malesuada et. In vitae convallis lacus. Aliquam erat volutpat. Suspendisse
+ac imperdiet turpis. Aenean finibus sollicitudin eros pharetra congue. Duis
+ornare egestas augue ut luctus. Proin blandit quam nec lacus varius commodo et
+a urna. Ut id ornare felis, eget fermentum sapien.
 
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada
+ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed
+est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus
+tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies lectus
+sed lobortis finibus. Vivamus eu urna eget velit cursus viverra quis
+vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque
+penatibus et magnis dis parturient montes, nascetur ridiculus mus.
 
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="code-example">
+                                    <pre class="brush: css hidden notranslate" data-signature="5T80sEEW8k3LaC9t52ECto0tSs3gFnnsTKOxtaDLuiw=">
+                                        <code>
+                                            <span class="token selector">body</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">width</span>
+                                            <span class="token punctuation">:</span>
+                                            90%<span class="token punctuation">;</span>
+                                            <span class="token property">max-width</span>
+                                            <span class="token punctuation">:</span>
+                                            900px<span class="token punctuation">;</span>
+                                            <span class="token property">margin</span>
+                                            <span class="token punctuation">:</span>
+                                            0 auto<span class="token punctuation">;</span>
+                                            <span class="token property">font</span>
+                                            <span class="token punctuation">:</span>
+                                            0.9em/1.2 Arial<span class="token punctuation">,</span>
+                                            Helvetica<span class="token punctuation">,</span>
+                                            sans-serif<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token selector">.box</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">float</span>
+                                            <span class="token punctuation">:</span>
+                                            left<span class="token punctuation">;</span>
+                                            <span class="token property">margin</span>
+                                            <span class="token punctuation">:</span>
+                                            15px<span class="token punctuation">;</span>
+                                            <span class="token property">width</span>
+                                            <span class="token punctuation">:</span>
+                                            150px<span class="token punctuation">;</span>
+                                            <span class="token property">height</span>
+                                            <span class="token punctuation">:</span>
+                                            150px<span class="token punctuation">;</span>
+                                            <span class="token property">border-radius</span>
+                                            <span class="token punctuation">:</span>
+                                            5px<span class="token punctuation">;</span>
+                                            <span class="token property">background-color</span>
+                                            <span class="token punctuation">:</span>
+                                            <span class="token function">rgb</span>
+                                            <span class="token punctuation">(</span>
+                                            207 232 220<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token property">padding</span>
+                                            <span class="token punctuation">:</span>
+                                            1em<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="code-example" id="sect3">
+                                    <div class="example-header" id="sect4"></div>
+                                    <iframe class="sample-code-frame" title="Visualizing the float sample" id="frame_visualizing_the_float" width="100%" height="500" src="https://live.mdnplay.dev/en-US/docs/Learn/CSS/CSS_layout/Floats/runner.html?id=visualizing_the_float" loading="lazy"></iframe>
+                                </div>
+                                <p>
+                                    The <a href="/en-US/docs/Web/CSS/Visual_formatting_model#line_boxes">line boxes</a>
+                                    of our following element have been shortened so the text runs around the float, but due to the float being removed from normal flow the box around the paragraph still remains full width.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="clearing_floats">
+                            <h2 id="clearing_floats">
+                                <a href="#clearing_floats">Clearing floats</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    We've seen that a float is removed from normal flow and that other elements will display beside it. If we want to stop the following element from moving up, we need to <em>clear</em>
+                                    it; this is achieved with the 
+                                    <a href="/en-US/docs/Web/CSS/clear">
+                                        <code>clear</code>
+                                    </a>
+                                    property.
+                                </p>
+                                <p>
+                                    In your HTML from the previous example, add a class of <code>cleared</code>
+                                    to the second paragraph below the floated item. Then add the following to your CSS:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="i6+wfZRlmBvsrqj2U1qxC25DWFMarDiPggpumpkiv1Q=">
+                                        <code>
+                                            <span class="token selector">.cleared</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">clear</span>
+                                            <span class="token punctuation">:</span>
+                                            left<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="code-example">
+                                    <pre class="brush: html hidden notranslate" data-signature="+y4EbcR+SJvS0DAcxXjIO8pkf/wuKEH7eBym8l0S38c=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    h1
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Float example
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    h1
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    div
+                                                </span>
+                                                <span class="token attr-name">class</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    box<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Float
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    div
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token attr-name">class</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    special<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam
+dolor, eu lacinia lorem placerat vulputate. Duis felis orci, pulvinar id metus
+ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at ultricies tellus
+laoreet sit amet.
 
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token attr-name">class</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    cleared<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Sed auctor cursus massa at porta. Integer ligula ipsum, tristique sit amet
+orci vel, viverra egestas ligula. Curabitur vehicula tellus neque, ac ornare
+ex malesuada et. In vitae convallis lacus. Aliquam erat volutpat. Suspendisse
+ac imperdiet turpis. Aenean finibus sollicitudin eros pharetra congue. Duis
+ornare egestas augue ut luctus. Proin blandit quam nec lacus varius commodo et
+a urna. Ut id ornare felis, eget fermentum sapien.
+
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada
+ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed
+est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus
+tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies lectus
+sed lobortis finibus. Vivamus eu urna eget velit cursus viverra quis
+vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque
+penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="code-example">
+                                    <pre class="brush: css hidden notranslate" data-signature="I9C1Qt+7TzvlU89J4fS7/LbLJHQsVlxTbIEgkyY5pZk=">
+                                        <code>
+                                            <span class="token selector">body</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">width</span>
+                                            <span class="token punctuation">:</span>
+                                            90%<span class="token punctuation">;</span>
+                                            <span class="token property">max-width</span>
+                                            <span class="token punctuation">:</span>
+                                            900px<span class="token punctuation">;</span>
+                                            <span class="token property">margin</span>
+                                            <span class="token punctuation">:</span>
+                                            0 auto<span class="token punctuation">;</span>
+                                            <span class="token property">font</span>
+                                            <span class="token punctuation">:</span>
+                                            0.9em/1.2 Arial<span class="token punctuation">,</span>
+                                            Helvetica<span class="token punctuation">,</span>
+                                            sans-serif<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token selector">.box</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">float</span>
+                                            <span class="token punctuation">:</span>
+                                            left<span class="token punctuation">;</span>
+                                            <span class="token property">margin</span>
+                                            <span class="token punctuation">:</span>
+                                            15px<span class="token punctuation">;</span>
+                                            <span class="token property">width</span>
+                                            <span class="token punctuation">:</span>
+                                            150px<span class="token punctuation">;</span>
+                                            <span class="token property">height</span>
+                                            <span class="token punctuation">:</span>
+                                            150px<span class="token punctuation">;</span>
+                                            <span class="token property">border-radius</span>
+                                            <span class="token punctuation">:</span>
+                                            5px<span class="token punctuation">;</span>
+                                            <span class="token property">background-color</span>
+                                            <span class="token punctuation">:</span>
+                                            <span class="token function">rgb</span>
+                                            <span class="token punctuation">(</span>
+                                            207 232 220<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token property">padding</span>
+                                            <span class="token punctuation">:</span>
+                                            1em<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token selector">.special</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">background-color</span>
+                                            <span class="token punctuation">:</span>
+                                            <span class="token function">rgb</span>
+                                            <span class="token punctuation">(</span>
+                                            148 255 172<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token property">padding</span>
+                                            <span class="token punctuation">:</span>
+                                            10px<span class="token punctuation">;</span>
+                                            <span class="token property">color</span>
+                                            <span class="token punctuation">:</span>
+                                            purple<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token selector">.cleared</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">clear</span>
+                                            <span class="token punctuation">:</span>
+                                            left<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="code-example" id="sect5">
+                                    <div class="example-header" id="sect6"></div>
+                                    <iframe class="sample-code-frame" title="Clearing floats sample" id="frame_clearing_floats" width="100%" height="600" src="https://live.mdnplay.dev/en-US/docs/Learn/CSS/CSS_layout/Floats/runner.html?id=clearing_floats" loading="lazy"></iframe>
+                                </div>
+                                <p>
+                                    You should see that the second paragraph now clears the floated element and no longer comes up alongside it. The <code>clear</code>
+                                    property accepts the following values:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <code>left</code>
+                                        : Clear items floated to the left.
+                                    </li>
+                                    <li>
+                                        <code>right</code>
+                                        : Clear items floated to the right.
+                                    </li>
+                                    <li>
+                                        <code>both</code>
+                                        : Clear any floated items, left or right.
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section aria-labelledby="clearing_boxes_wrapped_around_a_float">
+                            <h2 id="clearing_boxes_wrapped_around_a_float">
+                                <a href="#clearing_boxes_wrapped_around_a_float">Clearing boxes wrapped around a float</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    You now know how to clear something following a floated element, but let's see what happens if you have a tall float and a short paragraph, with a box wrapped around <em>both</em>
+                                    elements.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="the_problem">
+                            <h3 id="the_problem">
+                                <a href="#the_problem">The problem</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    Change your document so that the first paragraph and the floated box are jointly wrapped with a 
+                                    <a href="/en-US/docs/Web/HTML/Element/div">
+                                        <code>&lt;div &gt;</code>
+                                    </a>
+                                    , which has a class of <code>wrapper</code>
+                                    .
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">html</span>
+                                    </div>
+                                    <pre class="brush: html live-sample___the_problem notranslate" data-signature="o6jFD3AD40aELBjR4oW9H5CfmmNQr4oLqM3B6xsS3rk=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    div
+                                                </span>
+                                                <span class="token attr-name">class</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    wrapper<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    div
+                                                </span>
+                                                <span class="token attr-name">class</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    box<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Float1
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    div
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus
+aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci,
+pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at
+ultricies tellus laoreet sit amet.
+
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    div
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    In your CSS, add the following rule for the <code>.wrapper</code>
+                                    class and then reload the page:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css live-sample___the_problem notranslate" data-signature="w65sk0UMjBA3A+5tKP0ivY8kZ8O7zK5LjzQz1S5ECbY=">
+                                        <code>
+                                            <span class="token selector">.wrapper</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">background-color</span>
+                                            <span class="token punctuation">:</span>
+                                            <span class="token function">rgb</span>
+                                            <span class="token punctuation">(</span>
+                                            148 255 172<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token property">padding</span>
+                                            <span class="token punctuation">:</span>
+                                            10px<span class="token punctuation">;</span>
+                                            <span class="token property">color</span>
+                                            <span class="token punctuation">:</span>
+                                            purple<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    In addition, remove the original <code>.cleared</code>
+                                    class:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="i6+wfZRlmBvsrqj2U1qxC25DWFMarDiPggpumpkiv1Q=">
+                                        <code>
+                                            <span class="token selector">.cleared</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">clear</span>
+                                            <span class="token punctuation">:</span>
+                                            left<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>You'll see that, just like in the example where we put a background color on the paragraph, the background color runs behind the float.</p>
+                                <div class="code-example">
+                                    <pre class="brush: html hidden live-sample___the_problem notranslate" data-signature="7Rb7C8i6eioHNQ7Z7Tiqok4fIMRURNTGfuaHiSJ655c=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Sed auctor cursus massa at porta. Integer ligula ipsum, tristique sit amet
+orci vel, viverra egestas ligula. Curabitur vehicula tellus neque, ac ornare
+ex malesuada et. In vitae convallis lacus. Aliquam erat volutpat. Suspendisse
+ac imperdiet turpis. Aenean finibus sollicitudin eros pharetra congue. Duis
+ornare egestas augue ut luctus. Proin blandit quam nec lacus varius commodo et
+a urna. Ut id ornare felis, eget fermentum sapien.
+
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada
+ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed
+est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus
+tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies lectus
+sed lobortis finibus. Vivamus eu urna eget velit cursus viverra quis
+vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque
+penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="code-example">
+                                    <pre class="brush: css hidden live-sample___the_problem notranslate" data-signature="HB7r45CxUOrEQRQL7y4p1x+mt1dKsYpcfpV+chvbnLM=">
+                                        <code>
+                                            <span class="token selector">body</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">width</span>
+                                            <span class="token punctuation">:</span>
+                                            90%<span class="token punctuation">;</span>
+                                            <span class="token property">max-width</span>
+                                            <span class="token punctuation">:</span>
+                                            900px<span class="token punctuation">;</span>
+                                            <span class="token property">margin</span>
+                                            <span class="token punctuation">:</span>
+                                            0 auto<span class="token punctuation">;</span>
+                                            <span class="token property">font</span>
+                                            <span class="token punctuation">:</span>
+                                            0.9em/1.2 Arial<span class="token punctuation">,</span>
+                                            Helvetica<span class="token punctuation">,</span>
+                                            sans-serif<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token selector">.box</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">float</span>
+                                            <span class="token punctuation">:</span>
+                                            left<span class="token punctuation">;</span>
+                                            <span class="token property">margin</span>
+                                            <span class="token punctuation">:</span>
+                                            15px<span class="token punctuation">;</span>
+                                            <span class="token property">width</span>
+                                            <span class="token punctuation">:</span>
+                                            150px<span class="token punctuation">;</span>
+                                            <span class="token property">height</span>
+                                            <span class="token punctuation">:</span>
+                                            150px<span class="token punctuation">;</span>
+                                            <span class="token property">border-radius</span>
+                                            <span class="token punctuation">:</span>
+                                            5px<span class="token punctuation">;</span>
+                                            <span class="token property">background-color</span>
+                                            <span class="token punctuation">:</span>
+                                            <span class="token function">rgb</span>
+                                            <span class="token punctuation">(</span>
+                                            207 232 220<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token property">padding</span>
+                                            <span class="token punctuation">:</span>
+                                            1em<span class="token punctuation">;</span>
+                                            <span class="token property">color</span>
+                                            <span class="token punctuation">:</span>
+                                            black<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="code-example" id="sect7">
+                                    <div class="example-header" id="sect8"></div>
+                                    <iframe class="sample-code-frame" title="the problem sample" id="frame_the_problem" width="100%" height="600" src="https://live.mdnplay.dev/en-US/docs/Learn/CSS/CSS_layout/Floats/runner.html?id=the_problem" loading="lazy"></iframe>
+                                </div>
+                                <p>
+                                    Once again, this is because the float has been taken out of normal flow. You might expect that by wrapping the floated box and the text of first paragraph that wraps around the float together, the subsequent content will be cleared of the box. But this is not the case, as shown above. To deal with this, the standard method is to create a <a href="/en-US/docs/Web/CSS/CSS_display/Block_formatting_context">block formatting context</a>
+                                    (BFC) using the 
+                                    <a href="/en-US/docs/Web/CSS/display">
+                                        <code>display</code>
+                                    </a>
+                                    property.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="display_flow-root">
+                            <h3 id="display_flow-root">
+                                <a href="#display_flow-root">display: flow-root</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    To solve this problem is to use the value <code>flow-root</code>
+                                    of the <code>display</code>
+                                    property. This exists only to create a BFC without using hacks — there will be no unintended consequences when you use it.
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="yYlxO2PTiqNojZJDEV5EkSMpVz6GCpUJrHu4rCpcOSw=">
+                                        <code>
+                                            <span class="token selector">.wrapper</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">background-color</span>
+                                            <span class="token punctuation">:</span>
+                                            <span class="token function">rgb</span>
+                                            <span class="token punctuation">(</span>
+                                            148 255 172<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token property">padding</span>
+                                            <span class="token punctuation">:</span>
+                                            10px<span class="token punctuation">;</span>
+                                            <span class="token property">color</span>
+                                            <span class="token punctuation">:</span>
+                                            purple<span class="token punctuation">;</span>
+                                            <span class="token property">display</span>
+                                            <span class="token punctuation">:</span>
+                                            flow-root<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="code-example">
+                                    <pre class="brush: html hidden notranslate" data-signature="vWAxfc6PhVQQ7wVLfJ9NC7kfksGLlpp3lEqdjUgb/FY=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    h1
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Float example
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    h1
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    div
+                                                </span>
+                                                <span class="token attr-name">class</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    wrapper<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    div
+                                                </span>
+                                                <span class="token attr-name">class</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    box<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Float
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    div
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus
+aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci,
+pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at
+ultricies tellus laoreet sit amet.
+
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    div
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token attr-name">class</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    cleared<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Sed auctor cursus massa at porta. Integer ligula ipsum, tristique sit amet
+orci vel, viverra egestas ligula. Curabitur vehicula tellus neque, ac ornare
+ex malesuada et. In vitae convallis lacus. Aliquam erat volutpat. Suspendisse
+ac imperdiet turpis. Aenean finibus sollicitudin eros pharetra congue. Duis
+ornare egestas augue ut luctus. Proin blandit quam nec lacus varius commodo et
+a urna. Ut id ornare felis, eget fermentum sapien.
+
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada
+ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed
+est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus
+tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies lectus
+sed lobortis finibus. Vivamus eu urna eget velit cursus viverra quis
+vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque
+penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="code-example">
+                                    <pre class="brush: css hidden notranslate" data-signature="HB7r45CxUOrEQRQL7y4p1x+mt1dKsYpcfpV+chvbnLM=">
+                                        <code>
+                                            <span class="token selector">body</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">width</span>
+                                            <span class="token punctuation">:</span>
+                                            90%<span class="token punctuation">;</span>
+                                            <span class="token property">max-width</span>
+                                            <span class="token punctuation">:</span>
+                                            900px<span class="token punctuation">;</span>
+                                            <span class="token property">margin</span>
+                                            <span class="token punctuation">:</span>
+                                            0 auto<span class="token punctuation">;</span>
+                                            <span class="token property">font</span>
+                                            <span class="token punctuation">:</span>
+                                            0.9em/1.2 Arial<span class="token punctuation">,</span>
+                                            Helvetica<span class="token punctuation">,</span>
+                                            sans-serif<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token selector">.box</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">float</span>
+                                            <span class="token punctuation">:</span>
+                                            left<span class="token punctuation">;</span>
+                                            <span class="token property">margin</span>
+                                            <span class="token punctuation">:</span>
+                                            15px<span class="token punctuation">;</span>
+                                            <span class="token property">width</span>
+                                            <span class="token punctuation">:</span>
+                                            150px<span class="token punctuation">;</span>
+                                            <span class="token property">height</span>
+                                            <span class="token punctuation">:</span>
+                                            150px<span class="token punctuation">;</span>
+                                            <span class="token property">border-radius</span>
+                                            <span class="token punctuation">:</span>
+                                            5px<span class="token punctuation">;</span>
+                                            <span class="token property">background-color</span>
+                                            <span class="token punctuation">:</span>
+                                            <span class="token function">rgb</span>
+                                            <span class="token punctuation">(</span>
+                                            207 232 220<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token property">padding</span>
+                                            <span class="token punctuation">:</span>
+                                            1em<span class="token punctuation">;</span>
+                                            <span class="token property">color</span>
+                                            <span class="token punctuation">:</span>
+                                            black<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="code-example" id="sect9">
+                                    <div class="example-header" id="sect10"></div>
+                                    <iframe class="sample-code-frame" title="display flow-root sample" id="frame_display_flow-root" width="100%" height="600" src="https://live.mdnplay.dev/en-US/docs/Learn/CSS/CSS_layout/Floats/runner.html?id=display_flow-root" loading="lazy"></iframe>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="test_your_skills!">
+                            <h2 id="test_your_skills!">
+                                <a href="#test_your_skills!">Test your skills!</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    You've reached the end of this article, but can you remember the most important information? You can find some further tests to verify that you've retained this information before you move on — see <a href="/en-US/docs/Learn/CSS/CSS_layout/Floats_skills">Test your skills: Floats</a>
+                                    .
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="summary">
+                            <h2 id="summary">
+                                <a href="#summary">Summary</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    You now know all there is to know about floats in modern web development. See the article on <a href="/en-US/docs/Learn/CSS/CSS_layout/Legacy_Layout_Methods">legacy layout methods</a>
+                                    for information on how they used to be used, which may be useful if you find yourself working on older projects.
+                                </p>
+                                <ul class="prev-next">
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/CSS/CSS_layout/Grids">
+                                            <span class="button-wrap">Previous </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/CSS/CSS_layout">
+                                            <span class="button-wrap">Overview: CSS layout</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/CSS/CSS_layout/Positioning">
+                                            <span class="button-wrap">Next  </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </section>
                     </article>
+
+
 
 
 

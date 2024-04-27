@@ -1172,38 +1172,237 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
+                    
+                    
+
+
+
+                     <article class="main-page-content" lang="en-US">
+                                    <header>
+                                      <h1>Forms</h1>
+                                    </header>
+                                    <div class="section-content">
+                                      <p>
+                                        <em>Getting started with ...</em>
+                                        is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your simple code.
+                                      </p>
+                                    </div>
+                                    <section aria-labelledby="the_story_of_your_first_website">
+                                          
+                                      
+                        
+                        
+                        
+                        
+                        
+                                      <p>A form is an element that allows a user to provide data into a field or a group
+                                        of fields. Forms can be as simple as a single field or as complicated as a
+                                        multi-step form element with multiple fields per page, input validation, and
+                                        sometimes a CAPTCHA.</p>
+                                        
+                                        <p>Forms are considered one of the most difficult elements to get right from an
+                                        accessibility perspective, as they require knowledge of all the elements we
+                                        have already covered, as well as additional rules specific just to forms. With some
+                                        understanding and time, you can make an accessible form to suit you and your
+                                        users.</p>
+                                        
+                                        <p>Forms is the last component-specific module in this course. This module will
+                                        focus on the form-specific guidelines, but all other guidelines you learned
+                                        about in the earlier modules, such as
+                                        <a href="/learn/accessibility/structure">content structure</a>,
+                                        <a href="/learn/accessibility/focus">keyboard focus</a>, and
+                                        <a href="/learn/accessibility/color-contrast">color contrast</a>, also apply to form
+                                        elements.</p>
+                                        
+                                        <aside class="note"><b>Note: </b> Review our <a href="/learn/forms">Learn Forms</a> course to learn how to create better forms. There is a <a href="/learn/forms/accessibility">form accessibility</a> module in that course with additional accessibility-specific form content. </aside>
+                                        
+                                        <h2 id="fields" data-text="Fields" tabindex="-1">Fields</h2>
+                                        
+                                        <p>The backbone of forms is fields. Fields are small interactive patterns, such as
+                                        an input or radio button element, that allows users to enter content or make a
+                                        choice. There is a <a href="/learn/forms/fields">wide variety of form fields</a> to
+                                        choose from. </p>
+                                        
+                                        <p>The default recommendation is to use established HTML patterns instead of
+                                        building something custom with ARIA, as certain features and
+                                        functionalities—such as field states, properties, and values—are inherently
+                                        built into the HTML elements, while you have to add custom ARIA manually.</p>
+                                        
+                                        <aside class="note"><b>Note: </b> If the situation requires you to build custom form fields, be sure to review the <a href="/learn/accessibility/aria-html">ARIA and HTML</a>, <a href="/learn/accessibility/focus">Keyboard focus</a>, and <a href="/learn/accessibility/javascript">JavaScript</a> modules to understand how to make these custom form fields as accessible as possible. </aside>
+                                        
+                                        <div class="wd-switcher">
+                                        <figure>
+                                        <h4 id="aria" data-text="ARIA" tabindex="-1">ARIA</h4>
+                                        
+                                        <pre class="prettyprint lang-html" translate="no" dir="ltr">
+                                        &lt;div role="form" id="sundae-order-form"&gt;
+                                         &lt;!-- form content --&gt;
+                                        &lt;/div&gt;
+                                        </pre>
+                                        </figure>
+                                        
+                                        <figure>
+                                        <h4 id="html" data-text="HTML" tabindex="-1">HTML</h4>
+                                        
+                                        <pre class="prettyprint lang-html" translate="no" dir="ltr">
+                                        &lt;form id="sundae-order-form"&gt;
+                                         &lt;!-- form content --&gt;
+                                        &lt;/form&gt;
+                                        </pre>
+                                        </figure>
+                                        </div>
+                                        
+                                        <p>In addition to choosing the most accessible form field patterns, where
+                                        applicable, you should also add
+                                        <a href="https://developer.mozilla.org/docs/Web/HTML/Attributes/autocomplete">HTML autocomplete attributes</a>
+                                        to your fields. Adding autocomplete attributes allows a more fine-grained
+                                        <a href="https://www.w3.org/TR/WCAG21/#input-purposes">definition or identification of purpose</a>
+                                        to user agents and assistive technologies (AT).</p>
+                                        
+                                        <p>Autocomplete attributes allow users to personalize visual presentations,
+                                        such as showing a birthday cake icon in a field with the birthday autocomplete
+                                        attribute (<code translate="no" dir="ltr">bday</code>) assigned to it. More generally, autocomplete attributes make
+                                        filling out forms easier and quicker. This is especially helpful for people
+                                        with cognitive and reading disorders and those using ATs, such as screen
+                                        readers.</p>
+                                        <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;form id=&#34;sundae-order-form&#34;&gt;
+                                         &lt;p&gt;Name: &lt;input type=&#34;name&#34; autocomplete=&#34;name&#34;&gt;&lt;/p&gt;
+                                         &lt;p&gt;Telephone: &lt;input type=&#34;tel&#34; autocomplete=&#34;tel&#34;&gt;&lt;/p&gt;
+                                         &lt;p&gt;Email address: &lt;input type=&#34;email&#34; autocomplete=&#34;email&#34;&gt;&lt;/p&gt;
+                                        &lt;/form&gt;
+                                        </code></pre>
+                                        <p>Lastly, form fields should not produce contextual changes when they receive
+                                        focus or user input unless the user has been warned about the behaviour before
+                                        using the component. For example, a form should not be automatically submitted
+                                        when a field receives focus or once a user adds content to the field.</p>
+                                        
+                                        <h2 id="labels" data-text="Labels" tabindex="-1">Labels</h2>
+                                        
+                                        <p>Labels inform a user about the purpose of a field if the field is required,
+                                        and can also provide information about the field requirements, such as input
+                                        format. Labels must be visible at all times and accurately describe the form
+                                        field to users.</p>
+                                        
+                                        <p>One of the foundational tenets of accessible forms is establishing a clear and
+                                        accurate connection between a field and its label. This is true both visually
+                                        and programmatically. Without this context, a user might not understand how to
+                                        fill out the fields in the form.</p>
+                                        <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;form id=&#34;sundae-order-form&#34;&gt;
+                                         &lt;p&gt;&lt;label&gt;Name (required): &lt;input type=&#34;name&#34; autocomplete=&#34;name&#34; required&gt;&lt;/label&gt;&lt;/p&gt;
+                                         &lt;p&gt;&lt;label&gt;Telephone (required): &lt;input type=&#34;tel&#34; autocomplete=&#34;tel&#34; required&gt;&lt;/label&gt;&lt;/p&gt;
+                                         &lt;p&gt;&lt;label&gt;Email address: &lt;input type=&#34;email&#34; autocomplete=&#34;email&#34;&gt;&lt;/label&gt;&lt;/p&gt;
+                                        &lt;/form&gt;
+                                        </code></pre>
+                                        <p>Additionally, related form fields, such as a mailing address, need to be
+                                        programmatically and visually grouped. One method is to use the fieldset/legend
+                                        pattern to similar group elements.</p>
+                                        
+                                        <div class="wd-embed" style="height: 400px; width: 100%">
+                                         <iframe
+                                         allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                         loading="lazy"
+                                         src="https://codepen.io/web-dev-codepen-external/embed/zYLqwwQ?height=400&theme-id=auto&default-tab=html%2C%20result&editable=true"
+                                         style="height: 100%; width: 100%; border: 0;"
+                                         title="Pen zYLqwwQ by web-dev-codepen-external on Codepen"
+                                        ></iframe>
+                                        </div>
+                                        
+                                        <h2 id="descriptions" data-text="Descriptions" tabindex="-1">Descriptions</h2>
+                                        
+                                        <p>Field descriptions are similar to labels in purpose in that they are used to
+                                        give more context to the field and requirements. Field descriptions are not
+                                        required for accessibility if the labels or form instructions are descriptive
+                                        enough.</p>
+                                        
+                                        <p>However, there are situations in which adding additional information is useful
+                                        to avoid form errors, such as relaying information about the minimum length of
+                                        input for a password field or telling a user which calendar format to use (such
+                                        as MM-DD-YYYY).</p>
+                                        
+                                        <p>There are many different methods you can use to add field descriptions to your
+                                        forms. One of the best methods is to add an
+                                        <a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Attributes/aria-describedby">aria-describedby</a>
+                                        attribute to the form element, in addition to a <code translate="no" dir="ltr">&lt;label&gt;</code> element. The screen
+                                        the reader will read both the description and the label.</p>
+                                        
+                                        <p>If you add the
+                                        <a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby">aria-labelledby</a>
+                                        attribute to your element, the attribute value overrides the text within your
+                                        <code translate="no" dir="ltr">&lt;label&gt;</code>. As always, be sure to test the final code with all of the ATs you
+                                        plan to support.</p>
+                                        
+                                        <div class="wd-embed" style="height: 400px; width: 100%">
+                                         <iframe
+                                         allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                         loading="lazy"
+                                         src="https://codepen.io/web-dev-codepen-external/embed/ExpKmXq?height=400&theme-id=auto&default-tab=html%2C%20result&editable=true"
+                                         style="height: 100%; width: 100%; border: 0;"
+                                         title="Pen ExpKmXq by web-dev-codepen-external on Codepen"
+                                        ></iframe>
+                                        </div>
+                                        
+                                        <h2 id="errors" data-text="Errors" tabindex="-1">Errors</h2>
+                                        
+                                        <p>When creating accessible forms, there&#39;s a lot you can do to prevent users from
+                                        making form errors. Earlier in this module, we covered marking-up
+                                        fields, creating identifying labels, and adding detailed descriptions whenever
+                                        possible. But no matter how clear you think your form is, eventually, a user
+                                        will make a mistake.</p>
+                                        
+                                        <p>When a user encounters a form error, the first step is to
+                                        <a href="https://www.w3.org/WAI/tutorials/forms/notifications">make the error known</a>.
+                                        The field where the error occurred must be identified, and the error
+                                        itself must be described to the user in text.</p>
+                                        
+                                        <p>There are different methods for <a href="https://webaim.org/techniques/formvalidation/#error">displaying error
+                                        messages</a>, such as:</p>
+                                        
+                                        <ul>
+                                        <li>A pop-up modal, inline near where the error occurred</li>
+                                        <li>A collection of errors grouped in one larger message at the top of the page</li>
+                                        </ul>
+                                        
+                                        <p>Be sure to pay attention to the <a href="/learn/accessibility/focus">keyboard focus</a>
+                                        and <a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/ARIA_Live_Regions">ARIA live region options</a>
+                                        when announcing errors.</p>
+                                        
+                                        <p>Whenever possible, offer the user a detailed suggestion on how to fix the
+                                        error. There are two attributes available to notify users of errors.</p>
+                                        
+                                        <ul>
+                                        <li>You can use the HTML <a href="https://developer.mozilla.org/docs/Web/HTML/Attributes/required">required</a> attribute. The browser will supply a generic error message based on the filed validation parameters.</li>
+                                        <li>Or you can use the <a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Attributes/aria-required">aria-required</a> attribute to share a customized error message to ATs. Only ATs will receive the message unless you add additional code to make the message visible to all users. </li>
+                                        </ul>
+                                        
+                                        <p>Once a user thinks all of the errors have been resolved, allow them to resubmit
+                                        the form and provide feedback about the results of their submission. An error
+                                        message tells a user they have more updates to make, while a success message
+                                        confirms that they have resolved all errors and successfully submitted the form.</p>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                                    </section>
+                                  </article>
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
 <div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
-                        </div>
+    
                     </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
-                            </ul>
-                        </nav>
-                    </footer>
+                    
                                         
                 </div>
             </main>

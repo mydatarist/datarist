@@ -1172,38 +1172,693 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                    
+                    
+
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Gradients</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
+                        <section aria-labelledby="the_story_of_your_first_website">
+
+
+
+
+
+
+
+                            <p>Imagine you&#39;ve got a site to build and at the top,
+                                there&#39;s an intro with a heading, summary and a button.
+                                The designer has handed over a design which has a purple background for this intro.
+                                The only problem is the background features two shades of purple as a gradient.
+                                How do you do this?</p>
+                                
+                                <p><img src="/static/learn/css/gradients/image/a-dark-light-purple-grad-69b8719c02da2.svg" alt="A dark to light purple gradient background with heading, paragraph and link." width="800" height="411"></p>
+                                
+                                <p>You might initially think that you&#39;re going to need to export an image from your design tool for this,
+                                but you can use a
+                                <a href="https://developer.mozilla.org/docs/Web/CSS/linear-gradient()"><code translate="no" dir="ltr">linear-gradient</code></a>
+                                instead.</p>
+                                
+                                <figure>
+                                <div class="wd-embed" style="height: 500px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/XWpzdoV?height=500&theme-id=light&default-tab=result&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen XWpzdoV by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                </figure>
+                                
+                                <p>A gradient is an image and can be used anywhere images can be used,
+                                but it&#39;s created with CSS and is made up with colors, numbers and angles.
+                                CSS gradients allow you to create anything from a smooth gradient between two colors,
+                                right up to impressive artwork by mixing and repeating multiple gradients.</p>
+                                
+                                <h2 id="linear_gradient" data-text="Linear gradient" tabindex="-1">Linear gradient</h2>
+                                
+                                <p>
+                                  
+                                    
+                                    
+                                    
+                                    
+                                  
+                                  
+                                  
+                                    
+                                      
+                                    
+                                  
+                                    
+                                      
+                                    
+                                  
+                                    
+                                      
+                                    
+                                  
+                                    
+                                      
+                                    
+                                  
+                                    
+                                      
+                                    
+                                   
+                                
+                                    
+                                    
+                                      
+                                      <div class="wd-browser-compat">
+                                        <p>Browser Support</p>
+                                        <ul>
+                                          
+                                  
+                                  
+                                    
+                                      
+                                        
+                                          
+                                          
+                                        
+                                      
+                                    
+                                    
+                                  
+                                  <li
+                                    data-browser="chrome"
+                                    data-support="yes">26</li>
+                                  
+                                  
+                                          
+                                  
+                                  
+                                    
+                                      
+                                        
+                                          
+                                          
+                                        
+                                      
+                                    
+                                    
+                                  
+                                  <li
+                                    data-browser="edge"
+                                    data-support="yes">12</li>
+                                  
+                                  
+                                          
+                                  
+                                  
+                                    
+                                      
+                                        
+                                          
+                                          
+                                        
+                                      
+                                    
+                                    
+                                  
+                                  <li
+                                    data-browser="firefox"
+                                    data-support="yes">16</li>
+                                  
+                                  
+                                          
+                                  
+                                  
+                                    
+                                      
+                                        
+                                          
+                                          
+                                        
+                                      
+                                    
+                                    
+                                  
+                                  <li
+                                    data-browser="safari"
+                                    data-support="yes">7</li>
+                                  
+                                  
+                                        </ul>
+                                        
+                                        <p><a href="https://developer.mozilla.org/docs/Web/CSS/gradient/linear-gradient">Source</a></p>
+                                        
+                                      </div>
+                                    
+                                    
+                                    
+                                  </p>
+                                
+                                <p>The <a href="https://developer.mozilla.org/docs/Web/CSS/linear-gradient()"><code translate="no" dir="ltr">linear-gradient()</code></a>
+                                function generates an image of two or more colors, progressively.
+                                It takes multiple arguments, but in its simplest configuration,
+                                you can pass some colors like this and it will automatically split them evenly, while blending them.</p>
+                                <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">.my-element {
+                                    background: linear-gradient(black, white);
+                                }
+                                </code></pre>
+                                <figure>
+                                <div class="wd-embed" style="height: 400px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/mdRqPoZ?height=400&theme-id=light&default-tab=css%2Cresult&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen mdRqPoZ by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                </figure>
+                                
+                                <p>You can also pass an angle or keywords that represent an angle.
+                                If you choose to use keywords, specify a direction after the <code translate="no" dir="ltr">to</code> keyword.
+                                This means if you want a gradient that is black and white,
+                                that runs from left (black) to right (white),
+                                you would specify the angle as <code translate="no" dir="ltr">to right</code> as the first argument.</p>
+                                <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">.my-element {
+                                    background: linear-gradient(to right, black, white);
+                                }
+                                </code></pre>
+                                <figure>
+                                <div class="wd-embed" style="height: 400px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/zYNPqXW?height=400&theme-id=light&default-tab=css%2Cresult&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen zYNPqXW by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                </figure>
+                                
+                                <p>A color stop value defined where a color stops and mixes with its neighbors.
+                                For a gradient starting with a dark shade of red running at a 45deg angle,
+                                at 30% of the size of the gradient changing to a lighter red: it looks like this.</p>
+                                <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">.my-element {
+                                    background: linear-gradient(45deg, darkred 30%, crimson);
+                                }
+                                </code></pre>
+                                <figure>
+                                <div class="wd-embed" style="height: 400px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/NWdwNZr?height=400&theme-id=light&default-tab=css%2Cresult&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen NWdwNZr by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                </figure>
+                                
+                                <p>You can add as many colors and color stops as you like in a <code translate="no" dir="ltr">linear-gradient()</code>,
+                                and you can layer gradients on top of each other by separating each gradient with a comma.</p>
+                                
+                                <figure>
+                                <div class="wd-embed" style="height: 400px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/abpVZbj?height=400&theme-id=light&default-tab=css%2Cresult&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen abpVZbj by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                </figure>
+                                
+                                <h2 id="radial_gradient" data-text="Radial gradient" tabindex="-1">Radial gradient</h2>
+                                
+                                <p>
+                                  
+                                    
+                                    
+                                    
+                                    
+                                  
+                                  
+                                  
+                                    
+                                      
+                                    
+                                  
+                                    
+                                      
+                                    
+                                  
+                                    
+                                      
+                                    
+                                  
+                                    
+                                      
+                                    
+                                  
+                                    
+                                      
+                                    
+                                   
+                                
+                                    
+                                    
+                                      
+                                      <div class="wd-browser-compat">
+                                        <p>Browser Support</p>
+                                        <ul>
+                                          
+                                  
+                                  
+                                    
+                                      
+                                        
+                                          
+                                          
+                                        
+                                      
+                                    
+                                    
+                                  
+                                  <li
+                                    data-browser="chrome"
+                                    data-support="yes">26</li>
+                                  
+                                  
+                                          
+                                  
+                                  
+                                    
+                                      
+                                        
+                                          
+                                          
+                                        
+                                      
+                                    
+                                    
+                                  
+                                  <li
+                                    data-browser="edge"
+                                    data-support="yes">12</li>
+                                  
+                                  
+                                          
+                                  
+                                  
+                                    
+                                      
+                                        
+                                          
+                                          
+                                        
+                                      
+                                    
+                                    
+                                  
+                                  <li
+                                    data-browser="firefox"
+                                    data-support="yes">16</li>
+                                  
+                                  
+                                          
+                                  
+                                  
+                                    
+                                      
+                                        
+                                          
+                                          
+                                        
+                                      
+                                    
+                                    
+                                  
+                                  <li
+                                    data-browser="safari"
+                                    data-support="yes">7</li>
+                                  
+                                  
+                                        </ul>
+                                        
+                                        <p><a href="https://developer.mozilla.org/docs/Web/CSS/gradient/radial-gradient">Source</a></p>
+                                        
+                                      </div>
+                                    
+                                    
+                                    
+                                  </p>
+                                
+                                <p>To create a gradient that radiates in a circular fashion, the
+                                <a href="https://developer.mozilla.org/docs/Web/CSS/radial-gradient()"><code translate="no" dir="ltr">radial-gradient()</code></a>
+                                function steps in to help.
+                                It&#39;s similar to <code translate="no" dir="ltr">linear-gradient()</code>,
+                                but instead of specifying an angle, you optionally specify a position and ending shape.
+                                If you just specify colors, the <code translate="no" dir="ltr">radial-gradient()</code> will auto-select the position as <code translate="no" dir="ltr">center</code>
+                                and select either a circle or ellipse, depending on the size of the box.</p>
+                                <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">.my-element {
+                                    background: radial-gradient(white, black);
+                                }
+                                </code></pre>
+                                <figure>
+                                <div class="wd-embed" style="height: 400px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/LYxOZEq?height=400&theme-id=light&default-tab=css%2Cresult&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen LYxOZEq by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                </figure>
+                                
+                                <p>The gradient&#39;s position is similar to <code translate="no" dir="ltr">background-position</code> using keywords and/or number values.
+                                The size of the radial gradient determines the size of the gradient&#39;s ending shape
+                                (circle or ellipse) and by default will be <code translate="no" dir="ltr">farthest-corner</code>,
+                                which means it exactly meets the farthest corner of the box from the center.
+                                You can also use the following keywords:</p>
+                                
+                                <ul>
+                                <li><code translate="no" dir="ltr">closest-corner</code> will meet the closest corner to the center of the gradient.</li>
+                                <li><code translate="no" dir="ltr">closest-side</code> will meet the side of the box closest to the center of the gradient.</li>
+                                <li><code translate="no" dir="ltr">farthest-side</code> will do the opposite to <code translate="no" dir="ltr">closest-side</code>.</li>
+                                </ul>
+                                
+                                <p>You can add as many color stops as you like, just like with the <code translate="no" dir="ltr">linear-gradient</code>.
+                                Likewise, you can add as many <code translate="no" dir="ltr">radial-gradients</code> as you like too.</p>
+                                
+                                <figure>
+                                <div class="wd-embed" style="height: 400px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/MWJOepV?height=400&theme-id=light&default-tab=css%2Cresult&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen MWJOepV by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                </figure>
+                                
+                                <h2 id="conic_gradient" data-text="Conic gradient" tabindex="-1">Conic gradient</h2>
+                                
+                                <p>
+                                  
+                                    
+                                    
+                                    
+                                    
+                                  
+                                  
+                                  
+                                    
+                                      
+                                    
+                                  
+                                    
+                                      
+                                    
+                                  
+                                    
+                                      
+                                    
+                                  
+                                    
+                                      
+                                    
+                                  
+                                    
+                                      
+                                    
+                                   
+                                
+                                    
+                                    
+                                      
+                                      <div class="wd-browser-compat">
+                                        <p>Browser Support</p>
+                                        <ul>
+                                          
+                                  
+                                  
+                                    
+                                      
+                                        
+                                          
+                                          
+                                        
+                                      
+                                    
+                                    
+                                  
+                                  <li
+                                    data-browser="chrome"
+                                    data-support="yes">69</li>
+                                  
+                                  
+                                          
+                                  
+                                  
+                                    
+                                      
+                                        
+                                          
+                                          
+                                        
+                                      
+                                    
+                                    
+                                  
+                                  <li
+                                    data-browser="edge"
+                                    data-support="yes">79</li>
+                                  
+                                  
+                                          
+                                  
+                                  
+                                    
+                                      
+                                        
+                                          
+                                          
+                                        
+                                      
+                                    
+                                    
+                                  
+                                  <li
+                                    data-browser="firefox"
+                                    data-support="yes">83</li>
+                                  
+                                  
+                                          
+                                  
+                                  
+                                    
+                                      
+                                        
+                                          
+                                          
+                                        
+                                      
+                                    
+                                    
+                                  
+                                  <li
+                                    data-browser="safari"
+                                    data-support="yes">12.1</li>
+                                  
+                                  
+                                        </ul>
+                                        
+                                        <p><a href="https://developer.mozilla.org/docs/Web/CSS/gradient/conic-gradient">Source</a></p>
+                                        
+                                      </div>
+                                    
+                                    
+                                    
+                                  </p>
+                                
+                                <p>A conic gradient has a center point in your box and starts from the top (by default),
+                                and goes around in a 360 degree circle.</p>
+                                <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">.my-element {
+                                    background: conic-gradient(white, black);
+                                }
+                                </code></pre>
+                                <figure>
+                                <div class="wd-embed" style="height: 400px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/qBRVNXG?height=400&theme-id=light&default-tab=css%2Cresult&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen qBRVNXG by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                </figure>
+                                
+                                <p>The <a href="https://developer.mozilla.org/docs/Web/CSS/conic-gradient()"><code translate="no" dir="ltr">conic-gradient()</code></a>
+                                function accepts position and angle arguments.</p>
+                                
+                                <p>By default, the angle is 0 degrees which starts at the top, in the center.
+                                If you were to set the angle to be <code translate="no" dir="ltr">45deg</code>, it would be the top right corner.
+                                The angle argument accepts any type of angle value, like the linear and radial gradients.</p>
+                                
+                                <p>The position is center by default.
+                                As with radial and linear gradients,
+                                positioning can be keyword-based,
+                                or it can be defined with numeric values.</p>
+                                
+                                <figure>
+                                <div class="wd-embed" style="height: 400px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/vYgWKpO?height=400&theme-id=light&default-tab=css%2Cresult&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen vYgWKpO by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                </figure>
+                                
+                                <p>You can add as many color stops as you want, like with other gradient types.
+                                A good use case for this capability, with conic gradients is rendering pie charts with CSS.</p>
+                                
+                                <figure>
+                                <div class="wd-embed" style="height: 400px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/mdRqExP?height=400&theme-id=light&default-tab=css%2Cresult&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen mdRqExP by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                </figure>
+                                
+                                <h2 id="repeating_and_mixing" data-text="Repeating and mixing" tabindex="-1">Repeating and mixing</h2>
+                                
+                                <p>Each type of gradient has a repeating type, too.
+                                These are
+                                <a href="https://developer.mozilla.org/docs/Web/CSS/repeating-linear-gradient()"><code translate="no" dir="ltr">repeating-linear-gradient()</code></a>,
+                                <a href="https://developer.mozilla.org/docs/Web/CSS/repeating-radial-gradient()"><code translate="no" dir="ltr">repeating-radial-gradient()</code></a> and
+                                <a href="https://developer.mozilla.org/docs/Web/CSS/repeating-conic-gradient()"><code translate="no" dir="ltr">repeating-conic-gradient()</code></a>.
+                                They are similar to the non-repeating functions and take the same arguments.
+                                The difference is that if the defined gradient can be repeated to fill the box,
+                                based on both of their sizes, it will.</p>
+                                
+                                <p>If your gradient doesn&#39;t appear to be repeating,
+                                you probably haven&#39;t set a length for one of the color stops.
+                                For example,
+                                you can create a striped background with a <code translate="no" dir="ltr">repeating-linear-gradient</code> by setting color stop lengths.</p>
+                                <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">.my-element {
+                                  background: repeating-linear-gradient(
+                                    45deg,
+                                    red,
+                                    red 30px,
+                                    white 30px,
+                                    white 60px
+                                  );
+                                }
+                                
+                                </code></pre>
+                                <figure>
+                                <div class="wd-embed" style="height: 400px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/ExZbgdy?height=400&theme-id=light&default-tab=css%2Cresult&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen ExZbgdy by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                </figure>
+                                
+                                <p>You can also mix gradient functions on <code translate="no" dir="ltr">background</code> properties,
+                                as well as defining as many gradients as you like,
+                                just like you would with a background image.
+                                For example, you can mix multiple linear-gradients together, or two linear-gradients with a radial gradient.</p>
+                                
+                                <figure>
+                                <div class="wd-embed" style="height: 400px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/ExZqGxP?height=400&theme-id=light&default-tab=css%2Cresult&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen ExZqGxP by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                </figure>
+                                
+                                <h2 id="resources" data-text="Resources" tabindex="-1">Resources</h2>
+                                
+                                <ul>
+                                <li><a href="https://www.conic.style/">Conic.css</a> - a useful collection of conic gradients</li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/CSS/CSS_Images/Using_CSS_gradients">MDN guide to gradients</a></li>
+                                <li><a href="https://www.colorzilla.com/gradient-editor/">Gradient generator</a></li>
+                                </ul>
+
+
+
+
+
+
+
+
+                                                    
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
                     </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
-                            </ul>
-                        </nav>
-                    </footer>
+                    
                                         
                 </div>
             </main>

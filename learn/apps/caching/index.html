@@ -1172,38 +1172,309 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                    
+                    
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Caching</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
+                        <section aria-labelledby="the_story_of_your_first_website">
+                                   
+                            
+
+
+
+
+                            <p>Cache storage is a powerful tool. It makes your apps less dependent on network conditions. With good use of caches you can make your web app available offline and serve your assets as fast as possible in any network condition. As mentioned in <a href="/learn/pwa/assets-and-data">Assets and Data</a> you can decide the best strategy for caching the necessary assets. To manage the cache your service worker interacts with the <a href="https://developer.mozilla.org/docs/Web/API/CacheStorage">Cache Storage API</a>.
+
+  
+    
+    
+    
+    
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+   
+
+    
+    
+      
+                                <div class="wd-browser-compat">
+                                  <p>Browser Support</p>
+                                  <ul>
+                                    
+                            
+                            
+                              
+                                
+                                  
+                                    
+                                    
+                                  
+                                
+                              
+                              
+                            
+                            <li
+                              data-browser="chrome"
+                              data-support="yes">43</li>
+                            
+                            
+                                    
+                            
+                            
+                              
+                                
+                                  
+                                    
+                                    
+                                  
+                                
+                              
+                              
+                            
+                            <li
+                              data-browser="edge"
+                              data-support="yes">16</li>
+                            
+                            
+                                    
+                            
+                            
+                              
+                                
+                                  
+                                    
+                                    
+                                  
+                                
+                              
+                              
+                            
+                            <li
+                              data-browser="firefox"
+                              data-support="yes">41</li>
+                            
+                            
+                                    
+                            
+                            
+                              
+                                
+                                  
+                                    
+                                    
+                                  
+                                
+                              
+                              
+                            
+                            <li
+                              data-browser="safari"
+                              data-support="yes">11.1</li>
+                            
+                            
+                                  </ul>
+                                  
+                                  <p><a href="https://developer.mozilla.org/docs/Web/API/CacheStorage">Source</a></p>
+                                  
+                                </div>
+                              
+                              
+                              
+                            </p>
+                          
+                          <aside class="note"><b>Note: </b> When installing platform-specific apps, the device stores the icon and other app assets in the operating system, in one step. For PWAs, the process has two separate steps. A PWA can store assets on your device any time after the first visit in the browser, even without installation. Install is a separate action that is covered later in this course. </aside>
+                          
+                          <p>The Cache Storage API is available from different contexts:</p>
+                          
+                          <ul>
+                          <li>The window context (your PWA&#39;s main thread).</li>
+                          <li>The service worker.</li>
+                          <li>Any other workers you use.</li>
+                          </ul>
+                          
+                          <p>One advantage of managing your cache using service workers is that its lifecycle is not tied to the window, which means you are not blocking the main thread. Be aware that to use the Cache Storage API most of these contexts have to be under a TLS connection.</p>
+                          
+                          <h2 id="what_to_cache" data-text="What to cache" tabindex="-1">What to cache</h2>
+                          
+                          <p>The first question you may have about caching is what to cache. While there is no single answer to that question, you can start with all the minimum resources that you need to render the user interface.</p>
+                          
+                          <p>Those resources should include:</p>
+                          
+                          <ul>
+                          <li>The main page HTML (your app&#39;s start_url).</li>
+                          <li>CSS stylesheets needed for the main user interface.</li>
+                          <li>Images used in the user interface.</li>
+                          <li>JavaScript files required to render the user interface.</li>
+                          <li>Data, such as a JSON file, required to render a basic experience.</li>
+                          <li>Web fonts.</li>
+                          <li>On a multi-page application, other HTML documents that you want to serve fast or while offline.</li>
+                          </ul>
+                          
+                          <aside class="warning"><b>Warning: </b> Remember that you are downloading and storing assets on users' devices, so use that space and bandwidth responsibly. You need to find the balance between having enough on-device assets to render a fast or offline experience without consuming too much data. </aside>
+                          
+                          <h3 id="offline-ready" data-text="Offline-ready" tabindex="-1">Offline-ready</h3>
+                          
+                          <p>While being offline-capable is one of the requirements for a Progressive Web App, it&#39;s essential to understand that not every PWA needs a full offline experience, for example cloud gaming solutions or crypto assets apps. Therefore, it&#39;s OK to offer a basic user interface guiding your users through those situations.</p>
+                          
+                          <p>Your PWA should not render a browser&#39;s error message saying that the web rendering engine couldn&#39;t load the page. Instead use your service worker to show your own messaging, avoiding a generic and confusing browser error.</p>
+                          
+                          <aside class="caution"><b>Caution: </b> If you <a href="https://chromeos.dev/en/publish/pwa-in-play">publish your PWA to Google Play Store</a>, your PWA should never render an HTTP error message from the browser to avoid penalizations within the store listings. Check <a href="https://blog.chromium.org/2020/06/changes-to-quality-criteria-for-pwas.html">Changes to Quality Criteria for PWAs</a> for more information. </aside>
+                          
+                          <p>There are many different caching strategies you could use depending on the needs of your PWA. That&#39;s why it is important to design your cache usage to provide a fast and reliable experience. For example if all your app assets will download fast, don&#39;t consume a lot of space, and don&#39;t need to be updated in every request, caching all your assets would be a valid strategy. If on the other hand you have resources that need to be the latest version you might want to consider not caching those assets at all.</p>
+                          
+                          <aside class="caution"><b>Caution: </b> The cache storage content and eviction rules are set per origin and not per PWA, since it's possible to have more than one in a single origin. If you share your origin for many PWAs, it's a good idea to add a prefix to your cache names to avoid collision problems between each PWA's data storage. </aside>
+                          
+                          <h2 id="using_the_api" data-text="Using the API" tabindex="-1">Using the API</h2>
+                          
+                          <p>Use the Cache Storage API to define a set of caches within your origin, each identified with a string name you can define. Access the API through the <code translate="no" dir="ltr">caches</code> object, and the <code translate="no" dir="ltr">open</code> method enables the creation, or opening of an already created cache. The open method returns a promise for the cache object.</p>
+                          <pre class="prettyprint lang-js" translate="no" dir="ltr"><code translate="no" dir="ltr">caches.open(&#34;pwa-assets&#34;)
+                          .then(cache =&gt; {
+                            // you can download and store, delete or update resources with cache arguments
+                          });
+                          </code></pre>
+                          <h3 id="downloading_and_storing_assets" data-text="Downloading and storing assets" tabindex="-1">Downloading and storing assets</h3>
+                          
+                          <p>To ask the browser to download and store the assets use the <code translate="no" dir="ltr">add</code> or <code translate="no" dir="ltr">addAll</code> methods. The <code translate="no" dir="ltr">add</code> method makes a request and stores one HTTP response, and <code translate="no" dir="ltr">addAll</code> a group of HTTP responses as a transaction based on an array of requests or URLs.</p>
+                          <pre class="prettyprint lang-js" translate="no" dir="ltr"><code translate="no" dir="ltr">caches.open(&#34;pwa-assets&#34;)
+                          .then(cache =&gt; {
+                            cache.add(&#34;styles.css&#34;); // it stores only one resource
+                            cache.addAll([&#34;styles.css&#34;, &#34;app.js&#34;]); // it stores two resources
+                          });
+                          </code></pre>
+                          <aside class="note"><b>Note: </b> Both <code translate="no" dir="ltr">add()</code> and <code translate="no" dir="ltr">addAll()</code> return a promise with no arguments; if it's fulfilled, you know the assets were downloaded and cached, and if it fails, the API couldn't download one or more resources, and it didn't modify the cache. </aside>
+                          
+                          <p>The cache storage interface stores the entirety of a response including all the headers and the body. Consequently, you can retrieve it later using an HTTP request or a URL as a key. You will see how to do that in <a href="/learn/pwa/serving">the Serving chapter</a>.</p>
+                          
+                          <aside class="note"><b>Note: </b> To download and store the assets, you must specify all the URLs explicitly. Otherwise the API cannot know all the assets you need or want to cache. </aside>
+                          
+                          <h3 id="when_to_cache" data-text="When to cache" tabindex="-1">When to cache</h3>
+                          
+                          <p>In your PWA, you are in charge of deciding when to cache files. While one approach is to store as many assets as possible when the service worker is installed, it is usually not the best idea. Caching unnecessary resources wastes bandwidth and storage space and could cause your app to serve unintended outdated resources.</p>
+                          
+                          <p>You don&#39;t need to cache all the assets at once, you can cache assets many times during the lifecycle of your PWA, such as:</p>
+                          
+                          <ul>
+                          <li>On installation of the service worker.</li>
+                          <li>After the first page load.</li>
+                          <li>When the user navigates to a section or route.</li>
+                          <li>When the network is idle.</li>
+                          </ul>
+                          
+                          <p>You can request caching new files in the main thread or within the service worker context.</p>
+                          
+                          <h3 id="caching_assets_in_a_service_worker" data-text="Caching assets in a service worker" tabindex="-1">Caching assets in a service worker</h3>
+                          
+                          <p>One of the most common scenarios is to cache a minimum set of assets when the service worker is installed. To do that, you can use the cache storage interface within the <code translate="no" dir="ltr">install</code> event in the service worker.</p>
+                          
+                          <p>Because the service worker thread can be stopped at any time, you can request the browser to wait for the <code translate="no" dir="ltr">addAll</code> promise to finish to increase the opportunity of storing all the assets and keeping the app consistent. The following example demonstrates how to do this, using the  <code translate="no" dir="ltr">waitUntil</code> method of the event argument received in the service worker event listener.</p>
+                          <pre class="prettyprint lang-js/3,5" translate="no" dir="ltr"><code translate="no" dir="ltr">const urlsToCache = [&#34;/&#34;, &#34;app.js&#34;, &#34;styles.css&#34;, &#34;logo.svg&#34;];
+                          self.addEventListener(&#34;install&#34;, event =&gt; {
+                             event.waitUntil(
+                                caches.open(&#34;pwa-assets&#34;)
+                                .then(cache =&gt; {
+                                   return cache.addAll(urlsToCache);
+                                });
+                             );
+                          });
+                          </code></pre>
+                          <p>The <a href="https://developer.mozilla.org/docs/Web/API/ExtendableEvent/waitUntil"><code translate="no" dir="ltr">waitUntil()</code> method</a> receives a promise and asks the browser to wait for the task in the promise to resolve (fulfilled or failed) before terminating the service worker process. You may need to chain promises and return the <code translate="no" dir="ltr">add()</code> or <code translate="no" dir="ltr">addAll()</code> calls so that a single result gets to the <code translate="no" dir="ltr">waitUntil()</code> method.</p>
+                          
+                          <p>You can also handle promises using the async/await syntax. In that case, you need to create an asynchronous function that can call <code translate="no" dir="ltr">await</code> and that returns a promise to <code translate="no" dir="ltr">waitUntil()</code> after it&#39;s called, as in the following example:</p>
+                          <pre class="prettyprint lang-js/3" translate="no" dir="ltr"><code translate="no" dir="ltr">const urlsToCache = [&#34;/&#34;, &#34;app.js&#34;, &#34;styles.css&#34;, &#34;logo.svg&#34;];
+                          self.addEventListener(&#34;install&#34;, (event) =&gt; {
+                             let cacheUrls = async () =&gt; {
+                                const cache = await caches.open(&#34;pwa-assets&#34;);
+                                return cache.addAll(urlsToCache);
+                             };
+                             event.waitUntil(cacheUrls());
+                          });
+                          </code></pre>
+                          <h3 id="cross-domain_requests_and_opaque_responses" data-text="Cross-domain requests and opaque responses" tabindex="-1">Cross-domain requests and opaque responses</h3>
+                          
+                          <p>Your PWA can download and cache assets from your origin and cross-domains, such as content from third-party CDNs. With a cross-domain app, the cache interaction is very similar to same-origin requests. The request is executed and a copy of the response is stored in your cache. As with other cached assets it is only available to be used in your app&#39;s origin.</p>
+                          
+                          <p>The asset will be stored as an <a href="https://fetch.spec.whatwg.org/#concept-filtered-response-opaque">opaque response</a>, which means your code won&#39;t be able to see or modify the contents or headers of that response. Also, opaque responses don&#39;t expose their actual size in the storage API, affecting quotas. Some browsers expose large sizes, such as 7Mb no matter if the file is just 1Kb.</p>
+                          
+                          <aside class="caution"><b>Caution: </b> Remember that when you cache opaque responses from cross-domains, <code translate="no" dir="ltr">cache.add()</code> and <code translate="no" dir="ltr">cache.addAll()</code> will fail if those responses don't return with a 2xx status code. Therefore, if one CDN or cross-domain fails, all the assets you are downloading will be discarded, even successful downloads in the same operation. </aside>
+                          
+                          <h3 id="updating_and_deleting_assets" data-text="Updating and deleting assets" tabindex="-1">Updating and deleting assets</h3>
+                          
+                          <p>You can update assets using <code translate="no" dir="ltr">cache.put(request, response)</code> and delete assets with <code translate="no" dir="ltr">delete(request)</code>.</p>
+                          
+                          <aside class="caution"><b>Caution: </b> The Cache Storage API doesn't update your assets if you change them on your server nor does it delete them. Your code should manage both situations, and for that, there are different design patterns. You'll learn about a library to help with these situations in the <a href="/learn/pwa/workbox">Workbox chapter</a>. </aside>
+                          
+                          <p>Check the <a href="https://developer.mozilla.org/docs/Web/API/Cache">Cache object documentation</a> for more details.</p>
+                          
+                          <div class="wd-embed" style="height: 420px;">
+                            <iframe
+                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi"
+                              loading="lazy"
+                              src="https://glitch.com/embed/#!/embed/learn-pwa-asset-caching?attributionHidden=true&sidebarCollapsed=true&previewSize=100"
+                              style="height: 100%; width: 100%; border: 0;"
+                              title="learn-pwa-asset-caching on Glitch"
+                            ></iframe>
+                          </div>
+                          
+                          <h2 id="debugging_cache_storage" data-text="Debugging Cache Storage" tabindex="-1">Debugging Cache Storage</h2>
+                          
+                          <p>Many browsers offer a way to debug the contents of cache storage within their DevTools Application tab. There, you can see the contents of every cache within the current origin. We&#39;ll cover more about these tools in the <a href="/learn/pwa/tools-and-debug">Tools and Debug chapter</a>.</p>
+                          
+                          <p><img src="/static/learn/pwa/caching/image/chrome-devtools-debugging-865b4a170f79c.png" alt="Chrome DevTools debugging Cache Storage contents." width="800" height="506" srcset="https://web.dev/static/learn/pwa/caching/image/chrome-devtools-debugging-865b4a170f79c_36.png 36w,https://web.dev/static/learn/pwa/caching/image/chrome-devtools-debugging-865b4a170f79c_48.png 48w,https://web.dev/static/learn/pwa/caching/image/chrome-devtools-debugging-865b4a170f79c_72.png 72w,https://web.dev/static/learn/pwa/caching/image/chrome-devtools-debugging-865b4a170f79c_96.png 96w,https://web.dev/static/learn/pwa/caching/image/chrome-devtools-debugging-865b4a170f79c_480.png 480w,https://web.dev/static/learn/pwa/caching/image/chrome-devtools-debugging-865b4a170f79c_720.png 720w,https://web.dev/static/learn/pwa/caching/image/chrome-devtools-debugging-865b4a170f79c_856.png 856w,https://web.dev/static/learn/pwa/caching/image/chrome-devtools-debugging-865b4a170f79c_960.png 960w,https://web.dev/static/learn/pwa/caching/image/chrome-devtools-debugging-865b4a170f79c_1440.png 1440w,https://web.dev/static/learn/pwa/caching/image/chrome-devtools-debugging-865b4a170f79c_1920.png 1920w,https://web.dev/static/learn/pwa/caching/image/chrome-devtools-debugging-865b4a170f79c_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                          
+                          <aside class="note"><b>Note: </b> Web Inspector on Safari on macOS doesn't have a way to see the contents of cache storage. For that purpose, you can use the free <a href="https://apps.apple.com/app/service-worker-detector/id1530808337?l=en&amp;mt=12">Service Worker Detector Safari extension</a> created by <a href="https://twitter.com/tomayac">Thomas Steiner</a>. </aside>
+                          
+                          <h2 id="resources" data-text="Resources" tabindex="-1">Resources</h2>
+                          
+                          <ul>
+                          <li><a href="https://developer.mozilla.org/docs/Web/API/CacheStorage">Cache Storage on MDN</a></li>
+                          <li><a href="/articles/cache-api-quick-guide">The Cache API: A quick guide</a></li>
+                          <li><a href="/articles/offline-cookbook">The Offline Cookbook</a></li>
+                          </ul>
+                          
+                            
+
+
+
+
+
+
+
+
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
                     </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
-                            </ul>
-                        </nav>
-                    </footer>
+                    
                                         
                 </div>
             </main>

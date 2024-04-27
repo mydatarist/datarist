@@ -1172,38 +1172,181 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                    
+                    
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Service Workers</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
+                        <section aria-labelledby="the_story_of_your_first_website">
+                                 
+                            
+
+
+
+
+
+                            <p>Users expect apps to start on slow or flaky network connections, or even when offline.
+                                They expect the content they&#39;ve most recently interacted with, such as media tracks or tickets and itineraries, to be available and usable.
+                                When a request isn&#39;t possible, they expect the app to tell them instead of silently failing or crashing. And users wish to do it all quickly. As we can see in this study <a href="/case-studies/milliseconds-make-millions">Milliseconds make millions</a>, even a 0.1 second improvement in load times can improve conversion by up to 10%. In summary: users expect PWAs to be reliable and that&#39;s why we have service workers.</p>
+                                
+                                <h2 id="hello_service_workers" data-text="Hello service workers" tabindex="-1">Hello service workers</h2>
+                                
+                                <p><img src="/static/learn/pwa/service-workers/image/a-service-worker-a-middl-982e684894b75.png" alt="A service worker as a middleware proxy, running device-side, between your PWA and servers, which includes both your own servers and cross-domain servers." width="800" height="354" srcset="https://web.dev/static/learn/pwa/service-workers/image/a-service-worker-a-middl-982e684894b75_36.png 36w,https://web.dev/static/learn/pwa/service-workers/image/a-service-worker-a-middl-982e684894b75_48.png 48w,https://web.dev/static/learn/pwa/service-workers/image/a-service-worker-a-middl-982e684894b75_72.png 72w,https://web.dev/static/learn/pwa/service-workers/image/a-service-worker-a-middl-982e684894b75_96.png 96w,https://web.dev/static/learn/pwa/service-workers/image/a-service-worker-a-middl-982e684894b75_480.png 480w,https://web.dev/static/learn/pwa/service-workers/image/a-service-worker-a-middl-982e684894b75_720.png 720w,https://web.dev/static/learn/pwa/service-workers/image/a-service-worker-a-middl-982e684894b75_856.png 856w,https://web.dev/static/learn/pwa/service-workers/image/a-service-worker-a-middl-982e684894b75_960.png 960w,https://web.dev/static/learn/pwa/service-workers/image/a-service-worker-a-middl-982e684894b75_1440.png 1440w,https://web.dev/static/learn/pwa/service-workers/image/a-service-worker-a-middl-982e684894b75_1920.png 1920w,https://web.dev/static/learn/pwa/service-workers/image/a-service-worker-a-middl-982e684894b75_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                                
+                                <p>When an app requests a resource covered by the service worker&#39;s scope, including when a user is offline, the service worker intercepts the request, acting as a network proxy. It can then decide if it should serve the resource from the cache via the Cache Storage API, from the network as normally would happen without a service worker, or create it from a local algorithm. This lets you provide a similar experience to that provided by a platform app. It can even work entirely off line.</p>
+                                
+                                <aside class="tip">Not all browsers support service workers. Even when present your service worker won't be available on first load or while it's waiting to activate. Therefore, treat it as optional and do not require it for core functionality. </aside>
+                                
+                                <h2 id="registering_a_service_worker" data-text="Registering a service worker" tabindex="-1">Registering a service worker</h2>
+                                
+                                <p>Before a service worker takes control of your page, it must be registered for your PWA. That means the first time a user comes to your PWA, network requests will go directly to your server because the service worker is not yet in control of your pages.</p>
+                                
+                                <p>After checking if the browser supports the Service Worker API, your PWA can register a service worker. When loaded, the service worker sets up shop between your PWA and the network, intercepting requests and serving the corresponding responses.</p>
+                                <pre class="prettyprint lang-js" translate="no" dir="ltr"><code translate="no" dir="ltr">if (&#39;serviceWorker&#39; in navigator) {
+                                   navigator.serviceWorker.register(&#34;/serviceworker.js&#34;);
+                                }
+                                </code></pre>
+                                <div class="wd-embed" style="height: 420px;">
+                                  <iframe
+                                    allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi"
+                                    loading="lazy"
+                                    src="https://glitch.com/embed/#!/embed/learn-pwa-sw-registration?attributionHidden=true&sidebarCollapsed=true&previewSize=100"
+                                    style="height: 100%; width: 100%; border: 0;"
+                                    title="learn-pwa-sw-registration on Glitch"
+                                  ></iframe>
+                                </div>
+                                
+                                <aside class="note"><b>Note: </b> There is only one service worker per PWA, but that doesn't mean you need to place the code only in one file. A service worker can include other files using <a href="https://developer.mozilla.org/docs/Web/API/WorkerGlobalScope/importScripts"><code translate="no" dir="ltr">importScripts</code></a> in every browser or using <a href="/articles/es-modules-in-sw">ECMAScript module imports</a> in some modern browsers. </aside>
+                                
+                                <h3 id="verify_if_a_service_worker_is_registered" data-text="Verify if a service worker is registered" tabindex="-1">Verify if a service worker is registered</h3>
+                                
+                                <p>To verify if a service worker is registered, use developer tools in your favorite browser.</p>
+                                
+                                <p>In Firefox and Chromium-based browsers (Microsoft Edge, Google Chrome, or Samsung Internet):</p>
+                                
+                                <ol>
+                                <li>Open developer tools, then click the <strong>Application</strong> tab.</li>
+                                <li>In the left pane, select <strong>Service Workers</strong>.</li>
+                                <li>Check that the service worker&#39;s script URL appears with the status &quot;Activated&quot;. (You&#39;ll learn what this status means in the lifecycle section in this chapter). On Firefox the status can be &quot;Running&quot; or &quot;Stopped&quot;.</li>
+                                </ol>
+                                
+                                <p>In Safari:</p>
+                                
+                                <ol>
+                                <li>Click the <strong>Develop</strong> menu then the <strong>Service Workers</strong> submenu.</li>
+                                <li>Check that an entry with the current origin appears in the submenu. It opens an inspector over the service worker&#39;s context.</li>
+                                </ol>
+                                
+                                <figure>
+                                <img src="/static/learn/pwa/service-workers/image/service-worker-developer-5ebe49234dc0f.png" alt="Service worker developer tools on Chrome, Firefox and Safari." width="800" height="296" srcset="https://web.dev/static/learn/pwa/service-workers/image/service-worker-developer-5ebe49234dc0f_36.png 36w,https://web.dev/static/learn/pwa/service-workers/image/service-worker-developer-5ebe49234dc0f_48.png 48w,https://web.dev/static/learn/pwa/service-workers/image/service-worker-developer-5ebe49234dc0f_72.png 72w,https://web.dev/static/learn/pwa/service-workers/image/service-worker-developer-5ebe49234dc0f_96.png 96w,https://web.dev/static/learn/pwa/service-workers/image/service-worker-developer-5ebe49234dc0f_480.png 480w,https://web.dev/static/learn/pwa/service-workers/image/service-worker-developer-5ebe49234dc0f_720.png 720w,https://web.dev/static/learn/pwa/service-workers/image/service-worker-developer-5ebe49234dc0f_856.png 856w,https://web.dev/static/learn/pwa/service-workers/image/service-worker-developer-5ebe49234dc0f_960.png 960w,https://web.dev/static/learn/pwa/service-workers/image/service-worker-developer-5ebe49234dc0f_1440.png 1440w,https://web.dev/static/learn/pwa/service-workers/image/service-worker-developer-5ebe49234dc0f_1920.png 1920w,https://web.dev/static/learn/pwa/service-workers/image/service-worker-developer-5ebe49234dc0f_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px">
+                                  <figcaption class="wd-caption">Service worker developer tools on Chrome, Firefox and Safari.</figcaption>
+                                </figure>
+                                
+                                <aside class="note"><b>Note: </b> You can remotely inspect a phone or tablet from your desktop browser when you want to check service worker registration status on a mobile device. You will see details on how to do that in the <a href="/learn/pwa/tools-and-debug">Tools and Debug chapter</a> </aside>
+                                
+                                <h3 id="scope" data-text="Scope" tabindex="-1">Scope</h3>
+                                
+                                <p>The folder your service worker sits in determines its scope. A service worker that lives at <code translate="no" dir="ltr">example.com/my-pwa/sw.js</code> can control any navigation at the <em>my-pwa</em> path or below, such as <code translate="no" dir="ltr">example.com/my-pwa/demos/</code>. Service workers can only control items (pages, workers, collectively &quot;clients&quot;) in their scope. Scope applies to browser tabs and PWA windows.</p>
+                                
+                                <p>Only <em>one</em> service worker per scope is allowed. When active and running, only one instance is typically available no matter how many clients are in memory (such as PWA windows or browser tabs).</p>
+                                
+                                <aside class="warning"><b>Warning: </b> You should set the scope of your service worker as close to the root of your app as possible. This is the most common setup as it lets the service worker intercept all the requests related to your PWA. Don't put it inside, for instance, a JavaScript folder or have it loaded from a CDN. </aside>
+                                
+                                <p>Safari has more complex scope management, known as partitions, affecting how scopes work if you have cross-domain iframes. To read more about WebKit&#39;s implementation, read <a href="https://webkit.org/blog/8090/workers-at-your-service/">their blog post</a>.</p>
+                                
+                                <h2 id="lifecycle" data-text="Lifecycle" tabindex="-1">Lifecycle</h2>
+                                
+                                <p>Service workers have a lifecycle that dictates how they are installed, this is separate from your PWA installation.
+                                The service worker lifecycle starts with registering the service worker. The browser then attempts to download and parse the service worker file. If parsing succeeds, its <code translate="no" dir="ltr">install</code> event is fired. The <code translate="no" dir="ltr">install</code> event only fires once.</p>
+                                
+                                <p>Service worker installation happens silently, without requiring user permission, even if the user doesn&#39;t install the PWA. The Service Worker API is even available on platforms that do not support PWA installation, such as Safari and Firefox on desktop devices.</p>
+                                
+                                <aside class="tip">Service worker <em>registration</em> and <em>installation</em>, while related, are different events. Registration happens when a page requests a service worker by calling <code translate="no" dir="ltr">register()</code> as described previously. Installation happens when a registered service worker exists, can be parsed as JavaScript, and doesn't throw any errors during its first execution. </aside>
+                                
+                                <p>After the installation, the service worker is not yet in control of its clients, including your PWA. It needs to be activated first. When the service worker is ready to control its clients, the <code translate="no" dir="ltr">activate</code> event will fire. This doesn&#39;t mean, though, that the page that registered the service worker will be managed. By default, the service worker will not take control until the next time you navigate to that page, either due to reloading the page or re-opening the PWA.</p>
+                                
+                                <p>You can listen for events in the service worker&#39;s global scope using the <code translate="no" dir="ltr">self</code> object.</p>
+                                
+                                <p><span class="wd-label">serviceworker.js</span></p>
+                                <pre class="prettyprint lang-js" translate="no" dir="ltr"><code translate="no" dir="ltr">// This code executes in its own worker or thread
+                                self.addEventListener(&#34;install&#34;, event =&gt; {
+                                   console.log(&#34;Service worker installed&#34;);
+                                });
+                                self.addEventListener(&#34;activate&#34;, event =&gt; {
+                                   console.log(&#34;Service worker activated&#34;);
+                                });
+                                </code></pre>
+                                <h3 id="updating_a_service_worker" data-text="Updating a service worker" tabindex="-1">Updating a service worker</h3>
+                                
+                                <p>Service workers get updated when the browser detects that the service worker currently controlling the client and the new (from your server) version of the same file are byte-different.</p>
+                                
+                                <aside class="warning"><b>Warning: </b> When updating your service worker, do so without renaming it. Do not even add file hashes to the filename. Otherwise, the browser will never get the new version of your service worker! </aside>
+                                
+                                <p>After a successful installation, the new service worker will wait to activate until the existing (old) service worker no longer controls any clients. This state is called &quot;waiting&quot;, and it&#39;s how the browser ensures that only one version of your service worker is running at a time.
+                                Refreshing a page or reopening the PWA won&#39;t make the new service worker take control. The user needs to close or navigate away from all tabs and windows using the current service worker and then navigate back. Only then will the new service worker take control.
+                                Visit this <a href="/articles/service-worker-lifecycle">service worker lifecycle article</a> for more information.</p>
+                                
+                                <h2 id="service_worker_lifespan" data-text="Service worker lifespan" tabindex="-1">Service worker lifespan</h2>
+                                
+                                <p>Once installed and registered, a service worker can manage all network requests within its scope. It runs on its  own thread, with activation and termination controlled by the browser. This lets it work even before or after your PWA is open. While service workers run on their own thread, there is no guarantee that in-memory state will persist between runs of a service worker, so make sure anything you want to reuse on each run is available either in IndexedDB or some other persistent storage.</p>
+                                
+                                <p>If not already running, a service worker will start whenever a network request in its scope is asked for, or when a triggering event, like periodic background sync or a push message, is received.</p>
+                                
+                                <p>Service workers don&#39;t live indefinitely. While exact timings differ between browsers, service workers will be terminated if they&#39;ve been idle for a few seconds, or if they&#39;ve been busy for too long. If a service worker has been terminated and an event occurs that would start it up, it will restart.</p>
+                                
+                                <h2 id="capabilities" data-text="Capabilities" tabindex="-1">Capabilities</h2>
+                                
+                                <p>With a registered and active service worker, you have a thread with a completely different execution lifecycle than the main one on your PWA. However, by default, the service worker file itself has no behavior. It won&#39;t cache or serve any resources, as this has to be done by your code. You&#39;ll find out how in the following chapters.</p>
+                                
+                                <p>Service worker&#39;s capabilities are not just for proxy or serving HTTP requests; other features are available on top of it for other purposes, such as background code execution, web push notifications, and process payments. We&#39;ll discuss these additions in the <a href="/learn/pwa/capabilities">capabilities chapter</a>.</p>
+                                
+                                <h2 id="resources" data-text="Resources" tabindex="-1">Resources</h2>
+                                
+                                <ul>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/Service_Worker_API">Service Worker API (MDN)</a></li>
+                                <li><a href="/articles/service-worker-mindset">Service Worker mindset</a></li>
+                                <li><a href="https://webkit.org/blog/8090/workers-at-your-service/">WebKit Workers at your service</a></li>
+                                <li><a href="/articles/es-modules-in-sw">ES Modules in Service Workers</a></li>
+                                <li><a href="/articles/service-worker-lifecycle">Service worker lifecycle</a></li>
+                                </ul>
+                                
+                                  
+
+
+
+
+
+
+
+
+
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
                     </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
-                            </ul>
-                        </nav>
-                    </footer>
+                    
                                         
                 </div>
             </main>

@@ -1172,38 +1172,392 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                    
+                    
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Window Management</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
+                        <section aria-labelledby="the_story_of_your_first_website">
+                                   
+                            
+
+
+
+                            <p>A PWA outside of the browser manages its own window. In this chapter, you will
+                                understand the APIs and capabilities for managing a window within the
+                                operating system.</p>
+                              
+                              
+                              
+                              
+                              
+                              <h2 id="the_pwa_window" data-text="The PWA window" tabindex="-1">The PWA window</h2>
+                              
+                              <p>Running on your own window, managed by your PWA, has all the advantages and responsibilities of any window in that operating system, such as:</p>
+                              
+                              <ul>
+                              <li>The ability to resize and move the window around on multi-window operating systems, like Windows or ChromeOS.</li>
+                              <li>Sharing the screen with other app windows, as in iPadOS split mode or Android split-screen mode.</li>
+                              <li>Appearing in docks, taskbars, and in the alt-tab menu on desktop, and multi-task window lists on mobile devices.</li>
+                              <li>The ability to minimize, move the window across screens and desktops, and close it at any time.</li>
+                              </ul>
+                              
+                              <h3 id="moving_and_resizing_the_window" data-text="Moving and resizing the window" tabindex="-1">Moving and resizing the window</h3>
+                              
+                              <p>Your PWA window can be of any size and positioned anywhere on the screen on desktop operating systems. By default, when the user opens the PWA for the first time after installation, the PWA gets a default window size of a percentage of the current screen, with a maximum resolution of 1920x1080 positioned at the top-left corner of the screen.</p>
+                              
+                              <p>The user can move and resize the window, and the browser will remember the last preference, so the next time the user opens the app, the window will retain the size and position from the previous usage.</p>
+                              
+                              <p>There is no way to define your PWA&#39;s preferred size and position within the manifest. You can only reposition and resize the window using the JavaScript API. From your code, you can move and resize your own PWA window using the <a href="https://developer.mozilla.org/docs/Web/API/Window/moveTo"><code translate="no" dir="ltr">moveTo(x, y)</code></a> and <a href="https://developer.mozilla.org/docs/Web/API/Window/resizeTo"><code translate="no" dir="ltr">resizeTo(x, y)</code></a> functions of the <code translate="no" dir="ltr">window</code> object.</p>
+                              
+                              <p>For example, you can resize and move your PWA window when the PWA loads using:</p>
+                              <pre class="prettyprint lang-js" translate="no" dir="ltr"><code translate="no" dir="ltr">document.addEventListener(&#34;DOMContentLoaded&#34;, event =&gt; {
+                                 // we can move only if we are not in a browser&#39;s tab
+                                 isBrowser = matchMedia(&#34;(display-mode: browser)&#34;).matches;
+                                 if (!isBrowser) {
+                                    window.moveTo(16, 16);
+                                    window.resizeTo(800, 600);
+                                 }
+                              });
+                              </code></pre>
+                              <p>You can query the current screen size and position using the <code translate="no" dir="ltr">window.screen</code> object; you can detect when the window is resized using the <code translate="no" dir="ltr">resize</code> event from the <code translate="no" dir="ltr">window</code> object. There is no event for capturing the window move, so your option is to query the position frequently.</p>
+                              
+                              <aside class="note"><b>Note: </b> Instead of moving and resizing the window absolutely, you can move relatively and resize using <code translate="no" dir="ltr">moveBy()</code> and <code translate="no" dir="ltr">resizeBy()</code>. </aside>
+                              
+                              <aside class="note"><b>Note: </b> On mobile devices, moving or resizing your window won't make any changes on the screen. </aside>
+                              
+                              <h3 id="browsing_to_other_sites" data-text="Browsing to other sites" tabindex="-1">Browsing to other sites</h3>
+                              
+                              <p>If you want to send the user to an external site that is out of the scope of your PWA, you can do so with a standard <code translate="no" dir="ltr">&lt;a href&gt;</code> HTML element, using <code translate="no" dir="ltr">location.href</code> or opening a new window on compatible platforms.</p>
+                              
+                              <p>Currently on all browsers, if your PWA is installed, when you browse to a URL that is out of the <a href="/learn/pwa/web-app-manifest#recommended_fields">scope of your manifest</a>, the browser engine of your PWA will render an in-app browser within the context of your window.</p>
+                              
+                              <p>Some features of the in-app browsers are:</p>
+                              
+                              <ul>
+                              <li>They appear on top of your content.</li>
+                              <li>They have a static URL bar showing the current origin, the window&#39;s title, and a menu. Typically, they&#39;re themed with the <code translate="no" dir="ltr">theme_color</code> of your manifest.</li>
+                              <li>From the contextual menu, you can open that URL in the browser.</li>
+                              <li>Users can close the browser or go back.</li>
+                              </ul>
+                              
+                              <p><img src="/static/learn/pwa/windows/image/an-app-browser-a-deskto-0c18838026b82.png" alt="An in-app browser on a desktop PWA when browsing a URL that is out-of-scope." width="800" height="497" srcset="https://web.dev/static/learn/pwa/windows/image/an-app-browser-a-deskto-0c18838026b82_36.png 36w,https://web.dev/static/learn/pwa/windows/image/an-app-browser-a-deskto-0c18838026b82_48.png 48w,https://web.dev/static/learn/pwa/windows/image/an-app-browser-a-deskto-0c18838026b82_72.png 72w,https://web.dev/static/learn/pwa/windows/image/an-app-browser-a-deskto-0c18838026b82_96.png 96w,https://web.dev/static/learn/pwa/windows/image/an-app-browser-a-deskto-0c18838026b82_480.png 480w,https://web.dev/static/learn/pwa/windows/image/an-app-browser-a-deskto-0c18838026b82_720.png 720w,https://web.dev/static/learn/pwa/windows/image/an-app-browser-a-deskto-0c18838026b82_856.png 856w,https://web.dev/static/learn/pwa/windows/image/an-app-browser-a-deskto-0c18838026b82_960.png 960w,https://web.dev/static/learn/pwa/windows/image/an-app-browser-a-deskto-0c18838026b82_1440.png 1440w,https://web.dev/static/learn/pwa/windows/image/an-app-browser-a-deskto-0c18838026b82_1920.png 1920w,https://web.dev/static/learn/pwa/windows/image/an-app-browser-a-deskto-0c18838026b82_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                              
+                              <aside class="note"><b>Note: </b> While the in-app browser is on the screen, your PWA is waiting in the background, as if another window is obscuring it. </aside>
+                              
+                              <aside class="tip">On iOS and iPadOS, the in-app browser uses SafariViewController, a Safari-rendering engine isolated from your PWA storage. Therefore, if the user has a session in Safari, it won't appear in your PWA, but it will appear within an in-app browser in your PWA. </aside>
+                              
+                              <p><img src="/static/learn/pwa/windows/image/an-app-browser-an-iphon-dddc327f709aa.png" alt="An in-app browser on an iPhone when browsing a URL that is out-of-scope within a standalone PWA." width="800" height="370" srcset="https://web.dev/static/learn/pwa/windows/image/an-app-browser-an-iphon-dddc327f709aa_36.png 36w,https://web.dev/static/learn/pwa/windows/image/an-app-browser-an-iphon-dddc327f709aa_48.png 48w,https://web.dev/static/learn/pwa/windows/image/an-app-browser-an-iphon-dddc327f709aa_72.png 72w,https://web.dev/static/learn/pwa/windows/image/an-app-browser-an-iphon-dddc327f709aa_96.png 96w,https://web.dev/static/learn/pwa/windows/image/an-app-browser-an-iphon-dddc327f709aa_480.png 480w,https://web.dev/static/learn/pwa/windows/image/an-app-browser-an-iphon-dddc327f709aa_720.png 720w,https://web.dev/static/learn/pwa/windows/image/an-app-browser-an-iphon-dddc327f709aa_856.png 856w,https://web.dev/static/learn/pwa/windows/image/an-app-browser-an-iphon-dddc327f709aa_960.png 960w,https://web.dev/static/learn/pwa/windows/image/an-app-browser-an-iphon-dddc327f709aa_1440.png 1440w,https://web.dev/static/learn/pwa/windows/image/an-app-browser-an-iphon-dddc327f709aa_1920.png 1920w,https://web.dev/static/learn/pwa/windows/image/an-app-browser-an-iphon-dddc327f709aa_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                              
+                              <p><img src="/static/learn/pwa/windows/image/an-app-browser-android-3d73f1c909f0b.png" alt="An in-app browser on Android when browsing a URL that is out-of-scope within a standalone PWA." width="800" height="1644" srcset="https://web.dev/static/learn/pwa/windows/image/an-app-browser-android-3d73f1c909f0b_36.png 36w,https://web.dev/static/learn/pwa/windows/image/an-app-browser-android-3d73f1c909f0b_48.png 48w,https://web.dev/static/learn/pwa/windows/image/an-app-browser-android-3d73f1c909f0b_72.png 72w,https://web.dev/static/learn/pwa/windows/image/an-app-browser-android-3d73f1c909f0b_96.png 96w,https://web.dev/static/learn/pwa/windows/image/an-app-browser-android-3d73f1c909f0b_480.png 480w,https://web.dev/static/learn/pwa/windows/image/an-app-browser-android-3d73f1c909f0b_720.png 720w,https://web.dev/static/learn/pwa/windows/image/an-app-browser-android-3d73f1c909f0b_856.png 856w,https://web.dev/static/learn/pwa/windows/image/an-app-browser-android-3d73f1c909f0b_960.png 960w,https://web.dev/static/learn/pwa/windows/image/an-app-browser-android-3d73f1c909f0b_1440.png 1440w,https://web.dev/static/learn/pwa/windows/image/an-app-browser-android-3d73f1c909f0b_1920.png 1920w,https://web.dev/static/learn/pwa/windows/image/an-app-browser-android-3d73f1c909f0b_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                              
+                              <h4 id="authorization_flows" data-text="Authorization flows" tabindex="-1">Authorization flows</h4>
+                              
+                              <p>Many web authentication and authorization flows involve redirecting the user to a different URL in a different origin to acquire a token that will return to your PWA&#39;s origin, such as using <a href="https://oauth.net/2/">OAuth 2.0</a>.</p>
+                              
+                              <p>In these cases, the in-app browser follows the following process:</p>
+                              
+                              <ol>
+                              <li>The user opens your PWA and clicks login.</li>
+                              <li>Your PWA redirects the user to a URL that is out of the scope of the PWA so that the rendering engine will open an in-app browser within your PWA.</li>
+                              <li>The user can cancel the in-app browser and go back to your PWA at any time.</li>
+                              <li>The user logs into the in-app browser. The authentication server redirects the user to your PWA origin, sending the token as an argument.</li>
+                              <li>The in-app browser closes itself when it detects a URL that is part of the scope of the PWA.</li>
+                              <li>The engine redirects the main PWA window navigation to the URL that the authentication server went to while in the in-app browser.</li>
+                              <li>Your PWA gets the token, stores the token, and renders the PWA.</li>
+                              </ol>
+                              
+                              <h4 id="forcing_a_browsers_navigation" data-text="Forcing a browser's navigation" tabindex="-1">Forcing a browser's navigation</h4>
+                              
+                              <p>If you want to force open the browser with a URL and not an in-app browser, you can use the <code translate="no" dir="ltr">_blank</code> target of <code translate="no" dir="ltr">&lt;a href&gt;</code> elements. This works only on desktop PWAs; on mobile devices, there is no option to open a browser with a URL.</p>
+                              <pre class="prettyprint lang-js" translate="no" dir="ltr"><code translate="no" dir="ltr">function openBrowser(url) {
+                                  window.open(&#34;url&#34;, &#34;_blank&#34;, &#34;&#34;);
+                              }
+                              </code></pre>
+                              <h3 id="opening_new_windows" data-text="Opening new windows" tabindex="-1">Opening new windows</h3>
+                              
+                              <p>On desktop, users can open more than one window of the same PWA. Each window will be a different navigation to the same <code translate="no" dir="ltr">start_url</code>, as if you were opening two browser tabs of the same URL.
+                              From the menu in the PWA, users can select File then New window, and from your PWA code, you can open a new window with the <code translate="no" dir="ltr">open()</code> function. Check the <a href="https://developer.mozilla.org/docs/Web/API/Window/open">documentation</a> for details.</p>
+                              <pre class="prettyprint lang-js" translate="no" dir="ltr"><code translate="no" dir="ltr">function openNewWindow() {
+                                  window.open(&#34;/&#34;, &#34;new-window&#34;, &#34;width=600,height=600&#34;);
+                              }
+                              </code></pre>
+                              <p><img src="/static/learn/pwa/windows/image/the-same-installed-pwa-s-2e0275a3f5fce.png" alt="The same installed PWA with several windows opened on a desktop operating system." width="800" height="580" srcset="https://web.dev/static/learn/pwa/windows/image/the-same-installed-pwa-s-2e0275a3f5fce_36.png 36w,https://web.dev/static/learn/pwa/windows/image/the-same-installed-pwa-s-2e0275a3f5fce_48.png 48w,https://web.dev/static/learn/pwa/windows/image/the-same-installed-pwa-s-2e0275a3f5fce_72.png 72w,https://web.dev/static/learn/pwa/windows/image/the-same-installed-pwa-s-2e0275a3f5fce_96.png 96w,https://web.dev/static/learn/pwa/windows/image/the-same-installed-pwa-s-2e0275a3f5fce_480.png 480w,https://web.dev/static/learn/pwa/windows/image/the-same-installed-pwa-s-2e0275a3f5fce_720.png 720w,https://web.dev/static/learn/pwa/windows/image/the-same-installed-pwa-s-2e0275a3f5fce_856.png 856w,https://web.dev/static/learn/pwa/windows/image/the-same-installed-pwa-s-2e0275a3f5fce_960.png 960w,https://web.dev/static/learn/pwa/windows/image/the-same-installed-pwa-s-2e0275a3f5fce_1440.png 1440w,https://web.dev/static/learn/pwa/windows/image/the-same-installed-pwa-s-2e0275a3f5fce_1920.png 1920w,https://web.dev/static/learn/pwa/windows/image/the-same-installed-pwa-s-2e0275a3f5fce_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                              
+                              <p>Calling <code translate="no" dir="ltr">open()</code> within a PWA window on iOS or iPadOS returns <code translate="no" dir="ltr">null</code> and doesn&#39;t open a window. Opening new windows on Android creates a new in-app browser for the URL—even if the URL is within the scope of your PWA—that typically doesn&#39;t trigger an external browsing experience.</p>
+                              
+                              <aside class="warning"><b>Warning: </b> The second argument of <code translate="no" dir="ltr">open()</code> is the window's name. If the name you used is already opened, the engine will replace the opened window with that name with a new navigation. If you always want to open a new window, you must use different string values for a name. </aside>
+                              
+                              <div class="wd-embed" style="height: 420px;">
+                                <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi"
+                                  loading="lazy"
+                                  src="https://glitch.com/embed/#!/embed/mlearn-pwa-windows-basic?attributionHidden=true&sidebarCollapsed=true&previewSize=100"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="mlearn-pwa-windows-basic on Glitch"
+                                ></iframe>
+                              </div>
+                              
+                              <aside class="tip">The functions <code translate="no" dir="ltr">open()</code>, <code translate="no" dir="ltr">moveTo()</code>, and <code translate="no" dir="ltr">resizeTo()</code> don't need the <code translate="no" dir="ltr">window.</code> prefix when writing JavaScript because <code translate="no" dir="ltr">window</code> is the global object. You can just call <code translate="no" dir="ltr">moveTo(0, 0)</code>. However, calling <code translate="no" dir="ltr">window.moveTo(0, 0)</code> makes the code easier to understand. </aside>
+                              
+                              <h3 id="window_title" data-text="Window title" tabindex="-1">Window title</h3>
+                              
+                              <p>The <code translate="no" dir="ltr">&lt;title&gt;</code> element was primarily used for SEO purposes as the space within a browser tab is limited. When you move from the browser to your window in a PWA, all the title bar space is available to you.</p>
+                              
+                              <p>You can define the contents of the title bar:</p>
+                              
+                              <ul>
+                              <li>Statically in your HTML <code translate="no" dir="ltr">&lt;title&gt;</code> element.</li>
+                              <li>Dynamically changing the <code translate="no" dir="ltr">document.title</code> string property at any time.</li>
+                              </ul>
+                              
+                              <p>On desktop PWAs, the title is essential, and it&#39;s used in the title bar of the window and sometimes in the task manager or multi-task selection. If you have a single-page application, you may want to update your title on every route.</p>
+                              
+                              <aside class="note"><b>Note: </b> To reduce phishing within PWAs, some desktop browsers may have additional measures on the window's title. For example, if you don't use your app's name in the title, the browser may add a prefix with your PWA's name on it. Other browsers may render the current origin in the title bar for a few seconds when you change the title to highlight where the user navigated. </aside>
+                              
+                              <h3 id="tabbed_mode" data-text="Tabbed mode" tabindex="-1">Tabbed mode</h3>
+                              
+                              <p>An experimental capability, known as <em>tabbed mode</em>​ will let your PWA have a tab-based design similar to a web browser. In this case, the user can have several tabs opened from the same PWA but all tied together in the same operating system window, as you can see in the following video:</p>
+                              
+                              <video controls loop muted playsinline poster="https://web.dev/learn/pwa/windows/video/image/W3z1f5ZkBJSgL1V1IfloTIctbIF3/emg7quu4DyvYwlyzgDE1.png" > <source src="/static/learn/pwa/windows/video/W3z1f5ZkBJSgL1V1IfloTIctbIF3/b1SL9QwJcgRXrVDeLKmK.mp4" type="video/mp4" /> </video>
+                              
+                              <p>You can read more about this experimental capability at <a href="/articles/tabbed-application-mode">Tabbed application mode for PWA</a>.</p>
+                              
+                              <aside class="note"><b>Note: </b> In the <a href="/learn/pwa/experimental">Experimental chapter</a>, you will see how you can start using experimental capabilities. </aside>
+                              
+                              <h3 id="window_controls_overlay" data-text="Window controls overlay" tabindex="-1">Window controls overlay</h3>
+                              
+                              <p>We&#39;ve mentioned that you can change the window&#39;s title by defining the value of the <code translate="no" dir="ltr">&lt;title&gt;</code> element or the <code translate="no" dir="ltr">document.title</code> property. But it&#39;s always a string value. What if we could design the title bar as we wish, with HTML, CSS, and images?
+                              That&#39;s where Window Controls Overlay comes in, a new experimental capability in Microsoft Edge and Google Chrome for desktop PWAs.</p>
+                              
+                              <aside class="note"><b>Note: </b> Tabbed mode and window controls overlay capabilities define new values for the manifest's <code translate="no" dir="ltr">display</code> member. To create compatibility with all devices, the manifest group has created a way to replace the <a href="/learn/pwa/app-design#display_modes">fallback <code translate="no" dir="ltr">display</code> chain</a>, so you can specify what <code translate="no" dir="ltr">display</code> value to use if your first option is not available. Read more about it at <a href="/display-override">Preparing for the display modes of tomorrow</a>. </aside>
+                              
+                              <p>You can read more about this capability at <a href="/articles/window-controls-overlay">Customize the window controls overlay of your PWA&#39;s title bar</a>.</p>
+                              
+                              <p><img src="/static/learn/pwa/windows/image/with-window-controls-over-870f687efe854.png" alt="With window controls overlay, you can render content in the title bar." width="800" height="544" srcset="https://web.dev/static/learn/pwa/windows/image/with-window-controls-over-870f687efe854_36.png 36w,https://web.dev/static/learn/pwa/windows/image/with-window-controls-over-870f687efe854_48.png 48w,https://web.dev/static/learn/pwa/windows/image/with-window-controls-over-870f687efe854_72.png 72w,https://web.dev/static/learn/pwa/windows/image/with-window-controls-over-870f687efe854_96.png 96w,https://web.dev/static/learn/pwa/windows/image/with-window-controls-over-870f687efe854_480.png 480w,https://web.dev/static/learn/pwa/windows/image/with-window-controls-over-870f687efe854_720.png 720w,https://web.dev/static/learn/pwa/windows/image/with-window-controls-over-870f687efe854_856.png 856w,https://web.dev/static/learn/pwa/windows/image/with-window-controls-over-870f687efe854_960.png 960w,https://web.dev/static/learn/pwa/windows/image/with-window-controls-over-870f687efe854_1440.png 1440w,https://web.dev/static/learn/pwa/windows/image/with-window-controls-over-870f687efe854_1920.png 1920w,https://web.dev/static/learn/pwa/windows/image/with-window-controls-over-870f687efe854_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                              
+                              <h2 id="window_management_2" data-text="Window management" tabindex="-1">Window management</h2>
+                              
+                              <p>With multiple screens, users will want to use all the space available to them. For example:</p>
+                              
+                              <ul>
+                              <li>Multi-window graphics editors à la Gimp can place various editing tools in accurately positioned windows.</li>
+                              <li>Virtual trading desks can show market trends in multiple windows any of which can be viewed in fullscreen mode.</li>
+                              <li>Slideshow apps can show speaker notes on the internal primary screen and the presentation on an external projector.</li>
+                              </ul>
+                              
+                              <p>The <a href="https://developer.chrome.com/docs/capabilities/web-apis/window-management">Window Management API</a> allows PWAs to do just that and more.</p>
+                              
+                              <h3 id="getting_screen_details" data-text="Getting screen details" tabindex="-1">Getting screen details</h3>
+                              
+                              <p>The <a href="https://developer.mozilla.org/docs/Web/API/Window_Management_API">Window Management API</a> adds a new method, <code translate="no" dir="ltr">window.getScreenDetails()</code>, that returns an object with screens as an immutable array of attached screens. There&#39;s also a live object accessible from <code translate="no" dir="ltr">ScreenDetails.currentScreen</code>, corresponding to the current <code translate="no" dir="ltr">window.screen</code>.</p>
+                              
+                              <aside class="tip">On some browsers, calling <code translate="no" dir="ltr">window.getScreenDetails()</code> requires the user to grant permission to your PWAs. </aside>
+                              
+                              <p>The returned object also fires a <a href="https://developer.chrome.com/articles/window-management#the-screenschange-event"><code translate="no" dir="ltr">screenschange</code> event</a> when the <code translate="no" dir="ltr">screens</code> array changes. (This does not happen when attributes on individual screens are changed.) Individual screens, either <code translate="no" dir="ltr">window.screen</code> or a screen in the <code translate="no" dir="ltr">screens</code> array, also fire a <code translate="no" dir="ltr">change</code> event when their attributes change.</p>
+                              <pre class="prettyprint lang-js" translate="no" dir="ltr"><code translate="no" dir="ltr">// Request an object with a screen objects
+                              const screenDetails = await window.getScreenDetails();
+                              screenDetails.screens[0].isPrimary;  // e.g. true
+                              screenDetails.screens[0].isInternal;  // e.g. true
+                              screenDetails.screens[0].pointerTypes;  // e.g. [&#34;touch&#34;]
+                              screenDetails.screens[0].label;  // e.g. &#39;Samsung Electric Company 28&#34;&#39;
+                              
+                              // Access the live object corresponding to the current `window.screen`.
+                              // The object is updated on cross-screen window placements or device changes.
+                              screenDetails.currentScreen;
+                              screenDetails.addEventListener(&#39;screenschange&#39;, function() {
+                               // NOTE: Does not fire on changes to attributes of individual screens.
+                                const screenCount = screenDetails.screens.length;
+                                const currentScreen screenDetails.currentScreen.id;
+                              });
+                              </code></pre>
+                              <p>If the user or the operating system moves your PWA&#39;s window from one screen to another, a <a href="https://developer.chrome.com/articles/window-management#the-currentscreenchange-event"><code translate="no" dir="ltr">currentscreenchange</code> event</a> will also be fired from the screen details object.</p>
+                              
+                              <aside class="note"><b>Note: </b> You may also want to check the <a href="https://developer.mozilla.org/docs/Web/API/Presentation_API">Presentation API</a> to display web content through large presentation devices such as projectors and network-connected televisions. 
+                                
+                                  
+                                  
+                                  
+                                  
+                                
+                                
+                                
+                                  
+                                    
+                                  
+                                
+                                  
+                                    
+                                  
+                                 
+                              
+                                  
+                                  
+                                    
+                                    <div class="wd-browser-compat">
+                                      <p>Browser Support</p>
+                                      <ul>
+                                        
+                                
+                                
+                                  
+                                    
+                                      
+                                        
+                                        
+                                      
+                                    
+                                  
+                                  
+                                
+                                <li
+                                  data-browser="chrome"
+                                  data-support="yes">47</li>
+                                
+                                
+                                        
+                                
+                                
+                                  
+                                    
+                                      
+                                        
+                                        
+                                      
+                                    
+                                  
+                                  
+                                
+                                <li
+                                  data-browser="edge"
+                                  data-support="yes">79</li>
+                                
+                                
+                                        
+                                
+                                
+                                  
+                                    
+                                    
+                                  
+                                  
+                                
+                                <li
+                                  data-browser="firefox"
+                                  data-support="no">x</li>
+                                
+                                
+                                        
+                                
+                                
+                                  
+                                    
+                                    
+                                  
+                                  
+                                
+                                <li
+                                  data-browser="safari"
+                                  data-support="no">x</li>
+                                
+                                
+                                      </ul>
+                                      
+                                      <p><a href="https://developer.mozilla.org/docs/Web/API/Presentation">Source</a></p>
+                                      
+                                    </div>
+                                  
+                                  
+                                  
+                                 </aside>
+                              
+                              <div class="wd-embed" style="height: 420px;">
+                                <iframe
+                                  allow="window-management; camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi"
+                                  loading="lazy"
+                                  src="https://mlearn-pwa-windows-screens.glitch.me/"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="mlearn-pwa-windows-screens on Glitch"
+                                ></iframe>
+                              </div>
+                              
+                              <h2 id="screen_wake_lock" data-text="Screen wake lock" tabindex="-1">Screen wake lock</h2>
+                              
+                              <p>Imagine this: you&#39;re in the kitchen following a recipe on your tablet. You&#39;ve just finished prepping your ingredients. Your hands are a mess, and you turn back to your device to read the next step. Disaster! The screen&#39;s gone black! The <a href="https://developer.mozilla.org/docs/Web/API/Screen_Wake_Lock_API">Screen Wake Lock API</a> is here for you and lets a PWA prevent screens from dimming, sleeping, or locking, allowing users to stop, start, leave, and return without worry.</p>
+                              <pre class="prettyprint lang-js" translate="no" dir="ltr"><code translate="no" dir="ltr">// Request a screen wake lock
+                              const wakeLock = await navigator.wakeLock.request();
+                              
+                              // Listen for wake lock release
+                              wakeLock.addEventListener(&#39;release&#39;, () =&gt; {
+                               console.log(`Screen Wake Lock released: ${wakeLock.released}`);
+                              });
+                              // Manually release the wake lock
+                              wakeLock.release();
+                              </code></pre>
+                              <h2 id="virtual_keyboard" data-text="Virtual keyboard" tabindex="-1">Virtual keyboard</h2>
+                              
+                              <p>Touch-based devices, such as phones and tablets, offer a virtual on-screen keyboard so the user can type when form elements of your PWA are in focus.</p>
+                              
+                              <p>Thanks to the <a href="/virtualkeyboard">VirtualKeyboard API</a>, your PWA can now have more control of the keyboard on compatible platforms using the <code translate="no" dir="ltr">navigator.virtualKeyboard</code> interface, including:</p>
+                              
+                              <ul>
+                              <li>Showing and hiding the virtual keyboard with the functions <code translate="no" dir="ltr">navigator.virtualKeyboard.show()</code> and <code translate="no" dir="ltr">navigator.virtualKeyboard.hide()</code>.</li>
+                              <li>Telling the browser that you are taking care of closing the virtual keyboard yourself by setting <code translate="no" dir="ltr">navigator.virtualKeyboard.overlaysContent</code> equal to <code translate="no" dir="ltr">true</code>.</li>
+                              <li>Knowing when the keyboard appears and disappears with the event <code translate="no" dir="ltr">geometrychange</code> of <code translate="no" dir="ltr">navigator.virtualKeyboard</code>.</li>
+                              <li>Setting the virtual keyboard policy on editing host elements (using <code translate="no" dir="ltr">contenteditable</code>) with the <code translate="no" dir="ltr">virtualkeyboardpolicy</code> HTML attribute. A policy lets you decide if you want the virtual keyboard to be handled automatically by the browser using the <code translate="no" dir="ltr">auto</code> value, or handled by your script using the <code translate="no" dir="ltr">manual</code> value.</li>
+                              <li>Using CSS environmental variables for getting information about the virtual keyboard appearance, such as <code translate="no" dir="ltr">keyboard-inset-height</code> and <code translate="no" dir="ltr">keyboard-inset-top</code>.</li>
+                              </ul>
+                              
+                              <p>You can read more about this API on <a href="/virtualkeyboard">Full control with the VirtualKeyboard API</a>.</p>
+                              
+                              <h2 id="resources" data-text="Resources" tabindex="-1">Resources</h2>
+                              
+                              <ul>
+                              <li><a href="/multi-screen-window-placement">Managing several displays with the Multi-Screen Window Placement API</a></li>
+                              <li><a href="/articles/tabbed-application-mode">Tabbed application mode for PWAs</a></li>
+                              <li><a href="/wake-lock">Stay awake with the Screen Wake Lock API</a></li>
+                              <li><a href="/virtualkeyboard">Full control with the VirtualKeyboard API</a></li>
+                              <li><a href="/articles/window-controls-overlay">Customize the window controls overlay of your PWA&#39;s title bar</a></li>
+                              <li><a href="https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/window-controls-overlay">Display content in the title bar</a></li>
+                              </ul>
+                              
+                                
+
+
+
+
+
+
+
+
+
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
                     </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
-                            </ul>
-                        </nav>
-                    </footer>
+                    
                                         
                 </div>
             </main>

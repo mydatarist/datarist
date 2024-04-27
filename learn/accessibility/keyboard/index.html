@@ -1172,38 +1172,295 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
+                    
+                    
+
+
+
+
+
+                      <article class="main-page-content" lang="en-US">
+                                    <header>
+                                      <h1>Keyboard</h1>
+                                    </header>
+                                    <div class="section-content">
+                                      <p>
+                                        <em>Getting started with ...</em>
+                                        is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your simple code.
+                                      </p>
+                                    </div>
+                                    <section aria-labelledby="the_story_of_your_first_website">
+                                       
+                                      
+                        
+                        
+                        
+                        
+                                      <p>Many people use a keyboard—or other software/hardware that mimics the
+                                        functionality of a keyboard, such as a switch device—as their primary means of
+                                        navigation. People with temporary physical limitations such as sprained wrist
+                                        or fine motor disabilities like carpal tunnel, as well as some people without
+                                        disabilities may choose to use a keyboard to navigate a page due to personal
+                                        preference, efficiency, or broken hardware.</p>
+                                        
+                                        <p>Low-vision or blind users may use a keyboard for navigation combined with
+                                        their magnification or screen reader software. However, they may use different
+                                        keyboard shortcut commands to navigate a screen than a sighted user would.</p>
+                                        
+                                        <p>Keyboard support for all of these disabilities and circumstances is critical. A
+                                        a large part of keyboard accessibility is centred around
+                                        <a href="/articles/focus">focus</a>. Focus refers to which element on the screen
+                                        currently receives input from the keyboard.</p>
+                                        
+                                        <p>In this module, we concentrate on HTML structure and CSS styling for
+                                        keyboard and focusable elements. The
+                                        <a href="/learn/accessibility/javascript">JavaScript module</a> includes more
+                                        information on focus management and keystrokes for interactive elements.</p>
+                                        
+                                        <h2 id="focus_order" data-text="Focus order" tabindex="-1">Focus order</h2>
+                                        
+                                        <p>The elements that a keyboard user can navigate to are called focusable
+                                        elements. <a href="https://www.w3.org/WAI/WCAG21/Understanding/focus-order.html">Focus order</a>,
+                                        also called tab or navigation order, is the order in which elements receive
+                                        focus. The default focus order must be logical, intuitive, and match the visual
+                                        order of a page.</p>
+                                        
+                                        <p>For most languages, the focus order starts at the top of the page and ends at the bottom, travelling from left to right. However, some languages are read right to left, so the primary language of the page may warrant a different focus order.</p>
+                                        
+                                        <p>By default, focus order includes naturally focusable HTML elements, such as
+                                        links, checkboxes, and text inputs. Naturally focusable HTML elements include
+                                        built-in tab order support and basic keyboard event handling.</p>
+                                        
+                                        <p>You can update the focus order to include any elements that don&#39;t normally
+                                        receive focus, such as non-interactive HTML elements, custom components, or
+                                        elements with <a href="/learn/accessibility/glossary#aria">ARIA</a> that overrides the
+                                        natural focus semantics.</p>
+                                        
+                                        <aside class="note"><b>Note: </b> Your <code translate="no" dir="ltr">tab</code> key moves the keyboard focus up the <a href="https://developer.mozilla.org/docs/Glossary/DOM">DOM</a>. <code translate="no" dir="ltr">shift + tab</code> moves the focus down the DOM. </aside>
+                                        
+                                        <h3 id="tabindex" data-text="Tabindex" tabindex="-1">Tabindex</h3>
+                                        
+                                        <p>The focus order begins with elements that have a positive
+                                        <a href="https://developer.mozilla.org/docs/Web/HTML/Global_attributes/tabindex">tabindex</a>
+                                        attribute (if there are any) and moves from the smallest positive number to the
+                                        largest (such as 1, 2, 3). It then proceeds through elements with a tab index of
+                                        zero according to their order in the DOM. Any elements with a negative tab index
+                                        are removed from the natural focus order.</p>
+                                        
+                                        <p>When a <a href="https://developer.mozilla.org/docs/Web/HTML/Global_attributes/tabindex">tabindex</a>
+                                        of zero (<code translate="no" dir="ltr">tabindex=&quot;0&quot;</code>) is applied to normally unfocusable elements, they are
+                                        added into the natural focus order of the page according to the way they appear
+                                        in the DOM. However, unlike naturally focusable HTML elements, you must
+                                        <a href="https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/">provide additional keyboard support</a>
+                                        for them to be fully accessible.</p>
+                                        
+                                        <p>Similarly, if you have an element that normally is focusable but is
+                                        inactive—such as a button that is inoperative until an input field is filled
+                                        in—you should add a negative tabindex (<code translate="no" dir="ltr">tabindex=&quot;-1&quot;</code>) to this element. Adding
+                                        a negative tab index signals to assistive technologies and keyboards that this
+                                        the button should be removed from the natural focus order. But don&#39;t worry—you can
+                                        use JavaScript to add the focus back to the element when needed. </p>
+                                        
+                                        <p>In this example, a <code translate="no" dir="ltr">tabindex</code> attribute was added to elements that do not
+                                        naturally, receive focus. The order of the elements was manipulated using
+                                        <code translate="no" dir="ltr">tabindex</code> to illustrate the power it can have on focus order. This is an
+                                        example of what not to do!</p>
+                                        
+                                        <div class="wd-switcher">
+                                         <figure>
+                                          <div class="wd-embed" style="height: 300px; width: 100%">
+                                           <iframe
+                                           allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                           loading="lazy"
+                                           src="https://codepen.io/web-dev-codepen-external/embed/QWxWwNM?height=300&theme-id=dark&default-tab=html&editable=true"
+                                           style="height: 100%; width: 100%; border: 0;"
+                                           title="Pen QWxWwNM by web-dev-codepen-external on Codepen"
+                                          ></iframe>
+                                          </div>
+                                         </figure>
+                                         <figure>
+                                          <img src="/static/learn/accessibility/focus/image/new-focus-order-reflects-451c5c700368b.gif" alt="New focus order reflects the HTML." width="800" height="450">
+                                          <figcaption class="wd-caption">
+                                           Watch as a keyboard user tabs through the CodePen HTML.
+                                          </figcaption>
+                                         </figure>
+                                        </div>
+                                        
+                                        <aside class="caution">
+                                         <b>Caution:</b> As a general rule, you should avoid positive tabindexes. Giving focus to non-interactive elements and disrupting the normal focus order may confuse and frustrate your users. It should be rare that a circumstance warrants adding a positive tabindex (<code translate="no" dir="ltr">tabindex= &quot;1&quot;</code>) to a non-focusable element.
+                                        </aside>
+                                        
+                                        <h3 id="skip_links" data-text="Skip links" tabindex="-1">Skip links</h3>
+                                        
+                                        <p>Most websites today have a long list of menu links in the page&#39;s main header
+                                        consistent from page to page. This is great for general navigation but can make
+                                        it difficult for keyboard-only users to easily get to the website&#39;s main
+                                        content without having to tab multiple times.</p>
+                                        
+                                        <p>One way to jump over redundant or unuseful groups of links is to add a
+                                        <a href="https://webaim.org/techniques/skipnav/">skip link</a>. Skip links are anchor
+                                        links that jump to a different section of the same page, using that section&#39;s
+                                        ID, instead of sending the user to another page on the website or an external
+                                        resource. Skip links are typically added as the first focusable element a user
+                                        will encounter when arriving at a website and can be visible or visually hidden
+                                        until a user tabs to it, depending on what the design calls for.</p>
+                                        
+                                        <p>When a user presses the tab key, and an active skip link is in place, it sends
+                                        the keyboard focus to the skip link. The user can click the skip link and jump
+                                        past the header section and main navigation. If they choose not to click the
+                                        skip the link and continue to tab down the DOM, they&#39;ll be sent to the next
+                                        focusable element.</p>
+                                        
+                                        <p>Like all links, the skip link must include context about the
+                                        link&#39;s purpose. Adding the phrase &quot;Skip to main content,&quot; lets the user know
+                                        where the link is taking them. There are many code options to choose from when
+                                        providing additional context to your links, such as
+                                        <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA7">aria-labelledby</a>,
+                                        <a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA8">aria-label</a>, or adding it
+                                        to the text content of the <code translate="no" dir="ltr">&lt;a&gt;</code> element, as demonstrated in the example.</p>
+                                        
+                                        <div class="wd-switcher">
+                                         <figure>
+                                          <div class="wd-embed" style="height: 350px; width: 100%">
+                                           <iframe
+                                           allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                           loading="lazy"
+                                           src="https://codepen.io/web-dev-codepen-external/embed/LYrYEGo?height=350&theme-id=dark&default-tab=html&editable=true"
+                                           style="height: 100%; width: 100%; border: 0;"
+                                           title="Pen LYrYEGo by web-dev-codepen-external on Codepen"
+                                          ></iframe>
+                                          </div>
+                                         </figure>
+                                         <figure>
+                                          <img src="/static/learn/accessibility/focus/image/preview-codepen-keyboard-ae708e66afbe9.gif" alt="Preview CodePen with keyboard focus." width="800" height="450">
+                                          <figcaption class="wd-caption">Watch a keyboard user navigate with and without a skip link.</figcaption>
+                                         </figure>
+                                        </div>
+                                        
+                                        <h2 id="focus_indicator" data-text="Focus indicator" tabindex="-1">Focus indicator</h2>
+                                        
+                                        <p>As you just learned, focus order is an important aspect of keyboard
+                                        accessibility. It&#39;s also important to decide how that focus is styled. Because
+                                        even if the focus order is excellent, how could a user know where they are on
+                                        the page without the proper styling?</p>
+                                        
+                                        <p>A <a href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible">visible focus indicator</a>
+                                        is a vital tool in informing a user about where they are at all times on the
+                                        page. It&#39;s especially important for your sighted keyboard-only users.</p>
+                                        
+                                        <aside class="note"><b>Note: </b> WCAG 2.2's new success criterion, <a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html">Focus Not Obscured (Minimum)</a>, will ensure that the focus indicator is not hidden beneath other components. </aside>
+                                        
+                                        <h3 id="browser_default_styling" data-text="Browser default styling" tabindex="-1">Browser default styling</h3>
+                                        
+                                        <p>Today, every modern web browser has a different default visual styling that
+                                        applies to focusable elements on your website or app—some more easily visible
+                                        than others. As a user tabs through the page, this styling is applied as the
+                                        element receives keyboard focus.</p>
+                                        
+                                        <p>If you allow the browser to handle the focus styling, it&#39;s important to review
+                                        your code to confirm that your theme won&#39;t override the browser&#39;s default
+                                        styling. An override is often written as <code translate="no" dir="ltr">&quot;outline: 0&quot;</code> or <code translate="no" dir="ltr">&quot;outline: none&quot;</code> in
+                                        your stylesheet. This tiny piece of code can remove the browser&#39;s default focus
+                                        indicator styling, which makes it very difficult for users to navigate your
+                                        website or app.</p>
+                                        
+                                        <div class="wd-switcher">
+                                        <div class="wd-compare">
+                                         <div class="compare-worse">Don't</div>
+                                         <pre class="prettyprint lang-css" translate="no" dir="ltr">a:focus {
+                                         outline: none; /* don't do this! */
+                                        }
+                                        </pre>
+                                        </div>
+                                        
+                                        <div class="wd-compare">
+                                         <div class="compare-better">Do</div>
+                                         <pre class="prettyprint lang-css" translate="no" dir="ltr">a:focus {
+                                         outline: auto 5px Highlight; /* for non-webkit browsers */
+                                         outline: auto 5px -webkit-focus-ring-color; /* for webkit browsers */
+                                        }
+                                        </pre>
+                                        </div>
+                                        </div>
+                                        
+                                        <h3 id="custom_styles" data-text="Custom styles" tabindex="-1">Custom styles</h3>
+                                        
+                                        <p>Of course, you can go beyond the default browser style and create a custom
+                                        focus indicator that complements your theme. When creating a custom focus
+                                        indicator, you have a lot of freedom to be creative!</p>
+                                        
+                                        <p>A focus indicator shape can take on many forms, be it an outline, a border, an
+                                        underline, a box, a background change, or some other obvious stylistic change
+                                        that does not rely on colour alone to indicate the keyboard&#39;s focus is active on
+                                        that element.</p>
+                                        
+                                        <p>You could change a focus indicator style to ensure it isn’t lost in the
+                                        background. For example, when a page has a white background, you could set the
+                                        button focus indicator to a blue background. When the page has a blue
+                                        background, you could set that same button focus style to a white background.</p>
+                                        
+                                        <p>You could change the focus element style based on element type. For example,
+                                        you could use a dotted underline for body links but choose a rounded border for
+                                        a button element.</p>
+                                        
+                                        <aside class="note"><b>Note: </b> <p>Depending on how the focus indicator is styled, it may also need to meet the <a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G195">minimum colour contrast</a> requirements against the background.</p> <p>We recommend adhering to a 3:1 color contrast ratio for all focus indicators. This will meet WCAG 2.2's <a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance-minimum">Focus Appearance (Minimum)</a>.</p> </aside>
+                                        
+                                        <div class="wd-switcher">
+                                        <figure>
+                                         <div class="wd-embed" style="height: 300px; width: 100%">
+                                          <iframe
+                                          allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                          loading="lazy"
+                                          src="https://codepen.io/web-dev-codepen-external/embed/PoaowNz?height=300&theme-id=dark&default-tab=css&editable=true"
+                                          style="height: 100%; width: 100%; border: 0;"
+                                          title="Pen PoaowNz by web-dev-codepen-external on Codepen"
+                                         ></iframe>
+                                         </div>
+                                        </figure>
+                                        <figure>
+                                         <img src="/static/learn/accessibility/focus/image/focus-style-demonstrated-9dce0f0e29ee1.gif" alt="Focus style as demonstrated in CSS." width="800" height="450">
+                                          <figcaption class="wd-caption">
+                                           Watch what happens as a keyboard user tabs through each styled focus element.
+                                          </figcaption>
+                                        </figure>
+                                        </div>
+                                        
+                                        <p>There is no rule about how many focus indicator styles you have on one
+                                        page&mdash;but be sure to keep it to a reasonable number to avoid unnecessary
+                                        confusion.</p>
+                                        
+                                        <h2 id="wrap-up" data-text="Wrap-up" tabindex="-1">Wrap-up</h2>
+                                        
+                                        <p>For a website or app to be considered accessible, everything that can be
+                                        accessed with a mouse must also be accessed with a keyboard. This module
+                                        focused on the visual aspect of keyboard accessibility, in particular, focus
+                                        order and focus indicators.</p>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                                    </section>
+                                  </article>
+
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
 <div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
-                        </div>
+    
                     </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
-                            </ul>
-                        </nav>
-                    </footer>
+                    
                                         
                 </div>
             </main>

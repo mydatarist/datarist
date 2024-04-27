@@ -1172,38 +1172,415 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
-                        </div>
-                    </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
+                    
+                    
+
+
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>CSS selectors</h1>
+                        </header>
+                        <div class="section-content">
+                            <ul class="prev-next">
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks">
+                                        <span class="button-wrap">Overview: Building blocks</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks/Selectors/Type_Class_and_ID_Selectors">
+                                        <span class="button-wrap">Next  </span>
+                                    </a>
+                                </li>
                             </ul>
-                        </nav>
-                    </footer>
+                            <p>
+                                In <a href="/en-US/docs/Glossary/CSS">CSS</a>
+                                , selectors are used to target the <a href="/en-US/docs/Glossary/HTML">HTML</a>
+                                elements on our web pages that we want to style. There are a wide variety of CSS selectors available, allowing for fine-grained precision when selecting elements to style. In this article and its sub-articles we'll run through the different types in great detail, seeing how they work.
+                            </p>
+                            <figure class="table-container">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Prerequisites:</th>
+                                            <td>
+                                                <a href="/en-US/docs/Learn/Getting_started_with_the_web/Installing_basic_software">Basic software installed</a>
+                                                , basic knowledge of
+    <a href="/en-US/docs/Learn/Getting_started_with_the_web/Dealing_with_files">working with files</a>
+                                                , HTML basics (study
+    <a href="/en-US/docs/Learn/HTML/Introduction_to_HTML">Introduction to HTML</a>
+                                                ), and an idea of how CSS works (study
+    <a href="/en-US/docs/Learn/CSS/First_steps">CSS first steps</a>
+                                                .)
+  
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Objective:</th>
+                                            <td>To learn how CSS selectors work in detail.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </figure>
+                        </div>
+                        <section aria-labelledby="what_is_a_selector">
+                            <h2 id="what_is_a_selector">
+                                <a href="#what_is_a_selector">What is a selector?</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    A CSS selector is the first part of a CSS Rule. It is a pattern of elements and other terms that tell the browser which HTML elements should be selected to have the CSS property values inside the rule applied to them. The element or elements which are selected by the selector are referred to as the <em>subject of the selector</em>
+                                    .
+                                </p>
+                                <p>
+                                    <img src="/en-US/docs/Learn/CSS/Building_blocks/Selectors/selector.png" alt="Some code with the h1 highlighted." width="471" height="218" loading="lazy">
+                                </p>
+                                <p>
+                                    In other articles you may have met some different selectors, and learned that there are selectors that target the document in different ways — for example by selecting an element such as <code>h1</code>
+                                    , or a class such as <code>.special</code>
+                                    .
+                                </p>
+                                <p>
+                                    In CSS, selectors are defined in the CSS Selectors specification; like any other part of CSS they need to have support in browsers for them to work. The majority of selectors that you will come across are defined in the <a href="https://www.w3.org/TR/selectors-3/" class="external" target="_blank">Level 3 Selectors specification</a>
+                                    and <a href="https://www.w3.org/TR/selectors-4/" class="external" target="_blank">Level 4 Selectors specification</a>
+                                    , which are both mature specifications, therefore you will find excellent browser support for these selectors.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="selector_lists">
+                            <h2 id="selector_lists">
+                                <a href="#selector_lists">Selector lists</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    If you have more than one thing which uses the same CSS then the individual selectors can be combined into a <em>selector list</em>
+                                    so that the rule is applied to all of the individual selectors. For example, if I have the same CSS for an <code>h1</code>
+                                    and also a class of <code>.special</code>
+                                    , I could write this as two separate rules.
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="+XUnnLhcDhE837UV1H7ETZX9gU7Us/2xGkY58LoimZ8=">
+                                        <code>
+                                            <span class="token selector">h1</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">color</span>
+                                            <span class="token punctuation">:</span>
+                                            blue<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token selector">.special</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">color</span>
+                                            <span class="token punctuation">:</span>
+                                            blue<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>I could also combine these into a selector list, by adding a comma between them.</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="2Z9ZEWsDmt7r/hj/zRYplE0G3hGtoyqQ3//vlYYRuMw=">
+                                        <code>
+                                            <span class="token selector">h1, .special</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">color</span>
+                                            <span class="token punctuation">:</span>
+                                            blue<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>White space is valid before or after the comma. You may also find the selectors more readable if each is on a new line.</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="va/dM26DVMcIlJ2p5pUIJ2TWWvtdxkC4LuhKa+1RzpI=">
+                                        <code>
+                                            <span class="token selector">h1,
+.special</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">color</span>
+                                            <span class="token punctuation">:</span>
+                                            blue<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>In the live example below try combining the two selectors which have identical declarations. The visual display should be the same after combining them.</p>
+                                <iframe width="100%" height="1150" src="https://mdn.github.io/css-examples/learn/selectors/selector-list.html" loading="lazy"></iframe>
+                                <p>When you group selectors in this way, if any selector is syntactically invalid, the whole rule will be ignored.</p>
+                                <p>
+                                    In the following example, the invalid class selector rule will be ignored, whereas the <code>h1</code>
+                                    would still be styled.
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="1jTuI7atM0UMzyd5Lh6HWt6c+s7p0dIfKhDhcqIFLvs=">
+                                        <code>
+                                            <span class="token selector">h1</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">color</span>
+                                            <span class="token punctuation">:</span>
+                                            blue<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token selector">..special</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">color</span>
+                                            <span class="token punctuation">:</span>
+                                            blue<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    When combined however, neither the <code>h1</code>
+                                    nor the class will be styled as the entire rule is deemed invalid.
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="X+J9WeJB+ptgY5CUejBrPVAPrYHbeRqp+D8x2cI7f6k=">
+                                        <code>
+                                            <span class="token selector">h1, ..special</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">color</span>
+                                            <span class="token punctuation">:</span>
+                                            blue<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="types_of_selectors">
+                            <h2 id="types_of_selectors">
+                                <a href="#types_of_selectors">Types of selectors</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>There are a few different groupings of selectors, and knowing which type of selector you might need will help you to find the right tool for the job. In this article's subarticles we will look at the different groups of selectors in more detail.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="type_class_and_id_selectors">
+                            <h3 id="type_class_and_id_selectors">
+                                <a href="#type_class_and_id_selectors">Type, class, and ID selectors</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    Type selectors target an HTML element such as an 
+                                    <a href="/en-US/docs/Web/HTML/Element/Heading_Elements">
+                                        <code>&lt;h1 &gt;</code>
+                                    </a>
+                                    :
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="2WvrHyTNHNh0UVhMs6z3eezqV45nWwoe4mIieAu1KA8=">
+                                        <code>
+                                            <span class="token selector">h1</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    Class selectors target an element that has a specific value for its 
+                                    <a href="/en-US/docs/Web/HTML/Global_attributes/class">
+                                        <code>class</code>
+                                    </a>
+                                    attribute:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="cA3h3bdPzpTQF1Cm/IQn5wQGjIUJSK44y3plahWbonQ=">
+                                        <code>
+                                            <span class="token selector">.box</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    ID selectors target an element that has a specific value for its 
+                                    <a href="/en-US/docs/Web/HTML/Global_attributes/id">
+                                        <code>id</code>
+                                    </a>
+                                    attribute:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="kCdv9jcwtMZxGQY1jtpeOIkz6h0WQ2siAi3/Ovc77Xg=">
+                                        <code>
+                                            <span class="token selector">#unique</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="attribute_selectors">
+                            <h3 id="attribute_selectors">
+                                <a href="#attribute_selectors">Attribute selectors</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>This group of selectors gives you different ways to select elements based on the presence of a certain attribute on an element:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="41Vbc1dOUPuhrRJ55ENxTjZ0JAbY7zv8o/AJ4aWDOEk=">
+                                        <code>
+                                            <span class="token selector">a[title]</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>Or even make a selection based on the presence of an attribute with a particular value:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="tZY75pR9nsi8dcNuR66C3ANljqCnfAF4orYEtiWzD74=">
+                                        <code>
+                                            <span class="token selector">a[href="https://example.com"]</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="pseudo-classes_and_pseudo-elements">
+                            <h3 id="pseudo-classes_and_pseudo-elements">
+                                <a href="#pseudo-classes_and_pseudo-elements">Pseudo-classes and pseudo-elements</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    This group of selectors includes pseudo-classes, which style certain states of an element. The <code>:hover</code>
+                                    pseudo-class for example selects an element only when it is being hovered over by the mouse pointer:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="lD77lYINHl7GAXeBsxvf2wpBS/0tL0JYuwP58JcKnkE=">
+                                        <code>
+                                            <span class="token selector">a:hover</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    It also includes pseudo-elements, which select a certain part of an element rather than the element itself. For example, <code>::first-line</code>
+                                    always selects the first line of text inside an element (a <code>&lt;p &gt;</code>
+                                    in the below case), acting as if a <code>&lt;span &gt;</code>
+                                    was wrapped around the first formatted line and then selected.
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="vUpI/gZljOVlOm5X/ZdUpShMTVJ4QGqV87jdScIaBPk=">
+                                        <code>
+                                            <span class="token selector">p::first-line</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="combinators">
+                            <h3 id="combinators">
+                                <a href="#combinators">Combinators</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    The final group of selectors combine other selectors in order to target elements within our documents. The following, for example, selects paragraphs that are direct children of <code>&lt;article &gt;</code>
+                                    elements using the child combinator (<code>&gt;</code>
+                                    ):
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="mME3Xk9KXMPugeUeVeGpOeiPUODooh+4dnOViTA3ypE=">
+                                        <code>
+                                            <span class="token selector">article &gt;p</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="summary">
+                            <h2 id="summary">
+                                <a href="#summary">Summary</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    In this article we've introduced CSS selectors, which enable you to target particular HTML elements. Next, we'll take a closer look at <a href="/en-US/docs/Learn/CSS/Building_blocks/Selectors/Type_Class_and_ID_Selectors">type, class, and ID selectors</a>
+                                    .
+                                </p>
+                                <p>
+                                    For a complete list of selectors, see our <a href="/en-US/docs/Web/CSS/CSS_selectors">CSS selectors reference</a>
+                                    .
+                                </p>
+                                <ul class="prev-next">
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks">
+                                            <span class="button-wrap">Overview: Building blocks</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks/Selectors/Type_Class_and_ID_Selectors">
+                                            <span class="button-wrap">Next  </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
+                    </div>
+                    
                                         
                 </div>
             </main>

@@ -1172,38 +1172,360 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
-                        </div>
-                    </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
+                    
+                    
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Normal Flow</h1>
+                        </header>
+                        <div class="section-content">
+                            <ul class="prev-next">
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/CSS/CSS_layout/Introduction">
+                                        <span class="button-wrap">Previous </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/CSS/CSS_layout">
+                                        <span class="button-wrap">Overview: CSS layout</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/CSS/CSS_layout/Flexbox">
+                                        <span class="button-wrap">Next  </span>
+                                    </a>
+                                </li>
                             </ul>
-                        </nav>
-                    </footer>
+                            <p>This article explains normal flow, or the way that webpage elements lay themselves out if you haven't changed their layout.</p>
+                            <figure class="table-container">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Prerequisites:</th>
+                                            <td>
+                                                The basics of HTML (study
+    <a href="/en-US/docs/Learn/HTML/Introduction_to_HTML">Introduction to HTML</a>
+                                                ), and an idea of How CSS works (study
+    <a href="/en-US/docs/Learn/CSS/First_steps">Introduction to CSS</a>
+                                                .)
+  
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Objective:</th>
+                                            <td>To explain how browsers layout web pages by default, before we begin to
+    make changes.
+  </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </figure>
+                            <p>
+                                As detailed in the last lesson introducing layout, elements on a webpage lay out in normal flow if you haven't applied any CSS to change the way they behave. And, as we began to discover, you can change how elements behave either by adjusting their position in normal flow or by removing them from it altogether. Starting with a solid, well-structured document that's readable in normal flow is the best way to begin any webpage. It ensures that your content is readable even if the user's using a very limited browser or a device such as a screen reader that reads out the content of the page. In addition, since normal flow is designed to make a readable document, by starting in this way you're working <em>with</em>
+                                the document rather than struggling <em>against</em>
+                                it as you make changes to the layout.
+                            </p>
+                            <p>Before digging deeper into different layout methods, it's worth revisiting some of the things you have studied in previous modules with regard to normal document flow.</p>
+                        </div>
+                        <section aria-labelledby="how_are_elements_laid_out_by_default">
+                            <h2 id="how_are_elements_laid_out_by_default">
+                                <a href="#how_are_elements_laid_out_by_default">How are elements laid out by default?</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    The process begins as the boxes of individual elements are laid out in such a way that any padding, border, or margin they happen to have is added to their content. This is what we call the <strong>box model</strong>
+                                    .
+                                </p>
+                                <p>
+                                    By default, a <a href="/en-US/docs/Glossary/Block-level_content">block-level element</a>
+                                    's content fills the available inline space of the parent element containing it, growing along the block dimension to accommodate its content. The size of <a href="/en-US/docs/Glossary/Inline-level_content">inline-level elements</a>
+                                    is just the size of their content. You can set 
+                                    <a href="/en-US/docs/Web/CSS/width">
+                                        <code>width</code>
+                                    </a>
+                                    or 
+                                    <a href="/en-US/docs/Web/CSS/height">
+                                        <code>height</code>
+                                    </a>
+                                    on some elements that have a default 
+                                    <a href="/en-US/docs/Web/CSS/display">
+                                        <code>display</code>
+                                    </a>
+                                    property value of <code>inline</code>
+                                    , like 
+                                    <a href="/en-US/docs/Web/HTML/Element/img">
+                                        <code>&lt;img &gt;</code>
+                                    </a>
+                                    , but <code>display</code>
+                                    value will still remain <code>inline</code>
+                                    .
+                                </p>
+                                <p>
+                                    If you want to control the <code>display</code>
+                                    property of an inline-level element in this manner, use CSS to set it to behave like a block-level element (e.g., with <code>display: block;</code>
+                                    or <code>display: inline-block;</code>
+                                    , which mixes characteristics from both).
+                                </p>
+                                <p>
+                                    That explains how elements are structured individually, but how about the way they're structured when they interact with one another? The normal layout flow (mentioned in the layout introduction article) is the system by which elements are placed inside the browser's viewport. By default, block-level elements are laid out in the <em>block flow direction</em>
+                                    , which is based on the parent's <a href="/en-US/docs/Web/CSS/writing-mode">writing mode</a>
+                                    (<em>initial</em>
+                                    : horizontal-tb). Each element will appear on a new line below the last one, with each one separated by whatever margin that's been specified. In English, for example, (or any other horizontal, top to bottom writing mode) block-level elements are laid out vertically.
+                                </p>
+                                <p>Inline elements behave differently. They don't appear on new lines; instead, they all sit on the same line along with any adjacent (or wrapped) text content as long as there is space for them to do so inside the width of the parent block level element. If there isn't space, then the overflowing content will move down to a new line.</p>
+                                <p>
+                                    If two vertically adjacent elements both have a margin set on them and their margins touch, the larger of the two margins remains and the smaller one disappears. This is known as 
+                                    <a href="/en-US/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing">
+                                        <strong>margin collapsing</strong>
+                                    </a>
+                                    .
+Collapsing margins is only relevant in the <strong>vertical direction</strong>
+                                    .
+
+                                </p>
+                                <p>Let's look at a simple example that explains all of this:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">html</span>
+                                    </div>
+                                    <pre class="brush: html notranslate" data-signature="zcGaiq6MwKNM5GqcBKlAe5Nf2j651jv+SXZpYuFAqMo=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    h1
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Basic document flow
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    h1
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            I am a basic block level element. My adjacent block level elements sit on new
+lines below me.
+
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            By default we span 100% of the width of our parent element, and we are as tall
+as our child content. Our total width and height is our content + padding +
+border width/height.
+
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            We are separated by our margins. Because of margin collapsing, we are
+separated by the width of one of our margins, not both.
+
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Inline elements 
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    span
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            like this one
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    span
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            and 
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    span
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            this one
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    span
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            sit on
+the same line along with adjacent text nodes, if there is space on the same
+line. Overflowing inline elements will
+
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    span
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            wrap onto a new line if possible (like this one containing text)
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    span
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            ,
+or just go on to a new line if not, much like this image will do:
+
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    img
+                                                </span>
+                                                <span class="token attr-name">src</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    long.jpg<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">alt</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    snippet of cloth<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">/&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="AeAqcgM2vb6vl8Y16T4+PzZQjOG/65GCwWpcCz2FTnQ=">
+                                        <code>
+                                            <span class="token selector">body</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">width</span>
+                                            <span class="token punctuation">:</span>
+                                            500px<span class="token punctuation">;</span>
+                                            <span class="token property">margin</span>
+                                            <span class="token punctuation">:</span>
+                                            0 auto<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token selector">p</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">background</span>
+                                            <span class="token punctuation">:</span>
+                                            <span class="token function">rgb</span>
+                                            <span class="token punctuation">(</span>
+                                            255 84 104 / 30%<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token property">border</span>
+                                            <span class="token punctuation">:</span>
+                                            2px solid <span class="token function">rgb</span>
+                                            <span class="token punctuation">(</span>
+                                            255 84 104<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token property">padding</span>
+                                            <span class="token punctuation">:</span>
+                                            10px<span class="token punctuation">;</span>
+                                            <span class="token property">margin</span>
+                                            <span class="token punctuation">:</span>
+                                            10px<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token selector">span</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">background</span>
+                                            <span class="token punctuation">:</span>
+                                            white<span class="token punctuation">;</span>
+                                            <span class="token property">border</span>
+                                            <span class="token punctuation">:</span>
+                                            1px solid black<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="code-example" id="sect1">
+                                    <div class="example-header" id="sect2"></div>
+                                    <iframe class="sample-code-frame" title="How are elements laid out by default sample" id="frame_how_are_elements_laid_out_by_default" width="100%" height="600" src="https://live.mdnplay.dev/en-US/docs/Learn/CSS/CSS_layout/Normal_Flow/runner.html?id=how_are_elements_laid_out_by_default" loading="lazy"></iframe>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="summary">
+                            <h2 id="summary">
+                                <a href="#summary">Summary</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>In this lesson you've learned the basics of normal flow — the default layout for CSS elements. By understanding how inline elements, block elements, and margins behave by default, it'll be easier to modify their behavior in the future.</p>
+                                <p>
+                                    In the next article, we'll build on this knowledge by making changes to CSS elements using <a href="/en-US/docs/Learn/CSS/CSS_layout/Flexbox">flexbox</a>
+                                    .
+                                </p>
+                            </div>
+                        </section>
+                    </article>
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
+                    </div>
+                    
                                         
                 </div>
             </main>

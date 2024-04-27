@@ -1172,38 +1172,506 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                    
+                    
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>OS</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
-                    </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
+                        <section aria-labelledby="the_story_of_your_first_website">
+                                 
+                            
+
+
+
+                            <p>Web apps have a big reach. They run on multiple platforms. They are easy to share via links. But traditionally they lacked integration with the operating system. Not long ago they were not even installable. Luckily that has changed and now we can take advantage of that integration to add useful features to our PWAs. Let&#39;s explore some of those options.</p>
+
+                            <h2 id="working_with_the_file_system" data-text="Working with the file system" tabindex="-1">Working with the file system</h2>
+                            
+                            <p>A typical user workflow using files looks like this:</p>
+                            
+                            <ul>
+                            <li>Pick a file or folder from the device and open it directly.</li>
+                            <li>Make changes to those files or folders, and save the changes back directly.</li>
+                            <li>Make new files and folders.</li>
                             </ul>
-                        </nav>
-                    </footer>
+                            
+                            <p>Before the <a href="/file-system-access">File System Access API</a>, web apps couldn&#39;t do this. Opening files required a file upload, saving changes required users to download them, and the web had no access at all to make new files and folders in the user&#39;s filesystem.</p>
+                            
+                            <h3 id="opening_a_file" data-text="Opening a file" tabindex="-1">Opening a file</h3>
+                            
+                            <p>To open a file we use the <code translate="no" dir="ltr">window.showOpenFilePicker()</code> method. Note that this method requires a user gesture, such as a button click. Here is the rest of the setup for opening a file:</p>
+                            
+                            <ol>
+                            <li>Capture the <a href="https://developer.mozilla.org/docs/Web/API/FileSystemHandle">file handle</a> from the file system access&#39;s file picker API. This gives you basic information about the file.</li>
+                            <li>Using the handle&#39;s <code translate="no" dir="ltr">getFile()</code> method, you&#39;ll get a special kind of <a href="https://developer.mozilla.org/docs/Web/API/Blob"><code translate="no" dir="ltr">Blob</code></a> called a <a href="https://developer.mozilla.org/docs/Web/API/File"><code translate="no" dir="ltr">File</code></a> that includes additional read-only properties (such as name and last modified date) about the file. Because it&#39;s a Blob, Blob methods can be called on it, such as <code translate="no" dir="ltr">text()</code>, to get its content.</li>
+                            </ol>
+                            <pre class="prettyprint lang-js" translate="no" dir="ltr"><code translate="no" dir="ltr">// Have the user select a file.
+                            const [ handle ] = await window.showOpenFilePicker();
+                            // Get the File object from the handle.
+                            const file = await handle.getFile();
+                            // Get the file content.
+                            // Also available, slice(), stream(), arrayBuffer()
+                            const content = await file.text();
+                            </code></pre>
+                            <h3 id="saving_changes" data-text="Saving changes" tabindex="-1">Saving changes</h3>
+                            
+                            <p>To save changes to a file, you also need a user gesture; then:</p>
+                            
+                            <ol>
+                            <li>Use the file handle to create a <a href="https://developer.mozilla.org/docs/Web/API/FileSystemWritableFileStream"><code translate="no" dir="ltr">FileSystemWritableFileStream</code></a>.</li>
+                            <li>Make changes to the stream. This won&#39;t update the file in place; instead, a temporary file is typically created.</li>
+                            <li>Finally, when you&#39;ve finished making changes, you close the stream, which moves the changes from temporary to permanent.</li>
+                            </ol>
+                            
+                            <p>Let&#39;s see this in code:</p>
+                            <pre class="prettyprint lang-js" translate="no" dir="ltr"><code translate="no" dir="ltr">// Make a writable stream from the handle.
+                            const writable = await handle.createWritable();
+                            // Write the contents of the file to the stream.
+                            await writable.write(contents);
+                            // Close the file and write the contents to disk.
+                            await writable.close();
+                            </code></pre>
+                            <div class="wd-embed" style="height: 420px;">
+                              <iframe
+                                allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi"
+                                loading="lazy"
+                                src="https://glitch.com/embed/#!/embed/mlearn-pwa-os-integration-file?attributionHidden=true&sidebarCollapsed=true&previewSize=100"
+                                style="height: 100%; width: 100%; border: 0;"
+                                title="mlearn-pwa-os-integration-file on Glitch"
+                              ></iframe>
+                            </div>
+                            
+                            <aside class="caution"><b>Caution: </b> Safari implements the File System Access API, not for the public system, but as an <a href="https://developer.chrome.com/articles/file-system-access#accessing-files-optimized-for-performance-from-the-origin-private-file-system">origin-private sandbox</a>. You can only read and write files in that virtual file system using this API. </aside>
+                            
+                            <h2 id="file_handling" data-text="File handling" tabindex="-1">File handling</h2>
+                            
+                            <p>The File System Access API lets you open files from within your app, but what about the other way around? Users want to set their favorite app as their default to open files with. The <a href="/file-handling">file handling API</a> is an experimental API that lets installed PWAs:
+                            Register as a file handler on a user&#39;s device, specifying the MIME type and file extension that your PWA supports in your web app manifest. You can specify custom file icons for your supported extensions.</p>
+                            
+                            <p>Once registered, your installed PWA will show up as an option from the user&#39;s file system, allowing them to open the file directly into it.
+                            Here is an example of the manifest setup for a PWA to read text files:</p>
+                            <pre class="prettyprint lang-json" translate="no" dir="ltr"><code translate="no" dir="ltr">...
+                            &#34;file_handlers&#34;: [
+                                 {
+                                     &#34;action&#34;: &#34;/open-file&#34;,
+                                     &#34;accept&#34;: {
+                                         &#34;text/*&#34;: [&#34;.txt&#34;]
+                                     }
+                                 }
+                            ]
+                            ...
+                            </code></pre>
+                            <h2 id="url_handling" data-text="URL handling" tabindex="-1">URL handling</h2>
+                            
+                            <p>With URL handling, your PWA can capture links that are part of its scope from the operating system and render them within a PWA window, instead of the default browser&#39;s tab. For example, if you receive a message linking to the PWA, or click on a deep link (a URL that points to a specific piece of content) in your PWA, the content will open in a standalone window.</p>
+                            
+                            <p>This behavior is automatically available on Android when WebAPK is used, such as when users install a PWA with Chrome. It&#39;s impossible to capture URLs on PWAs installed on iOS and iPadOS from Safari.</p>
+                            
+                            <p>For desktop browsers, the web browser community created a new spec. This spec is currently <a href="/learn/pwa/experimental">experimental</a>; it adds a new manifest file member: <code translate="no" dir="ltr">url_handlers</code>. This property expects an array of origins that the PWA wants to capture. The origin of your PWA will be granted automatically, and each other origin must accept that handling operating through a file named <code translate="no" dir="ltr">web-app-origin-association</code>.
+                            For example, if your PWA&#39;s manifest is hosted on the web.dev, and you want to add the app.web.dev origin, it would look like this:</p>
+                            <pre class="prettyprint lang-json" translate="no" dir="ltr"><code translate="no" dir="ltr">&#34;url_handlers&#34;: [
+                                {&#34;origin&#34;: &#34;https://app.web.dev&#34;},
+                            ]
+                            </code></pre>
+                            <p>In this case, the browser will check if a file exists at <code translate="no" dir="ltr">app.web.dev/.well-known/web-app-origin-association</code>, accepting the URL handling from the PWA scope URL. The developer has to create this file. In the following example, the file looks like this:</p>
+                            <pre class="prettyprint lang-json" translate="no" dir="ltr"><code translate="no" dir="ltr">{
+                                &#34;web_apps&#34;: [
+                                    {
+                                        &#34;manifest&#34;: &#34;/mypwa/app.webmanifest&#34;,
+                                        &#34;details&#34;: {
+                                            &#34;paths&#34;: [ &#34;/*&#34; ]
+                                        }
+                                    }
+                                ]
+                            }
+                            </code></pre>
+                            <aside class="tip">On Android with WebAPKs, PWAs are automatically registered as handlers for the manifest's scope with an Android intent filter, and it is not possible to add more origins or scopes to it. For iOS and iPadOS, you can only handle URLs with PWAs published in the AppStore, such as those created with <a href="https://pwabuilder.com">PWABuilder</a>. </aside>
+                            
+                            <h2 id="url_protocol_handling" data-text="URL protocol handling" tabindex="-1">URL protocol handling</h2>
+                            
+                            <p>URL handling works with standard <code translate="no" dir="ltr">https</code> protocol URLs, but it is possible to use custom URI-schemes, such as <code translate="no" dir="ltr">pwa://</code>. In several operating systems, installed apps gain this ability by apps registering their schemes.</p>
+                            
+                            <p>For PWA, this capability is enabled using the <a href="/url-protocol-handler">URL protocol handler API</a>, available only on desktop devices. You can only allow custom protocols for mobile devices by distributing your PWA on app stores.</p>
+                            
+                            <aside class="caution"><b>Caution: </b> For PWAs using the URL protocol handler API, the protocol name has to be one of the <a href="https://html.spec.whatwg.org/multipage/system-state.html#safelisted-scheme">safelisted schemes</a>, or it must use a <code translate="no" dir="ltr">web+</code> prefix. So, in our example, a link should point to <code translate="no" dir="ltr">web+pwa://</code> to open our PWA. </aside>
+                            
+                            <p>To register, you can use the <a href="https://developer.mozilla.org/docs/Web/API/Navigator/registerProtocolHandler">registerProtocolHandler() method</a>, or use the <code translate="no" dir="ltr">protocol_handlers</code> member in your manifest, with the desired scheme and the URL you want to load in your PWA&#39;s context, such as:</p>
+                            <pre class="prettyprint lang-json" translate="no" dir="ltr"><code translate="no" dir="ltr">...
+                            {
+                              &#34;protocol_handlers&#34;: [
+                                {
+                                  &#34;protocol&#34;: &#34;web+pwa&#34;,
+                                  &#34;url&#34;: &#34;/from-protocol?value=%s&#34;
+                                },
+                              ]
+                            }
+                            ...
+                            </code></pre>
+                            <p>You can route the URL <code translate="no" dir="ltr">from-protocol</code> to the correct handler and get the query string <code translate="no" dir="ltr">value</code> in your PWA. The <code translate="no" dir="ltr">%s</code> is a placeholder for the escaped URL that triggered the operation, so if you have a link somewhere such as <code translate="no" dir="ltr">&lt;a href=&quot;web+pwa://testing&quot;&gt;</code>, your PWA will open <code translate="no" dir="ltr">/from-protocol?value=testing</code>.</p>
+                            
+                            <h3 id="calling_other_apps" data-text="Calling other apps" tabindex="-1">Calling other apps</h3>
+                            
+                            <p>You can use URI schemes to connect to any other installed app (PWA or not) in users&#39; devices on every platform. You just need to create a link or use <code translate="no" dir="ltr">navigator.href</code> and point to the URI scheme you want, passing the arguments in URL-escaped form.</p>
+                            
+                            <p>You can use well known standard schemes, such as <code translate="no" dir="ltr">tel:</code> for phone calls, <code translate="no" dir="ltr">mailto:</code> for email sending, or <code translate="no" dir="ltr">sms:</code> for text messaging; or you can learn about other apps&#39; URL schemes, for example from well known messaging, maps, navigation, online meetings, social networks, and app stores.</p>
+                            
+                            <aside class="note"><b>Note: </b> Instead of using private URI schemes to communicate with messaging and social media apps, you can use the generic Web Share API </aside>
+                            
+                            <h2 id="web_share" data-text="Web Share" tabindex="-1">Web Share</h2>
+                            
+                            <p>
+                              
+                                
+                                
+                                
+                                
+                              
+                              
+                              
+                                
+                                  
+                                
+                              
+                                
+                                  
+                                
+                              
+                                
+                                  
+                                
+                               
+                            
+                                
+                                
+                                  
+                                  <div class="wd-browser-compat">
+                                    <p>Browser Support</p>
+                                    <ul>
+                                      
+                              
+                              
+                                
+                                  
+                                    
+                                      
+                                      
+                                    
+                                  
+                                
+                                
+                              
+                              <li
+                                data-browser="chrome"
+                                data-support="yes">89</li>
+                              
+                              
+                                      
+                              
+                              
+                                
+                                  
+                                    
+                                      
+                                      
+                                    
+                                  
+                                
+                                
+                              
+                              <li
+                                data-browser="edge"
+                                data-support="yes">93</li>
+                              
+                              
+                                      
+                              
+                              
+                                
+                                  
+                                    
+                                      
+                                      
+                                    
+                                  
+                                
+                                
+                                  
+                                  
+                                
+                              
+                              <li
+                                data-browser="firefox"
+                                data-support="flag"></li>
+                              
+                              
+                                      
+                              
+                              
+                                
+                                  
+                                    
+                                      
+                                      
+                                    
+                                  
+                                
+                                
+                              
+                              <li
+                                data-browser="safari"
+                                data-support="yes">12.1</li>
+                              
+                              
+                                    </ul>
+                                    
+                                    <p><a href="https://developer.mozilla.org/docs/Web/API/Navigator/share">Source</a></p>
+                                    
+                                  </div>
+                                
+                                
+                                
+                              </p>
+                            
+                            <p>With the <a href="https://developer.mozilla.org/docs/Web/API/Web_Share_API">Web Share API</a>, your PWA can send content to other installed apps in the device through the shared channel.</p>
+                            
+                            <p>The API is only available on operating systems with a <code translate="no" dir="ltr">share</code> mechanism, including Android, iOS, iPadOS, Windows, and ChromeOS.
+                            You can share an object containing:</p>
+                            
+                            <ul>
+                            <li>Text (<code translate="no" dir="ltr">title</code> and <code translate="no" dir="ltr">text</code> properties)</li>
+                            <li>A URL (<code translate="no" dir="ltr">url</code> property)</li>
+                            <li>Files (<code translate="no" dir="ltr">files</code> property).</li>
+                            </ul>
+                            
+                            <p>To check if the current device can share, for simple data, like text, you check for the presence of the <code translate="no" dir="ltr">navigator.share()</code> method, to share files you check for the presence of the <code translate="no" dir="ltr">navigator.canShare()</code> method.</p>
+                            
+                            <p>You request the share action by calling <a href="https://developer.mozilla.org/docs/Web/API/Navigator/share"><code translate="no" dir="ltr">navigator.share(objectToShare)</code></a>. That call returns a Promise that resolves with <code translate="no" dir="ltr">undefined</code> or rejects with an exception.</p>
+                            
+                            <div class="wd-embed" style="height: 420px;">
+                              <iframe
+                                allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi"
+                                loading="lazy"
+                                src="https://glitch.com/embed/#!/embed/mlearn-pwa-os-integration-web-share?attributionHidden=true&sidebarCollapsed=true&previewSize=100"
+                                style="height: 100%; width: 100%; border: 0;"
+                                title="mlearn-pwa-os-integration-web-share on Glitch"
+                              ></iframe>
+                            </div>
+                            
+                            <p><img src="/static/learn/pwa/os-integration/image/chrome-android-safari-9fd1417d50cf6.png" alt="Chrome on Android and Safari on iOS opening the Share Sheet thanks to Web Share." width="800" height="661" srcset="https://web.dev/static/learn/pwa/os-integration/image/chrome-android-safari-9fd1417d50cf6_36.png 36w,https://web.dev/static/learn/pwa/os-integration/image/chrome-android-safari-9fd1417d50cf6_48.png 48w,https://web.dev/static/learn/pwa/os-integration/image/chrome-android-safari-9fd1417d50cf6_72.png 72w,https://web.dev/static/learn/pwa/os-integration/image/chrome-android-safari-9fd1417d50cf6_96.png 96w,https://web.dev/static/learn/pwa/os-integration/image/chrome-android-safari-9fd1417d50cf6_480.png 480w,https://web.dev/static/learn/pwa/os-integration/image/chrome-android-safari-9fd1417d50cf6_720.png 720w,https://web.dev/static/learn/pwa/os-integration/image/chrome-android-safari-9fd1417d50cf6_856.png 856w,https://web.dev/static/learn/pwa/os-integration/image/chrome-android-safari-9fd1417d50cf6_960.png 960w,https://web.dev/static/learn/pwa/os-integration/image/chrome-android-safari-9fd1417d50cf6_1440.png 1440w,https://web.dev/static/learn/pwa/os-integration/image/chrome-android-safari-9fd1417d50cf6_1920.png 1920w,https://web.dev/static/learn/pwa/os-integration/image/chrome-android-safari-9fd1417d50cf6_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                            
+                            <h2 id="web_share_target" data-text="Web Share Target" tabindex="-1">Web Share Target</h2>
+                            
+                            <p><a href="https://developer.chrome.com/articles/web-share-target">Web Share Target API</a> lets your PWA be a target of a share operation from another app on that device whether it is a PWA or not. Your PWA receives the data shared by another app.</p>
+                            
+                            <p>It&#39;s currently available on Android with WebAPK and ChromeOS, and it works only after the user has installed your PWA. The browser registers the share target within the operating system when the app is installed.</p>
+                            
+                            <p>You set up web share target in the manifest with the <code translate="no" dir="ltr">share_target</code> member defined in the <a href="https://w3c.github.io/web-share-target/">Web Share Target draft spec</a>. <code translate="no" dir="ltr">share_target</code> is set to an object with some properties:</p>
+                            
+                            <dl>
+                            <dt><code translate="no" dir="ltr">action</code></dt>
+                            <dd>URL that will be loaded in a PWA window that is expected to receive the shared data.</dd>
+                            <dt><code translate="no" dir="ltr">method</code></dt>
+                            <dd>HTTP verb method will be used for the action, such as <code translate="no" dir="ltr">GET</code>, <code translate="no" dir="ltr">POST</code>, or <code translate="no" dir="ltr">PUT</code>.</dd>
+                            <dt><code translate="no" dir="ltr">enctype</code></dt>
+                            <dd>(Optional) Encoding type for the parameters, by default is <code translate="no" dir="ltr">application/x-www-form-urlencoded</code>, but it can also be set as <code translate="no" dir="ltr">multipart/form-data</code> for methods such as <code translate="no" dir="ltr">POST</code>.</dd>
+                            <dt><code translate="no" dir="ltr">params</code></dt>
+                            <dd>An object that will map share data (from the keys: <code translate="no" dir="ltr">title</code>, <code translate="no" dir="ltr">text</code>, <code translate="no" dir="ltr">url</code> and <code translate="no" dir="ltr">files</code> from Web Share) to arguments that the browser will pass in the URL (on <code translate="no" dir="ltr">method: &#39;GET&#39;</code>) or in the body of the request using the selected encoding.</dd>
+                            </dl>
+                            
+                            <aside class="note"><b>Note: </b> You can parse a <code translate="no" dir="ltr">POST</code> request server-side or within your service worker if you want to avoid a trip to the network. Check <a href="https://developer.chrome.com/articles/web-share-target#processing-post-shares">this sample</a> for further details. </aside>
+                            
+                            <p>For example, you can define for your PWA that you want to receive shared data (title and url only) by adding in your manifest:</p>
+                            <pre class="prettyprint lang-json" translate="no" dir="ltr"><code translate="no" dir="ltr">...
+                            &#34;share_target&#34;: {
+                               &#34;action&#34;: &#34;/receive-share/&#34;,
+                               &#34;method&#34;: &#34;GET&#34;,
+                               &#34;params&#34;: {
+                                  &#34;title&#34;: &#34;shared_title&#34;,
+                                  &#34;url&#34;: &#34;shared_url&#34;
+                               }
+                            }
+                            ...
+                            </code></pre>
+                            <p>From the previous sample, if any app in the system is sharing a URL with a title, and the user picks your PWA from the dialog, the browser will create a new navigation to your origin&#39;s <code translate="no" dir="ltr">/receive-share/?shared_title=AAA&amp;shared_url=BBB</code>, where AAA is the shared title, and BBB is the shared URL. You can use JavaScript to read that data from the <code translate="no" dir="ltr">window.location</code> string by parsing it with the <a href="https://developer.mozilla.org/docs/Web/API/URL/URL"><code translate="no" dir="ltr">URL</code> constructor</a>.</p>
+                            
+                            <p>The browser will use the PWA name and icon from your manifest to feed the operating system&#39;s share entry. You can&#39;t pick a different set for that purpose.</p>
+                            
+                            <aside class="note"><b>Note: </b> Make sure the page that handles the shared data is accessible offline. You don't want users choosing your app and finding an error because they don't have a connection at the moment. </aside>
+                            
+                            <p>For more detailed examples and how to receive files, check <a href="https://developer.chrome.com/articles/web-share-target">Receiving shared data with the Web Share Target API</a></p>
+                            
+                            <h2 id="contact_picker" data-text="Contact Picker" tabindex="-1">Contact Picker</h2>
+                            
+                            <p>
+                              
+                                
+                                
+                                
+                                
+                              
+                              
+                              
+                                
+                                  
+                                
+                              
+                                
+                                  
+                                
+                               
+                            
+                                
+                                
+                                  
+                                  <div class="wd-browser-compat">
+                                    <p>Browser Support</p>
+                                    <ul>
+                                      
+                              
+                              
+                                
+                                  
+                                  
+                                
+                                
+                              
+                              <li
+                                data-browser="chrome"
+                                data-support="no">x</li>
+                              
+                              
+                                      
+                              
+                              
+                                
+                                  
+                                  
+                                
+                                
+                              
+                              <li
+                                data-browser="edge"
+                                data-support="no">x</li>
+                              
+                              
+                                      
+                              
+                              
+                                
+                                  
+                                  
+                                
+                                
+                              
+                              <li
+                                data-browser="firefox"
+                                data-support="no">x</li>
+                              
+                              
+                                      
+                              
+                              
+                                
+                                  
+                                  
+                                
+                                
+                              
+                              <li
+                                data-browser="safari"
+                                data-support="no">x</li>
+                              
+                              
+                                    </ul>
+                                    
+                                    <p><a href="https://developer.mozilla.org/docs/Web/API/ContactsManager">Source</a></p>
+                                    
+                                  </div>
+                                
+                                
+                                
+                              </p>
+                            
+                            <p>With the <a href="https://developer.mozilla.org/docs/Web/API/Contact_Picker_API">Contact Picker API</a>, you can request the device to render a native dialog with all the user&#39;s contacts so the user can choose one or more. Your PWA can then receive the data you want from those contacts.</p>
+                            
+                            <p>The Contact Picker API is mainly available on mobile devices, and everything is done through the <a href="https://developer.mozilla.org/docs/Web/API/Navigator/contacts"><code translate="no" dir="ltr">navigator.contacts</code></a> interface on compatible platforms.</p>
+                            
+                            <p>You can request the available properties to query with <code translate="no" dir="ltr">navigator.contacts.getProperties()</code>, and request a single or multiple contact selection with a list of desired properties.</p>
+                            
+                            <p>Some sample properties are <code translate="no" dir="ltr">name</code>, <code translate="no" dir="ltr">email</code>, <code translate="no" dir="ltr">address</code>, and <code translate="no" dir="ltr">tel</code>. When you ask the user to pick one or more contacts, you can call <code translate="no" dir="ltr">navigator.contacts.select(properties)</code>, passing an array of properties you want to get in return.</p>
+                            
+                            <aside class="caution"><b>Caution: </b> The API doesn't guarantee that the returned objects will have all the requested properties, so you should recheck for their presence. </aside>
+                            
+                            <p>The following sample will list the contacts received by the picker.</p>
+                            <pre class="prettyprint lang-js" translate="no" dir="ltr"><code translate="no" dir="ltr">async function getContacts() {
+                               const properties = [&#39;name&#39;, &#39;email&#39;, &#39;tel&#39;];
+                               const options = { multiple: true };
+                               try {
+                                 const contacts = await navigator.contacts.select(properties, options);
+                                 console.log(contacts);
+                               } catch (ex) {
+                                 // Handle any errors here.
+                               }
+                            }
+                            </code></pre>
+                            <div class="wd-embed" style="height: 420px;">
+                              <iframe
+                                allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi"
+                                loading="lazy"
+                                src="https://glitch.com/embed/#!/embed/mlearn-pwa-os-integration-contacts?attributionHidden=true&sidebarCollapsed=true&previewSize=100"
+                                style="height: 100%; width: 100%; border: 0;"
+                                title="mlearn-pwa-os-integration-contacts on Glitch"
+                              ></iframe>
+                            </div>
+                            
+                            <h2 id="resources" data-text="Resources" tabindex="-1">Resources</h2>
+                            
+                            <ul>
+                            <li><a href="/file-system-access">The File System Access API: simplifying access to local files</a></li>
+                            <li><a href="/file-handling">Let installed web applications be file handlers</a></li>
+                            <li><a href="https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/handle-files">Handle files in Progressive Web Apps</a></li>
+                            <li><a href="/articles/web-share">Integrate with the OS Sharing UI with the Web Share API</a></li>
+                            <li><a href="https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/share">Share content with other apps</a></li>
+                            <li><a href="https://developer.chrome.com/articles/web-share-target">Receiving shared data with the Web Share Target API</a></li>
+                            <li><a href="/contact-picker">A contact picker for the web</a></li>
+                            </ul>
+                            
+                              
+
+
+
+
+
+
+
+
+
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
+                    </div>
+                    
                                         
                 </div>
             </main>

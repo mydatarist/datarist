@@ -1172,38 +1172,246 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                    
+                    
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Update</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
-                    </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
+                        <section aria-labelledby="the_story_of_your_first_website">
+                                
+                            
+
+
+
+
+
+
+                            <p>You have published your PWA: some users use it from the browser, others install it on their devices. When you update the app, it&#39;s important to apply best practices to avoid pitfalls.</p>
+
+                            <p>You may update:</p>
+                            
+                            <ul>
+                            <li>App data.</li>
+                            <li>Assets already cached in devices.</li>
+                            <li>The service worker file, or its dependencies.</li>
+                            <li>Manifest metadata.</li>
                             </ul>
-                        </nav>
-                    </footer>
+                            
+                            <p>Let&#39;s check out the best practices for each of these elements.</p>
+                            
+                            <h2 id="updating_data" data-text="Updating data" tabindex="-1">Updating data</h2>
+                            
+                            <p>To update data, such as that stored in IndexedDB, you can use tools such as Fetch, WebRTC, or WebSockets API. If your app supports any offline features, remember to keep the data that supports the features updated too.</p>
+                            
+                            <p>On compatible browsers, there are options to sync data, not only when the user opens the PWA but also in the background. These options are:</p>
+                            
+                            <ul>
+                            <li><a href="https://developer.mozilla.org/docs/Web/API/Background_Synchronization_API">Background synchronization</a>: saves requests that failed and retries them using sync from the service worker.</li>
+                            <li><a href="https://developer.mozilla.org/docs/Web/API/Web_Periodic_Background_Synchronization_API">Web periodic background sync</a>: syncs data periodically in the background, at specific times, allowing the app to provide updated data even if the user hasn&#39;t opened the app yet.</li>
+                            <li><a href="https://developer.mozilla.org/docs/Web/API/Background_Fetch_API">Background Fetch</a>: downloads large files, even when the PWA is closed.</li>
+                            <li><a href="https://developer.mozilla.org/docs/Web/API/Push_API">Web push</a>: sends a message from the server that wakes up the service worker and notifies the user. This is commonly called a &#39;push notification&#39;. This API requires the user&#39;s permission.</li>
+                            </ul>
+                            
+                            <p>All these APIs are executed from the service worker context. They are currently available only on Chromium-based browsers, on Android, and desktop operating systems. When you use one of these APIs, you can run code in the service worker thread; for example, to download data from your server and update your IndexedDB data.</p>
+                            
+                            <aside class="note"><b>Note: </b> The Web Push API is the only API to notify the user from the background and its <code translate="no" dir="ltr">push</code> message can include a small amount of data: it can carry a payload of up to around 2KB. </aside>
+                            
+                            <h2 id="updating_assets" data-text="Updating assets" tabindex="-1">Updating assets</h2>
+                            
+                            <p>Updating assets includes any changes to files you use to render the app&#39;s interface, such as HTML, CSS, JavaScript, and images. For example, a change in your app&#39;s logic, an image that is part of your interface, or a CSS stylesheet.</p>
+                            
+                            <h3 id="update_patterns" data-text="Update patterns" tabindex="-1">Update patterns</h3>
+                            
+                            <p>Here are some common patterns to handle app updates, but you can always customize the process to your own needs:</p>
+                            
+                            <ul>
+                            <li>Full update: every change, even a minor one, triggers the replacement of the entire cache content. This pattern mimics how device-specific apps handle updates, and it will consume more bandwidth and will take more time.</li>
+                            <li>Changed assets update: only the assets that have changed since the last update get replaced in cache. It is often implemented using a library such as <a href="/learn/pwa/workbox">Workbox</a>. It involves creating a list of cached files, a hash representation of the file, and timestamps. With this information, the service worker compares this list with the cached assets and decides which assets to update.</li>
+                            <li>Individual assets update: each asset is updated individually when it changes. The stale while revalidate strategy described in the <a href="/learn/pwa/serve">Serving chapter</a> is an example of updating assets individually.</li>
+                            </ul>
+                            
+                            <h3 id="when_to_update" data-text="When to update" tabindex="-1">When to update</h3>
+                            
+                            <p>Another good practice is to find a good time to check for updates and apply them. Here are some options:</p>
+                            
+                            <ul>
+                            <li>When the service worker wakes up. There is no event to listen for this moment, but the browser will execute any code in the service worker&#39;s global scope when it wakes up.</li>
+                            <li>In the main window context of your PWA, after the browser loaded the page, to avoid making the app load slower.</li>
+                            <li>When background events are triggered, such as when your PWA receives a push notification or a background sync fires. You can update your cache then and your users will have the asset&#39;s new version the next time they open the app.</li>
+                            </ul>
+                            
+                            <aside class="warning"><b>Warning: </b> When checking for updates, make sure you don't interrupt the loading process and impact your app's performance. Do not wait for an update check before rendering the app as it will harm your user experience and reflect on your <a href="/articles/vitals">core web vitals</a>. If you need to update part of your app frequently, use the <a href="/learn/pwa/serving#stale_while_revalidate">stale while revalidate</a> caching strategy. </aside>
+                            
+                            <h3 id="live_updates" data-text="Live updates" tabindex="-1">Live updates</h3>
+                            
+                            <p>You can also choose whether to apply an update when the app is open (live) or closed. With the app closed approach, even though the app has downloaded new assets, it won&#39;t make any changes and will use the new versions on the next load.</p>
+                            
+                            <p>A live update means as soon as the asset is updated in the cache, your PWA replaces the asset in the current load. It is a complex task not covered in this course. Some tools that help to implement this update are <a href="https://www.npmjs.com/package/livereload-js">livereload-js</a> and CSS asset update <a href="https://developer.mozilla.org/docs/Web/API/CSSStyleSheet/replace">CSSStyleSheet.replace() API</a>.</p>
+                            
+                            <h2 id="updating_the_service_worker" data-text="Updating the service worker" tabindex="-1">Updating the service worker</h2>
+                            
+                            <p>The browser triggers an update algorithm when your service worker or its dependencies change. The browser detects updates using a byte-by-byte comparison between the cached files and the resources coming from the network.</p>
+                            
+                            <p>Then the browser tries to install the new version of the service worker, and the new service worker will be in the <em>waiting</em> state, as described in the <a href="/learn/pwa/service-workers#updating_a_service_worker">Service workers chapter</a>. The new installation will run the <code translate="no" dir="ltr">install</code> event for the new service worker. If you are caching assets in that event handler, assets will also be re-cached.</p>
+                            
+                            <aside class="caution"><b>Caution: </b> If you delete or rename your service worker file, the browser won't remove the previously registered service worker from its clients. To completely remove a service worker, you need to use the <a href="https://developer.mozilla.org/docs/Web/API/ServiceWorkerContainer/getRegistrations">getRegistrations()</a> and the <a href="https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration/unregister">unregister()</a> methods. </aside>
+                            
+                            <aside class="note"><b>Note: </b> Installing a new service worker version doesn't automatically remove previously cached assets. You should explicitly delete assets you no longer need. </aside>
+                            
+                            <h3 id="detecting_service_worker_changes" data-text="Detecting service worker changes" tabindex="-1">Detecting service worker changes</h3>
+                            
+                            <p>To detect that a new service worker is ready and installed, we use the <code translate="no" dir="ltr">updatefound</code> event from the service worker registration. This event is fired when the new service worker starts installing. We need to wait for its state to change to <code translate="no" dir="ltr">installed</code> with the <code translate="no" dir="ltr">statechange</code> event; see the following:</p>
+                            <pre class="prettyprint lang-js" translate="no" dir="ltr"><code translate="no" dir="ltr">async function detectSWUpdate() {
+                              const registration = await navigator.serviceWorker.ready;
+                            
+                              registration.addEventListener(&#34;updatefound&#34;, event =&gt; {
+                                const newSW = registration.installing;
+                                newSW.addEventListener(&#34;statechange&#34;, event =&gt; {
+                                  if (newSW.state == &#34;installed&#34;) {
+                                     // New service worker is installed, but waiting activation
+                                  }
+                                });
+                              })
+                            }
+                            </code></pre>
+                            <h3 id="force_override" data-text="Force override" tabindex="-1">Force override</h3>
+                            
+                            <p>The new service worker will be installed but waiting for activation by default. The wait prevents the new service worker from taking over old clients that might not be compatible with the new version.</p>
+                            
+                            <p>Even though it is not recommended, the new service worker can skip that waiting period and start the activation immediately.</p>
+                            
+                            <aside class="caution"><b>Caution: </b> <code translate="no" dir="ltr">skipWaiting()</code> means that your new service worker is probably controlling pages that were loaded with an older version. This means some of your page's fetches will have been handled by your old service worker, but your new service worker will be handling subsequent fetches. If this might prevent your app from working, don't use <code translate="no" dir="ltr">skipWaiting()</code>. This warning comes from <a href="/articles/service-worker-lifecycle">service worker lifecycle</a>. Check out the article for more best practice advice. </aside>
+                            <pre class="prettyprint lang-js" translate="no" dir="ltr"><code translate="no" dir="ltr">self.addEventListener(&#34;install&#34;, event =&gt; {
+                               // forces a service worker to activate immediately
+                               self.skipWaiting();
+                              });
+                            
+                            self.addEventListener(&#34;activate&#34;, event =&gt; {
+                              // when this SW becomes activated, we claim all the opened clients
+                              // they can be standalone PWA windows or browser tabs
+                              event.waitUntil(clients.claim());
+                            });
+                            </code></pre>
+                            <p>The <code translate="no" dir="ltr">controllerchange</code> event fires when the service worker controlling the current page changes. For example, a new worker has skipped waiting and become the new active worker.</p>
+                            <pre class="prettyprint lang-js" translate="no" dir="ltr"><code translate="no" dir="ltr">navigator.serviceWorker.addEventListener(&#34;controllerchange&#34;, event =&gt; {
+                               // The service worker controller has changed
+                             });
+                            </code></pre>
+                            <h2 id="updating_metadata" data-text="Updating metadata" tabindex="-1">Updating metadata</h2>
+                            
+                            <p>You can also update your app&#39;s metadata, which is mainly set in the <a href="/learn/pwa/web-app-manifest">web app manifest</a>. For example, update its icon, name, or start URL, or you can add a new feature such as <a href="/articles/app-shortcuts">app shortcuts</a>.
+                            But what happens with all the users who have already installed the app with the old icon on their devices? How and when do they get the updated version?</p>
+                            
+                            <p>The answer depends on the platform. Let&#39;s cover the options available.</p>
+                            
+                            <aside class="tip">The <code translate="no" dir="ltr">id</code> property uniquely identifies your PWA; changing <code translate="no" dir="ltr">id</code> means your PWA will be considered a completely new PWA. To avoid unexpected behavior, before you set or change the <code translate="no" dir="ltr">id</code> property, read <a href="https://developer.chrome.com/blog/pwa-manifest-id">Uniquely identifying PWAs with the web app manifest id property</a>. </aside>
+                            
+                            <h3 id="safari_on_ios_ipados_and_android_browsers" data-text="Safari on iOS, iPadOS, and Android browsers" tabindex="-1">Safari on iOS, iPadOS, and Android browsers</h3>
+                            
+                            <p>On these platforms, the only way to get the new manifest metadata is to re-install the app from the browser.</p>
+                            
+                            <aside class="note"><b>Note: </b> If you modify your <code translate="no" dir="ltr">start_url</code> the browser may install the app as a completely new app. However, it has been a common practice to add a manual version identifier within the <code translate="no" dir="ltr">start_url</code> property, such as <code translate="no" dir="ltr">/?version=3</code> to identify the version. From Chrome 96 <a href="/%E2%80%8B%E2%80%8Bhttps://developer.chrome.com/blog/pwa-manifest-id">you can add an <code translate="no" dir="ltr">id</code> into the manifest</a> to identify your app. </aside>
+                            
+                            <h3 id="google_chrome_on_android_with_webapk" data-text="Google Chrome on Android with WebAPK" tabindex="-1">Google Chrome on Android with WebAPK</h3>
+                            
+                            <p>When the user has installed your PWA on Android using Google Chrome with <a href="/learn/pwa/installation#webapks">WebAPK</a> activated (most of the Chrome PWA installations), the update will be detected and applied based on an algorithm. Check out  the details in this <a href="/articles/manifest-updates">manifest updates</a> article.</p>
+                            
+                            <p>Some additional notes about the process:</p>
+                            
+                            <p>If the user doesn&#39;t open your PWA, its WebAPK won&#39;t be updated.
+                            If the server doesn&#39;t respond with the manifest file (there is a 404 error), Chrome won&#39;t check for updates for a minimum of 30 days, even if the user opens the PWA.</p>
+                            
+                            <p>Go to <code translate="no" dir="ltr">about:webapks</code> in Chrome on Android to see the status of the &quot;needing update&quot; flag, and request an update. In the <a href="/learn/pwa/tools-and-debug">Tools and debug chapter</a>, you can read more about this debugging tool.</p>
+                            
+                            <h3 id="samsung_internet_on_android_with_webapk" data-text="Samsung Internet on Android with WebAPK" tabindex="-1">Samsung Internet on Android with WebAPK</h3>
+                            
+                            <p>The process is similar to the Chrome version. In this case, if the PWA manifest requires an update, during the next 24 hours the WebAPK will be updated on Wi-Fi after <a href="/learn/pwa/installation#webapks">minting the updated WebAPK</a>.</p>
+                            
+                            <h3 id="google_chrome_and_microsoft_edge_on_desktop" data-text="Google Chrome and Microsoft Edge on desktop" tabindex="-1">Google Chrome and Microsoft Edge on desktop</h3>
+                            
+                            <p>On desktop devices, when the PWA is launched, the browser determines the last time it checked the local manifest for changes. If the manifest hasn&#39;t been reviewed since the browser last started or hasn&#39;t been checked in the last 24 hours, the browser will make a network request for the manifest and then compare it against the local copy.</p>
+                            
+                            <p>When <a href="/articles/manifest-updates#cr-desktop-trigger">selected properties</a> are updated, it will trigger an update after all windows have been closed.</p>
+                            
+                            <h2 id="alerting_the_user" data-text="Alerting the user" tabindex="-1">Alerting the user</h2>
+                            
+                            <p>Some updating strategies need a reload or a new navigation from the clients. You&#39;ll want to let the user know there is an update waiting but give them the chance to update the page when it is best for them.</p>
+                            
+                            <p>To inform the user, there are these options:</p>
+                            
+                            <ul>
+                            <li>Use the DOM or <a href="https://developer.mozilla.org/docs/Web/API/Canvas_API">canvas API</a> to render a notice on the screen.</li>
+                            <li>Use the <a href="https://developer.mozilla.org/docs/Web/API/notification">Web Notifications API</a>. This API is part of the push permission to generate a notification in the operating system. You will need to request web push permission to use it, even if you don&#39;t use the push messaging protocol from your server. This is the only option we have if the PWA is not opened.</li>
+                            <li>Use the <a href="/badging-api">Badging API</a> to show that updates are available in the PWA&#39;s installed icon</li>
+                            </ul>
+                            
+                            <p><img src="/static/learn/pwa/update/image/an-update-notification-sh-1afdaff83bea2.png" alt="An update notification shown in the DOM." width="800" height="821" srcset="https://web.dev/static/learn/pwa/update/image/an-update-notification-sh-1afdaff83bea2_36.png 36w,https://web.dev/static/learn/pwa/update/image/an-update-notification-sh-1afdaff83bea2_48.png 48w,https://web.dev/static/learn/pwa/update/image/an-update-notification-sh-1afdaff83bea2_72.png 72w,https://web.dev/static/learn/pwa/update/image/an-update-notification-sh-1afdaff83bea2_96.png 96w,https://web.dev/static/learn/pwa/update/image/an-update-notification-sh-1afdaff83bea2_480.png 480w,https://web.dev/static/learn/pwa/update/image/an-update-notification-sh-1afdaff83bea2_720.png 720w,https://web.dev/static/learn/pwa/update/image/an-update-notification-sh-1afdaff83bea2_856.png 856w,https://web.dev/static/learn/pwa/update/image/an-update-notification-sh-1afdaff83bea2_960.png 960w,https://web.dev/static/learn/pwa/update/image/an-update-notification-sh-1afdaff83bea2_1440.png 1440w,https://web.dev/static/learn/pwa/update/image/an-update-notification-sh-1afdaff83bea2_1920.png 1920w,https://web.dev/static/learn/pwa/update/image/an-update-notification-sh-1afdaff83bea2_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px">.</p>
+                            
+                            <h3 id="more_about_the_badging_api" data-text="More about the Badging API" tabindex="-1">More about the Badging API</h3>
+                            
+                            <p>The <a href="/badging-api">Badging API</a> lets you mark your PWA&#39;s icon with a badge number, or a badge dot on compatible browsers. A badge dot is a tiny mark within the installed icon that expresses something is waiting inside the app.</p>
+                            
+                            <p><img src="/static/learn/pwa/update/image/example-twitter-eight-n-c72836fb4a749.webp" alt="Example of Twitter with eight notifications and another app showing a flag type badge." width="800" height="252"></p>
+                            
+                            <p>You need to call <code translate="no" dir="ltr">setAppBadge(count)</code> on the <code translate="no" dir="ltr">navigator</code> object to set a badge number. You can do this from the window or service worker&#39;s context when you know there is an update to alert the user.</p>
+                            <pre class="prettyprint lang-js" translate="no" dir="ltr"><code translate="no" dir="ltr">let unreadCount = 125;
+                            navigator.setAppBadge(unreadCount);
+                            </code></pre>
+                            <p>To clear the badge, you call <code translate="no" dir="ltr">clearAppBadge()</code> on the same object:</p>
+                            <pre class="prettyprint lang-js" translate="no" dir="ltr"><code translate="no" dir="ltr">navigator.clearAppBadge();
+                            </code></pre>
+                            <aside class="note"><b>Note: </b> The Badging API works on a best-effort mechanism; the browser will do its best to match your request, but sometimes the browser will revert to a different approach. For example, a badge number is not available on some Android devices, so a dot badge is used, no matter the number you specify. </aside>
+                            
+                            <h2 id="resources" data-text="Resources" tabindex="-1">Resources</h2>
+                            
+                            <ul>
+                            <li><a href="/articles/service-worker-lifecycle">Service Worker Lifecycle</a></li>
+                            <li><a href="/articles/manifest-updates">How Chrome handles updates to the web app manifest</a></li>
+                            <li><a href="https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/background-syncs">Synchronize and update a PWA in the Background</a></li>
+                            <li><a href="/periodic-background-sync">Richer offline experiences with the Periodic Background Sync API</a></li>
+                            <li><a href="https://developer.mozilla.org/docs/Web/API/Push_API">Push API</a></li>
+                            <li><a href="/articles/push-notifications-overview">Push notifications overview</a></li>
+                            <li><a href="/badging-api">Badging for app icons</a></li>
+                            <li><a href="https://medium.com/google-developer-experts/workbox-4-implementing-refresh-to-update-version-flow-using-the-workbox-window-module-41284967e79c">Workbox 4: Implementing refresh-to-update-version flow using the workbox-window module</a></li>
+                            </ul>
+                            
+                              
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        </section>
+                    </article>
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
+                    </div>
+                    
                                         
                 </div>
             </main>

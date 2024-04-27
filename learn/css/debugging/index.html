@@ -1172,38 +1172,444 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
-                        </div>
-                    </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
+                    
+                    
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Debugging CSS</h1>
+                        </header>
+                        <div class="section-content">
+                            <ul class="prev-next">
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks/Styling_tables">
+                                        <span class="button-wrap">Previous </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks">
+                                        <span class="button-wrap">Overview: Building blocks</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks/Organizing">
+                                        <span class="button-wrap">Next  </span>
+                                    </a>
+                                </li>
                             </ul>
-                        </nav>
-                    </footer>
+                            <p>Sometimes when writing CSS you will encounter an issue where your CSS doesn't seem to be doing what you expect. Perhaps you believe that a certain selector should match an element, but nothing happens, or a box is a different size than you expected. This article will give you guidance on how to go about debugging a CSS problem, and show you how the DevTools included in all modern browsers can help you to find out what is going on.</p>
+                            <figure class="table-container">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Prerequisites:</th>
+                                            <td>
+                                                <a href="/en-US/docs/Learn/Getting_started_with_the_web/Installing_basic_software">Basic software installed</a>
+                                                , basic knowledge of
+    <a href="/en-US/docs/Learn/Getting_started_with_the_web/Dealing_with_files">working with files</a>
+                                                , HTML basics (study
+    <a href="/en-US/docs/Learn/HTML/Introduction_to_HTML">Introduction to HTML</a>
+                                                ), and an idea of how CSS works (study
+    <a href="/en-US/docs/Learn/CSS/First_steps">CSS first steps</a>
+                                                .)
+  
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Objective:</th>
+                                            <td>To learn the basics of what browser DevTools are, and how to do simple
+    inspection and editing of CSS.
+  </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </figure>
+                        </div>
+                        <section aria-labelledby="how_to_access_browser_devtools">
+                            <h2 id="how_to_access_browser_devtools">
+                                <a href="#how_to_access_browser_devtools">How to access browser DevTools</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    The article <a href="/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools">What are browser developer tools</a>
+                                    is an up-to-date guide explaining how to access the tools in various browsers and platforms. While you may choose to mostly develop in a particular browser, and therefore will become most familiar with the tools included in that browser, it is worth knowing how to access them in other browsers. This will help if you are seeing different rendering between multiple browsers.
+                                </p>
+                                <p>
+                                    You will also find that browsers have chosen to focus on different areas when creating their DevTools. For example, in Firefox there are some excellent tools for working visually with CSS Layout, allowing you to inspect and edit <a href="https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_grid_layouts/index.html" class="external" target="_blank">Grid Layouts</a>
+                                    , <a href="https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_flexbox_layouts/index.html" class="external" target="_blank">Flexbox</a>
+                                    , and <a href="https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/edit_css_shapes/index.html" class="external" target="_blank">Shapes</a>
+                                    . However, all of the different browsers have similar fundamental tools, e.g., for inspecting the properties and values applied to elements on your page, and making changes to them from the editor.
+                                </p>
+                                <p>
+                                    In this lesson we will look at some useful features of the Firefox DevTools for working with CSS. In order to do so I'll be using <a href="https://mdn.github.io/css-examples/learn/inspecting/inspecting.html" class="external" target="_blank">an example file</a>
+                                    . Load this up in a new tab if you want to follow along, and open up your DevTools as described in the article linked above.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="the_dom_versus_view_source">
+                            <h2 id="the_dom_versus_view_source">
+                                <a href="#the_dom_versus_view_source">The DOM versus view source</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    Something that can trip up newcomers to DevTools is the difference between what you see when you <a href="https://firefox-source-docs.mozilla.org/devtools-user/view_source/index.html" class="external" target="_blank">view the source</a>
+                                    of a webpage, or look at the HTML file you put on the server, and what you can see in the <a href="https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/ui_tour/index.html#html-pane" class="external" target="_blank">HTML Pane</a>
+                                    of the DevTools. While it looks roughly similar to what you can see via View Source there are some differences.
+                                </p>
+                                <p>
+                                    In the rendered DOM the browser may have normalized the HTML, for example by correcting some badly-written HTML for you. If you incorrectly closed an element, for instance by opening an <code>&lt;h2 &gt;</code>
+                                    but closing with an <code>&lt;/h3 &gt;</code>
+                                    , the browser will figure out what you were meaning to do and the HTML in the DOM will correctly close the open <code>&lt;h2 &gt;</code>
+                                    with an <code>&lt;/h2 &gt;</code>
+                                    . The DOM will also show any changes made by JavaScript.
+                                </p>
+                                <p>
+                                    View Source, in comparison, is the HTML source code as stored on the server. The <a href="https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_and_edit_html/index.html#html-tree" class="external" target="_blank">HTML tree</a>
+                                    in your DevTools shows exactly what the browser is rendering at any given time, so it gives you an insight into what is really going on.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="inspecting_the_applied_css">
+                            <h2 id="inspecting_the_applied_css">
+                                <a href="#inspecting_the_applied_css">Inspecting the applied CSS</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    Select an element on your page, either by right/ctrl-clicking on it and selecting <em>Inspect</em>
+                                    , or selecting it from the HTML tree on the left of the DevTools display. Try selecting the element with the class of <code>box1</code>
+                                    ; this is the first element on the page with a bordered box drawn around it.
+                                </p>
+                                <p>
+                                    <img src="/en-US/docs/Learn/CSS/Building_blocks/Debugging_CSS/inspecting1.png" alt="The example page for this tutorial with DevTools open." width="2278" height="1527" loading="lazy">
+                                </p>
+                                <p>
+                                    If you look at the <a href="https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/ui_tour/index.html#rules-view" class="external" target="_blank">Rules view</a>
+                                    to the right of your HTML, you should be able to see the CSS properties and values applied to that element. You will see the rules directly applied to class <code>box1</code>
+                                    and also the CSS that is being inherited by the box from its ancestors, in this case from <code>&lt;body &gt;</code>
+                                    . This is useful if you are seeing some CSS being applied that you didn't expect. Perhaps it is being inherited from a parent element and you need to add a rule to overwrite it in the context of this element.
+                                </p>
+                                <p>
+                                    Also useful is the ability to expand out shorthand properties. In our example the <code>margin</code>
+                                    shorthand is used.
+                                </p>
+                                <p>
+                                    <strong>Click on the little arrow to expand the view, showing the different longhand properties and their values.</strong>
+                                </p>
+                                <p>
+                                    <strong>
+                                        You can toggle values in the Rules view on and off when that panel is active — if you hold your mouse over it, checkboxes will appear. Uncheck a rule's checkbox, for example <code>border-radius</code>
+                                        , and the CSS will stop applying.
+                                    </strong>
+                                </p>
+                                <p>You can use this to do an A/B comparison, deciding if something looks better with a rule applied or not, and also to help debug it — for example, if a layout is going wrong and you are trying to work out which property is causing the problem.</p>
+                                <p>The following video provides some useful tips on debugging CSS using the Firefox DevTools:</p>
+                                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/O3DAm82vIvU" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                        </section>
+                        <section aria-labelledby="editing_values">
+                            <h2 id="editing_values">
+                                <a href="#editing_values">Editing values</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>In addition to turning properties on and off, you can edit their values. Perhaps you want to see if another color looks better, or wish to tweak the size of something? DevTools can save you a lot of time editing a stylesheet and reloading the page.</p>
+                                <p>
+                                    <strong>
+                                        With <code>box1</code>
+                                        selected, click on the swatch (the small colored circle) that shows the color applied to the border. A color picker will open up and you can try out some different colors; these will update in real time on the page. In a similar fashion, you could change the width or style of the border.
+                                    </strong>
+                                </p>
+                                <p>
+                                    <img src="/en-US/docs/Learn/CSS/Building_blocks/Debugging_CSS/inspecting2-color-picker.png" alt="DevTools Styles Panel with a color picker open." width="2275" height="1173" loading="lazy">
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="adding_a_new_property">
+                            <h2 id="adding_a_new_property">
+                                <a href="#adding_a_new_property">Adding a new property</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    You can add properties using the DevTools. Perhaps you have realized that you don't want your box to inherit the <code>&lt;body &gt;</code>
+                                    element's font size, and want to set its own specific size? You can try this out in DevTools before adding it to your CSS file.
+                                </p>
+                                <p>
+                                    <strong>
+                                        You can click the closing curly brace in the rule to start entering a new declaration into it, at which point you can start typing the new property and DevTools will show you an autocomplete list of matching properties. After selecting <code>font-size</code>
+                                        , enter the value you want to try. You can also click the + button to add an additional rule with the same selector, and add your new rules there.
+                                    </strong>
+                                </p>
+                                <p>
+                                    <img src="/en-US/docs/Learn/CSS/Building_blocks/Debugging_CSS/inspecting3-font-size.png" alt="The DevTools Panel, adding a new property to the rules, with the autocomplete for font- open" width="2275" height="956" loading="lazy">
+                                </p>
+                                <div class="notecard note" id="sect1">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        There are other useful features in the Rules view too, for example declarations with invalid values are crossed out. You can find out more at <a href="https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_and_edit_css/index.html" class="external" target="_blank">Examine and edit CSS</a>
+                                        .
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="understanding_the_box_model">
+                            <h2 id="understanding_the_box_model">
+                                <a href="#understanding_the_box_model">Understanding the box model</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    In previous lessons we have discussed <a href="/en-US/docs/Learn/CSS/Building_blocks/The_box_model">the Box Model</a>
+                                    , and the fact that we have an alternate box model that changes how the size of elements are calculated based on the size you give them, plus the padding and borders. DevTools can really help you to understand how the size of an element is being calculated.
+                                </p>
+                                <p>
+                                    The <a href="https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/ui_tour/index.html#layout-view" class="external" target="_blank">Layout view</a>
+                                    shows you a diagram of the box model on the selected element, along with a description of the properties and values that change how the element is laid out. This includes a description of properties that you may not have explicitly used on the element, but which do have initial values set.
+                                </p>
+                                <p>
+                                    In this panel, one of the detailed properties is the <code>box-sizing</code>
+                                    property, which controls what box model the element uses.
+                                </p>
+                                <p>
+                                    <strong>
+                                        Compare the two boxes with classes <code>box1</code>
+                                        and <code>box2</code>
+                                        . They both have the same width applied (400px), however <code>box1</code>
+                                        is visually wider. You can see in the layout panel that it is using <code>content-box</code>
+                                        . This is the value that takes the size you give the element and then adds on the padding and border width.
+                                    </strong>
+                                </p>
+                                <p>
+                                    The element with a class of <code>box2</code>
+                                    is using <code>border-box</code>
+                                    , so here the padding and border is subtracted from the size that you have given the element. This means that the space taken up on the page by the box is the exact size that you specified — in our case <code>width: 400px</code>
+                                    .
+                                </p>
+                                <p>
+                                    <img src="/en-US/docs/Learn/CSS/Building_blocks/Debugging_CSS/inspecting4-box-model.png" alt="The Layout section of the DevTools" width="2275" height="1532" loading="lazy">
+                                </p>
+                                <div class="notecard note" id="sect2">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        Find out more in <a href="https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_and_edit_the_box_model/index.html" class="external" target="_blank">Examining and Inspecting the Box Model</a>
+                                        .
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="solving_specificity_issues">
+                            <h2 id="solving_specificity_issues">
+                                <a href="#solving_specificity_issues">Solving specificity issues</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>Sometimes during development, but in particular when you need to edit the CSS on an existing site, you will find yourself having a hard time getting some CSS to apply. No matter what you do, the element just doesn't seem to take the CSS. What is generally happening here is that a more specific selector is overriding your changes, and here DevTools will really help you out.</p>
+                                <p>
+                                    In our example file there are two words that have been wrapped in an <code>&lt;em &gt;</code>
+                                    element. One is displaying as orange and the other hotpink. In the CSS we have applied:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="QDQWPOS6jc+VhqEGtfKc2D62k5OaLxvYQDUwN3sXMYk=">
+                                        <code>
+                                            <span class="token selector">em</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">color</span>
+                                            <span class="token punctuation">:</span>
+                                            hotpink<span class="token punctuation">;</span>
+                                            <span class="token property">font-weight</span>
+                                            <span class="token punctuation">:</span>
+                                            bold<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    Above that in the stylesheet however is a rule with a <code>.special</code>
+                                    selector:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="uMwifQrYD2VmFJL6F2S1M7RERHvxDMXsdsb8FT3Y4SA=">
+                                        <code>
+                                            <span class="token selector">.special</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">color</span>
+                                            <span class="token punctuation">:</span>
+                                            orange<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    As you will recall from the lesson on <a href="/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance">cascade and inheritance</a>
+                                    where we discussed specificity, class selectors are more specific than element selectors, and so this is the value that applies. DevTools can help you find such issues, especially if the information is buried somewhere in a huge stylesheet.
+                                </p>
+                                <p>
+                                    <strong>
+                                        Inspect the <code>&lt;em &gt;</code>
+                                        with the class of <code>.special</code>
+                                        and DevTools will show you that orange is the color that applies, and also that the <code>color</code>
+                                        property applied to the <code>&lt;em &gt;</code>
+                                        is crossed out. You can now see that the class selector is overriding the element selector.
+                                    </strong>
+                                </p>
+                                <p>
+                                    <img src="/en-US/docs/Learn/CSS/Building_blocks/Debugging_CSS/inspecting5-specificity.png" alt="Selecting an em and looking at DevTools to see what is over-riding the color." width="2275" height="1161" loading="lazy">
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="find_out_more_about_the_firefox_devtools">
+                            <h2 id="find_out_more_about_the_firefox_devtools">
+                                <a href="#find_out_more_about_the_firefox_devtools">Find out more about the Firefox DevTools</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    There is a lot of information about the Firefox DevTools here on MDN. Take a look at the main <a href="https://firefox-source-docs.mozilla.org/devtools-user/index.html" class="external" target="_blank">DevTools section</a>
+                                    , and for more detail on the things we have briefly covered in this lesson see <a href="https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/index.html#how-to" class="external" target="_blank">The How To Guides</a>
+                                    .
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="debugging_problems_in_css">
+                            <h2 id="debugging_problems_in_css">
+                                <a href="#debugging_problems_in_css">Debugging problems in CSS</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>DevTools can be a great help when solving CSS problems, so when you find yourself in a situation where CSS isn't behaving as you expect, how should you go about solving it? The following steps should help.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="take_a_step_back_from_the_problem">
+                            <h3 id="take_a_step_back_from_the_problem">
+                                <a href="#take_a_step_back_from_the_problem">Take a step back from the problem</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>Any coding problem can be frustrating, especially CSS problems because you often don't get an error message to search for online to help with finding a solution. If you are becoming frustrated, take a step away from the issue for a while — go for a walk, grab a drink, chat to a co-worker, or work on some other thing for a while. Sometimes the solution magically appears when you stop thinking about the problem, and even if not, working on it when feeling refreshed will be much easier.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="do_you_have_valid_html_and_css">
+                            <h3 id="do_you_have_valid_html_and_css">
+                                <a href="#do_you_have_valid_html_and_css">Do you have valid HTML and CSS?</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>Browsers expect your CSS and HTML to be correctly written, however browsers are also very forgiving and will try their best to display your webpages even if you have errors in the markup or stylesheet. If you have mistakes in your code the browser needs to make a guess at what you meant, and it might make a different decision to what you had in mind. In addition, two different browsers might cope with the problem in two different ways. A good first step, therefore, is to run your HTML and CSS through a validator, to pick up and fix any errors.</p>
+                                <ul>
+                                    <li>
+                                        <a href="https://jigsaw.w3.org/css-validator/" class="external" target="_blank">CSS Validator</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://validator.w3.org/" class="external" target="_blank">HTML validator</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section aria-labelledby="are_the_property_and_value_supported_by_the_browser_you_are_testing_in">
+                            <h3 id="are_the_property_and_value_supported_by_the_browser_you_are_testing_in">
+                                <a href="#are_the_property_and_value_supported_by_the_browser_you_are_testing_in">Are the property and value supported by the browser you are testing in?</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    Browsers ignore CSS they don't understand. If the property or value you are using is not supported by the browser you are testing in then nothing will break, but that CSS won't be applied. DevTools will generally highlight unsupported properties and values in some way. In the screenshot below the browser does not support the subgrid value of 
+                                    <a href="/en-US/docs/Web/CSS/grid-template-columns">
+                                        <code>grid-template-columns</code>
+                                    </a>
+                                    .
+                                </p>
+                                <p>
+                                    <img src="/en-US/docs/Learn/CSS/Building_blocks/Debugging_CSS/no-support.png" alt="Image of browser DevTools with the grid-template-columns: subgrid crossed out as the subgrid value is not supported." width="1649" height="397" loading="lazy">
+                                </p>
+                                <p>
+                                    You can also take a look at the Browser compatibility tables at the bottom of each property page on MDN. These show you browser support for that property, often broken down if there is support for some usage of the property and not others. 
+                                    <a href="/en-US/docs/Web/CSS/shape-outside#browser_compatibility">
+                                        See the compatibility table for the <code>shape-outside</code>
+                                        property
+                                    </a>
+                                    .
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="is_something_else_overriding_your_css">
+                            <h3 id="is_something_else_overriding_your_css">
+                                <a href="#is_something_else_overriding_your_css">Is something else overriding your CSS?</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>This is where the information you have learned about specificity will come into much use. If you have something more specific overriding what you are trying to do, you can enter into a very frustrating game of trying to work out what. However, as described above, DevTools will show you what CSS is applying and you can work out how to make the new selector specific enough to override it.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="make_a_reduced_test_case_of_the_problem">
+                            <h3 id="make_a_reduced_test_case_of_the_problem">
+                                <a href="#make_a_reduced_test_case_of_the_problem">Make a reduced test case of the problem</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>If the issue isn't solved by the steps above, then you will need to do some more investigating. The best thing to do at this point is to create something known as a reduced test case. Being able to "reduce an issue" is a really useful skill. It will help you find problems in your own code and that of your colleagues, and will also enable you to report bugs and ask for help more effectively.</p>
+                                <p>A reduced test case is a code example that demonstrates the problem in the simplest possible way, with unrelated surrounding content and styling removed. This will often mean taking the problematic code out of your layout to make a small example which only shows that code or feature.</p>
+                                <p>To create a reduced test case:</p>
+                                <ol>
+                                    <li>
+                                        If your markup is dynamically generated — for example via a CMS — make a static version of the output that shows the problem. A code sharing site like <a href="https://codepen.io/" class="external" target="_blank">CodePen</a>
+                                        is useful for hosting reduced test cases, as then they are accessible online and you can easily share them with colleagues. You could start by doing View Source on the page and copying the HTML into CodePen, then grab any relevant CSS and JavaScript and include it too. After that, you can check whether the issue is still evident.
+                                    </li>
+                                    <li>
+                                        If removing the JavaScript does not make the issue go away, don't include the JavaScript. If removing the JavaScript <em>does</em>
+                                        make the issue go away, then remove as much JavaScript as you can, leaving in whatever causes the issue.
+                                    </li>
+                                    <li>Remove any HTML that does not contribute to the issue. Remove components or even main elements of the layout. Again, try to get down to the smallest amount of code that still shows the issue.</li>
+                                    <li>Remove any CSS that doesn't impact the issue.</li>
+                                </ol>
+                                <p>In the process of doing this, you may discover what is causing the problem, or at least be able to turn it on and off by removing something specific. It is worth adding some comments to your code as you discover things. If you need to ask for help, they will show the person helping you what you have already tried. This may well give you enough information to be able to search for likely problems and workarounds.</p>
+                                <p>If you are still struggling to fix the problem then having a reduced test case gives you something to ask for help with, by posting to a forum, or showing to a co-worker. You are much more likely to get help if you can show that you have done the work of reducing the problem and identifying exactly where it happens, before asking for help. A more experienced developer might be able to quickly spot the problem and point you in the right direction, and even if not, your reduced test case will enable them to have a quick look and hopefully be able to offer at least some help.</p>
+                                <p>
+                                    In the instance that your problem is actually a bug in a browser, then a reduced test case can also be used to file a bug report with the relevant browser vendor (e.g. on Mozilla's <a href="https://bugzilla.mozilla.org" class="external" target="_blank">bugzilla site</a>
+                                    ).
+                                </p>
+                                <p>As you become more experienced with CSS, you will find that you get faster at figuring out issues. However, even the most experienced of us sometimes find ourselves wondering what on earth is going on. Taking a methodical approach, making a reduced test case, and explaining the issue to someone else will usually result in a fix being found.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="summary">
+                            <h2 id="summary">
+                                <a href="#summary">Summary</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>So there we have it: an introduction to debugging CSS, which should give you some useful skills to count on when you start to debug CSS and other types of code later on in your career.</p>
+                                <p>
+                                    In the last article of this module, we'll take a look at how to <a href="/en-US/docs/Learn/CSS/Building_blocks/Organizing">organize your CSS</a>
+                                    .
+                                </p>
+                                <ul class="prev-next">
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks/Styling_tables">
+                                            <span class="button-wrap">Previous </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks">
+                                            <span class="button-wrap">Overview: Building blocks</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks/Organizing">
+                                            <span class="button-wrap">Next  </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
+                    </div>
+                    
                                         
                 </div>
             </main>

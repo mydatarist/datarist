@@ -1172,38 +1172,1996 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
-                        </div>
-                    </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
+                    
+                    
+
+
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Cascade, specificity, and inheritance</h1>
+                        </header>
+                        <div class="section-content">
+                            <ul class="prev-next">
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks/Selectors/Combinators">
+                                        <span class="button-wrap">Previous </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks">
+                                        <span class="button-wrap">Overview: Building blocks</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks/Cascade_layers">
+                                        <span class="button-wrap">Next  </span>
+                                    </a>
+                                </li>
                             </ul>
-                        </nav>
-                    </footer>
+                            <p>The aim of this lesson is to develop your understanding of some of the most fundamental concepts of CSS — the cascade, specificity, and inheritance — which control how CSS is applied to HTML and how conflicts between style declarations are resolved.</p>
+                            <p>While working through this lesson may seem less relevant immediately and a little more academic than some other parts of the course, an understanding of these concepts will save you from a lot of pain later on! We encourage you to work through this section carefully and check that you understand the concepts before moving on.</p>
+                            <figure class="table-container">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Prerequisites:</th>
+                                            <td>
+                                                <a href="/en-US/docs/Learn/Getting_started_with_the_web/Installing_basic_software">Basic software installed</a>
+                                                , basic knowledge of
+    <a href="/en-US/docs/Learn/Getting_started_with_the_web/Dealing_with_files">working with files</a>
+                                                , HTML basics (study
+    <a href="/en-US/docs/Learn/HTML/Introduction_to_HTML">Introduction to HTML</a>
+                                                ), and an idea of how CSS works (study
+    <a href="/en-US/docs/Learn/CSS/First_steps">CSS first steps</a>
+                                                .)
+  
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Objective:</th>
+                                            <td>To learn about the cascade and specificity, and how inheritance works in
+    CSS.
+  </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </figure>
+                        </div>
+                        <section aria-labelledby="conflicting_rules">
+                            <h2 id="conflicting_rules">
+                                <a href="#conflicting_rules">Conflicting rules</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    CSS stands for <strong>Cascading Style Sheets</strong>
+                                    , and that first word <em>cascading</em>
+                                    is incredibly important to understand — the way that the cascade behaves is key to understanding CSS.
+                                </p>
+                                <p>
+                                    At some point, you will be working on a project and you will find that the CSS you thought should be applied to an element is not working. Often, the problem is that you create two rules that apply different values of the same property to the same element. 
+                                    <a href="/en-US/docs/Web/CSS/Cascade">
+                                        <strong>Cascade</strong>
+                                    </a>
+                                    and the closely-related concept of 
+                                    <a href="/en-US/docs/Web/CSS/Specificity">
+                                        <strong>specificity</strong>
+                                    </a>
+                                    are mechanisms that control which rule applies when there is such a conflict. The rule that's styling your element may not be the one you expect, so you need to understand how these mechanisms work.
+                                </p>
+                                <p>
+                                    Also significant here is the concept of 
+                                    <a href="/en-US/docs/Web/CSS/Inheritance">
+                                        <strong>inheritance</strong>
+                                    </a>
+                                    , which means that some CSS properties by default inherit values set on the current element's parent element and some don't. This can also cause some behavior that you might not expect.
+                                </p>
+                                <p>Let's start by taking a quick look at the key things we are dealing with, then we'll look at each in turn and see how they interact with each other and your CSS. These can seem like a tricky set of concepts to understand. As you get more practice writing CSS, the way it works will become more obvious to you.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="cascade">
+                            <h3 id="cascade">
+                                <a href="#cascade">Cascade</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    Stylesheets 
+                                    <a href="/en-US/docs/Web/CSS/Cascade">
+                                        <strong>cascade</strong>
+                                    </a>
+                                    — at a very simple level, this means that the origin, the cascade layer, and the order of CSS rules matter. When two rules from the same cascade layer apply and both have equal specificity, the one that is defined last in the stylesheet is the one that will be used.
+                                </p>
+                                <p>
+                                    In the below example, we have two rules that could apply to the <code>&lt;h1 &gt;</code>
+                                    element. The <code>&lt;h1 &gt;</code>
+                                    content ends up being colored blue. This is because both the rules are from the same source, have an identical element selector, and therefore, carry the same specificity, but the last one in the source order wins.
+                                </p>
+                                <iframe width="100%" height="500" src="https://mdn.github.io/css-examples/learn/cascade/cascade-simple.html" loading="lazy"></iframe>
+                            </div>
+                        </section>
+                        <section aria-labelledby="specificity">
+                            <h3 id="specificity">
+                                <a href="#specificity">Specificity</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    <a href="/en-US/docs/Web/CSS/Specificity">Specificity</a>
+                                    is the algorithm that the browser uses to decide which property value is applied to an element. If multiple style blocks have different selectors that configure the same property with different values and target the same element, specificity decides the property value that gets applied to the element. Specificity is basically a measure of how specific a selector's selection will be:
+                                </p>
+                                <ul>
+                                    <li>An element selector is less specific; it will select all elements of that type that appear on a page, so it has less weight. Pseudo-element selectors have the same specificity as regular element selectors.</li>
+                                    <li>
+                                        A class selector is more specific; it will select only the elements on a page that have a specific <code>class</code>
+                                        attribute value, so it has more weight. Attribute selectors and pseudo-classes have the same weight as a class.
+                                    </li>
+                                </ul>
+                                <p>
+                                    Below, we again have two rules that could apply to the <code>&lt;h1 &gt;</code>
+                                    element. The <code>&lt;h1 &gt;</code>
+                                    content below ends up being colored red because the class selector <code>main-heading</code>
+                                    gives its rule a higher specificity. So even though the rule with the <code>&lt;h1 &gt;</code>
+                                    element selector appears further down in the source order, the one with the higher specificity, defined using the class selector, will be applied.
+                                </p>
+                                <iframe width="100%" height="600" src="https://mdn.github.io/css-examples/learn/cascade/specificity-simple.html" loading="lazy"></iframe>
+                                <p>We'll explain the specificity algorithm later on.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="inheritance">
+                            <h3 id="inheritance">
+                                <a href="#inheritance">Inheritance</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>Inheritance also needs to be understood in this context — some CSS property values set on parent elements are inherited by their child elements, and some aren't.</p>
+                                <p>
+                                    For example, if you set a <code>color</code>
+                                    and <code>font-family</code>
+                                    on an element, every element inside it will also be styled with that color and font, unless you've applied different color and font values directly to them.
+                                </p>
+                                <iframe width="100%" height="650" src="https://mdn.github.io/css-examples/learn/cascade/inheritance-simple.html" loading="lazy"></iframe>
+                                <p>
+                                    Some properties do not inherit — for example, if you set a 
+                                    <a href="/en-US/docs/Web/CSS/width">
+                                        <code>width</code>
+                                    </a>
+                                    of 50% on an element, all of its descendants do not get a width of 50% of their parent's width. If this was the case, CSS would be very frustrating to use!
+                                </p>
+                                <div class="notecard note" id="sect1">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        On MDN CSS property reference pages, you can find a technical information box called "Formal definition", which lists a number of data points about that property, including whether it is inherited or not. See the <a href="/en-US/docs/Web/CSS/color#formal_definition">color property Formal definition section</a>
+                                        as an example.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="understanding_how_the_concepts_work_together">
+                            <h2 id="understanding_how_the_concepts_work_together">
+                                <a href="#understanding_how_the_concepts_work_together">Understanding how the concepts work together</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>These three concepts (cascade, specificity, and inheritance) together control which CSS applies to what element. In the sections below, we'll see how they work together. It can sometimes seem a little bit complicated, but you will start to remember them as you get more experienced with CSS, and you can always look up the details if you forget! Even experienced developers don't remember all the details.</p>
+                                <p>The following video shows how you can use the Firefox DevTools to inspect a page's cascade, specificity, and more:</p>
+                                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Sp9ZfSvpf7A" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                        </section>
+                        <section aria-labelledby="understanding_inheritance">
+                            <h2 id="understanding_inheritance">
+                                <a href="#understanding_inheritance">Understanding inheritance</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    We'll start with inheritance. In the example below, we have a 
+                                    <a href="/en-US/docs/Web/HTML/Element/ul">
+                                        <code>&lt;ul &gt;</code>
+                                    </a>
+                                    element with two levels of unordered lists nested inside it. We have given the outer <code>&lt;ul &gt;</code>
+                                    a border, padding, and font color.
+                                </p>
+                                <p>
+                                    The <code>color</code>
+                                    property is an inherited property. So, the <code>color</code>
+                                    property value is applied to the direct children and also to the indirect children — the immediate child <code>&lt;li &gt;</code>
+                                    s and those inside the first nested list. We have then added the class <code>special</code>
+                                    to the second nested list and applied a different color to it. This then inherits down through its children.
+                                </p>
+                                <iframe width="100%" height="1100" src="https://mdn.github.io/css-examples/learn/cascade/inheritance.html" loading="lazy"></iframe>
+                                <p>
+                                    Properties like <code>width</code>
+                                    (as mentioned earlier), <code>margin</code>
+                                    , <code>padding</code>
+                                    , and <code>border</code>
+                                    are not inherited properties. If a border were to be inherited by the children in this list example, every single list and list item would gain a border — probably not an effect we would ever want!
+                                </p>
+                                <p>Though every CSS property page lists whether or not the property is inherited, you can often guess the same intuitively if you know what aspect the property value will style.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="controlling_inheritance">
+                            <h3 id="controlling_inheritance">
+                                <a href="#controlling_inheritance">Controlling inheritance</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>CSS provides five special universal property values for controlling inheritance. Every CSS property accepts these values.</p>
+                                <dl>
+                                    <dt id="inherit">
+                                        <a href="/en-US/docs/Web/CSS/inherit">
+                                            <code>inherit</code>
+                                        </a>
+                                    </dt>
+                                    <dd>
+                                        <p>Sets the property value applied to a selected element to be the same as that of its parent element. Effectively, this "turns on inheritance".</p>
+                                    </dd>
+                                    <dt id="initial">
+                                        <a href="/en-US/docs/Web/CSS/initial">
+                                            <code>initial</code>
+                                        </a>
+                                    </dt>
+                                    <dd>
+                                        <p>
+                                            Sets the property value applied to a selected element to the <a href="/en-US/docs/Web/CSS/initial_value">initial value</a>
+                                            of that property.
+                                        </p>
+                                    </dd>
+                                    <dt id="revert">
+                                        <a href="/en-US/docs/Web/CSS/revert">
+                                            <code>revert</code>
+                                        </a>
+                                    </dt>
+                                    <dd>
+                                        <p>
+                                            Resets the property value applied to a selected element to the browser's default styling rather than the defaults applied to that property. This value acts like 
+                                            <a href="/en-US/docs/Web/CSS/unset">
+                                                <code>unset</code>
+                                            </a>
+                                            in many cases.
+                                        </p>
+                                    </dd>
+                                    <dt id="revert-layer">
+                                        <a href="/en-US/docs/Web/CSS/revert-layer">
+                                            <code>revert-layer</code>
+                                        </a>
+                                    </dt>
+                                    <dd>
+                                        <p>
+                                            Resets the property value applied to a selected element to the value established in a previous <a href="/en-US/docs/Web/CSS/@layer">cascade layer</a>
+                                            .
+                                        </p>
+                                    </dd>
+                                    <dt id="unset">
+                                        <a href="/en-US/docs/Web/CSS/unset">
+                                            <code>unset</code>
+                                        </a>
+                                    </dt>
+                                    <dd>
+                                        <p>
+                                            Resets the property to its natural value, which means that if the property is naturally inherited it acts like <code>inherit</code>
+                                            , otherwise it acts like <code>initial</code>
+                                            .
+                                        </p>
+                                    </dd>
+                                </dl>
+                                <div class="notecard note" id="sect2">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        See <a href="/en-US/docs/Web/CSS/Cascade#origin_types">Origin types</a>
+                                        for more information on each of these and how they work.
+                                    </p>
+                                </div>
+                                <p>We can look at a list of links and explore how universal values work. The live example below allows you to play with the CSS and see what happens when you make changes. Playing with code really is the best way to better understand HTML and CSS.</p>
+                                <p>For example:</p>
+                                <ol>
+                                    <li>
+                                        The second list item has the class <code>my-class-1</code>
+                                        applied. This sets the color of the <code>&lt;a &gt;</code>
+                                        element nested inside to <code>inherit</code>
+                                        . If you remove the rule, how does it change the color of the link?
+                                    </li>
+                                    <li>
+                                        Do you understand why the third and fourth links are the color that they are? The third link is set to <code>initial</code>
+                                        , which means it uses the initial value of the property (in this case black) and not the browser default for links, which is blue. The fourth is set to <code>unset</code>
+                                        which means that the link text uses the color of the parent element, green.
+                                    </li>
+                                    <li>
+                                        Which of the links will change color if you define a new color for the <code>&lt;a &gt;</code>
+                                        element — for example <code>a { color: red; }</code>
+                                        ?
+                                    </li>
+                                    <li>
+                                        After reading the next section on resetting all properties, come back and change the <code>color</code>
+                                        property to <code>all</code>
+                                        . Notice how the second link is on a new line and has a bullet. What properties do you think were inherited?
+                                    </li>
+                                </ol>
+                                <iframe width="100%" height="800" src="https://mdn.github.io/css-examples/learn/cascade/keywords.html" loading="lazy"></iframe>
+                            </div>
+                        </section>
+                        <section aria-labelledby="resetting_all_property_values">
+                            <h3 id="resetting_all_property_values">
+                                <a href="#resetting_all_property_values">Resetting all property values</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    The CSS shorthand property 
+                                    <a href="/en-US/docs/Web/CSS/all">
+                                        <code>all</code>
+                                    </a>
+                                    can be used to apply one of these inheritance values to (almost) all properties at once. Its value can be any one of the inheritance values (<code>inherit</code>
+                                    , <code>initial</code>
+                                    , <code>revert</code>
+                                    , <code>revert-layer</code>
+                                    , or <code>unset</code>
+                                    ). It's a convenient way to undo changes made to styles so that you can get back to a known starting point before beginning new changes.
+                                </p>
+                                <p>
+                                    In the below example, we have two blockquotes. The first has styling applied to the blockquote element itself. The second has a class applied to the blockquote, which sets the value of <code>all</code>
+                                    to <code>unset</code>
+                                    .
+                                </p>
+                                <iframe width="100%" height="800" src="https://mdn.github.io/css-examples/learn/cascade/all.html" loading="lazy"></iframe>
+                                <p>
+                                    Try setting the value of <code>all</code>
+                                    to some of the other available values and observe what the difference is.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="understanding_the_cascade">
+                            <h2 id="understanding_the_cascade">
+                                <a href="#understanding_the_cascade">Understanding the cascade</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>We now understand that inheritance is why a paragraph nested deep in the structure of your HTML is the same color as the CSS applied to the body. From the introductory lessons, we have an understanding of how to change the CSS applied to something at any point in the document — whether by assigning CSS to an element or by creating a class. We will now look at how cascade defines which CSS rules apply when more than one style block apply the same property, but with different values, to the same element.</p>
+                                <p>There are three factors to consider, listed here in increasing order of importance. Later ones overrule earlier ones:</p>
+                                <ol>
+                                    <li>
+                                        <strong>Source order</strong>
+                                    </li>
+                                    <li>
+                                        <strong>Specificity</strong>
+                                    </li>
+                                    <li>
+                                        <strong>Importance</strong>
+                                    </li>
+                                </ol>
+                                <p>We will look at these to see how browsers figure out exactly what CSS should be applied.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="source_order">
+                            <h3 id="source_order">
+                                <a href="#source_order">Source order</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>We have already seen how source order matters to the cascade. If you have more than one rule, all of which have exactly the same weight, then the one that comes last in the CSS will win. You can think of this as: the rule that is nearer the element itself overwrites the earlier ones until the last one wins and gets to style the element.</p>
+                                <p>Source order only matters when the specificity weight of the rules is the same, so let's look at specificity:</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="specificity_2">
+                            <h3 id="specificity_2">
+                                <a href="#specificity_2">Specificity</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    You will often run into a situation where you know that a rule comes later in the stylesheet, but an earlier, conflicting rule is applied. This happens because the earlier rule has a <strong>higher specificity</strong>
+                                    — it is more specific, and therefore, is being chosen by the browser as the one that should style the element.
+                                </p>
+                                <p>As we saw earlier in this lesson, a class selector has more weight than an element selector, so the properties defined in the class style block will override those defined in the element style block.</p>
+                                <p>Something to note here is that although we are thinking about selectors and the rules that are applied to the text or component they select, it isn't the entire rule that is overwritten, only the properties that are declared in multiple places.</p>
+                                <p>This behavior helps avoid repetition in your CSS. A common practice is to define generic styles for the basic elements, and then create classes for those that are different. For example, in the stylesheet below, we have defined generic styles for level 2 headings, and then created some classes that change only some of the properties and values. The values defined initially are applied to all headings, then the more specific values are applied to the headings with the classes.</p>
+                                <iframe width="100%" height="1000" src="https://mdn.github.io/css-examples/learn/cascade/mixing-rules.html" loading="lazy"></iframe>
+                                <p>Let's now have a look at how the browser will calculate specificity. We already know that an element selector has low specificity and can be overwritten by a class. Essentially a value in points is awarded to different types of selectors, and adding these up gives you the weight of that particular selector, which can then be assessed against other potential matches.</p>
+                                <p>The amount of specificity a selector has is measured using three different values (or components), which can be thought of as ID, CLASS, and ELEMENT columns in the hundreds, tens, and ones place:</p>
+                                <ul>
+                                    <li>
+                                        <strong>Identifiers</strong>
+                                        : Score one in this column for each ID selector contained inside the overall selector.
+                                    </li>
+                                    <li>
+                                        <strong>Classes</strong>
+                                        : Score one in this column for each class selector, attribute selector, or pseudo-class contained inside the overall selector.
+                                    </li>
+                                    <li>
+                                        <strong>Elements</strong>
+                                        : Score one in this column for each element selector or pseudo-element contained inside the overall selector.
+                                    </li>
+                                </ul>
+                                <div class="notecard note" id="sect3">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        The universal selector (
+                                        <a href="/en-US/docs/Web/CSS/Universal_selectors">
+                                            <code>*</code>
+                                        </a>
+                                        ), <a href="/en-US/docs/Learn/CSS/Building_blocks/Selectors/Combinators">combinators</a>
+                                        (<code>+</code>
+                                        , <code>&gt;</code>
+                                        , <code>~</code>
+                                        , ' '), and specificity adjustment selector (
+                                        <a href="/en-US/docs/Web/CSS/:where">
+                                            <code>:where()</code>
+                                        </a>
+                                        ) along with its parameters, have no effect on specificity.
+                                    </p>
+                                </div>
+                                <p>
+                                    The negation (
+                                    <a href="/en-US/docs/Web/CSS/:not">
+                                        <code>:not()</code>
+                                    </a>
+                                    ), relational selector (
+                                    <a href="/en-US/docs/Web/CSS/:has">
+                                        <code>:has()</code>
+                                    </a>
+                                    ), the matches-any (
+                                    <a href="/en-US/docs/Web/CSS/:is">
+                                        <code>:is()</code>
+                                    </a>
+                                    ) pseudo-classes, and <a href="/en-US/docs/Web/CSS/CSS_nesting/Nesting_and_specificity">CSS nesting</a>
+                                    themselves don't add to specificity, but their parameters or nested rules do. The specificity weight that each contributes to the specificity algorithm is the specificity weight of the selector in the parameter or nested rule with the greatest weight.
+                                </p>
+                                <p>
+                                    The following table shows a few isolated examples to get you in the mood. Try going through these, and make sure you understand why they have the specificity that we have given them. We've not covered selectors in detail yet, but you can find details of each selector on the MDN <a href="/en-US/docs/Web/CSS/CSS_selectors/Selectors_and_combinators">selectors reference</a>
+                                    .
+                                </p>
+                                <figure class="table-container">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Selector</th>
+                                                <th>Identifiers</th>
+                                                <th>Classes</th>
+                                                <th>Elements</th>
+                                                <th>Total specificity</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <code>h1</code>
+                                                </td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>1</td>
+                                                <td>0-0-1</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <code>h1 + p::first-letter</code>
+                                                </td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>3</td>
+                                                <td>0-0-3</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <code>li &gt;a[href*="en-US"] &gt;.inline-warning</code>
+                                                </td>
+                                                <td>0</td>
+                                                <td>2</td>
+                                                <td>2</td>
+                                                <td>0-2-2</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <code>#identifier</code>
+                                                </td>
+                                                <td>1</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>1-0-0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <code>button:not(#mainBtn, .cta</code>
+                                                    )
+                                                </td>
+                                                <td>1</td>
+                                                <td>0</td>
+                                                <td>1</td>
+                                                <td>1-0-1</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </figure>
+                                <p>Before we move on, let's look at an example in action.</p>
+                                <iframe width="100%" height="800" src="https://mdn.github.io/css-examples/learn/cascade/specificity-boxes.html" loading="lazy"></iframe>
+                                <p>So what's going on here? First of all, we are only interested in the first seven rules of this example, and as you'll notice, we have included their specificity values in a comment before each one.</p>
+                                <ul>
+                                    <li>The first two selectors are competing over the styling of the link's background color. The second one wins and makes the background color blue because it has an extra ID selector in the chain: its specificity is 2-0-1 vs. 1-0-1.</li>
+                                    <li>Selectors 3 and 4 are competing over the styling of the link's text color. The second one wins and makes the text white because although it has one less element selector, the missing selector is swapped out for a class selector, which has more weight than infinity element selectors. The winning specificity is 1-1-3 vs. 1-0-4.</li>
+                                    <li>Selectors 5–7 are competing over the styling of the link's border when hovered. Selector 6 clearly loses to selector 5 with a specificity of 0-2-3 vs. 0-2-4; it has one fewer element selectors in the chain. Selector 7, however, beats both selectors 5 and 6 because it has the same number of sub-selectors in the chain as selector 5, but an element has been swapped out for a class selector. So the winning specificity is 0-3-3 vs. 0-2-3 and 0-2-4.</li>
+                                </ul>
+                                <div class="notecard note" id="sect4">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        Each selector type has its own level of specificity that cannot be overwritten by selectors with a lower specificity level. For example, a <em>million</em>
+                                        <strong>class</strong>
+                                        selectors combined would not be able to overwrite the specificity of <em>one</em>
+                                        <strong>id</strong>
+                                        selector.
+                                    </p>
+                                    <p>The best way to evaluate specificity is to score the specificity levels individually starting from the highest and moving on to the lowest when necessary. Only when there is a tie between selector scores within a specificity column do you need to evaluate the next column down; otherwise, you can disregard the lower specificity selectors since they can never overwrite the higher specificity selectors.</p>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="inline_styles">
+                            <h3 id="inline_styles">
+                                <a href="#inline_styles">Inline styles</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    Inline styles, that is, the style declaration inside a 
+                                    <a href="/en-US/docs/Web/HTML/Global_attributes#style">
+                                        <code>style</code>
+                                    </a>
+                                    attribute, take precedence over all normal styles, no matter the specificity. Such declarations don't have selectors, but their specificity can be construed as 1-0-0-0; always more than any other specificity weight no matter how many IDs are in the selectors.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="!important">
+                            <h3 id="!important">
+                                <a href="#!important">!important</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    There is a special piece of CSS that you can use to overrule all of the above calculations, even inline styles - the <code>!important</code>
+                                    flag. However, you should be very careful while using it. This flag is used to make an individual property and value pair the most specific rule, thereby overriding the normal rules of the cascade, including normal inline styles.
+                                </p>
+                                <div class="notecard note" id="sect5">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        It is useful to know that the <code>!important</code>
+                                        flag exists so that you know what it is when you come across it in other people's code. <strong>However, we strongly recommend that you never use it unless you absolutely have to.</strong>
+                                        The <code>!important</code>
+                                        flag changes the way the cascade normally works, so it can make debugging CSS problems really hard to work out, especially in a large stylesheet.
+                                    </p>
+                                </div>
+                                <p>Take a look at this example where we have two paragraphs, one of which has an ID.</p>
+                                <iframe width="100%" height="800" src="https://mdn.github.io/css-examples/learn/cascade/important.html" loading="lazy"></iframe>
+                                <p>Let's walk through this to see what's happening — try removing some of the properties to see what happens if you are finding it hard to understand:</p>
+                                <ol>
+                                    <li>
+                                        You'll see that the third rule's 
+                                        <a href="/en-US/docs/Web/CSS/color">
+                                            <code>color</code>
+                                        </a>
+                                        and 
+                                        <a href="/en-US/docs/Web/CSS/padding">
+                                            <code>padding</code>
+                                        </a>
+                                        values have been applied, but the 
+                                        <a href="/en-US/docs/Web/CSS/background-color">
+                                            <code>background-color</code>
+                                        </a>
+                                        hasn't. Why? Really, all three should surely apply because rules later in the source order generally override earlier rules.
+                                    </li>
+                                    <li>However, the rules above it win because class selectors have higher specificity than element selectors.</li>
+                                    <li>
+                                        Both elements have a 
+                                        <a href="/en-US/docs/Web/HTML/Global_attributes#class">
+                                            <code>class</code>
+                                        </a>
+                                        of <code>better</code>
+                                        , but the 2nd one has an 
+                                        <a href="/en-US/docs/Web/HTML/Global_attributes#id">
+                                            <code>id</code>
+                                        </a>
+                                        of <code>winning</code>
+                                        too. Since IDs have an <em>even higher</em>
+                                        specificity than classes (you can only have one element with each unique ID on a page, but many elements with the same class — ID selectors are <em>very specific</em>
+                                        in what they target), the red background color and the 1px black border should both be applied to the 2nd element, with the first element getting the gray background color, and no border, as specified by the class.
+                                    </li>
+                                    <li>
+                                        The 2nd element <em>does</em>
+                                        get the red background color, but no border. Why? Because of the <code>!important</code>
+                                        flag in the second rule. Adding the <code>!important</code>
+                                        flag after <code>border: none</code>
+                                        means that this declaration will win over the <code>border</code>
+                                        value in the previous rule, even though the ID selector has higher specificity.
+                                    </li>
+                                </ol>
+                                <div class="notecard note" id="sect6">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        The only way to override an important declaration is to include another important declaration with the <em>same specificity</em>
+                                        later in the source order, or one with higher specificity, or to include an important declaration in a prior cascade layer (we haven't covered cascade layers yet).
+                                    </p>
+                                </div>
+                                <p>
+                                    One situation in which you may have to use the <code>!important</code>
+                                    flag is when you are working on a CMS where you can't edit the core CSS modules, and you really want to override an inline style or an important declaration that can't be overridden in any other way. But really, don't use it if you can avoid it.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="the_effect_of_css_location">
+                            <h2 id="the_effect_of_css_location">
+                                <a href="#the_effect_of_css_location">The effect of CSS location</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>Finally, it is important to note that the precedence of a CSS declaration depends on what stylesheet and cascade layer it is specified in.</p>
+                                <p>It is possible for users to set custom stylesheets to override the developer's styles. For example, a visually impaired user might want to set the font size on all web pages they visit to be double the normal size to allow for easier reading.</p>
+                                <p>It is also possible to declare developer styles in cascade layers: you can make non-layered styles override styles declared in layers or you can make styles declared in later layers override styles from earlier declared layers. For example, as a developer you may not be able to edit a third-party stylesheet, but you can import the external stylesheet into a cascade layer so that all of your styles easily override the imported styles without worrying about third-party selector specificity.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="order_of_overriding_declarations">
+                            <h3 id="order_of_overriding_declarations">
+                                <a href="#order_of_overriding_declarations">Order of overriding declarations</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>Conflicting declarations will be applied in the following order, with later ones overriding earlier ones:</p>
+                                <ol>
+                                    <li>Declarations in user agent style sheets (e.g., the browser's default styles, used when no other styling is set).</li>
+                                    <li>Normal declarations in user style sheets (custom styles set by a user).</li>
+                                    <li>Normal declarations in author style sheets (these are the styles set by us, the web developers).</li>
+                                    <li>Important declarations in author style sheets.</li>
+                                    <li>Important declarations in user style sheets.</li>
+                                    <li>Important declarations in user agent style sheets.</li>
+                                </ol>
+                                <div class="notecard note" id="sect7">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        The order of precedence is inverted for styles flagged with <code>!important</code>
+                                        . It makes sense for web developers' stylesheets to override user stylesheets, so the design can be kept as intended; however, sometimes users have good reasons to override web developer styles, as mentioned above, and this can be achieved by using <code>!important</code>
+                                        in their rules.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="order_of_cascade_layers">
+                            <h3 id="order_of_cascade_layers">
+                                <a href="#order_of_cascade_layers">Order of cascade layers</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    Even though <a href="/en-US/docs/Web/CSS/@layer">cascade layers</a>
+                                    is an advanced topic and you might not use this feature right away, it's important to understand how layers cascade.
+                                </p>
+                                <p>
+                                    When you declare CSS in cascade layers, the order of precedence is determined by the order in which the layers are declared. CSS styles declared outside of any layer are combined together, in the order in which those styles are declared, into an unnamed layer, as if it were the last declared layer. With competing normal (not important) styles, later layers take precedence over earlier defined layers. For styles flagged with <code>!important</code>
+                                    , however, the order is reversed, with important styles in earlier layers taking precedence over important styles declared in subsequent layers or outside of any layer. Inline styles take precedence over all author styles, no matter the layer.
+                                </p>
+                                <p>When you have multiple style blocks in different layers providing competing values for a property on a single element, the order in which the layers are declared determines the precedence. Specificity between layers doesn't matter, but specificity within a single layer still does.</p>
+                                <iframe width="100%" height="800" src="https://mdn.github.io/css-examples/learn/cascade/cascade-layers.html" loading="lazy"></iframe>
+                                <p>
+                                    Let's discuss a few things from the above example to understand what's happening. Two layers have been declared, <code>firstLayer</code>
+                                    and <code>secondLayer</code>
+                                    , in that order. Even though the specificity in <code>secondLayer</code>
+                                    is the highest, no properties from that declaration are used. Why? Because non-layered normal styles take precedence over layered normal styles, no matter the specificity, and important layered styles take precedence over important styles declared in later layers, again, no matter the specificity.
+                                </p>
+                                <p>
+                                    If you change the first line of CSS in this example to read <code>@layer secondLayer, firstLayer;</code>
+                                    , you will change the layer declaration order, and all the important styles from <code>firstLayer</code>
+                                    will be changed to their respective values in <code>secondLayer</code>
+                                    .
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="scoping_proximity">
+                            <h3 id="scoping_proximity">
+                                <a href="#scoping_proximity">Scoping proximity</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    Another advanced topic that you might not use right away but may need to understand in the future is 
+                                    <a href="/en-US/docs/Web/CSS/@scope">
+                                        <code>@scope</code>
+                                    </a>
+                                    . This is an <a href="/en-US/docs/Web/CSS/At-rule">at-rule</a>
+                                    that enables you to create a block of rules that will only apply to a specific subsection of the HTML on your page. For example, you can specify styles that will only apply to 
+                                    <a href="/en-US/docs/Web/HTML/Element/img">
+                                        <code>&lt;img &gt;</code>
+                                    </a>
+                                    elements when they're nested inside elements that have a <code>feature</code>
+                                    class:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="DfpXgX+2p/29xMmkrYAn4TRtPT3MVOEfl85qAPQCLZ4=">
+                                        <code>
+                                            <span class="token atrule">
+                                                <span class="token rule">@scope</span>
+                                                <span class="token punctuation">(</span>
+                                                .feature<span class="token punctuation">)</span>
+                                            </span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token selector">img</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">border</span>
+                                            <span class="token punctuation">:</span>
+                                            2px solid black<span class="token punctuation">;</span>
+                                            <span class="token property">display</span>
+                                            <span class="token punctuation">:</span>
+                                            block<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    <strong>Scoping proximity</strong>
+                                    is the mechanism that resolves conflicts between scoped elements. Scoping proximity states that when two scopes have conflicting styles, the style with the smallest number of hops up the DOM tree hierarchy to the scope root wins. See 
+                                    <a href="/en-US/docs/Web/CSS/@scope#how_scope_conflicts_are_resolved">
+                                        How <code>@scope</code>
+                                        conflicts are resolved
+                                    </a>
+                                    for more details and an example.
+                                </p>
+                                <div class="notecard note" id="sect8">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        Scoping proximity overrules source order but is itself overridden by other, higher-priority criteria such as <a href="/en-US/docs/Web/CSS/important">importance</a>
+                                        , <a href="/en-US/docs/Learn/CSS/Building_blocks/Cascade_layers">layers</a>
+                                        , and <a href="/en-US/docs/Web/CSS/Specificity">specificity</a>
+                                        .
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="test_your_skills!">
+                            <h2 id="test_your_skills!">
+                                <a href="#test_your_skills!">Test your skills!</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    You've reached the end of this article, but can you remember the most important information? You can find some further tests to verify that you've retained this information before you move on — see <a href="/en-US/docs/Learn/CSS/Building_blocks/Cascade_tasks">Test your skills: The Cascade</a>
+                                    .
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="summary">
+                            <h2 id="summary">
+                                <a href="#summary">Summary</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    If you understood most of this article, then well done — you've started getting familiar with the fundamental mechanics of CSS. Next up, we'll take a deeper look at <a href="/en-US/docs/Learn/CSS/Building_blocks/Cascade_layers">Cascade Layers</a>
+                                    .
+                                </p>
+                                <p>If you didn't fully understand the cascade, specificity, and inheritance, then don't worry! This is definitely the most complicated thing we've covered so far in the course and is something that even professional web developers sometimes find tricky. We'd advise that you return to this article a few times as you continue through the course, and keep thinking about it.</p>
+                                <p>Refer back here if you start to come across strange issues with styles not applying as expected. It could be a specificity issue.</p>
+                                <ul class="prev-next">
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks/Selectors/Combinators">
+                                            <span class="button-wrap">Previous </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks">
+                                            <span class="button-wrap">Overview: Building blocks</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks/Cascade_layers">
+                                            <span class="button-wrap">Next  </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Cascade layers</h1>
+                        </header>
+                        <div class="section-content">
+                            <ul class="prev-next">
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance">
+                                        <span class="button-wrap">Previous </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks">
+                                        <span class="button-wrap">Overview: Building blocks</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks/The_box_model">
+                                        <span class="button-wrap">Next  </span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <p>
+                                This lesson aims to introduce you to <a href="/en-US/docs/Web/CSS/@layer">cascade layers</a>
+                                , a more advanced feature that builds on the fundamental concepts of the <a href="/en-US/docs/Web/CSS/Cascade">CSS cascade</a>
+                                and <a href="/en-US/docs/Web/CSS/Specificity">CSS specificity</a>
+                                .
+                            </p>
+                            <p>If you are new to CSS, working through this lesson may seem less relevant immediately and a little more academic than some other parts of the course. However, knowing the basics of what cascade layers are should you encounter them in your projects is helpful. The more you work with CSS, understanding cascade layers and knowing how to leverage their power will save you from a lot of pain managing a code base with CSS from different parties, plugins, and development teams.</p>
+                            <p>
+                                Cascade layers are most relevant when you're working with CSS from multiple sources when there are conflicting CSS selectors and competing specificities, or when you're considering using 
+                                <a href="/en-US/docs/Web/CSS/important">
+                                    <code>!important</code>
+                                </a>
+                                .
+                            </p>
+                            <figure class="table-container">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Prerequisites:</th>
+                                            <td>
+                                                An idea of how CSS works, including cascade and specificity (study
+    <a href="/en-US/docs/Learn/CSS/First_steps">CSS first steps</a>
+                                                and <a href="/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance">Cascade, specificity, and inheritance</a>
+                                                ).
+  
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Objective:</th>
+                                            <td>To learn how cascade layers work.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </figure>
+                            <p>For each CSS property applied to an element, there can only be one value. You can view all the property values applied to an element by inspecting the element in your browser's developer tools. The tool's "Styles" panel shows all the property values applied to the element being inspected, along with the matched selector and the CSS source file. The selector from the origin with precedence has its values applied to the matching element.</p>
+                            <p>In addition to the applied styles, the Styles panel displays crossed-out values that matched the selected element but were not applied due to the cascade, specificity, or source order. Crossed-out styles may come from the same origin with precedence but with lower specificity, or with matching origin and specificity, but were found earlier in the code base. For any applied property value, there may be several declarations crossed out from many different sources. If you see a style crossed out that has a selector with greater specificity it means the value is lacking in origin or importance.</p>
+                            <p>Often, as the complexity of a site increases, the number of stylesheets increases, which makes the source order of the stylesheets both more important and more complex. Cascade layers simplify maintaining stylesheets across such code bases. Cascade layers are explicit specificity containers providing simpler and greater control over the CSS declarations that ultimately get applied, enabling web developers to prioritize sections of CSS without having to fight specificity.</p>
+                            <p>To understand cascade layers, you must understand the CSS cascade well. The sections below provide a quick recap of the important cascade concepts.</p>
+                        </div>
+                        <section aria-labelledby="review_of_the_cascade_concept">
+                            <h2 id="review_of_the_cascade_concept">
+                                <a href="#review_of_the_cascade_concept">Review of the cascade concept</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    The C in CSS stands for "Cascading". It is the method by which styles cascade together. The user agent runs through several clearly defined steps to determine the values assigned to every property for every element. We will briefly list these steps here and then dig deeper into step 4, <strong>Cascade layers</strong>
+                                    , which is what you came here to learn:
+                                </p>
+                                <ol>
+                                    <li>
+                                        <strong>Relevance:</strong>
+                                        Find all the declaration blocks with a selector match for each element.
+                                    </li>
+                                    <li>
+                                        <strong>Importance:</strong>
+                                        Sort rules based on whether they are normal or important. Important styles are those that have the 
+                                        <a href="/en-US/docs/Web/CSS/important">
+                                            <code>!important</code>
+                                        </a>
+                                        flag set.
+                                    </li>
+                                    <li>
+                                        <strong>Origin:</strong>
+                                        Within each of the two importance buckets, sort rules by author, user, or user-agent origin.
+                                    </li>
+                                    <li>
+                                        <strong>Cascade layers:</strong>
+                                        Within each of the six origin importance buckets, sort by cascade layer. The layer order for normal declarations is from the first layer created to the last, followed by unlayered normal styles. This order is inverted for important styles, with unlayered important styles having the lowest precedence.
+                                    </li>
+                                    <li>
+                                        <strong>Specificity:</strong>
+                                        For competing styles in the origin layer with precedence, sort declarations by <a href="/en-US/docs/Web/CSS/Specificity">specificity</a>
+                                        .
+                                    </li>
+                                    <li>
+                                        <strong>Scoping proximity</strong>
+                                        : When two selectors in the origin layer with precedence have the same specificity, the property value within scoped rules with the smallest number of hops up the DOM hierarchy to the scope root wins. See 
+                                        <a href="/en-US/docs/Web/CSS/@scope#how_scope_conflicts_are_resolved">
+                                            How <code>@scope</code>
+                                            conflicts are resolved
+                                        </a>
+                                        for more details and an example.
+                                    </li>
+                                    <li>
+                                        <strong>Order of appearance:</strong>
+                                        When two selectors in the origin layer with precedence have the same specificity and scope proximity, the property value from the last declared selector with the highest specificity wins.
+                                    </li>
+                                </ol>
+                                <p>For each step, only the declarations "still in the running" move on to "compete" in the next step. If only one declaration is in the running, it "wins", and the subsequent steps are moot.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="origin_and_cascade">
+                            <h3 id="origin_and_cascade">
+                                <a href="#origin_and_cascade">Origin and cascade</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    There are three <a href="/en-US/docs/Web/CSS/Cascade#origin_types">cascade origin types</a>
+                                    : user-agent stylesheets, user stylesheets, and author stylesheets. The browser sorts each declaration into six origin buckets by origin and importance. There are eight levels of precedence: the six origin buckets, properties that are transitioning, and properties that are animating. The order of precedence goes from normal user-agent styles, which have the lowest precedence, to styles within currently applied animations, to important user-agent styles, and then styles being transitioned, which have the highest precedence:
+                                </p>
+                                <ol>
+                                    <li>user-agent normal styles</li>
+                                    <li>user normal styles</li>
+                                    <li>author normal styles</li>
+                                    <li>styles being animated</li>
+                                    <li>author important styles</li>
+                                    <li>user important styles</li>
+                                    <li>user-agent important styles</li>
+                                    <li>styles being transitioned</li>
+                                </ol>
+                                <p>
+                                    The "user-agent" is the browser. The "user" is the site visitor. The "author" is you, the developer. Styles declared directly on an element with the 
+                                    <a href="/en-US/docs/Web/HTML/Element/style">
+                                        <code>&lt;style &gt;</code>
+                                    </a>
+                                    element are author styles. Not including animating and transitioning styles, user-agent normal styles have the lowest precedence; user-agent important styles have the highest.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="origin_and_specificity">
+                            <h3 id="origin_and_specificity">
+                                <a href="#origin_and_specificity">Origin and specificity</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    For each property, the declaration that "wins" is the one from the origin with precedence based on the weight (normal or important). Ignoring layers for the moment, the value from the origin with the highest precedence gets applied. If the winning origin has more than one property declaration for an element, the <a href="/en-US/docs/Web/CSS/Specificity">specificity</a>
+                                    of the selectors for those competing property values are compared. Specificity is never compared between selectors from different origins.
+                                </p>
+                                <p>
+                                    In the example below, there are two links. The first has no author styles applied, so only user-agent styles are applied (and your personal user styles, if any). The second has 
+                                    <a href="/en-US/docs/Web/CSS/text-decoration">
+                                        <code>text-decoration</code>
+                                    </a>
+                                    and 
+                                    <a href="/en-US/docs/Web/CSS/color">
+                                        <code>color</code>
+                                    </a>
+                                    set by author styles even though the selector in the author stylesheet has a specificity of 
+                                    <a href="/en-US/docs/Web/CSS/Specificity#selector_weight_categories">
+                                        <code>0-0-0</code>
+                                    </a>
+                                    . The reason why author styles "win" is because when there are conflicting styles from different origins, the rules from the origin with precedence are applied, irrespective of the specificity in the origin that doesn't have precedence.
+                                </p>
+                                <iframe width="100%" height="500" src="https://mdn.github.io/css-examples/learn/layers/basic-cascade.html" loading="lazy"></iframe>
+                                <p>
+                                    The "competing" selector in the user-agent stylesheet at the time of this writing is <code>a:any-link</code>
+                                    , which has a specificity weight of <code>0-1-1</code>
+                                    . While this is greater than the <code>0-0-0</code>
+                                    selector in the author stylesheet, even if the selector in your current user agent is different, it doesn't matter: the specificity weights from author and user-agent origins are never compared. Learn more about <a href="/en-US/docs/Web/CSS/Specificity#how_is_specificity_calculated">how specificity weight is calculated</a>
+                                    .
+                                </p>
+                                <p>Origin precedence always wins over selector specificity. If an element property is styled with a normal style declaration in multiple origins, the author style sheet will always override the redundant normal properties declared in a user or user-agent stylesheet. If the style is important, the user-agent stylesheet will always win over author and user styles. Cascade origin precedence ensures specificity conflicts between origins never happen.</p>
+                                <p>One last thing to note before moving on: the order of appearance becomes relevant only when competing declarations in the origin of precedence have the same specificity.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="overview_of_cascade_layers">
+                            <h2 id="overview_of_cascade_layers">
+                                <a href="#overview_of_cascade_layers">Overview of cascade layers</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    We now understand "cascade origin precedence", but what is "cascade layer precedence"? We will answer that question by addressing what cascade layers are, how they are ordered, and how styles are assigned to cascade layers. We'll cover <a href="#creating_cascade_layers">regular layers</a>
+                                    , <a href="#overview_of_nested_cascade_layers">nested layers</a>
+                                    , and anonymous layers. Let's first discuss what cascade layers are and what issues they solve.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="cascade_layer_precedence_order">
+                            <h3 id="cascade_layer_precedence_order">
+                                <a href="#cascade_layer_precedence_order">Cascade layer precedence order</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>Similar to how we have six levels of priority based on origin and importance, cascade layers enable us to create sub-origin level of priority within any of those origins.</p>
+                                <p>
+                                    Within each of the six origin buckets, there can be multiple cascade layers. The <a href="/en-US/docs/Web/CSS/@layer">order of layer creation</a>
+                                    matters a lot. It is the order of creation that sets the precedence order among layers within an origin.
+                                </p>
+                                <p>In normal origin buckets, layers are sorted in the order of each layer's creation. The order of precedence is from the first layer created to the last, followed by unlayered normal styles.</p>
+                                <p>This order is inverted for important styles. All unlayered important styles cascade together into an implicit layer having precedence over all non-transitioning normal styles. The unlayered important styles have lower precedence than any important layered styles. The important styles in earlier declared layers have precedence over important styles in subsequent declared layers within the same origin.</p>
+                                <p>For the rest of this tutorial, we will limit our discussion to author styles, but keep in mind that layers can also exist in user and user-agent stylesheets.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="issues_cascade_layers_can_solve">
+                            <h3 id="issues_cascade_layers_can_solve">
+                                <a href="#issues_cascade_layers_can_solve">Issues cascade layers can solve</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    Large code bases can have styles coming from multiple teams, component libraries, frameworks, and third parties. No matter how many stylesheets are included, all these styles cascade together in a single origin: the <em>author</em>
+                                    style sheet.
+                                </p>
+                                <p>
+                                    Having styles from many sources cascade together, especially from teams that aren't working together, can create problems. Different teams may have different methodologies; one may have a best practice of reducing specificity, while another may have a standard of including an <code>id</code>
+                                    in each selector.
+                                </p>
+                                <p>
+                                    Specificity conflicts can escalate quickly. A web developer may create a "quick fix" by adding an <code>!important</code>
+                                    flag. While this may feel like an easy solution, it often just moves the specificity war from normal to important declarations.
+                                </p>
+                                <p>In the same way that cascade origins provide a balance of power between user, user-agents, and author styles, cascade layers provide a structured way to organize and balance concerns within a single origin as if each layer in an origin were a sub-origin. A layer can be created for each team, component, and third party, with style precedence based on layer order.</p>
+                                <p>Rules within a layer cascade together, without competing with style rules outside the layer. Cascade layers enable the prioritizing of entire stylesheets over other stylesheets, without having to worry about specificity between these sub-origins.</p>
+                                <p>Layer precedence always beats selector specificity. Styles in layers with precedence "win" over layers with less precedence. The specificity of a selector in a losing layer is irrelevant. Specificity still matters for competing property values within a layer, but there are no specificity concerns between layers because only the highest-priority layer for each property is considered.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="issues_nested_cascade_layers_can_solve">
+                            <h3 id="issues_nested_cascade_layers_can_solve">
+                                <a href="#issues_nested_cascade_layers_can_solve">Issues nested cascade layers can solve</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>Cascade layers allow the creation of nested layers. Each cascade layer can contain nested layers.</p>
+                                <p>
+                                    For example, a component library may be imported into a <code>components</code>
+                                    layer. A regular cascade layer will add the component library to the author origin, removing any specificity conflicts with other author styles. Within the <code>components</code>
+                                    layer, a developer can choose to define various themes, each as a separate nested layer. The order of these nested theme layers can be defined based on media queries (see the <a href="#layer_creation_and_media_queries">Layer creation and media queries</a>
+                                    section below), such as viewport size or <a href="/en-US/docs/Web/CSS/@media/orientation">orientation</a>
+                                    . These nested layers provide a way to create themes that don't conflict based on specificity.
+                                </p>
+                                <p>The ability to nest layers is very useful for anybody who works on developing component libraries, frameworks, third-party widgets, and themes.</p>
+                                <p>
+                                    The ability to create nested layers also removes the worry of having conflicting layer names. We'll cover this in the <a href="#overview_of_nested_cascade_layers">nested layer</a>
+                                    section.
+                                </p>
+                                <blockquote>
+                                    <p>"Authors can create layers to represent element defaults, third-party libraries, themes, components, overrides, and other styling concerns—and are able to re-order the cascade of layers in an explicit way, without altering selectors or specificity within each layer, or relying on order of appearance to resolve conflicts across layers."</p>
+                                    <p>
+                                        —<a href="https://www.w3.org/TR/css-cascade-5/#layering" class="external" target="_blank">Cascading and Inheritance specification</a>
+                                        .
+                                    </p>
+                                </blockquote>
+                            </div>
+                        </section>
+                        <section aria-labelledby="creating_cascade_layers">
+                            <h2 id="creating_cascade_layers">
+                                <a href="#creating_cascade_layers">Creating cascade layers</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>Layers can be created using any one of the following methods:</p>
+                                <ul>
+                                    <li>
+                                        The <code>@layer</code>
+                                        statement at-rule, declaring layers using <code>@layer</code>
+                                        followed by the names of one or more layers. This creates named layers without assigning any styles to them.
+                                    </li>
+                                    <li>
+                                        The <code>@layer</code>
+                                        block at-rule, in which all styles within a block are added to a named or unnamed layer.
+                                    </li>
+                                    <li>
+                                        The 
+                                        <a href="/en-US/docs/Web/CSS/@import">
+                                            <code>@import</code>
+                                        </a>
+                                        rule with the <code>layer</code>
+                                        keyword or <code>layer()</code>
+                                        function, which assigns the contents of the imported file into that layer.
+                                    </li>
+                                </ul>
+                                <p>
+                                    All three methods create a layer if a layer with that name has not already been initialized. If no layer name is provided in the <code>@layer</code>
+                                    at-rule or <code>@import</code>
+                                    with <code>layer()</code>
+                                    , a new anonymous (unnamed) layer is created.
+                                </p>
+                                <div class="notecard note" id="sect1">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        The order of precedence of layers is the order in which they are created. Styles not in a layer, or "unlayered styles", cascade together into a final implicit label.
+                                    </p>
+                                </div>
+                                <p>Let's cover the three ways of creating a layer in a little more detail before discussing nested layers.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="the_layer_statement_at-rule_for_named_layers">
+                            <h3 id="the_layer_statement_at-rule_for_named_layers">
+                                <a href="#the_layer_statement_at-rule_for_named_layers">The @layer statement at-rule for named layers</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    The order of layers is set by the order in which the layers appear in your CSS. Declaring layers using <code>@layer</code>
+                                    followed by the names of one or more layers without assigning any styles is one way to define the <a href="#determining_the_precedence_based_on_the_order_of_layers">layer order</a>
+                                    .
+                                </p>
+                                <p>
+                                    The 
+                                    <a href="/en-US/docs/Web/CSS/@layer">
+                                        <code>@layer</code>
+                                    </a>
+                                    CSS at-rule is used to declare a cascade layer and to define the order of precedence when there are multiple cascade layers. The following at-rule declares three layers, in the order listed:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="rV4kTXue0MfV6044RQS46PyAb8nHC0PHycI0pE7Rh24=">
+                                        <code>
+                                            <span class="token atrule">
+                                                <span class="token rule">@layer</span>
+                                                theme<span class="token punctuation">,</span>
+                                                layout<span class="token punctuation">,</span>
+                                                utilities<span class="token punctuation">;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    You will often want to have your first line of CSS be this <code>@layer</code>
+                                    declaration (with layer names that make sense for your site, of course) to have full control over layer ordering.
+                                </p>
+                                <p>
+                                    If the above statement is the first line of a site's CSS, the layer order will be <code>theme</code>
+                                    , <code>layout</code>
+                                    , and <code>utilities</code>
+                                    . If some layers were created prior to the above statement, as long as layers with these names don't already exist, these three layers will be created and added to the end of the list of existing layers. However, if a layer with the same name already exists, then the above statement will create only two new layers. For example, if <code>layout</code>
+                                    already existed, only <code>theme</code>
+                                    and <code>utilities</code>
+                                    will be created, but the order of layers, in this case, will be <code>layout</code>
+                                    , <code>theme</code>
+                                    , and <code>utilities</code>
+                                    .
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="the_layer_block_at-rule_for_named_and_anonymous_layers">
+                            <h3 id="the_layer_block_at-rule_for_named_and_anonymous_layers">
+                                <a href="#the_layer_block_at-rule_for_named_and_anonymous_layers">The @layer block at-rule for named and anonymous layers</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    Layers can be created using the block <code>@layer</code>
+                                    at-rule. If an <code>@layer</code>
+                                    at-rule is followed by an identifier and a block of styles, the identifier is used to name the layer, and the styles in this at-rule are added to the layer's styles. If a layer with the specified name does not already exist, a new layer will be created. If a layer with the specified name already exists, the styles are added to the previously existing layer. If no name is specified while creating a block of styles using <code>@layer</code>
+                                    , the styles in the at-rule will be added to a new anonymous layer.
+                                </p>
+                                <p>
+                                    In the example below, we've used four block and one inline <code>@layer</code>
+                                    at-rules. This CSS does the following in the order listed:
+                                </p>
+                                <ol>
+                                    <li>
+                                        Creates a named <code>layout</code>
+                                        layer
+                                    </li>
+                                    <li>Creates an unnamed, anonymous layer</li>
+                                    <li>
+                                        Declares a list of three layers and creates only two new layers, <code>theme</code>
+                                        and <code>utilities</code>
+                                        , because <code>layout</code>
+                                        already exists
+                                    </li>
+                                    <li>
+                                        Adds additional styles to the already existing <code>layout</code>
+                                        layer
+                                    </li>
+                                    <li>Creates a second unnamed, anonymous layer</li>
+                                </ol>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="Sf0LwsC0CXRHGY77X3StPeILCKCHIinos/g3PWc1qqk=">
+                                        <code>
+                                            <span class="token comment">/* file: layers1.css */</span>
+                                            <span class="token comment">/* unlayered styles */</span>
+                                            <span class="token selector">body</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">color</span>
+                                            <span class="token punctuation">:</span>
+                                            #333<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token comment">/* creates the first layer: `layout` */</span>
+                                            <span class="token atrule">
+                                                <span class="token rule">@layer</span>
+                                                layout
+                                            </span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token selector">main</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">display</span>
+                                            <span class="token punctuation">:</span>
+                                            grid<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token comment">/* creates the second layer: an unnamed, anonymous layer */</span>
+                                            <span class="token atrule">
+                                                <span class="token rule">@layer</span>
+                                            </span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token selector">body</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">margin</span>
+                                            <span class="token punctuation">:</span>
+                                            0<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token comment">/* creates the third and fourth layers: `theme` and `utilities` */</span>
+                                            <span class="token atrule">
+                                                <span class="token rule">@layer</span>
+                                                theme<span class="token punctuation">,</span>
+                                                layout<span class="token punctuation">,</span>
+                                                utilities<span class="token punctuation">;</span>
+                                            </span>
+                                            <span class="token comment">/* adds styles to the already existing `layout` layer */</span>
+                                            <span class="token atrule">
+                                                <span class="token rule">@layer</span>
+                                                layout
+                                            </span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token selector">main</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">color</span>
+                                            <span class="token punctuation">:</span>
+                                            #000<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token comment">/* creates the fifth layer: an unnamed, anonymous layer */</span>
+                                            <span class="token atrule">
+                                                <span class="token rule">@layer</span>
+                                            </span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token selector">body</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">margin</span>
+                                            <span class="token punctuation">:</span>
+                                            1vw<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    In the above CSS, we created five layers: <code>layout</code>
+                                    , <code>&lt;anonymous(01)&gt;</code>
+                                    , <code>theme</code>
+                                    , <code>utilities</code>
+                                    , and <code>&lt;anonymous(02)&gt;</code>
+                                    – in that order - with a sixth, implicit layer of unlayered styles contained in the <code>body</code>
+                                    style block. The layer order is the order in which the layers are created, with the implicit layer of unlayered styles always being last. There is no way to change the layer order once created.
+                                </p>
+                                <p>
+                                    We assigned some styles to the layer named <code>layout</code>
+                                    . If a named layer doesn't already exist, then specifying the name in an <code>@layer</code>
+                                    at-rule, with or without assigning styles to the layer, creates the layer; this adds the layer to the end of the series of existing layer names. If the named layer already exists, all styles within the named block get appended to styles in the previously existing layer – specifying styles in a block by reusing an existing layer name does not create a new layer.
+                                </p>
+                                <p>Anonymous layers are created by assigning styles to a layer without naming the layer. Styles can be added to an unnamed layer only at the time of its creation.</p>
+                                <div class="notecard note" id="sect2">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        Subsequent use of <code>@layer</code>
+                                        with no layer name creates additional unnamed layers; it does not append styles to a previously existing unnamed layer.
+                                    </p>
+                                </div>
+                                <p>
+                                    The <code>@layer</code>
+                                    at-rule creates a layer, named or not, or appends styles to a layer if the named layer already exists. We called the first anonymous layer <code>&lt;anonymous(01)&gt;</code>
+                                    and the second <code>&lt;anonymous(02)&gt;</code>
+                                    , this is just so we can explain them. These are actually unnamed layers. There is no way to reference them or add additional styles to them.
+                                </p>
+                                <p>
+                                    All styles declared outside of a layer are joined together in an implicit layer. In the example code above, the first declaration set the <code>color: #333</code>
+                                    property on <code>body</code>
+                                    . This was declared outside of any layer. Normal unlayered declarations take precedence over normal layered declarations even if the unlayered styles have a lower specificity and come first in the order of appearance. This explains why even though the unlayered CSS was declared first in the code block, the implicit layer containing these unlayered styles takes precedence as if it was the last declared layer.
+                                </p>
+                                <p>
+                                    In the line <code>@layer theme, layout, utilities;</code>
+                                    , in which a series of layers were declared, only the <code>theme</code>
+                                    and <code>utilities</code>
+                                    layers were created; <code>layout</code>
+                                    was already created in the first line. Note that this declaration does not change the order of already created layers. There is currently no way to re-order layers once declared.
+                                </p>
+                                <p>In the following interactive example, we assign styles to two layers, creating them and naming them in the process. Because they already exist, being created when first used, declaring them on the last line does nothing.</p>
+                                <iframe width="100%" height="500" src="https://mdn.github.io/css-examples/learn/layers/layer-order.html" loading="lazy"></iframe>
+                                <p>
+                                    Try moving the last line, <code>@layer site, page;</code>
+                                    , to make it the first line. What happens?
+                                </p>
+                                <h4 id="layer_creation_and_media_queries">Layer creation and media queries</h4>
+                                <p>
+                                    If you define a layer using <a href="/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries">media</a>
+                                    or <a href="/en-US/docs/Web/CSS/CSS_conditional_rules/Using_feature_queries">feature</a>
+                                    queries, and the media is not a match or the feature is not supported, the layer is not created. The example below shows how changing the size of your device or browser may change the layer order. In this example, we create the <code>site</code>
+                                    layer only in wider browsers. We then assign styles to the <code>page</code>
+                                    and <code>site</code>
+                                    layers, in that order.
+                                </p>
+                                <iframe width="100%" height="500" src="https://mdn.github.io/css-examples/learn/layers/media-order.html" loading="lazy"></iframe>
+                                <p>
+                                    In wide screens, the <code>site</code>
+                                    layer is declared in the first line, meaning <code>site</code>
+                                    has less precedence than <code>page</code>
+                                    . Otherwise, <code>site</code>
+                                    has precedence over <code>page</code>
+                                    because it is declared later on narrow screens. If that doesn't work, try changing the <code>50em</code>
+                                    in the media query to <code>10em</code>
+                                    or <code>100em</code>
+                                    .
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="importing_style_sheets_into_named_and_anonymous_layers_with_import">
+                            <h3 id="importing_style_sheets_into_named_and_anonymous_layers_with_import">
+                                <a href="#importing_style_sheets_into_named_and_anonymous_layers_with_import">Importing style sheets into named and anonymous layers with @import</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    The 
+                                    <a href="/en-US/docs/Web/CSS/@import">
+                                        <code>@import</code>
+                                    </a>
+                                    rule allows users to import style rules from other style sheets either directly into a CSS file or into a 
+                                    <a href="/en-US/docs/Web/HTML/Element/style">
+                                        <code>&lt;style &gt;</code>
+                                    </a>
+                                    element.
+                                </p>
+                                <p>
+                                    When importing stylesheets, the <code>@import</code>
+                                    statement must be defined before any CSS styles within the stylesheet or <code>&lt;style &gt;</code>
+                                    block. The <code>@import</code>
+                                    statement must come first, before any styles, but can be preceded by an <code>@layer</code>
+                                    at-rule that creates one or more layers without assigning any styles to the layers. (<code>@import</code>
+                                    can also be preceded by an 
+                                    <a href="/en-US/docs/Web/CSS/@charset">
+                                        <code>@charset</code>
+                                    </a>
+                                    rule.)
+                                </p>
+                                <p>
+                                    You can import a stylesheet into a named layer, a nested named layer, or an anonymous layer. The following layer imports the style sheets into a <code>components</code>
+                                    layer, a nested <code>dialog</code>
+                                    layer within the <code>components</code>
+                                    layer, and an un-named layer, respectively:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="pn7vkVHLKwzMHp+SDAZW72LgNaaAVa7APxEChBxfBtQ=">
+                                        <code>
+                                            <span class="token atrule">
+                                                <span class="token rule">@import</span>
+                                                <span class="token url">
+                                                    <span class="token function">url</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token string url">"components-lib.css"</span>
+                                                    <span class="token punctuation">)</span>
+                                                </span>
+                                                <span class="token function">layer</span>
+                                                <span class="token punctuation">(</span>
+                                                components<span class="token punctuation">)</span>
+                                                <span class="token punctuation">;</span>
+                                            </span>
+                                            <span class="token atrule">
+                                                <span class="token rule">@import</span>
+                                                <span class="token url">
+                                                    <span class="token function">url</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token string url">"dialog.css"</span>
+                                                    <span class="token punctuation">)</span>
+                                                </span>
+                                                <span class="token function">layer</span>
+                                                <span class="token punctuation">(</span>
+                                                components.dialog<span class="token punctuation">)</span>
+                                                <span class="token punctuation">;</span>
+                                            </span>
+                                            <span class="token atrule">
+                                                <span class="token rule">@import</span>
+                                                <span class="token url">
+                                                    <span class="token function">url</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token string url">"marketing.css"</span>
+                                                    <span class="token punctuation">)</span>
+                                                </span>
+                                                <span class="token function">layer</span>
+                                                <span class="token punctuation">(</span>
+                                                <span class="token punctuation">)</span>
+                                                <span class="token punctuation">;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    You can import more than one CSS file into a single layer. The following declaration imports two separate files into a single <code>social</code>
+                                    layer:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="OdfHKX3xpQyv2Ha+Rx0KnDNcT8mmPoczHD3US876szw=">
+                                        <code>
+                                            <span class="token atrule">
+                                                <span class="token rule">@import</span>
+                                                <span class="token url">
+                                                    <span class="token function">url</span>
+                                                    <span class="token punctuation">(</span>
+                                                    comments.css<span class="token punctuation">)</span>
+                                                </span>
+                                                <span class="token function">layer</span>
+                                                <span class="token punctuation">(</span>
+                                                social<span class="token punctuation">)</span>
+                                                <span class="token punctuation">;</span>
+                                            </span>
+                                            <span class="token atrule">
+                                                <span class="token rule">@import</span>
+                                                <span class="token url">
+                                                    <span class="token function">url</span>
+                                                    <span class="token punctuation">(</span>
+                                                    sm-icons.css<span class="token punctuation">)</span>
+                                                </span>
+                                                <span class="token function">layer</span>
+                                                <span class="token punctuation">(</span>
+                                                social<span class="token punctuation">)</span>
+                                                <span class="token punctuation">;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    You can import styles and create layers based on specific conditions using <a href="/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries">media queries</a>
+                                    and <a href="/en-US/docs/Web/CSS/CSS_conditional_rules/Using_feature_queries">feature queries</a>
+                                    . The following imports a style sheet into an <code>international</code>
+                                    layer only if the browser supports <code>display: ruby</code>
+                                    , and the file being imported is dependent on the width of the screen.
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="o75IjinEATu4DgSkXBlTWoftHrKKB07ZqH5rSkTeu8I=">
+                                        <code>
+                                            <span class="token atrule">
+                                                <span class="token rule">@import</span>
+                                                <span class="token url">
+                                                    <span class="token function">url</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token string url">"ruby-narrow.css"</span>
+                                                    <span class="token punctuation">)</span>
+                                                </span>
+                                                <span class="token function">layer</span>
+                                                <span class="token punctuation">(</span>
+                                                international<span class="token punctuation">)</span>
+                                                <span class="token function">supports</span>
+                                                <span class="token punctuation">(</span>
+                                                <span class="token property">display</span>
+                                                <span class="token punctuation">:</span>
+                                                ruby<span class="token punctuation">)</span>
+                                                <span class="token keyword">and</span>
+                                                <span class="token punctuation">(</span>
+                                                width &lt;32rem<span class="token punctuation">)</span>
+                                                <span class="token punctuation">;</span>
+                                            </span>
+                                            <span class="token atrule">
+                                                <span class="token rule">@import</span>
+                                                <span class="token url">
+                                                    <span class="token function">url</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token string url">"ruby-wide.css"</span>
+                                                    <span class="token punctuation">)</span>
+                                                </span>
+                                                <span class="token function">layer</span>
+                                                <span class="token punctuation">(</span>
+                                                international<span class="token punctuation">)</span>
+                                                <span class="token function">supports</span>
+                                                <span class="token punctuation">(</span>
+                                                <span class="token property">display</span>
+                                                <span class="token punctuation">:</span>
+                                                ruby<span class="token punctuation">)</span>
+                                                <span class="token keyword">and</span>
+                                                <span class="token punctuation">(</span>
+                                                width &gt;= 32rem<span class="token punctuation">)</span>
+                                                <span class="token punctuation">;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="notecard note" id="sect3">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        There is no equivalent of the 
+                                        <a href="/en-US/docs/Web/HTML/Element/link">
+                                            <code>&lt;link &gt;</code>
+                                        </a>
+                                        method of linking stylesheets. Use <code>@import</code>
+                                        to import a stylesheet into a layer when you can't use <code>@layer</code>
+                                        within the stylesheet.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="overview_of_nested_cascade_layers">
+                            <h2 id="overview_of_nested_cascade_layers">
+                                <a href="#overview_of_nested_cascade_layers">Overview of nested cascade layers</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>Nested layers are layers within a named or an anonymous layer. Each cascade layer, even an anonymous one, can contain nested layers. Layers imported into another layer become nested layers within that layer.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="advantages_of_nesting_layers">
+                            <h3 id="advantages_of_nesting_layers">
+                                <a href="#advantages_of_nesting_layers">Advantages of nesting layers</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>The ability to nest layers enables teams to create cascade layers without worrying about whether other teams will import them into a layer. Similarly, nesting enables you to import third-party style sheets into a layer without worrying if that style sheet itself has layers. Because layers can be nested, you don't have to worry about having conflicting layer names between external and internal style sheets.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="creating_nested_cascade_layers">
+                            <h3 id="creating_nested_cascade_layers">
+                                <a href="#creating_nested_cascade_layers">Creating nested cascade layers</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    Nested layers can be created using the same methods as described for regular layers. For example, they can be created using <code>@layer</code>
+                                    at-rule followed by the names of one or more layers, using a dot notation. Multiple dots and layer names signify multiple nesting.
+                                </p>
+                                <p>
+                                    If you nest a block <code>@layer</code>
+                                    at-rule inside another block <code>@layer</code>
+                                    at-rule, with or without a name, the nested block becomes a nested layer. Similarly, when a style sheet is imported with an <code>@import</code>
+                                    declaration containing the <code>layer</code>
+                                    keyword or <code>layer()</code>
+                                    function, the styles get assigned to that named or anonymous layer. If the <code>@import</code>
+                                    statement contains layers, those layers become nested layers within that anonymous or named layer.
+                                </p>
+                                <p>Let's look at the following example:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="JUhZm6pWGhr6RL17ylbFC4rcQ3Yd6sq0yJMLSG1vdG8=">
+                                        <code>
+                                            <span class="token atrule">
+                                                <span class="token rule">@import</span>
+                                                <span class="token url">
+                                                    <span class="token function">url</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token string url">"components-lib.css"</span>
+                                                    <span class="token punctuation">)</span>
+                                                </span>
+                                                <span class="token function">layer</span>
+                                                <span class="token punctuation">(</span>
+                                                components<span class="token punctuation">)</span>
+                                                <span class="token punctuation">;</span>
+                                            </span>
+                                            <span class="token atrule">
+                                                <span class="token rule">@import</span>
+                                                <span class="token url">
+                                                    <span class="token function">url</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token string url">"narrowtheme.css"</span>
+                                                    <span class="token punctuation">)</span>
+                                                </span>
+                                                <span class="token function">layer</span>
+                                                <span class="token punctuation">(</span>
+                                                components.narrow<span class="token punctuation">)</span>
+                                                <span class="token punctuation">;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    In the first line, we import <code>components-lib.css</code>
+                                    into the <code>components</code>
+                                    layer. If that file contains any layers, named or not, those layers become nested layers within the <code>components</code>
+                                    layer.
+                                </p>
+                                <p>
+                                    The second line imports <code>narrowtheme.css</code>
+                                    into the <code>narrow</code>
+                                    layer, which is a sub-layer of <code>components</code>
+                                    . The nested <code>components.narrow</code>
+                                    gets created as the last layer within the <code>components</code>
+                                    layer, unless <code>components-lib.css</code>
+                                    already contains a <code>narrow</code>
+                                    layer, in which case, the contents of <code>narrowtheme.css</code>
+                                    would be appended to the <code>components.narrow</code>
+                                    nested layer. Additional nested named layers can be added to the <code>components</code>
+                                    layer using the pattern <code>components.&lt;layerName &gt;</code>
+                                    . As mentioned before, unnamed layers can be created but they cannot be accessed subsequently.
+                                </p>
+                                <p>
+                                    Let's look at another example, where we 
+                                    <a href="#the_layer_block_at-rule_for_named_and_anonymous_layers">
+                                        import <code>layers1.css</code>
+                                        into a named layer
+                                    </a>
+                                    using the following statement:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="yBSfqBaXuMxCZcLLwVm+khuWM0PkZAt2Vye99cmRVls=">
+                                        <code>
+                                            <span class="token atrule">
+                                                <span class="token rule">@import</span>
+                                                <span class="token url">
+                                                    <span class="token function">url</span>
+                                                    <span class="token punctuation">(</span>
+                                                    layers1.css<span class="token punctuation">)</span>
+                                                </span>
+                                                <span class="token function">layer</span>
+                                                <span class="token punctuation">(</span>
+                                                example<span class="token punctuation">)</span>
+                                                <span class="token punctuation">;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    This will create a single layer named <code>example</code>
+                                    containing some declarations and five nested layers - <code>example.layout</code>
+                                    , <code>example.&lt;anonymous(01)&gt;</code>
+                                    , <code>example.theme</code>
+                                    , <code>example.utilities</code>
+                                    , and <code>example.&lt;anonymous(02)&gt;</code>
+                                    .
+                                </p>
+                                <p>To add styles to a named nested layer, use the dot notation:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="gOA++FKlGRvGaTl8N6M6iXfHarLn4dTC1bp1eby/Rzc=">
+                                        <code>
+                                            <span class="token atrule">
+                                                <span class="token rule">@layer</span>
+                                                example.layout
+                                            </span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token selector">main</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">width</span>
+                                            <span class="token punctuation">:</span>
+                                            50vw<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="determining_the_precedence_based_on_the_order_of_layers">
+                            <h2 id="determining_the_precedence_based_on_the_order_of_layers">
+                                <a href="#determining_the_precedence_based_on_the_order_of_layers">Determining the precedence based on the order of layers</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>The order of layers determines their order of precedence. Therefore, the order of layers is very important. In the same way as the cascade sorts by origin and importance, the cascade sorts each CSS declaration by origin layer and importance.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="precedence_order_of_regular_cascade_layers">
+                            <h3 id="precedence_order_of_regular_cascade_layers">
+                                <a href="#precedence_order_of_regular_cascade_layers">Precedence order of regular cascade layers</a>
+                            </h3>
+                            <div class="section-content">
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="2b3h3JmYHyVZbQoXerXs1cZFvGy3MH2xvDAnzXPAXus=">
+                                        <code>
+                                            <span class="token atrule">
+                                                <span class="token rule">@import</span>
+                                                <span class="token url">
+                                                    <span class="token function">url</span>
+                                                    <span class="token punctuation">(</span>
+                                                    A.css<span class="token punctuation">)</span>
+                                                </span>
+                                                <span class="token function">layer</span>
+                                                <span class="token punctuation">(</span>
+                                                firstLayer<span class="token punctuation">)</span>
+                                                <span class="token punctuation">;</span>
+                                            </span>
+                                            <span class="token atrule">
+                                                <span class="token rule">@import</span>
+                                                <span class="token url">
+                                                    <span class="token function">url</span>
+                                                    <span class="token punctuation">(</span>
+                                                    B.css<span class="token punctuation">)</span>
+                                                </span>
+                                                <span class="token function">layer</span>
+                                                <span class="token punctuation">(</span>
+                                                secondLayer<span class="token punctuation">)</span>
+                                                <span class="token punctuation">;</span>
+                                            </span>
+                                            <span class="token atrule">
+                                                <span class="token rule">@import</span>
+                                                <span class="token url">
+                                                    <span class="token function">url</span>
+                                                    <span class="token punctuation">(</span>
+                                                    C.css<span class="token punctuation">)</span>
+                                                </span>
+                                                <span class="token punctuation">;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    The above code creates two named layers (C.css styles get appended to the implicit layer of unlayered styles). Let us assume that the three files (<code>A.css</code>
+                                    , <code>B.css</code>
+                                    , and <code>C.css</code>
+                                    ) do not contain any additional layers within them. The following list shows where styles declared inside and outside of these files will be sorted from least (1) precedence to highest (10).
+                                </p>
+                                <ol>
+                                    <li>
+                                        <code>firstLayer</code>
+                                        normal styles (<code>A.css</code>
+                                        )
+                                    </li>
+                                    <li>
+                                        <code>secondLayer</code>
+                                        normal styles (<code>B.css</code>
+                                        )
+                                    </li>
+                                    <li>
+                                        unlayered normal styles (<code>C.css</code>
+                                        )
+                                    </li>
+                                    <li>inline normal styles</li>
+                                    <li>animating styles</li>
+                                    <li>
+                                        unlayered important styles (<code>C.css</code>
+                                        )
+                                    </li>
+                                    <li>
+                                        <code>secondLayer</code>
+                                        important styles (<code>B.css</code>
+                                        )
+                                    </li>
+                                    <li>
+                                        <code>firstLayer</code>
+                                        important styles (<code>A.css</code>
+                                        )
+                                    </li>
+                                    <li>inline important styles</li>
+                                    <li>transitioning styles</li>
+                                </ol>
+                                <p>
+                                    Normal styles declared inside layers receive the lowest priority and are sorted by the order in which the layers were created. Normal styles in the first created layer have the lowest precedence, and normal styles in the layer created last have the highest precedence among the layers. In other words, normal styles declared within <code>firstLayer</code>
+                                    will be overridden by any subsequent stylings on the list if any conflicts exist.
+                                </p>
+                                <p>
+                                    Next up are any styles declared outside of layers. The styles in <code>C.css</code>
+                                    were not imported into a layer and will override any conflicting styles from <code>firstLayer</code>
+                                    and <code>secondLayer</code>
+                                    . Styles not declared in a layer always have higher precedence than styles that <em>are</em>
+                                    declared inside a layer (with the exception of important styles).
+                                </p>
+                                <p>
+                                    Inline styles are declared using the 
+                                    <a href="/en-US/docs/Web/HTML/Global_attributes/style">
+                                        <code>style</code>
+                                        attribute
+                                    </a>
+                                    . Normal styles declared in this way will take precedence over normal styles found in the unlayered and layered style sheets (<code>firstLayer – A.css</code>
+                                    , <code>secondLayer – B.css</code>
+                                    , and <code>C.css</code>
+                                    ).
+                                </p>
+                                <p>Animating styles have higher precedence than all normal styles, including inline normal styles.</p>
+                                <p>
+                                    Important styles, that is, property values that include the <code>!important</code>
+                                    flag, take precedence over any styles previously mentioned in our list. They are sorted in reverse order of normal styles. Any important styles declared outside of a layer have less precedence than those declared within a layer. Important styles found within layers are also sorted in order of layer creation. For important styles, the last created layer has the lowest precedence, and the first created layer has the highest precedence among declared layers.
+                                </p>
+                                <p>Inline important styles again have higher precedence than important styles declared elsewhere.</p>
+                                <p>Transitioning styles have the highest precedence. When a normal property value is being transitioned, it takes precedence over all other property value declarations, even inline important styles; but only while transitioning.</p>
+                                <iframe width="100%" height="500" src="https://mdn.github.io/css-examples/learn/layers/layer-precedence.html" loading="lazy"></iframe>
+                                <p>
+                                    In this example, there are two inline layers <code>A</code>
+                                    and <code>B</code>
+                                    without styles, a block of unlayered styles, and two blocks of styles in named layers <code>A</code>
+                                    and <code>B</code>
+                                    .
+                                </p>
+                                <p>
+                                    The inline styles added on the <code>h1</code>
+                                    element using the <code>style</code>
+                                    attribute, set a normal <code>color</code>
+                                    and an important <code>background-color</code>
+                                    . Normal inline styles override all layered and unlayered normal styles. Important inline styles override all layered and unlayered normal and important author styles. There is no way for author styles to override important inline styles.
+                                </p>
+                                <p>
+                                    The normal <code>text-decoration</code>
+                                    and important <code>box-shadow</code>
+                                    are not part of the <code>style</code>
+                                    inline styles and can therefore be overridden. For normal non-inline styles, unlayered styles have precedence. For important styles, layer order matters too. While normal unlayered styles override all normal styles set in a layer, with important styles, the precedence order is reversed; unlayered important styles have lower precedence than layered styles.
+                                </p>
+                                <p>
+                                    The two styles declared only within layers are <code>font-style</code>
+                                    , with normal importance, and <code>font-weight</code>
+                                    with an <code>!important</code>
+                                    flag. For normal styles, the <code>B</code>
+                                    layer, declared last, overrides styles in the earlier declared layer <code>A</code>
+                                    . For normal styles, later layers have precedence over earlier layers. The order of precedence is reversed for important styles. For the important <code>font-weight</code>
+                                    declarations, layer <code>A</code>
+                                    , being declared first, has precedence over the last declared layer <code>B</code>
+                                    .
+                                </p>
+                                <p>
+                                    You can reverse the layer order by changing the first line from <code>@layer A, B;</code>
+                                    to <code>@layer B, A;</code>
+                                    . Try that. Which styles get changed by this, and which stay the same? Why?
+                                </p>
+                                <p>
+                                    The order of layers is set by the order in which the layers appear in your CSS. In our first line, we declared layers without assigning any styles using <code>@layer</code>
+                                    followed by the names of our layers, ending with a semi-colon. Had we omitted this line, the results would have been the same. Why? We assigned style rules in named <code>@layer</code>
+                                    blocks in the order A then B. The two layers were created in that first line. Had they not been, these rule blocks would have created them, in that order.
+                                </p>
+                                <p>We included that first line for two reasons: first so you could easily edit the line and switch the order, and second because often you'll find declaring the order layer up front to be the best practice for your layer order management.</p>
+                                <p>To summarize:</p>
+                                <ul>
+                                    <li>The order of precedence of layers is the order in which the layers are created.</li>
+                                    <li>Once created, there is no way to change the layer order.</li>
+                                    <li>Layer precedence for normal styles is the order in which the layers are created.</li>
+                                    <li>Unlayered normal styles have precedence over normal layered styles.</li>
+                                    <li>Layer precedence for important styles is reversed, with earlier created layers having precedence.</li>
+                                    <li>All layered important styles have precedence over unlayered important (and normal) styles.</li>
+                                    <li>Normal inline styles take precedence over all normal styles, layered or not.</li>
+                                    <li>Important inline styles take precedence over all other styles, with the exception of styles being transitioned.</li>
+                                    <li>There is no way for author styles to override important inline styles (other than transitioning them, which is temporary).</li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section aria-labelledby="precedence_order_of_nested_cascade_layers">
+                            <h3 id="precedence_order_of_nested_cascade_layers">
+                                <a href="#precedence_order_of_nested_cascade_layers">Precedence order of nested cascade layers</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>The cascade precedence order for nested layers is similar to that of regular layers, but contained within the layer. The precedence order is based on the order of nested layer creation. Non-nested styles in a layer have precedence over nested normal styles, with the precedence order reversed for important styles. Specificity weight between nested layers does not matter, though it does matter for conflicting styles within a nested layer.</p>
+                                <p>
+                                    The following creates and adds styles to the <code>components</code>
+                                    layer and <code>components.narrow</code>
+                                    nested layer and creates and appends styles to a new <code>components.wide</code>
+                                    layer:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="Z1tpA03ACB9qx8NsKYxiE1/iduieU0nSPVE9swUyD/U=">
+                                        <code>
+                                            <span class="token atrule">
+                                                <span class="token rule">@import</span>
+                                                <span class="token url">
+                                                    <span class="token function">url</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token string url">"components-lib.css"</span>
+                                                    <span class="token punctuation">)</span>
+                                                </span>
+                                                <span class="token function">layer</span>
+                                                <span class="token punctuation">(</span>
+                                                components<span class="token punctuation">)</span>
+                                                <span class="token punctuation">;</span>
+                                            </span>
+                                            <span class="token atrule">
+                                                <span class="token rule">@import</span>
+                                                <span class="token url">
+                                                    <span class="token function">url</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token string url">"narrowtheme.css"</span>
+                                                    <span class="token punctuation">)</span>
+                                                </span>
+                                                <span class="token function">layer</span>
+                                                <span class="token punctuation">(</span>
+                                                components.narrow<span class="token punctuation">)</span>
+                                                <span class="token punctuation">;</span>
+                                            </span>
+                                            <span class="token atrule">
+                                                <span class="token rule">@layer</span>
+                                                components
+                                            </span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token selector">:root</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">--theme</span>
+                                            <span class="token punctuation">:</span>
+                                            red<span class="token punctuation">;</span>
+                                            <span class="token property">font-family</span>
+                                            <span class="token punctuation">:</span>
+                                            serif <span class="token important">!important</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token atrule">
+                                                <span class="token rule">@layer</span>
+                                                components.narrow
+                                            </span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token selector">:root</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">--theme</span>
+                                            <span class="token punctuation">:</span>
+                                            blue<span class="token punctuation">;</span>
+                                            <span class="token property">font-family</span>
+                                            <span class="token punctuation">:</span>
+                                            sans-serif <span class="token important">!important</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token atrule">
+                                                <span class="token rule">@layer</span>
+                                                components.wide
+                                            </span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token selector">:root</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">--theme</span>
+                                            <span class="token punctuation">:</span>
+                                            purple<span class="token punctuation">;</span>
+                                            <span class="token property">font-family</span>
+                                            <span class="token punctuation">:</span>
+                                            cursive <span class="token important">!important</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    Because unlayered normal styles have precedence over layered normal styles, and within a layer, non-nested styles have precedence over normal nested styles, <code>red</code>
+                                    wins over the other <code>theme</code>
+                                    colors.
+                                </p>
+                                <p>
+                                    With important styles, layered styles take precedence over unlayered styles, with important styles in earlier declared layers having precedence over later declared layers. In this example, the order of nested layer creation is <code>components.narrow</code>
+                                    , then <code>components.wide</code>
+                                    , so important styles in <code>components.narrow</code>
+                                    have precedence over important styles in <code>components.wide</code>
+                                    , meaning <code>sans-serif</code>
+                                    wins.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="test_your_skills!">
+                            <h2 id="test_your_skills!">
+                                <a href="#test_your_skills!">Test your skills!</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    You've reached the end of this article, but can you remember the most important information? You can find some further tests to verify that you've retained this information before you move on — see <a href="/en-US/docs/Learn/CSS/Building_blocks/Cascade_tasks#task_2">Test your skills: The Cascade, Task 2</a>
+                                    .
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="summary">
+                            <h2 id="summary">
+                                <a href="#summary">Summary</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    If you understood most of this article, then well done — you're now familiar with the fundamental mechanics of CSS cascade layers. Next up, we'll look at <a href="/en-US/docs/Learn/CSS/Building_blocks/The_box_model">the box model</a>
+                                    in detail.
+                                </p>
+                                <ul class="prev-next">
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance">
+                                            <span class="button-wrap">Previous </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks">
+                                            <span class="button-wrap">Overview: Building blocks</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks/The_box_model">
+                                            <span class="button-wrap">Next  </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </article>                    
+
+
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
+                    </div>
+                    
                                         
                 </div>
             </main>

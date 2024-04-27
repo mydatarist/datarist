@@ -1172,38 +1172,225 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
+                    
+                    
+
+
+
+
+
+                     <article class="main-page-content" lang="en-US">
+                                    <header>
+                                      <h1>Document</h1>
+                                    </header>
+                                    <div class="section-content">
+                                      <p>
+                                        <em>Getting started with ...</em>
+                                        is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your simple code.
+                                      </p>
+                                    </div>
+                                    <section aria-labelledby="the_story_of_your_first_website">
+                                         
+                                      
+                        
+                        
+                        
+                                      <p>Along with structure, there are many supporting HTML elements to consider when
+                                        building and designing for digital accessibility. Throughout the Learn
+                                        Accessibility course, we cover a lot of elements.</p>
+                                        
+                                        <p>This module focuses on very specific elements that don&#39;t quite fit into any of
+                                        the other modules but are useful to understand.</p>
+                                        
+                                        <aside class="note"><b>Note: </b> Our <a href="/learn/html">Learn HTML course</a> covers the basics of HTML and semantic structure in great detail. As such, this module builds off of that course material and is focused specifically on digital accessibility. Likewise, be sure to review the <a href="/learn/accessibility/aria-html">ARIA and HTML module</a> in this course before diving into this module. </aside>
+                                        
+                                        <h2 id="page_title" data-text="Page title" tabindex="-1">Page title</h2>
+                                        
+                                        <p>The HTML <a href="https://developer.mozilla.org/docs/Web/HTML/Element/title"><code translate="no" dir="ltr">&lt;title&gt;</code></a>
+                                        element defines the content of the page or screen a user is about to
+                                        experience. It&#39;s found in the
+                                        <a href="https://developer.mozilla.org/docs/Web/HTML/Element/head"><code translate="no" dir="ltr">&lt;head&gt;</code></a> section of
+                                        an HTML document and is equivalent to the <code translate="no" dir="ltr">&lt;h1&gt;</code> or main topic of the page. The
+                                        title content is displayed in the browser tab and helps users understand which
+                                        page they are visiting, but it is not displayed on the website or app itself.</p>
+                                        
+                                        <p>In a <a href="https://developer.mozilla.org/docs/Glossary/SPA">single-page app</a> (SPA),
+                                        the <code translate="no" dir="ltr">&lt;title&gt;</code> is handled in a slightly different way, as users don&#39;t navigate
+                                        between pages as they do on multi-page websites. For SPAs, the value of the
+                                        <a href="https://developer.mozilla.org/docs/Web/API/Document/title"><code translate="no" dir="ltr">document.title</code></a>
+                                        property can be added manually or by a helper package, depending on the
+                                        JavaScript framework. Announcing the
+                                        <a href="https://hidde.blog/accessible-page-titles-in-a-single-page-app/">updated page titles</a>
+                                        to a screen reader user may take some additional work.</p>
+                                        
+                                        <p>Descriptive page titles are good for both users and
+                                        <a href="https://developer.mozilla.org/docs/Web/HTML/Element/title#page_titles_and_seo">search engine optimization (SEO)</a>—but
+                                        don&#39;t go overboard and add lots of keywords. Since the title is the first
+                                        thing announced when an AT user visits a page, it must be accurate, unique, and
+                                        descriptive, but also concise.</p>
+                                        
+                                        <p>When writing page titles, it is also best practice to &quot; front load&quot; the interior
+                                        page or important content first, then add any preceding pages or information
+                                        after. This way, AT users don&#39;t have to sit through the information they have
+                                        already heard.</p>
+                                        
+                                        <div class="wd-switcher">
+                                        <div class="wd-compare">
+                                         <div class="compare-worse">Don't</div>
+                                         <pre class="prettyprint lang-html" translate="no" dir="ltr">&lt;title&gt;The Food Channel | Outrageous Pumpkins | Season 3 &lt;/title&gt;
+                                        </pre>
+                                        
+                                        </div>
+                                        
+                                        <div class="wd-compare">
+                                         <div class="compare-better">Do</div>
+                                         <pre class="prettyprint lang-html" translate="no" dir="ltr">&lt;title&gt;Season 3 | Outrageous Pumpkins | The Food Channel&lt;/title&gt;
+                                        </pre>
+                                        
+                                        </div>
+                                        </div>
+                                        
+                                        <aside class="key-point"><b>Key point: </b> Search engines typically display only the first 55–60 characters of a page title, so be sure to limit your total page title characters. </aside>
+                                        
+                                        <h2 id="language" data-text="Language" tabindex="-1">Language</h2>
+                                        
+                                        <h3 id="page_language" data-text="Page language" tabindex="-1">Page language</h3>
+                                        
+                                        <p>The page language attribute (<a href="https://developer.mozilla.org/docs/Web/HTML/Global_attributes/lang"><code translate="no" dir="ltr">lang</code></a>) sets the default language for the entire page. This attribute is added to the <a href="https://developer.mozilla.org/docs/Web/HTML/Element/html"><code translate="no" dir="ltr">&lt;html&gt;</code></a> tag. A valid language attribute should be added to every page as it signals the AT to which language it should use.</p>
+                                        
+                                        <p>It&#39;s recommended that you use two-character
+                                        <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">ISO language codes</a>
+                                        for greater AT coverage, as many of them do not support
+                                        <a href="https://webaim.org/techniques/language/">extended language codes</a>.</p>
+                                        
+                                        <p>When a language attribute is completely missing, the AT will default to the
+                                        user&#39;s programmed language. For example, if an AT was set to Spanish, but a
+                                        user visited an English website or app, the AT would try to read the English
+                                        text with Spanish accents and cadence. This combination results in an unusable
+                                        digital product and a frustrated user.</p>
+                                        
+                                        <div class="wd-switcher">
+                                        <div class="wd-compare">
+                                         <div class="compare-worse">Don't</div>
+                                         <pre class="prettyprint lang-html" translate="no" dir="ltr">&lt;html&gt;...&lt;/html&gt;
+                                        </pre>
+                                        
+                                        </div>
+                                        
+                                        <div class="wd-compare">
+                                         <div class="compare-better">Do</div>
+                                         <pre class="prettyprint lang-html" translate="no" dir="ltr">&lt;html lang="en"&gt;...&lt;/html&gt;
+                                        </pre>
+                                        
+                                        </div>
+                                        </div>
+                                        
+                                        <p>The lang attribute can only have one language associated with it. This means
+                                        the <code translate="no" dir="ltr">&lt;html&gt;</code> attribute can only have one language, even if there are multiple
+                                        languages on the page. Set <code translate="no" dir="ltr">lang</code> to the primary language of the page.</p>
+                                        
+                                        <div class="wd-switcher">
+                                        <div class="wd-compare">
+                                         <div class="compare-worse">Don't</div>
+                                         <pre class="prettyprint lang-html" translate="no" dir="ltr">&lt;html lang="ar,en,fr,pt"&gt;...&lt;/html&gt;
+                                        </pre>
+                                        <span class="wd-caption">
+                                        Multiple languages are not supported.
+                                        </span>
+                                        </div>
+                                        
+                                        <div class="wd-compare">
+                                         <div class="compare-better">Do</div>
+                                         <pre class="prettyprint lang-html" translate="no" dir="ltr">&lt;html lang="ar"&gt;...&lt;/html&gt;
+                                        </pre>
+                                        <span class="wd-caption">
+                                        Set only the page's primary language. In this case, the language is Arabic.
+                                        </span>
+                                        </div>
+                                        </div>
+                                        
+                                        <h3 id="section_language" data-text="Section language" tabindex="-1">Section language</h3>
+                                        
+                                        <p>You can also use the language attribute (<a href="https://developer.mozilla.org/docs/Web/HTML/Global_attributes/lang">lang</a>) for language switches in the content itself. The same basic rules apply as the full-page language attribute, except you add it to the appropriate in-page element instead of on the <code translate="no" dir="ltr">&lt;html&gt;</code> tag.</p>
+                                        
+                                        <p>Remember that the language you add to the <code translate="no" dir="ltr">&lt;html&gt;</code> element cascades down to all
+                                        the contained elements, so always set the primary language of the page
+                                        top-level <code translate="no" dir="ltr">lang</code> attribute first.</p>
+                                        
+                                        <p>For any in-page elements written in a different language, add that <code translate="no" dir="ltr">lang</code>
+                                        attribute to the appropriate wrapper element. This will override the
+                                        top-level language setting until that element is closed.</p>
+                                        
+                                        <div class="wd-switcher">
+                                        <div class="wd-compare">
+                                         <div class="compare-worse">Don't</div>
+                                         <pre class="prettyprint lang-html" translate="no" dir="ltr">&lt;html lang="en"&gt;
+                                         &lt;body&gt;...
+                                          &lt;div&gt;
+                                           &lt;p&gt; While travelling in Estonia this summer, I often asked,
+                                            "Kas sa räägid English keel?" when I met someone new.&lt;/p&gt;
+                                          &lt;/div&gt;
+                                         &lt;/body&gt;
+                                        &lt;/html&gt;
+                                        </pre>
+                                        
+                                        </div>
+                                        
+                                        <div class="wd-compare">
+                                         <div class="compare-better">Do</div>
+                                         <pre class="prettyprint lang-html" translate="no" dir="ltr">&lt;html lang="en"&gt;
+                                         &lt;body&gt;...
+                                          &lt;div&gt;
+                                           &lt;p&gt; While traveling in Estonia this summer, I often asked,
+                                            &lt;span lang="et"&gt;"Kas sa räägid inglise keelt?"&lt;/span&gt;
+                                            when I met someone new.&lt;/p&gt;
+                                          &lt;/div&gt;
+                                         &lt;/body&gt;
+                                        &lt;/html&gt;
+                                        </pre>
+                                        
+                                        </div>
+                                        </div>
+                                        
+                                        <h2 id="iframes" data-text="iFrames" tabindex="-1">iFrames</h2>
+                                        
+                                        <p>The iFrame element
+                                        (<a href="https://developer.mozilla.org/docs/Web/HTML/Element/iframe"><code translate="no" dir="ltr">&lt;iframe&gt;</code></a>) is
+                                        used to host another HTML page or a third party&#39;s content within the page. It
+                                        essentially puts another webpage within the parent page. iFrames are commonly
+                                        used for advertisements, embedded videos, web analytics, and interactive
+                                        content.</p>
+                                        
+                                        <p>To make your <code translate="no" dir="ltr">&lt;iframe&gt;</code> accessible, there are a couple of aspects to consider. First, each <code translate="no" dir="ltr">&lt;iframe&gt;</code> with distinct content should include a title element inside the parent tag. This title supplies AT users with more information about the content inside the <code translate="no" dir="ltr">&lt;iframe&gt;</code>.</p>
+                                        
+                                        <p>Second, as a best practice, it is good to set the scrolling to &quot;auto&quot; or &quot;yes&quot; in the <code translate="no" dir="ltr">&lt;iframe&gt;</code> tag settings. This allows people with low vision to be able to scroll into content within the <code translate="no" dir="ltr">&lt;iframe&gt;</code> that they might not otherwise be able to see. Ideally, the <code translate="no" dir="ltr">&lt;iframe&gt;</code> container would also be flexible in its height and width.</p>
+                                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                                    </section>
+                                  </article>
+
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
 <div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
-                        </div>
+    
                     </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
-                            </ul>
-                        </nav>
-                    </footer>
+                    
                                         
                 </div>
             </main>

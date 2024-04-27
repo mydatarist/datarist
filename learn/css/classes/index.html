@@ -1172,38 +1172,280 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
-                        </div>
-                    </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
+                    
+                    
+
+
+
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Type, class, and ID selectors</h1>
+                        </header>
+                        <div class="section-content">
+                            <ul class="prev-next">
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks/Selectors">
+                                        <span class="button-wrap">Previous </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks">
+                                        <span class="button-wrap">Overview: Building blocks</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks/Selectors/Attribute_selectors">
+                                        <span class="button-wrap">Next  </span>
+                                    </a>
+                                </li>
                             </ul>
-                        </nav>
-                    </footer>
+                            <p>In this lesson, we examine some of the simplest selectors, which you will probably use most frequently in your work.</p>
+                            <figure class="table-container">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Prerequisites:</th>
+                                            <td>
+                                                <a href="/en-US/docs/Learn/Getting_started_with_the_web/Installing_basic_software">Basic software installed</a>
+                                                , basic knowledge of
+    <a href="/en-US/docs/Learn/Getting_started_with_the_web/Dealing_with_files">working with files</a>
+                                                , HTML basics (study
+    <a href="/en-US/docs/Learn/HTML/Introduction_to_HTML">Introduction to HTML</a>
+                                                ), and an idea of how CSS works (study
+    <a href="/en-US/docs/Learn/CSS/First_steps">CSS first steps</a>
+                                                .)
+  
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Objective:</th>
+                                            <td>To learn about the different CSS selectors we can use to apply CSS to a
+    document.
+  </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </figure>
+                        </div>
+                        <section aria-labelledby="type_selectors">
+                            <h2 id="type_selectors">
+                                <a href="#type_selectors">Type selectors</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    A <strong>type selector</strong>
+                                    is sometimes referred to as a <em>tag name selector</em>
+                                    or <em>element selector</em>
+                                    because it selects an HTML tag/element in your document. Type selectors are not case-sensitive. In the example below, we have used the <code>span</code>
+                                    , <code>em</code>
+                                    and <code>strong</code>
+                                    selectors.
+                                </p>
+                                <p>
+                                    <strong>
+                                        Try adding a CSS rule to select the <code>&lt;h1 &gt;</code>
+                                        element and change its color to blue.
+                                    </strong>
+                                </p>
+                                <iframe width="100%" height="1100" src="https://mdn.github.io/css-examples/learn/selectors/type.html" loading="lazy"></iframe>
+                            </div>
+                        </section>
+                        <section aria-labelledby="the_universal_selector">
+                            <h2 id="the_universal_selector">
+                                <a href="#the_universal_selector">The universal selector</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    The universal selector is indicated by an asterisk (<code>*</code>
+                                    ). It selects everything in the document (or inside the parent element if it is being chained together with another element and a descendant combinator). In the following example, we use the universal selector to remove the margins on all elements. Instead of the default styling added by the browser — which spaces out headings and paragraphs with margins — everything is close together.
+                                </p>
+                                <iframe width="100%" height="750" src="https://mdn.github.io/css-examples/learn/selectors/universal.html" loading="lazy"></iframe>
+                                <p>This kind of behavior can sometimes be seen in "reset stylesheets", which strip out all of the browser styling. Since the universal selector makes global changes, we use it for very specific situations, such as the one described below.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="using_the_universal_selector_to_make_your_selectors_easier_to_read">
+                            <h3 id="using_the_universal_selector_to_make_your_selectors_easier_to_read">
+                                <a href="#using_the_universal_selector_to_make_your_selectors_easier_to_read">Using the universal selector to make your selectors easier to read</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    One use of the universal selector is to make selectors easier to read and more obvious in terms of what they are doing. For example, if we wanted to select any descendant elements of an <code>&lt;article &gt;</code>
+                                    element that are the first child of their parent, including direct children, and make them bold, we could use the 
+                                    <a href="/en-US/docs/Web/CSS/:first-child">
+                                        <code>:first-child</code>
+                                    </a>
+                                    pseudo-class. We will learn more about this in the lesson on <a href="/en-US/docs/Learn/CSS/Building_blocks/Selectors/Pseudo-classes_and_pseudo-elements">pseudo-classes and pseudo-elements</a>
+                                    , as a descendant selector along with the <code>&lt;article &gt;</code>
+                                    element selector:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="GmY1Dl62ydTN+1vea98s4BcC3caJCaDCZBXoOkjQrDw=">
+                                        <code>
+                                            <span class="token selector">article :first-child</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">font-weight</span>
+                                            <span class="token punctuation">:</span>
+                                            bold<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    However, this selector could be confused with <code>article:first-child</code>
+                                    , which will select any <code>&lt;article &gt;</code>
+                                    element that is the first child of another element.
+                                </p>
+                                <p>
+                                    To avoid this confusion, we can add the universal selector to the <code>:first-child</code>
+                                    pseudo-class, so it is more obvious what the selector is doing. It is selecting <em>any</em>
+                                    element which is the first-child of an <code>&lt;article &gt;</code>
+                                    element, or the first-child of any descendant element of <code>&lt;article &gt;</code>
+                                    :
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="J0YbUWCbSFT6KwUyfMeBVF/6WwUxda7U6vfFm9Zl0N4=">
+                                        <code>
+                                            <span class="token selector">article *:first-child</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">font-weight</span>
+                                            <span class="token punctuation">:</span>
+                                            bold<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>Although both do the same thing, the readability is significantly improved.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="class_selectors">
+                            <h2 id="class_selectors">
+                                <a href="#class_selectors">Class selectors</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    The case-sensitive class selector starts with a dot (<code>.</code>
+                                    ) character. It will select everything in the document with that class applied to it. In the live example below we have created a class called <code>highlight</code>
+                                    , and have applied it to several places in my document. All of the elements that have the class applied are highlighted.
+                                </p>
+                                <iframe width="100%" height="750" src="https://mdn.github.io/css-examples/learn/selectors/class.html" loading="lazy"></iframe>
+                            </div>
+                        </section>
+                        <section aria-labelledby="targeting_classes_on_particular_elements">
+                            <h3 id="targeting_classes_on_particular_elements">
+                                <a href="#targeting_classes_on_particular_elements">Targeting classes on particular elements</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    You can create a selector that will target specific elements with the class applied. In this next example, we will highlight a <code>&lt;span &gt;</code>
+                                    with a class of <code>highlight</code>
+                                    differently to an <code>&lt;h1 &gt;</code>
+                                    heading with a class of <code>highlight</code>
+                                    . We do this by using the type selector for the element we want to target, with the class appended using a dot, with no white space in between.
+                                </p>
+                                <iframe width="100%" height="750" src="https://mdn.github.io/css-examples/learn/selectors/class-type.html" loading="lazy"></iframe>
+                                <p>This approach reduces the scope of a rule. The rule will only apply to that particular element and class combination. You would need to add another selector if you decided the rule should apply to other elements too.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="target_an_element_if_it_has_more_than_one_class_applied">
+                            <h3 id="target_an_element_if_it_has_more_than_one_class_applied">
+                                <a href="#target_an_element_if_it_has_more_than_one_class_applied">Target an element if it has more than one class applied</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>You can apply multiple classes to an element and target them individually, or only select the element when all of the classes in the selector are present. This can be helpful when building up components that can be combined in different ways on your site.</p>
+                                <p>
+                                    In the example below, we have a <code>&lt;div &gt;</code>
+                                    that contains a note. The grey border is applied when the box has a class of <code>notebox</code>
+                                    . If it also has a class of <code>warning</code>
+                                    or <code>danger</code>
+                                    , we change the 
+                                    <a href="/en-US/docs/Web/CSS/border-color">
+                                        <code>border-color</code>
+                                    </a>
+                                    .
+                                </p>
+                                <p>
+                                    We can tell the browser that we only want to match the element if it has two classes applied by chaining them together with no white space between them. You'll see that the last <code>&lt;div &gt;</code>
+                                    doesn't get any styling applied, as it only has the <code>danger</code>
+                                    class; it needs <code>notebox</code>
+                                    as well to get anything applied.
+                                </p>
+                                <iframe width="100%" height="900" src="https://mdn.github.io/css-examples/learn/selectors/class-many.html" loading="lazy"></iframe>
+                            </div>
+                        </section>
+                        <section aria-labelledby="id_selectors">
+                            <h2 id="id_selectors">
+                                <a href="#id_selectors">ID selectors</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    The case-sensitive ID selector begins with a <code>#</code>
+                                    rather than a dot character, but is used in the same way as a class selector. However, an ID can be used only once per page, and elements can only have a single <code>id</code>
+                                    value applied to them. It can select an element that has the <code>id</code>
+                                    set on it, and you can precede the ID with a type selector to only target the element if both the element and ID match. You can see both of these uses in the following example:
+                                </p>
+                                <iframe width="100%" height="750" src="https://mdn.github.io/css-examples/learn/selectors/id.html" loading="lazy"></iframe>
+                                <div class="notecard warning" id="sect1">
+                                    <p>
+                                        <strong>Warning:</strong>
+                                        Using the same ID multiple times in a document may appear to work for styling purposes, but don't do this. It results in invalid code, and will cause strange behavior in many places.
+                                    </p>
+                                </div>
+                                <div class="notecard note" id="sect2">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        The ID selector has high 
+                                        <a href="/en-US/docs/Web/CSS/Specificity">
+                                            <code>specificity</code>
+                                        </a>
+                                        . This means styles applied based on matching an ID selector will overrule styles applied based on other selector, including class and type selectors. Because an ID can only occur once on a page and because of the high specificity of ID selectors, it is preferable to add a class to an element instead of an ID. If using the ID is the only way to target the element — perhaps because you do not have access to the markup and cannot edit it — consider using the ID within an <a href="/en-US/docs/Web/CSS/Attribute_selectors">attribute selector</a>
+                                        , such as <code>p[id="header"]</code>
+                                        . <a href="/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance">Learn specificity</a>
+                                        .
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="summary">
+                            <h2 id="summary">
+                                <a href="#summary">Summary</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    That wraps up Type, class, and ID selectors. We'll continue exploring selectors by looking at <a href="/en-US/docs/Learn/CSS/Building_blocks/Selectors/Attribute_selectors">attribute selectors</a>
+                                    .
+                                </p>
+                            </div>
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
+                    </div>
+                    
                                         
                 </div>
             </main>

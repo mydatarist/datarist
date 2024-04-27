@@ -1172,38 +1172,314 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                   
+                    
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Manifest</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
-                    </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
+                        <section aria-labelledby="the_story_of_your_first_website">
+                                          
+                            
+
+
+
+                            <p>The web app manifest is a file you create that tells the browser how you want your web content to display as an app in the operating system. The manifest can include basic information such as the app&#39;s name, icon, and theme color; advanced preferences, such as desired orientation and app shortcuts; and catalog metadata, such as screenshots.</p>
+
+                            <aside class="warning"><b>Warning: </b> A web app manifest is a required <a href="/learn/pwa/installation#installation_criteria">installability criteria</a> in every browser. Your PWA will not install without it. </aside>
+                            
+                            <p>Each PWA should include a single manifest per application, typically hosted in the root folder, and linked on all HTML pages your PWA can be installed from. Its official extension is <code translate="no" dir="ltr">.webmanifest</code>, so you could name your manifest something like <code translate="no" dir="ltr">app.webmanifest</code>.</p>
+                            
+                            <aside class="note"><b>Note: </b> While the recommended extension is <code translate="no" dir="ltr">.webmanifest</code>, any filename will work as long as it's delivered with the <code translate="no" dir="ltr">application/manifest+json</code> content type or another JSON-valid content type, such as <code translate="no" dir="ltr">text/json</code>. As such, many PWAs, particularly older ones, use <code translate="no" dir="ltr">manifest.json</code> instead. </aside>
+                            
+                            <h2 id="adding_a_web_app_manifest_to_your_pwa" data-text="Adding a web app manifest to your PWA" tabindex="-1">Adding a web app manifest to your PWA</h2>
+                            
+                            <p>To create a web app manifest, first make a text file with a JSON object that contains at least a <code translate="no" dir="ltr">name</code> field with a string value:</p>
+                            
+                            <p><span class="wd-label">app.webmanifest:</span></p>
+                            <pre class="prettyprint lang-json" translate="no" dir="ltr"><code translate="no" dir="ltr">{
+                               &#34;name&#34;: &#34;My First Application&#34;
+                            }
+                            </code></pre>
+                            <p>But creating the file is not enough, the browser needs to know it exists, too.</p>
+                            
+                            <h3 id="linking_to_your_manifest" data-text="Linking to your manifest" tabindex="-1">Linking to your manifest</h3>
+                            
+                            <p>To make the browser aware of your web app manifest, you need to link it to your PWA using a <code translate="no" dir="ltr">&lt;link&gt;</code> HTML element and the <code translate="no" dir="ltr">rel</code> attribute set to <code translate="no" dir="ltr">manifest</code> on all of your PWA&#39;s HTML pages. This is similar to how you link a CSS stylesheet to a document.</p>
+                            
+                            <p><span class="wd-label">index.html:</span></p>
+                            <pre class="prettyprint lang-html/3" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;html lang=&#34;en&#34;&gt;
+                              &lt;title&gt;This is my first PWA&lt;/title&gt;
+                              &lt;link rel=&#34;manifest&#34; href=&#34;/app.webmanifest&#34;&gt;
+                            </code></pre>
+                            <aside class="caution"><b>Caution: </b> If your PWA includes multiple HTML pages, make sure to link its manifest to all of them. </aside>
+                            
+                            <h3 id="debugging_the_manifest" data-text="Debugging the manifest" tabindex="-1">Debugging the manifest</h3>
+                            
+                            <p>To ensure the manifest is set up correctly, you can use Inspector in Firefox and DevTools in every Chromium-based browser.</p>
+                            
+                            <aside class="tip">If you see a message saying that the browser detected no manifest and you've included a <code translate="no" dir="ltr">&lt;link&gt;</code> to it correctly, check to make sure you can load the manifest in the browser and that its content type is correctly set. You can also try renaming it to <code translate="no" dir="ltr">manifest.json</code>. </aside>
+                            
+                            <h3 id="for_chromium_browsers" data-text="For Chromium browsers" tabindex="-1">For Chromium browsers</h3>
+                            
+                            <p>In DevTools</p>
+                            
+                            <ol>
+                            <li>In the left pane, under <strong>Application</strong>, select <strong>Manifest</strong>.</li>
+                            <li>Check the fields of the manifest as parsed by the browser.</li>
+                            </ol>
+                            
+                            <h3 id="for_firefox" data-text="For Firefox" tabindex="-1">For Firefox</h3>
+                            
+                            <ol>
+                            <li>Open the Inspector.</li>
+                            <li>Go to the Application tab.</li>
+                            <li>Select the Manifest option in the left panel.</li>
+                            <li>Check the fields of the manifest as parsed by the browser.</li>
+                            </ol>
+                            
+                            <aside class="caution"><b>Caution: </b> It's not possible to debug web app manifests in Safari, the only option you have to see if it's working is to try to install your PWA on iOS or iPadOS. </aside>
+                            
+                            <h2 id="designing_your_pwa_experience" data-text="Designing your PWA experience" tabindex="-1">Designing your PWA experience</h2>
+                            
+                            <p>With your PWA now connected to its manifest, it&#39;s time to fill out the rest of the fields to define the experience for your users.</p>
+                            
+                            <aside class="warning"><b>Warning: </b> Before the web app manifest spec was defined, several browsers, including Safari on iOS/iPadOS and Chrome on Android, supported custom <code translate="no" dir="ltr">&lt;meta&gt;</code> elements to describe the application experience, such as <code translate="no" dir="ltr">apple-mobile-web-app-capable</code>. Do not use these <code translate="no" dir="ltr">&lt;meta&gt;</code> elements today; it's no longer recommended, and may harm the installation experience when the browser can't load the manifest properly; the experience you get as a fallback may be different and unexpected. </aside>
+                            
+                            <h3 id="basic_fields" data-text="Basic fields" tabindex="-1">Basic fields</h3>
+                            
+                            <p>The first set of fields represents the core information about your PWA. They are used to build the installed PWA&#39;s icon and window and determine how it starts up. They are:</p>
+                            
+                            <dl>
+                            <dt><code translate="no" dir="ltr">name</code></dt>
+                            <dd>Full name of your PWA. It will appear along with the icon in the operating system&#39;s home screen, launcher, dock, or menu.</dd>
+                            <dt><code translate="no" dir="ltr">short_name</code></dt>
+                            <dd>Optional, a shorter name of your PWA, used when there is not enough room to display the full value of the <code translate="no" dir="ltr">name</code> field. Keep it under 12 characters to minimize the possibility of truncation.</dd>
+                            <dt><code translate="no" dir="ltr">icons</code></dt>
+                            <dd>Array of icon objects with <code translate="no" dir="ltr">src</code>, <code translate="no" dir="ltr">type</code>, <code translate="no" dir="ltr">sizes</code>, and optional <code translate="no" dir="ltr">purpose</code> fields, describing what images should represent the PWA.</dd>
+                            <dt><code translate="no" dir="ltr">start_url</code></dt>
+                            <dd>The URL the PWA should load when the user starts it from the installed icon. An absolute path is recommended, so if your PWA&#39;s home page is the root of your site, you could set this to ‘/&#39; to open it when your app starts. If you don&#39;t provide a start URL, the browser can use the URL the PWA was installed from as a start. It can be a deep link, such as the details of a product instead of your home screen.</dd>
+                            <dt><code translate="no" dir="ltr">display</code></dt>
+                            <dd>One of <code translate="no" dir="ltr">fullscreen</code>, <code translate="no" dir="ltr">standalone</code>,  <code translate="no" dir="ltr">minimal-ui</code>, or <code translate="no" dir="ltr">browser</code>, describing how the OS should draw the PWA window. You can read more about the different display modes in the <a href="/learn/pwa/app-design#display_modes">App Design chapter</a>. <a href="https://almanac.httparchive.org/en/2021/pwa#top-manifest-display-values">Most</a> use cases implement <code translate="no" dir="ltr">standalone</code>.</dd>
+                            <dt><code translate="no" dir="ltr">id</code></dt>
+                            <dd>A string that uniquely identifies this PWA against others that may be hosted on the same origin. If it&#39;s not set, the <code translate="no" dir="ltr">start_url</code> will be used as a fallback value. Keep in mind that by changing the <code translate="no" dir="ltr">start_url</code> in the future (such as when changing a query string value) you may be removing the browser&#39;s ability to detect that a PWA is already installed.</dd>
+                            </dl>
+                            
+                            <aside class="caution"><b>Caution: </b> If you published a PWA before September 2021 read about the best practice for adding an <code translate="no" dir="ltr">id</code> property now in <a href="https://developer.chrome.com/blog/pwa-manifest-id">Uniquely identifying PWAs with the web app manifest id property</a>. </aside>
+                            
+                            <aside class="caution"><b>Caution: </b> Some manifest fields are not supported by every browser. When a browser doesn't support a field, it's just ignored and your manifest is still valid. You can learn more about each field at <a href="https://developer.mozilla.org/docs/Web/Manifest">Web App Manifests</a>. </aside>
+                            
+                            <h4 id="icons" data-text="Icons" tabindex="-1">Icons</h4>
+                            
+                            <p>Your PWA&#39;s icon is its visual identity across your users&#39; devices when installed, so it&#39;s important to define at least one. Because the <code translate="no" dir="ltr">icons</code> property is a collection of icon objects, you can define several icons in different formats to provide the best icon experience for your users. Each browser will pick one or more icons based on its needs and the operating system it&#39;s installed on, the icons closer to the specifications needed.</p>
+                            
+                            <aside class="caution"><b>Caution: </b> While PNGs can include transparency, providing transparent icons may cause unexpected issues on some operating systems. For example, iOS, iPadOS, and Android 8 and later fill in the transparency with a background color out of your control. For better compatibility, use a square non-transparent icon. </aside>
+                            
+                            <p>If you need to pick only one icon size, it should be 512 by 512 pixels. However, providing more sizes is recommended including 192 by 192, 384 by 384, and 1024 by 1024 pixel-sized images, too.</p>
+                            <pre class="prettyprint lang-json" translate="no" dir="ltr"><code translate="no" dir="ltr">&#34;icons&#34;: [
+                               {
+                                  &#34;src&#34;: &#34;icons/512.png&#34;,
+                                  &#34;type&#34;: &#34;image/png&#34;,
+                                  &#34;sizes&#34;: &#34;512x512&#34;
+                               },
+                               {
+                                  &#34;src&#34;: &#34;icons/1024.png&#34;,
+                                  &#34;type&#34;: &#34;image/png&#34;,
+                                  &#34;sizes&#34;: &#34;1024x1024&#34;
+                               }
+                            ]
+                            </code></pre>
+                            <aside class="caution"><b>Caution: </b> Some resources will suggest you add more icon sizes for Android, such as 48 by 48, 72 by 72, 96 by 96, 144 by 144, 168 by 168, 256 by 256. While you can add as many sizes as you want, these are no longer necessary as they are Android icon sizes for legacy devices; even if you still have some users expecting those resolutions, the browser will resize one of your shipped icons. </aside>
+                            
+                            <p>If you don&#39;t provide an icon or the icons are not in the recommended sizes, on some platforms you won&#39;t pass <a href="/learn/pwa/installation#installation_criteria">installation criteria</a>. On other platforms, the icon will be automatically generated, for instance from a screenshot of the PWA or by using a generic icon.</p>
+                            
+                            <h5 id="maskable_icons" data-text="Maskable icons" tabindex="-1">Maskable icons</h5>
+                            
+                            <p>Some operating systems, such as Android, adapt icons to different sizes and shapes. For example, on Android 12, different manufacturers or settings can change the shape of icons from circles to squares to rounded-corner squares. To support these kinds of adaptive icons, you can provide a maskable icon using the <code translate="no" dir="ltr">purpose</code> field.</p>
+                            
+                            <p>To do so, provide a square image file that has its main icon contained within a “safe zone”, a circle centered in the icon with a radius of 40 percent of the width of the icon. (See the image below.) Devices that support maskable icons will mask your icon as needed.</p>
+                            
+                            <p><img src="/static/learn/pwa/web-app-manifest/image/the-safe-area-marked-a-4-06cd30afb47b2.png" alt="The safe area marked as a 40 percent radius centered circle within the square icon" width="800" height="533" srcset="https://web.dev/static/learn/pwa/web-app-manifest/image/the-safe-area-marked-a-4-06cd30afb47b2_36.png 36w,https://web.dev/static/learn/pwa/web-app-manifest/image/the-safe-area-marked-a-4-06cd30afb47b2_48.png 48w,https://web.dev/static/learn/pwa/web-app-manifest/image/the-safe-area-marked-a-4-06cd30afb47b2_72.png 72w,https://web.dev/static/learn/pwa/web-app-manifest/image/the-safe-area-marked-a-4-06cd30afb47b2_96.png 96w,https://web.dev/static/learn/pwa/web-app-manifest/image/the-safe-area-marked-a-4-06cd30afb47b2_480.png 480w,https://web.dev/static/learn/pwa/web-app-manifest/image/the-safe-area-marked-a-4-06cd30afb47b2_720.png 720w,https://web.dev/static/learn/pwa/web-app-manifest/image/the-safe-area-marked-a-4-06cd30afb47b2_856.png 856w,https://web.dev/static/learn/pwa/web-app-manifest/image/the-safe-area-marked-a-4-06cd30afb47b2_960.png 960w,https://web.dev/static/learn/pwa/web-app-manifest/image/the-safe-area-marked-a-4-06cd30afb47b2_1440.png 1440w,https://web.dev/static/learn/pwa/web-app-manifest/image/the-safe-area-marked-a-4-06cd30afb47b2_1920.png 1920w,https://web.dev/static/learn/pwa/web-app-manifest/image/the-safe-area-marked-a-4-06cd30afb47b2_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                            
+                            <aside class="caution"><b>Caution: </b> If you don't provide a maskable icon, devices that expect them may shrink your icon and make it into the shape they need with a white background. </aside>
+                            
+                            <p>Here&#39;s an example of a maskable icon rendered in a number of commonly used shapes:</p>
+                            
+                            <p>In the following image, if you use the icon at the left as a maskable icon, you will end up with poor results on devices when a shape mask is applied.</p>
+                            
+                            <p><img src="/static/learn/pwa/web-app-manifest/image/an-icon-is-suitable-a-554e022a4bec.png" alt="An icon that is not suitable for a maskable icon." width="800" height="533" srcset="https://web.dev/static/learn/pwa/web-app-manifest/image/an-icon-is-suitable-a-554e022a4bec_36.png 36w,https://web.dev/static/learn/pwa/web-app-manifest/image/an-icon-is-suitable-a-554e022a4bec_48.png 48w,https://web.dev/static/learn/pwa/web-app-manifest/image/an-icon-is-suitable-a-554e022a4bec_72.png 72w,https://web.dev/static/learn/pwa/web-app-manifest/image/an-icon-is-suitable-a-554e022a4bec_96.png 96w,https://web.dev/static/learn/pwa/web-app-manifest/image/an-icon-is-suitable-a-554e022a4bec_480.png 480w,https://web.dev/static/learn/pwa/web-app-manifest/image/an-icon-is-suitable-a-554e022a4bec_720.png 720w,https://web.dev/static/learn/pwa/web-app-manifest/image/an-icon-is-suitable-a-554e022a4bec_856.png 856w,https://web.dev/static/learn/pwa/web-app-manifest/image/an-icon-is-suitable-a-554e022a4bec_960.png 960w,https://web.dev/static/learn/pwa/web-app-manifest/image/an-icon-is-suitable-a-554e022a4bec_1440.png 1440w,https://web.dev/static/learn/pwa/web-app-manifest/image/an-icon-is-suitable-a-554e022a4bec_1920.png 1920w,https://web.dev/static/learn/pwa/web-app-manifest/image/an-icon-is-suitable-a-554e022a4bec_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                            
+                            <p>This image could be made usable with more padding.</p>
+                            
+                            <p><img src="/static/learn/pwa/web-app-manifest/image/the-icon-more-padding-is-9057ce1028452.png" alt="The icon with more padding is suitable for masks." width="800" height="533" srcset="https://web.dev/static/learn/pwa/web-app-manifest/image/the-icon-more-padding-is-9057ce1028452_36.png 36w,https://web.dev/static/learn/pwa/web-app-manifest/image/the-icon-more-padding-is-9057ce1028452_48.png 48w,https://web.dev/static/learn/pwa/web-app-manifest/image/the-icon-more-padding-is-9057ce1028452_72.png 72w,https://web.dev/static/learn/pwa/web-app-manifest/image/the-icon-more-padding-is-9057ce1028452_96.png 96w,https://web.dev/static/learn/pwa/web-app-manifest/image/the-icon-more-padding-is-9057ce1028452_480.png 480w,https://web.dev/static/learn/pwa/web-app-manifest/image/the-icon-more-padding-is-9057ce1028452_720.png 720w,https://web.dev/static/learn/pwa/web-app-manifest/image/the-icon-more-padding-is-9057ce1028452_856.png 856w,https://web.dev/static/learn/pwa/web-app-manifest/image/the-icon-more-padding-is-9057ce1028452_960.png 960w,https://web.dev/static/learn/pwa/web-app-manifest/image/the-icon-more-padding-is-9057ce1028452_1440.png 1440w,https://web.dev/static/learn/pwa/web-app-manifest/image/the-icon-more-padding-is-9057ce1028452_1920.png 1920w,https://web.dev/static/learn/pwa/web-app-manifest/image/the-icon-more-padding-is-9057ce1028452_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                            
+                            <p>Maskable icons should be 512 by 512 at least. With one created, you can add it to your <code translate="no" dir="ltr">icons</code> collection to improve the experience for supported devices:</p>
+                            <pre class="prettyprint lang-json/13" translate="no" dir="ltr"><code translate="no" dir="ltr">&#34;icons&#34;: [
+                               {
+                                  &#34;src&#34;: &#34;/icons/512.png&#34;,
+                                  &#34;type&#34;: &#34;image/png&#34;,
+                                  &#34;sizes&#34;: &#34;512x512&#34;
+                               },
+                               {
+                                  &#34;src&#34;: &#34;/icons/1024.png&#34;,
+                                  &#34;type&#34;: &#34;image/png&#34;,
+                                  &#34;sizes&#34;: &#34;1024x1024&#34;
+                               },
+                               {
+                                  &#34;src&#34;: &#34;/icons/512-maskable.png&#34;,
+                                  &#34;type&#34;: &#34;image/png&#34;,
+                                  &#34;sizes&#34;: &#34;512x512&#34;,
+                                  &#34;purpose&#34;: &#34;maskable&#34;
+                               },
+                            ]
+                            </code></pre>
+                            <p>In most cases, if your maskable icon isn&#39;t displaying well, you can improve it by adding more padding. <a href="https://maskable.app">Maskable.app</a> is a free online tool to test and create a maskable version of your icon.</p>
+                            
+                            <h3 id="recommended_fields" data-text="Recommended fields" tabindex="-1">Recommended fields</h3>
+                            
+                            <p>The next set of fields to include are ones that will improve your user&#39;s experience, even though they&#39;re not required for installability.</p>
+                            
+                            <dl>
+                            <dt><code translate="no" dir="ltr">theme_color</code></dt>
+                            <dd>Default color for the application, sometimes affecting how the OS displays the site (for instance, the window and title bar color on desktop, or the status bar color on mobile devices). This color can be overridden by the HTML <code translate="no" dir="ltr">theme-color</code> <code translate="no" dir="ltr">&lt;meta&gt;</code> element.</dd>
+                            <dt><code translate="no" dir="ltr">background_color</code></dt>
+                            <dd>Placeholder color to display in the application&#39;s background before its stylesheet is loaded. Safari on iOS and iPadOS and most desktop browsers currently ignore this field.</dd>
+                            <dt><code translate="no" dir="ltr">scope</code></dt>
+                            <dd>Changes the navigation scope of the PWA, allowing you to define what is and isn&#39;t displayed within the installed app&#39;s window. For example, if you link to a page outside of the scope, it will be rendered in an in-app browser instead of within your PWA window. This will not, however, change the scope of your service worker.</dd>
+                            </dl>
+                            
+                            <p>The next image shows how the <code translate="no" dir="ltr">theme_color</code> field is used for the title bar on a desktop device when you install a PWA.</p>
+                            
+                            <p><img src="/static/learn/pwa/web-app-manifest/image/the-same-pwa-installed-d-584337198daf1.png" alt="The same PWA installed on desktop with a different theme color." width="800" height="533" srcset="https://web.dev/static/learn/pwa/web-app-manifest/image/the-same-pwa-installed-d-584337198daf1_36.png 36w,https://web.dev/static/learn/pwa/web-app-manifest/image/the-same-pwa-installed-d-584337198daf1_48.png 48w,https://web.dev/static/learn/pwa/web-app-manifest/image/the-same-pwa-installed-d-584337198daf1_72.png 72w,https://web.dev/static/learn/pwa/web-app-manifest/image/the-same-pwa-installed-d-584337198daf1_96.png 96w,https://web.dev/static/learn/pwa/web-app-manifest/image/the-same-pwa-installed-d-584337198daf1_480.png 480w,https://web.dev/static/learn/pwa/web-app-manifest/image/the-same-pwa-installed-d-584337198daf1_720.png 720w,https://web.dev/static/learn/pwa/web-app-manifest/image/the-same-pwa-installed-d-584337198daf1_856.png 856w,https://web.dev/static/learn/pwa/web-app-manifest/image/the-same-pwa-installed-d-584337198daf1_960.png 960w,https://web.dev/static/learn/pwa/web-app-manifest/image/the-same-pwa-installed-d-584337198daf1_1440.png 1440w,https://web.dev/static/learn/pwa/web-app-manifest/image/the-same-pwa-installed-d-584337198daf1_1920.png 1920w,https://web.dev/static/learn/pwa/web-app-manifest/image/the-same-pwa-installed-d-584337198daf1_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                            
+                            <aside class="note"><b>Note: </b> If you want to provide different theme colors for dark and light modes, you can override the manifest's value with a meta tag in the HTML using a media query, such as with <code translate="no" dir="ltr">&lt;meta name=&quot;theme-color&quot; content=&quot;red&quot; media=&quot;(prefers-color-scheme: dark)&quot;&gt;</code> </aside>
+                            
+                            <p>When defining colors in the manifest, such as within <code translate="no" dir="ltr">theme_color</code> and <code translate="no" dir="ltr">background_color</code>, you should use CSS named colors, such as <code translate="no" dir="ltr">salmon</code> or <code translate="no" dir="ltr">orange</code>, RGB colors such as <code translate="no" dir="ltr">#FF5500</code>, or color functions without transparency such as <code translate="no" dir="ltr">rgb()</code> or <code translate="no" dir="ltr">hsl()</code>. Check the <a href="/learn/pwa/app-design#theming_your_app">App design chapter</a> for more information.</p>
+                            
+                            <aside class="warning"><b>Warning: </b> Do not use transparency, CSS variables, gradient functions, or color functions with transparency (such as <code translate="no" dir="ltr">rgba()</code>) as they are not supported by most browsers. You will get inconsistent results. </aside>
+                            
+                            <h4 id="try_it" data-text="Try it" tabindex="-1">Try it</h4>
+                            
+                            <div class="wd-embed" style="height: 420px;">
+                              <iframe
+                                allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi"
+                                loading="lazy"
+                                src="https://glitch.com/embed/#!/embed/learn-pwa-web-app-manifest?attributionHidden=true&sidebarCollapsed=true&previewSize=100"
+                                style="height: 100%; width: 100%; border: 0;"
+                                title="learn-pwa-web-app-manifest on Glitch"
+                              ></iframe>
+                            </div>
+                            
+                            <h4 id="splash_screens" data-text="Splash screens" tabindex="-1">Splash screens</h4>
+                            
+                            <p>On some devices, a static image is rendered while your PWA is being loaded to provide immediate feedback to the user.</p>
+                            
+                            <p>Android uses the <code translate="no" dir="ltr">theme_color</code>, <code translate="no" dir="ltr">background_color</code>, and <code translate="no" dir="ltr">icon</code> values to generate the splash screen.</p>
+                            
+                            <p>When you install a PWA on Android, the device will generate a splash screen with the information that comes from your manifest as seen in the following diagram.</p>
+                            
+                            <p><img src="/static/learn/pwa/web-app-manifest/image/a-pwa-android-splash-scr-fb6e3edede13e.png" alt="A PWA on Android splash screen taking different values from the manifest." width="800" height="533" srcset="https://web.dev/static/learn/pwa/web-app-manifest/image/a-pwa-android-splash-scr-fb6e3edede13e_36.png 36w,https://web.dev/static/learn/pwa/web-app-manifest/image/a-pwa-android-splash-scr-fb6e3edede13e_48.png 48w,https://web.dev/static/learn/pwa/web-app-manifest/image/a-pwa-android-splash-scr-fb6e3edede13e_72.png 72w,https://web.dev/static/learn/pwa/web-app-manifest/image/a-pwa-android-splash-scr-fb6e3edede13e_96.png 96w,https://web.dev/static/learn/pwa/web-app-manifest/image/a-pwa-android-splash-scr-fb6e3edede13e_480.png 480w,https://web.dev/static/learn/pwa/web-app-manifest/image/a-pwa-android-splash-scr-fb6e3edede13e_720.png 720w,https://web.dev/static/learn/pwa/web-app-manifest/image/a-pwa-android-splash-scr-fb6e3edede13e_856.png 856w,https://web.dev/static/learn/pwa/web-app-manifest/image/a-pwa-android-splash-scr-fb6e3edede13e_960.png 960w,https://web.dev/static/learn/pwa/web-app-manifest/image/a-pwa-android-splash-scr-fb6e3edede13e_1440.png 1440w,https://web.dev/static/learn/pwa/web-app-manifest/image/a-pwa-android-splash-scr-fb6e3edede13e_1920.png 1920w,https://web.dev/static/learn/pwa/web-app-manifest/image/a-pwa-android-splash-scr-fb6e3edede13e_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                            
+                            <p>Safari on iOS and iPadOS, on the other hand, doesn&#39;t use the web app manifest to generate splash screens. Instead, they use an image linked from a proprietary <code translate="no" dir="ltr">&lt;link&gt;</code> element similar to how they handle icons. Check the <a href="/learn/pwa/enhancements">Enhancement chapter</a> for more details.</p>
+                            
+                            <h3 id="extended_fields" data-text="Extended fields" tabindex="-1">Extended fields</h3>
+                            
+                            <p>The next set of fields offers additional information about your PWA. They are all optional.</p>
+                            
+                            <dl>
+                            <dt><code translate="no" dir="ltr">lang</code></dt>
+                            <dd>A language tag specifying the primary language of the manifest&#39;s values, such as <code translate="no" dir="ltr">en</code> for English, <code translate="no" dir="ltr">pt-BR</code> for Brazilian Portuguese, or <code translate="no" dir="ltr">in</code> for Hindi.</dd>
+                            <dt><code translate="no" dir="ltr">dir</code></dt>
+                            <dd>The direction to display direction-capable manifest fields (such as <code translate="no" dir="ltr">name</code>, <code translate="no" dir="ltr">short_name</code>, and <code translate="no" dir="ltr">description</code>). Valid values are <code translate="no" dir="ltr">auto</code>, <code translate="no" dir="ltr">ltr</code> (left-to-right), and <code translate="no" dir="ltr">rtl</code> (right-to-left).</dd>
+                            <dt><code translate="no" dir="ltr">orientation</code></dt>
+                            <dd>Desired orientation for the app once installed. A game may set this to request a landscape-only orientation. <a href="https://developer.mozilla.org/docs/Web/Manifest/orientation#values">Several values</a> are accepted, but if included it&#39;s typically <code translate="no" dir="ltr">portrait</code> or <code translate="no" dir="ltr">landscape</code> explicitly.</dd>
+                            </dl>
+                            
+                            <aside class="note"><b>Note: </b> The Web Application Manifest spec doesn't allow internationalization within the file to localize fields' values and images. To support multilingual PWAs with different web app manifest values you need to implement a custom solution to change those values per language. Watch <a href="https://www.youtube.com/watch?v=baSiSIyTGSk&amp;ab_channel=GoogleChromeDevelopers">5 tips for your PWA</a> for more ideas. </aside>
+                            
+                            <h3 id="promotional_fields" data-text="Promotional fields" tabindex="-1">Promotional fields</h3>
+                            
+                            <p>The fourth set of fields lets you provide promotional information about your PWA, for instance, in install flows, listings, and search results.</p>
+                            
+                            <dl>
+                            <dt><code translate="no" dir="ltr">description</code></dt>
+                            <dd>An explanation of what the PWA does.</dd>
+                            <dt><code translate="no" dir="ltr">screenshots</code></dt>
+                            <dd>Array of screenshot objects with <code translate="no" dir="ltr">src</code>, <code translate="no" dir="ltr">type</code>, and <code translate="no" dir="ltr">sizes</code> (similar to the <code translate="no" dir="ltr">icons</code> object) intended to showcase the PWA. There are no size restrictions.</dd>
+                            <dt><code translate="no" dir="ltr">categories</code></dt>
+                            <dd>Array of categories the PWA should belong to be used as hints for listings, optionally from the list of <a href="https://www.w3.org/TR/manifest-app-info/#categories-member">known categories</a>. These values are typically lowercase.</dd>
+                            <dt><code translate="no" dir="ltr">iarc_rating_id</code></dt>
+                            <dd>The International Age Rating Coalition certification code for the PWA, if you have one. It is intended to be used to determine which ages your PWA is appropriate for.</dd>
+                            </dl>
+                            
+                            <aside class="caution"><b>Caution: </b> Promotional fields have been moved to their own spec: <a href="https://www.w3.org/TR/manifest-app-info/">Web App Manifest - Application Information</a>. Check that spec for the latest additions to these fields. </aside>
+                            
+                            <p>You can see these promotional fields in action today. On Android, for example, if your PWA is installable and you provide values for at least the <code translate="no" dir="ltr">description</code> and <code translate="no" dir="ltr">screenshots</code> fields, the installation dialog experience transforms from a simple &quot;Add to the home screen&quot; info bar, to a richer installation dialog similar to the one from an app store.</p>
+                            
+                            <p>On Android, you can get a nicer installation UI if you provide values for the promotional fields, as you can see in the next video</p>
+                            
+                            <video > <source src="/static/learn/pwa/web-app-manifest/video/RK2djpBgopg9kzCyJbUSjhEGmnw1/eU7EiYjZKtVsBrQ3xfBz.mp4" type="video/mp4" /> </video>
+                            
+                            <p>See these promotional fields in action:</p>
+                            
+                            <div class="wd-embed" style="height: 420px;">
+                              <iframe
+                                allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi"
+                                loading="lazy"
+                                src="https://glitch.com/embed/#!/embed/learn-pwa-web-app-manifest-promotional?attributionHidden=true&sidebarCollapsed=true&previewSize=100"
+                                style="height: 100%; width: 100%; border: 0;"
+                                title="learn-pwa-web-app-manifest-promotional on Glitch"
+                              ></iframe>
+                            </div>
+                            
+                            <h3 id="capabilities_fields" data-text="Capabilities Fields" tabindex="-1">Capabilities Fields</h3>
+                            
+                            <p>Finally, there are a number of fields related to different capabilities that your PWA can use in supported browsers, such as the <code translate="no" dir="ltr">shortcuts</code>, <code translate="no" dir="ltr">share_target</code>, <code translate="no" dir="ltr">display_overrides</code> fields as we cover in the <a href="/learn/pwa/capabilities">Capabilities chapter</a>. There are also fields, like <code translate="no" dir="ltr">related_apps</code> and <code translate="no" dir="ltr">prefer_related_apps</code> (see the <a href="/learn/pwa/detection">Detection chapter</a> for more information), to connect your PWA to installed apps, often from an app store.</p>
+                            
+                            <p>Many new fields may appear in the future while browsers add more capabilities to Progressive Web Apps.</p>
+                            
+                            <h2 id="resources" data-text="Resources" tabindex="-1">Resources</h2>
+                            
+                            <ul>
+                            <li><a href="/articles/add-manifest">Add a Web App Manifest</a></li>
+                            <li><a href="/articles/maskable-icon">Adaptive icon support in PWAs with maskable icons</a></li>
+                            <li><a href="https://developer.chrome.com/blog/richer-pwa-installation">Richer PWA installation UI</a></li>
+                            <li><a href="https://developer.mozilla.org/docs/Web/Manifest">MDN: Web App Manifest</a></li>
                             </ul>
-                        </nav>
-                    </footer>
+                            
+                             
+
+
+
+
+
+
+
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
+                    </div>
+                    
                                         
                 </div>
             </main>

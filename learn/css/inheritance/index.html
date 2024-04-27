@@ -1172,38 +1172,774 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
-                        </div>
-                    </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
+                    
+                    
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Cascade, specificity, and inheritance</h1>
+                        </header>
+                        <div class="section-content">
+                            <ul class="prev-next">
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks/Selectors/Combinators">
+                                        <span class="button-wrap">Previous </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks">
+                                        <span class="button-wrap">Overview: Building blocks</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/CSS/Building_blocks/Cascade_layers">
+                                        <span class="button-wrap">Next  </span>
+                                    </a>
+                                </li>
                             </ul>
-                        </nav>
-                    </footer>
+                            <p>The aim of this lesson is to develop your understanding of some of the most fundamental concepts of CSS — the cascade, specificity, and inheritance — which control how CSS is applied to HTML and how conflicts between style declarations are resolved.</p>
+                            <p>While working through this lesson may seem less relevant immediately and a little more academic than some other parts of the course, an understanding of these concepts will save you from a lot of pain later on! We encourage you to work through this section carefully and check that you understand the concepts before moving on.</p>
+                            <figure class="table-container">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Prerequisites:</th>
+                                            <td>
+                                                <a href="/en-US/docs/Learn/Getting_started_with_the_web/Installing_basic_software">Basic software installed</a>
+                                                , basic knowledge of
+    <a href="/en-US/docs/Learn/Getting_started_with_the_web/Dealing_with_files">working with files</a>
+                                                , HTML basics (study
+    <a href="/en-US/docs/Learn/HTML/Introduction_to_HTML">Introduction to HTML</a>
+                                                ), and an idea of how CSS works (study
+    <a href="/en-US/docs/Learn/CSS/First_steps">CSS first steps</a>
+                                                .)
+  
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Objective:</th>
+                                            <td>To learn about the cascade and specificity, and how inheritance works in
+    CSS.
+  </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </figure>
+                        </div>
+                        <section aria-labelledby="conflicting_rules">
+                            <h2 id="conflicting_rules">
+                                <a href="#conflicting_rules">Conflicting rules</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    CSS stands for <strong>Cascading Style Sheets</strong>
+                                    , and that first word <em>cascading</em>
+                                    is incredibly important to understand — the way that the cascade behaves is key to understanding CSS.
+                                </p>
+                                <p>
+                                    At some point, you will be working on a project and you will find that the CSS you thought should be applied to an element is not working. Often, the problem is that you create two rules that apply different values of the same property to the same element. 
+                                    <a href="/en-US/docs/Web/CSS/Cascade">
+                                        <strong>Cascade</strong>
+                                    </a>
+                                    and the closely-related concept of 
+                                    <a href="/en-US/docs/Web/CSS/Specificity">
+                                        <strong>specificity</strong>
+                                    </a>
+                                    are mechanisms that control which rule applies when there is such a conflict. The rule that's styling your element may not be the one you expect, so you need to understand how these mechanisms work.
+                                </p>
+                                <p>
+                                    Also significant here is the concept of 
+                                    <a href="/en-US/docs/Web/CSS/Inheritance">
+                                        <strong>inheritance</strong>
+                                    </a>
+                                    , which means that some CSS properties by default inherit values set on the current element's parent element and some don't. This can also cause some behavior that you might not expect.
+                                </p>
+                                <p>Let's start by taking a quick look at the key things we are dealing with, then we'll look at each in turn and see how they interact with each other and your CSS. These can seem like a tricky set of concepts to understand. As you get more practice writing CSS, the way it works will become more obvious to you.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="cascade">
+                            <h3 id="cascade">
+                                <a href="#cascade">Cascade</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    Stylesheets 
+                                    <a href="/en-US/docs/Web/CSS/Cascade">
+                                        <strong>cascade</strong>
+                                    </a>
+                                    — at a very simple level, this means that the origin, the cascade layer, and the order of CSS rules matter. When two rules from the same cascade layer apply and both have equal specificity, the one that is defined last in the stylesheet is the one that will be used.
+                                </p>
+                                <p>
+                                    In the below example, we have two rules that could apply to the <code>&lt;h1 &gt;</code>
+                                    element. The <code>&lt;h1 &gt;</code>
+                                    content ends up being colored blue. This is because both the rules are from the same source, have an identical element selector, and therefore, carry the same specificity, but the last one in the source order wins.
+                                </p>
+                                <iframe width="100%" height="500" src="https://mdn.github.io/css-examples/learn/cascade/cascade-simple.html" loading="lazy"></iframe>
+                            </div>
+                        </section>
+                        <section aria-labelledby="specificity">
+                            <h3 id="specificity">
+                                <a href="#specificity">Specificity</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    <a href="/en-US/docs/Web/CSS/Specificity">Specificity</a>
+                                    is the algorithm that the browser uses to decide which property value is applied to an element. If multiple style blocks have different selectors that configure the same property with different values and target the same element, specificity decides the property value that gets applied to the element. Specificity is basically a measure of how specific a selector's selection will be:
+                                </p>
+                                <ul>
+                                    <li>An element selector is less specific; it will select all elements of that type that appear on a page, so it has less weight. Pseudo-element selectors have the same specificity as regular element selectors.</li>
+                                    <li>
+                                        A class selector is more specific; it will select only the elements on a page that have a specific <code>class</code>
+                                        attribute value, so it has more weight. Attribute selectors and pseudo-classes have the same weight as a class.
+                                    </li>
+                                </ul>
+                                <p>
+                                    Below, we again have two rules that could apply to the <code>&lt;h1 &gt;</code>
+                                    element. The <code>&lt;h1 &gt;</code>
+                                    content below ends up being colored red because the class selector <code>main-heading</code>
+                                    gives its rule a higher specificity. So even though the rule with the <code>&lt;h1 &gt;</code>
+                                    element selector appears further down in the source order, the one with the higher specificity, defined using the class selector, will be applied.
+                                </p>
+                                <iframe width="100%" height="600" src="https://mdn.github.io/css-examples/learn/cascade/specificity-simple.html" loading="lazy"></iframe>
+                                <p>We'll explain the specificity algorithm later on.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="inheritance">
+                            <h3 id="inheritance">
+                                <a href="#inheritance">Inheritance</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>Inheritance also needs to be understood in this context — some CSS property values set on parent elements are inherited by their child elements, and some aren't.</p>
+                                <p>
+                                    For example, if you set a <code>color</code>
+                                    and <code>font-family</code>
+                                    on an element, every element inside it will also be styled with that color and font, unless you've applied different color and font values directly to them.
+                                </p>
+                                <iframe width="100%" height="650" src="https://mdn.github.io/css-examples/learn/cascade/inheritance-simple.html" loading="lazy"></iframe>
+                                <p>
+                                    Some properties do not inherit — for example, if you set a 
+                                    <a href="/en-US/docs/Web/CSS/width">
+                                        <code>width</code>
+                                    </a>
+                                    of 50% on an element, all of its descendants do not get a width of 50% of their parent's width. If this was the case, CSS would be very frustrating to use!
+                                </p>
+                                <div class="notecard note" id="sect1">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        On MDN CSS property reference pages, you can find a technical information box called "Formal definition", which lists a number of data points about that property, including whether it is inherited or not. See the <a href="/en-US/docs/Web/CSS/color#formal_definition">color property Formal definition section</a>
+                                        as an example.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="understanding_how_the_concepts_work_together">
+                            <h2 id="understanding_how_the_concepts_work_together">
+                                <a href="#understanding_how_the_concepts_work_together">Understanding how the concepts work together</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>These three concepts (cascade, specificity, and inheritance) together control which CSS applies to what element. In the sections below, we'll see how they work together. It can sometimes seem a little bit complicated, but you will start to remember them as you get more experienced with CSS, and you can always look up the details if you forget! Even experienced developers don't remember all the details.</p>
+                                <p>The following video shows how you can use the Firefox DevTools to inspect a page's cascade, specificity, and more:</p>
+                                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Sp9ZfSvpf7A" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                        </section>
+                        <section aria-labelledby="understanding_inheritance">
+                            <h2 id="understanding_inheritance">
+                                <a href="#understanding_inheritance">Understanding inheritance</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    We'll start with inheritance. In the example below, we have a 
+                                    <a href="/en-US/docs/Web/HTML/Element/ul">
+                                        <code>&lt;ul &gt;</code>
+                                    </a>
+                                    element with two levels of unordered lists nested inside it. We have given the outer <code>&lt;ul &gt;</code>
+                                    a border, padding, and font color.
+                                </p>
+                                <p>
+                                    The <code>color</code>
+                                    property is an inherited property. So, the <code>color</code>
+                                    property value is applied to the direct children and also to the indirect children — the immediate child <code>&lt;li &gt;</code>
+                                    s and those inside the first nested list. We have then added the class <code>special</code>
+                                    to the second nested list and applied a different color to it. This then inherits down through its children.
+                                </p>
+                                <iframe width="100%" height="1100" src="https://mdn.github.io/css-examples/learn/cascade/inheritance.html" loading="lazy"></iframe>
+                                <p>
+                                    Properties like <code>width</code>
+                                    (as mentioned earlier), <code>margin</code>
+                                    , <code>padding</code>
+                                    , and <code>border</code>
+                                    are not inherited properties. If a border were to be inherited by the children in this list example, every single list and list item would gain a border — probably not an effect we would ever want!
+                                </p>
+                                <p>Though every CSS property page lists whether or not the property is inherited, you can often guess the same intuitively if you know what aspect the property value will style.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="controlling_inheritance">
+                            <h3 id="controlling_inheritance">
+                                <a href="#controlling_inheritance">Controlling inheritance</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>CSS provides five special universal property values for controlling inheritance. Every CSS property accepts these values.</p>
+                                <dl>
+                                    <dt id="inherit">
+                                        <a href="/en-US/docs/Web/CSS/inherit">
+                                            <code>inherit</code>
+                                        </a>
+                                    </dt>
+                                    <dd>
+                                        <p>Sets the property value applied to a selected element to be the same as that of its parent element. Effectively, this "turns on inheritance".</p>
+                                    </dd>
+                                    <dt id="initial">
+                                        <a href="/en-US/docs/Web/CSS/initial">
+                                            <code>initial</code>
+                                        </a>
+                                    </dt>
+                                    <dd>
+                                        <p>
+                                            Sets the property value applied to a selected element to the <a href="/en-US/docs/Web/CSS/initial_value">initial value</a>
+                                            of that property.
+                                        </p>
+                                    </dd>
+                                    <dt id="revert">
+                                        <a href="/en-US/docs/Web/CSS/revert">
+                                            <code>revert</code>
+                                        </a>
+                                    </dt>
+                                    <dd>
+                                        <p>
+                                            Resets the property value applied to a selected element to the browser's default styling rather than the defaults applied to that property. This value acts like 
+                                            <a href="/en-US/docs/Web/CSS/unset">
+                                                <code>unset</code>
+                                            </a>
+                                            in many cases.
+                                        </p>
+                                    </dd>
+                                    <dt id="revert-layer">
+                                        <a href="/en-US/docs/Web/CSS/revert-layer">
+                                            <code>revert-layer</code>
+                                        </a>
+                                    </dt>
+                                    <dd>
+                                        <p>
+                                            Resets the property value applied to a selected element to the value established in a previous <a href="/en-US/docs/Web/CSS/@layer">cascade layer</a>
+                                            .
+                                        </p>
+                                    </dd>
+                                    <dt id="unset">
+                                        <a href="/en-US/docs/Web/CSS/unset">
+                                            <code>unset</code>
+                                        </a>
+                                    </dt>
+                                    <dd>
+                                        <p>
+                                            Resets the property to its natural value, which means that if the property is naturally inherited it acts like <code>inherit</code>
+                                            , otherwise it acts like <code>initial</code>
+                                            .
+                                        </p>
+                                    </dd>
+                                </dl>
+                                <div class="notecard note" id="sect2">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        See <a href="/en-US/docs/Web/CSS/Cascade#origin_types">Origin types</a>
+                                        for more information on each of these and how they work.
+                                    </p>
+                                </div>
+                                <p>We can look at a list of links and explore how universal values work. The live example below allows you to play with the CSS and see what happens when you make changes. Playing with code really is the best way to better understand HTML and CSS.</p>
+                                <p>For example:</p>
+                                <ol>
+                                    <li>
+                                        The second list item has the class <code>my-class-1</code>
+                                        applied. This sets the color of the <code>&lt;a &gt;</code>
+                                        element nested inside to <code>inherit</code>
+                                        . If you remove the rule, how does it change the color of the link?
+                                    </li>
+                                    <li>
+                                        Do you understand why the third and fourth links are the color that they are? The third link is set to <code>initial</code>
+                                        , which means it uses the initial value of the property (in this case black) and not the browser default for links, which is blue. The fourth is set to <code>unset</code>
+                                        which means that the link text uses the color of the parent element, green.
+                                    </li>
+                                    <li>
+                                        Which of the links will change color if you define a new color for the <code>&lt;a &gt;</code>
+                                        element — for example <code>a { color: red; }</code>
+                                        ?
+                                    </li>
+                                    <li>
+                                        After reading the next section on resetting all properties, come back and change the <code>color</code>
+                                        property to <code>all</code>
+                                        . Notice how the second link is on a new line and has a bullet. What properties do you think were inherited?
+                                    </li>
+                                </ol>
+                                <iframe width="100%" height="800" src="https://mdn.github.io/css-examples/learn/cascade/keywords.html" loading="lazy"></iframe>
+                            </div>
+                        </section>
+                        <section aria-labelledby="resetting_all_property_values">
+                            <h3 id="resetting_all_property_values">
+                                <a href="#resetting_all_property_values">Resetting all property values</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    The CSS shorthand property 
+                                    <a href="/en-US/docs/Web/CSS/all">
+                                        <code>all</code>
+                                    </a>
+                                    can be used to apply one of these inheritance values to (almost) all properties at once. Its value can be any one of the inheritance values (<code>inherit</code>
+                                    , <code>initial</code>
+                                    , <code>revert</code>
+                                    , <code>revert-layer</code>
+                                    , or <code>unset</code>
+                                    ). It's a convenient way to undo changes made to styles so that you can get back to a known starting point before beginning new changes.
+                                </p>
+                                <p>
+                                    In the below example, we have two blockquotes. The first has styling applied to the blockquote element itself. The second has a class applied to the blockquote, which sets the value of <code>all</code>
+                                    to <code>unset</code>
+                                    .
+                                </p>
+                                <iframe width="100%" height="800" src="https://mdn.github.io/css-examples/learn/cascade/all.html" loading="lazy"></iframe>
+                                <p>
+                                    Try setting the value of <code>all</code>
+                                    to some of the other available values and observe what the difference is.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="understanding_the_cascade">
+                            <h2 id="understanding_the_cascade">
+                                <a href="#understanding_the_cascade">Understanding the cascade</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>We now understand that inheritance is why a paragraph nested deep in the structure of your HTML is the same color as the CSS applied to the body. From the introductory lessons, we have an understanding of how to change the CSS applied to something at any point in the document — whether by assigning CSS to an element or by creating a class. We will now look at how cascade defines which CSS rules apply when more than one style block apply the same property, but with different values, to the same element.</p>
+                                <p>There are three factors to consider, listed here in increasing order of importance. Later ones overrule earlier ones:</p>
+                                <ol>
+                                    <li>
+                                        <strong>Source order</strong>
+                                    </li>
+                                    <li>
+                                        <strong>Specificity</strong>
+                                    </li>
+                                    <li>
+                                        <strong>Importance</strong>
+                                    </li>
+                                </ol>
+                                <p>We will look at these to see how browsers figure out exactly what CSS should be applied.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="source_order">
+                            <h3 id="source_order">
+                                <a href="#source_order">Source order</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>We have already seen how source order matters to the cascade. If you have more than one rule, all of which have exactly the same weight, then the one that comes last in the CSS will win. You can think of this as: the rule that is nearer the element itself overwrites the earlier ones until the last one wins and gets to style the element.</p>
+                                <p>Source order only matters when the specificity weight of the rules is the same, so let's look at specificity:</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="specificity_2">
+                            <h3 id="specificity_2">
+                                <a href="#specificity_2">Specificity</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    You will often run into a situation where you know that a rule comes later in the stylesheet, but an earlier, conflicting rule is applied. This happens because the earlier rule has a <strong>higher specificity</strong>
+                                    — it is more specific, and therefore, is being chosen by the browser as the one that should style the element.
+                                </p>
+                                <p>As we saw earlier in this lesson, a class selector has more weight than an element selector, so the properties defined in the class style block will override those defined in the element style block.</p>
+                                <p>Something to note here is that although we are thinking about selectors and the rules that are applied to the text or component they select, it isn't the entire rule that is overwritten, only the properties that are declared in multiple places.</p>
+                                <p>This behavior helps avoid repetition in your CSS. A common practice is to define generic styles for the basic elements, and then create classes for those that are different. For example, in the stylesheet below, we have defined generic styles for level 2 headings, and then created some classes that change only some of the properties and values. The values defined initially are applied to all headings, then the more specific values are applied to the headings with the classes.</p>
+                                <iframe width="100%" height="1000" src="https://mdn.github.io/css-examples/learn/cascade/mixing-rules.html" loading="lazy"></iframe>
+                                <p>Let's now have a look at how the browser will calculate specificity. We already know that an element selector has low specificity and can be overwritten by a class. Essentially a value in points is awarded to different types of selectors, and adding these up gives you the weight of that particular selector, which can then be assessed against other potential matches.</p>
+                                <p>The amount of specificity a selector has is measured using three different values (or components), which can be thought of as ID, CLASS, and ELEMENT columns in the hundreds, tens, and ones place:</p>
+                                <ul>
+                                    <li>
+                                        <strong>Identifiers</strong>
+                                        : Score one in this column for each ID selector contained inside the overall selector.
+                                    </li>
+                                    <li>
+                                        <strong>Classes</strong>
+                                        : Score one in this column for each class selector, attribute selector, or pseudo-class contained inside the overall selector.
+                                    </li>
+                                    <li>
+                                        <strong>Elements</strong>
+                                        : Score one in this column for each element selector or pseudo-element contained inside the overall selector.
+                                    </li>
+                                </ul>
+                                <div class="notecard note" id="sect3">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        The universal selector (
+                                        <a href="/en-US/docs/Web/CSS/Universal_selectors">
+                                            <code>*</code>
+                                        </a>
+                                        ), <a href="/en-US/docs/Learn/CSS/Building_blocks/Selectors/Combinators">combinators</a>
+                                        (<code>+</code>
+                                        , <code>&gt;</code>
+                                        , <code>~</code>
+                                        , ' '), and specificity adjustment selector (
+                                        <a href="/en-US/docs/Web/CSS/:where">
+                                            <code>:where()</code>
+                                        </a>
+                                        ) along with its parameters, have no effect on specificity.
+                                    </p>
+                                </div>
+                                <p>
+                                    The negation (
+                                    <a href="/en-US/docs/Web/CSS/:not">
+                                        <code>:not()</code>
+                                    </a>
+                                    ), relational selector (
+                                    <a href="/en-US/docs/Web/CSS/:has">
+                                        <code>:has()</code>
+                                    </a>
+                                    ), the matches-any (
+                                    <a href="/en-US/docs/Web/CSS/:is">
+                                        <code>:is()</code>
+                                    </a>
+                                    ) pseudo-classes, and <a href="/en-US/docs/Web/CSS/CSS_nesting/Nesting_and_specificity">CSS nesting</a>
+                                    themselves don't add to specificity, but their parameters or nested rules do. The specificity weight that each contributes to the specificity algorithm is the specificity weight of the selector in the parameter or nested rule with the greatest weight.
+                                </p>
+                                <p>
+                                    The following table shows a few isolated examples to get you in the mood. Try going through these, and make sure you understand why they have the specificity that we have given them. We've not covered selectors in detail yet, but you can find details of each selector on the MDN <a href="/en-US/docs/Web/CSS/CSS_selectors/Selectors_and_combinators">selectors reference</a>
+                                    .
+                                </p>
+                                <figure class="table-container">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Selector</th>
+                                                <th>Identifiers</th>
+                                                <th>Classes</th>
+                                                <th>Elements</th>
+                                                <th>Total specificity</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <code>h1</code>
+                                                </td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>1</td>
+                                                <td>0-0-1</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <code>h1 + p::first-letter</code>
+                                                </td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>3</td>
+                                                <td>0-0-3</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <code>li &gt;a[href*="en-US"] &gt;.inline-warning</code>
+                                                </td>
+                                                <td>0</td>
+                                                <td>2</td>
+                                                <td>2</td>
+                                                <td>0-2-2</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <code>#identifier</code>
+                                                </td>
+                                                <td>1</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>1-0-0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <code>button:not(#mainBtn, .cta</code>
+                                                    )
+                                                </td>
+                                                <td>1</td>
+                                                <td>0</td>
+                                                <td>1</td>
+                                                <td>1-0-1</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </figure>
+                                <p>Before we move on, let's look at an example in action.</p>
+                                <iframe width="100%" height="800" src="https://mdn.github.io/css-examples/learn/cascade/specificity-boxes.html" loading="lazy"></iframe>
+                                <p>So what's going on here? First of all, we are only interested in the first seven rules of this example, and as you'll notice, we have included their specificity values in a comment before each one.</p>
+                                <ul>
+                                    <li>The first two selectors are competing over the styling of the link's background color. The second one wins and makes the background color blue because it has an extra ID selector in the chain: its specificity is 2-0-1 vs. 1-0-1.</li>
+                                    <li>Selectors 3 and 4 are competing over the styling of the link's text color. The second one wins and makes the text white because although it has one less element selector, the missing selector is swapped out for a class selector, which has more weight than infinity element selectors. The winning specificity is 1-1-3 vs. 1-0-4.</li>
+                                    <li>Selectors 5–7 are competing over the styling of the link's border when hovered. Selector 6 clearly loses to selector 5 with a specificity of 0-2-3 vs. 0-2-4; it has one fewer element selectors in the chain. Selector 7, however, beats both selectors 5 and 6 because it has the same number of sub-selectors in the chain as selector 5, but an element has been swapped out for a class selector. So the winning specificity is 0-3-3 vs. 0-2-3 and 0-2-4.</li>
+                                </ul>
+                                <div class="notecard note" id="sect4">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        Each selector type has its own level of specificity that cannot be overwritten by selectors with a lower specificity level. For example, a <em>million</em>
+                                        <strong>class</strong>
+                                        selectors combined would not be able to overwrite the specificity of <em>one</em>
+                                        <strong>id</strong>
+                                        selector.
+                                    </p>
+                                    <p>The best way to evaluate specificity is to score the specificity levels individually starting from the highest and moving on to the lowest when necessary. Only when there is a tie between selector scores within a specificity column do you need to evaluate the next column down; otherwise, you can disregard the lower specificity selectors since they can never overwrite the higher specificity selectors.</p>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="inline_styles">
+                            <h3 id="inline_styles">
+                                <a href="#inline_styles">Inline styles</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    Inline styles, that is, the style declaration inside a 
+                                    <a href="/en-US/docs/Web/HTML/Global_attributes#style">
+                                        <code>style</code>
+                                    </a>
+                                    attribute, take precedence over all normal styles, no matter the specificity. Such declarations don't have selectors, but their specificity can be construed as 1-0-0-0; always more than any other specificity weight no matter how many IDs are in the selectors.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="!important">
+                            <h3 id="!important">
+                                <a href="#!important">!important</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    There is a special piece of CSS that you can use to overrule all of the above calculations, even inline styles - the <code>!important</code>
+                                    flag. However, you should be very careful while using it. This flag is used to make an individual property and value pair the most specific rule, thereby overriding the normal rules of the cascade, including normal inline styles.
+                                </p>
+                                <div class="notecard note" id="sect5">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        It is useful to know that the <code>!important</code>
+                                        flag exists so that you know what it is when you come across it in other people's code. <strong>However, we strongly recommend that you never use it unless you absolutely have to.</strong>
+                                        The <code>!important</code>
+                                        flag changes the way the cascade normally works, so it can make debugging CSS problems really hard to work out, especially in a large stylesheet.
+                                    </p>
+                                </div>
+                                <p>Take a look at this example where we have two paragraphs, one of which has an ID.</p>
+                                <iframe width="100%" height="800" src="https://mdn.github.io/css-examples/learn/cascade/important.html" loading="lazy"></iframe>
+                                <p>Let's walk through this to see what's happening — try removing some of the properties to see what happens if you are finding it hard to understand:</p>
+                                <ol>
+                                    <li>
+                                        You'll see that the third rule's 
+                                        <a href="/en-US/docs/Web/CSS/color">
+                                            <code>color</code>
+                                        </a>
+                                        and 
+                                        <a href="/en-US/docs/Web/CSS/padding">
+                                            <code>padding</code>
+                                        </a>
+                                        values have been applied, but the 
+                                        <a href="/en-US/docs/Web/CSS/background-color">
+                                            <code>background-color</code>
+                                        </a>
+                                        hasn't. Why? Really, all three should surely apply because rules later in the source order generally override earlier rules.
+                                    </li>
+                                    <li>However, the rules above it win because class selectors have higher specificity than element selectors.</li>
+                                    <li>
+                                        Both elements have a 
+                                        <a href="/en-US/docs/Web/HTML/Global_attributes#class">
+                                            <code>class</code>
+                                        </a>
+                                        of <code>better</code>
+                                        , but the 2nd one has an 
+                                        <a href="/en-US/docs/Web/HTML/Global_attributes#id">
+                                            <code>id</code>
+                                        </a>
+                                        of <code>winning</code>
+                                        too. Since IDs have an <em>even higher</em>
+                                        specificity than classes (you can only have one element with each unique ID on a page, but many elements with the same class — ID selectors are <em>very specific</em>
+                                        in what they target), the red background color and the 1px black border should both be applied to the 2nd element, with the first element getting the gray background color, and no border, as specified by the class.
+                                    </li>
+                                    <li>
+                                        The 2nd element <em>does</em>
+                                        get the red background color, but no border. Why? Because of the <code>!important</code>
+                                        flag in the second rule. Adding the <code>!important</code>
+                                        flag after <code>border: none</code>
+                                        means that this declaration will win over the <code>border</code>
+                                        value in the previous rule, even though the ID selector has higher specificity.
+                                    </li>
+                                </ol>
+                                <div class="notecard note" id="sect6">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        The only way to override an important declaration is to include another important declaration with the <em>same specificity</em>
+                                        later in the source order, or one with higher specificity, or to include an important declaration in a prior cascade layer (we haven't covered cascade layers yet).
+                                    </p>
+                                </div>
+                                <p>
+                                    One situation in which you may have to use the <code>!important</code>
+                                    flag is when you are working on a CMS where you can't edit the core CSS modules, and you really want to override an inline style or an important declaration that can't be overridden in any other way. But really, don't use it if you can avoid it.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="the_effect_of_css_location">
+                            <h2 id="the_effect_of_css_location">
+                                <a href="#the_effect_of_css_location">The effect of CSS location</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>Finally, it is important to note that the precedence of a CSS declaration depends on what stylesheet and cascade layer it is specified in.</p>
+                                <p>It is possible for users to set custom stylesheets to override the developer's styles. For example, a visually impaired user might want to set the font size on all web pages they visit to be double the normal size to allow for easier reading.</p>
+                                <p>It is also possible to declare developer styles in cascade layers: you can make non-layered styles override styles declared in layers or you can make styles declared in later layers override styles from earlier declared layers. For example, as a developer you may not be able to edit a third-party stylesheet, but you can import the external stylesheet into a cascade layer so that all of your styles easily override the imported styles without worrying about third-party selector specificity.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="order_of_overriding_declarations">
+                            <h3 id="order_of_overriding_declarations">
+                                <a href="#order_of_overriding_declarations">Order of overriding declarations</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>Conflicting declarations will be applied in the following order, with later ones overriding earlier ones:</p>
+                                <ol>
+                                    <li>Declarations in user agent style sheets (e.g., the browser's default styles, used when no other styling is set).</li>
+                                    <li>Normal declarations in user style sheets (custom styles set by a user).</li>
+                                    <li>Normal declarations in author style sheets (these are the styles set by us, the web developers).</li>
+                                    <li>Important declarations in author style sheets.</li>
+                                    <li>Important declarations in user style sheets.</li>
+                                    <li>Important declarations in user agent style sheets.</li>
+                                </ol>
+                                <div class="notecard note" id="sect7">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        The order of precedence is inverted for styles flagged with <code>!important</code>
+                                        . It makes sense for web developers' stylesheets to override user stylesheets, so the design can be kept as intended; however, sometimes users have good reasons to override web developer styles, as mentioned above, and this can be achieved by using <code>!important</code>
+                                        in their rules.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="order_of_cascade_layers">
+                            <h3 id="order_of_cascade_layers">
+                                <a href="#order_of_cascade_layers">Order of cascade layers</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    Even though <a href="/en-US/docs/Web/CSS/@layer">cascade layers</a>
+                                    is an advanced topic and you might not use this feature right away, it's important to understand how layers cascade.
+                                </p>
+                                <p>
+                                    When you declare CSS in cascade layers, the order of precedence is determined by the order in which the layers are declared. CSS styles declared outside of any layer are combined together, in the order in which those styles are declared, into an unnamed layer, as if it were the last declared layer. With competing normal (not important) styles, later layers take precedence over earlier defined layers. For styles flagged with <code>!important</code>
+                                    , however, the order is reversed, with important styles in earlier layers taking precedence over important styles declared in subsequent layers or outside of any layer. Inline styles take precedence over all author styles, no matter the layer.
+                                </p>
+                                <p>When you have multiple style blocks in different layers providing competing values for a property on a single element, the order in which the layers are declared determines the precedence. Specificity between layers doesn't matter, but specificity within a single layer still does.</p>
+                                <iframe width="100%" height="800" src="https://mdn.github.io/css-examples/learn/cascade/cascade-layers.html" loading="lazy"></iframe>
+                                <p>
+                                    Let's discuss a few things from the above example to understand what's happening. Two layers have been declared, <code>firstLayer</code>
+                                    and <code>secondLayer</code>
+                                    , in that order. Even though the specificity in <code>secondLayer</code>
+                                    is the highest, no properties from that declaration are used. Why? Because non-layered normal styles take precedence over layered normal styles, no matter the specificity, and important layered styles take precedence over important styles declared in later layers, again, no matter the specificity.
+                                </p>
+                                <p>
+                                    If you change the first line of CSS in this example to read <code>@layer secondLayer, firstLayer;</code>
+                                    , you will change the layer declaration order, and all the important styles from <code>firstLayer</code>
+                                    will be changed to their respective values in <code>secondLayer</code>
+                                    .
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="scoping_proximity">
+                            <h3 id="scoping_proximity">
+                                <a href="#scoping_proximity">Scoping proximity</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    Another advanced topic that you might not use right away but may need to understand in the future is 
+                                    <a href="/en-US/docs/Web/CSS/@scope">
+                                        <code>@scope</code>
+                                    </a>
+                                    . This is an <a href="/en-US/docs/Web/CSS/At-rule">at-rule</a>
+                                    that enables you to create a block of rules that will only apply to a specific subsection of the HTML on your page. For example, you can specify styles that will only apply to 
+                                    <a href="/en-US/docs/Web/HTML/Element/img">
+                                        <code>&lt;img &gt;</code>
+                                    </a>
+                                    elements when they're nested inside elements that have a <code>feature</code>
+                                    class:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="DfpXgX+2p/29xMmkrYAn4TRtPT3MVOEfl85qAPQCLZ4=">
+                                        <code>
+                                            <span class="token atrule">
+                                                <span class="token rule">@scope</span>
+                                                <span class="token punctuation">(</span>
+                                                .feature<span class="token punctuation">)</span>
+                                            </span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token selector">img</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">border</span>
+                                            <span class="token punctuation">:</span>
+                                            2px solid black<span class="token punctuation">;</span>
+                                            <span class="token property">display</span>
+                                            <span class="token punctuation">:</span>
+                                            block<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    <strong>Scoping proximity</strong>
+                                    is the mechanism that resolves conflicts between scoped elements. Scoping proximity states that when two scopes have conflicting styles, the style with the smallest number of hops up the DOM tree hierarchy to the scope root wins. See 
+                                    <a href="/en-US/docs/Web/CSS/@scope#how_scope_conflicts_are_resolved">
+                                        How <code>@scope</code>
+                                        conflicts are resolved
+                                    </a>
+                                    for more details and an example.
+                                </p>
+                                <div class="notecard note" id="sect8">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        Scoping proximity overrules source order but is itself overridden by other, higher-priority criteria such as <a href="/en-US/docs/Web/CSS/important">importance</a>
+                                        , <a href="/en-US/docs/Learn/CSS/Building_blocks/Cascade_layers">layers</a>
+                                        , and <a href="/en-US/docs/Web/CSS/Specificity">specificity</a>
+                                        .
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="test_your_skills!">
+                            <h2 id="test_your_skills!">
+                                <a href="#test_your_skills!">Test your skills!</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    You've reached the end of this article, but can you remember the most important information? You can find some further tests to verify that you've retained this information before you move on — see <a href="/en-US/docs/Learn/CSS/Building_blocks/Cascade_tasks">Test your skills: The Cascade</a>
+                                    .
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="summary">
+                            <h2 id="summary">
+                                <a href="#summary">Summary</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    If you understood most of this article, then well done — you've started getting familiar with the fundamental mechanics of CSS. Next up, we'll take a deeper look at <a href="/en-US/docs/Learn/CSS/Building_blocks/Cascade_layers">Cascade Layers</a>
+                                    .
+                                </p>
+                                <p>If you didn't fully understand the cascade, specificity, and inheritance, then don't worry! This is definitely the most complicated thing we've covered so far in the course and is something that even professional web developers sometimes find tricky. We'd advise that you return to this article a few times as you continue through the course, and keep thinking about it.</p>
+                                <p>Refer back here if you start to come across strange issues with styles not applying as expected. It could be a specificity issue.</p>
+                                
+                            </div>
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
+                    </div>
+                    
                                         
                 </div>
             </main>

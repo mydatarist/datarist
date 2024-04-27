@@ -1172,38 +1172,1669 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
-                        </div>
-                    </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
+                    
+                    
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Beginner &#x27;s guide to media queries</h1>
+                        </header>
+                        <div class="section-content">
+                            <ul class="prev-next">
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design">
+                                        <span class="button-wrap">Previous </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/CSS/CSS_layout">
+                                        <span class="button-wrap">Overview: CSS layout</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/CSS/CSS_layout/Legacy_Layout_Methods">
+                                        <span class="button-wrap">Next  </span>
+                                    </a>
+                                </li>
                             </ul>
-                        </nav>
-                    </footer>
+                            <p>
+                                The <strong>CSS Media Query</strong>
+                                gives you a way to apply CSS only when the browser and device environment matches a rule that you specify, for example "viewport is wider than 480 pixels". Media queries are a key part of responsive web design, as they allow you to create different layouts depending on the size of the viewport, but they can also be used to detect other things about the environment your site is running on, for example whether the user is using a touchscreen rather than a mouse. In this lesson you will first learn about the syntax used in media queries, and then move on to use them in a working example showing how a simple design might be made responsive.
+                            </p>
+                            <figure class="table-container">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Prerequisites:</th>
+                                            <td>
+                                                HTML basics (study
+    <a href="/en-US/docs/Learn/HTML/Introduction_to_HTML">Introduction to HTML</a>
+                                                ), and an idea of how CSS works (study
+    <a href="/en-US/docs/Learn/CSS/First_steps">CSS first steps</a>
+                                                and
+    <a href="/en-US/docs/Learn/CSS/Building_blocks">CSS building blocks</a>
+                                                .)
+  
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Objective:</th>
+                                            <td>To understand how to use media queries, and the most common approach for
+    using them to create responsive designs.
+  </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </figure>
+                        </div>
+                        <section aria-labelledby="media_query_basics">
+                            <h2 id="media_query_basics">
+                                <a href="#media_query_basics">Media Query Basics</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>The simplest media query syntax looks like this:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="kNW8NOXjJNZDxK5Jj5uYb/5e/c5FUlDsl4qdFA+ZewA=">
+                                        <code>
+                                            <span class="token atrule">
+                                                <span class="token rule">@media</span>
+                                                media-type <span class="token keyword">and</span>
+                                                <span class="token punctuation">(</span>
+                                                media-feature-rule<span class="token punctuation">)</span>
+                                            </span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token comment">/* CSS rules go here */</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>It consists of:</p>
+                                <ul>
+                                    <li>A media type, which tells the browser what kind of media this code is for (e.g. print, or screen).</li>
+                                    <li>A media expression, which is a rule, or test that must be passed for the contained CSS to be applied.</li>
+                                    <li>A set of CSS rules that will be applied if the test passes and the media type is correct.</li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section aria-labelledby="media_types">
+                            <h3 id="media_types">
+                                <a href="#media_types">Media types</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>The possible types of media you can specify are:</p>
+                                <ul>
+                                    <li>
+                                        <code>all</code>
+                                    </li>
+                                    <li>
+                                        <code>print</code>
+                                    </li>
+                                    <li>
+                                        <code>screen</code>
+                                    </li>
+                                </ul>
+                                <p>The following media query will only set the body to 12pt if the page is printed. It will not apply when the page is loaded in a browser.</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="fFE/6jyksEOwabXgO9q7vMy7+X0Ug6gimPbAU1lAM6Y=">
+                                        <code>
+                                            <span class="token atrule">
+                                                <span class="token rule">@media</span>
+                                                print
+                                            </span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token selector">body</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">font-size</span>
+                                            <span class="token punctuation">:</span>
+                                            12pt<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="notecard note" id="sect1">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        The media type here is different from the so-called <a href="/en-US/docs/Glossary/MIME_type">MIME type</a>
+                                        .
+                                    </p>
+                                </div>
+                                <div class="notecard note" id="sect2">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        There were a number of other media types defined in the Level 3 Media Queries specification; these have been deprecated and should be avoided.
+                                    </p>
+                                </div>
+                                <div class="notecard note" id="sect3">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        Media types are optional; if you do not indicate a media type in your media query, then the media query will default to being for all media types.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="media_feature_rules">
+                            <h3 id="media_feature_rules">
+                                <a href="#media_feature_rules">Media feature rules</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>After specifying the type, you can then target a media feature with a rule.</p>
+                                <h4 id="width_and_height">Width and height</h4>
+                                <p>
+                                    The feature we tend to detect most often in order to create responsive designs (and that has widespread browser support) is viewport width, and we can apply CSS if the viewport is above or below a certain width — or an exact width — using the <code>min-width</code>
+                                    , <code>max-width</code>
+                                    , and <code>width</code>
+                                    media features.
+                                </p>
+                                <p>These features are used to create layouts that respond to different screen sizes. For example, to change the body text color to red if the viewport is exactly 600 pixels, you would use the following media query.</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="rbrX/B9cPr+WJBCvLXGUnaSlc7Igrq1T2BvtdPeTc8M=">
+                                        <code>
+                                            <span class="token atrule">
+                                                <span class="token rule">@media</span>
+                                                screen <span class="token keyword">and</span>
+                                                <span class="token punctuation">(</span>
+                                                <span class="token property">width</span>
+                                                <span class="token punctuation">:</span>
+                                                600px<span class="token punctuation">)</span>
+                                            </span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token selector">body</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">color</span>
+                                            <span class="token punctuation">:</span>
+                                            red<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    <a href="https://mdn.github.io/css-examples/learn/media-queries/width.html" class="external" target="_blank">Open this example</a>
+                                    in the browser, or <a href="https://github.com/mdn/css-examples/blob/main/learn/media-queries/width.html" class="external" target="_blank">view the source</a>
+                                    .
+                                </p>
+                                <p>
+                                    The <code>width</code>
+                                    (and <code>height</code>
+                                    ) media features can be used as ranges, and therefore be prefixed with <code>min-</code>
+                                    or <code>max-</code>
+                                    to indicate that the given value is a minimum, or a maximum. For example, to make the color blue if the viewport is 600 pixels or narrower, use <code>max-width</code>
+                                    :
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="oaCzCLWpUbMkD2IhRsbBk7GKo0XxbtEaniqjqnXavVk=">
+                                        <code>
+                                            <span class="token atrule">
+                                                <span class="token rule">@media</span>
+                                                screen <span class="token keyword">and</span>
+                                                <span class="token punctuation">(</span>
+                                                <span class="token property">max-width</span>
+                                                <span class="token punctuation">:</span>
+                                                600px<span class="token punctuation">)</span>
+                                            </span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token selector">body</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">color</span>
+                                            <span class="token punctuation">:</span>
+                                            blue<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    <a href="https://mdn.github.io/css-examples/learn/media-queries/max-width.html" class="external" target="_blank">Open this example</a>
+                                    in the browser, or <a href="https://github.com/mdn/css-examples/blob/main/learn/media-queries/max-width.html" class="external" target="_blank">view the source</a>
+                                    .
+                                </p>
+                                <p>
+                                    In practice, using minimum or maximum values is much more useful for responsive design so you will rarely see <code>width</code>
+                                    or <code>height</code>
+                                    used alone.
+                                </p>
+                                <p>
+                                    There are many other media features that you can test for, although some of the newer features introduced in Levels 4 and 5 of the media queries specification have limited browser support. Each feature is documented on MDN along with browser support information, and you can find a complete list at <a href="/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries#syntax">Using Media Queries: Syntax</a>
+                                    .
+                                </p>
+                                <h4 id="orientation">Orientation</h4>
+                                <p>
+                                    One well-supported media feature is <code>orientation</code>
+                                    , which allows us to test for portrait or landscape mode. To change the body text color if the device is in landscape orientation, use the following media query.
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="328V5YdoLTi8sLGDTbR7YNRskoCpkRkZ22W+AUUV2OY=">
+                                        <code>
+                                            <span class="token atrule">
+                                                <span class="token rule">@media</span>
+                                                <span class="token punctuation">(</span>
+                                                <span class="token property">orientation</span>
+                                                <span class="token punctuation">:</span>
+                                                landscape<span class="token punctuation">)</span>
+                                            </span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token selector">body</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">color</span>
+                                            <span class="token punctuation">:</span>
+                                            rebeccapurple<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    <a href="https://mdn.github.io/css-examples/learn/media-queries/orientation.html" class="external" target="_blank">Open this example</a>
+                                    in the browser, or <a href="https://github.com/mdn/css-examples/blob/main/learn/media-queries/orientation.html" class="external" target="_blank">view the source</a>
+                                    .
+                                </p>
+                                <p>A standard desktop view has a landscape orientation, and a design that works well in this orientation may not work as well when viewed on a phone or tablet in portrait mode. Testing for orientation can help you to create a layout which is optimized for devices in portrait mode.</p>
+                                <h4 id="use_of_pointing_devices">Use of pointing devices</h4>
+                                <p>
+                                    As part of the Level 4 specification, the <code>hover</code>
+                                    media feature was introduced. This feature means you can test if the user has the ability to hover over an element, which essentially means they are using some kind of pointing device; touchscreen and keyboard navigation does not hover.
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="QZyG/s87sTz3d8w8QtYKF9jhXfpVVNYPDlEV9P4SSXs=">
+                                        <code>
+                                            <span class="token atrule">
+                                                <span class="token rule">@media</span>
+                                                <span class="token punctuation">(</span>
+                                                <span class="token property">hover</span>
+                                                <span class="token punctuation">:</span>
+                                                hover<span class="token punctuation">)</span>
+                                            </span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token selector">body</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">color</span>
+                                            <span class="token punctuation">:</span>
+                                            rebeccapurple<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    <a href="https://mdn.github.io/css-examples/learn/media-queries/hover.html" class="external" target="_blank">Open this example</a>
+                                    in the browser, or <a href="https://github.com/mdn/css-examples/blob/main/learn/media-queries/hover.html" class="external" target="_blank">view the source</a>
+                                    .
+                                </p>
+                                <p>If we know the user cannot hover, we could display some interactive features by default. For users who can hover, we might choose to make them available when a link is hovered over.</p>
+                                <p>
+                                    Also in Level 4 is the <code>pointer</code>
+                                    media feature. This takes three possible values, <code>none</code>
+                                    , <code>fine</code>
+                                    and <code>coarse</code>
+                                    . A <code>fine</code>
+                                    pointer is something like a mouse or trackpad. It enables the user to precisely target a small area. A <code>coarse</code>
+                                    pointer is your finger on a touchscreen. The value <code>none</code>
+                                    means the user has no pointing device; perhaps they are navigating with the keyboard only or with voice commands.
+                                </p>
+                                <p>
+                                    Using <code>pointer</code>
+                                    can help you to design better interfaces that respond to the type of interaction a user is having with a screen. For example, you could create larger hit areas if you know that the user is interacting with the device as a touchscreen.
+                                </p>
+                                <h4 id="using_ranged_syntax">Using ranged syntax</h4>
+                                <p>One common case is to check if the viewport width is between two values:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="DcmQMTLMYUsL8k5bVW2AxodQ3PzPtdodkBSIaERCWrc=">
+                                        <code>
+                                            <span class="token atrule">
+                                                <span class="token rule">@media</span>
+                                                <span class="token punctuation">(</span>
+                                                <span class="token property">min-width</span>
+                                                <span class="token punctuation">:</span>
+                                                30em<span class="token punctuation">)</span>
+                                                <span class="token keyword">and</span>
+                                                <span class="token punctuation">(</span>
+                                                <span class="token property">max-width</span>
+                                                <span class="token punctuation">:</span>
+                                                50em<span class="token punctuation">)</span>
+                                            </span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token comment">/* … */</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>If you want to improve the readability of this, you can use "range" syntax:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="3ohFysTlxcCyS1UrF6EMMWYCBGt6uSayIYTDIM9j42Y=">
+                                        <code>
+                                            <span class="token atrule">
+                                                <span class="token rule">@media</span>
+                                                <span class="token punctuation">(</span>
+                                                30em &lt;= width &lt;= 50em<span class="token punctuation">)</span>
+                                            </span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token comment">/* … */</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    So in this case, styles are applied when the viewport width is between <code>30em</code>
+                                    and <code>50em</code>
+                                    .
+For more information on using this style, see <a href="/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries#syntax_improvements_in_level_4">Using Media Queries: Syntax improvements in Level 4</a>
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="more_complex_media_queries">
+                            <h2 id="more_complex_media_queries">
+                                <a href="#more_complex_media_queries">More complex media queries</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>With all of the different possible media queries, you may want to combine them, or create lists of queries — any of which could be matched.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="and_logic_in_media_queries">
+                            <h3 id="and_logic_in_media_queries">
+                                <a href="#and_logic_in_media_queries">"and" logic in media queries</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    To combine media features you can use <code>and</code>
+                                    in much the same way as we have used <code>and</code>
+                                    above to combine a media type and feature. For example, we might want to test for a <code>min-width</code>
+                                    and <code>orientation</code>
+                                    . The body text will only be blue if the viewport is at least 600 pixels wide and the device is in landscape mode.
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="paNd2/MjFTYoY/QXd6De7DY0dZxI0zhWemEHCXrPngw=">
+                                        <code>
+                                            <span class="token atrule">
+                                                <span class="token rule">@media</span>
+                                                screen <span class="token keyword">and</span>
+                                                <span class="token punctuation">(</span>
+                                                <span class="token property">min-width</span>
+                                                <span class="token punctuation">:</span>
+                                                600px<span class="token punctuation">)</span>
+                                                <span class="token keyword">and</span>
+                                                <span class="token punctuation">(</span>
+                                                <span class="token property">orientation</span>
+                                                <span class="token punctuation">:</span>
+                                                landscape<span class="token punctuation">)</span>
+                                            </span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token selector">body</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">color</span>
+                                            <span class="token punctuation">:</span>
+                                            blue<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    <a href="https://mdn.github.io/css-examples/learn/media-queries/and.html" class="external" target="_blank">Open this example</a>
+                                    in the browser, or <a href="https://github.com/mdn/css-examples/blob/main/learn/media-queries/and.html" class="external" target="_blank">view the source</a>
+                                    .
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="or_logic_in_media_queries">
+                            <h3 id="or_logic_in_media_queries">
+                                <a href="#or_logic_in_media_queries">"or" logic in media queries</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>If you have a set of queries, any of which could match, then you can comma separate these queries. In the below example the text will be blue if the viewport is at least 600 pixels wide OR the device is in landscape orientation. If either of these things are true the query matches.</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="BmNFZMzWGVEEUL10YxtOl2Ho9sJgDKmKqlWDRS8Hjjo=">
+                                        <code>
+                                            <span class="token atrule">
+                                                <span class="token rule">@media</span>
+                                                screen <span class="token keyword">and</span>
+                                                <span class="token punctuation">(</span>
+                                                <span class="token property">min-width</span>
+                                                <span class="token punctuation">:</span>
+                                                600px<span class="token punctuation">)</span>
+                                                <span class="token punctuation">,</span>
+                                                screen <span class="token keyword">and</span>
+                                                <span class="token punctuation">(</span>
+                                                <span class="token property">orientation</span>
+                                                <span class="token punctuation">:</span>
+                                                landscape<span class="token punctuation">)</span>
+                                            </span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token selector">body</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">color</span>
+                                            <span class="token punctuation">:</span>
+                                            blue<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    <a href="https://mdn.github.io/css-examples/learn/media-queries/or.html" class="external" target="_blank">Open this example</a>
+                                    in the browser, or <a href="https://github.com/mdn/css-examples/blob/main/learn/media-queries/or.html" class="external" target="_blank">view the source</a>
+                                    .
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="not_logic_in_media_queries">
+                            <h3 id="not_logic_in_media_queries">
+                                <a href="#not_logic_in_media_queries">"not" logic in media queries</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    You can negate an entire media query by using the <code>not</code>
+                                    operator. This reverses the meaning of the entire media query. Therefore in this next example the text will only be blue if the orientation is portrait.
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="G0u9E1qg3EO5PU2XHZwul2wlRa5YmAsiIQWZHQUDNp8=">
+                                        <code>
+                                            <span class="token atrule">
+                                                <span class="token rule">@media</span>
+                                                <span class="token keyword">not</span>
+                                                all <span class="token keyword">and</span>
+                                                <span class="token punctuation">(</span>
+                                                <span class="token property">orientation</span>
+                                                <span class="token punctuation">:</span>
+                                                landscape<span class="token punctuation">)</span>
+                                            </span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token selector">body</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">color</span>
+                                            <span class="token punctuation">:</span>
+                                            blue<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    <a href="https://mdn.github.io/css-examples/learn/media-queries/not.html" class="external" target="_blank">Open this example</a>
+                                    in the browser, or <a href="https://github.com/mdn/css-examples/blob/main/learn/media-queries/not.html" class="external" target="_blank">view the source</a>
+                                    .
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="how_to_choose_breakpoints">
+                            <h2 id="how_to_choose_breakpoints">
+                                <a href="#how_to_choose_breakpoints">How to choose breakpoints</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>In the early days of responsive design, many designers would attempt to target very specific screen sizes. Lists of the sizes of the screens of popular phones and tablets were published in order that designs could be created to neatly match those viewports.</p>
+                                <p>
+                                    There are now far too many devices, with a huge variety of sizes, to make that feasible. This means that instead of targeting specific sizes for all designs, a better approach is to change the design at the size where the content starts to break in some way. Perhaps the line lengths become far too long, or a boxed out sidebar gets squashed and hard to read. That's the point at which you want to use a media query to change the design to a better one for the space you have available. This approach means that it doesn't matter what the exact dimensions are of the device being used, every range is catered for. The points at which a media query is introduced are known as <strong>breakpoints</strong>
+                                    .
+                                </p>
+                                <p>
+                                    The <a href="https://firefox-source-docs.mozilla.org/devtools-user/responsive_design_mode/index.html" class="external" target="_blank">Responsive Design Mode</a>
+                                    in Firefox DevTools is very useful for working out where these breakpoints should go. You can easily make the viewport smaller and larger to see where the content would be improved by adding a media query and tweaking the design.
+                                </p>
+                                <p>
+                                    <img src="/en-US/docs/Learn/CSS/CSS_layout/Media_queries/rwd-mode.png" alt="A screenshot of a layout in a mobile view in Firefox DevTools." width="1443" height="917" loading="lazy">
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="active_learning_mobile_first_responsive_design">
+                            <h2 id="active_learning_mobile_first_responsive_design">
+                                <a href="#active_learning_mobile_first_responsive_design">Active learning: mobile first responsive design</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    Broadly, you can take two approaches to a responsive design. You can start with your desktop or widest view and then add breakpoints to move things around as the viewport becomes smaller, or you can start with the smallest view and add layout as the viewport becomes larger. This second approach is described as <strong>mobile first</strong>
+                                    responsive design and is quite often the best approach to follow.
+                                </p>
+                                <p>The view for the very smallest devices is quite often a simple single column of content, much as it appears in normal flow. This means that you probably don't need to do a lot of layout for small devices — order your source well and you will have a readable layout by default.</p>
+                                <p>The below walkthrough takes you through this approach with a very simple layout. In a production site you are likely to have more things to adjust within your media queries, however the approach would be exactly the same.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="walkthrough_a_simple_mobile-first_layout">
+                            <h3 id="walkthrough_a_simple_mobile-first_layout">
+                                <a href="#walkthrough_a_simple_mobile-first_layout">Walkthrough: a simple mobile-first layout</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>Our starting point is an HTML document with some CSS applied to add background colors to the various parts of the layout.</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="K9csM7ara1u0RlCMisu9OS/P0RROTYUFIa5T9Rxci0I=">
+                                        <code>
+                                            <span class="token selector">*</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">box-sizing</span>
+                                            <span class="token punctuation">:</span>
+                                            border-box<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token selector">body</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">width</span>
+                                            <span class="token punctuation">:</span>
+                                            90%<span class="token punctuation">;</span>
+                                            <span class="token property">margin</span>
+                                            <span class="token punctuation">:</span>
+                                            2em auto<span class="token punctuation">;</span>
+                                            <span class="token property">font</span>
+                                            <span class="token punctuation">:</span>
+                                            1em/1.3 Arial<span class="token punctuation">,</span>
+                                            Helvetica<span class="token punctuation">,</span>
+                                            sans-serif<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token selector">a:link,
+a:visited</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">color</span>
+                                            <span class="token punctuation">:</span>
+                                            #333<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token selector">nav ul,
+aside ul</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">list-style</span>
+                                            <span class="token punctuation">:</span>
+                                            none<span class="token punctuation">;</span>
+                                            <span class="token property">padding</span>
+                                            <span class="token punctuation">:</span>
+                                            0<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token selector">nav a:link,
+nav a:visited</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">background-color</span>
+                                            <span class="token punctuation">:</span>
+                                            <span class="token function">rgb</span>
+                                            <span class="token punctuation">(</span>
+                                            207 232 220 / 20%<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token property">border</span>
+                                            <span class="token punctuation">:</span>
+                                            2px solid <span class="token function">rgb</span>
+                                            <span class="token punctuation">(</span>
+                                            79 185 227<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token property">text-decoration</span>
+                                            <span class="token punctuation">:</span>
+                                            none<span class="token punctuation">;</span>
+                                            <span class="token property">display</span>
+                                            <span class="token punctuation">:</span>
+                                            block<span class="token punctuation">;</span>
+                                            <span class="token property">padding</span>
+                                            <span class="token punctuation">:</span>
+                                            10px<span class="token punctuation">;</span>
+                                            <span class="token property">color</span>
+                                            <span class="token punctuation">:</span>
+                                            #333<span class="token punctuation">;</span>
+                                            <span class="token property">font-weight</span>
+                                            <span class="token punctuation">:</span>
+                                            bold<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token selector">nav a:hover</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">background-color</span>
+                                            <span class="token punctuation">:</span>
+                                            <span class="token function">rgb</span>
+                                            <span class="token punctuation">(</span>
+                                            207 232 220 / 70%<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token selector">.related</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">background-color</span>
+                                            <span class="token punctuation">:</span>
+                                            <span class="token function">rgb</span>
+                                            <span class="token punctuation">(</span>
+                                            79 185 227 / 30%<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token property">border</span>
+                                            <span class="token punctuation">:</span>
+                                            1px solid <span class="token function">rgb</span>
+                                            <span class="token punctuation">(</span>
+                                            79 185 227<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token property">padding</span>
+                                            <span class="token punctuation">:</span>
+                                            10px<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token selector">.sidebar</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">background-color</span>
+                                            <span class="token punctuation">:</span>
+                                            <span class="token function">rgb</span>
+                                            <span class="token punctuation">(</span>
+                                            207 232 220 / 50%<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token property">padding</span>
+                                            <span class="token punctuation">:</span>
+                                            10px<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token selector">article</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">margin-bottom</span>
+                                            <span class="token punctuation">:</span>
+                                            1em<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>We've made no layout changes, however the source of the document is ordered in a way that makes the content readable. This is an important first step and one which ensures that if the content were to be read out by a screen reader, it would be understandable.</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">html</span>
+                                    </div>
+                                    <pre class="brush: html notranslate" data-signature="NVC0H+prYNrkyeXVG3jsQUe7TLsOeVQmGZWQ3AAccX4=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    body
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    div
+                                                </span>
+                                                <span class="token attr-name">class</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    wrapper<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    header
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    nav
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    ul
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    a
+                                                </span>
+                                                <span class="token attr-name">href</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    <span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            About
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    a
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    a
+                                                </span>
+                                                <span class="token attr-name">href</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    <span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Contact
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    a
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    a
+                                                </span>
+                                                <span class="token attr-name">href</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    <span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Meet the team
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    a
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    a
+                                                </span>
+                                                <span class="token attr-name">href</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    <span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Blog
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    a
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    ul
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    nav
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    header
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    main
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    article
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    div
+                                                </span>
+                                                <span class="token attr-name">class</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    content<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    h1
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Veggies!
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    h1
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            …
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    div
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    aside
+                                                </span>
+                                                <span class="token attr-name">class</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    related<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            …
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    aside
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    article
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    aside
+                                                </span>
+                                                <span class="token attr-name">class</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    sidebar<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    h2
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            External vegetable-based links
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    h2
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    ul
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            …
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    ul
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    aside
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    main
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    footer
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token entity named-entity" title="©">&amp;copy;</span>
+                                            2019
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    footer
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    div
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    body
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>This simple layout also works well on mobile. If we view the layout in Responsive Design Mode in DevTools we can see that it works pretty well as a straightforward mobile view of the site.</p>
+                                <p>
+                                    <a href="https://mdn.github.io/css-examples/learn/media-queries/step1.html" class="external" target="_blank">Open step 1</a>
+                                    in the browser, or <a href="https://github.com/mdn/css-examples/blob/main/learn/media-queries/step1.html" class="external" target="_blank">view the source</a>
+                                    .
+                                </p>
+                                <p>
+                                    <strong>
+                                        If you want to follow on and implement this example as we go, make a local copy of <a href="https://github.com/mdn/css-examples/blob/main/learn/media-queries/step1.html" class="external" target="_blank">step1.html</a>
+                                        on your computer.
+                                    </strong>
+                                </p>
+                                <p>From this point, start to drag the Responsive Design Mode view wider until you can see that the line lengths are becoming quite long, and we have space for the navigation to display in a horizontal line. This is where we'll add our first media query. We'll use ems, as this will mean that if the user has increased their text size, the breakpoint will happen at a similar line-length but wider viewport, than someone with a smaller text size.</p>
+                                <p>
+                                    <strong>Add the below code into the bottom of your step1.html CSS.</strong>
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="BbNcrQgaD28jlx7UMZxGBNuChN+IMA1kogrhVN/1MUI=">
+                                        <code>
+                                            <span class="token atrule">
+                                                <span class="token rule">@media</span>
+                                                screen <span class="token keyword">and</span>
+                                                <span class="token punctuation">(</span>
+                                                <span class="token property">min-width</span>
+                                                <span class="token punctuation">:</span>
+                                                40em<span class="token punctuation">)</span>
+                                            </span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token selector">article</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">display</span>
+                                            <span class="token punctuation">:</span>
+                                            grid<span class="token punctuation">;</span>
+                                            <span class="token property">grid-template-columns</span>
+                                            <span class="token punctuation">:</span>
+                                            3fr 1fr<span class="token punctuation">;</span>
+                                            <span class="token property">column-gap</span>
+                                            <span class="token punctuation">:</span>
+                                            20px<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token selector">nav ul</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">display</span>
+                                            <span class="token punctuation">:</span>
+                                            flex<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token selector">nav li</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">flex</span>
+                                            <span class="token punctuation">:</span>
+                                            1<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>This CSS gives us a two-column layout inside the article, of the article content and related information in the aside element. We have also used flexbox to put the navigation into a row.</p>
+                                <p>
+                                    <a href="https://mdn.github.io/css-examples/learn/media-queries/step2.html" class="external" target="_blank">Open step 2</a>
+                                    in the browser, or <a href="https://github.com/mdn/css-examples/blob/main/learn/media-queries/step2.html" class="external" target="_blank">view the source</a>
+                                    .
+                                </p>
+                                <p>
+                                    Let's continue to expand the width until we feel there is enough room for the sidebar to also form a new column. Inside a media query we'll make the main element into a two column grid. We then need to remove the 
+                                    <a href="/en-US/docs/Web/CSS/margin-bottom">
+                                        <code>margin-bottom</code>
+                                    </a>
+                                    on the article in order that the two sidebars align with each other, and we'll add a 
+                                    <a href="/en-US/docs/Web/CSS/border">
+                                        <code>border</code>
+                                    </a>
+                                    to the top of the footer. Typically these small tweaks are the kind of thing you will do to make the design look good at each breakpoint.
+                                </p>
+                                <p>
+                                    <strong>Again, add the below code into the bottom of your step1.html CSS.</strong>
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="Nwqvkur0sBNQ9b0fzgbNK2cd0qX+aaEZHVTDkZAQQPk=">
+                                        <code>
+                                            <span class="token atrule">
+                                                <span class="token rule">@media</span>
+                                                screen <span class="token keyword">and</span>
+                                                <span class="token punctuation">(</span>
+                                                <span class="token property">min-width</span>
+                                                <span class="token punctuation">:</span>
+                                                70em<span class="token punctuation">)</span>
+                                            </span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token selector">main</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">display</span>
+                                            <span class="token punctuation">:</span>
+                                            grid<span class="token punctuation">;</span>
+                                            <span class="token property">grid-template-columns</span>
+                                            <span class="token punctuation">:</span>
+                                            3fr 1fr<span class="token punctuation">;</span>
+                                            <span class="token property">column-gap</span>
+                                            <span class="token punctuation">:</span>
+                                            20px<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token selector">article</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">margin-bottom</span>
+                                            <span class="token punctuation">:</span>
+                                            0<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token selector">footer</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">border-top</span>
+                                            <span class="token punctuation">:</span>
+                                            1px solid #ccc<span class="token punctuation">;</span>
+                                            <span class="token property">margin-top</span>
+                                            <span class="token punctuation">:</span>
+                                            2em<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    <a href="https://mdn.github.io/css-examples/learn/media-queries/step3.html" class="external" target="_blank">Open step 3</a>
+                                    in the browser, or <a href="https://github.com/mdn/css-examples/blob/main/learn/media-queries/step3.html" class="external" target="_blank">view the source</a>
+                                    .
+                                </p>
+                                <p>If you look at the final example at different widths you can see how the design responds and works as a single column, two columns, or three columns, depending on the available width. This is a very simple example of a mobile first responsive design.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="the_viewport_meta_tag">
+                            <h2 id="the_viewport_meta_tag">
+                                <a href="#the_viewport_meta_tag">The viewport meta tag</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>If you look at the HTML source in the above example, you'll see the following element included in the head of the document:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">html</span>
+                                    </div>
+                                    <pre class="brush: html notranslate" data-signature="1GIW5nHluh8KB/9oNkqPdgZR0KejZCeYXMu0fLIlnMA=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    meta
+                                                </span>
+                                                <span class="token attr-name">name</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    viewport<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">content</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    width=device-width,initial-scale=1<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">/&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    This is the <a href="/en-US/docs/Web/HTML/Viewport_meta_tag">viewport meta tag</a>
+                                    — it exists as a way to control how mobile browsers render content. This is needed because by default, most mobile browsers lie about their viewport width. Non-responsive sites commonly look really bad when rendered in a narrow viewport, so mobile browsers usually render the site with a viewport width wider than the real device width by default (usually 980 pixels), and then shrink the rendered result so that it fits in the display.
+                                </p>
+                                <p>
+                                    This is all well and good, but it means that responsive sites are not going to work as expected. If the viewport width is reported as 980 pixels, then mobile layouts (for example created using a media query of <code>@media screen and (max-width: 600px) { }</code>
+                                    ) are not going to render as expected.
+                                </p>
+                                <p>To remedy this, including a viewport meta tag like the one above on your page tells the browser "don't render the content with a 980 pixel viewport — render it using the real device width instead, and set a default initial scale level for better consistency." The media queries will then kick in as expected.</p>
+                                <p>
+                                    There are a number of other options you can put inside the <code>content</code>
+                                    attribute of the viewport meta tag — see <a href="/en-US/docs/Web/HTML/Viewport_meta_tag">Using the viewport meta tag to control layout on mobile browsers</a>
+                                    for more details.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="do_you_really_need_a_media_query">
+                            <h2 id="do_you_really_need_a_media_query">
+                                <a href="#do_you_really_need_a_media_query">Do you really need a media query?</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>Flexbox, Grid, and multi-column layout all give you ways to create flexible and even responsive components without the need for a media query. It's always worth considering whether these layout methods can achieve what you want without adding media queries. For example, you might want a set of cards that are at least 200 pixels wide, with as many of these 200 pixels as will fit into the main article. This can be achieved with grid layout, using no media queries at all.</p>
+                                <p>This could be achieved using the following:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">html</span>
+                                    </div>
+                                    <pre class="brush: html notranslate" data-signature="35H1J7FkndkcEy8H3smKX7I9+9OsWJUeH8+xid7i6Uk=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    ul
+                                                </span>
+                                                <span class="token attr-name">class</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    grid<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    h2
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Card 1
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    h2
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            …
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    h2
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Card 2
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    h2
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            …
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    h2
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Card 3
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    h2
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            …
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    h2
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Card 4
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    h2
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            …
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    h2
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Card 5
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    h2
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            …
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    li
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    ul
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="ShDV90nEema/e7NgwbOtbMXR/PGSf7IA/nV6fDu2R40=">
+                                        <code>
+                                            <span class="token selector">.grid</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">list-style</span>
+                                            <span class="token punctuation">:</span>
+                                            none<span class="token punctuation">;</span>
+                                            <span class="token property">margin</span>
+                                            <span class="token punctuation">:</span>
+                                            0<span class="token punctuation">;</span>
+                                            <span class="token property">padding</span>
+                                            <span class="token punctuation">:</span>
+                                            0<span class="token punctuation">;</span>
+                                            <span class="token property">display</span>
+                                            <span class="token punctuation">:</span>
+                                            grid<span class="token punctuation">;</span>
+                                            <span class="token property">gap</span>
+                                            <span class="token punctuation">:</span>
+                                            20px<span class="token punctuation">;</span>
+                                            <span class="token property">grid-template-columns</span>
+                                            <span class="token punctuation">:</span>
+                                            <span class="token function">repeat</span>
+                                            <span class="token punctuation">(</span>
+                                            auto-fill<span class="token punctuation">,</span>
+                                            <span class="token function">minmax</span>
+                                            <span class="token punctuation">(</span>
+                                            200px<span class="token punctuation">,</span>
+                                            1fr<span class="token punctuation">)</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token selector">.grid li</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">border</span>
+                                            <span class="token punctuation">:</span>
+                                            1px solid #666<span class="token punctuation">;</span>
+                                            <span class="token property">padding</span>
+                                            <span class="token punctuation">:</span>
+                                            10px<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    <a href="https://mdn.github.io/css-examples/learn/media-queries/grid.html" class="external" target="_blank">Open the grid layout example</a>
+                                    in the browser, or <a href="https://github.com/mdn/css-examples/blob/main/learn/media-queries/grid.html" class="external" target="_blank">view the source</a>
+                                    .
+                                </p>
+                                <p>With the example open in your browser, make the screen wider and narrower to see the number of column tracks change. The nice thing about this method is that grid is not looking at the viewport width, but the width it has available for this component. It might seem strange to wrap up a section about media queries with a suggestion that you might not need one at all! However, in practice you will find that good use of modern layout methods, enhanced with media queries, will give the best results.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="test_your_skills!">
+                            <h2 id="test_your_skills!">
+                                <a href="#test_your_skills!">Test your skills!</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    You've reached the end of this article, but can you remember the most important information? You can find a test to verify that you've retained this information before you move on — see <a href="/en-US/docs/Learn/CSS/CSS_layout/rwd_skills">Test your skills: Responsive web design and media queries</a>
+                                    .
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="summary">
+                            <h2 id="summary">
+                                <a href="#summary">Summary</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>In this lesson you have learned about media queries, and also discovered how to use them in practice to create a mobile first responsive design.</p>
+                                <p>
+                                    You could use the starting point that we have created to test out more media queries. For example, perhaps you could change the size of the navigation if you detect that the visitor has a coarse pointer, using the <code>pointer</code>
+                                    media feature.
+                                </p>
+                                <p>You could also experiment with adding different components and seeing whether the addition of a media query, or using a layout method like flexbox or grid is the most appropriate way to make the components responsive. Very often there is no right or wrong way — you should experiment and see which works best for your design and content.</p>
+                                <ul class="prev-next">
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design">
+                                            <span class="button-wrap">Previous </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/CSS/CSS_layout">
+                                            <span class="button-wrap">Overview: CSS layout</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/CSS/CSS_layout/Legacy_Layout_Methods">
+                                            <span class="button-wrap">Next  </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
+                    </div>
+                    
                                         
                 </div>
             </main>

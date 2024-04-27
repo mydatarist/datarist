@@ -11,12 +11,12 @@
 </script>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Learn CSS Transitions for web development, and how to define transitions between states of an element and use transitions to improve user experience by providing visual feedback to user interaction.">
+        <meta name="description" content="Learn the tools for web app development. This guide will cover general best practices as demonstrated through tools and some tips on web app-specific abilities, such as installability, service workers and offline support from the start in detail.">
         <meta name="author" content="Datarist">
         <meta name="docsearch:language" content="en">
         <meta name="docsearch:version" content="1.0">
-        <title>Transitions — Learn web development — Datarist</title>
-        <link rel="canonical" href="https://datarist.com/learn/css/transitions/">
+        <title>Tools — Learn web development — Datarist</title>
+        <link rel="canonical" href="https://datarist.com/learn/apps/tools/">
         <link rel="preconnect" href="https://test.algolia.net" crossorigin>
         <script src="https://datarist.com/assets/js/color-modes.js"></script>
         <link href="https://datarist.com/assets/css/bootstrap.min.css" rel="stylesheet">
@@ -34,11 +34,11 @@
         <meta name="twitter:site" content="@datarist">
         <meta name="twitter:creator" content="@datarist">
         <meta name="twitter:title" content="Learn web development">
-        <meta name="twitter:description" content="Learn CSS Transitions for web development, and how to define transitions between states of an element and use transitions to improve user experience by providing visual feedback to user interaction.">
+        <meta name="twitter:description" content="Learn the tools for web app development. This guide will cover general best practices as demonstrated through tools and some tips on web app-specific abilities, such as installability, service workers and offline support from the start in detail.">
         <meta name="twitter:image" content="https://datarist.com/assets/brand/logo-social.png">
-        <meta property="og:url" content="https://datarist.com/learn/css/transitions/">
+        <meta property="og:url" content="https://datarist.com/learn/apps/tools/">
         <meta property="og:title" content="Learn web development">
-        <meta property="og:description" content="Learn CSS Transitions for web development, and how to define transitions between states of an element and use transitions to improve user experience by providing visual feedback to user interaction.">
+        <meta property="og:description" content="Learn the tools for web app development. This guide will cover general best practices as demonstrated through tools and some tips on web app-specific abilities, such as installability, service workers and offline support from the start in detail.">
         <meta property="og:type" content="article">
         <meta property="og:image" content="https://datarist.com/assets/brand/logo-social.png">
         <meta property="og:image:type" content="image/png">
@@ -605,7 +605,7 @@
                                             <a href="https://datarist.com/learn/javascript/text/" class="dd-links-link d-inline-block rounded " aria-current="true">Text</a>
                                         </li>
                                         <li>
-                                            <a href="https://datarist.com/learn/javascript/arrays/" class="dd-links-link d-inline-block rounded " aria-current="true">Arrays</a>
+                                            <a href="https://datarist.com/learn/javascript/array/" class="dd-links-link d-inline-block rounded " aria-current="true">Array</a>
                                         </li> 
                                         <li>
                                             <a href="https://datarist.com/learn/javascript/conditionals/" class="dd-links-link d-inline-block rounded " aria-current="true">Conditionals</a>
@@ -1143,9 +1143,9 @@
                             <a class="btn btn-sm btn-dd-light rounded-2" style="--bs-btn-font-size: .75rem;" href="https://codepen.io/datarist/" title="Edit on CodePen" target="_blank" rel="noopener">Edit on CodePen
             </a>
                         </div>
-                        <h1 class="dd-title mb-0" id="content">Transitions</h1>
+                        <h1 class="dd-title mb-0" id="content">Tools</h1>
                     </div>
-                    <p class="dd-lead">Learn CSS Transitions for web development, and how to define transitions between states of an element and use transitions to improve user experience by providing visual feedback to user interaction.</p>
+                    <p class="dd-lead">Learn the tools for web app development. This guide will cover general best practices as demonstrated through tools and some tips on web app-specific abilities, such as installability, service workers and offline support from the start in detail.</p>
                     <script async src="https://cdn.carbonads.com/carbon.js?serve=CKYIKKJL&placement=getbootstrapcom" id="_carbonads_js"></script>
                 </div>
                 <div class="dd-toc mt-3 mb-5 my-lg-0 mb-lg-5 px-sm-1 text-body-secondary">
@@ -1177,11 +1177,9 @@
 
 
 
-
-
                     <article class="main-page-content" lang="en-US">
                         <header>
-                            <h1>Transitions</h1>
+                            <h1>Enhancements</h1>
                         </header>
                         <div class="section-content">
                             <p>
@@ -1190,525 +1188,142 @@
                             </p>
                         </div>
                         <section aria-labelledby="the_story_of_your_first_website">
-                           
+                                      
                             
 
 
+                            <p>There are many enhancements that can improve the conversion and usage of your PWA.</p>
 
-
-
-                            <p>When interacting with a website, you might notice that many elements have <em>state</em>. For example, dropdowns can be in opened or closed states. Buttons might change color when focused or hovered. Modals appear and disappear.</p>
-
-                            <p>By default, CSS switches the style of these states instantly.</p>
+                            <h2 id="app_shortcuts" data-text="App shortcuts" tabindex="-1">App shortcuts</h2>
                             
-                            <p>Using CSS transitions, we can interpolate between the initial state and the target state of the element. The transition between the two enhances the user experience by providing visual direction, support, and hints about the cause and effect of the interaction.</p>
+                            <p><a href="https://w3c.github.io/manifest/#shortcuts-member">App shortcuts</a> is a static list of deep links to your PWA, they are written in your manifest. <a href="/learn/pwa/web-app-manifest">Web App Manifest spec</a>. It lets you define a list of shortcuts to different parts or features in your PWA, they accelerate navigation to frequently accessed sections.</p>
                             
-                            <aside class="key-term"><b>Key term: </b> <em>Interpolation</em> is the process of creating &quot;in-between&quot; steps that smoothly transition from one state to another. </aside>
+                            <p>App shortcuts are available on most desktop operating systems and Android with WebAPK, and they appear in a contextual menu on the app&#39;s icon in the home screen, dock, or taskbar, as in the following image:</p>
                             
-                            <figure>
-                            <div class="wd-embed" style="height: 320px; width: 100%">
+                            <p><img src="/static/learn/pwa/enhancements/image/app-shortcuts-android-m-f3c38d53a62a6.png" alt="App shortcuts in Android and macOS." width="800" height="280" srcset="https://web.dev/static/learn/pwa/enhancements/image/app-shortcuts-android-m-f3c38d53a62a6_36.png 36w,https://web.dev/static/learn/pwa/enhancements/image/app-shortcuts-android-m-f3c38d53a62a6_48.png 48w,https://web.dev/static/learn/pwa/enhancements/image/app-shortcuts-android-m-f3c38d53a62a6_72.png 72w,https://web.dev/static/learn/pwa/enhancements/image/app-shortcuts-android-m-f3c38d53a62a6_96.png 96w,https://web.dev/static/learn/pwa/enhancements/image/app-shortcuts-android-m-f3c38d53a62a6_480.png 480w,https://web.dev/static/learn/pwa/enhancements/image/app-shortcuts-android-m-f3c38d53a62a6_720.png 720w,https://web.dev/static/learn/pwa/enhancements/image/app-shortcuts-android-m-f3c38d53a62a6_856.png 856w,https://web.dev/static/learn/pwa/enhancements/image/app-shortcuts-android-m-f3c38d53a62a6_960.png 960w,https://web.dev/static/learn/pwa/enhancements/image/app-shortcuts-android-m-f3c38d53a62a6_1440.png 1440w,https://web.dev/static/learn/pwa/enhancements/image/app-shortcuts-android-m-f3c38d53a62a6_1920.png 1920w,https://web.dev/static/learn/pwa/enhancements/image/app-shortcuts-android-m-f3c38d53a62a6_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                            
+                            <p>To access this menu, users have to right-click or long-press on the PWA&#39;s icon.</p>
+                            
+                            <aside class="note"><b>Note: </b> App shortcuts are only available if the user installs your PWA. </aside>
+                            
+                            <aside class="warning"><b>Warning: </b> Once the user has installed your PWA, you can't add or remove shortcuts until you update your manifest on the server and the <a href="/learn/pwa/update">update algorithm</a> is triggered. </aside>
+                            
+                            <p>Shortcuts are defined in the <code translate="no" dir="ltr">shortcuts</code> member of the manifest. It takes an array of members with the following properties:</p>
+                            
+                            <dl>
+                            <dt><code translate="no" dir="ltr">name</code></dt>
+                            <dd>The text that will be shown to the user, typically in a context menu.</dd>
+                            <dt><code translate="no" dir="ltr">url</code></dt>
+                            <dd>The URL the PWA should load when the user starts it from this shortcut. It should be a URL within your PWA scope, and it should deep-link to the feature the <code translate="no" dir="ltr">name</code> or <code translate="no" dir="ltr">short_name</code> describes.</dd>
+                            <dt><code translate="no" dir="ltr">short_name</code></dt>
+                            <dd>(Optional) A shorter name used when there is not enough room to display the full value of the <code translate="no" dir="ltr">name</code> field.</dd>
+                            <dt><code translate="no" dir="ltr">description</code></dt>
+                            <dd>(Optional) A description of what this shortcut will do</dd>
+                            <dt><code translate="no" dir="ltr">icons</code></dt>
+                            <dd>(Optional) An array of icon objects with <code translate="no" dir="ltr">src</code>, <code translate="no" dir="ltr">type</code>, <code translate="no" dir="ltr">sizes</code>, and optional <code translate="no" dir="ltr">purpose</code> fields, describing what images should represent the shortcut</dd>
+                            </dl>
+                            
+                            <p>You should treat App shortcuts as a best-effort ability. That means that you can&#39;t rely on these shortcuts to appear consistently, and even if they appear, you don&#39;t know how many shortcuts will appear or if the platform will ignore the icons as its at the discretion of the browsers. A full discussion per platform is out of scope but below you have an idea of how it works on Android and desktop. The best way to deal with this uncertainty is to order the items by priority.</p>
+                            
+                            <aside class="caution"><b>Caution: </b> Chrome and Edge on desktop renders the first 10 items, while Chrome on Android only renders the first three shortcuts in the manifest's list, so it's better if you order them by priority. Chrome on Android also adds access to &quot;App Info&quot; and &quot;Site Settings&quot; from the menu after your custom list. </aside>
+                            
+                            <aside class="note"><b>Note: </b> If you publish your PWA to app catalogs and stores, you can convert the shortcuts in the manifest to platform-specific implementations using APIs specific to each operating system, such as Quick Actions on iOS and shortcuts on Android. <a href="https://github.com/GoogleChromeLabs/bubblewrap">BubbleWrap</a> supports App shortcuts for Android and ChromeOS and <a href="https://www.pwabuilder.com/">PWA Builder</a> for Android, ChromeOS, iOS and iPadOS. </aside>
+                            
+                            <p>The following code sample defines different app shortcuts you can try if you install the app on Android with Chrome or on desktop with Edge or Chrome.</p>
+                            
+                            <div class="wd-embed" style="height: 420px;">
                               <iframe
-                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
-                              loading="lazy"
-                              src="https://codepen.io/web-dot-dev/embed/zYzNrJV?height=320&theme-id=light&default-tab=result&editable=true"
-                              style="height: 100%; width: 100%; border: 0;"
-                              title="Pen zYzNrJV by web-dot-dev on Codepen"
-                            ></iframe>
+                                allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi"
+                                loading="lazy"
+                                src="https://glitch.com/embed/#!/embed/mlearn-pwa-app-shortcuts?attributionHidden=true&sidebarCollapsed=true&previewSize=100"
+                                style="height: 100%; width: 100%; border: 0;"
+                                title="mlearn-pwa-app-shortcuts on Glitch"
+                              ></iframe>
                             </div>
-                            </figure>
                             
-                            <h2 id="transition_properties" data-text="Transition properties" tabindex="-1">Transition properties</h2>
+                            <h2 id="ios_and_ipados" data-text="iOS and iPadOS" tabindex="-1">iOS and iPadOS</h2>
                             
-                            <p>
-                              
-                                
-                                
-                                
-                                
-                              
-                              
-                              
-                                
-                                  
-                                
-                              
-                                
-                                  
-                                
-                              
-                                
-                                  
-                                
-                               
+                            <p>When publishing PWAs, there are some enhancements that can improve the experience for users on Safari on iOS/iPadOS.</p>
                             
-                                
-                                
-                                  
-                                  <div class="wd-browser-compat">
-                                    <p>Browser Support</p>
-                                    <ul>
-                                      
-                              
-                              
-                                
-                                  
-                                    
-                                      
-                                      
-                                    
-                                  
-                                
-                                
-                              
-                              <li
-                                data-browser="chrome"
-                                data-support="yes">26</li>
-                              
-                              
-                                      
-                              
-                              
-                                
-                                  
-                                    
-                                      
-                                      
-                                    
-                                  
-                                
-                                
-                              
-                              <li
-                                data-browser="edge"
-                                data-support="yes">12</li>
-                              
-                              
-                                      
-                              
-                              
-                                
-                                  
-                                    
-                                      
-                                      
-                                    
-                                  
-                                
-                                
-                              
-                              <li
-                                data-browser="firefox"
-                                data-support="yes">16</li>
-                              
-                              
-                                      
-                              
-                              
-                                
-                                  
-                                    
-                                      
-                                      
-                                    
-                                  
-                                
-                                
-                              
-                              <li
-                                data-browser="safari"
-                                data-support="yes">9</li>
-                              
-                              
-                                    </ul>
-                                    
-                                    <p><a href="https://developer.mozilla.org/docs/Web/CSS/transition-property">Source</a></p>
-                                    
-                                  </div>
-                                
-                                
-                                
-                              </p>
+                            <aside class="warning"><b>Warning: </b> As we mentioned in previous chapters, PWAs on iOS and iPadOS are only installable from Safari; other browsers are not able to install PWAs in the home screen. </aside>
                             
-                            <p>To use transitions in CSS, you can use the various transition properties or the <code translate="no" dir="ltr">transition</code> shorthand property.</p>
+                            <h3 id="splash_screens" data-text="Splash screens" tabindex="-1">Splash screens</h3>
                             
-                            <h3 id="transition-property" data-text="transition-property" tabindex="-1">transition-property</h3>
+                            <p>As seen in the <a href="/learn/pwa/web-app-manifest">Web App Manifest chapter</a>, Android creates splash screens automatically based on the manifest&#39;s values. That&#39;s not the case for iOS and iPadOS. In these devices, you should define the splash screens in the HTML as static images using <code translate="no" dir="ltr">&lt;link&gt;</code> elements.</p>
                             
-                            <p>The <a href="https://developer.mozilla.org/docs/Web/CSS/transition-property"><code translate="no" dir="ltr">transition-property</code></a> property specifies which style(s) to transition.</p>
-                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">.my-element {
-                              transition-property: background-color;
-                            }
+                            <p>These images are known as startup images on Apple devices and they use the <code translate="no" dir="ltr">rel</code> property with <code translate="no" dir="ltr">apple-touch-startup-image</code> value, as in:</p>
+                            <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;link rel=&#34;apple-touch-startup-image&#34; href=&#34;ios-startup.png&#34;&gt;
                             </code></pre>
-                            <p>The <code translate="no" dir="ltr">transition-property</code> accepts one or more CSS property names in a comma-separated list.</p>
+                            <p>The challenge is that the startup image must have the exact window size that your PWA will have on opening. So, different iOS and iPadOS devices will need different images. More situations need to be covered on the iPad, such as landscape/portrait openings and rendering the PWA in multitask mode (such as 1/3,1/2, or 2/3 of the screen).</p>
                             
-                            <p>Optionally, you may use <code translate="no" dir="ltr">transition-property: all</code> to indicate that every property should transition.</p>
+                            <p>You can check an updated list of iOS and iPadOS screen sizes at the <a href="https://developer.apple.com/design/human-interface-guidelines/layout#Specifications">Apple Human Interface Guidelines</a></p>
                             
-                            <figure>
-                            <div class="wd-embed" style="height: 400px; width: 100%">
-                              <iframe
-                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
-                              loading="lazy"
-                              src="https://codepen.io/web-dot-dev/embed/VwWPeEj?height=400&theme-id=light&default-tab=result&editable=true"
-                              style="height: 100%; width: 100%; border: 0;"
-                              title="Pen VwWPeEj by web-dot-dev on Codepen"
-                            ></iframe>
-                            </div>
-                            </figure>
-                            
-                            <h3 id="transition-duration" data-text="transition-duration" tabindex="-1">transition-duration</h3>
-                            
-                            <p>The <a href="https://developer.mozilla.org/docs/Web/CSS/transition-duration"><code translate="no" dir="ltr">transition-duration</code></a> property is used to define the length of time that a transition will take to complete.</p>
-                            
-                            <figure>
-                            <div class="wd-embed" style="height: 400px; width: 100%">
-                              <iframe
-                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
-                              loading="lazy"
-                              src="https://codepen.io/web-dot-dev/embed/wvegMYp?height=400&theme-id=light&default-tab=result&editable=true"
-                              style="height: 100%; width: 100%; border: 0;"
-                              title="Pen wvegMYp by web-dot-dev on Codepen"
-                            ></iframe>
-                            </div>
-                            </figure>
-                            
-                            <p><code translate="no" dir="ltr">transition-duration</code> accepts time units, either in seconds (<code translate="no" dir="ltr">s</code>) or milliseconds (<code translate="no" dir="ltr">ms</code>) and defaults to <code translate="no" dir="ltr">0s</code>.</p>
-                            
-                            <h3 id="transition-timing-function" data-text="transition-timing-function" tabindex="-1">transition-timing-function</h3>
-                            
-                            <p>Use the <a href="https://developer.mozilla.org/docs/Web/CSS/transition-timing-function"><code translate="no" dir="ltr">transition-timing-function</code></a> property to vary the speed of a CSS transition over the course of the <code translate="no" dir="ltr">transition-duration</code>.</p>
-                            
-                            <p>By default, CSS will transition your elements at a constant speed (<code translate="no" dir="ltr">transition-timing-function: linear</code>). Linear transitions can end up looking somewhat artificial, though: in real life, objects have weight and can&#39;t stop and start instantly. Easing into or out of a transition can make your transitions more lively and natural.</p>
-                            
-                            <figure>
-                            <div class="wd-embed" style="height: 500px; width: 100%">
-                              <iframe
-                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
-                              loading="lazy"
-                              src="https://codepen.io/web-dot-dev/embed/QWgdyZx?height=500&theme-id=light&default-tab=result&editable=true"
-                              style="height: 100%; width: 100%; border: 0;"
-                              title="Pen QWgdyZx by web-dot-dev on Codepen"
-                            ></iframe>
-                            </div>
-                            </figure>
-                            
-                            <p>Our <a href="/learn/css/animations#animation-timing-function">module on CSS Animation</a> has a good overview of timing functions.</p>
-                            
-                            <p>You can use <a href="https://developer.chrome.com/docs/devtools/css/animations">DevTools</a> to experiment with different timing functions in real-time.</p>
-                            
-                            <p><img src="/static/learn/css/transitions/image/chrome-devtools-visual-tr-a81b123ee987d.png" alt="Chrome DevTools visual transition timing editor." width="800" height="418" srcset="https://web.dev/static/learn/css/transitions/image/chrome-devtools-visual-tr-a81b123ee987d_36.png 36w,https://web.dev/static/learn/css/transitions/image/chrome-devtools-visual-tr-a81b123ee987d_48.png 48w,https://web.dev/static/learn/css/transitions/image/chrome-devtools-visual-tr-a81b123ee987d_72.png 72w,https://web.dev/static/learn/css/transitions/image/chrome-devtools-visual-tr-a81b123ee987d_96.png 96w,https://web.dev/static/learn/css/transitions/image/chrome-devtools-visual-tr-a81b123ee987d_480.png 480w,https://web.dev/static/learn/css/transitions/image/chrome-devtools-visual-tr-a81b123ee987d_720.png 720w,https://web.dev/static/learn/css/transitions/image/chrome-devtools-visual-tr-a81b123ee987d_856.png 856w,https://web.dev/static/learn/css/transitions/image/chrome-devtools-visual-tr-a81b123ee987d_960.png 960w,https://web.dev/static/learn/css/transitions/image/chrome-devtools-visual-tr-a81b123ee987d_1440.png 1440w,https://web.dev/static/learn/css/transitions/image/chrome-devtools-visual-tr-a81b123ee987d_1920.png 1920w,https://web.dev/static/learn/css/transitions/image/chrome-devtools-visual-tr-a81b123ee987d_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
-                            
-                            <h3 id="transition-delay" data-text="transition-delay" tabindex="-1">transition-delay</h3>
-                            
-                            <p>Use the <a href="https://developer.mozilla.org/docs/Web/CSS/transition-delay"><code translate="no" dir="ltr">transition-delay</code></a> property to specify the time at which a transition will start. If <code translate="no" dir="ltr">transition-duration</code> is not specified, transitions will start instantly because the default value is <code translate="no" dir="ltr">0s</code>. This property accepts a time unit, for example seconds (<code translate="no" dir="ltr">s</code>) or milliseconds (<code translate="no" dir="ltr">ms</code>).</p>
-                            
-                            <figure>
-                            <div class="wd-embed" style="height: 500px; width: 100%">
-                              <iframe
-                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
-                              loading="lazy"
-                              src="https://codepen.io/web-dot-dev/embed/jOwyWep?height=500&theme-id=light&default-tab=result&editable=true"
-                              style="height: 100%; width: 100%; border: 0;"
-                              title="Pen jOwyWep by web-dot-dev on Codepen"
-                            ></iframe>
-                            </div>
-                            </figure>
-                            
-                            <p>This property is useful for staggering transitions, achieved by setting a longer <code translate="no" dir="ltr">transition-delay</code> for each subsequent element in a group.</p>
-                            
-                            <figure>
-                            <div class="wd-embed" style="height: 410px; width: 100%">
-                              <iframe
-                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
-                              loading="lazy"
-                              src="https://codepen.io/web-dot-dev/embed/yLXgeRQ?height=410&theme-id=light&default-tab=result&editable=true"
-                              style="height: 100%; width: 100%; border: 0;"
-                              title="Pen yLXgeRQ by web-dot-dev on Codepen"
-                            ></iframe>
-                            </div>
-                            </figure>
-                            
-                            <p><code translate="no" dir="ltr">transition-delay</code> is also useful for debugging. Setting the delay to a negative value can start a transition further into the timeline.</p>
-                            
-                            <h3 id="shorthand_transition" data-text="shorthand: transition" tabindex="-1">shorthand: transition</h3>
-                            
-                            <p>Like most CSS properties, there is a shorthand version. <a href="https://developer.mozilla.org/docs/Web/CSS/transition"><code translate="no" dir="ltr">transition</code></a> combines <code translate="no" dir="ltr">transition-property</code>, <code translate="no" dir="ltr">transition-duration</code>, <code translate="no" dir="ltr">transition-timing-function</code>, and <code translate="no" dir="ltr">transition-delay</code>.</p>
-                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">.longhand {
-                              transition-property: transform;
-                              transition-duration: 300ms;
-                              transition-timing-function: ease-in-out;
-                              transition-delay: 0s;
-                            }
-                            
-                            .shorthand {
-                              transition: transform 300ms ease-in-out 0s;
-                            }
+                            <p>Different versions of the launch image can be set with a media query inside the <code translate="no" dir="ltr">media</code> attribute:</p>
+                            <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;link rel=&#34;apple-touch-startup-image&#34; href=&#34;ios-startup.png&#34;
+                                  media=&#34;orientation: portrait&#34;&gt;
+                            &lt;link rel=&#34;apple-touch-startup-image&#34; href=&#34;ios-startup-landscape.png&#34;
+                                  media=&#34;orientation: landscape&#34;&gt;
                             </code></pre>
-                            <h2 id="what_can_and_cant_transition" data-text="What can and can't transition?" tabindex="-1">What can and can't transition?</h2>
+                            <aside class="warning"><b>Warning: </b> If you want to provide all possible options combining screen definitions, orientations, and multitask mode, you will end up with more than 25 different images you need to create and link in your HTML. If you don't provide a startup image for your user's iOS or iPadOS context, a white screen will appear instead in the opening animation, and while your PWA is loading </aside>
                             
-                            <p>When writing CSS, you can specify which properties should have animated transitions. See <a href="https://developer.mozilla.org/docs/Web/CSS/CSS_animated_properties">this MDN list of animatable CSS properties</a>.</p>
+                            <h4 id="design_patterns_for_ios_startup_images" data-text="Design patterns for iOS startup images" tabindex="-1">Design patterns for iOS startup images</h4>
                             
-                            <p>In general, it&#39;s only possible to transition elements that can have a &quot;middle state&quot; between their start and final states. For example, it&#39;s impossible to add transitions for <code translate="no" dir="ltr">font-family</code>, because it&#39;s unclear what the &quot;middle state&quot; between <code translate="no" dir="ltr">serif</code> and <code translate="no" dir="ltr">monospace</code> should look like. On the other hand, it is possible to add transitions for <code translate="no" dir="ltr">font-size</code> because its unit is a length that can be interpolated between.</p>
-                            
-                            <p><img src="/static/learn/css/transitions/image/diagram-shapes-transitio-b51956d49a4c.jpg" alt="Diagram of shapes transitioning smoothly from one state to another, and two lines of text in different fonts that cannot be transitioned smoothly." width="800" height="600" srcset="https://web.dev/static/learn/css/transitions/image/diagram-shapes-transitio-b51956d49a4c_36.jpg 36w,https://web.dev/static/learn/css/transitions/image/diagram-shapes-transitio-b51956d49a4c_48.jpg 48w,https://web.dev/static/learn/css/transitions/image/diagram-shapes-transitio-b51956d49a4c_72.jpg 72w,https://web.dev/static/learn/css/transitions/image/diagram-shapes-transitio-b51956d49a4c_96.jpg 96w,https://web.dev/static/learn/css/transitions/image/diagram-shapes-transitio-b51956d49a4c_480.jpg 480w,https://web.dev/static/learn/css/transitions/image/diagram-shapes-transitio-b51956d49a4c_720.jpg 720w,https://web.dev/static/learn/css/transitions/image/diagram-shapes-transitio-b51956d49a4c_856.jpg 856w,https://web.dev/static/learn/css/transitions/image/diagram-shapes-transitio-b51956d49a4c_960.jpg 960w,https://web.dev/static/learn/css/transitions/image/diagram-shapes-transitio-b51956d49a4c_1440.jpg 1440w,https://web.dev/static/learn/css/transitions/image/diagram-shapes-transitio-b51956d49a4c_1920.jpg 1920w,https://web.dev/static/learn/css/transitions/image/diagram-shapes-transitio-b51956d49a4c_2880.jpg 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
-                            
-                            <p>Here are some common properties you can transition.</p>
-                            
-                            <h3 id="transform" data-text="Transform" tabindex="-1">Transform</h3>
-                            
-                            <p>
-                              
-                                
-                                
-                                
-                                
-                              
-                              
-                              
-                                
-                                  
-                                
-                              
-                                
-                                  
-                                
-                              
-                                
-                                  
-                                
-                               
-                            
-                                
-                                
-                                  
-                                  <div class="wd-browser-compat">
-                                    <p>Browser Support</p>
-                                    <ul>
-                                      
-                              
-                              
-                                
-                                  
-                                    
-                                      
-                                      
-                                    
-                                  
-                                
-                                
-                              
-                              <li
-                                data-browser="chrome"
-                                data-support="yes">36</li>
-                              
-                              
-                                      
-                              
-                              
-                                
-                                  
-                                    
-                                      
-                                      
-                                    
-                                  
-                                
-                                
-                              
-                              <li
-                                data-browser="edge"
-                                data-support="yes">12</li>
-                              
-                              
-                                      
-                              
-                              
-                                
-                                  
-                                    
-                                      
-                                      
-                                    
-                                  
-                                
-                                
-                              
-                              <li
-                                data-browser="firefox"
-                                data-support="yes">16</li>
-                              
-                              
-                                      
-                              
-                              
-                                
-                                  
-                                    
-                                      
-                                      
-                                    
-                                  
-                                
-                                
-                              
-                              <li
-                                data-browser="safari"
-                                data-support="yes">9</li>
-                              
-                              
-                                    </ul>
-                                    
-                                    <p><a href="https://developer.mozilla.org/docs/Web/CSS/transform">Source</a></p>
-                                    
-                                  </div>
-                                
-                                
-                                
-                              </p>
-                            
-                            <p>The <a href="https://developer.mozilla.org/docs/Web/CSS/transform"><code translate="no" dir="ltr">transform</code></a> CSS property is commonly transitioned because it is a GPU-accelerated property that results in smoother animation that also consumes less battery. This property lets you arbitrarily scale, rotate, translate, or skew an element.</p>
-                            
-                            <figure>
-                            <div class="wd-embed" style="height: 500px; width: 100%">
-                              <iframe
-                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
-                              loading="lazy"
-                              src="https://codepen.io/web-dot-dev/embed/GRErowE?height=500&theme-id=light&default-tab=result&editable=true"
-                              style="height: 100%; width: 100%; border: 0;"
-                              title="Pen GRErowE by web-dot-dev on Codepen"
-                            ></iframe>
-                            </div>
-                            </figure>
-                            
-                            <p>Check out <a href="/learn/css/functions#transforms">the section on transforms</a> in <a href="/learn/css/functions">our Functions module</a>.</p>
-                            
-                            <h3 id="color" data-text="Color" tabindex="-1">Color</h3>
-                            
-                            <p>Before, during, and after interaction, color can be a great indicator of state. For example, a button might change color if it&#39;s being hovered. This color change can provide feedback to the user that the button is clickable.</p>
-                            
-                            <p>The <code translate="no" dir="ltr">color</code>, <code translate="no" dir="ltr">background-color</code>, and <code translate="no" dir="ltr">border-color</code> properties are just a few places where color can
-                            be transitioned upon interaction.</p>
-                            
-                            <aside class="note"><b>Note: </b> Color transitions do not usually need to be behind a <a href="#accessibility_considerations">reduced motion</a> preference. Use your best judgment. </aside>
-                            
-                            <p>Check out <a href="/learn/css/color">our module on color</a>.</p>
-                            
-                            <h3 id="shadows" data-text="Shadows" tabindex="-1">Shadows</h3>
-                            
-                            <p>Shadows are often transitioned to indicate elevation change, like from user focus.</p>
-                            
-                            <figure>
-                            <div class="wd-embed" style="height: 300px; width: 100%">
-                              <iframe
-                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
-                              loading="lazy"
-                              src="https://codepen.io/web-dot-dev/embed/gORgPQx?height=300&theme-id=light&default-tab=result&editable=true"
-                              style="height: 100%; width: 100%; border: 0;"
-                              title="Pen gORgPQx by web-dot-dev on Codepen"
-                            ></iframe>
-                            </div>
-                            </figure>
-                            
-                            <p>Check out <a href="/learn/css/shadows">our module on shadows</a>.</p>
-                            
-                            <h3 id="filters" data-text="Filters" tabindex="-1">Filters</h3>
-                            
-                            <p><a href="https://developer.mozilla.org/docs/Web/CSS/filter"><code translate="no" dir="ltr">filter</code></a> is a powerful CSS property that lets you add graphic effects on the fly. Transitioning between different <code translate="no" dir="ltr">filter</code> states can create some pretty impressive results.</p>
-                            
-                            <figure>
-                            <div class="wd-embed" style="height: 350px; width: 100%">
-                              <iframe
-                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
-                              loading="lazy"
-                              src="https://codepen.io/web-dot-dev/embed/PojWZxJ?height=350&theme-id=light&default-tab=result&editable=true"
-                              style="height: 100%; width: 100%; border: 0;"
-                              title="Pen PojWZxJ by web-dot-dev on Codepen"
-                            ></iframe>
-                            </div>
-                            </figure>
-                            
-                            <p>Check out <a href="/learn/css/filters">our module on filters</a>.</p>
-                            
-                            <h2 id="transition_triggers" data-text="Transition triggers" tabindex="-1">Transition triggers</h2>
-                            
-                            <p>Your CSS must include a change of state <em>and</em> an event that triggers that state change for CSS transitions to activate. A typical example of such a trigger is the <code translate="no" dir="ltr">:hover</code> <a href="/learn/css/pseudo-classes">pseudo-class</a>. This pseudo-class matches when the user hovers over an element with their cursor.</p>
-                            
-                            <p>Below is a list of some pseudo-classes and events that can trigger state changes in your elements.</p>
+                            <p>Defining startup images is hard work, so we have a couple of tools for automated generation and configuration:</p>
                             
                             <ul>
-                            <li><a href="/learn/css/pseudo-classes#hover"><code translate="no" dir="ltr">:hover</code></a>: matches if the cursor is over the element.</li>
-                            <li><a href="/learn/css/pseudo-classes#focus_focus-within_and_focus-visible"><code translate="no" dir="ltr">:focus</code></a>: matches if the element is focused.</li>
-                            <li><a href="/learn/css/pseudo-classes#focus_focus-within_and_focus-visible"><code translate="no" dir="ltr">:focus-within</code></a> : matches if the element or any of its descendants are
-                            focused.</li>
-                            <li><a href="/learn/css/pseudo-classes#target"><code translate="no" dir="ltr">:target</code></a>: matches when the current URL&#39;s <a href="https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/Identifying_resources_on_the_Web#fragment">fragment</a> matches the element&#39;s id.</li>
-                            <li><a href="/learn/css/pseudo-classes#active"><code translate="no" dir="ltr">:active</code></a>:  matches when the element is being activated (typically when the
-                            mouse is pressed over it).</li>
-                            <li><code translate="no" dir="ltr">class</code> change from JavaScript: when an element&#39;s CSS <code translate="no" dir="ltr">class</code> changes via
-                            JavaScript, CSS will transition eligible properties that have changed.</li>
+                            <li>Static generation integrates with your build system, creates all the PNG static images and gives you the HTML code with <code translate="no" dir="ltr">&lt;link&gt;</code> elements to inject into your document. <a href="https://github.com/onderceylan/pwa-asset-generator">PWA Asset Generator</a> is an example of such a tool.</li>
+                            <li>Client-side generator, a JavaScript tool that can embed one or more base64 versions of the startup image into <code translate="no" dir="ltr">&lt;link&gt;</code> injected elements based on the current device&#39;s type and screen size. You can use an in-memory canvas, render the image and convert it into a <code translate="no" dir="ltr">data:</code> URI with a PNG file. The <a href="https://github.com/GoogleChromeLabs/pwacompat">PWA Compat library</a> is an easy-to-use client-side library that does this by cloning the Android&#39;s typical launch screen.</li>
                             </ul>
                             
-                            <h2 id="different_transitions_for_enter_or_exit" data-text="Different transitions for enter or exit" tabindex="-1">Different transitions for enter or exit</h2>
+                            <h3 id="detecting_a_pwa_on_apple_mobile_platforms" data-text="Detecting a PWA on Apple mobile platforms" tabindex="-1">Detecting a PWA on Apple mobile platforms</h3>
                             
-                            <p>By setting different <code translate="no" dir="ltr">transition</code> properties on hover/focus, it&#39;s possible to create some interesting effects.</p>
-                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">.my-element {
-                              background: red;
+                            <p>While you should use Progressive Enhancement and feature detection in your PWA, there may be some edge cases where we need to know if the user is in a PWA on Apple mobile platforms, such as when you want to offer installation instructions or add links to platform-specific apps that are iOS-only.</p>
                             
-                              /* This transition is applied on the &#34;exit&#34; transition */
-                              transition: background 2000ms ease-in;
-                            }
+                            <p>To avoid reading the user agent string, check the <code translate="no" dir="ltr">standalone</code> property of the <code translate="no" dir="ltr">navigator</code> object. This is a non-standard property, and it&#39;s only available on the WebKit engine on iOS and iPadOS.</p>
                             
-                            .my-element:hover {
-                              background: blue;
+                            <ul>
+                            <li>If <code translate="no" dir="ltr">navigator.standalone</code> is <code translate="no" dir="ltr">undefined</code> it means the user is not on an iPadOS or iOS device.</li>
+                            <li>If <code translate="no" dir="ltr">navigator.standalone</code> is <code translate="no" dir="ltr">false</code> it means the user opened the PWA in the browser and is using it there.</li>
+                            <li>If <code translate="no" dir="ltr">navigator.standalone</code> is <code translate="no" dir="ltr">true</code> it means the user opened the PWA from the home screen and is getting the standalone PWA experience.</li>
+                            </ul>
                             
-                              /* This transition is applied on the &#34;enter&#34; transition */
-                              transition: background 150ms ease;
-                            }
+                            <h3 id="fullscreen_support" data-text="Fullscreen support" tabindex="-1">Fullscreen support</h3>
+                            
+                            <p>On Safari on iOS and iPads, only <code translate="no" dir="ltr">display: standalone</code> is supported as a <a href="/learn/pwa/app-design#display_modes">display mode for your PWA&#39;s icon</a>. While <code translate="no" dir="ltr">display: fullscreen</code> is not supported as on Android devices, it&#39;s possible to use a non-standard meta-tag to make your PWA enter fullscreen mode.</p>
+                            
+                            <p>In the next image, you can see at the left a default standalone design with a theme color, and at the right a PWA with a fullscreen iOS mode that lets you render content behind the status bar.</p>
+                            
+                            <p><img src="/static/learn/pwa/enhancements/image/a-standalone-default-beha-0f098eee46709.png" alt="A standalone default behavior (left) and a fullscreen iOS screen (right)." width="800" height="216" srcset="https://web.dev/static/learn/pwa/enhancements/image/a-standalone-default-beha-0f098eee46709_36.png 36w,https://web.dev/static/learn/pwa/enhancements/image/a-standalone-default-beha-0f098eee46709_48.png 48w,https://web.dev/static/learn/pwa/enhancements/image/a-standalone-default-beha-0f098eee46709_72.png 72w,https://web.dev/static/learn/pwa/enhancements/image/a-standalone-default-beha-0f098eee46709_96.png 96w,https://web.dev/static/learn/pwa/enhancements/image/a-standalone-default-beha-0f098eee46709_480.png 480w,https://web.dev/static/learn/pwa/enhancements/image/a-standalone-default-beha-0f098eee46709_720.png 720w,https://web.dev/static/learn/pwa/enhancements/image/a-standalone-default-beha-0f098eee46709_856.png 856w,https://web.dev/static/learn/pwa/enhancements/image/a-standalone-default-beha-0f098eee46709_960.png 960w,https://web.dev/static/learn/pwa/enhancements/image/a-standalone-default-beha-0f098eee46709_1440.png 1440w,https://web.dev/static/learn/pwa/enhancements/image/a-standalone-default-beha-0f098eee46709_1920.png 1920w,https://web.dev/static/learn/pwa/enhancements/image/a-standalone-default-beha-0f098eee46709_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                            
+                            <p>If you add the following tag in your HTML your PWA on iOS and iPadOS will enter full-screen mode, but it is different from Android.</p>
+                            <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;meta name=&#34;apple-mobile-web-app-status-bar-style&#34; content=&#34;black-translucent&#34;&gt;
                             </code></pre>
-                            <figure>
-                            <div class="wd-embed" style="height: 500px; width: 100%">
-                              <iframe
-                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
-                              loading="lazy"
-                              src="https://codepen.io/web-dot-dev/embed/OJgWMaO?height=500&theme-id=light&default-tab=result&editable=true"
-                              style="height: 100%; width: 100%; border: 0;"
-                              title="Pen OJgWMaO by web-dot-dev on Codepen"
-                            ></iframe>
-                            </div>
-                            </figure>
+                            <p>In this mode, the device&#39;s status bar (the top where you see the clock, battery level, and notification icons) is still visible but rendered on top of your content with a transparent background.</p>
                             
-                            <h2 id="accessibility_considerations" data-text="Accessibility considerations" tabindex="-1">Accessibility considerations</h2>
+                            <aside class="warning"><b>Warning: </b> The theme color is ignored in this mode, and the notification bar is rendered over a transparent background. Also, your app's [0, 0] pixel is now the [0, 0] pixel of the physical screen and not after the safe area. </aside>
                             
-                            <p>CSS transitions are not for everyone. For some people, transitions and animations can cause motion sickness or discomfort. Thankfully, CSS has a media feature called <a href="https://developer.mozilla.org/docs/Web/CSS/@media/prefers-reduced-motion"><code translate="no" dir="ltr">prefers-reduced-motion</code></a> that detects if a user has indicated a preference for less motion from their device.</p>
-                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">/*
-                              If the user has expressed their preference for
-                              reduced motion, then don&#39;t use transitions.
-                            */
-                            @media (prefers-reduced-motion: reduce) {
-                              .my-element {
-                                transition: none;
-                              }
-                            }
+                            <p>When using this mode, be careful with your design because the operating system will always render the icons in white, so you should always contrast your backgrounds for the top of the screen with light content. Also, it&#39;s important to use <a href="https://developer.mozilla.org/docs/Web/CSS/env()">CSS environment variables</a> to render content in the safe area, as seen in <a href="/learn/pwa/app-design#safe_areas">App Design Chapter</a>.</p>
                             
-                            /*
-                              If the browser understands the media query and the user
-                              explicitly hasn&#39;t set a preference, then use transitions.
-                            */
-                            @media (prefers-reduced-motion: no-preference) {
-                              .my-element {
-                                transition: transform 250ms ease;
-                              }
-                            }
-                            </code></pre>
-                            <p>Check out our blog post <a href="/articles/prefers-reduced-motion">prefers-reduced-motion: Sometimes less movement is more</a> for more information on this media feature.</p>
+                            <p><img src="/static/learn/pwa/enhancements/image/the-top-0px-your-viewpor-aa02f5cdd1931.png" alt="The top 0px of your viewport is below the status bar by default; if you add a black-translucent meta tag, the top 0px of your viewport will match the physical top of the screen" width="800" height="219" srcset="https://web.dev/static/learn/pwa/enhancements/image/the-top-0px-your-viewpor-aa02f5cdd1931_36.png 36w,https://web.dev/static/learn/pwa/enhancements/image/the-top-0px-your-viewpor-aa02f5cdd1931_48.png 48w,https://web.dev/static/learn/pwa/enhancements/image/the-top-0px-your-viewpor-aa02f5cdd1931_72.png 72w,https://web.dev/static/learn/pwa/enhancements/image/the-top-0px-your-viewpor-aa02f5cdd1931_96.png 96w,https://web.dev/static/learn/pwa/enhancements/image/the-top-0px-your-viewpor-aa02f5cdd1931_480.png 480w,https://web.dev/static/learn/pwa/enhancements/image/the-top-0px-your-viewpor-aa02f5cdd1931_720.png 720w,https://web.dev/static/learn/pwa/enhancements/image/the-top-0px-your-viewpor-aa02f5cdd1931_856.png 856w,https://web.dev/static/learn/pwa/enhancements/image/the-top-0px-your-viewpor-aa02f5cdd1931_960.png 960w,https://web.dev/static/learn/pwa/enhancements/image/the-top-0px-your-viewpor-aa02f5cdd1931_1440.png 1440w,https://web.dev/static/learn/pwa/enhancements/image/the-top-0px-your-viewpor-aa02f5cdd1931_1920.png 1920w,https://web.dev/static/learn/pwa/enhancements/image/the-top-0px-your-viewpor-aa02f5cdd1931_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
                             
-                            <aside class="note"><b>Note: </b> In the Learn Accessibility module on <a href="/learn/accessibility/motion">animation and motion</a> discover how to add delight to your site without causing problems for some users. </aside>
+                            <h3 id="installation_reliability" data-text="Installation reliability" tabindex="-1">Installation reliability</h3>
                             
-                            <h2 id="performance_considerations" data-text="Performance considerations" tabindex="-1">Performance considerations</h2>
+                            <p>Safari on iOS and iPadOS before 15.4 only loads the manifest file from the network when the user opens the share sheet -using the share icon within the browser- and not when the page loads. Therefore, Safari doesn&#39;t check if your website is a PWA until that moment, which can lead to situations where the manifest can&#39;t be loaded or takes too much time, and Safari ignores it.</p>
                             
-                            <p>When working with CSS transitions, you may encounter performance issues if you add transitions for certain CSS properties. For example, when properties such as <code translate="no" dir="ltr">width</code> or <code translate="no" dir="ltr">height</code> change, they push content around on the rest of the page. This forces CSS to calculate new positions for every affected element for each frame of the transition. When possible, we recommend using properties like <code translate="no" dir="ltr">transform</code> and <code translate="no" dir="ltr">opacity</code> instead.</p>
+                            <p>When Safari can&#39;t load the manifest on time, pressing &quot;Add to Home Screen&quot; places an icon on the home screen, but does not provide an app experience; it will merely be a shortcut to a Safari tab.</p>
                             
-                            <p>Check out our <a href="/articles/animations-guide">guide on high-performance CSS animations</a> for a deep-dive on this topic.</p>
-
-
-
+                            <aside class="warning"><b>Warning: </b> If Safari can't load the manifest, it will fall back to check if your PWA has some deprecated meta tags, such as <code translate="no" dir="ltr">apple-mobile-web-app-capable</code>. You should not use these metatags. They provide a home screen app experience without essential attributes for your PWA, such as honoring the <code translate="no" dir="ltr">start_url</code> or the <code translate="no" dir="ltr">scope</code> attributes, making a terrible app experience. </aside>
+                            
+                            <h2 id="resources" data-text="Resources" tabindex="-1">Resources</h2>
+                            
+                            <ul>
+                            <li><a href="https://github.com/onderceylan/pwa-asset-generator">PWA Asset Generator</a></li>
+                            <li><a href="/articles/app-shortcuts">Get things done quickly with app shortcuts</a></li>
+                            <li><a href="https://github.com/GoogleChromeLabs/pwacompat">PWA Compat Library</a></li>
+                            <li><a href="https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/shortcuts">Define App Shortcuts</a></li>
+                            </ul>
+                            
+                              
 
 
 
@@ -1718,8 +1333,6 @@
 
                         </section>
                     </article>
-
-
 
 
 

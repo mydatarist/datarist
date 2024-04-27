@@ -1172,38 +1172,208 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                    
+                    
+
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Focus</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
+                        <section aria-labelledby="the_story_of_your_first_website">
+
+
+
+
+
+
+
+
+
+                            <p>On your webpage,
+                                you click a link that skips the user to the main content of the website.
+                                These are often referred to as skip links, or anchor links.
+                                When that link is activated by a keyboard, using the <em>tab</em> and <em>enter</em> keys,
+                                the main content container has a focus ring around it. Why is that?</p>
+                                
+                                <figure>
+                                <div class="wd-embed" style="height: 500px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/poRWRjp?height=500&theme-id=light&default-tab=result&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen poRWRjp by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                </figure>
+                                
+                                <p>This is because the <code translate="no" dir="ltr">&lt;main&gt;</code> has a <code translate="no" dir="ltr">tabindex=&quot;-1&quot;</code> attribute value,
+                                which means it can be programmatically focused.
+                                When the <code translate="no" dir="ltr">&lt;main&gt;</code> is targeted—because the <code translate="no" dir="ltr">#main-content</code>
+                                in the browser URL bar matches the <code translate="no" dir="ltr">id</code>—it receives programmatic focus.
+                                It&#39;s tempting to remove the focus styles in these situations,
+                                but handling focus appropriately and with care helps to create a good,
+                                accessible, user experience.
+                                It can also be a great place to add some interest to interactions.</p>
+                                
+                                <h2 id="why_is_focus_important" data-text="Why is focus important?" tabindex="-1">Why is focus important?</h2>
+                                
+                                <p>As a web developer,
+                                it&#39;s your job to make a website accessible and inclusive to all.
+                                Creating accessible focus states with CSS is a part of this responsibility.</p>
+                                
+                                <p>Focus styles assist people who use a device such as a keyboard or a
+                                <a href="https://www.24a11y.com/2018/i-used-a-switch-control-for-a-day/">switch control</a>
+                                to navigate and interact with a website.
+                                If an element receives focus and there is no visual indication,
+                                a user may lose track of what is in focus.
+                                This can create navigation issues and result in unwanted behaviour if,
+                                say, the wrong link is followed.</p>
+                                
+                                <aside class="note"><b>Note: </b> Learn more about the importance of focus for accessibility in <a href="/learn/accessibility/focus">Learn Accessibility: Focus</a>, and more information on how to manage focus in HTML in <a href="/learn/html/focus">Learn HTML: Focus</a>. </aside>
+                                
+                                <h2 id="how_elements_get_focus" data-text="How elements get focus" tabindex="-1">How elements get focus</h2>
+                                
+                                <p>Certain elements are automatically focusable;
+                                these are elements that accept interaction and input, such as <code translate="no" dir="ltr">&lt;a&gt;</code>,
+                                <code translate="no" dir="ltr">&lt;button&gt;</code>, <code translate="no" dir="ltr">&lt;input&gt;</code> and <code translate="no" dir="ltr">&lt;select&gt;</code>.
+                                In short, all form elements, buttons and links.
+                                You can typically navigate a website&#39;s focusable elements using the <em>tab</em> key to move forward on the page, and <em>shift</em> + <em>tab</em> to move backward.</p>
+                                
+                                <p>There is also a HTML attribute called <code translate="no" dir="ltr">tabindex</code> which allows you to change the tabbing index—which is the
+                                order in which elements are focused—every time someone presses their <kbd>tab</kbd> key,
+                                or focus is shifted with a hash change in the URL or by a JavaScript event.
+                                If <code translate="no" dir="ltr">tabindex</code> on a HTML element is set to <code translate="no" dir="ltr">0</code>,
+                                it can receive focus via the <kbd>tab</kbd> key and it will honour the global tab index,
+                                which is defined by the document source order.</p>
+                                
+                                <p>If you set <code translate="no" dir="ltr">tabindex</code> to <code translate="no" dir="ltr">-1</code>, it can only receive focus programmatically,
+                                which means only when a JavaScript event happens
+                                or a hash change (matching the element&#39;s <code translate="no" dir="ltr">id</code> in the URL) occurs.
+                                If you set <code translate="no" dir="ltr">tabindex</code> to be anything higher than <code translate="no" dir="ltr">0</code>,
+                                it will be removed from the global tab index,
+                                defined by document source order.
+                                Tabbing order will now be defined by the value of <code translate="no" dir="ltr">tabindex</code>,
+                                so an element with <code translate="no" dir="ltr">tabindex=&quot;1&quot;</code> will receive focus before an element with <code translate="no" dir="ltr">tabindex=&quot;2&quot;</code>, for example.</p>
+                                
+                                <aside class="warning"><b>Warning: </b> Honoring document source order is really important, and focus order should only be changed if you <strong>absolutely have to change it</strong>. This applies both when setting <code translate="no" dir="ltr">tabindex</code> <strong>and</strong> changing visual order with CSS layout, such as flexbox and grid. Anything that creates unpredictable focus on the web can create an inaccessible experience for the user. </aside>
+                                
+                                <h2 id="styling_focus" data-text="Styling focus" tabindex="-1">Styling focus</h2>
+                                
+                                <p>The default browser behavior when an element receives focus is to present a focus ring.
+                                This focus ring varies between both browser and operating systems.</p>
+                                
+                                <video autoplay controls muted > <source src="/static/learn/css/focus/video/VbAJIREinuYvovrBzzvEyZOpw5w1/zVu8FoqteYCP1sTj3uCm.mp4" type="video/mp4" /> </video>
+                                
+                                <p>This behavior can be changed with CSS,
+                                using the <code translate="no" dir="ltr">:focus</code>, <code translate="no" dir="ltr">:focus-within</code> and <code translate="no" dir="ltr">:focus-visible</code>
+                                pseudo-classes that you learned about in the
+                                <a href="/learn/css/pseudo-classes">pseudo-classes lesson</a>.
+                                It is important to set a focus style which has <strong>contrast</strong> with the default style of an element.
+                                For example, a common approach is to utilize the <code translate="no" dir="ltr">outline</code> property.</p>
+                                <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">a:focus {
+                                  outline: 2px solid slateblue;
+                                }
+                                </code></pre>
+                                <figure>
+                                <div class="wd-embed" style="height: 500px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/ZELXLMw?height=500&theme-id=light&default-tab=result&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen ZELXLMw by web-dot-dev on Codepen"></iframe>
+                                </div>
+                                </figure>
+                                
+                                <p>The <code translate="no" dir="ltr">outline</code> property could appear too close to the text of a link,
+                                but the <code translate="no" dir="ltr">outline-offset</code> property can help with that,
+                                as it adds extra visual <code translate="no" dir="ltr">padding</code> without affecting the geometric size that the element fills.
+                                A positive number value for <code translate="no" dir="ltr">outline-offset</code> will push the outline outwards,
+                                a negative value will pull the outline inwards.</p>
+                                
+                                <figure>
+                                <div class="wd-embed" style="height: 500px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/xxgXgQx?height=500&theme-id=light&default-tab=result&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen xxgXgQx by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                </figure>
+                                
+                                <p>Currently in some browsers,
+                                if you have a <code translate="no" dir="ltr">border-radius</code> set on your element and use <code translate="no" dir="ltr">outline</code>,
+                                it won&#39;t match—the outline will have sharp corners.
+                                Due to this,
+                                it is tempting to use a <code translate="no" dir="ltr">box-shadow</code> with a small blur radius because <code translate="no" dir="ltr">box-shadow</code> clips to the shape,
+                                honouring <code translate="no" dir="ltr">border-radius</code>,
+                                but <strong>this style will not show in Windows High Contrast Mode</strong>.
+                                This is because Windows High Contrast Mode doesn&#39;t apply shadows,
+                                and mostly ignores background images to favor the user&#39;s preferred settings.</p>
+                                
+                                <figure>
+                                <div class="wd-embed" style="height: 500px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/bGgogyM?height=500&theme-id=light&default-tab=result&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen bGgogyM by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                </figure>
+                                
+                                <video > <source src="/static/learn/css/focus/video/VbAJIREinuYvovrBzzvEyZOpw5w1/MqMoKpLJ2rF5RRkn5jEO.mp4" type="video/mp4" /> </video>
+                                
+                                <h2 id="in_summary" data-text="In summary" tabindex="-1">In summary</h2>
+                                
+                                <p>Creating a focus state that has contrast with an element&#39;s default state is incredibly important. The default browser styles do this already for you, but if you want to change this behaviour, remember the following:</p>
+                                
+                                <ul>
+                                <li>Avoid using <code translate="no" dir="ltr">outline: none</code> on an element that can receive keyboard focus.</li>
+                                <li>Avoid replacing <code translate="no" dir="ltr">outline</code> styles with <code translate="no" dir="ltr">box-shadow</code>.
+                                as they don&#39;t show up in Windows High Contrast Mode.</li>
+                                <li>Only set a positive value for <code translate="no" dir="ltr">tabindex</code> on an HTML element if you absolutely have to.</li>
+                                <li>Make sure the focus state is very clear vs the default state.</li>
+                                </ul>
+
+
+
+
+
+
+                                                    
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
                     </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
-                            </ul>
-                        </nav>
-                    </footer>
+                    
                                         
                 </div>
             </main>

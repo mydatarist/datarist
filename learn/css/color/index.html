@@ -1172,38 +1172,387 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                    
+                    
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Color</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
+                        <section aria-labelledby="the_story_of_your_first_website">
+                             
+                            
+
+
+
+
+                            <p>Color is an important part of any website and in CSS there are many options for color types,
+                                functions and treatments.</p>
+                                
+                                <p>How do you decide which color type to use?
+                                How do you make your colors semi-transparent?
+                                In this lesson,
+                                you&#39;re going to learn which options you have to help you make the right decisions for your project and team.</p>
+                                
+                                <p>CSS has <a href="https://developer.mozilla.org/docs/Web/CSS/CSS_Types">various different data types</a>,
+                                such as strings and numbers.
+                                Color is one of these types and uses other types,
+                                such as numbers for its own definitions.</p>
+                                
+                                <h2 id="numeric_colors" data-text="Numeric colors" tabindex="-1">Numeric colors</h2>
+                                
+                                <p>It is very likely that your first exposure to colors in CSS is via numeric colors.
+                                We can work with numerical color values in a few different forms.</p>
+                                
+                                <h3 id="hex_colors" data-text="Hex colors" tabindex="-1">Hex colors</h3>
+                                <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">h1 {
+                                  color: #b71540;
+                                }
+                                </code></pre>
+                                <p>Hexadecimal notation (often shortened to hex) is a shorthand syntax for RGB,
+                                which assigns a numeric value to red green and blue,
+                                which are the three <strong>primary colors</strong>.</p>
+                                
+                                <aside class="note"><b>Note: </b> According to the Web Almanac, <a href="https://almanac.httparchive.org/en/2019/css#color-types">hex is the most popular color syntax type</a>. </aside>
+                                
+                                <p>The hexadecimal ranges are <strong>0-9</strong> and <strong>A-F</strong>.
+                                When used in a six digit sequence,
+                                they are translated to the RGB numerical ranges which are 0-255
+                                which correspond to the red, green, and blue color channels respectively.</p>
+                                
+                                <figure>
+                                <div class="wd-embed" style="height: 430px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/BapNrPG?height=430&theme-id=light&default-tab=result&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen BapNrPG by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                </figure>
+                                
+                                <p>You can also define an alpha value with any numerical colors.
+                                An alpha value is a percentage of transparency.
+                                In hex code, you add another two digits to the six digit sequence,
+                                making an eight digit sequence.
+                                For example, to set black in hex code, write <code translate="no" dir="ltr">#000000</code>.
+                                To add a 50% transparency, change it to <code translate="no" dir="ltr">#00000080</code>.</p>
+                                
+                                <p>Because the hex scale is <strong>0-9</strong> and <strong>A-F</strong>, the transparency values are probably not quite what you&#39;d expect them to be.
+                                Here are some key, common values added to the black hex code, <code translate="no" dir="ltr">#000000</code>:</p>
+                                
+                                <ul>
+                                <li>0% alpha—which is fully transparent—is <strong>00</strong>: <code translate="no" dir="ltr">#00000000</code></li>
+                                <li>50% alpha is <strong>80</strong>: <code translate="no" dir="ltr">#00000080</code></li>
+                                <li>75% alpha is <strong>BF</strong>: <code translate="no" dir="ltr">#000000BF</code></li>
+                                </ul>
+                                
+                                <figure>
+                                <div class="wd-embed" style="height: 540px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/VwPLXdr?height=540&theme-id=light&default-tab=result&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen VwPLXdr by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                </figure>
+                                
+                                <p>To convert a two digit hex to a decimal,
+                                take the first digit and multiply it by 16 (because hex is base 16),
+                                then add the second digit. Using <strong>BF</strong> as an example for 75% alpha:</p>
+                                
+                                <ol>
+                                <li>B is equal to 11, which when multiplied by 16 equals 176</li>
+                                <li>F is equal to 15</li>
+                                <li>176 + 15 = 191</li>
+                                <li>The alpha value is 191—75% of 255</li>
+                                </ol>
+                                
+                                <aside class="note"><b>Note: </b> You can also write hex codes in a three digit shorthand. A three digit hex code is a shortcut to an equivalent six digit sequence. For example, <code translate="no" dir="ltr">#a4e</code> is identical to <code translate="no" dir="ltr">#aa44ee</code>. To add alpha, then <code translate="no" dir="ltr">#a4e8</code> would expand to <code translate="no" dir="ltr">#aa44ee88</code>. </aside>
+                                
+                                <h3 id="rgb_red_green_blue" data-text="RGB (Red, Green, Blue)" tabindex="-1">RGB (Red, Green, Blue)</h3>
+                                <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">h1 {
+                                  color: rgb(183, 21, 64);
+                                }
+                                </code></pre>
+                                <p>RGB colors are defined with the
+                                <a href="/%3Chttps://developer.mozilla.org/docs/Web/CSS/color_value/rgb()%3E"><code translate="no" dir="ltr">rgb()</code></a> color function,
+                                using either numbers or percentages as parameters.
+                                The numbers need to be within the <strong>0-255</strong> range and the percentages are between <strong>0% and 100%‌</strong>.
+                                RGB works on the 0-255 scale,
+                                so 255 would be equivalent to 100%, and 0 to 0%.</p>
+                                
+                                <p>To set black in RGB, define it as <code translate="no" dir="ltr">rgb(0 0 0)</code>,
+                                which is zero red, zero green and zero blue.
+                                Black can also be defined as <code translate="no" dir="ltr">rgb(0%, 0%, 0%)</code>.
+                                White is the exact opposite: <code translate="no" dir="ltr">rgb(255, 255, 255)</code> or <code translate="no" dir="ltr">rgb(100%, 100%, 100%)</code>.</p>
+                                
+                                <p>An alpha is set in <code translate="no" dir="ltr">rgb()</code> in one of two ways.
+                                Either add a <code translate="no" dir="ltr">/</code> <strong>after</strong> the red, green and blue parameters,
+                                or use the <a href="/%3Chttps://developer.mozilla.org/docs/Web/CSS/color_value/rgba()%3E"><code translate="no" dir="ltr">rgba()</code></a> function.
+                                The alpha can be defined with a percentage or a decimal between 0 and 1.
+                                For example, to set a 50% alpha black in modern browsers, write: <code translate="no" dir="ltr">rgb(0 0 0 / 50%)</code> or <code translate="no" dir="ltr">rgb(0 0 0 / 0.5)</code>.
+                                For wider support, using the <code translate="no" dir="ltr">rgba()</code> function,
+                                write: <code translate="no" dir="ltr">rgba(0, 0, 0, 50%)</code> or <code translate="no" dir="ltr">rgba(0, 0, 0, 0.5)</code>.</p>
+                                
+                                <figure>
+                                <div class="wd-embed" style="height: 430px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/dyNomWW?height=430&theme-id=light&default-tab=result&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen dyNomWW by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                </figure>
+                                
+                                <aside class="note"><b>Note: </b> Commas were removed from the <code translate="no" dir="ltr">rgb()</code> and <code translate="no" dir="ltr">hsl()</code> notation because newer color functions, such as <code translate="no" dir="ltr">lab()</code> and <code translate="no" dir="ltr">lch()</code> use spaces instead of commas as a delimiter. This change provides more consistency not just with newer color functions, but with CSS in general. For better backwards compatibility, you can still use commas to define <code translate="no" dir="ltr">rgb()</code> and <code translate="no" dir="ltr">hsl()</code>. </aside>
+                                
+                                <h3 id="hsl_hue_saturation_lightness" data-text="HSL (Hue, Saturation, Lightness)" tabindex="-1">HSL (Hue, Saturation, Lightness)</h3>
+                                <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">h1 {
+                                  color: hsl(344, 79%, 40%);
+                                }
+                                </code></pre>
+                                <p>HSL stands for hue, saturation and lightness.
+                                Hue describes the value on the color wheel, from 0 to 360 degrees, starting with red (being both 0 and 360).
+                                A hue of 180, or 50% would be in the blue range.
+                                It&#39;s the origin of the color that we see.</p>
+                                
+                                <p><img src="/static/learn/css/color/image/a-color-wheel-labels-de-9fb8c5add6dad.svg" alt="A color wheel with labels for degree values in 60 degree increments to help visuals what each angle value represents" width="800" height="507"></p>
+                                
+                                <p>Saturation is how vibrant the selected hue is.
+                                A fully desaturated color (with a saturation of <code translate="no" dir="ltr">0%</code>) will appear grayscale.
+                                And finally, lightness is the parameter which describes the scale from white to black of added light.
+                                A lightness of <code translate="no" dir="ltr">100%</code> will always give you white.</p>
+                                
+                                <p>Using the <a href="/%3Chttps://developer.mozilla.org/docs/Web/CSS/color_value/hsl()%3E"><code translate="no" dir="ltr">hsl()</code></a> color function,
+                                you define a true black by writing <code translate="no" dir="ltr">hsl(0 0% 0%)</code>, or even <code translate="no" dir="ltr">hsl(0deg 0% 0%)</code>.
+                                This is because the hue parameter defines the degree on the color wheel,
+                                which if you use the number type, is <strong>0-360</strong>.
+                                You can also use the angle type, which is (<code translate="no" dir="ltr">0deg</code>) or <code translate="no" dir="ltr">(0turn)</code>.
+                                Both saturation and lightness are defined with percentages.</p>
+                                
+                                <p><img src="/static/learn/css/color/image/the-hsl-color-function-br-02004be01101d.svg" alt="The HSL color function broken down visually. The hue uses the color wheel. The saturation shows grey blending into teal. The lightness shows black into white." width="800" height="478"></p>
+                                
+                                <aside class="note"><b>Note: </b> <a href="https://developer.mozilla.org/docs/Web/CSS/angle">The angle type</a> in CSS is great for defining hue because it represents the angle of the color wheel really well. This type accepts degrees, turns, radians and gradians. 
+                                  
+                                    
+                                    
+                                    
+                                    
+                                  
+                                  
+                                  
+                                    
+                                      
+                                    
+                                  
+                                    
+                                      
+                                    
+                                  
+                                    
+                                      
+                                    
+                                   
+                                
+                                    
+                                    
+                                      
+                                      <div class="wd-browser-compat">
+                                        <p>Browser Support</p>
+                                        <ul>
+                                          
+                                  
+                                  
+                                    
+                                      
+                                        
+                                          
+                                          
+                                        
+                                      
+                                    
+                                    
+                                  
+                                  <li
+                                    data-browser="chrome"
+                                    data-support="yes">2</li>
+                                  
+                                  
+                                          
+                                  
+                                  
+                                    
+                                      
+                                        
+                                          
+                                          
+                                        
+                                      
+                                    
+                                    
+                                  
+                                  <li
+                                    data-browser="edge"
+                                    data-support="yes">12</li>
+                                  
+                                  
+                                          
+                                  
+                                  
+                                    
+                                      
+                                        
+                                          
+                                          
+                                        
+                                      
+                                    
+                                    
+                                  
+                                  <li
+                                    data-browser="firefox"
+                                    data-support="yes">3.6</li>
+                                  
+                                  
+                                          
+                                  
+                                  
+                                    
+                                      
+                                        
+                                          
+                                          
+                                        
+                                      
+                                    
+                                    
+                                  
+                                  <li
+                                    data-browser="safari"
+                                    data-support="yes">4</li>
+                                  
+                                  
+                                        </ul>
+                                        
+                                        <p><a href="https://developer.mozilla.org/docs/Web/CSS/angle">Source</a></p>
+                                        
+                                      </div>
+                                    
+                                    
+                                    
+                                   </aside>
+                                
+                                <figure>
+                                <div class="wd-embed" style="height: 430px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/poRJLQo?height=430&theme-id=light&default-tab=result&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen poRJLQo by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                </figure>
+                                
+                                <p>Alpha is defined in <code translate="no" dir="ltr">hsl()</code>,
+                                in the same way as <code translate="no" dir="ltr">rgb()</code> by adding a <code translate="no" dir="ltr">/</code> after the hue, saturation and lightness parameters <em>or</em> by using the
+                                <a href="/%3Chttps://developer.mozilla.org/docs/Web/CSS/color_value/hsla()%3E"><code translate="no" dir="ltr">hsla()</code></a> function.
+                                The alpha can be defined with a percentage or a decimal between 0 and 1.
+                                For example, to set a 50% alpha black, use: <code translate="no" dir="ltr">hsl(0 0% 0% / 50%)</code> or <code translate="no" dir="ltr">hsl(0 0% 0% / 0.5)</code>.
+                                Using the <code translate="no" dir="ltr">hsla()</code> function, write: <code translate="no" dir="ltr">hsla(0, 0%, 0%, 50%)</code> or <code translate="no" dir="ltr">hsla(0, 0%, 0%, 0.5)</code>.</p>
+                                
+                                <aside class="note"><b>Note: </b> There are some newer color types coming to CSS. These include <a href="https://developer.mozilla.org/docs/Web/CSS/color_value/lab()">lab()</a> and <a href="https://developer.mozilla.org/docs/Web/CSS/color_value/lch()">lch()</a>, which allow a far wider range of color to be specified than is possible in RGB. </aside>
+                                
+                                <h2 id="color_keywords" data-text="Color Keywords" tabindex="-1">Color Keywords</h2>
+                                
+                                <p>There are <a href="https://developer.mozilla.org/docs/Web/CSS/color_value#color_keywords">148 named colors in CSS</a>.
+                                These are plain English names such as purple, tomato and goldenrod.
+                                Some of the most popular names,
+                                according to the <a href="https://almanac.httparchive.org/en/2019/css">Web Almanac</a>,
+                                are black, white, red, blue and gray.
+                                Our favorites include goldenrod, aliceblue, and hotpink.</p>
+                                
+                                <figure>
+                                <div class="wd-embed" style="height: 500px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/ZELGraM?height=500&theme-id=light&default-tab=result&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen ZELGraM by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                </figure>
+                                
+                                <p>Aside from standard colors, there are also special keywords available:</p>
+                                
+                                <ul>
+                                <li><code translate="no" dir="ltr">transparent</code> is a fully transparent color.
+                                It is also the initial value of <code translate="no" dir="ltr">background-color</code></li>
+                                <li><code translate="no" dir="ltr">currentColor</code> is the contextual computed dynamic value of the <code translate="no" dir="ltr">color</code> property.
+                                If you have a text color of <code translate="no" dir="ltr">red</code> and then set the <code translate="no" dir="ltr">border-color</code> to be <code translate="no" dir="ltr">currentColor</code>, it will also be red.
+                                If the element that you define <code translate="no" dir="ltr">currentColor</code> on doesn&#39;t have a value for <code translate="no" dir="ltr">color</code> defined,
+                                <code translate="no" dir="ltr">currentColor</code> will be computed by the cascade instead</li>
+                                </ul>
+                                
+                                <aside class="note"><b>Note: </b> System keywords are colors that are defined by your operating system theme. Some examples of these colors are <code translate="no" dir="ltr">Background</code>, which is the desktop background color or <code translate="no" dir="ltr">Highlight</code>, which is the highlight color of selected items. These are just two of <a href="https://www.w3.org/wiki/CSS/Properties/color/keywords#System_Colors">many options</a>.  All color keywords are case-insensitive, however you will often see system colors with capitalization to differentiate them from standard color keywords. </aside>
+                                
+                                <h2 id="where_to_use_color_in_css_rules" data-text="Where to use color in CSS rules" tabindex="-1">Where to use color in CSS rules</h2>
+                                
+                                <p>If a CSS property accepts the
+                                <a href="https://developer.mozilla.org/docs/Web/CSS/color_value"><code translate="no" dir="ltr">&lt;color&gt;</code></a> data type as a value,
+                                it will accept any of the above methods of expressing color.
+                                For styling text, use the <code translate="no" dir="ltr">color</code>, <code translate="no" dir="ltr">text-shadow</code> and <code translate="no" dir="ltr">text-decoration-color</code> properties
+                                which all accept color as the value or color as part of the value.</p>
+                                
+                                <p>For backgrounds, you can set a color as the value for <code translate="no" dir="ltr">background</code> or <code translate="no" dir="ltr">background-color</code>.
+                                Colors can also be used in gradients, such as <code translate="no" dir="ltr">linear-gradient</code>.
+                                Gradients are a type of image that can be programmatically defined in CSS.
+                                Gradients accept two or more colors in any combination of color format, such as hex, rgb or hsl.</p>
+                                
+                                <aside class="note"><b>Note: </b> There's lots to learn with gradients so we wrote <a href="/learn/css/gradients">a whole lesson</a> on how to use them. </aside>
+                                
+                                <p>Finally, <code translate="no" dir="ltr">border-color</code>, and <code translate="no" dir="ltr">outline-color</code> set the color for borders and outlines on your boxes.
+                                The <code translate="no" dir="ltr">box-shadow</code> property also accepts color as one of the values.</p>
+
+
+
+
+
+
+
+
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
                     </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
-                            </ul>
-                        </nav>
-                    </footer>
+                    
                                         
                 </div>
             </main>

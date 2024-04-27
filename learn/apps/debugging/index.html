@@ -1172,38 +1172,284 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                    
+                    
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Debugging</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
-                    </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
+                        <section aria-labelledby="the_story_of_your_first_website">
+                                   
+                            
+
+
+
+                            <p>All the tools available for web development are also helpful for progressive web app development, including libraries, frameworks, code editors, builders, developer tools, debuggers, and more. But when working with PWA-specific abilities, such as installability, service workers, offline support, and more, certain tools for PWA are extra helpful. Let&#39;s see them in action.</p>
+
+                            <h2 id="simulators_and_devices" data-text="Simulators and devices" tabindex="-1">Simulators and devices</h2>
+                            
+                            <p>As mentioned in the <a href="/learn/pwa/foundations">Foundations chapter</a>, you should use agnostic design patterns to offer the best experience to every user in every context. However, it&#39;s good practice to test your experiences on different devices.</p>
+                            
+                            <aside class="caution"><b>Caution: </b> Installed PWAs are new experiences for web developers to test and debug, but keep in mind that not every tool is compatible with this mode. </aside>
+                            
+                            <p>You probably won&#39;t own dozens of physical devices, including iPhones, Android phones, tablets, and desktops or laptops with different operating systems. That&#39;s why simulators and emulators exist.</p>
+                            
+                            <h3 id="simple_simulators" data-text="Simple simulators" tabindex="-1">Simple simulators</h3>
+                            
+                            <p>Most developer tools within browsers let you test your PWAs in different screen sizes or network conditions while using a single desktop browser engine. Some of these tools can also force a different user agent under these simulations.</p>
+                            
+                            <p>Some available simulators are:</p>
+                            
+                            <ul>
+                            <li>Chromium DevTools: <a href="https://developer.chrome.com/docs/devtools/device-mode">Device Mode</a>, network throttling and several sensor simulations available</li>
+                            <li>Firefox Developer Tools: <a href="https://developer.mozilla.org/docs/Tools/Responsive_Design_Mode">Responsive Design Mode</a></li>
+                            <li>Safari Web Inspector: <a href="https://developer.apple.com/safari/tools/">Responsive Design Mode</a>
+                            <img src="/static/learn/pwa/tools-and-debug/image/chromium-devtools-simulat-4bea8a5fb2ace.png" alt="Chromium DevTools simulating mobile devices." width="800" height="513" srcset="https://web.dev/static/learn/pwa/tools-and-debug/image/chromium-devtools-simulat-4bea8a5fb2ace_36.png 36w,https://web.dev/static/learn/pwa/tools-and-debug/image/chromium-devtools-simulat-4bea8a5fb2ace_48.png 48w,https://web.dev/static/learn/pwa/tools-and-debug/image/chromium-devtools-simulat-4bea8a5fb2ace_72.png 72w,https://web.dev/static/learn/pwa/tools-and-debug/image/chromium-devtools-simulat-4bea8a5fb2ace_96.png 96w,https://web.dev/static/learn/pwa/tools-and-debug/image/chromium-devtools-simulat-4bea8a5fb2ace_480.png 480w,https://web.dev/static/learn/pwa/tools-and-debug/image/chromium-devtools-simulat-4bea8a5fb2ace_720.png 720w,https://web.dev/static/learn/pwa/tools-and-debug/image/chromium-devtools-simulat-4bea8a5fb2ace_856.png 856w,https://web.dev/static/learn/pwa/tools-and-debug/image/chromium-devtools-simulat-4bea8a5fb2ace_960.png 960w,https://web.dev/static/learn/pwa/tools-and-debug/image/chromium-devtools-simulat-4bea8a5fb2ace_1440.png 1440w,https://web.dev/static/learn/pwa/tools-and-debug/image/chromium-devtools-simulat-4bea8a5fb2ace_1920.png 1920w,https://web.dev/static/learn/pwa/tools-and-debug/image/chromium-devtools-simulat-4bea8a5fb2ace_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px">
+                            <img src="/static/learn/pwa/tools-and-debug/image/firefox-devtools-simulati-49641650c4a71.png" alt="Firefox DevTools simulating mobile devices." width="800" height="629" srcset="https://web.dev/static/learn/pwa/tools-and-debug/image/firefox-devtools-simulati-49641650c4a71_36.png 36w,https://web.dev/static/learn/pwa/tools-and-debug/image/firefox-devtools-simulati-49641650c4a71_48.png 48w,https://web.dev/static/learn/pwa/tools-and-debug/image/firefox-devtools-simulati-49641650c4a71_72.png 72w,https://web.dev/static/learn/pwa/tools-and-debug/image/firefox-devtools-simulati-49641650c4a71_96.png 96w,https://web.dev/static/learn/pwa/tools-and-debug/image/firefox-devtools-simulati-49641650c4a71_480.png 480w,https://web.dev/static/learn/pwa/tools-and-debug/image/firefox-devtools-simulati-49641650c4a71_720.png 720w,https://web.dev/static/learn/pwa/tools-and-debug/image/firefox-devtools-simulati-49641650c4a71_856.png 856w,https://web.dev/static/learn/pwa/tools-and-debug/image/firefox-devtools-simulati-49641650c4a71_960.png 960w,https://web.dev/static/learn/pwa/tools-and-debug/image/firefox-devtools-simulati-49641650c4a71_1440.png 1440w,https://web.dev/static/learn/pwa/tools-and-debug/image/firefox-devtools-simulati-49641650c4a71_1920.png 1920w,https://web.dev/static/learn/pwa/tools-and-debug/image/firefox-devtools-simulati-49641650c4a71_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px">
+                            <img src="/static/learn/pwa/tools-and-debug/image/safari-web-inspector-resp-53111c832e67f.png" alt="Safari Web Inspector Responsive Design mode." width="800" height="810" srcset="https://web.dev/static/learn/pwa/tools-and-debug/image/safari-web-inspector-resp-53111c832e67f_36.png 36w,https://web.dev/static/learn/pwa/tools-and-debug/image/safari-web-inspector-resp-53111c832e67f_48.png 48w,https://web.dev/static/learn/pwa/tools-and-debug/image/safari-web-inspector-resp-53111c832e67f_72.png 72w,https://web.dev/static/learn/pwa/tools-and-debug/image/safari-web-inspector-resp-53111c832e67f_96.png 96w,https://web.dev/static/learn/pwa/tools-and-debug/image/safari-web-inspector-resp-53111c832e67f_480.png 480w,https://web.dev/static/learn/pwa/tools-and-debug/image/safari-web-inspector-resp-53111c832e67f_720.png 720w,https://web.dev/static/learn/pwa/tools-and-debug/image/safari-web-inspector-resp-53111c832e67f_856.png 856w,https://web.dev/static/learn/pwa/tools-and-debug/image/safari-web-inspector-resp-53111c832e67f_960.png 960w,https://web.dev/static/learn/pwa/tools-and-debug/image/safari-web-inspector-resp-53111c832e67f_1440.png 1440w,https://web.dev/static/learn/pwa/tools-and-debug/image/safari-web-inspector-resp-53111c832e67f_1920.png 1920w,https://web.dev/static/learn/pwa/tools-and-debug/image/safari-web-inspector-resp-53111c832e67f_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px">
+                            Some commercial and free solutions are optimized for developers and designers, such as the open source <a href="https://responsively.app">Responsively app</a>.
+                            <aside class="tip">Simple simulators can&#39;t simulate and test installation-related abilities, such as <code translate="no" dir="ltr">display-mode</code> related media queries, iOS web app meta tags, app shortcuts, or web share target. </aside></li>
                             </ul>
-                        </nav>
-                    </footer>
+                            
+                            <h3 id="apple_simulators" data-text="Apple simulators" tabindex="-1">Apple simulators</h3>
+                            
+                            <p>Apple offers the Simulator app (formerly known as iOS Simulator) which allows you to test your web app on different iPhones and iPads on various operating system versions.</p>
+                            
+                            <p>The Simulator app is only available for macOS computers, and it comes with [Xcode, available in <a href="https://apps.apple.com/us/app/xcode/id497799835">AppStore</a>; it simulates iOS and iPadOS with different device configurations. It includes the real Mobile Safari app and the Web.app engine used when your PWA is installed on the home screen, so the final experience you see is fairly representative of an actual device.</p>
+                            
+                            <p><img src="/static/learn/pwa/tools-and-debug/image/simulator-safari-renderi-2c1da71dc324d.png" alt="Simulator with Safari rendering websites on iPhones and iPad." width="800" height="376" srcset="https://web.dev/static/learn/pwa/tools-and-debug/image/simulator-safari-renderi-2c1da71dc324d_36.png 36w,https://web.dev/static/learn/pwa/tools-and-debug/image/simulator-safari-renderi-2c1da71dc324d_48.png 48w,https://web.dev/static/learn/pwa/tools-and-debug/image/simulator-safari-renderi-2c1da71dc324d_72.png 72w,https://web.dev/static/learn/pwa/tools-and-debug/image/simulator-safari-renderi-2c1da71dc324d_96.png 96w,https://web.dev/static/learn/pwa/tools-and-debug/image/simulator-safari-renderi-2c1da71dc324d_480.png 480w,https://web.dev/static/learn/pwa/tools-and-debug/image/simulator-safari-renderi-2c1da71dc324d_720.png 720w,https://web.dev/static/learn/pwa/tools-and-debug/image/simulator-safari-renderi-2c1da71dc324d_856.png 856w,https://web.dev/static/learn/pwa/tools-and-debug/image/simulator-safari-renderi-2c1da71dc324d_960.png 960w,https://web.dev/static/learn/pwa/tools-and-debug/image/simulator-safari-renderi-2c1da71dc324d_1440.png 1440w,https://web.dev/static/learn/pwa/tools-and-debug/image/simulator-safari-renderi-2c1da71dc324d_1920.png 1920w,https://web.dev/static/learn/pwa/tools-and-debug/image/simulator-safari-renderi-2c1da71dc324d_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                            
+                            <p>To launch the app, once you have installed Xcode, you can open the Simulator in the <code translate="no" dir="ltr">Xcode</code> menu, by selecting <code translate="no" dir="ltr">Open Developer Tools</code> then <code translate="no" dir="ltr">Simulator</code>. Once in the simulator, you can open Safari as if you are in a real iPhone or iPad. You can open other devices by selecting <code translate="no" dir="ltr">File</code> then <code translate="no" dir="ltr">Open Simulator</code> menu.</p>
+                            
+                            <p>Some useful shortcuts for web developers while using Simulator to test PWAs are:</p>
+                            
+                            <ul>
+                            <li><code translate="no" dir="ltr">Command-Shift-H</code>: go to the Home screen.</li>
+                            <li><code translate="no" dir="ltr">Control-Command-Shift-H</code>: access the App Switcher.</li>
+                            <li><code translate="no" dir="ltr">Command-Right</code> and <code translate="no" dir="ltr">Command-Left</code>: rotate the device.</li>
+                            </ul>
+                            
+                            <p>Simulator is not a virtual machine, but an app running on top of your macOS that looks like an iPhone or iPad, so it doesn&#39;t have its own TCP stack. Therefore, if you use <code translate="no" dir="ltr">localhost</code> within Simulator, Safari will point to your macOS <code translate="no" dir="ltr">localhost</code> device.</p>
+                            
+                            <p>By default, Xcode only installs the latest version of iOS, but you can go to Xcode, use the <code translate="no" dir="ltr">Preferences</code> menu, and download older Simulators from the <code translate="no" dir="ltr">Components</code> tab.</p>
+                            
+                            <p>It&#39;s good practice to test your PWA on the latest version of iOS, the previous minor version, and at least one previous major version.</p>
+                            
+                            <h3 id="android_emulators" data-text="Android emulators" tabindex="-1">Android emulators</h3>
+                            
+                            <p>The Android ecosystem offers different emulators, but the ones available within the <a href="https://developer.android.com/studio/run/emulator">Android SDK</a> are the most commonly used.</p>
+                            
+                            <p>As a PWA developer, you also need browsers in your Android emulator, which will add a layer of complexity to testing, because AOSP (Android Open Source Project) doesn&#39;t include Google Chrome or Play Store to download browsers. Therefore, not every Android emulator is helpful for PWA testing.</p>
+                            
+                            <p>The Android SDK comes with two tools useful for emulation:</p>
+                            
+                            <ul>
+                            <li>SDK Manager: downloads and updates different operating system versions and plugins.</li>
+                            <li>AVD Manager: adds, edits, and deletes Android Virtual Devices (AVDs), each of them representing one device with one Android OS installed, similar to a virtual machine instance.</li>
+                            </ul>
+                            
+                            <p>You can only install the Android SDK or <a href="https://developer.android.com/studio">Android Studio</a>, a free IDE including the Android SDK with the emulators. With the SDK, you will have to use the command line to open and set up your emulators. With Android Studio, you can open the tools needed from the Welcome screen&#39;s menu.
+                            Once in the AVD Manager, you can create as many devices as you want, with different combinations of screen size, abilities, and Android OS version.</p>
+                            
+                            <aside class="caution"><b>Caution: </b> Each Android Virtual Device can take more than 5GB of your hard drive. Be mindful of that when creating images. </aside>
+                            
+                            <p><img src="/static/learn/pwa/tools-and-debug/image/the-avd-manager-an-andro-bb03c5914ec67.png" alt="The AVD manager with an Android Virtual device browsing a website" width="800" height="569" srcset="https://web.dev/static/learn/pwa/tools-and-debug/image/the-avd-manager-an-andro-bb03c5914ec67_36.png 36w,https://web.dev/static/learn/pwa/tools-and-debug/image/the-avd-manager-an-andro-bb03c5914ec67_48.png 48w,https://web.dev/static/learn/pwa/tools-and-debug/image/the-avd-manager-an-andro-bb03c5914ec67_72.png 72w,https://web.dev/static/learn/pwa/tools-and-debug/image/the-avd-manager-an-andro-bb03c5914ec67_96.png 96w,https://web.dev/static/learn/pwa/tools-and-debug/image/the-avd-manager-an-andro-bb03c5914ec67_480.png 480w,https://web.dev/static/learn/pwa/tools-and-debug/image/the-avd-manager-an-andro-bb03c5914ec67_720.png 720w,https://web.dev/static/learn/pwa/tools-and-debug/image/the-avd-manager-an-andro-bb03c5914ec67_856.png 856w,https://web.dev/static/learn/pwa/tools-and-debug/image/the-avd-manager-an-andro-bb03c5914ec67_960.png 960w,https://web.dev/static/learn/pwa/tools-and-debug/image/the-avd-manager-an-andro-bb03c5914ec67_1440.png 1440w,https://web.dev/static/learn/pwa/tools-and-debug/image/the-avd-manager-an-andro-bb03c5914ec67_1920.png 1920w,https://web.dev/static/learn/pwa/tools-and-debug/image/the-avd-manager-an-andro-bb03c5914ec67_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                            
+                            <aside class="caution"><b>Caution: </b> Android devices are virtual machines on top of your host computers, so they have their own TCP stacks. Therefore, <code translate="no" dir="ltr">localhost</code> in an Android browser within an AVD won't be the same as your <code translate="no" dir="ltr">localhost</code> in your host desktop computer. Later in this chapter, we will see how to solve this restriction with port forwarding. </aside>
+                            
+                            <p>With an Android emulator, you can check your PWA installation support, the entire user experience, and if the abilities you are using are working as expected.</p>
+                            
+                            <h4 id="using_google_chrome" data-text="Using Google Chrome" tabindex="-1">Using Google Chrome</h4>
+                            
+                            <p>To use Google Chrome in the Android emulator, you have to create an AVD with Play Services inside. To do that, make sure the SDK you use for your AVD has the Play icon, as you can see in the following image:</p>
+                            
+                            <p><img src="/static/learn/pwa/tools-and-debug/image/creating-avds-an-operati-02cc8e7fceb53.png" alt="Creating AVDs with an operating system including Play services." width="800" height="560" srcset="https://web.dev/static/learn/pwa/tools-and-debug/image/creating-avds-an-operati-02cc8e7fceb53_36.png 36w,https://web.dev/static/learn/pwa/tools-and-debug/image/creating-avds-an-operati-02cc8e7fceb53_48.png 48w,https://web.dev/static/learn/pwa/tools-and-debug/image/creating-avds-an-operati-02cc8e7fceb53_72.png 72w,https://web.dev/static/learn/pwa/tools-and-debug/image/creating-avds-an-operati-02cc8e7fceb53_96.png 96w,https://web.dev/static/learn/pwa/tools-and-debug/image/creating-avds-an-operati-02cc8e7fceb53_480.png 480w,https://web.dev/static/learn/pwa/tools-and-debug/image/creating-avds-an-operati-02cc8e7fceb53_720.png 720w,https://web.dev/static/learn/pwa/tools-and-debug/image/creating-avds-an-operati-02cc8e7fceb53_856.png 856w,https://web.dev/static/learn/pwa/tools-and-debug/image/creating-avds-an-operati-02cc8e7fceb53_960.png 960w,https://web.dev/static/learn/pwa/tools-and-debug/image/creating-avds-an-operati-02cc8e7fceb53_1440.png 1440w,https://web.dev/static/learn/pwa/tools-and-debug/image/creating-avds-an-operati-02cc8e7fceb53_1920.png 1920w,https://web.dev/static/learn/pwa/tools-and-debug/image/creating-avds-an-operati-02cc8e7fceb53_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                            
+                            <p>AVDs with Play services also include Play Store, so you can update your Chrome with the latest version after setting up your account with your Google account.</p>
+                            
+                            <h4 id="using_other_browsers" data-text="Using other browsers" tabindex="-1">Using other browsers</h4>
+                            
+                            <p>If you use an AVD with Play services, you can also download browsers from the Play Store.</p>
+                            
+                            <p>Most of the browsers available for Android, including Samsung Internet, Microsoft Edge, Opera, Firefox, and Brave, are available as APKs (Android Packages). If you have the APK for the browser you want to test, you can just drag the file to the emulator or install it through the command-line <a href="https://developer.android.com/studio/command-line/adb">using ADB</a>.</p>
+                            
+                            <p><img src="/static/learn/pwa/tools-and-debug/image/android-emulator-installi-91dfd37493dff.png" alt="Android emulator installing Microsoft Edge from Play store." width="780" height="746" srcset="https://web.dev/static/learn/pwa/tools-and-debug/image/android-emulator-installi-91dfd37493dff_36.png 36w,https://web.dev/static/learn/pwa/tools-and-debug/image/android-emulator-installi-91dfd37493dff_48.png 48w,https://web.dev/static/learn/pwa/tools-and-debug/image/android-emulator-installi-91dfd37493dff_72.png 72w,https://web.dev/static/learn/pwa/tools-and-debug/image/android-emulator-installi-91dfd37493dff_96.png 96w,https://web.dev/static/learn/pwa/tools-and-debug/image/android-emulator-installi-91dfd37493dff_480.png 480w,https://web.dev/static/learn/pwa/tools-and-debug/image/android-emulator-installi-91dfd37493dff_720.png 720w,https://web.dev/static/learn/pwa/tools-and-debug/image/android-emulator-installi-91dfd37493dff_856.png 856w,https://web.dev/static/learn/pwa/tools-and-debug/image/android-emulator-installi-91dfd37493dff_960.png 960w,https://web.dev/static/learn/pwa/tools-and-debug/image/android-emulator-installi-91dfd37493dff_1440.png 1440w,https://web.dev/static/learn/pwa/tools-and-debug/image/android-emulator-installi-91dfd37493dff_1920.png 1920w,https://web.dev/static/learn/pwa/tools-and-debug/image/android-emulator-installi-91dfd37493dff_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                            
+                            <h3 id="desktop_emulators" data-text="Desktop emulators" tabindex="-1">Desktop emulators</h3>
+                            
+                            <p>Emulating a different desktop computer is typically done via a virtual machine system, such as VirtualBox or VMWare. Even with these tools, emulating some environments is impossible, such as emulating macOS on Windows or Linux, and some other options may require a license, such as emulating Windows on macOS or Windows.</p>
+                            
+                            <h3 id="using_physical_devices" data-text="Using physical devices" tabindex="-1">Using physical devices</h3>
+                            
+                            <p>Using actual devices to test your PWA is also a good idea. We don&#39;t need to own several devices as there are some cloud-based solutions where you can use physical devices remotely. There are some free solutions and some commercial solutions with a free-tier available.</p>
+                            
+                            <p><img src="/static/learn/pwa/tools-and-debug/image/remote-test-lab-samsung-c7dba482d59e4.png" alt="Remote Test Lab from Samsung with a foldable phone." width="800" height="460" srcset="https://web.dev/static/learn/pwa/tools-and-debug/image/remote-test-lab-samsung-c7dba482d59e4_36.png 36w,https://web.dev/static/learn/pwa/tools-and-debug/image/remote-test-lab-samsung-c7dba482d59e4_48.png 48w,https://web.dev/static/learn/pwa/tools-and-debug/image/remote-test-lab-samsung-c7dba482d59e4_72.png 72w,https://web.dev/static/learn/pwa/tools-and-debug/image/remote-test-lab-samsung-c7dba482d59e4_96.png 96w,https://web.dev/static/learn/pwa/tools-and-debug/image/remote-test-lab-samsung-c7dba482d59e4_480.png 480w,https://web.dev/static/learn/pwa/tools-and-debug/image/remote-test-lab-samsung-c7dba482d59e4_720.png 720w,https://web.dev/static/learn/pwa/tools-and-debug/image/remote-test-lab-samsung-c7dba482d59e4_856.png 856w,https://web.dev/static/learn/pwa/tools-and-debug/image/remote-test-lab-samsung-c7dba482d59e4_960.png 960w,https://web.dev/static/learn/pwa/tools-and-debug/image/remote-test-lab-samsung-c7dba482d59e4_1440.png 1440w,https://web.dev/static/learn/pwa/tools-and-debug/image/remote-test-lab-samsung-c7dba482d59e4_1920.png 1920w,https://web.dev/static/learn/pwa/tools-and-debug/image/remote-test-lab-samsung-c7dba482d59e4_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                            
+                            <p>One of the available solutions is <a href="https://developer.samsung.com/remote-test-lab">Samsung Remote Test Lab</a>, a free solution to test your PWA on Samsung devices, including phones, tablets, and foldable devices.</p>
+                            
+                            <aside class="tip">Some cloud-based device lab solutions are suitable for device-specific app testing. They are not optimized for PWAs, so you can only use them if you plan to create a package to distribute your PWA in an app store. </aside>
+                            
+                            <h3 id="remote_inspection" data-text="Remote inspection" tabindex="-1">Remote inspection</h3>
+                            
+                            <p>When you want to debug your Progressive Web App in an actual device, a simulator, or an emulator, you may want to connect a remote inspection session with your desktop&#39;s browser tools.</p>
+                            
+                            <p>There are commercial tools available, but all the browsers also offer ways to do it, including:</p>
+                            
+                            <ul>
+                            <li><a href="https://webkit.org/web-inspector/enabling-web-inspector/">WebKit Remote Inspector</a> to connect to Safari and installed PWAs on iOS- and iPadOS-connected devices and simulators.</li>
+                            <li><a href="https://developer.chrome.com/docs/devtools/remote-debugging">Chromium DevTools Remote Debugging</a> to connect to Chrome, Edge, Samsung Internet, and other Chromium-based browsers on Android and PWAs installed from those browsers, including connected physical devices and emulators.</li>
+                            <li><a href="https://developer.mozilla.org/docs/Tools/Remote_Debugging">Firefox Remote Debugging</a> to connect to Firefox for Android on connected actual devices and emulators.</li>
+                            </ul>
+                            
+                            <h4 id="port_forwarding_for_android" data-text="Port forwarding for Android" tabindex="-1">Port forwarding for Android</h4>
+                            
+                            <p>When testing PWAs available on <code translate="no" dir="ltr">localhost</code> on Android physical devices or emulators, you will have a problem, as <code translate="no" dir="ltr">localhost</code> will point to the Android TCP stack and not your development machine.</p>
+                            
+                            <p>You may want to use your local IP address as a replacement to <code translate="no" dir="ltr">localhost</code>, but that&#39;s not a good idea as service workers and many abilities will only work with HTTPS connections, with the exception of <code translate="no" dir="ltr">localhost</code>, so your PWA won&#39;t work offline or pass PWA criteria.</p>
+                            
+                            <p>You can solve the problem by enabling port forwarding on a Chromium browser on your desktop computer. In that case, you can bridge a port on <code translate="no" dir="ltr">localhost</code> on the Android device to any origin and port from your host computer, including your development computer&#39;s <code translate="no" dir="ltr">localhost</code>. Check <a href="https://developer.chrome.com/docs/devtools/remote-debugging/local-server">this guide</a> for more information.</p>
+                            
+                            <h2 id="chromium_browsers" data-text="Chromium browsers" tabindex="-1">Chromium browsers</h2>
+                            
+                            <p>Chromium browsers offer many tools for debugging and testing Progressive Web Apps, starting from DevTools.</p>
+                            
+                            <p>Most Chromium-based browsers, including Samsung Internet, Microsoft Edge, and Google Chrome, offer different channels, such as Stable, Beta, and Canary. You can install separate versions on desktop and Android to test your PWA on future versions of the browser. This allows you to build and test features that are not yet widely available, or to test deprecations and changes, and work out how your app will behave in newer versions.</p>
+                            
+                            <p>Using remote inspection, you can use all these tools to debug and test your PWA on desktop and Android devices.</p>
+                            
+                            <h3 id="service_worker_tools" data-text="Service worker tools" tabindex="-1">Service worker tools</h3>
+                            
+                            <p>Chromium DevTools has a complete set of tools to debug service workers and their APIs&#39; &quot;Application&quot; tab. From the &quot;Service Workers&quot; section, you can:</p>
+                            
+                            <ul>
+                            <li>See service workers&#39; installation status and lifecycle.</li>
+                            <li>Update and unregister the service worker.</li>
+                            <li>Follow the update cycle.</li>
+                            <li>See current service workers&#39; clients.</li>
+                            <li>Send a push message to a service worker.</li>
+                            <li>Register Background Sync and Periodic Background Sync operations.</li>
+                            </ul>
+                            
+                            <p><img src="/static/learn/pwa/tools-and-debug/image/service-worker-debugging-673821a5cd2b.png" alt="Service Worker debugging tools con Chromium DevTools." width="800" height="491" srcset="https://web.dev/static/learn/pwa/tools-and-debug/image/service-worker-debugging-673821a5cd2b_36.png 36w,https://web.dev/static/learn/pwa/tools-and-debug/image/service-worker-debugging-673821a5cd2b_48.png 48w,https://web.dev/static/learn/pwa/tools-and-debug/image/service-worker-debugging-673821a5cd2b_72.png 72w,https://web.dev/static/learn/pwa/tools-and-debug/image/service-worker-debugging-673821a5cd2b_96.png 96w,https://web.dev/static/learn/pwa/tools-and-debug/image/service-worker-debugging-673821a5cd2b_480.png 480w,https://web.dev/static/learn/pwa/tools-and-debug/image/service-worker-debugging-673821a5cd2b_720.png 720w,https://web.dev/static/learn/pwa/tools-and-debug/image/service-worker-debugging-673821a5cd2b_856.png 856w,https://web.dev/static/learn/pwa/tools-and-debug/image/service-worker-debugging-673821a5cd2b_960.png 960w,https://web.dev/static/learn/pwa/tools-and-debug/image/service-worker-debugging-673821a5cd2b_1440.png 1440w,https://web.dev/static/learn/pwa/tools-and-debug/image/service-worker-debugging-673821a5cd2b_1920.png 1920w,https://web.dev/static/learn/pwa/tools-and-debug/image/service-worker-debugging-673821a5cd2b_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                            
+                            <p><a href="https://developer.chrome.com/docs/devtools/progressive-web-apps#service-workers">Read more about these tools</a>.</p>
+                            
+                            <h3 id="storage_tools" data-text="Storage tools" tabindex="-1">Storage tools</h3>
+                            
+                            <p>Within <code translate="no" dir="ltr">Application</code> then <code translate="no" dir="ltr">Storage</code>, you can see, preview, update, and delete data from your origin, such as Web Storage entries or IndexedDB stores.
+                            Inside <code translate="no" dir="ltr">Application</code>, <code translate="no" dir="ltr">Cache</code> then <code translate="no" dir="ltr">Cache Storage</code>, you can see all the caches stored in current origin, preview content, and delete entries. <a href="https://developer.chrome.com/docs/devtools/storage/cache">Read more about the cache tool</a>.</p>
+                            
+                            <p><img src="/static/learn/pwa/tools-and-debug/image/cache-inspector-chromium-7f17d02f39b76.png" alt="Cache Inspector in Chromium DevTools" width="800" height="491" srcset="https://web.dev/static/learn/pwa/tools-and-debug/image/cache-inspector-chromium-7f17d02f39b76_36.png 36w,https://web.dev/static/learn/pwa/tools-and-debug/image/cache-inspector-chromium-7f17d02f39b76_48.png 48w,https://web.dev/static/learn/pwa/tools-and-debug/image/cache-inspector-chromium-7f17d02f39b76_72.png 72w,https://web.dev/static/learn/pwa/tools-and-debug/image/cache-inspector-chromium-7f17d02f39b76_96.png 96w,https://web.dev/static/learn/pwa/tools-and-debug/image/cache-inspector-chromium-7f17d02f39b76_480.png 480w,https://web.dev/static/learn/pwa/tools-and-debug/image/cache-inspector-chromium-7f17d02f39b76_720.png 720w,https://web.dev/static/learn/pwa/tools-and-debug/image/cache-inspector-chromium-7f17d02f39b76_856.png 856w,https://web.dev/static/learn/pwa/tools-and-debug/image/cache-inspector-chromium-7f17d02f39b76_960.png 960w,https://web.dev/static/learn/pwa/tools-and-debug/image/cache-inspector-chromium-7f17d02f39b76_1440.png 1440w,https://web.dev/static/learn/pwa/tools-and-debug/image/cache-inspector-chromium-7f17d02f39b76_1920.png 1920w,https://web.dev/static/learn/pwa/tools-and-debug/image/cache-inspector-chromium-7f17d02f39b76_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                            
+                            <p>Also, selecting from <code translate="no" dir="ltr">Application</code> then <code translate="no" dir="ltr">Storage</code>, you can see the current quota used, simulate custom quota storage, and clear all your data, including the service worker registration, using <code translate="no" dir="ltr">Clear site data</code>.</p>
+                            
+                            <h4 id="background_services" data-text="Background services" tabindex="-1">Background services</h4>
+                            
+                            <p>Chromium DevTools also has a set of background services event recording tools, found by clicking <code translate="no" dir="ltr">Application</code> then <code translate="no" dir="ltr">Background Services</code>. This lets you see what happens with some events in the background on top of the service workers&#39; API. <a href="https://developer.chrome.com/docs/devtools/javascript/background-services">Read more about these tools</a>.</p>
+                            
+                            <h3 id="web_app_manifest_tools" data-text="Web app manifest tools" tabindex="-1">Web app manifest tools</h3>
+                            
+                            <p>Chromium DevTools has a section for Web App Manifest and installability criteria under <code translate="no" dir="ltr">Application</code>, <code translate="no" dir="ltr">Manifest</code>. In this section, you can check whether the manifest has loaded correctly, the manifest&#39;s values, how the icons look, the <a href="/learn/pwa/web-app-manifest#basic_fields">app id</a>, and a quick checker for <a href="/learn/pwa/web-app-manifest#maskable_icons">maskable icons</a>.</p>
+                            
+                            <p>Warnings and errors around <a href="/learn/pwa/installation#installation_criteria">installability criteria</a> issues are also shown in this section.</p>
+                            
+                            <p><img src="/static/learn/pwa/tools-and-debug/image/debugging-web-app-manifes-884c6b833585b.png" alt="Debugging Web App Manifest in Chromium DevTools." width="800" height="713" srcset="https://web.dev/static/learn/pwa/tools-and-debug/image/debugging-web-app-manifes-884c6b833585b_36.png 36w,https://web.dev/static/learn/pwa/tools-and-debug/image/debugging-web-app-manifes-884c6b833585b_48.png 48w,https://web.dev/static/learn/pwa/tools-and-debug/image/debugging-web-app-manifes-884c6b833585b_72.png 72w,https://web.dev/static/learn/pwa/tools-and-debug/image/debugging-web-app-manifes-884c6b833585b_96.png 96w,https://web.dev/static/learn/pwa/tools-and-debug/image/debugging-web-app-manifes-884c6b833585b_480.png 480w,https://web.dev/static/learn/pwa/tools-and-debug/image/debugging-web-app-manifes-884c6b833585b_720.png 720w,https://web.dev/static/learn/pwa/tools-and-debug/image/debugging-web-app-manifes-884c6b833585b_856.png 856w,https://web.dev/static/learn/pwa/tools-and-debug/image/debugging-web-app-manifes-884c6b833585b_960.png 960w,https://web.dev/static/learn/pwa/tools-and-debug/image/debugging-web-app-manifes-884c6b833585b_1440.png 1440w,https://web.dev/static/learn/pwa/tools-and-debug/image/debugging-web-app-manifes-884c6b833585b_1920.png 1920w,https://web.dev/static/learn/pwa/tools-and-debug/image/debugging-web-app-manifes-884c6b833585b_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                            
+                            <p><a href="https://developer.chrome.com/docs/devtools/progressive-web-apps">Read more about these tools</a>.</p>
+                            
+                            <aside class="note"><b>Note: </b> Chromium-based browsers have some flags that may be useful while testing PWAs. Check all the available options by browsing to <code translate="no" dir="ltr">about://flags/</code> </aside>
+                            
+                            <h3 id="installation_debugging" data-text="Installation debugging" tabindex="-1">Installation debugging</h3>
+                            
+                            <p>On Android devices using <a href="/learn/pwa/installation#webapks">WebAPK installation mode</a>, you can access a list of installed apps by browsing to <code translate="no" dir="ltr">about:webapk</code> on Chromium browsers.</p>
+                            
+                            <p>You will see the current update status and request a WebAPK update from here.</p>
+                            
+                            <p>On desktop computers, you can see a user-friendly list of installed PWAs by browsing to <code translate="no" dir="ltr">about:apps</code>, and a debug version by browsing to <code translate="no" dir="ltr">about:app-service-internals</code>.</p>
+                            
+                            <p><img src="/static/learn/pwa/tools-and-debug/image/google-chrome-webapk-debu-b08db51a06ce6.png" alt="Google Chrome WebAPK debug screen on Android." width="800" height="400" srcset="https://web.dev/static/learn/pwa/tools-and-debug/image/google-chrome-webapk-debu-b08db51a06ce6_36.png 36w,https://web.dev/static/learn/pwa/tools-and-debug/image/google-chrome-webapk-debu-b08db51a06ce6_48.png 48w,https://web.dev/static/learn/pwa/tools-and-debug/image/google-chrome-webapk-debu-b08db51a06ce6_72.png 72w,https://web.dev/static/learn/pwa/tools-and-debug/image/google-chrome-webapk-debu-b08db51a06ce6_96.png 96w,https://web.dev/static/learn/pwa/tools-and-debug/image/google-chrome-webapk-debu-b08db51a06ce6_480.png 480w,https://web.dev/static/learn/pwa/tools-and-debug/image/google-chrome-webapk-debu-b08db51a06ce6_720.png 720w,https://web.dev/static/learn/pwa/tools-and-debug/image/google-chrome-webapk-debu-b08db51a06ce6_856.png 856w,https://web.dev/static/learn/pwa/tools-and-debug/image/google-chrome-webapk-debu-b08db51a06ce6_960.png 960w,https://web.dev/static/learn/pwa/tools-and-debug/image/google-chrome-webapk-debu-b08db51a06ce6_1440.png 1440w,https://web.dev/static/learn/pwa/tools-and-debug/image/google-chrome-webapk-debu-b08db51a06ce6_1920.png 1920w,https://web.dev/static/learn/pwa/tools-and-debug/image/google-chrome-webapk-debu-b08db51a06ce6_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                            
+                            <h2 id="safari" data-text="Safari" tabindex="-1">Safari</h2>
+                            
+                            <p>At the time of writing, Safari has a more limited set of tools available for PWA testing and debugging. There are no tools to see and debug the state and lifecycle of service workers, no inspector for the  cache&#39;s content, and no tools for web app manifest support and installability on iOS and iPadOS.</p>
+                            
+                            <aside class="tip">You can only inspect and debug PWAs on iOS and iPadOS if you have a macOS computer with an updated OS using Safari desktop or Safari Technology Preview. There are some commercial tools such as <a href="https://inspect.dev">Inspect</a> that allow you to inspect web apps on iOS and iPadOS from other operating systems. </aside>
+                            
+                            <p>Safari is available only on stable, while <a href="https://developer.apple.com/safari/technology-preview/">Safari Technology Preview</a> available for macOS will only let you try abilities of future versions of Safari beforehand. The <a href="https://beta.apple.com/sp/betaprogram">iOS and iPadOS beta programs</a> sometimes include new versions of Safari that you can use for testing.</p>
+                            
+                            <h3 id="service_worker_tools_2" data-text="Service worker tools" tabindex="-1">Service worker tools</h3>
+                            
+                            <p>What you can do on Safari (both on macOS and remotely for iOS and iPadOS) is to open an inspector window for a service worker that is currently running.</p>
+                            
+                            <p>From Safari on macOS, the <code translate="no" dir="ltr">Develop</code>, <code translate="no" dir="ltr">Service Workers</code> menu will list all the currently running service worker sessions. You have to select the device to inspect in the <code translate="no" dir="ltr">Develop</code> menu for remote inspection. Service workers&#39; contexts will appear in the same submenu as window contexts under the origin&#39;s or PWA&#39;s installed name.</p>
+                            
+                            <p>If you select one of them, Safari will open a new window with a restricted inspector, including only <code translate="no" dir="ltr">Consoles</code>, <code translate="no" dir="ltr">Sources</code>, and <code translate="no" dir="ltr">Network Tabs</code>.</p>
+                            
+                            <p><img src="/static/learn/pwa/tools-and-debug/image/a-service-worker-web-insp-d9eafd07b9da4.png" alt="A Service Worker Web Inspector from a PWA in Safari." width="800" height="427" srcset="https://web.dev/static/learn/pwa/tools-and-debug/image/a-service-worker-web-insp-d9eafd07b9da4_36.png 36w,https://web.dev/static/learn/pwa/tools-and-debug/image/a-service-worker-web-insp-d9eafd07b9da4_48.png 48w,https://web.dev/static/learn/pwa/tools-and-debug/image/a-service-worker-web-insp-d9eafd07b9da4_72.png 72w,https://web.dev/static/learn/pwa/tools-and-debug/image/a-service-worker-web-insp-d9eafd07b9da4_96.png 96w,https://web.dev/static/learn/pwa/tools-and-debug/image/a-service-worker-web-insp-d9eafd07b9da4_480.png 480w,https://web.dev/static/learn/pwa/tools-and-debug/image/a-service-worker-web-insp-d9eafd07b9da4_720.png 720w,https://web.dev/static/learn/pwa/tools-and-debug/image/a-service-worker-web-insp-d9eafd07b9da4_856.png 856w,https://web.dev/static/learn/pwa/tools-and-debug/image/a-service-worker-web-insp-d9eafd07b9da4_960.png 960w,https://web.dev/static/learn/pwa/tools-and-debug/image/a-service-worker-web-insp-d9eafd07b9da4_1440.png 1440w,https://web.dev/static/learn/pwa/tools-and-debug/image/a-service-worker-web-insp-d9eafd07b9da4_1920.png 1920w,https://web.dev/static/learn/pwa/tools-and-debug/image/a-service-worker-web-insp-d9eafd07b9da4_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                            
+                            <aside class="note"><b>Note: </b> <a href="https://apps.apple.com/app/service-worker-detector/id1530808337">Service Worker Detector</a> is a free Safari extension available in AppStore that will let you see service worker registration status and the cache storages available under the current origin, abilities which are not available on WebKit's Inspector. </aside>
+                            
+                            <h2 id="firefox" data-text="Firefox" tabindex="-1">Firefox</h2>
+                            
+                            <p>Firefox supports service workers on all platforms and App Manifest for installation only on Android. You can access the tools for PWAs on desktop and Android by a <a href="https://developer.mozilla.org/docs/Tools/about:debugging">USB remote inspection session</a>.</p>
+                            
+                            <p>You can use the desktop version known as <a href="https://www.mozilla.org/firefox/developer/">Firefox Developer Edition</a>. As with Chromium browser, Firefox has versions in different channels on desktop and Android, including stable, beta, and dev versions.</p>
+                            
+                            <h3 id="tools_for_pwas" data-text="Tools for PWAs" tabindex="-1">Tools for PWAs</h3>
+                            
+                            <p>The service worker inspector on Firefox is a basic tool available in Developer Tools under <code translate="no" dir="ltr">Application</code>, <code translate="no" dir="ltr">Service Workers</code>. It lets you see the currently registered service worker, check its running status, and unregister it. Debugging the service worker&#39;s code may only be available on some developer versions of Firefox.</p>
+                            
+                            <p><img src="/static/learn/pwa/tools-and-debug/image/firefox-developer-tools-2ac0fefa74a38.png" alt="Firefox Developer Tools for Service Worker and Manifest." width="800" height="454" srcset="https://web.dev/static/learn/pwa/tools-and-debug/image/firefox-developer-tools-2ac0fefa74a38_36.png 36w,https://web.dev/static/learn/pwa/tools-and-debug/image/firefox-developer-tools-2ac0fefa74a38_48.png 48w,https://web.dev/static/learn/pwa/tools-and-debug/image/firefox-developer-tools-2ac0fefa74a38_72.png 72w,https://web.dev/static/learn/pwa/tools-and-debug/image/firefox-developer-tools-2ac0fefa74a38_96.png 96w,https://web.dev/static/learn/pwa/tools-and-debug/image/firefox-developer-tools-2ac0fefa74a38_480.png 480w,https://web.dev/static/learn/pwa/tools-and-debug/image/firefox-developer-tools-2ac0fefa74a38_720.png 720w,https://web.dev/static/learn/pwa/tools-and-debug/image/firefox-developer-tools-2ac0fefa74a38_856.png 856w,https://web.dev/static/learn/pwa/tools-and-debug/image/firefox-developer-tools-2ac0fefa74a38_960.png 960w,https://web.dev/static/learn/pwa/tools-and-debug/image/firefox-developer-tools-2ac0fefa74a38_1440.png 1440w,https://web.dev/static/learn/pwa/tools-and-debug/image/firefox-developer-tools-2ac0fefa74a38_1920.png 1920w,https://web.dev/static/learn/pwa/tools-and-debug/image/firefox-developer-tools-2ac0fefa74a38_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                            
+                            <p>The manifest tool is available under <code translate="no" dir="ltr">Application</code>, <code translate="no" dir="ltr">Manifest</code>, and it only renders the manifest&#39;s values with a preview of the icons.</p>
+                            
+                            <p>Under <code translate="no" dir="ltr">Storage</code>, you can manage the origin&#39;s storage, including IndexedDB and Cache Storage.</p>
+                            
+                            <p>You can read more about <a href="https://developer.mozilla.org/docs/Tools/Application">Firefox developer tooling for web apps</a>.</p>
+                            
+                            <aside class="note"><b>Note: </b> To develop your PWA, you can use any code editor, IDE, and toolchain of your choice. If you are using Visual Studio code as your code editor, you may want to check the <a href="https://blog.pwabuilder.com/posts/announcing-pwa-studio-the-vs-code-extension-for-building-progressive-web-apps!/?WT.mc_id=M365-MVP-4025164">PWA Studio</a> free extension from the PWABuilder team. This has many tools for PWA developers such as an icon resizer, a service worker generator, and a quick way to create PWAs launchers–useful for app store distribution. </aside>
+                            
+                            <h2 id="resources" data-text="Resources" tabindex="-1">Resources</h2>
+                            
+                            <ul>
+                            <li><a href="https://developer.chrome.com/docs/devtools/progressive-web-apps">Chrome DevTools: Debug Progressive Web Apps</a></li>
+                            <li><a href="https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/progressive-web-apps/">Debug PWAs on Edge</a></li>
+                            <li><a href="https://developer.mozilla.org/docs/Tools/Application">Firefox Developer Tools: Application Tab</a></li>
+                            <li><a href="https://www.youtube.com/watch?v=tuRPSaSiK_c">Debugging Service Workers in Chrome (video)</a></li>
+                            </ul>
+                            
+                              
+
+
+
+
+
+
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
+                    </div>
+                    
                                         
                 </div>
             </main>
