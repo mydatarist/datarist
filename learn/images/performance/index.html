@@ -1172,38 +1172,227 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                    
+                    
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Performance</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
+                        <section aria-labelledby="the_story_of_your_first_website">
+                             
+                            
+
+
+
+
+                            <p>As it stands now, images are the web&#39;s biggest assets in terms of both <a href="https://almanac.httparchive.org/en/2022/page-weight#fig-8">total transfer size</a>
+                                and <a href="https://almanac.httparchive.org/en/2022/page-weight#fig-3">number of requests</a> per page. The median webpage&#39;s total transfer size is roughly
+                                <a href="https://httparchive.org/reports/page-weight">2MB, as of June 2022</a>, with images alone accounting for nearly half of that. It&#39;s no exaggeration
+                                to say that optimizing image requests may be the single biggest performance optimization you can make.</p>
+                                
+                                <p>Later, you&#39;ll learn how responsive images have evolved to help with the issues created by trying to serve one image for all eventualities.
+                                In this section, discover key performance metrics that relate to images, and how to improve them.</p>
+                                
+                                <h2 id="deferring_image_requests" data-text="Deferring image requests" tabindex="-1">Deferring image requests</h2>
+                                
+                                <p>While you&#39;re about to learn a number of ways to ensure your image requests are as small and efficient as possible, the fastest image request
+                                will always be the one that never gets made. So, right up front, I want to share what may be the most impactful change you can make to the way
+                                you deliver image assets to your users: the <code translate="no" dir="ltr">loading=&quot;lazy&quot;</code> attribute.</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;img src=&#34;image.jpg&#34; loading=&#34;lazy&#34; alt=&#34;…&#34;&gt;
+                                </code></pre>
+                                <p>This attribute ensures that requests for images aren&#39;t made until they fall close to the user&#39;s viewport, deferring them from the initial
+                                page load—the time when the browser is at its busiest—and removing those requests from the critical rendering path.</p>
+                                
+                                <p>Simple as it may be in practice, using this attribute can have a huge positive impact on performance: an image that never falls within
+                                the user&#39;s viewport will never be requested, and no bandwidth will be wasted on images that the user will never see.</p>
+                                
+                                <p>There&#39;s a catch, however: deferring those requests means not taking advantage of browsers&#39; hyper-optimized processes for requesting
+                                images as early as possible. If <code translate="no" dir="ltr">loading=&quot;lazy&quot;</code> is used on <code translate="no" dir="ltr">img</code> elements toward the top of the layout—and thus more likely
+                                to be in the user&#39;s viewport when the page is first loaded—these images can feel significantly slower to the end user.</p>
+                                
+                                <h2 id="fetch_priority" data-text="Fetch Priority" tabindex="-1">Fetch Priority</h2>
+                                
+                                <p>The <code translate="no" dir="ltr">loading</code> attribute is an example of a larger web standards effort to give developers more power over how web browsers
+                                prioritize requests.</p>
+                                
+                                <p>You&#39;re likely aware of browsers&#39; <a href="https://docs.google.com/document/d/1bCDuq9H1ih9iNjgzyAL0gpwNFiEP4TZS-YLRp_RuMlc/edit">basic approaches to fetch priority</a>:
+                                for example, a request for an external CSS file in the <code translate="no" dir="ltr">&lt;head&gt;</code> of a document is considered essential enough to block render, while a request for an
+                                external JavaScript file just above <code translate="no" dir="ltr">&lt;/body&gt;</code> will be deferred until render is complete. If the value of a <code translate="no" dir="ltr">loading</code> attribute on an <code translate="no" dir="ltr">&lt;img&gt;</code> is &#39;lazy&#39;,
+                                the associated image request will be deferred until the browser determines that it will be shown to a user. Otherwise, that image will have the same
+                                priority as any other image on the page.</p>
+                                
+                                <p>The <a href="https://caniuse.com/mdn-html_elements_img_fetchpriority"><code translate="no" dir="ltr">fetchpriority</code> attribute</a> is intended to give
+                                developers <a href="/articles/fetch-priority">finer-grained control over the priority of assets</a>, allowing you to flag resources
+                                as &#39;high&#39; and &#39;low&#39; priority relative to resources of the same type. The use cases for <code translate="no" dir="ltr">fetchpriority</code> are similar to the <code translate="no" dir="ltr">loading</code>
+                                attribute, though much more broad. For example, you might use <code translate="no" dir="ltr">fetchpriority=&quot;low&quot;</code> on an image only revealed following user interaction
+                                (whether that image falls within the user&#39;s viewport or not) in order to prioritize visible images elsewhere on the page, or <code translate="no" dir="ltr">fetchpriority=&quot;high&quot;</code>
+                                to prioritize an image you know will be immediately visible in the viewport as soon as the page is rendered.</p>
+                                
+                                <p>Note that <code translate="no" dir="ltr">fetchpriority</code> differs from <code translate="no" dir="ltr">loading</code> in that it doesn&#39;t fundamentally change browser behavior. It doesn&#39;t instruct the browser
+                                to load certain assets before others, instead giving it vital context for the decisions it makes around requesting assets.</p>
+                                
+                                <h2 id="measuring_the_impact_of_images" data-text="Measuring the impact of images" tabindex="-1">Measuring the impact of images</h2>
+                                
+                                <p>When optimizing image assets, <em>perceived</em> performance is often more important, and more difficult to measure, than total transfer
+                                size alone.</p>
+                                
+                                <p>Web Vitals provide measurable, actionable metrics and guidance for improving users&#39; experience of the web, highlighting problems such
+                                as slow response time from a web server, rendering issues, and interactivity delays. Core Web Vitals are a subset of these goals, laser-focused
+                                on the user&#39;s direct experience of an individual page—a set of technical measurements that, together, determine how fast an experience <em>feels</em> to a user.</p>
+                                
+                                <h3 id="cumulative_layout_shift" data-text="Cumulative Layout Shift" tabindex="-1">Cumulative Layout Shift</h3>
+                                
+                                <p><a href="/articles/cls">Cumulative Layout Shift</a> (CLS) is a measure of visual stability. It is a metric for capturing how much
+                                the layout of the content on a page shifts as assets are loaded and the page is rendered. Anyone that has spent a significant amount
+                                of time using the web has lost their place in a long run of text due to a page &quot;jumping&quot; as a delayed webfont or image source is suddenly
+                                rendered—or had an interactive element suddenly moved away from your pointer. A high CLS is a nuisance at best, and cause of
+                                user error at worst—a &quot;cancel&quot; button shifting to a space previously occupied by a &quot;confirm&quot; button just as the user clicks, for example.</p>
+                                
+                                <p>With high load times and the amount of space they can occupy in a layout, it stands to reason that images are a common cause
+                                of high CLS scores.</p>
+                                
+                                <div class="wd-embed" style="height: 500px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/NWBbxqo?height=500&theme-id=light&default-tab=css%2Cresult&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen NWBbxqo by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                
+                                <p>Thanks to relatively recent changes in modern browsers, it&#39;s easier than you might think to avoid high CLS scores due to images.</p>
+                                
+                                <p>If you&#39;ve been working on the frontend for a few years now, you&#39;ll be familiar with the <code translate="no" dir="ltr">width</code> and <code translate="no" dir="ltr">height</code> attributes on <code translate="no" dir="ltr">&lt;img&gt;</code>:
+                                prior to the widespread adoption of CSS, these were the only way to control the size of an image.</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;img src=&#34;image.jpg&#34; height=&#34;200&#34; width=&#34;400&#34; alt=&#34;…&#34;&gt;
+                                </code></pre>
+                                <p>These attributes fell out of use in an effort to keep our styling concerns separate from our markup, especially as responsive
+                                web design made it necessary to specify percentage-based sizing via CSS. In the early days of responsive web design, &quot;remove
+                                the unused <code translate="no" dir="ltr">width</code> and <code translate="no" dir="ltr">height</code> attributes&quot; was common advice, as the values we specified in our CSS—<code translate="no" dir="ltr">max-width: 100%</code> and
+                                <code translate="no" dir="ltr">height: auto</code>—would override them.</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;img src=&#34;image.jpg&#34; alt=&#34;…&#34;&gt;
+                                </code></pre><pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">img {
+                                  max-width: 100%;
+                                  height: auto;
+                                }
+                                </code></pre>
+                                <p>Having removed the <code translate="no" dir="ltr">height</code> and <code translate="no" dir="ltr">width</code> attributes as in the previous example, the only method the browser has for determining
+                                the height of the image in this situation is to request the source, parse it, and render it at its intrinsic aspect ratio, based on the
+                                width of the space it occupies in the layout once stylesheets have been applied. Much of this process takes place after the page has been
+                                rendered, with the newly calculated height causing additional layout shifts.</p>
+                                
+                                <p><a href="https://caniuse.com/mdn-html_elements_img_aspect_ratio_computed_from_attributes">Starting in 2019</a>, browser behavior was updated to handle the <code translate="no" dir="ltr">width</code> and <code translate="no" dir="ltr">height</code> attributes differently. Rather than using the values of these
+                                attributes to determine the fixed, pixel-based size of an <code translate="no" dir="ltr">img</code> element in the layout, these attributes can be thought to represent
+                                the <em>aspect ratio</em> of the image, though the syntax is the same. Modern browsers will divide these values against each other in order to
+                                determine an <code translate="no" dir="ltr">img</code> element&#39;s intrinsic <em>aspect ratio</em> prior to the page being rendered, allowing it to reserve the space the image will occupy as the layout is rendered.</p>
+                                
+                                <p>As a rule, you should always use <code translate="no" dir="ltr">height</code> and <code translate="no" dir="ltr">width</code> attributes on <code translate="no" dir="ltr">&lt;img&gt;</code>, with values matching the intrinsic size of your image source—so
+                                long as you make sure that you&#39;ve specified <code translate="no" dir="ltr">height: auto</code> alongside <code translate="no" dir="ltr">max-width: 100%</code> to override the height from the HTML attribute.</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;img src=&#34;image.jpg&#34; height=&#34;200&#34; width=&#34;400&#34; alt=&#34;…&#34;&gt;
+                                </code></pre><pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">img {
+                                  max-width: 100%;
+                                  height: auto;
+                                }
+                                </code></pre>
+                                <p>By using the <code translate="no" dir="ltr">width</code> and <code translate="no" dir="ltr">height</code> attributes on your <code translate="no" dir="ltr">&lt;img&gt;</code> elements, you&#39;ll avoid a high CLS score due to images.</p>
+                                
+                                <div class="wd-embed" style="height: 300px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/YzjpwyE?height=300&theme-id=light&default-tab=html%2Cresult&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen YzjpwyE by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                
+                                <p>It&#39;s important to note that there&#39;s no downside to this approach, as it leans on long-established browser behavior—any browser
+                                with support for basic CSS will work the way it always has, with the <code translate="no" dir="ltr">height</code> and <code translate="no" dir="ltr">width</code> attributes in your markup overridden by your styles.</p>
+                                
+                                <p>While <code translate="no" dir="ltr">width</code> and <code translate="no" dir="ltr">height</code> attributes deftly avoid CLS issues by reserving the necessary layout space for your images, presenting
+                                users with an empty gap or <a href="https://www.guypo.com/introducing-lqip-low-quality-image-placeholders">low-quality placeholder</a> while
+                                they wait for an image to transfer and render isn&#39;t ideal either. While there are things you can do to mitigate the measurable and perceptible
+                                impact of slow-to-load images, the only way to present a fully-rendered image to a user more quickly is by reducing its transfer size.</p>
+                                
+                                <h3 id="largest_contentful_paint" data-text="Largest Contentful Paint" tabindex="-1">Largest Contentful Paint</h3>
+                                
+                                <p>Largest Contentful Paint (LCP) measures the time it takes to render the largest “contentful” element visible in the user&#39;s viewport—the
+                                content element that occupies the largest percentage of the visible page. It may seem like an overly specific metric on the surface, but that
+                                element serves as a practical proxy for the point where the majority of the page has been rendered, from the user&#39;s perspective. LCP is a vital
+                                measure of (perceived) performance.</p>
+                                
+                                <p>Metrics like <code translate="no" dir="ltr">DOMContentLoaded</code> or the <code translate="no" dir="ltr">window.onload</code> event can be useful for determining when the process of loading the current page
+                                has technically completed, but they don&#39;t necessarily correspond to a user&#39;s experience of the page. A slight delay in rendering an element
+                                outside the user&#39;s viewport would be factored into either of these metrics, but would likely go completely undetected by a real-world user.
+                                A long LCP means the user&#39;s first impression of a page—the most important content inside the current viewport—is that the page is slow,
+                                or broken outright.</p>
+                                
+                                <p>The user perception captured by LCP has a direct impact on user experience. <a href="/case-studies/vodafone">An experiment done by Vodafone</a> just last year
+                                found that a 31% improvement in LCP not only led to 8% more sales—a strong result on its own—but of their total number of users, found a 15%
+                                improvement in the number of visitors who became prospective customers (&quot;visitor-to-lead rate&quot;) and a 11% improvement in the number of users
+                                who visited their cart (&quot;cart to visit rate&quot;).</p>
+                                
+                                <p>On more than <a href="https://almanac.httparchive.org/en/2021/media#images">70%</a> of webpages, the largest element in the initial
+                                viewport involves an image, either as a stand-alone <code translate="no" dir="ltr">&lt;img&gt;</code> element or an element with a background image. In other words,
+                                70% of pages&#39; LCP scores are based on image performance. It doesn&#39;t take much imagination to see why: big, attention-grabbing
+                                images and logos are very likely to be found &quot;above the fold.&quot;</p>
+                                
+                                <p><img src="/static/learn/images/performance-issues/image/lcp-highlighted-the-cons-ee76865e1f4bb.png" alt="LCP highlighted in the console of a web.dev page" width="800" height="407" srcset="https://web.dev/static/learn/images/performance-issues/image/lcp-highlighted-the-cons-ee76865e1f4bb_36.png 36w,https://web.dev/static/learn/images/performance-issues/image/lcp-highlighted-the-cons-ee76865e1f4bb_48.png 48w,https://web.dev/static/learn/images/performance-issues/image/lcp-highlighted-the-cons-ee76865e1f4bb_72.png 72w,https://web.dev/static/learn/images/performance-issues/image/lcp-highlighted-the-cons-ee76865e1f4bb_96.png 96w,https://web.dev/static/learn/images/performance-issues/image/lcp-highlighted-the-cons-ee76865e1f4bb_480.png 480w,https://web.dev/static/learn/images/performance-issues/image/lcp-highlighted-the-cons-ee76865e1f4bb_720.png 720w,https://web.dev/static/learn/images/performance-issues/image/lcp-highlighted-the-cons-ee76865e1f4bb_856.png 856w,https://web.dev/static/learn/images/performance-issues/image/lcp-highlighted-the-cons-ee76865e1f4bb_960.png 960w,https://web.dev/static/learn/images/performance-issues/image/lcp-highlighted-the-cons-ee76865e1f4bb_1440.png 1440w,https://web.dev/static/learn/images/performance-issues/image/lcp-highlighted-the-cons-ee76865e1f4bb_1920.png 1920w,https://web.dev/static/learn/images/performance-issues/image/lcp-highlighted-the-cons-ee76865e1f4bb_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                                
+                                <p>There are a few steps you can take to avoid LCP delays: first, never specify <code translate="no" dir="ltr">loading=&quot;lazy&quot;</code> on an &quot;above the fold&quot; image,
+                                as delaying the request until after the page has been rendered will likely have a massive negative impact on your LCP score.
+                                Second, using <code translate="no" dir="ltr">fetchpriority=&quot;high&quot;</code> can inform the browser that the transfer of this image should be prioritized above images elsewhere on the page.</p>
+                                
+                                <p>With those rules squarely in mind, the most important thing you can do to improve a page&#39;s LCP score is reduce the amount of time
+                                it takes to transfer and render those images. In order to do that, you&#39;ll need to keep your image sources as small and efficient as
+                                possible (without sacrificing their quality, of course) and ensure that users are only getting the image assets that make the most
+                                sense for their browsing contexts.</p>
+                                
+                                <h3 id="conclusion" data-text="Conclusion" tabindex="-1">Conclusion</h3>
+                                
+                                <p>Image assets are the biggest drain on your users&#39; bandwidth—bandwidth taken away from transferring every other asset necessary
+                                to render a page. Images introduce significant issues in terms of perceived performance, both during and after the surrounding page
+                                layout has been rendered. In short: image assets do <em>damage</em>.</p>
+                                
+                                <p>Daunting as that may be, while &quot;the web would be better off with fewer images&quot; would certainly be true in terms of performance alone,
+                                it would also do its users a tremendous disservice. Images are a vital part of the web, and you shouldn&#39;t compromise on the quality of
+                                meaningful content for the sake of performance alone.</p>
+                                
+                                <p>In the rest of this course, you&#39;ll learn about the technologies that power our image assets and techniques for mitigating their
+                                performance impacts, without compromising on quality.</p>
+
+
+
+
+
+
+
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
                     </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
-                            </ul>
-                        </nav>
-                    </footer>
+                    
                                         
                 </div>
             </main>

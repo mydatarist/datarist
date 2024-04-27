@@ -1172,38 +1172,219 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                    
+                    
+
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Sections</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
+                        <section aria-labelledby="the_story_of_your_first_website">
+
+
+
+
+
+                            <p>In the last section you learned how, even if you don&#39;t know what the words on a page mean, when semantic elements provide the document with meaningful structure, others—the search engine, assistive technologies, a future maintainer, a new team member—will understand the outline of the document.</p>
+
+                            <p>In this section, you&#39;ll discover document structure; you&#39;ll recap the sectioning elements from the previous section; and mark up the outline for your application.</p>
+                            
+                            <p>Choosing the right elements for the job as you code means you won&#39;t have to refactor or comment out your HTML. If you think about using the right element for the job, you&#39;ll most often pick the right element for the job. If you don&#39;t, you probably won&#39;t.</p>
+                            
+                            <p>Now that you <a href="/learn/html/semantic-html">understand markup semantics</a>  and are aware of why choosing the right element is important, once you learn about all the different elements, you will generally pick the right element without much, if any, additional effort.</p>
+                            
+                            <h2 id="site_header" data-text="Site &lt;header&gt;" tabindex="-1">Site <code translate="no" dir="ltr">&lt;header&gt;</code></h2>
+                            
+                            <p>Let&#39;s build a site header. You&#39;ll start with non-semantic markup, and work your way to a good solution so that you can learn the benefits of the HTML section and heading elements along the way.</p>
+                            
+                            <p>If you put little to no thought into the semantics for our header, you might use code like this:</p>
+                            <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;!-- start header --&gt;
+                            &lt;div id=&#34;pageHeader&#34;&gt;
+                              &lt;div id=&#34;title&#34;&gt;Machine Learning Workshop&lt;/div&gt;
+                              &lt;!-- navigation --&gt;
+                              &lt;div id=&#34;navigation&#34;&gt;
+                                &lt;a href=&#34;#reg&#34;&gt;Register&lt;/a&gt;
+                                &lt;a href=&#34;#about&#34;&gt;About&lt;/a&gt;
+                                &lt;a href=&#34;#teachers&#34;&gt;Instructors&lt;/a&gt;
+                                &lt;a href=&#34;#feedback&#34;&gt;Testimonials&lt;/a&gt;
+                              &lt;/div&gt;
+                              &lt;!-- end navigation bar --&gt;
+                            &lt;/div&gt;
+                            &lt;!-- end of header --&gt;
+                            </code></pre>
+                            <p>CSS can make (almost) any markup look right. But using the non-semantic <code translate="no" dir="ltr">&lt;div&gt;</code> for everything actually creates extra work. To target multiple <code translate="no" dir="ltr">&lt;div&gt;</code>s with CSS, you end up using ids or classes to identify the content. The code also includes a comment for each closing <code translate="no" dir="ltr">&lt;/div&gt;</code> to indicate which opening tag each <code translate="no" dir="ltr">&lt;/div&gt;</code> closed.</p>
+                            
+                            <p>While the <code translate="no" dir="ltr">id</code> and <code translate="no" dir="ltr">class</code> attributes provide hooks for styling and JavaScript, they add no semantic value for the screen reader and (for the most part) the search engines.</p>
+                            
+                            <p>You can include <code translate="no" dir="ltr">role</code> attributes to provide semantics to create a good accessibility object model (AOM) for screen readers:</p>
+                            <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;!-- start header --&gt;
+                            &lt;div role=&#34;banner&#34;&gt;
+                              &lt;div role=&#34;heading&#34; aria-level=&#34;1&#34;&gt;Machine Learning Workshop&lt;/div&gt;
+                              &lt;div role=&#34;navigation&#34;&gt;
+                                &lt;a href=&#34;#reg&#34;&gt;Register&lt;/a&gt;
+                                &lt;a href=&#34;#about&#34;&gt;About&lt;/a&gt;
+                                &lt;a href=&#34;#teachers&#34;&gt;Instructors&lt;/a&gt;
+                                &lt;a href=&#34;#feedback&#34;&gt;Testimonials&lt;/a&gt;
+                              &lt;/div&gt;
+                              &lt;!-- end navigation bar --&gt;
+                            &lt;div&gt;
+                            &lt;!-- end of header --&gt;
+                            </code></pre>
+                            <p>This at least provides semantics and enables using attribute selectors in the CSS, but it still adds comments to identify which <code translate="no" dir="ltr">&lt;div&gt;</code> each <code translate="no" dir="ltr">&lt;/div&gt;</code> closes.</p>
+                            
+                            <p>If you know HTML, all you have to do is think about the purpose of the content. Then you can write this code semantically without using <code translate="no" dir="ltr">role</code> and without needing to comment the closing tags:</p>
+                            <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;header&gt;
+                              &lt;h1&gt;Machine Learning Workshop&lt;/h1&gt;
+                              &lt;nav&gt;
+                                &lt;a href=&#34;#reg&#34;&gt;Register&lt;/a&gt;
+                                &lt;a href=&#34;#about&#34;&gt;About&lt;/a&gt;
+                                &lt;a href=&#34;#teachers&#34;&gt;Instructors&lt;/a&gt;
+                                &lt;a href=&#34;#feedback&#34;&gt;Testimonials&lt;/a&gt;
+                              &lt;/nav&gt;
+                            &lt;/header&gt;
+                            </code></pre>
+                            <p>This code uses two semantic landmarks: <code translate="no" dir="ltr">&lt;header&gt;</code> and <code translate="no" dir="ltr">&lt;nav&gt;</code>.</p>
+                            
+                            <p>This is the main header. The <code translate="no" dir="ltr">&lt;header&gt;</code> element isn&#39;t always a landmark. It has different semantics depending on where it is nested. When the <code translate="no" dir="ltr">&lt;header&gt;</code> is top level, it is the site <code translate="no" dir="ltr">banner</code>, a landmark role, which you may have noted in the <code translate="no" dir="ltr">role</code> code block. When a <code translate="no" dir="ltr">&lt;header&gt;</code> is nested in  <code translate="no" dir="ltr">&lt;main&gt;</code>, <code translate="no" dir="ltr">&lt;article&gt;</code>,  or <code translate="no" dir="ltr">&lt;section&gt;</code>, it just identifies it as the header for that section and isn&#39;t a landmark.</p>
+                            
+                            <p>The <code translate="no" dir="ltr">&lt;nav&gt;</code> element identifies content as navigation. As this <code translate="no" dir="ltr">&lt;nav&gt;</code> is nested in the site heading, it is the main navigation for the site. If it was nested in an <code translate="no" dir="ltr">&lt;article&gt;</code> or <code translate="no" dir="ltr">&lt;section&gt;</code>, it would be internal navigation for that section only. By using semantic elements, you built a meaningful <a href="https://developer.mozilla.org/docs/Glossary/Accessibility_tree">accessibility object model</a>, or AOM. The AOM enables the screen reader to inform the user that this section consists of a major navigation block that they can either navigate through or skip.</p>
+                            
+                            <p>Using <code translate="no" dir="ltr">&lt;/nav&gt;</code> and <code translate="no" dir="ltr">&lt;/header&gt;</code> closing tags removes the need for comments to identify which element each end tag closed. In addition, using different tags for different elements removes the need for <code translate="no" dir="ltr">id</code> and <code translate="no" dir="ltr">class</code> hooks. The CSS selectors can have low <a href="/learn/css/specificity">specificity</a>; you can probably target the links with <code translate="no" dir="ltr">header nav a</code> without worrying about conflict.</p>
+                            
+                            <p>You have written a header with very little HTML and no classes or ids. When using semantic HTML, you don&#39;t need to.</p>
+                            
+                            <h2 id="site_footer" data-text="Site &lt;footer&gt;" tabindex="-1">Site <code translate="no" dir="ltr">&lt;footer&gt;</code></h2>
+                            
+                            <p>Let&#39;s code the site footer.</p>
+                            <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;footer&gt;
+                              &lt;p&gt;&amp;copy;2022 Machine Learning Workshop, LLC. All rights reserved.&lt;/p&gt;
+                            &lt;/footer&gt;
+                            </code></pre>
+                            <p>Similar to <code translate="no" dir="ltr">&lt;header&gt;</code>, whether the footer is a landmark depends on where the footer is nested. When it is the site footer, it is a landmark, and should contain the site footer information you want on every page, such as a copyright statement, contact information, and links to your privacy and cookie policies. The implicit <code translate="no" dir="ltr">role</code> for the site footer is <code translate="no" dir="ltr">contentinfo</code>. Otherwise, the footer has no implicit role and is not a landmark, as shown in the following screenshot of the AOM in Chrome (which has an <code translate="no" dir="ltr">&lt;article&gt;</code> with a <code translate="no" dir="ltr">&lt;header&gt;</code> and <code translate="no" dir="ltr">&lt;footer&gt;</code>  between the <code translate="no" dir="ltr">&lt;header&gt;</code> and <code translate="no" dir="ltr">&lt;footer&gt;</code>).</p>
+                            
+                            <p><img src="/static/learn/html/headings-and-sections/image/the-accessibility-object-918180193b513.png" alt="The Accessibility Object Model in Chrome." width="800" height="374" srcset="https://web.dev/static/learn/html/headings-and-sections/image/the-accessibility-object-918180193b513_36.png 36w,https://web.dev/static/learn/html/headings-and-sections/image/the-accessibility-object-918180193b513_48.png 48w,https://web.dev/static/learn/html/headings-and-sections/image/the-accessibility-object-918180193b513_72.png 72w,https://web.dev/static/learn/html/headings-and-sections/image/the-accessibility-object-918180193b513_96.png 96w,https://web.dev/static/learn/html/headings-and-sections/image/the-accessibility-object-918180193b513_480.png 480w,https://web.dev/static/learn/html/headings-and-sections/image/the-accessibility-object-918180193b513_720.png 720w,https://web.dev/static/learn/html/headings-and-sections/image/the-accessibility-object-918180193b513_856.png 856w,https://web.dev/static/learn/html/headings-and-sections/image/the-accessibility-object-918180193b513_960.png 960w,https://web.dev/static/learn/html/headings-and-sections/image/the-accessibility-object-918180193b513_1440.png 1440w,https://web.dev/static/learn/html/headings-and-sections/image/the-accessibility-object-918180193b513_1920.png 1920w,https://web.dev/static/learn/html/headings-and-sections/image/the-accessibility-object-918180193b513_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                            
+                            <p>In this screenshot, there are two footers: one in an <code translate="no" dir="ltr">&lt;article&gt;</code> and one top level. The top level footer is a landmark with the implicit role of <code translate="no" dir="ltr">contentinfo</code>. The other footer isn&#39;t a landmark. Chrome shows it as <code translate="no" dir="ltr">FooterAsNonLandmark</code>; Firefox shows it as <code translate="no" dir="ltr">section</code>.</p>
+                            
+                            <p>That doesn&#39;t mean you shouldn&#39;t use <code translate="no" dir="ltr">&lt;footer&gt;</code>. Let&#39;s say you have a blog. The blog has a site footer with an implicit <code translate="no" dir="ltr">contentinfo</code> role. Each blog post can also have a <code translate="no" dir="ltr">&lt;footer&gt;</code>. On your blog&#39;s main landing page, the browser, search engine, and screen reader know the main footer is the top-level footer, and that all the other footers are related to the posts in which they are nested.</p>
+                            
+                            <p>When a <code translate="no" dir="ltr">&lt;footer&gt;</code> is a descendant of an <code translate="no" dir="ltr">&lt;article&gt;</code>, <code translate="no" dir="ltr">&lt;aside&gt;</code>, <code translate="no" dir="ltr">&lt;main&gt;</code>, <code translate="no" dir="ltr">&lt;nav&gt;</code>, or <code translate="no" dir="ltr">&lt;section&gt;</code>, it&#39;s not a landmark. If the post appears on its own, depending on the markup, that footer might get promoted.</p>
+                            
+                            <p>Footers are often where you will find contact information, wrapped in <code translate="no" dir="ltr">&lt;address&gt;</code>, the contact address element. This is one element that is not very well named; it is used to enclose the contact information for individuals or organizations, not physical mailing addresses.</p>
+                            <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;footer&gt;
+                              &lt;p&gt;&amp;copy;2022 Machine Learning Workshop, LLC. All rights reserved.&lt;/p&gt;
+                              &lt;address&gt;Instructors: &lt;a href=&#34;/hal.html&#34;&gt;Hal&lt;/a&gt; and &lt;a href=&#34;/eve.html&#34;&gt;Eve&lt;/a&gt;&lt;/address&gt;
+                            &lt;/footer&gt;
+                            </code></pre>
+                            <h2 id="document_structure" data-text="Document structure" tabindex="-1">Document structure</h2>
+                            
+                            <p>This module starts with the <code translate="no" dir="ltr">&lt;header&gt;</code> and <code translate="no" dir="ltr">&lt;footer&gt;</code>, because they are unique in only sometimes being landmark, or &quot;sectioning&quot;, elements. Let&#39;s cover the &quot;full time&quot; sectioning element by discussing the most common page layouts:</p>
+                            
+                            <p><img src="/static/learn/html/headings-and-sections/image/a-layout-a-header-three-31026f6b6c4b4.png" alt="A layout with a header, three columns, and a footer." width="800" height="607" srcset="https://web.dev/static/learn/html/headings-and-sections/image/a-layout-a-header-three-31026f6b6c4b4_36.png 36w,https://web.dev/static/learn/html/headings-and-sections/image/a-layout-a-header-three-31026f6b6c4b4_48.png 48w,https://web.dev/static/learn/html/headings-and-sections/image/a-layout-a-header-three-31026f6b6c4b4_72.png 72w,https://web.dev/static/learn/html/headings-and-sections/image/a-layout-a-header-three-31026f6b6c4b4_96.png 96w,https://web.dev/static/learn/html/headings-and-sections/image/a-layout-a-header-three-31026f6b6c4b4_480.png 480w,https://web.dev/static/learn/html/headings-and-sections/image/a-layout-a-header-three-31026f6b6c4b4_720.png 720w,https://web.dev/static/learn/html/headings-and-sections/image/a-layout-a-header-three-31026f6b6c4b4_856.png 856w,https://web.dev/static/learn/html/headings-and-sections/image/a-layout-a-header-three-31026f6b6c4b4_960.png 960w,https://web.dev/static/learn/html/headings-and-sections/image/a-layout-a-header-three-31026f6b6c4b4_1440.png 1440w,https://web.dev/static/learn/html/headings-and-sections/image/a-layout-a-header-three-31026f6b6c4b4_1920.png 1920w,https://web.dev/static/learn/html/headings-and-sections/image/a-layout-a-header-three-31026f6b6c4b4_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                            
+                            <p>A layout with a header, two sidebars, and a  footer, is known as the <a href="/patterns/layout/holy-grail">holy grail layout</a>. There are many ways to mark up this content, including:</p>
+                            <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;body&gt;
+                              &lt;header&gt;Header&lt;/header&gt;
+                              &lt;nav&gt;Nav&lt;/nav&gt;
+                              &lt;main&gt;Content&lt;/main&gt;
+                              &lt;aside&gt;Aside&lt;/aside&gt;
+                              &lt;footer&gt;Footer&lt;/footer&gt;
+                            &lt;/body&gt;
+                            </code></pre>
+                            <p>If you are creating a blog, you might have a series of articles in <code translate="no" dir="ltr">&lt;main&gt;</code>:</p>
+                            <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;body&gt;
+                              &lt;header&gt;Header&lt;/header&gt;
+                              &lt;nav&gt;Nav&lt;/nav&gt;
+                              &lt;main&gt;
+                                &lt;article&gt;First post&lt;/article&gt;
+                                &lt;article&gt;Second post&lt;/article&gt;
+                              &lt;/main&gt;
+                              &lt;aside&gt;Aside&lt;/aside&gt;
+                              &lt;footer&gt;Footer&lt;/footer&gt;
+                            &lt;/body&gt;
+                            </code></pre>
+                            <p>When employing semantic elements, browsers are able to create meaningful accessibility trees, enabling screen reader users to more easily navigate. Here, a <code translate="no" dir="ltr">banner</code> and <code translate="no" dir="ltr">contentinfo</code> are provided through a site <code translate="no" dir="ltr">&lt;header&gt;</code> and <code translate="no" dir="ltr">&lt;footer&gt;</code>.  The new elements added here include <code translate="no" dir="ltr">&lt;main&gt;</code>, <code translate="no" dir="ltr">&lt;aside&gt;</code>, and <code translate="no" dir="ltr">&lt;article&gt;</code>; also, <code translate="no" dir="ltr">&lt;h1&gt;</code> and <code translate="no" dir="ltr">&lt;nav&gt;</code> that you used earlier, and <code translate="no" dir="ltr">&lt;section&gt;</code>, which you haven&#39;t used yet.</p>
+                            
+                            <h3 id="main" data-text="&lt;main&gt;" tabindex="-1"><code translate="no" dir="ltr">&lt;main&gt;</code></h3>
+                            
+                            <p>There&#39;s a single <code translate="no" dir="ltr">&lt;main&gt;</code> landmark element. The <code translate="no" dir="ltr">&lt;main&gt;</code> element identifies the main content of the document. There should be only one <code translate="no" dir="ltr">&lt;main&gt;</code> per page.</p>
+                            
+                            <h3 id="aside" data-text="&lt;aside&gt;" tabindex="-1"><code translate="no" dir="ltr">&lt;aside&gt;</code></h3>
+                            
+                            <p>The <code translate="no" dir="ltr">&lt;aside&gt;</code> is for content that is indirectly or tangentially related to the document&#39;s main content. For example, this article is about HTML. For a section on CSS selector specificity for the three site header examples (div, role, and semantic), the tangentially related aside could be contained in an <code translate="no" dir="ltr">&lt;aside&gt;</code>; and, like most, the <code translate="no" dir="ltr">&lt;aside&gt;</code> would likely be presented in a sidebar or a call-out box. The <code translate="no" dir="ltr">&lt;aside&gt;</code> is also a landmark, with the implicit role of <code translate="no" dir="ltr">complementary</code>.</p>
+                            
+                            <h3 id="article" data-text="&lt;article&gt;" tabindex="-1"><code translate="no" dir="ltr">&lt;article&gt;</code></h3>
+                            
+                            <p>Nested in <code translate="no" dir="ltr">&lt;main&gt;</code> we added two <code translate="no" dir="ltr">&lt;article&gt;</code> elements. This wasn&#39;t necessary in the first example when the main content was just one word, or in the real world, a single section of content. But, if you are writing a blog, as in our second example, each post should be in an <code translate="no" dir="ltr">&lt;article&gt;</code> nested in <code translate="no" dir="ltr">&lt;main&gt;</code>.</p>
+                            
+                            <p>An <code translate="no" dir="ltr">&lt;article&gt;</code> represents a complete, or self-contained, section of content that is, in principle, independently reusable. Think of an article as you would an article in a newspaper.  In print, a news article about Jacinda Ardern, Prime Minister of New Zealand, might only appear in one section, maybe world news. On the paper&#39;s website, that same news article might appear on the home page, in the politics section, in the Oceana or the Asia Pacific news section, and, depending on the topic of the news, the sports, lifestyle, or technology sections, perhaps. The article may also appear on other sites, like Pocket or Yahoo News!</p>
+                            
+                            <h3 id="section" data-text="&lt;section&gt;" tabindex="-1"><code translate="no" dir="ltr">&lt;section&gt;</code></h3>
+                            
+                            <p>The <code translate="no" dir="ltr">&lt;section&gt;</code> element is used to encompass generic standalone sections of a document when there is no more specific semantic element to use. Sections should have a heading, with very few exceptions.</p>
+                            
+                            <p>Going back to the Jacinda Ardern example, on the home page of the newspaper, the banner would include the name of the newspaper, followed by a single <code translate="no" dir="ltr">&lt;main&gt;</code>, divided into several <code translate="no" dir="ltr">&lt;section&gt;</code>s, each with a header, such as &quot;World news&quot; and &quot;Politics&quot;; and in each section you&#39;ll find a series of <code translate="no" dir="ltr">&lt;article&gt;</code>s. Within each <code translate="no" dir="ltr">&lt;article&gt;</code>, you might find one or more <code translate="no" dir="ltr">&lt;section&gt;</code> elements as well. If you look at this page, the entire &quot;headers and sections&quot; part is the <code translate="no" dir="ltr">&lt;article&gt;</code>. This <code translate="no" dir="ltr">&lt;article&gt;</code> is then divided into several <code translate="no" dir="ltr">&lt;section&gt;</code>s, including <code translate="no" dir="ltr">site header</code>, <code translate="no" dir="ltr">site footer</code>, and document structure. The article itself has a header, as do each of the sections.</p>
+                            
+                            <p>A <code translate="no" dir="ltr">&lt;section&gt;</code> isn&#39;t a landmark unless it has an accessible name; if it has an accessible name, the implicit role is <code translate="no" dir="ltr">region</code>. <a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles#landmark_roles">Landmark roles</a> should be used sparingly, to identify larger overall sections of the document. Using too many landmark roles can create &quot;noise&quot; in screen readers, making it difficult to understand the overall layout of the page, if your <code translate="no" dir="ltr">&lt;main&gt;</code> contains two or three important sub-sections, including an accessible name for each <code translate="no" dir="ltr">&lt;section&gt;</code> could be beneficial.</p>
+                            
+                            <h2 id="headings_h1-h6" data-text="Headings: &lt;h1&gt;-&lt;h6&gt;" tabindex="-1">Headings: <code translate="no" dir="ltr">&lt;h1&gt;</code>-<code translate="no" dir="ltr">&lt;h6&gt;</code></h2>
+                            
+                            <p>There are six section heading elements: <code translate="no" dir="ltr">&lt;h1&gt;</code>, <code translate="no" dir="ltr">&lt;h2&gt;</code>, <code translate="no" dir="ltr">&lt;h3&gt;</code>, <code translate="no" dir="ltr">&lt;h4&gt;</code>, <code translate="no" dir="ltr">&lt;h5&gt;</code>, and <code translate="no" dir="ltr">&lt;h6&gt;</code>.  Each represents one of the six levels of section headings, with <code translate="no" dir="ltr">&lt;h1&gt;</code> being the highest or most important section level, and <code translate="no" dir="ltr">&lt;h6&gt;</code> the lowest.</p>
+                            
+                            <p>When a heading is nested in a document banner <code translate="no" dir="ltr">&lt;header&gt;</code>, it is the heading for the application or site. When nested in <code translate="no" dir="ltr">&lt;main&gt;</code>, whether or not it is nested within a <code translate="no" dir="ltr">&lt;header&gt;</code> in <code translate="no" dir="ltr">&lt;main&gt;</code>, it is the header for that page, not the whole site. When nested in an <code translate="no" dir="ltr">&lt;article&gt;</code> or <code translate="no" dir="ltr">&lt;section&gt;</code>, it is the header for that subsection of the page.</p>
+                            
+                            <div class="wd-embed" style="height: 500px; width: 100%">
+                              <iframe
+                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                              loading="lazy"
+                              src="https://codepen.io/web-dot-dev/embed/oNdePZj?height=500&theme-id=dark&default-tab=html%2Cresult&editable=true"
+                              style="height: 100%; width: 100%; border: 0;"
+                              title="Pen oNdePZj by web-dot-dev on Codepen"
+                            ></iframe>
+                            </div>
+                            
+                            <p>It is recommended to use heading levels similarly to heading levels in a text editor: starting with a <code translate="no" dir="ltr">&lt;h1&gt;</code> as the main heading, with <code translate="no" dir="ltr">&lt;h2&gt;</code> as headings for sub-sections, and <code translate="no" dir="ltr">&lt;h3&gt;</code> if those sub-sections have sections; avoid skipping heading levels. There is a good <a href="https://developer.mozilla.org/docs/Web/HTML/Element/Heading_Elements">article on section headings</a> here.</p>
+                            
+                            <p>Some screen reader users do access headings to understand a page&#39;s content. Originally, headings were supposed to outline a document, just as MS Word or Google Docs can produce an outline based on headings, but browsers never implemented this structure. While browsers do display nested headings at increasingly smaller font sizes as shown in the following example, they don&#39;t actually support outlining.</p>
+                            
+                            <p>You now have enough knowledge to outline MachineLearningWorkshop.com:</p>
+                            
+                            <h2 id="outlining_the_body_of_mlwcom" data-text="Outlining the &lt;body&gt; of MLW.com" tabindex="-1">Outlining the <code translate="no" dir="ltr">&lt;body&gt;</code> of MLW.com</h2>
+                            
+                            <p>This is the outline for the visible content of the machine learning workshop site:</p>
+
+
+
+
+
+                                                    
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
                     </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
-                            </ul>
-                        </nav>
-                    </footer>
+                    
                                         
                 </div>
             </main>

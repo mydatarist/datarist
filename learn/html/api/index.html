@@ -1172,38 +1172,264 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                    
+                    
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>API</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
+                        <section aria-labelledby="the_story_of_your_first_website">
+
+
+
+
+
+
+
+
+                            <p>In the introduction to this series it says &quot;HTML elements are the nodes that make up the <a href="https://developer.mozilla.org/docs/Web/API/Document_Object_Model">Document Object Model</a>.&quot;
+                                We&#39;ve discussed the type of element nodes. In this section we discuss element APIs that enable querying those nodes.</p>
+                                
+                                <h2 id="the_dom_and_aom" data-text="The DOM and AOM" tabindex="-1">The DOM and AOM</h2>
+                                
+                                <p>The DOM is an API for accessing and manipulating documents. The DOM is the tree of all the nodes in the document.
+                                Some nodes can have children, others can&#39;t. The tree includes elements, along with their attributes, and text nodes.</p>
+                                
+                                <p><img src="/static/learn/html/apis/image/mlw-node-tree-showing-ele-077066a38fab9.png" alt="MLW Node tree showing elements and text nodes." width="800" height="431" srcset="https://web.dev/static/learn/html/apis/image/mlw-node-tree-showing-ele-077066a38fab9_36.png 36w,https://web.dev/static/learn/html/apis/image/mlw-node-tree-showing-ele-077066a38fab9_48.png 48w,https://web.dev/static/learn/html/apis/image/mlw-node-tree-showing-ele-077066a38fab9_72.png 72w,https://web.dev/static/learn/html/apis/image/mlw-node-tree-showing-ele-077066a38fab9_96.png 96w,https://web.dev/static/learn/html/apis/image/mlw-node-tree-showing-ele-077066a38fab9_480.png 480w,https://web.dev/static/learn/html/apis/image/mlw-node-tree-showing-ele-077066a38fab9_720.png 720w,https://web.dev/static/learn/html/apis/image/mlw-node-tree-showing-ele-077066a38fab9_856.png 856w,https://web.dev/static/learn/html/apis/image/mlw-node-tree-showing-ele-077066a38fab9_960.png 960w,https://web.dev/static/learn/html/apis/image/mlw-node-tree-showing-ele-077066a38fab9_1440.png 1440w,https://web.dev/static/learn/html/apis/image/mlw-node-tree-showing-ele-077066a38fab9_1920.png 1920w,https://web.dev/static/learn/html/apis/image/mlw-node-tree-showing-ele-077066a38fab9_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                                
+                                <p>Browser tools don&#39;t provide tree visualizations like the one above, but you can see the nodes in the element inspector.</p>
+                                
+                                <p><img src="/static/learn/html/apis/image/the-domaria-e1b8e9eeb7aed.png" alt="The DOM/ARIA." width="800" height="836" srcset="https://web.dev/static/learn/html/apis/image/the-domaria-e1b8e9eeb7aed_36.png 36w,https://web.dev/static/learn/html/apis/image/the-domaria-e1b8e9eeb7aed_48.png 48w,https://web.dev/static/learn/html/apis/image/the-domaria-e1b8e9eeb7aed_72.png 72w,https://web.dev/static/learn/html/apis/image/the-domaria-e1b8e9eeb7aed_96.png 96w,https://web.dev/static/learn/html/apis/image/the-domaria-e1b8e9eeb7aed_480.png 480w,https://web.dev/static/learn/html/apis/image/the-domaria-e1b8e9eeb7aed_720.png 720w,https://web.dev/static/learn/html/apis/image/the-domaria-e1b8e9eeb7aed_856.png 856w,https://web.dev/static/learn/html/apis/image/the-domaria-e1b8e9eeb7aed_960.png 960w,https://web.dev/static/learn/html/apis/image/the-domaria-e1b8e9eeb7aed_1440.png 1440w,https://web.dev/static/learn/html/apis/image/the-domaria-e1b8e9eeb7aed_1920.png 1920w,https://web.dev/static/learn/html/apis/image/the-domaria-e1b8e9eeb7aed_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                                
+                                <p>The tree representation that can be inspected in browser developer tools is the <a href="/learn/accessibility/aria-html#the_accessibility_tree">accessibility tree</a>. The AOM is based
+                                off the DOM; similarly, the accessibility tree contains objects representing all the markup elements, attributes, and text
+                                nodes:</p>
+                                
+                                <p><img src="/static/learn/html/apis/image/an-example-aom-ec190ded5718e.png" alt="An example of AOM." width="800" height="527" srcset="https://web.dev/static/learn/html/apis/image/an-example-aom-ec190ded5718e_36.png 36w,https://web.dev/static/learn/html/apis/image/an-example-aom-ec190ded5718e_48.png 48w,https://web.dev/static/learn/html/apis/image/an-example-aom-ec190ded5718e_72.png 72w,https://web.dev/static/learn/html/apis/image/an-example-aom-ec190ded5718e_96.png 96w,https://web.dev/static/learn/html/apis/image/an-example-aom-ec190ded5718e_480.png 480w,https://web.dev/static/learn/html/apis/image/an-example-aom-ec190ded5718e_720.png 720w,https://web.dev/static/learn/html/apis/image/an-example-aom-ec190ded5718e_856.png 856w,https://web.dev/static/learn/html/apis/image/an-example-aom-ec190ded5718e_960.png 960w,https://web.dev/static/learn/html/apis/image/an-example-aom-ec190ded5718e_1440.png 1440w,https://web.dev/static/learn/html/apis/image/an-example-aom-ec190ded5718e_1920.png 1920w,https://web.dev/static/learn/html/apis/image/an-example-aom-ec190ded5718e_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                                
+                                <h2 id="html_element_apis" data-text="HTML Element APIs" tabindex="-1">HTML Element APIs</h2>
+                                
+                                <p>The middle letter of DOM is &quot;object.&quot; Just like the <code translate="no" dir="ltr">person</code> or <code translate="no" dir="ltr">car</code> object example from most intro to object-oriented programming
+                                classes, every node in the document tree is an object that can be manipulated with JavaScript.</p>
+                                
+                                <p>The browser provides numerous
+                                APIs providing natively supported methods, events, and property querying and updating.
+                                Element nodes contain information about all the attributes set on the element. You can use HTML interfaces to access
+                                information about an element&#39;s attributes. For example, we can use <a href="https://developer.mozilla.org/docs/Web/API/HTMLImageElement/alt"><code translate="no" dir="ltr">HTMLImageElement.alt</code></a>
+                                get the <code translate="no" dir="ltr">alt</code> attributes of all the images:</p>
+                                <pre class="prettyprint lang-js" translate="no" dir="ltr"><code translate="no" dir="ltr">let allImages = document.querySelectorAll(&#39;img&#39;);
+                                allImages.forEach((imageInstance) =&gt; {
+                                  console.log(imageInstance.alt);
+                                });
+                                </code></pre>
+                                <p>HTML interfaces provide more than just access to an element&#39;s attributes; you can access a lot more information. We can
+                                find the read-only <a href="https://developer.mozilla.org/docs/Web/API/HTMLElement/offsetHeight"><code translate="no" dir="ltr">HTMLElement.offsetHeight</code></a> to get the height of each section in our page, relative to the layout.</p>
+                                <pre class="prettyprint lang-js" translate="no" dir="ltr"><code translate="no" dir="ltr">let allSections = document.querySelectorAll(&#39;section&#39;);
+                                allSections.forEach((sectionInstance) =&gt; {
+                                  console.log(sectionInstance.offsetHeight);
+                                });
+                                </code></pre>
+                                <p>If the user changes their device orientation or otherwise changes the width of the viewport, the height of each <code translate="no" dir="ltr">&lt;section&gt;</code>
+                                will change and the DOM properties will automatically update with it.</p>
+                                
+                                <p>The HTML interface APIs is not limited to accessing attribute values. The DOM provides insight into the current state of the UI.
+                                HTML APIs can access all of that information. You can access the length of a video, where a view is in the current playback,
+                                and if the video (or audio) has finished playing with <a href="https://developer.mozilla.org/docs/Web/API/HTMLMediaElement/duration"><code translate="no" dir="ltr">HTMLMediaElement.duration</code></a>,
+                                <a href="https://developer.mozilla.org/docs/Web/API/HTMLMediaElement/currentTime"><code translate="no" dir="ltr">HTMLMediaElement.currentTime</code></a>, and
+                                <a href="https://developer.mozilla.org/docs/Web/API/HTMLMediaElement/ended"><code translate="no" dir="ltr">HTMLMediaElement.ended</code></a> respectively.</p>
+                                
+                                <h2 id="available_element_interfaces" data-text="Available element interfaces" tabindex="-1">Available element interfaces</h2>
+                                
+                                <p>Most HTML element we&#39;ve covered thus far in this series and have yet to cover, other than some <a href="/learn/html/headings-and-sections">sectioning elements</a>, have
+                                an associated DOM interface. The base interface for all elements is aptly named <a href="https://developer.mozilla.org/docs/Web/API/Element">Element</a>.
+                                The <a href="https://developer.mozilla.org/docs/Web/API/HTMLElement"><code translate="no" dir="ltr">HTMLElement</code></a> inherits from Element and all HTML element-specific
+                                interfaces inherit from it. Some element-specific interfaces are implemented by multiple, similar elements.</p>
+                                
+                                <p>The interfaces include:</p>
+                                
+                                <ul>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLAnchorElement"><code translate="no" dir="ltr">HTMLAnchorElement</code></a> - <code translate="no" dir="ltr">&lt;a&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLAreaElement"><code translate="no" dir="ltr">HTMLAreaElement</code></a> - <code translate="no" dir="ltr">&lt;area&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLAudioElement"><code translate="no" dir="ltr">HTMLAudioElement</code></a> - <code translate="no" dir="ltr">&lt;audio&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLBaseElement"><code translate="no" dir="ltr">HTMLBaseElement</code></a> - <code translate="no" dir="ltr">&lt;base&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLButtonElement"><code translate="no" dir="ltr">HTMLButtonElement</code></a> - <code translate="no" dir="ltr">&lt;button&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLCanvasElement"><code translate="no" dir="ltr">HTMLCanvasElement</code></a> - <code translate="no" dir="ltr">&lt;canvas&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLDataElement"><code translate="no" dir="ltr">HTMLDataElement</code></a> - <code translate="no" dir="ltr">&lt;data&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLDataListElement"><code translate="no" dir="ltr">HTMLDataListElement</code></a> - <code translate="no" dir="ltr">&lt;datalist&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLDetailsElement"><code translate="no" dir="ltr">HTMLDetailsElement</code></a> - <code translate="no" dir="ltr">&lt;details&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLDialogElement"><code translate="no" dir="ltr">HTMLDialogElement</code></a> - <code translate="no" dir="ltr">&lt;dialog&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLEmbedElement"><code translate="no" dir="ltr">HTMLEmbedElement</code></a> - <code translate="no" dir="ltr">&lt;embed&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLFieldSetElement"><code translate="no" dir="ltr">HTMLFieldSetElement</code></a> - <code translate="no" dir="ltr">&lt;fieldset&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLFormElement"><code translate="no" dir="ltr">HTMLFormElement</code></a> - <code translate="no" dir="ltr">&lt;form&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLHtmlElement"><code translate="no" dir="ltr">HTMLHtmlElement</code></a> - <code translate="no" dir="ltr">&lt;html&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLIFrameElement"><code translate="no" dir="ltr">HTMLIFrameElement</code></a> - <code translate="no" dir="ltr">&lt;iframe&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLImageElement"><code translate="no" dir="ltr">HTMLImageElement</code></a> - <code translate="no" dir="ltr">&lt;img&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLInputElement"><code translate="no" dir="ltr">HTMLInputElement</code></a> - <code translate="no" dir="ltr">&lt;input&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLLabelElement"><code translate="no" dir="ltr">HTMLLabelElement</code></a> - <code translate="no" dir="ltr">&lt;label&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLLegendElement"><code translate="no" dir="ltr">HTMLLegendElement</code></a> - <code translate="no" dir="ltr">&lt;legend&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLLIElement"><code translate="no" dir="ltr">HTMLLIElement</code></a> - <code translate="no" dir="ltr">&lt;li&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLLinkElement"><code translate="no" dir="ltr">HTMLLinkElement</code></a> - <code translate="no" dir="ltr">&lt;link&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLMapElement"><code translate="no" dir="ltr">HTMLMapElement</code></a> - <code translate="no" dir="ltr">&lt;map&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLMediaElement"><code translate="no" dir="ltr">HTMLMediaElement</code></a> - <code translate="no" dir="ltr">&lt;audio&gt;</code>, <code translate="no" dir="ltr">&lt;video&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLMenuElement"><code translate="no" dir="ltr">HTMLMenuElement</code></a> - <code translate="no" dir="ltr">&lt;menu&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLMetaElement"><code translate="no" dir="ltr">HTMLMetaElement</code></a> - <code translate="no" dir="ltr">&lt;meta&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLMeterElement"><code translate="no" dir="ltr">HTMLMeterElement</code></a> - <code translate="no" dir="ltr">&lt;meter&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLModElement"><code translate="no" dir="ltr">HTMLModElement</code></a> - <code translate="no" dir="ltr">&lt;ins&gt;</code>, <code translate="no" dir="ltr">&lt;del&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLObjectElement"><code translate="no" dir="ltr">HTMLObjectElement</code></a> - <code translate="no" dir="ltr">&lt;object&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLOListElement"><code translate="no" dir="ltr">HTMLOListElement</code></a> - <code translate="no" dir="ltr">&lt;ol&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLOptGroupElement"><code translate="no" dir="ltr">HTMLOptGroupElement</code></a>- <code translate="no" dir="ltr">&lt;optgroup&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLOptionElement"><code translate="no" dir="ltr">HTMLOptionElement</code></a> - <code translate="no" dir="ltr">&lt;option&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLOutputElement"><code translate="no" dir="ltr">HTMLOutputElement</code></a> - <code translate="no" dir="ltr">&lt;output&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLPictureElement"><code translate="no" dir="ltr">HTMLPictureElement</code></a> - <code translate="no" dir="ltr">&lt;picture&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLProgressElement"><code translate="no" dir="ltr">HTMLProgressElement</code></a> - <code translate="no" dir="ltr">&lt;progress&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLQuoteElement"><code translate="no" dir="ltr">HTMLQuoteElement</code></a> - <code translate="no" dir="ltr">&lt;q&gt;</code>, <code translate="no" dir="ltr">&lt;blockquote&gt;</code>, <code translate="no" dir="ltr">&lt;cite&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLScriptElement"><code translate="no" dir="ltr">HTMLScriptElement</code></a> - <code translate="no" dir="ltr">&lt;script&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLSelectElement"><code translate="no" dir="ltr">HTMLSelectElement</code></a> - <code translate="no" dir="ltr">&lt;select&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLSlotElement"><code translate="no" dir="ltr">HTMLSlotElement</code></a> - <code translate="no" dir="ltr">&lt;slot&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLSourceElement"><code translate="no" dir="ltr">HTMLSourceElement</code></a> - <code translate="no" dir="ltr">&lt;source&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLStyleElement"><code translate="no" dir="ltr">HTMLStyleElement</code></a> -  <code translate="no" dir="ltr">&lt;style&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLTableCellElement"><code translate="no" dir="ltr">HTMLTableCellElement</code></a> - <code translate="no" dir="ltr">&lt;td&gt;</code>, <code translate="no" dir="ltr">&lt;th&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLTableColElement"><code translate="no" dir="ltr">HTMLTableColElement</code></a> - <code translate="no" dir="ltr">&lt;col&gt;</code>, <code translate="no" dir="ltr">&lt;colgroup&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLTableElement"><code translate="no" dir="ltr">HTMLTableElement</code></a> - <code translate="no" dir="ltr">&lt;table&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLTableRowElement"><code translate="no" dir="ltr">HTMLTableRowElement</code></a> - <code translate="no" dir="ltr">&lt;tr&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLTableSectionElement"><code translate="no" dir="ltr">HTMLTableSectionElement</code></a> - <code translate="no" dir="ltr">&lt;thead&gt;</code>, <code translate="no" dir="ltr">&lt;tbody&gt;</code>, <code translate="no" dir="ltr">&lt;tfoot&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLTemplateElement"><code translate="no" dir="ltr">HTMLTemplateElement</code></a> - <code translate="no" dir="ltr">&lt;template&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLTextAreaElement"><code translate="no" dir="ltr">HTMLTextAreaElement</code></a> - <code translate="no" dir="ltr">&lt;textarea&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLTimeElement"><code translate="no" dir="ltr">HTMLTimeElement</code></a> - <code translate="no" dir="ltr">&lt;time&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLTitleElement"><code translate="no" dir="ltr">HTMLTitleElement</code></a> - <code translate="no" dir="ltr">&lt;title&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLTrackElement"><code translate="no" dir="ltr">HTMLTrackElement</code></a> - <code translate="no" dir="ltr">&lt;track&gt;</code></li>
+                                <li><a href="https://developer.mozilla.org/docs/Web/API/HTMLVideoElement"><code translate="no" dir="ltr">HTMLVideoElement</code></a> - <code translate="no" dir="ltr">&lt;video&gt;</code></li>
+                                </ul>
+                                
+                                <p>The naming convention is &quot;HTML&quot; followed by an element or grouping of elements in upper camel case, followed by &quot;Element&quot;,
+                                but the element or grouping of elements part follows no exact pattern. Don&#39;t worry. There is no need to memorize these.
+                                It&#39;s just important to know that they exist so you can look them up when you need to.</p>
+                                
+                                <p>If you have a collection of elements, there are also come collection interfaces. For example, the
+                                <a href="https://developer.mozilla.org/docs/Web/API/HTMLCollection/namedItem"><code translate="no" dir="ltr">HTMLCollection.namedItem()</code></a> method returns the first
+                                element in the collection whose <code translate="no" dir="ltr">id</code> or <code translate="no" dir="ltr">name</code> attribute matches the parameter, or null if no element matches.</p>
+                                
+                                <p>Over 30 elements don&#39;t have an associated DOM interface other than <code translate="no" dir="ltr">HTMLElement</code> including <code translate="no" dir="ltr">&lt;address&gt;</code>, <code translate="no" dir="ltr">&lt;article&gt;</code>,
+                                <code translate="no" dir="ltr">&lt;section&gt;</code>, <code translate="no" dir="ltr">&lt;nav&gt;</code>, <code translate="no" dir="ltr">&lt;header&gt;</code>, <code translate="no" dir="ltr">&lt;footer&gt;</code>, <code translate="no" dir="ltr">&lt;aside&gt;</code>, and <code translate="no" dir="ltr">&lt;hgroup&gt;</code>. Many elements that don&#39;t support any non-deprecated,
+                                non-global attributes have element specific interfaces, like <code translate="no" dir="ltr">HTMLPElement</code> (the <code translate="no" dir="ltr">&lt;p&gt;</code> element) and <a href="https://developer.mozilla.org/docs/Web/API/HTMLUnknownElement"><code translate="no" dir="ltr">HTMLUnknownElement</code></a>
+                                ( <code translate="no" dir="ltr">&lt;😃&gt;</code> or any other elements that are not defined), but those interfaces don&#39;t implement any additional properties or methods
+                                on top of the properties and methods inherited from <code translate="no" dir="ltr">HTMLElement</code>, and are not listed above.</p>
+                                
+                                <h3 id="redundant_api_methods_and_properties" data-text="Redundant API methods and properties" tabindex="-1">Redundant API methods and properties</h3>
+                                
+                                <p>If an interface has the same method or property name as and interface it inherits, the inheriting method or property overwrites
+                                the inherited one. When we accessed the <code translate="no" dir="ltr">alt</code> and <code translate="no" dir="ltr">offsetHeight</code> properties above with <code translate="no" dir="ltr">imageInstance.alt</code> and <code translate="no" dir="ltr">sectionInstance.offsetHeight</code>
+                                respectively, the code didn&#39;t identify which API was being accessed.</p>
+                                
+                                <p>Generally, as with these two examples, this isn&#39;t an issue. But, it can be. For example, the <a href="https://developer.mozilla.org/docs/Web/API/HTMLCollection/length"><code translate="no" dir="ltr">HTMLCollection.length</code></a>
+                                is read only, while the inheriting <a href="https://developer.mozilla.org/docs/Web/API/HTMLOptionsCollection"><code translate="no" dir="ltr">HTMLOptionsCollection</code></a> interface&#39;s
+                                length property (returned only by the <code translate="no" dir="ltr">options</code> property of <code translate="no" dir="ltr">&lt;select&gt;</code>) can also be used to set collection size.</p>
+                                
+                                <h2 id="other_interfaces" data-text="Other interfaces" tabindex="-1">Other interfaces</h2>
+                                
+                                <p>There are additional interfaces that enable manipulating the branch locations of DOM nodes. The <a href="https://developer.mozilla.org/docs/Web/API/EventTarget"><code translate="no" dir="ltr">EventTarget</code></a> interface, which provides
+                                us with <a href="https://developer.mozilla.org/docs/Web/API/EventTarget/addEventListener"><code translate="no" dir="ltr">addEventListener()</code></a> and <a href="https://developer.mozilla.org/docs/Web/API/EventTarget/removeEventListener"><code translate="no" dir="ltr">removeEventListener()</code></a>, is inherited by the <a href="https://developer.mozilla.org/docs/Web/API/Node"><code translate="no" dir="ltr">Node</code></a> and <a href="https://developer.mozilla.org/docs/Web/API/Window"><code translate="no" dir="ltr">Window</code></a> interfaces. In turn, the Element, Document, and DocumentFragment (which we saw in <a href="/learn/html/template">custom elements</a>) interfaces inherit from Node, and the HTMLElement interface inherits from Element.</p>
+                                
+                                <h3 id="the_node_interface" data-text="The node interface" tabindex="-1">The <code translate="no" dir="ltr">node</code> interface</h3>
+                                
+                                <p>Every type of DOM node is represented by an interface based on <a href="https://developer.mozilla.org/docs/Web/API/Node"><code translate="no" dir="ltr">Node</code></a>,
+                                which provides information and methods as elements relate to the DOM tree. The <code translate="no" dir="ltr">Node</code> interface enables querying and adding nodes to the node tree.</p>
+                                
+                                <p>Douglas Crockford&#39;s famous &quot;walk the DOM&quot; function, makes use of Node&#39;s <a href="https://developer.mozilla.org/docs/Web/API/Node/firstChild"><code translate="no" dir="ltr">firstChild</code></a>
+                                and the <a href="https://developer.mozilla.org/docs/Web/API/Node/nextSibling"><code translate="no" dir="ltr">nextSibling</code></a> properties.</p>
+                                <pre class="prettyprint lang-javascript" translate="no" dir="ltr"><code translate="no" dir="ltr">const walk_the_DOM = function walk(node, callback) {
+                                  callback(node);
+                                  node = node.firstChild;
+                                  while (node) {
+                                    walk(node, callback);
+                                    node = node.nextSibling;
+                                  }
+                                };
+                                </code></pre>
+                                <p>We used Node&#39;s <a href="https://developer.mozilla.org/docs/Web/API/Node/appendChild"><code translate="no" dir="ltr">appendChild()</code></a> and
+                                <a href="https://developer.mozilla.org/docs/Web/API/Node/cloneNode"><code translate="no" dir="ltr">cloneNode()</code></a> methods in defining <a href="/learn/html/template">custom elements</a>.
+                                The Node interface provides many useful properties and methods for querying and manipulating the DOM.</p>
+                                <pre class="prettyprint lang-javascript" translate="no" dir="ltr"><code translate="no" dir="ltr">customElements.define(&#39;star-rating&#39;,
+                                  class extends HTMLElement {
+                                    constructor() {
+                                      super(); // Always call super first in constructor
+                                      const starRating = document.getElementById(&#39;star-rating-template&#39;).content;
+                                      const shadowRoot = this.attachShadow({
+                                        mode: &#39;open&#39;
+                                      });
+                                      shadowRoot.appendChild(starRating.cloneNode(true));
+                                    }
+                                  });
+                                </code></pre>
+                                <p>The <a href="https://developer.mozilla.org/docs/Web/API/Element/attachShadow"><code translate="no" dir="ltr">attachShadow()</code></a> method is a method of the Element
+                                interface. There is also a <a href="https://developer.mozilla.org/docs/Web/API/ShadowRoot"><code translate="no" dir="ltr">shadowRoot</code></a> interface for the
+                                <a href="https://developer.mozilla.org/docs/Web/Web_Components/Using_shadow_DOM">Shadow DOM API</a> rendered separately from a
+                                document&#39;s main DOM tree.</p>
+                                
+                                <h3 id="the_document_and_htmldocument_interfaces" data-text="The Document and HTMLDocument interfaces" tabindex="-1">The <code translate="no" dir="ltr">Document</code> and <code translate="no" dir="ltr">HTMLDocument</code> interfaces</h3>
+                                
+                                <p>The <a href="https://developer.mozilla.org/docs/Web/API/Document"><code translate="no" dir="ltr">Document</code></a> interface inherits from <code translate="no" dir="ltr">Node</code>. It represents the
+                                web page loaded in the browser, whether the document is HTML, SVG, XML, MathML, or other. The <code translate="no" dir="ltr">Document</code> interface also
+                                inherits from the <code translate="no" dir="ltr">HTMLDocument</code> interface.</p>
+                                
+                                <p>The <code translate="no" dir="ltr">document</code> enables quick access to node types and the ability to create collections of specific element types, such as
+                                <code translate="no" dir="ltr">document.body</code> and <code translate="no" dir="ltr">document.styleSheets</code>. The HTMLDocument enables accessing information relevant to the document that
+                                are not found in HTML nodes, such as the <a href="https://developer.mozilla.org/docs/Web/API/Document/location"><code translate="no" dir="ltr">Document.location</code></a>,
+                                <a href="https://developer.mozilla.org/docs/Web/API/Document/lastModified"><code translate="no" dir="ltr">Document.lastModified</code></a>, and <a href="https://developer.mozilla.org/docs/Web/API/Document/cookie"><code translate="no" dir="ltr">Document.Cookie</code></a>.</p>
+                                
+                                <p>Several APIs are available based on features surfaced through the document interface, including the <a href="https://developer.mozilla.org/docs/Web/API/HTML_Drag_and_Drop_API">Drag and Drop API</a>
+                                and the <a href="https://developer.mozilla.org/docs/Web/API/Fullscreen_API">FullScreen API</a>. Both inherit from <code translate="no" dir="ltr">Element</code>.</p>
+                                
+                                <h3 id="the_window_interface" data-text="The Window interface" tabindex="-1">The <code translate="no" dir="ltr">Window</code> interface</h3>
+                                
+                                <p>The Window interface includes globally available items beyond the DOM that can be used to manipulate the DOM. Window provides
+                                functions, namespaces, objects, and constructors documented in MDN&#39;s <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference">JavaScript</a>
+                                and <a href="https://developer.mozilla.org/docs/Web/API/Document_Object_Model">DOM References</a>.</p>
+                                
+                                <p>The Window interface is the API for the object containing the document. The global <code translate="no" dir="ltr">window</code> object is the window in which the
+                                script is running. Every browser tab contains its own Window object. The Window interface can query the contents of the tab
+                                as well as the overall window and device. For example, the <a href="https://developer.mozilla.org/docs/Web/API/Window/resizeTo"><code translate="no" dir="ltr">resizeTo()</code></a>
+                                method can be used to resize the browser window, the <a href="https://developer.mozilla.org/docs/Web/API/Window/devicePixelRatio"><code translate="no" dir="ltr">devicePixelRatio</code></a>
+                                property provides access to the device display pixels. When accessing information about the tab the content
+                                is in rather than the DOM tree the tab displays, the window is likely the interface you&#39;re looking for.</p>
+                                
+                                <p>Several APIs are available based on features surfaced through the Window interface, including the <a href="https://developer.mozilla.org/docs/Web/API/Worker">Web Workers</a>
+                                and <a href="https://developer.mozilla.org/docs/Web/API/IndexedDB_API">IndexedDB</a> APIs.</p>
+
+
+
+
+
+
+
+                                                    
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
                     </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
-                            </ul>
-                        </nav>
-                    </footer>
+                    
                                         
                 </div>
             </main>

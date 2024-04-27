@@ -1172,38 +1172,198 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                    
+                    
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Frameworks</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
+                        <section aria-labelledby="the_story_of_your_first_website">
+                             
+                            
+
+
+
+
+                            <p>Discover how CMSs such as WordPress, and other site generators can make it
+                                easier to use responsive images.</p>
+                              
+                              
+                              
+                              
+                              
+                              <p>While certainly an improvement over manually saving alternate cuts of each image and hand-optimizing them through a tool like 
+                              <a href="https://squoosh.app/">Squoosh.app</a>, automating image compression as a step in the development process has some limitations. For one, you may not 
+                              always have full control over the images used throughout a site—most user-facing images on the web are <em>content</em> concerns more 
+                              than development concerns, uploaded by users or editors, rather than living in a repository alongside development assets like 
+                              JavaScript and stylesheets.</p>
+                              
+                              <p>This will typically necessitate more than one process for image management: a development-level task for the image assets used in 
+                              building and maintaining a site—backgrounds, icons, logos, and so on—and another concerned with image assets generated through <em>use</em>
+                               of the site, such as photographs embedded in a post by an editorial team, or an avatar uploaded by a user. While the context may 
+                               differ, the end goals are the same: automated encoding and compression based on settings defined by the development team.</p>
+                              
+                              <p>Fortunately, the image processing libraries you’ve come to understand from your local development workflows can be used in any number
+                               of contexts. And while there can never be a one-size-fits-all approach to your responsive image markup, these systems provide sensible
+                                defaults, configuration options, and API hooks to ease their implementation.</p>
+                              
+                              <h2 id="static_site_generators" data-text="Static Site Generators" tabindex="-1">Static Site Generators</h2>
+                              
+                              <p>Compared to task-runners, there’s some similarity in the way static site generators such as Jekyll or Eleventy approach images. Using 
+                              these tools to produce a deployment-ready website requires management of assets, including CSS minification or transpiling and bundling 
+                              of JavaScript. As you might imagine, this means these tools enable you to process image assets the same way, using many of the libraries 
+                              you’ve already learned about.</p>
+                              
+                              <p>The official <a href="https://www.11ty.dev/docs/plugins/image/">image plugin for Eleventy</a> uses <a href="https://www.npmjs.com/package/sharp">Sharp</a> to provide resizing, generation of multiple source sizes, re-encoding, and compression, just like some of the tasks you’ve learned about here.</p>
+                              
+                              <p>Unlike a task-runner, a static site generator has direct insight into both the configuration and usage of those libraries,
+                               and the markup being generated for the production site—meaning it can do a great deal more to automate our responsive image 
+                               markup. For example, when <a href="https://www.aleksandrhovhannisyan.com/blog/eleventy-image-plugin/">invoked as part of a shortcode for displaying images</a>, this plugin will output HTML according 
+                               to the configuration options passed along to Sharp.</p>
+                              <pre class="prettyprint lang-javascript" translate="no" dir="ltr"><code translate="no" dir="ltr">
+                              const Image = require(&#34;@11ty/eleventy-img&#34;);
+                              module.exports = function(eleventyConfig) {
+                              
+                              async function imageShortcode(src, alt, sizes=&#34;100vw&#34;) {
+                                let metadata = await Image(src, {
+                                formats: [&#34;avif&#34;, &#34;webp&#34;, &#34;jpeg&#34;],
+                                widths: [1000, 800, 400],
+                                outputDir: &#34;_dist/img/&#34;,
+                                filenameFormat: function( id, src, width, format, options ) {
+                                    const ext = path.extname( src ),
+                                      name = path.basename( src, ext );
+                              
+                                    return `${name}-${width}.${format}`
+                                }
+                                });
+                              
+                                let imageAttributes = {
+                                alt,
+                                sizes,
+                                loading: &#34;lazy&#34;
+                                };
+                              
+                                return Image.generateHTML(metadata, imageAttributes);
+                              }
+                              
+                              eleventyConfig.addAsyncShortcode(&#34;respimg&#34;, imageShortcode);
+                              };
+                              </code></pre>
+                              <p>This shortcode could then be used in place of the default image syntax:</p>
+                              <pre class="prettyprint lang-markdown" translate="no" dir="ltr"><code translate="no" dir="ltr">{‌% respimg &#34;img/butterfly.jpg&#34;, &#34;Alt attribute.&#34;, &#34;(min-width: 30em) 800px, 80vw&#34; %}
+                              </code></pre>
+                              <p>If configured to output multiple encodings, as above, the generated markup will be a <code translate="no" dir="ltr">&lt;picture&gt;</code> element containing
+                               corresponding <code translate="no" dir="ltr">&lt;source&gt;</code> elements, <code translate="no" dir="ltr">type</code> attributes, and <code translate="no" dir="ltr">srcset</code> attributes already fully populated with a list of 
+                                generated candidate sizes. </p>
+                              <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;picture&gt;&lt;source type=&#34;image/avif&#34; srcset=&#34;/img/butterfly-400.avif 400w, /img/butterfly-800.avif 800w, /img/butterfly-1000.avif 1000w&#34; sizes=&#34;(min-width: 30em) 800px, 80vw&#34;&gt;&lt;source type=&#34;image/webp&#34; srcset=&#34;/img/butterfly-400.webp 400w, /img/butterfly-800.webp 800w, /img/butterfly-1000.webp 1000w&#34; sizes=&#34;(min-width: 30em) 800px, 80vw&#34;&gt;&lt;source type=&#34;image/jpeg&#34; srcset=&#34;/img/butterfly-400.jpeg 400w, /img/butterfly-800.jpeg 800w, /img/butterfly-1000.jpeg 1000w&#34; sizes=&#34;(min-width: 30em) 800px, 80vw&#34;&gt;&lt;img alt=&#34;Alt attribute.&#34; loading=&#34;lazy&#34; src=&#34;/img/butterfly-400.jpeg&#34; width=&#34;1000&#34; height=&#34;846&#34;&gt;&lt;/picture&gt;
+                              </code></pre>
+                              <p>Of course, this plugin won’t be able to <em>generate</em> a viable <code translate="no" dir="ltr">sizes</code> attribute, as it can’t know the ultimate size and position 
+                              of the image in the rendered layout, but it does accept one as input when generating your markup—another job for RespImageLint.</p>
+                              
+                              <h2 id="frameworks" data-text="Frameworks" tabindex="-1">Frameworks</h2>
+                              
+                              <p>Client-side rendering frameworks will require a task-runner or bundler like Webpack to edit, encode, and compress image assets 
+                              themselves. <a href="https://www.npmjs.com/package/responsive-loader">Responsive-loader</a>, for example, also uses the Sharp library to re-save image assets. It then allows you to 
+                              then <code translate="no" dir="ltr">import</code> your images as objects:</p>
+                              <pre class="prettyprint lang-javascript" translate="no" dir="ltr"><code translate="no" dir="ltr">  import imageAVIF from &#39;img/butterfly.jpg?sizes[]=400,sizes[]=800,sizes[]=1000&amp;format=avif&#39;;
+                                import imageWebP from &#39;img/butterfly.jpg?sizes[]=400,sizes[]=800,sizes[]=1000&amp;format=webp&#39;;
+                                import imageDefault from &#39;img/butterfly.jpg?sizes[]=400,sizes[]=800,sizes[]=1000&#39;;
+                              </code></pre>
+                              <p>These imported images can then be used through abstractions like <a href="https://reactnative.dev/docs/image">React&#39;s Image component</a>, or to populate your responsive 
+                              image markup directly:</p>
+                              <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;picture&gt;
+                                &lt;source type=&#39;image/avif&#39; srcSet={imageAVIF.srcSet} sizes=&#39;…&#39; /&gt;
+                                &lt;source type=&#39;image/webp&#39; srcSet={imageWebp.srcSet} sizes=&#39;…&#39; /&gt;
+                                &lt;img
+                                  src={imageDefault.src}
+                                  srcSet={imageDefault.srcSet}
+                                  width={imageDefault.width}
+                                  height={imageDefault.height}
+                                  sizes=&#39;…&#39;
+                                  loading=&#34;lazy&#34;
+                                /&gt;
+                              </code></pre>
+                              <p>A framework that does client side rendering is a strong candidate for <a href="https://www.npmjs.com/package/lazysizes">Lazysizes</a> and <code translate="no" dir="ltr">sizes=&quot;auto&quot;</code>—giving you almost fully
+                              automated responsive images.</p>
+                              
+                              <h2 id="content_management_systems" data-text="Content Management Systems" tabindex="-1">Content Management Systems</h2>
+                              
+                              <p>WordPress was one of the earliest adopters of native responsive images markup, and the API has been gradually improved since
+                              being <a href="https://make.wordpress.org/core/2015/11/10/responsive-images-in-wordpress-4-4/">introduced in WordPress 4.4</a> with support for WebP and control over the output mime type. WordPress core is designed to make use of the <a href="https://www.php.net/manual/en/book.imagick.php">ImageMagick PHP extension</a> 
+                              (or, absent that, the <a href="https://www.php.net/manual/en/book.image.php">GD</a> library). </p>
+                              
+                              <p>When an image is uploaded through the WordPress admin interface, that source image is used to generate user-facing files on
+                              the server, in much the same way as you would on your local machine. By default, any image output by WordPress will come
+                              with a generated <code translate="no" dir="ltr">srcset</code> attribute based on <a href="https://developer.wordpress.org/apis/responsive-images/">the image sizes configured in your theme</a>.</p>
+                              
+                              <p>Two key settings that can be configured for generated images are the <a href="https://developer.wordpress.org/reference/hooks/wp_editor_set_quality/">compression quality</a> and the <a href="https://developer.wordpress.org/reference/hooks/image_editor_output_format/">output mime type</a>.</p>
+                              
+                              <p>For example, to set the default compression quality to <code translate="no" dir="ltr">70</code> for all generated images, use the following:</p>
+                              <pre class="prettyprint lang-php" translate="no" dir="ltr"><code translate="no" dir="ltr">add_filter( &#39;wp_editor_set_quality&#39;, function() { return 70; } );
+                              </code></pre>
+                              <p>For even better compression, switch the output format for uploaded JPEG images to WebP with the following:</p>
+                              <pre class="prettyprint lang-php" translate="no" dir="ltr"><code translate="no" dir="ltr">add_filter( &#39;image_editor_output_format&#39;, function( $mappings ) {
+                                $mappings[ &#39;image/jpeg&#39; ] = &#39;image/webp&#39;;
+                                  return $mappings;
+                              } );
+                              </code></pre>
+                              <p>Given that WordPress has full understanding of all <a href="https://developer.wordpress.org/reference/functions/add_image_size/">alternate cuts</a>
+                              and encodings it generates from an uploaded image, it can provide helper functions like
+                              <a href="https://developer.wordpress.org/reference/functions/wp_get_attachment_image_srcset/"><code translate="no" dir="ltr">wp_get_attachment_image_srcset()</code></a> to
+                              retrieve the full, generated <code translate="no" dir="ltr">srcset</code> value of an image attachment.</p>
+                              
+                              <p>As you&#39;ll likely have guessed by this point, working with the <code translate="no" dir="ltr">sizes</code> attribute is a little more fraught. Absent any information
+                              about how images will be used in a layout, WordPress currently defaults to a <code translate="no" dir="ltr">sizes</code> value that effectively says &quot;this image
+                              should occupy 100% of the available viewport, up to the largest source&#39;s intrinsic size&quot;—a predictable default, but not a correct
+                              one for any real-world application. Be sure to make use of <a href="https://developer.wordpress.org/reference/hooks/wp_calculate_image_sizes/"><code translate="no" dir="ltr">wp_calculate_image_sizes()</code></a>
+                              to set contextually-appropriate <code translate="no" dir="ltr">sizes</code> attributes in your templates.</p>
+                              
+                              <p>Of course, there are countless WordPress plugins dedicated to making modern image workflows faster for development teams and users alike.
+                              Perhaps most excitingly, plugins like <a href="https://jetpack.com/support/site-accelerator/">Jetpack&#39;s Site Accelerator</a> (formerly &quot;Photon&quot;)
+                              can provide <em>server-side</em> negotiation for encodings, ensuring that users will receive the smallest, most efficient encoding that their
+                              browser is able to support without the need for <code translate="no" dir="ltr">&lt;picture&gt;</code> and <code translate="no" dir="ltr">type</code> markup pattern. It does this through use of an image content
+                              delivery network—a technology you can make use of yourself, independent of your CMS.</p>
+                              
+                              <p>All of this is also true of hosted CMS solutions like Shopify, though the mechanisms themselves will differ somewhat: offering similar
+                              hooks for <a href="https://performance.shopify.com/blogs/blog/responsive-images-on-shopify-with-liquid#provide-multiple-image-size-options-with-srcset">generating alternate image sources and corresponding <code translate="no" dir="ltr">srcset</code> attributes</a>
+                              and <a href="https://performance.shopify.com/blogs/blog/responsive-images-on-shopify-with-liquid#art-direction">art direction through the <code translate="no" dir="ltr">&lt;picture&gt;</code> element</a>.</p>
+                              
+                                
+
+
+
+
+
+
+
+
+
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
                     </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
-                            </ul>
-                        </nav>
-                    </footer>
+                    
                                         
                 </div>
             </main>

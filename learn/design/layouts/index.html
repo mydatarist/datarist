@@ -1172,38 +1172,417 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                    
+                    
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Layouts</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
+                        <section aria-labelledby="the_story_of_your_first_website">
+                                    
+                            
+
+
+
+
+
+                            <p>Macro layouts describe the larger, page-wide organization of your interface. </p>
+
+                            <p><img src="/static/learn/design/macro-layouts/image/a-wireframe-a-column-la-a517dae97f715.jpeg" alt="A wireframe of a two column layout, next to the same layout as one column for a narrow view." width="800" height="501" srcset="https://web.dev/static/learn/design/macro-layouts/image/a-wireframe-a-column-la-a517dae97f715_36.jpeg 36w,https://web.dev/static/learn/design/macro-layouts/image/a-wireframe-a-column-la-a517dae97f715_48.jpeg 48w,https://web.dev/static/learn/design/macro-layouts/image/a-wireframe-a-column-la-a517dae97f715_72.jpeg 72w,https://web.dev/static/learn/design/macro-layouts/image/a-wireframe-a-column-la-a517dae97f715_96.jpeg 96w,https://web.dev/static/learn/design/macro-layouts/image/a-wireframe-a-column-la-a517dae97f715_480.jpeg 480w,https://web.dev/static/learn/design/macro-layouts/image/a-wireframe-a-column-la-a517dae97f715_720.jpeg 720w,https://web.dev/static/learn/design/macro-layouts/image/a-wireframe-a-column-la-a517dae97f715_856.jpeg 856w,https://web.dev/static/learn/design/macro-layouts/image/a-wireframe-a-column-la-a517dae97f715_960.jpeg 960w,https://web.dev/static/learn/design/macro-layouts/image/a-wireframe-a-column-la-a517dae97f715_1440.jpeg 1440w,https://web.dev/static/learn/design/macro-layouts/image/a-wireframe-a-column-la-a517dae97f715_1920.jpeg 1920w,https://web.dev/static/learn/design/macro-layouts/image/a-wireframe-a-column-la-a517dae97f715_2880.jpeg 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                            
+                            <p>Before applying any layout, 
+                            you should make sure that the flow of your content makes sense. 
+                            This single column default ordering is what smaller screens will get.</p>
+                            <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;body&gt;
+                              &lt;header&gt;…&lt;/header&gt;
+                              &lt;main&gt;
+                                &lt;article&gt;…&lt;/article&gt;
+                                &lt;aside&gt;…&lt;/aside&gt;
+                              &lt;/main&gt;
+                              &lt;footer&gt;…&lt;/footer&gt;
+                            &lt;/body&gt;
+                            </code></pre>
+                            <div class="wd-embed" style="height: 500px; width: 100%">
+                              <iframe
+                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                              loading="lazy"
+                              src="https://codepen.io/web-dot-dev/embed/oNeePOX?height=500&theme-id=dark&default-tab=result&editable=true"
+                              style="height: 100%; width: 100%; border: 0;"
+                              title="Pen oNeePOX by web-dot-dev on Codepen"
+                            ></iframe>
+                            </div>
+                            
+                            <p>When you arrange these individual page-level components, 
+                            you&#39;re designing a macro layout: a high-level view of your page. 
+                            Using media queries, you can supply rules in CSS describing how this view should adjust to different screen sizes.</p>
+                            
+                            <video autoplay controls loop muted > <source src="/static/learn/design/macro-layouts/video/HodOHWjMnbNw56hvNASHWSgZyAf2/3KENjI9FiNARctTiKDak.mp4" type="video/mp4" /> </video>
+                            
+                            <h2 id="grid" data-text="Grid" tabindex="-1">Grid</h2>
+                            
+                            <p><a href="/learn/css/grid">CSS grid</a> is an excellent tool for applying a layout to your page. 
+                            In the example above,  say you want a two-column layout once there&#39;s enough screen width available. 
+                            To apply this two-column layout once the browser is wide enough, 
+                            use a media query to define the grid styles above a specified breakpoint.</p>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">@media (min-width: 45em) {
+                              main {
+                                display: grid;
+                                grid-template-columns: 2fr 1fr;
+                              }
+                            }
+                            </code></pre>
+                            <aside class="note"><b>Note: </b> While it would make more sense to specify <code translate="no" dir="ltr">min-inline-size</code> instead of <code translate="no" dir="ltr">min-width</code>, logical properties don't work in media queries yet. </aside>
+                            
+                            <div class="wd-embed" style="height: 500px; width: 100%">
+                              <iframe
+                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                              loading="lazy"
+                              src="https://codepen.io/web-dot-dev/embed/vYJJzMK?height=500&theme-id=dark&default-tab=result&editable=true"
+                              style="height: 100%; width: 100%; border: 0;"
+                              title="Pen vYJJzMK by web-dot-dev on Codepen"
+                            ></iframe>
+                            </div>
+                            
+                            <h2 id="flexbox" data-text="Flexbox" tabindex="-1">Flexbox</h2>
+                            
+                            <p>For this specific layout, you could also use <a href="/learn/css/flexbox">flexbox</a>. 
+                            The styles would look like this:</p>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">@media (min-width: 45em) {
+                              main {
+                                display: flex;
+                                flex-direction: row;
+                              }
+                            
+                              main article {
+                                flex: 2;
+                              }
+                            
+                              main aside {
+                                flex: 1;
+                              }
+                            }
+                            </code></pre>
+                            <div class="wd-embed" style="height: 500px; width: 100%">
+                              <iframe
+                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                              loading="lazy"
+                              src="https://codepen.io/web-dot-dev/embed/gOxxdym?height=500&theme-id=dark&default-tab=result&editable=true"
+                              style="height: 100%; width: 100%; border: 0;"
+                              title="Pen gOxxdym by web-dot-dev on Codepen"
+                            ></iframe>
+                            </div>
+                            
+                            <p>However, the flexbox version requires more CSS. 
+                            Each column has a separate rule to describe how much space it should take up. 
+                            In the grid example, that same information is encapsulated in one rule for the containing element.</p>
+                            
+                            <h2 id="do_you_need_a_media_query" data-text="Do you need a media query?" tabindex="-1">Do you need a media query?</h2>
+                            
+                            <p>You might not always need to use a media query. 
+                            Media queries work fine when you&#39;re applying changes to a few elements, 
+                            but if the layout needs to be updated a lot, your media queries could get out of hand with lots of breakpoints.</p>
+                            
+                            <p>Say you&#39;ve got a page full of card components. 
+                            The cards are never wider than <code translate="no" dir="ltr">15em</code>, and you want to put as many cards on one line as will fit. 
+                            You could write media queries with breakpoints of <code translate="no" dir="ltr">30em</code>, <code translate="no" dir="ltr">45em</code>, <code translate="no" dir="ltr">60em</code>, 
+                            and so on, but that&#39;s quite tedious and difficult to maintain.</p>
+                            
+                            <p>Instead, you can apply rules so that the cards themselves automatically take up the right amount of space.</p>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">.cards {
+                              display: grid;
+                              grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+                              grid-gap: 1em;
+                            }
+                            </code></pre>
+                            <div class="wd-embed" style="height: 500px; width: 100%">
+                              <iframe
+                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                              loading="lazy"
+                              src="https://codepen.io/web-dot-dev/embed/QWMMVPm?height=500&theme-id=dark&default-tab=result&editable=true"
+                              style="height: 100%; width: 100%; border: 0;"
+                              title="Pen QWMMVPm by web-dot-dev on Codepen"
+                            ></iframe>
+                            </div>
+                            
+                            <p>You can achieve a similar layout with flexbox. 
+                            In this case, if there are not enough cards to fill the final row, 
+                            the remaining cards will stretch to fill the available space rather than lining up in columns. 
+                            If you want to line up rows and columns, then use grid.</p>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">.cards {
+                              display: flex;
+                              flex-direction: row;
+                              flex-wrap: wrap;
+                              gap: 1em;
+                            }
+                            .cards .card {
+                              flex-basis: 15em;
+                              flex-grow: 1;
+                            }
+                            </code></pre>
+                            <div class="wd-embed" style="height: 500px; width: 100%">
+                              <iframe
+                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                              loading="lazy"
+                              src="https://codepen.io/web-dot-dev/embed/abyyaMg?height=500&theme-id=dark&default-tab=result&editable=true"
+                              style="height: 100%; width: 100%; border: 0;"
+                              title="Pen abyyaMg by web-dot-dev on Codepen"
+                            ></iframe>
+                            </div>
+                            
+                            <p>By applying some smart rules in flexbox or grid, 
+                            it&#39;s possible to design dynamic macro layouts with minimal CSS and without any media queries. 
+                            That&#39;s less work for you—you&#39;re making the browser do the calculations instead. 
+                            To see some examples of modern CSS layouts that are fluid without requiring media queries, see 
+                            <a href="https://1linelayouts.glitch.me/">1linelayouts.com</a>.</p>
+
+
+
+
+
+
+
+
+
+                            <p>When we think of layouts, we often think of page-level designs. 
+                                But smaller components within the page can have their own self-contained layouts.</p>
+                                
+                                <p>Ideally, these component-level layouts will adjust themselves automatically, 
+                                regardless of their position on the page. 
+                                There may be situations where you don&#39;t know if a component will be placed into the main content column or the sidebar or both. 
+                                Without knowing for sure where a component will end up, 
+                                you need to make sure that the component can adjust itself to its container.</p>
+                                
+                                <p><img src="/static/learn/design/micro-layouts/image/a-column-layout-wide-a73d0e5e2462.png" alt="A two column layout, one wide and one narrow. The media objects are laid out differently depending on whether they're in the wide or narrow column." width="800" height="410" srcset="https://web.dev/static/learn/design/micro-layouts/image/a-column-layout-wide-a73d0e5e2462_36.png 36w,https://web.dev/static/learn/design/micro-layouts/image/a-column-layout-wide-a73d0e5e2462_48.png 48w,https://web.dev/static/learn/design/micro-layouts/image/a-column-layout-wide-a73d0e5e2462_72.png 72w,https://web.dev/static/learn/design/micro-layouts/image/a-column-layout-wide-a73d0e5e2462_96.png 96w,https://web.dev/static/learn/design/micro-layouts/image/a-column-layout-wide-a73d0e5e2462_480.png 480w,https://web.dev/static/learn/design/micro-layouts/image/a-column-layout-wide-a73d0e5e2462_720.png 720w,https://web.dev/static/learn/design/micro-layouts/image/a-column-layout-wide-a73d0e5e2462_856.png 856w,https://web.dev/static/learn/design/micro-layouts/image/a-column-layout-wide-a73d0e5e2462_960.png 960w,https://web.dev/static/learn/design/micro-layouts/image/a-column-layout-wide-a73d0e5e2462_1440.png 1440w,https://web.dev/static/learn/design/micro-layouts/image/a-column-layout-wide-a73d0e5e2462_1920.png 1920w,https://web.dev/static/learn/design/micro-layouts/image/a-column-layout-wide-a73d0e5e2462_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                                
+                                <aside class="note"><b>Note: </b> In the future, creating components that can adapt to their container will become much easier with the implementation of <a href="https://developer.mozilla.org/docs/Web/CSS/CSS_Container_Queries">Container Queries</a>. For now, however, you need to consider the existing ways to create reusable and responsive micro-layouts. You can find a preview of how Container Queries fit into existing responsive design methods at the end of this module. </aside>
+                                
+                                <h2 id="grid" data-text="Grid" tabindex="-1">Grid</h2>
+                                
+                                <p><a href="/learn/css/grid">CSS grid</a> isn&#39;t just for page-level layouts. 
+                                It also works well for the components that live within them.</p>
+                                
+                                <p>In this example, the <code translate="no" dir="ltr">::before</code> and <code translate="no" dir="ltr">::after</code> <a href="/%E2%80%8B%E2%80%8B/learn/css/pseudo-elements">pseudo-elements</a> 
+                                create decorative lines on either side of a heading. 
+                                The heading itself is a grid container. 
+                                The individual elements are laid out so that the lines always fill the available space.</p>
+                                <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">h1 {
+                                  display: grid;
+                                  grid-template-columns: 1fr auto 1fr;
+                                  gap: 1em;
+                                }
+                                h1::before,
+                                h1::after {
+                                  content: &#34;&#34;;
+                                  border-top: 0.1em double black;
+                                  align-self: center;
+                                }
+                                </code></pre>
+                                <div class="wd-embed" style="height: 200px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/rNzYvxm?height=200&theme-id=dark&default-tab=result&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen rNzYvxm by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                
+                                <figure>
+                                <img src="/static/learn/design/micro-layouts/image/developer-tools-firefox-41cc2b52eb644.png" alt="Developer tools in Firefox showing a grid overlay." width="800" height="644" srcset="https://web.dev/static/learn/design/micro-layouts/image/developer-tools-firefox-41cc2b52eb644_36.png 36w,https://web.dev/static/learn/design/micro-layouts/image/developer-tools-firefox-41cc2b52eb644_48.png 48w,https://web.dev/static/learn/design/micro-layouts/image/developer-tools-firefox-41cc2b52eb644_72.png 72w,https://web.dev/static/learn/design/micro-layouts/image/developer-tools-firefox-41cc2b52eb644_96.png 96w,https://web.dev/static/learn/design/micro-layouts/image/developer-tools-firefox-41cc2b52eb644_480.png 480w,https://web.dev/static/learn/design/micro-layouts/image/developer-tools-firefox-41cc2b52eb644_720.png 720w,https://web.dev/static/learn/design/micro-layouts/image/developer-tools-firefox-41cc2b52eb644_856.png 856w,https://web.dev/static/learn/design/micro-layouts/image/developer-tools-firefox-41cc2b52eb644_960.png 960w,https://web.dev/static/learn/design/micro-layouts/image/developer-tools-firefox-41cc2b52eb644_1440.png 1440w,https://web.dev/static/learn/design/micro-layouts/image/developer-tools-firefox-41cc2b52eb644_1920.png 1920w,https://web.dev/static/learn/design/micro-layouts/image/developer-tools-firefox-41cc2b52eb644_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px">
+                                <img src="/static/learn/design/micro-layouts/image/developer-tools-chrome-s-295e54e7843c5.png" alt="Developer tools in Chrome showing a grid overlay." width="800" height="644" srcset="https://web.dev/static/learn/design/micro-layouts/image/developer-tools-chrome-s-295e54e7843c5_36.png 36w,https://web.dev/static/learn/design/micro-layouts/image/developer-tools-chrome-s-295e54e7843c5_48.png 48w,https://web.dev/static/learn/design/micro-layouts/image/developer-tools-chrome-s-295e54e7843c5_72.png 72w,https://web.dev/static/learn/design/micro-layouts/image/developer-tools-chrome-s-295e54e7843c5_96.png 96w,https://web.dev/static/learn/design/micro-layouts/image/developer-tools-chrome-s-295e54e7843c5_480.png 480w,https://web.dev/static/learn/design/micro-layouts/image/developer-tools-chrome-s-295e54e7843c5_720.png 720w,https://web.dev/static/learn/design/micro-layouts/image/developer-tools-chrome-s-295e54e7843c5_856.png 856w,https://web.dev/static/learn/design/micro-layouts/image/developer-tools-chrome-s-295e54e7843c5_960.png 960w,https://web.dev/static/learn/design/micro-layouts/image/developer-tools-chrome-s-295e54e7843c5_1440.png 1440w,https://web.dev/static/learn/design/micro-layouts/image/developer-tools-chrome-s-295e54e7843c5_1920.png 1920w,https://web.dev/static/learn/design/micro-layouts/image/developer-tools-chrome-s-295e54e7843c5_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px">
+                                 <figcaption class="wd-caption">
+                                   Desktop browsers like Firefox and Chrome have developer tools that can show you grid lines and areas overlaid on your design. 
+                                 </figcaption>
+                                </figure>
+                                
+                                <p>Learn how to <a href="https://developer.chrome.com/docs/devtools/css/grid">inspect grid layouts</a> in Chrome DevTools.</p>
+                                
+                                <h2 id="flexbox" data-text="Flexbox" tabindex="-1">Flexbox</h2>
+                                
+                                <p>As the name suggests, <a href="/learn/css/flexbox">flexbox</a> allows you to make your components flexible. 
+                                You can declare which elements in your component should have a minimum or maximum size and let the other elements flex to fit accordingly.</p>
+                                
+                                <p>In this example, the image takes up one quarter of the available space and the text takes up the other three quarters. 
+                                But the image never gets larger than 200 pixels.</p>
+                                <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">.media {
+                                  display: flex;
+                                  align-items: center;
+                                  gap: 1em;
+                                }
+                                .media-illustration {
+                                  flex: 1;
+                                  max-inline-size: 200px;
+                                }
+                                .media-content {
+                                  flex: 3;
+                                }
+                                </code></pre>
+                                <div class="wd-embed" style="height: 300px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/qBXVYZo?height=300&theme-id=dark&default-tab=result&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen qBXVYZo by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                
+                                <figure>
+                                <img src="/static/learn/design/micro-layouts/image/developer-tools-firefox-4f0d749fd4328.png" alt="Developer tools in Firefox showing a flexbox overlay." width="800" height="644" srcset="https://web.dev/static/learn/design/micro-layouts/image/developer-tools-firefox-4f0d749fd4328_36.png 36w,https://web.dev/static/learn/design/micro-layouts/image/developer-tools-firefox-4f0d749fd4328_48.png 48w,https://web.dev/static/learn/design/micro-layouts/image/developer-tools-firefox-4f0d749fd4328_72.png 72w,https://web.dev/static/learn/design/micro-layouts/image/developer-tools-firefox-4f0d749fd4328_96.png 96w,https://web.dev/static/learn/design/micro-layouts/image/developer-tools-firefox-4f0d749fd4328_480.png 480w,https://web.dev/static/learn/design/micro-layouts/image/developer-tools-firefox-4f0d749fd4328_720.png 720w,https://web.dev/static/learn/design/micro-layouts/image/developer-tools-firefox-4f0d749fd4328_856.png 856w,https://web.dev/static/learn/design/micro-layouts/image/developer-tools-firefox-4f0d749fd4328_960.png 960w,https://web.dev/static/learn/design/micro-layouts/image/developer-tools-firefox-4f0d749fd4328_1440.png 1440w,https://web.dev/static/learn/design/micro-layouts/image/developer-tools-firefox-4f0d749fd4328_1920.png 1920w,https://web.dev/static/learn/design/micro-layouts/image/developer-tools-firefox-4f0d749fd4328_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px">
+                                <img src="/static/learn/design/micro-layouts/image/developer-tools-chrome-s-49b481f837205.png" alt="Developer tools in Chrome showing a flexbox overlay." width="800" height="644" srcset="https://web.dev/static/learn/design/micro-layouts/image/developer-tools-chrome-s-49b481f837205_36.png 36w,https://web.dev/static/learn/design/micro-layouts/image/developer-tools-chrome-s-49b481f837205_48.png 48w,https://web.dev/static/learn/design/micro-layouts/image/developer-tools-chrome-s-49b481f837205_72.png 72w,https://web.dev/static/learn/design/micro-layouts/image/developer-tools-chrome-s-49b481f837205_96.png 96w,https://web.dev/static/learn/design/micro-layouts/image/developer-tools-chrome-s-49b481f837205_480.png 480w,https://web.dev/static/learn/design/micro-layouts/image/developer-tools-chrome-s-49b481f837205_720.png 720w,https://web.dev/static/learn/design/micro-layouts/image/developer-tools-chrome-s-49b481f837205_856.png 856w,https://web.dev/static/learn/design/micro-layouts/image/developer-tools-chrome-s-49b481f837205_960.png 960w,https://web.dev/static/learn/design/micro-layouts/image/developer-tools-chrome-s-49b481f837205_1440.png 1440w,https://web.dev/static/learn/design/micro-layouts/image/developer-tools-chrome-s-49b481f837205_1920.png 1920w,https://web.dev/static/learn/design/micro-layouts/image/developer-tools-chrome-s-49b481f837205_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px">
+                                 <figcaption class="wd-caption">
+                                   The developer tools in Firefox and Chrome can help you visualize the shape of your flexbox components. 
+                                 </figcaption>
+                                </figure>
+                                
+                                <p>Learn how to <a href="https://developer.chrome.com/docs/devtools/css/flexbox">inspect flexbox layouts</a> in Chrome DevTools.</p>
+                                
+                                <h2 id="container_queries" data-text="Container queries" tabindex="-1">Container queries</h2>
+                                
+                                <p>Flexbox allows you to design from the content out. 
+                                You can specify the parameters of your elements (how narrow they should get, how wide they should get) 
+                                and let the browser figure out the final implementation.</p>
+                                
+                                <p>But the component itself has no awareness of its context. 
+                                It doesn&#39;t know if it&#39;s being used in the main content or in a sidebar. 
+                                This can make component layouts trickier than page layouts. 
+                                To be able to apply contextually relevant styles, your components need to know more than the size of the viewport they are inside.</p>
+                                
+                                <p>With page layouts, you <em>do</em> know the width of the container because the container is the browser viewport; 
+                                media queries report the dimensions of the page-level container.</p>
+                                
+                                <p>Now there&#39;s an upcoming CSS technology that reports the dimensions of any parent container: 
+                                <a href="https://developer.mozilla.org/docs/Web/CSS/CSS_Container_Queries">container queries</a>.</p>
+                                
+                                <aside class="caution"><b>Caution: </b> Container queries are a new experimental technology that isn't widely available in browsers. To test the code below, and see the example working, enable container queries in Chrome.  Go to <code translate="no" dir="ltr">chrome://flags/</code>, search for <strong>Container Queries</strong>, and enable the <code translate="no" dir="ltr">#enable-container-queries</code> flag. With the flag enabled, you can <a href="https://developer.chrome.com/docs/devtools/css/container-queries">inspect and debug container queries</a> in Chrome DevTools. </aside>
+                                
+                                <p>To start, define which elements will act as containers.</p>
+                                <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">main,
+                                aside {
+                                  container-type: inline-size;
+                                }
+                                </code></pre>
+                                <p>This means that you want to be able to query the inline dimension. 
+                                For English-language documents, that&#39;s the horizontal axis. 
+                                You&#39;re going to change styles based on the width of the container.</p>
+                                
+                                <p>If a component is inside one of those containers, 
+                                you can apply styles in a way that&#39;s quite similar to media queries.</p>
+                                <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">.media-illustration {
+                                  max-width: 200px;
+                                  margin: auto;
+                                }
+                                
+                                @container (min-width: 25em) {
+                                  .media {
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 1em;
+                                  }
+                                
+                                  .media-illustration {
+                                    flex: 1;
+                                  }
+                                
+                                  .media-content {
+                                    flex: 3;
+                                  }
+                                }
+                                </code></pre>
+                                <p>If a media object is inside a container that&#39;s narrower than <code translate="no" dir="ltr">25em</code>, 
+                                the flexbox styles aren&#39;t applied. The image and text appear are ordered vertically.</p>
+                                
+                                <p>But if the containing element is wider than <code translate="no" dir="ltr">25em</code>, the image and text appear side by side.</p>
+                                
+                                <p>Container queries allow you to style components in an independent way. 
+                                The width of the viewport is no longer what matters. 
+                                You can write rules based on the width of the containing element.</p>
+                                
+                                <p><img src="/static/learn/design/micro-layouts/image/two-containers-different-5a460bfff7342.png" alt="Two containers of different sizes." width="800" height="624" srcset="https://web.dev/static/learn/design/micro-layouts/image/two-containers-different-5a460bfff7342_36.png 36w,https://web.dev/static/learn/design/micro-layouts/image/two-containers-different-5a460bfff7342_48.png 48w,https://web.dev/static/learn/design/micro-layouts/image/two-containers-different-5a460bfff7342_72.png 72w,https://web.dev/static/learn/design/micro-layouts/image/two-containers-different-5a460bfff7342_96.png 96w,https://web.dev/static/learn/design/micro-layouts/image/two-containers-different-5a460bfff7342_480.png 480w,https://web.dev/static/learn/design/micro-layouts/image/two-containers-different-5a460bfff7342_720.png 720w,https://web.dev/static/learn/design/micro-layouts/image/two-containers-different-5a460bfff7342_856.png 856w,https://web.dev/static/learn/design/micro-layouts/image/two-containers-different-5a460bfff7342_960.png 960w,https://web.dev/static/learn/design/micro-layouts/image/two-containers-different-5a460bfff7342_1440.png 1440w,https://web.dev/static/learn/design/micro-layouts/image/two-containers-different-5a460bfff7342_1920.png 1920w,https://web.dev/static/learn/design/micro-layouts/image/two-containers-different-5a460bfff7342_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                                
+                                <h2 id="combining_queries" data-text="Combining queries" tabindex="-1">Combining queries</h2>
+                                
+                                <p>You can use media queries for the page layout, and container queries for the components within the page.</p>
+                                
+                                <p>Here the overall structure of the page has a <code translate="no" dir="ltr">main</code> element and an <code translate="no" dir="ltr">aside</code> element. 
+                                There are media objects within both elements.</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;body&gt;
+                                  &lt;main&gt;
+                                     &lt;div class=&#34;media&#34;&gt;…&lt;/div&gt;
+                                     &lt;div class=&#34;media&#34;&gt;…&lt;/div&gt;
+                                  &lt;/main&gt;
+                                  &lt;aside&gt;
+                                     &lt;div class=&#34;media&#34;&gt;…&lt;/div&gt;
+                                  &lt;/aside&gt;
+                                &lt;/body&gt;
+                                </code></pre>
+                                <p>A media query applies a grid layout to the <code translate="no" dir="ltr">main</code> and <code translate="no" dir="ltr">aside</code> elements when the viewport is wider than <code translate="no" dir="ltr">45em</code>.</p>
+                                <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">@media (min-width: 45em) {
+                                  body {
+                                    display: grid;
+                                    grid-template-columns: 3fr 1fr;
+                                  }
+                                }
+                                </code></pre>
+                                <p>The container query rule for the media objects remains the same: 
+                                only apply a horizontal flexbox layout if the containing element is wider than <code translate="no" dir="ltr">25em</code>.</p>
+                                
+                                <p><img src="/static/learn/design/micro-layouts/image/a-column-layout-wide-d26ea1e0030e.png" alt="A two column layout, one wide and one narrow. 
+                                The media objects are laid out differently depending on whether they're in the wide or narrow column." width="800" height="410"></p>
+                                
+                                <aside class="caution"><b>Caution: </b> This demo won't work in every browser. In Google Chrome you can find the <code translate="no" dir="ltr">#enable-container-queries</code> flag at <code translate="no" dir="ltr">chrome://flags</code>. </aside>
+                                
+                                <div class="wd-embed" style="height: 500px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/RwZjyRv?height=500&theme-id=dark&default-tab=result&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen RwZjyRv by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                
+                                <p>Container queries are a game-changer for micro layouts. 
+                                Your components can be self-contained, independent of the browser viewport.</p>
+
+
+
+
+
+
+
+
+
+
+
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
                     </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
-                            </ul>
-                        </nav>
-                    </footer>
+                    
                                         
                 </div>
             </main>

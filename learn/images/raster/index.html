@@ -1172,38 +1172,111 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                   
+                    
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Raster</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
+                        <section aria-labelledby="the_story_of_your_first_website">
+                              
+                            
+
+
+
+                            <p>Raster images can be thought of as a set of pixel-by-pixel instructions for rendering a two-dimensional grid. Common raster
+                                image formats include GIF (.gif), JPEG (.jpg), PNG (.png), and WebP (.webp). The way each image format compresses and encodes
+                                these instructions differs, resulting in a huge variance between file sizes: a photographic image encoded as a JPEG might only
+                                be a few hundred kilobytes, while the same image encoded as a PNG might be several megabytes, without any discernible difference
+                                in quality to the end user.</p>
+                                
+                                <p>A raster image source scaled beyond its inherent dimensions will appear distorted, blocky, or blurred:</p>
+                                
+                                <div class="wd-embed" style="height: 500px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/ZEjBQqB?height=500&theme-id=light&default-tab=css%2Cresult&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen ZEjBQqB by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                
+                                <p>For artwork containing real world levels of detail, raster images are the right tool for the job.</p>
+                                
+                                <p>Just like choosing between raster and vector images, choosing the appropriate type of raster image ultimately comes down to the use case.
+                                When we break raster images down into their encodings, what we&#39;re really talking about are the methods used to describe their contents, and
+                                the compression methods (or lack thereof) we&#39;re applying. Remember that a server doesn&#39;t send <em>an image</em> over the wire to a browser, but a stream
+                                of bytes describing the pixel grid that makes up that image for the client to recompose.</p>
+                                
+                                <p>So, to better visualize the process of encoding a grid of pixels as bytestream data, I want you to imagine that you&#39;re acting as the web browser.
+                                You have a sheet of <a href="https://en.wikipedia.org/wiki/Graph_paper#Formats">millimeter graph paper</a> and a specific pack of brand name crayons. I, as
+                                the web server, have the exact same things—but I&#39;ve already used my crayons to fill the graph paper in with a source image. If I were to send you
+                                a plain text message, I couldn&#39;t send you the image itself, but I could convey information about an image source in a language we both understand
+                                using our shared standard for our “pixel” grid and colors:</p>
+                                
+                                <blockquote>
+                                <p>Start at the top left. Row one, column one is blue. Row one, column two is blue. Row one, column three is blue. Row one, column four is red.</p>
+                                </blockquote>
+                                
+                                <p>Using this textual information, you&#39;d be able to perfectly recreate the image I have on my sheet of graph paper.</p>
+                                
+                                <p><img src="/static/learn/images/raster-images/image/three-horizontal-blue-box-49ba9606c0baf.png" alt="Three horizontal blue boxes followed by one red box." width="652" height="204" srcset="https://web.dev/static/learn/images/raster-images/image/three-horizontal-blue-box-49ba9606c0baf_36.png 36w,https://web.dev/static/learn/images/raster-images/image/three-horizontal-blue-box-49ba9606c0baf_48.png 48w,https://web.dev/static/learn/images/raster-images/image/three-horizontal-blue-box-49ba9606c0baf_72.png 72w,https://web.dev/static/learn/images/raster-images/image/three-horizontal-blue-box-49ba9606c0baf_96.png 96w,https://web.dev/static/learn/images/raster-images/image/three-horizontal-blue-box-49ba9606c0baf_480.png 480w,https://web.dev/static/learn/images/raster-images/image/three-horizontal-blue-box-49ba9606c0baf_720.png 720w,https://web.dev/static/learn/images/raster-images/image/three-horizontal-blue-box-49ba9606c0baf_856.png 856w,https://web.dev/static/learn/images/raster-images/image/three-horizontal-blue-box-49ba9606c0baf_960.png 960w,https://web.dev/static/learn/images/raster-images/image/three-horizontal-blue-box-49ba9606c0baf_1440.png 1440w,https://web.dev/static/learn/images/raster-images/image/three-horizontal-blue-box-49ba9606c0baf_1920.png 1920w,https://web.dev/static/learn/images/raster-images/image/three-horizontal-blue-box-49ba9606c0baf_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                                
+                                <p>Differences in image formats and the way they&#39;re encoded as data can be loosely thought of as the way this information has been formatted.
+                                For example, the information I&#39;ve sent you could be just as readily expressed as:</p>
+                                
+                                <blockquote>
+                                <p>Start at the top left. Row one, columns one through three are blue. Row one, column four is red.</p>
+                                </blockquote>
+                                
+                                <p>Either one of these descriptions will result in the same image, but the second one manages to describe the same image with fewer
+                                characters. This is a <em>lossless</em> method of compressing image data: all the same information—and thus, no reduction of visual
+                                fidelity—but fewer bytes transferred over the wire from me to you—from the server to the rendering engine. This is the plain language
+                                equivalent of “run-length encoding” for image data, where data is encoded as the value to be repeated and a count, rather
+                                than repeating the full value multiple times.</p>
+                                
+                                <p>The inverse, <em>lossy</em> compression, might sound like a non-starter at face value—why would you ever want your images to look <em>worse</em>?
+                                That isn&#39;t strictly the case, though, and it&#39;s worth keeping in mind that our eyes don&#39;t have perfect fidelity either. Choosing
+                                the correct format and settings for image compression is an exercise in finding the balance between the level of visual detail
+                                we&#39;re able to perceive and the amount of data sent to the browser. Both of these factors are determined by the content of our source image.</p>
+                                
+                                <p>The raster image formats are those you are likely most familiar with as a developer—GIF, JPEG, PNG, WebP, and more. You&#39;ll learn about the capabilities of each in the next few modules.</p>
+                                
+
+
+
+
+
+
+
+
+
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
                     </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
-                            </ul>
-                        </nav>
-                    </footer>
+                    
                                         
                 </div>
             </main>

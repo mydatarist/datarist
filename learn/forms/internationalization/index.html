@@ -1172,38 +1172,233 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                    
+                    
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Internationalization</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
+                        <section aria-labelledby="the_story_of_your_first_website">
+                             
+                            
+
+
+
+
+
+                            <p>If you&#39;re reading this, you&#39;re using the World Wide Web.
+                                Your forms may be used by people speaking different languages,
+                                people from different countries, and people with different cultural backgrounds.
+                                Learn how to prepare your form for internationalization and localization.</p>
+                                
+                                <h2 id="ensure_your_form_works_in_different_languages" data-text="Ensure your form works in different languages" tabindex="-1">Ensure your form works in different languages</h2>
+                                
+                                <p>Let&#39;s see how you can make sure your form works with different languages.</p>
+                                
+                                <p>The first step to make your site localization-ready is to define the language attribute <code translate="no" dir="ltr">lang</code> on the <code translate="no" dir="ltr">&lt;html&gt;</code> element.
+                                This attribute enables screen readers to invoke the correct pronunciation,
+                                and helps browsers offer a translation of the page if the defined language is not the default browser language.</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;html lang=&#34;en-us&#34;&gt;
+                                </code></pre>
+                                <p>Learn more about the <a href="https://developer.mozilla.org/docs/Web/HTML/Global_attributes/lang"><code translate="no" dir="ltr">lang</code></a> attribute.</p>
+                                
+                                <p>Say you translated a form to German.
+                                How can you make sure search engines and browsers know about the translated version?
+                                You can add <code translate="no" dir="ltr">&lt;link&gt;</code> elements in your site&#39;s  <code translate="no" dir="ltr">&lt;head&gt;</code> describing the alternate versions.</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;link rel=&#34;alternate&#34; title=&#34;The form element&#34;
+                                  href=&#34;https://example.com/en/form&#34; hreflang=&#34;en&#34;&gt;
+                                &lt;link rel=&#34;alternate&#34; title=&#34;Das Formularelement&#34;
+                                  href=&#34;https://example.com/de/form&#34; hreflang=&#34;de&#34;&gt;
+                                </code></pre>
+                                <h2 id="help_users_who_speak_another_language_to_use_your_form" data-text="Help users who speak another language to use your form" tabindex="-1">Help users who speak another language to use your form</h2>
+                                
+                                <p>You can&#39;t translate your form into every language,
+                                but you can ensure translation tools can translate it for you.</p>
+                                
+                                <aside class="note"><b>Note: </b> Try it out! Enter the URL of your form in <a href="https://translate.google.com">Google Translate</a>, choose a language, and translate it. All visible content of your site will be translated. This is a good test to see if every text is translatable. </aside>
+                                
+                                <p>To ensure translation tools translate all the text on your form,
+                                make sure all text is defined in HTML and is visible.
+                                Some tools also work with content defined in JavaScript, but to improve compatibility,
+                                try to include as much text as possible in HTML.</p>
+                                
+                                <aside class="note"><b>Note: </b> Avoid using the <code translate="no" dir="ltr">aria-label</code> attribute to describe elements. Many translation tools aren't able to translate the <code translate="no" dir="ltr">aria-label</code> attribute.  Learn more why <code translate="no" dir="ltr">aria-label</code> <a href="https://adrianroselli.com/2019/11/aria-label-does-not-translate.html">doesn't translate</a>. </aside>
+                                
+                                <h2 id="ensure_your_form_works_with_different_writing_systems" data-text="Ensure your form works with different writing systems" tabindex="-1">Ensure your form works with different writing systems</h2>
+                                
+                                <p>Different languages use different writing systems and character sets.
+                                Some scripts are written from left to right, and some from right to left.</p>
+                                
+                                <h3 id="make_spacing_independent_of_writing_systems" data-text="Make spacing independent of writing systems" tabindex="-1">Make spacing independent of writing systems</h3>
+                                
+                                <p>To ensure your form works for different writing systems,
+                                you can use <a href="https://developer.mozilla.org/docs/Web/CSS/CSS_Logical_Properties">CSS logical properties</a>.</p>
+                                
+                                <div class="wd-embed" style="height: 300px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/043b19ee429ea0834022967e2207d6b9?height=300&theme-id=light&default-tab=result&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen 043b19ee429ea0834022967e2207d6b9 by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                
+                                <p>The input has a border thickness of <code translate="no" dir="ltr">1px</code> on all sides,
+                                except on the left side, where the border is <code translate="no" dir="ltr">4px</code> thick.
+                                Now, edit the <a href="https://codepen.io/web-dot-dev/pen/043b19ee429ea0834022967e2207d6b9">CodePen</a> and change the writing system to right to left
+                                by adding <code translate="no" dir="ltr">dir=&quot;rtl&quot;</code> to the <code translate="no" dir="ltr">&lt;main&gt;</code> element</p>
+                                
+                                <aside class="note"><b>Note: </b> The <code translate="no" dir="ltr">dir</code> attribute indicates the direction of an element's text. If the complete site uses the same writing system, define the <code translate="no" dir="ltr">dir</code> attribute on the <code translate="no" dir="ltr">&lt;html&gt;</code> element. In CodePen you don't have access to the <code translate="no" dir="ltr">&lt;html&gt;</code> element, which is why you need to add it to <code translate="no" dir="ltr">&lt;main&gt;</code>.  You can also use the CSS <code translate="no" dir="ltr">direction</code> property to achieve the same result. </aside>
+                                
+                                <p>The thick border is now on the right side.
+                                That&#39;s because we defined the border using a logical property.</p>
+                                <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">input {
+                                  border-inline-start-width: 4px;
+                                }
+                                </code></pre>
+                                <p>Learn more about <a href="/learn/css/logical-properties">logical properties</a>.</p>
+                                
+                                <h2 id="ensure_your_form_can_handle_different_name_formats" data-text="Ensure your form can handle different name formats" tabindex="-1">Ensure your form can handle different name formats</h2>
+                                
+                                <p>Say you have a form where the user should fill in their name.
+                                How would you add the field to your form?</p>
+                                
+                                <p>You could add one field for the first name and one for the surname. However, names are different
+                                around the world: for example, some people don&#39;t have a surname—so how should they fill in the
+                                surname field?</p>
+                                
+                                <p>To make it quick and easy to enter names—and to ensure everybody can enter their name, whatever the
+                                format—use a single form field for names wherever possible.</p>
+                                
+                                <p>Learn more about <a href="https://www.w3.org/International/questions/qa-personal-names">personal names</a>.</p>
+                                
+                                <p>If you have a name with <a href="/articles/payment-and-address-form-best-practices#unicode-matching">non-Latin characters</a>,
+                                you may have encountered the issue that your name is reported as <code translate="no" dir="ltr">invalid</code> in some forms. When you
+                                build forms, make sure to allow all possible characters—and do not assume that a name only consists
+                                of Latin characters.</p>
+                                
+                                <h2 id="allow_a_variety_of_address_formats" data-text="Allow a variety of address formats" tabindex="-1">Allow a variety of address formats</h2>
+                                
+                                <p>The headquarters of Google is at 1600 Amphitheatre Parkway, Mountain View, CA 94043, United States.</p>
+                                
+                                <p>This address includes the street number, street, city, state, postal code, and country.
+                                In your country, the address format may be totally different.
+                                How can you ensure everybody can enter their address in your form?</p>
+                                
+                                <p>One way is to use generic inputs.</p>
+                                
+                                <div class="wd-embed" style="height: 700px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/4d4096f67fe84bc2a8c7640974a0fb21?height=700&theme-id=light&default-tab=result&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen 4d4096f67fe84bc2a8c7640974a0fb21 by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                
+                                <p>Learn more about other ways to work with
+                                <a href="https://www.uxmatters.com/mt/archives/2008/06/international-address-fields-in-web-forms.php">international address fields</a>.</p>
+                                
+                                <h3 id="check_your_understanding" class="hide-from-toc" data-text="Check your understanding" tabindex="-1">Check your understanding</h3>
+                                
+                                <p>Test your knowledge of internationalization and localization</p>
+                                
+                                <div class="wd-assessment"><devsite-multiple-choice>
+                                   <div><p>How do you invoke the correct pronunciation for screen readers?</p>
+                                </div>
+                                
+                                <div correct>
+                                   <div>With the <code translate="no" dir="ltr">lang</code> attribute.</div>
+                                   <div>🎉</div>
+                                </div>
+                                
+                                <div>
+                                   <div>With the <code translate="no" dir="ltr">hreflang</code> attribute.</div>
+                                   <div>Try again!</div>
+                                </div>
+                                
+                                <div>
+                                   <div>Adding a description with what language is used.</div>
+                                   <div>Try again!</div>
+                                </div>
+                                
+                                <div>
+                                   <div>With the <code translate="no" dir="ltr">language</code> attribute.</div>
+                                   <div>Try again!</div>
+                                </div>
+                                </devsite-multiple-choice>
+                                <devsite-multiple-choice>
+                                   <div><p>How can you change the writing system on your website?</p>
+                                </div>
+                                
+                                <div>
+                                   <div>With the <code translate="no" dir="ltr">direction</code> attribute.</div>
+                                   <div>Try again!</div>
+                                </div>
+                                
+                                <div correct>
+                                   <div>With the <code translate="no" dir="ltr">dir</code> attribute.</div>
+                                   <div>🎉</div>
+                                </div>
+                                
+                                <div>
+                                   <div>Using CSS logical properties.</div>
+                                   <div>Try again!</div>
+                                </div>
+                                
+                                <div>
+                                   <div>Using the <code translate="no" dir="ltr">&lt;link&gt;</code> element.</div>
+                                   <div>Try again!</div>
+                                </div>
+                                </devsite-multiple-choice>
+                                </div>
+                                
+                                <h2 id="resources" data-text="Resources" tabindex="-1">Resources</h2>
+                                
+                                <ul>
+                                <li><a href="https://www.w3.org/International/articlelist">W3C Internationalization articles and tutorials</a></li>
+                                <li><a href="http://www.columbia.edu/%7Efdc/postal/">Frank&#39;s Compulsive Guide to Postal Addresses</a> provides useful links and extensive guidance for address formats in over 200 countries.</li>
+                                <li><a href="https://datahub.io/core/country-list">DataHub.io</a> is a tool for downloading country codes and names.</li>
+                                </ul>
+
+
+
+
+
+
+
+
+
+
+
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
                     </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
-                            </ul>
-                        </nav>
-                    </footer>
+                    
                                         
                 </div>
             </main>

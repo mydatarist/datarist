@@ -1172,38 +1172,256 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                    
+                    
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Media Queries</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
+                        <section aria-labelledby="the_story_of_your_first_website">
+                              
+                            
+
+
+
+
+
+                            <p>Designers can adjust their designs to accommodate users. 
+                                The clearest example of this is the form factor of a user&#39;s device; its width, 
+                                the device aspect ratio, and so on. Using media queries, designers can respond to these different form factors.</p>
+                                
+                                <p>Media queries are initiated with the <code translate="no" dir="ltr">@media</code> keyword (a CSS at-rule), and can be used for a variety of use cases.</p>
+                                
+                                <h2 id="target_different_types_of_output" data-text="Target different types of output" tabindex="-1">Target different types of output</h2>
+                                
+                                <p>Websites are often displayed on screens but CSS can also be used to style websites for other outputs too. 
+                                You might want your web pages to look one way on a screen but different when printed out. 
+                                Querying media types makes this possible.</p>
+                                
+                                <p>In this example, the background color is set to grey. 
+                                But if the page is printed, the background color should be transparent. 
+                                This saves the user&#39;s printer ink.</p>
+                                <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">body {
+                                  color: black;
+                                  background-color: grey;
+                                }
+                                
+                                @media print {
+                                  body {
+                                    background-color: transparent;
+                                  }
+                                }
+                                </code></pre>
+                                <p>You can use the <code translate="no" dir="ltr">@media</code> at-rule in your stylesheet like that, 
+                                or you can make a separate stylesheet and use the <code translate="no" dir="ltr">media</code> attribute on a <code translate="no" dir="ltr">link</code> element:</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;link rel=&#34;stylesheet&#34; href=&#34;global.css&#34;&gt;
+                                &lt;link rel=&#34;stylesheet&#34; href=&#34;print.css&#34; media=&#34;print&#34;&gt;
+                                </code></pre>
+                                <p>If you don&#39;t specify any media type for your CSS, 
+                                it will automatically have a media type value of <code translate="no" dir="ltr">all</code>. These two blocks of CSS are equivalent:</p>
+                                <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">body {
+                                  color: black;
+                                  background-color: white;
+                                }
+                                </code></pre><pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">@media all {
+                                   body {
+                                     color: black;
+                                     background-color: white;
+                                   }
+                                }
+                                </code></pre>
+                                <p>These two lines of HTML are also equivalent:</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;link rel=&#34;stylesheet&#34; href=&#34;global.css&#34;&gt;
+                                </code></pre><pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;link rel=&#34;stylesheet&#34; href=&#34;global.css&#34; media=&#34;all&#34;&gt;
+                                </code></pre>
+                                <h3 id="query_conditions" data-text="Query conditions" tabindex="-1">Query conditions</h3>
+                                
+                                <p>You can add conditions to media types. These are called media queries. 
+                                The CSS is applied only if the media type matches and the condition is also true. 
+                                These conditions are called <em>media features</em>.</p>
+                                
+                                <p>This is the syntax for media queries:</p>
+                                <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">@media type and (feature)
+                                </code></pre>
+                                <p>You can use media queries on a <code translate="no" dir="ltr">link</code> element if your styles are in a separate stylesheet:</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;link rel=&#34;stylesheet&#34; href=&#34;specific.css&#34; media=&#34;type and (feature)&#34;&gt;
+                                </code></pre>
+                                <p>Let&#39;s say you want to apply different styles depending on whether the browser window is in landscape mode 
+                                (the viewport width is greater than its height) or portrait mode 
+                                (the viewport height is greater than its width). 
+                                There&#39;s a media feature called <code translate="no" dir="ltr">orientation</code> you can use to test that:</p>
+                                <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">@media all and (orientation: landscape) {
+                                   // Styles for landscape mode.
+                                }
+                                @media all and (orientation: portrait) {
+                                   // Styles for portrait mode.
+                                }
+                                </code></pre>
+                                <p>Or if you prefer to have separate stylesheets:</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;link rel=&#34;stylesheet&#34; href=&#34;landscape.css&#34; media=&#34;all and (orientation: landscape)&#34;&gt;
+                                &lt;link rel=&#34;stylesheet&#34; href=&#34;portrait.css&#34; media=&#34;all and (orientation: portrait)&#34;&gt;
+                                </code></pre>
+                                <p>In this case the media type is <code translate="no" dir="ltr">all</code>. Because that&#39;s the default value, you can leave it out if you want:</p>
+                                <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">@media (orientation: landscape) {
+                                   // Styles for landscape mode.
+                                }
+                                @media (orientation: portrait) {
+                                   // Styles for portrait mode.
+                                }
+                                </code></pre>
+                                <p>Or using separate stylesheets:</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;link rel=&#34;stylesheet&#34; href=&#34;landscape.css&#34; media=&#34;(orientation: landscape)&#34;&gt;
+                                &lt;link rel=&#34;stylesheet&#34; href=&#34;portrait.css&#34; media=&#34;(orientation: portrait)&#34;&gt;
+                                </code></pre>
+                                <div class="wd-embed" style="height: 500px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/qBXVowV?height=500&theme-id=dark&default-tab=result&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen qBXVowV by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                
+                                <video autoplay controls loop muted > <source src="/static/learn/design/media-queries/video/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/gtBzPVsBu5mtnX8RuSqJ.mp4" type="video/mp4" /> </video>
+                                
+                                <p>While using separate stylesheets for different media <em>types</em>—like <code translate="no" dir="ltr">print</code>—might be okay, 
+                                it&#39;s probably not a good idea to use a separate stylesheet for every media <em>query</em>. Use <code translate="no" dir="ltr">@media</code> at-rules instead.</p>
+                                
+                                <h2 id="adjust_styles_based_on_viewport_size" data-text="Adjust styles based on viewport size" tabindex="-1">Adjust styles based on viewport size</h2>
+                                
+                                <p>For responsive design, one of the most useful media features involves the dimensions of the browser viewport. 
+                                To apply styles when the browser window is wider than a certain width, use <code translate="no" dir="ltr">min-width</code>.</p>
+                                <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">@media (min-width: 400px) {
+                                  // Styles for viewports wider than 400 pixels.
+                                }
+                                </code></pre>
+                                <p>Use the <code translate="no" dir="ltr">max-width</code> media feature to apply styles below a certain width:</p>
+                                <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">@media (max-width: 400px) {
+                                  // Styles for viewports narrower than 400 pixels.
+                                }
+                                </code></pre>
+                                <p>You can use any CSS <a href="https://developer.mozilla.org/docs/Web/CSS/length">length units</a> in your media queries. 
+                                If your content is mostly image-based, pixels might make the most sense. 
+                                If your content is mostly text-based, 
+                                it probably makes more sense to use a <a href="/learn/css/sizing#relative_lengths">relative unit</a> that&#39;s based on text size, like <code translate="no" dir="ltr">em</code> or <code translate="no" dir="ltr">ch</code>:</p>
+                                <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">@media (min-width: 25em) {
+                                  // Styles for viewports wider than 25em.
+                                }
+                                </code></pre>
+                                <p>You can also combine media queries to apply more than one condition. 
+                                Use the word <code translate="no" dir="ltr">and</code> to combine your media queries:</p>
+                                <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">@media (min-width: 50em) and (max-width: 60em) {
+                                  // Styles for viewports wider than 50em and narrower than 60em.
+                                }
+                                </code></pre>
+                                <div class="wd-embed" style="height: 500px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/GRvOxaw?height=500&theme-id=dark&default-tab=result&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen GRvOxaw by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                
+                                <video autoplay controls loop muted > <source src="/static/learn/design/media-queries/video/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/eDf5v1QMwLX19pcJAgYE.mp4" type="video/mp4" /> </video>
+                                
+                                <h2 id="choose_breakpoints_based_on_the_content" data-text="Choose breakpoints based on the content" tabindex="-1">Choose breakpoints based on the content</h2>
+                                
+                                <p>The point at which a media feature condition becomes true is called a breakpoint. 
+                                It&#39;s best to choose your breakpoints based on your content rather than popular device sizes, 
+                                as those are subject to change with every technology release cycle.</p>
+                                
+                                <p>In this example, <code translate="no" dir="ltr">50em</code> is the point at which the lines of text become uncomfortably long. 
+                                So a breakpoint is created to make the interface more legible. 
+                                Using the <code translate="no" dir="ltr">column-count</code> property, the text is divided into two columns from that point on.</p>
+                                <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">@media (min-width: 50em) {
+                                  article {
+                                    column-count: 2;
+                                  }
+                                }
+                                </code></pre>
+                                <div class="wd-embed" style="height: 500px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/oNeodgd?height=500&theme-id=dark&default-tab=result&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen oNeodgd by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                
+                                <video autoplay controls loop muted > <source src="/static/learn/design/media-queries/video/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/mrQlcyih7IcZxswI1lMx.mp4" type="video/mp4" /> </video>
+                                
+                                <h2 id="combinations" data-text="Combinations" tabindex="-1">Combinations</h2>
+                                
+                                <p>You can use media queries based on the height of the viewport, not just the width. 
+                                This could be useful for optimizing interface content &quot;above the fold&quot;. In the previous example, 
+                                if readers are using a wide but short browser window, 
+                                they have to scroll down one column and then scroll back up to get to the top of the second column. 
+                                It would be safer to only apply the columns when the viewport is both wide enough and tall enough.</p>
+                                
+                                <p>You can combine media queries so that the styles only apply when all the conditions are true. 
+                                In this example, the viewport must be at least <code translate="no" dir="ltr">50em</code> wide and <code translate="no" dir="ltr">60em</code> tall in order for the column styles to be applied. 
+                                Those breakpoints were chosen based on the amount of content.</p>
+                                <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">@media (min-width: 50em) and (min-height: 60em) {
+                                  article {
+                                    column-count: 2;
+                                  }
+                                }
+                                </code></pre>
+                                <div class="wd-embed" style="height: 1000px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/JjyOvdM?height=1000&theme-id=dark&default-tab=result&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen JjyOvdM by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                
+                                <video autoplay controls loop muted > <source src="/static/learn/design/media-queries/video/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/oKRBxhrHzAzebYwxptsv.mp4" type="video/mp4" /> </video>
+                                
+                                <p>These examples show how media queries can be used to adapt designs to the form factor of a user&#39;s device, 
+                                but these just scratch the surface of possibilities. Media queries can go far beyond width and height, 
+                                accessing user preferences for accessibility features and theme colors. 
+                                Using media queries to make layout adjustments is a great start to a responsive design, which builds on these features and more.</p>
+
+
+
+
+
+
+
+
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
                     </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
-                            </ul>
-                        </nav>
-                    </footer>
+                    
                                         
                 </div>
             </main>

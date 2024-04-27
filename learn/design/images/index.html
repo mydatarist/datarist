@@ -1172,38 +1172,706 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                    
+                    
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Images</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
+                        <section aria-labelledby="the_story_of_your_first_website">
+                               
+                            
+
+
+
+
+                            <p>Text on the web automatically wraps at the edge of the screen so that it doesn&#39;t overflow. It&#39;s different with images. Images have an intrinsic size. If an image is wider than the screen, the image will overflow, causing a horizontal scrollbar to appear.</p>
+
+                            <p>Fortunately, you can take measures in CSS to stop this from happening.</p>
+                            
+                            <h2 id="constrain_your_images" data-text="Constrain your images" tabindex="-1">Constrain your images</h2>
+                            
+                            <p>In your stylesheet, you can declare that images should never be rendered at a size wider than their containing element using <a href="https://developer.mozilla.org/docs/Web/CSS/max-inline-size"><code translate="no" dir="ltr">max-inline-size</code></a>.
+                            
+                              
+                                
+                                
+                                
+                                
+                              
+                              
+                              
+                                
+                                  
+                                
+                              
+                                
+                                  
+                                
+                              
+                                
+                                  
+                                
+                               
+                            
+                                
+                                
+                                  
+                                  <div class="wd-browser-compat">
+                                    <p>Browser Support</p>
+                                    <ul>
+                                      
+                              
+                              
+                                
+                                  
+                                    
+                                      
+                                      
+                                    
+                                  
+                                
+                                
+                              
+                              <li
+                                data-browser="chrome"
+                                data-support="yes">57</li>
+                              
+                              
+                                      
+                              
+                              
+                                
+                                  
+                                    
+                                      
+                                      
+                                    
+                                  
+                                
+                                
+                              
+                              <li
+                                data-browser="edge"
+                                data-support="yes">79</li>
+                              
+                              
+                                      
+                              
+                              
+                                
+                                  
+                                    
+                                      
+                                      
+                                    
+                                  
+                                
+                                
+                              
+                              <li
+                                data-browser="firefox"
+                                data-support="yes">41</li>
+                              
+                              
+                                      
+                              
+                              
+                                
+                                  
+                                    
+                                      
+                                      
+                                    
+                                  
+                                
+                                
+                              
+                              <li
+                                data-browser="safari"
+                                data-support="yes">12.1</li>
+                              
+                              
+                                    </ul>
+                                    
+                                    <p><a href="https://developer.mozilla.org/docs/Web/CSS/max-inline-size">Source</a></p>
+                                    
+                                  </div>
+                                
+                                
+                                
+                              </p>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">img {
+                              max-inline-size: 100%;
+                              block-size: auto;
+                            }
+                            </code></pre>
+                            <aside class="note"><b>Note: </b> You can use <code translate="no" dir="ltr">max-width</code> instead of <code translate="no" dir="ltr">max-inline-size</code> if you prefer, but remember it's good to get in the habit of thinking in terms of <a href="/learn/design/internationalization#logical_properties">logical properties</a>. </aside>
+                            
+                            <p>You can apply the same rule to other kinds of embedded content too, like videos and iframes.</p>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">img,
+                            video,
+                            iframe {
+                              max-inline-size: 100%;
+                              block-size: auto;
+                            }
+                            </code></pre>
+                            <p>With that rule in place, browsers will automatically scale down images to fit on the screen.</p>
+                            
+                            <p><img src="/static/learn/design/responsive-images/image/two-screenshots-first-s-fbd980b13ed58.png" alt="Two screenshots; the first shows an image expanding past the browser width; the second shows the same image constrained within the browser viewport." width="800" height="763" srcset="https://web.dev/static/learn/design/responsive-images/image/two-screenshots-first-s-fbd980b13ed58_36.png 36w,https://web.dev/static/learn/design/responsive-images/image/two-screenshots-first-s-fbd980b13ed58_48.png 48w,https://web.dev/static/learn/design/responsive-images/image/two-screenshots-first-s-fbd980b13ed58_72.png 72w,https://web.dev/static/learn/design/responsive-images/image/two-screenshots-first-s-fbd980b13ed58_96.png 96w,https://web.dev/static/learn/design/responsive-images/image/two-screenshots-first-s-fbd980b13ed58_480.png 480w,https://web.dev/static/learn/design/responsive-images/image/two-screenshots-first-s-fbd980b13ed58_720.png 720w,https://web.dev/static/learn/design/responsive-images/image/two-screenshots-first-s-fbd980b13ed58_856.png 856w,https://web.dev/static/learn/design/responsive-images/image/two-screenshots-first-s-fbd980b13ed58_960.png 960w,https://web.dev/static/learn/design/responsive-images/image/two-screenshots-first-s-fbd980b13ed58_1440.png 1440w,https://web.dev/static/learn/design/responsive-images/image/two-screenshots-first-s-fbd980b13ed58_1920.png 1920w,https://web.dev/static/learn/design/responsive-images/image/two-screenshots-first-s-fbd980b13ed58_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                            
+                            <p>Adding a <a href="https://developer.mozilla.org/docs/Web/CSS/block-size"><code translate="no" dir="ltr">block-size</code></a> value of <code translate="no" dir="ltr">auto</code> means that the aspect-ratio of the images will remain constant.</p>
+                            
+                            <p>Sometimes the dimensions of an image might be out of your control—if an image is added through a content management system, for example. If your design calls for a images to have an aspect ratio that&#39;s different to the image&#39;s real dimensions, use the <a href="https://developer.mozilla.org/docs/Web/CSS/aspect-ratio"><code translate="no" dir="ltr">aspect-ratio</code></a> property in CSS.</p>
+                            <pre class="prettyprint lang-css/3-3" translate="no" dir="ltr"><code translate="no" dir="ltr">img {
+                              max-inline-size: 100%;
+                              block-size: auto;
+                              aspect-ratio: 2/1;
+                            }
+                            </code></pre>
+                            <p>But then the browser might squash or stretch the image to make it fit your preferred aspect ratio.</p>
+                            
+                            <p><img src="/static/learn/design/responsive-images/image/profile-a-happy-looking-6886fa1061908.jpg" alt="Profile of a happy-looking handsome dog with a ball in its mouth, but the image is squashed." width="800" height="400" srcset="https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-6886fa1061908_36.jpg 36w,https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-6886fa1061908_48.jpg 48w,https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-6886fa1061908_72.jpg 72w,https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-6886fa1061908_96.jpg 96w,https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-6886fa1061908_480.jpg 480w,https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-6886fa1061908_720.jpg 720w,https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-6886fa1061908_856.jpg 856w,https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-6886fa1061908_960.jpg 960w,https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-6886fa1061908_1440.jpg 1440w,https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-6886fa1061908_1920.jpg 1920w,https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-6886fa1061908_2880.jpg 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                            
+                            <p>To prevent that happening, use the <a href="https://developer.mozilla.org/docs/Web/CSS/object-fit"><code translate="no" dir="ltr">object-fit</code></a> property.
+                            
+                              
+                                
+                                
+                                
+                                
+                              
+                              
+                              
+                                
+                                  
+                                
+                              
+                                
+                                  
+                                
+                              
+                                
+                                  
+                                
+                               
+                            
+                                
+                                
+                                  
+                                  <div class="wd-browser-compat">
+                                    <p>Browser Support</p>
+                                    <ul>
+                                      
+                              
+                              
+                                
+                                  
+                                    
+                                      
+                                      
+                                    
+                                  
+                                
+                                
+                              
+                              <li
+                                data-browser="chrome"
+                                data-support="yes">32</li>
+                              
+                              
+                                      
+                              
+                              
+                                
+                                  
+                                    
+                                      
+                                      
+                                    
+                                  
+                                
+                                
+                              
+                              <li
+                                data-browser="edge"
+                                data-support="yes">79</li>
+                              
+                              
+                                      
+                              
+                              
+                                
+                                  
+                                    
+                                      
+                                      
+                                    
+                                  
+                                
+                                
+                              
+                              <li
+                                data-browser="firefox"
+                                data-support="yes">36</li>
+                              
+                              
+                                      
+                              
+                              
+                                
+                                  
+                                    
+                                      
+                                      
+                                    
+                                  
+                                
+                                
+                              
+                              <li
+                                data-browser="safari"
+                                data-support="yes">10</li>
+                              
+                              
+                                    </ul>
+                                    
+                                    <p><a href="https://developer.mozilla.org/docs/Web/CSS/object-fit">Source</a></p>
+                                    
+                                  </div>
+                                
+                                
+                                
+                              </p>
+                            
+                            <p>An <code translate="no" dir="ltr">object-fit</code> value of <code translate="no" dir="ltr">contain</code> tells the browser to preserve the image&#39;s aspect ratio, even if that means leaving empty space above and below.</p>
+                            <pre class="prettyprint lang-css/4-4" translate="no" dir="ltr"><code translate="no" dir="ltr">img {
+                              max-inline-size: 100%;
+                              block-size: auto;
+                              aspect-ratio: 2/1;
+                              object-fit: contain;
+                            }
+                            </code></pre>
+                            <p>An <code translate="no" dir="ltr">object-fit</code> value of <code translate="no" dir="ltr">cover</code> tells the browser to preserve the image&#39;s aspect ratio, even if that means cropping the image at the top and bottom.</p>
+                            <pre class="prettyprint lang-css/4-4" translate="no" dir="ltr"><code translate="no" dir="ltr">img {
+                              max-inline-size: 100%;
+                              block-size: auto;
+                              aspect-ratio: 2/1;
+                              object-fit: cover;
+                            }
+                            </code></pre>
+                            <figure>
+                            <img src="/static/learn/design/responsive-images/image/profile-a-happy-looking-19f229b25e797.jpg" alt="Profile of a happy-looking handsome dog with a ball in its mouth; there is extra space on either side of the image." width="800" height="400" srcset="https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-19f229b25e797_36.jpg 36w,https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-19f229b25e797_48.jpg 48w,https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-19f229b25e797_72.jpg 72w,https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-19f229b25e797_96.jpg 96w,https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-19f229b25e797_480.jpg 480w,https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-19f229b25e797_720.jpg 720w,https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-19f229b25e797_856.jpg 856w,https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-19f229b25e797_960.jpg 960w,https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-19f229b25e797_1440.jpg 1440w,https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-19f229b25e797_1920.jpg 1920w,https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-19f229b25e797_2880.jpg 2880w" sizes="(max-width: 840px) 100vw, 856px">
+                            <img src="/static/learn/design/responsive-images/image/profile-a-happy-looking-9a3c6aedc16d2.jpg" alt="Profile of a happy-looking handsome dog with a ball in its mouth; the image has been cropped at the top and bottom." width="800" height="400" srcset="https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-9a3c6aedc16d2_36.jpg 36w,https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-9a3c6aedc16d2_48.jpg 48w,https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-9a3c6aedc16d2_72.jpg 72w,https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-9a3c6aedc16d2_96.jpg 96w,https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-9a3c6aedc16d2_480.jpg 480w,https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-9a3c6aedc16d2_720.jpg 720w,https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-9a3c6aedc16d2_856.jpg 856w,https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-9a3c6aedc16d2_960.jpg 960w,https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-9a3c6aedc16d2_1440.jpg 1440w,https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-9a3c6aedc16d2_1920.jpg 1920w,https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-9a3c6aedc16d2_2880.jpg 2880w" sizes="(max-width: 840px) 100vw, 856px">
+                             <figcaption class="wd-caption">
+                               The same image with two different values for `object-fit` applied. The first has an `object-fit` value of `contain`. The second has an `object-fit` value of `cover`.
+                             </figcaption>
+                            </figure>
+                            
+                            <p>If the cropping at the top and bottom evenly is an issue, use the <a href="https://developer.mozilla.org/docs/Web/CSS/object-position">object-position</a> CSS property to adjust the focus of the crop.
+                            
+                              
+                                
+                                
+                                
+                                
+                              
+                              
+                              
+                                
+                                  
+                                
+                              
+                                
+                                  
+                                
+                              
+                                
+                                  
+                                
+                               
+                            
+                                
+                                
+                                  
+                                  <div class="wd-browser-compat">
+                                    <p>Browser Support</p>
+                                    <ul>
+                                      
+                              
+                              
+                                
+                                  
+                                    
+                                      
+                                      
+                                    
+                                  
+                                
+                                
+                              
+                              <li
+                                data-browser="chrome"
+                                data-support="yes">32</li>
+                              
+                              
+                                      
+                              
+                              
+                                
+                                  
+                                    
+                                      
+                                      
+                                    
+                                  
+                                
+                                
+                              
+                              <li
+                                data-browser="edge"
+                                data-support="yes">79</li>
+                              
+                              
+                                      
+                              
+                              
+                                
+                                  
+                                    
+                                      
+                                      
+                                    
+                                  
+                                
+                                
+                              
+                              <li
+                                data-browser="firefox"
+                                data-support="yes">36</li>
+                              
+                              
+                                      
+                              
+                              
+                                
+                                  
+                                    
+                                      
+                                      
+                                    
+                                  
+                                
+                                
+                              
+                              <li
+                                data-browser="safari"
+                                data-support="yes">10</li>
+                              
+                              
+                                    </ul>
+                                    
+                                    <p><a href="https://developer.mozilla.org/docs/Web/CSS/object-position">Source</a></p>
+                                    
+                                  </div>
+                                
+                                
+                                
+                              </p>
+                            
+                            <p>You can make sure the most important image content is still visible.</p>
+                            <pre class="prettyprint lang-css/5-5" translate="no" dir="ltr"><code translate="no" dir="ltr">img {
+                              max-inline-size: 100%;
+                              block-size: auto;
+                              aspect-ratio: 2/1;
+                              object-fit: cover;
+                              object-position: top center;
+                            }
+                            </code></pre>
+                            <p><img src="/static/learn/design/responsive-images/image/profile-a-happy-looking-a9de08840e85f.jpg" alt="Profile of a happy-looking handsome dog with a ball in its mouth; the image has only been cropped at the bottom." width="800" height="400" srcset="https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-a9de08840e85f_36.jpg 36w,https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-a9de08840e85f_48.jpg 48w,https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-a9de08840e85f_72.jpg 72w,https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-a9de08840e85f_96.jpg 96w,https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-a9de08840e85f_480.jpg 480w,https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-a9de08840e85f_720.jpg 720w,https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-a9de08840e85f_856.jpg 856w,https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-a9de08840e85f_960.jpg 960w,https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-a9de08840e85f_1440.jpg 1440w,https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-a9de08840e85f_1920.jpg 1920w,https://web.dev/static/learn/design/responsive-images/image/profile-a-happy-looking-a9de08840e85f_2880.jpg 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                            
+                            <h2 id="deliver_your_images" data-text="Deliver your images" tabindex="-1">Deliver your images</h2>
+                            
+                            <p>Those CSS rules tell the browser how you&#39;d like images to be rendered. You can also provide hints in your HTML about how the browser should handle those images.</p>
+                            
+                            <h3 id="sizing_hints" data-text="Sizing hints" tabindex="-1">Sizing hints</h3>
+                            
+                            <p>If you know the dimensions of the image you should include <code translate="no" dir="ltr">width</code> and <code translate="no" dir="ltr">height</code> attributes. Even if the image is rendered at a different size (because of your <code translate="no" dir="ltr">max-inline-size: 100%</code> rule), the browser still knows the width to height ratio and can set aside the right amount of space. This will stop your other content jumping around when the image loads.</p>
+                            <pre class="prettyprint lang-html/3-4" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;img
+                             src=&#34;image.png&#34;
+                             alt=&#34;A description of the image.&#34;
+                             width=&#34;300&#34;
+                             height=&#34;200&#34;
+                            &gt;
+                            </code></pre>
+                            <figure>
+                            <video controls loop > <source src="/static/learn/design/responsive-images/video/tcFciHGuF3MxnTr1y5ue01OGLBn2/WOQn6K6OQcoElRw0NCkZ.mp4" type="video/mp4" /> </video>
+                            <video controls loop > <source src="/static/learn/design/responsive-images/video/tcFciHGuF3MxnTr1y5ue01OGLBn2/sFxDb36aEMvTPIyZHz1O.mp4" type="video/mp4" /> </video>
+                             <figcaption class="wd-caption">
+                               The first video shows a layout without defined image dimensions. Notice how the text jumps once the images load. In the second video, image dimensions have been provided; space is left for the image so that once they load, the text doesn't jump around.
+                             </figcaption>
+                            </figure>
+                            
+                            <h3 id="loading_hints" data-text="Loading hints" tabindex="-1">Loading hints</h3>
+                            
+                            <p>Use the <code translate="no" dir="ltr">loading</code> attribute to tell the browser whether to delay loading the image until it is in or near the viewport. For images below the fold, use a value of <code translate="no" dir="ltr">lazy</code>. The browser won&#39;t load lazy images until the user has scrolled far down enough that the image is about to come into view. If the user never scrolls, the image never loads.</p>
+                            <pre class="prettyprint lang-html/5-5" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;img
+                             src=&#34;image.png&#34;
+                             alt=&#34;A description of the image.&#34;
+                             width=&#34;300&#34;
+                             height=&#34;200&#34;
+                             loading=&#34;lazy&#34;
+                            &gt;
+                            </code></pre>
+                            <video controls loop > <source src="/static/learn/design/responsive-images/video/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/jazsyaOjXfHS0g8yUijR.mp4" type="video/mp4" /> </video>
+                            
+                            <p>For a hero image above the fold, <code translate="no" dir="ltr">loading</code> should not be used. If your site automatically applies the <code translate="no" dir="ltr">loading=&quot;lazy&quot;</code> attribute, you can often set the <code translate="no" dir="ltr">eager</code> attribute (which is the default) to prevent this from being applied:</p>
+                            <pre class="prettyprint lang-html/5-5" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;img
+                             src=&#34;hero.jpg&#34;
+                             alt=&#34;A description of the image.&#34;
+                             width=&#34;1200&#34;
+                             height=&#34;800&#34;
+                             loading=&#34;eager&#34;
+                            &gt;
+                            </code></pre>
+                            <h3 id="fetch_priority" data-text="Fetch Priority" tabindex="-1">Fetch Priority</h3>
+                            
+                            <p>For important images-such as the <a href="/articles/lcp">LCP</a> image, you can further prioritize the loading using <a href="/articles/fetch-priority">Fetch Priority</a> by setting the <code translate="no" dir="ltr">fetchpriority</code> attribute to <code translate="no" dir="ltr">high</code>:</p>
+                            <pre class="prettyprint lang-html/5-6" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;img
+                             src=&#34;hero.jpg&#34;
+                             alt=&#34;A description of the image.&#34;
+                             width=&#34;1200&#34;
+                             height=&#34;800&#34;
+                             loading=&#34;eager&#34;
+                             fetchpriority=&#34;high&#34;
+                            &gt;
+                            </code></pre>
+                            <p>This will tell the browser to fetch the image right away, and at high priority, rather than waiting until the browser has completed layout when images are normally fetched.</p>
+                            
+                            <p>But remember: when you ask the browser to prioritize downloading one resource—like an image—the browser will have to de-prioritize another resource such as a script or a font file. Only set <code translate="no" dir="ltr">fetchpriority=&quot;high&quot;</code> on an image if it is truly vital.</p>
+                            
+                            <h3 id="preloading_hints" data-text="Preloading hints" tabindex="-1">Preloading hints</h3>
+                            
+                            <p>Some images may not be available in the initial HTML—if they are added by JavaScript, or as a <a href="#background_images">background image</a> in CSS. You can also use preload to allow these important images to be fetched ahead of time. This can be combined with the <code translate="no" dir="ltr">fetchpriority</code> attribute for really important images:</p>
+                            <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;link rel=&#34;preload&#34; href=&#34;hero.jpg&#34; as=&#34;image&#34; fetchpriority=&#34;high&#34;&gt;
+                            </code></pre>
+                            <p>Again this should be used sparingly to avoid overriding the browsers prioritisation heuristics too much, which may result in performance degredation.</p>
+                            
+                            <p>Preloading responsive images based on srcset (which is discussed below) via the <code translate="no" dir="ltr">imagesrcset</code> and <code translate="no" dir="ltr">imagesizes</code> attributes is more advanced and is <a href="/articles/preload-responsive-images">supported in some browsers</a>, but not all:</p>
+                            
+                            <p><link rel="preload" imagesrcset="hero_sm.jpg 1x hero_med.jpg 2x hero_lg.jpg 3x" as="image" fetchpriority="high"></p>
+                            
+                            <p>By excluding the <code translate="no" dir="ltr">href</code> fallback you can ensure browsers that do not support this do not preload the incorrect image.</p>
+                            
+                            <p>Preloading based on different image formats based on browser support of those images is not currently supported and may result in extra downloads.</p>
+                            
+                            <p>The ideal is to avoid preload where possible, and have the image available in the initial HTML, to avoid repeating code, and to allow access to the full range of options the browser supports.</p>
+                            
+                            <h3 id="image_decoding" data-text="Image decoding" tabindex="-1">Image decoding</h3>
+                            
+                            <p>There&#39;s also a <code translate="no" dir="ltr">decoding</code> attribute you can add to <code translate="no" dir="ltr">img</code> elements. You can tell the browser that the image can be decoded asynchronously. The browser can then prioritize processing other content.</p>
+                            <pre class="prettyprint lang-html/6-6" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;img
+                             src=&#34;image.png&#34;
+                             alt=&#34;A description of the image.&#34;
+                             width=&#34;300&#34;
+                             height=&#34;200&#34;
+                             loading=&#34;lazy&#34;
+                             decoding=&#34;async&#34;
+                            &gt;
+                            </code></pre>
+                            <p>You can use the <code translate="no" dir="ltr">sync</code> value if the image itself is the most important piece of content to prioritize.</p>
+                            <pre class="prettyprint lang-html/6-6" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;img
+                             src=&#34;hero.jpg&#34;
+                             alt=&#34;A description of the image.&#34;
+                             width=&#34;1200&#34;
+                             height=&#34;800&#34;
+                             loading=&#34;eager&#34;
+                             decoding=&#34;sync&#34;
+                            &gt;
+                            </code></pre>
+                            <p>The <code translate="no" dir="ltr">decoding</code> attribute will not change how fast the image decodes, but merely whether the browser waits for this image decoding to happen before rendering other content.</p>
+                            
+                            <p>In most cases this will have little impact, however in certain scenarios it can allow the image or content to be displayed slightly faster. For example, for a large document with lots of elements that take time to render, and with large images that take a while to decode, setting <code translate="no" dir="ltr">sync</code> on important images will tell the browser to wait for the image and render both at once. Alternatively, setting <code translate="no" dir="ltr">async</code> can allow the content to be displayed faster without waiting for the image decode.</p>
+                            
+                            <p>However, the better option is usually to try to <a href="https://developer.chrome.com/docs/lighthouse/performance/dom-size">avoid excessive DOM sizes</a> and ensure responsive images are used to reduce decoding time meaning the decoding attribute will have little effect.</p>
+                            
+                            <h2 id="responsive_images_with_srcset" data-text="Responsive images with srcset" tabindex="-1">Responsive images with <code translate="no" dir="ltr">srcset</code></h2>
+                            
+                            <p>Thanks to that <code translate="no" dir="ltr">max-inline-size: 100%</code> declaration, your images will never break out of their containers. But even if it looks fine to have a large image that shrinks to fit, it won&#39;t feel fine. If someone uses a small screen device on a low bandwidth network, they&#39;ll download unnecessarily large images.</p>
+                            
+                            <p>If you make multiple versions of the same image at different sizes, you can let the browser know about them using the <a href="https://developer.mozilla.org/docs/Web/HTML/Element/img#attr-srcset"><code translate="no" dir="ltr">srcset</code></a> attribute.</p>
+                            
+                            <h3 id="width_descriptor" data-text="Width descriptor" tabindex="-1">Width descriptor</h3>
+                            
+                            <p>You can pass in a list of values separated by commas. Each value should be the URL of an image followed by a space followed by some metadata about the image. This metadata is called a descriptor.</p>
+                            
+                            <p>In this example, the metadata describes the width of each image using the <code translate="no" dir="ltr">w</code> unit. One <code translate="no" dir="ltr">w</code> is one pixel.</p>
+                            <pre class="prettyprint lang-html/7-9" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;img
+                             src=&#34;small-image.png&#34;
+                             alt=&#34;A description of the image.&#34;
+                             width=&#34;300&#34;
+                             height=&#34;200&#34;
+                             loading=&#34;lazy&#34;
+                             decoding=&#34;async&#34;
+                             srcset=&#34;small-image.png 300w,
+                              medium-image.png 600w,
+                              large-image.png 1200w&#34;
+                            &gt;
+                            </code></pre>
+                            <p>The <code translate="no" dir="ltr">srcset</code> attribute doesn&#39;t replace the <code translate="no" dir="ltr">src</code> attribute. Instead the <code translate="no" dir="ltr">srcset</code> attribute complements the <code translate="no" dir="ltr">src</code> attribute. You still need to have a valid <code translate="no" dir="ltr">src</code> attribute, but now the browser can replace its value with one of the options listed in the <code translate="no" dir="ltr">srcset</code> attribute.</p>
+                            
+                            <p>The browser won&#39;t download the larger images unless they&#39;re needed. That saves bandwidth.</p>
+                            
+                            <h3 id="sizes" data-text="Sizes" tabindex="-1">Sizes</h3>
+                            
+                            <p>If you&#39;re using the width descriptor, you must also use the <a href="https://developer.mozilla.org/docs/Web/HTML/Element/img#attr-sizes"><code translate="no" dir="ltr">sizes</code></a> attribute to give the browser more information. This tells the browser what size you expect the image to be displayed under different conditions. Those conditions are specified in a media query.</p>
+                            
+                            <p>The <code translate="no" dir="ltr">sizes</code> attribute takes a comma-separated list of media queries and image widths.</p>
+                            
+                            <aside class="note"><b>Note: </b> It feels strange to have CSS media queries inside an HTML element. It spoils the separation of presentation and structure. But it's the only way to provide the necessary sizing information in time to be effective. </aside>
+                            <pre class="prettyprint lang-html/10-12" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;img
+                             src=&#34;small-image.png&#34;
+                             alt=&#34;A description of the image.&#34;
+                             width=&#34;300&#34;
+                             height=&#34;200&#34;
+                             loading=&#34;lazy&#34;
+                             decoding=&#34;async&#34;
+                             srcset=&#34;small-image.png 300w,
+                              medium-image.png 600w,
+                              large-image.png 1200w&#34;
+                             sizes=&#34;(min-width: 66em) 33vw,
+                              (min-width: 44em) 50vw,
+                              100vw&#34;
+                            &gt;
+                            </code></pre>
+                            <p>In this example, you&#39;re telling the browser that above a viewport width of <code translate="no" dir="ltr">66em</code> to display the image no wider than one third of the screen (inside a three column layout, for example).</p>
+                            
+                            <p>For viewport widths between <code translate="no" dir="ltr">44em</code> and <code translate="no" dir="ltr">66em</code>, display the image at half the width of the screen (a two column layout).</p>
+                            
+                            <p>For anything below <code translate="no" dir="ltr">44em</code> display the image at the full width of the screen.</p>
+                            
+                            <p>This means that the biggest image won&#39;t necessarily be used for the widest screen. A wide browser window that can display a multi-column layout will use an image that fits in one column. That image might be smaller than an image used for a single-column layout on a narrower screen.</p>
+                            
+                            <div class="wd-embed" style="height: 500px; width: 100%">
+                              <iframe
+                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                              loading="lazy"
+                              src="https://codepen.io/web-dot-dev/embed/XWerLJm?height=500&theme-id=dark&default-tab=result&editable=true"
+                              style="height: 100%; width: 100%; border: 0;"
+                              title="Pen XWerLJm by web-dot-dev on Codepen"
+                            ></iframe>
+                            </div>
+                            
+                            <video controls loop > <source src="/static/learn/design/responsive-images/video/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/MkUAq5XQyjlUXLvkT4jL.mp4" type="video/mp4" /> </video>
+                            
+                            <h3 id="pixel_density_descriptor" data-text="Pixel density descriptor" tabindex="-1">Pixel density descriptor</h3>
+                            
+                            <p>There&#39;s another situation where you might want to provide multiple versions of the same image.</p>
+                            
+                            <p>Some devices have high-density displays. On a double-density display you can pack two pixels worth of information into the space of one pixel. This keeps images looking sharp on those kinds of displays.</p>
+                            
+                            <p><img src="/static/learn/design/responsive-images/image/two-versions-the-same-im-f13b154ee2cc8.png" alt="Two versions of the same image of a happy-looking handsome dog with a ball in its mouth, one image looking crisp and the other looking fuzzy." width="800" height="275" srcset="https://web.dev/static/learn/design/responsive-images/image/two-versions-the-same-im-f13b154ee2cc8_36.png 36w,https://web.dev/static/learn/design/responsive-images/image/two-versions-the-same-im-f13b154ee2cc8_48.png 48w,https://web.dev/static/learn/design/responsive-images/image/two-versions-the-same-im-f13b154ee2cc8_72.png 72w,https://web.dev/static/learn/design/responsive-images/image/two-versions-the-same-im-f13b154ee2cc8_96.png 96w,https://web.dev/static/learn/design/responsive-images/image/two-versions-the-same-im-f13b154ee2cc8_480.png 480w,https://web.dev/static/learn/design/responsive-images/image/two-versions-the-same-im-f13b154ee2cc8_720.png 720w,https://web.dev/static/learn/design/responsive-images/image/two-versions-the-same-im-f13b154ee2cc8_856.png 856w,https://web.dev/static/learn/design/responsive-images/image/two-versions-the-same-im-f13b154ee2cc8_960.png 960w,https://web.dev/static/learn/design/responsive-images/image/two-versions-the-same-im-f13b154ee2cc8_1440.png 1440w,https://web.dev/static/learn/design/responsive-images/image/two-versions-the-same-im-f13b154ee2cc8_1920.png 1920w,https://web.dev/static/learn/design/responsive-images/image/two-versions-the-same-im-f13b154ee2cc8_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                            
+                            <p>Use the density descriptor to describe the pixel density of the image in relationship to the image in the <code translate="no" dir="ltr">src</code> attribute. The density descriptor is a number followed by the letter x: <code translate="no" dir="ltr">1x</code>, <code translate="no" dir="ltr">2x</code>, etc.</p>
+                            <pre class="prettyprint lang-html/7-9" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;img
+                             src=&#34;small-image.png&#34;
+                             alt=&#34;A description of the image.&#34;
+                             width=&#34;300&#34;
+                             height=&#34;200&#34;
+                             loading=&#34;lazy&#34;
+                             decoding=&#34;async&#34;
+                             srcset=&#34;small-image.png 1x,
+                              medium-image.png 2x,
+                              large-image.png 3x&#34;
+                            &gt;
+                            </code></pre>
+                            <p>If <code translate="no" dir="ltr">small-image.png</code> is 300 by 200 pixels in size, and <code translate="no" dir="ltr">medium-image.png</code> is 600 by 400 pixels in size, then <code translate="no" dir="ltr">medium-image.png</code> can have <code translate="no" dir="ltr">2x</code> after it in the <code translate="no" dir="ltr">srcset</code> list.</p>
+                            
+                            <p>You don&#39;t have to use whole numbers. If another version of the image is 450 by 300 pixels in size, you can describe it with <code translate="no" dir="ltr">1.5x</code>.</p>
+                            
+                            <aside class="note"><b>Note: </b> You can use <em>either</em> width descriptors <em>or</em> density descriptors, but not both together. </aside>
+                            
+                            <h2 id="presentational_images" data-text="Presentational images" tabindex="-1">Presentational images</h2>
+                            
+                            <p>Images in HTML are content. That&#39;s why you always provide an <code translate="no" dir="ltr">alt</code> attribute with a description of the image for screen readers and search engines.</p>
+                            
+                            <p>If you embed an image that is purely a visual flourish without any meaningful content, use an empty <code translate="no" dir="ltr">alt</code> attribute.</p>
+                            <pre class="prettyprint lang-html/2-2" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;img
+                             src=&#34;flourish.png&#34;
+                             alt=&#34;&#34;
+                             width=&#34;400&#34;
+                             height=&#34;50&#34;
+                            &gt;
+                            </code></pre>
+                            <p>You must still include the <code translate="no" dir="ltr">alt</code> attribute. A missing <code translate="no" dir="ltr">alt</code> attribute is not the same as an empty <code translate="no" dir="ltr">alt</code> attribute. An empty <code translate="no" dir="ltr">alt</code> attribute conveys to a screen reader that this image is presentational.</p>
+                            
+                            <p>Ideally, your presentational or decorative images shouldn&#39;t be in your HTML at all. HTML is for structure. CSS is for presentation.</p>
+                            
+                            <h2 id="background_images" data-text="Background images" tabindex="-1">Background images</h2>
+                            
+                            <p>Use the <code translate="no" dir="ltr">background-image</code> property in CSS to load presentational images.</p>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">element {
+                              background-image: url(flourish.png);
+                            }
+                            </code></pre>
+                            <p>You can specify multiple image candidates using the <a href="https://developer.mozilla.org/docs/Web/CSS/image/image-set()"><code translate="no" dir="ltr">image-set</code></a> function for <code translate="no" dir="ltr">background-image</code>.</p>
+                            
+                            <p>The <code translate="no" dir="ltr">image-set</code> function in CSS works a lot like the <code translate="no" dir="ltr">srcset</code> attribute in HTML. Provide a list of images with a pixel density descriptor for each one.</p>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">element {
+                              background-image: image-set(
+                                small-image.png 1x,
+                                medium-image.png 2x,
+                                large-image.png 3x
+                              );
+                            }
+                            </code></pre>
+                            <p>The browser will choose the most appropriate image for the device&#39;s pixel density.</p>
+                            
+                            <p>There are many factors to consider when you&#39;re adding images to your site:</p>
+                            
+                            <p>Reserving the right space for each image.
+                            Figuring out how many sizes you need.
+                            Deciding whether the image is content or decorative.</p>
+                            
+                            <p>It&#39;s worth spending the time to get images right. Poor image strategies are responsible for frustration and annoyance for users. A good image strategy makes your site feel snappy and sharp, regardless of the user&#39;s device or network connection.</p>
+                            
+                            <p>There&#39;s one more HTML element in your toolkit to help you exercise more control over your images: <a href="/learn/design/picture-element">the <code translate="no" dir="ltr">picture</code> element</a>.</p>
+                            
+
+
+
+
+
+
+
+
+
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
                     </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
-                            </ul>
-                        </nav>
-                    </footer>
+                    
                                         
                 </div>
             </main>

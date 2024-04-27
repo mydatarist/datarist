@@ -1172,38 +1172,210 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                    
+                    
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Design Basics</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
+                        <section aria-labelledby="the_story_of_your_first_website">
+                         
+                            
+
+
+
+
+                            <p>In the first section, you learned how to build a basic form.
+                                This section is all about best practices.
+                                In this module, learn about user experience (UX),
+                                and why a well-implemented user interface (UI) can make a big difference.</p>
+                                
+                                <h2 id="creating_user-friendly_interfaces" data-text="Creating user-friendly interfaces" tabindex="-1">Creating user-friendly interfaces</h2>
+                                
+                                <p>Filling out forms can be time-consuming and frustrating.
+                                It doesn&#39;t have to be.
+                                To guarantee a great UX, make sure the UI is intuitive.
+                                Ensure you deliver optimal form structure and graphic design (layout, spacing, font size and color),
+                                and logical UI (such as label wording and appropriate input types).
+                                Let&#39;s have a look at how you can improve your form and make it easy to use.</p>
+                                
+                                <h2 id="labels" data-text="Labels" tabindex="-1">Labels</h2>
+                                
+                                <p>Do you remember what the <code translate="no" dir="ltr">&lt;label&gt;</code> element is for?
+                                A label describes a form control.
+                                A visible and well-written label helps the user understand the purpose of a form control.</p>
+                                
+                                <h3 id="use_a_label_for_every_form_control" data-text="Use a label for every form control" tabindex="-1">Use a label for every form control</h3>
+                                
+                                <p>Do you want to add a new form control to your form?
+                                Start by adding the label for the new field.
+                                This way, you don&#39;t forget to add it.</p>
+                                
+                                <p>Adding labels first also helps you to focus on the form&#39;s goals–what data do I need here?
+                                Once this is clear, you can focus on helping the user enter data and complete the form.</p>
+                                
+                                <aside class="caution"><b>Caution: </b> Never misuse the <code translate="no" dir="ltr">placeholder</code> attribute as a label. The placeholder is meant for giving a hint about the type of data you should enter, not for describing a form control.  Learn more about why you should consider <a href="https://www.smashingmagazine.com/2018/06/placeholder-attribute/">avoiding placeholders</a>. </aside>
+                                
+                                <h3 id="label_wording" data-text="Label wording" tabindex="-1">Label wording</h3>
+                                
+                                <p>Say that you want to describe an email field. You could do so as follows:</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;label for=&#34;email&#34;&gt;Enter your email address&lt;/label&gt;
+                                </code></pre>
+                                <p>Or you could describe it like this:</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;label for=&#34;email&#34;&gt;Email address&lt;/label&gt;
+                                </code></pre>
+                                <p>Which description do you choose?</p>
+                                
+                                <p>For our example, the wording &#39;Email address&#39; is preferred,
+                                since short labels are easier to scan, reduce visual clutter,
+                                and help users to understand what data is needed faster.</p>
+                                
+                                <h2 id="label_position" data-text="Label position" tabindex="-1">Label position</h2>
+                                
+                                <p>With <a href="/learn/css">CSS</a>,
+                                you can position a label on the top, bottom, left, and right of a form control.
+                                Where do you place it?</p>
+                                
+                                <p><a href="https://ai.googleblog.com/2014/07/simple-is-better-making-your-web-forms.html">Research shows</a>
+                                that best practice is to
+                                <a href="https://www.uxmatters.com/mt/archives/2006/07/label-placement-in-forms.php">position the label above the form control</a>,
+                                so the user can scan a form quickly and see which label belongs to which form control.</p>
+                                
+                                <h2 id="designing_forms" data-text="Designing forms" tabindex="-1">Designing forms</h2>
+                                
+                                <p>Good form design can
+                                <a href="https://baymard.com/blog/checkout-flow-average-form-fields">significantly reduce form abandonment rates</a>.
+                                Help users enter data by using the appropriate element and input type
+                                There are various
+                                <a href="/learn/forms/fields">form elements and input types</a> you can choose from.
+                                To offer the best UX, use the most suitable element and input type for your use case.
+                                If the user should fill in multiple lines of text, use the <code translate="no" dir="ltr">&lt;textarea&gt;</code> element.
+                                Where they need to accept your site&#39;s terms and conditions, use <code translate="no" dir="ltr">&lt;input type=&quot;checkbox&quot;&gt;</code>.</p>
+                                
+                                <aside class="note"><b>Note: </b> Depending on the <code translate="no" dir="ltr">type</code> or <code translate="no" dir="ltr">inputmode</code> attribute (more about this <a href="/learn/forms/attributes#ensure_users_enter_data">later</a>) a different on-screen keyboard is shown on touch devices. If you use <code translate="no" dir="ltr">type=&quot;tel&quot;</code>, users on touch devices get a keyboard showing only the characters needed to enter a telephone number. By using <code translate="no" dir="ltr">type=&quot;email&quot;</code> the mobile device displays a keyboard optimized for entering an email address. </aside>
+                                
+                                <p>You should also visually differentiate between different types of form controls.
+                                A button should look like a button.
+                                An input like an input.
+                                Make it easy for users to recognize the purpose of a form control.
+                                For example, If something looks like a link, clicking on it should open a new page,
+                                and not submit a form.</p>
+                                
+                                <div class="wd-embed" style="height: 400px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/c369bda56ae3bc88aa0116614f79e40d?height=400&theme-id=light&default-tab=result&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen c369bda56ae3bc88aa0116614f79e40d by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                
+                                <h3 id="help_users_navigate_forms" data-text="Help users navigate forms" tabindex="-1">Help users navigate forms</h3>
+                                
+                                <p>An extravagant layout can be fun, but may get in the way of completing a form.</p>
+                                
+                                <p>In particular,
+                                <a href="https://baymard.com/blog/avoid-multi-column-forms">research shows</a>
+                                that it&#39;s best to use only a single column.
+                                Users don&#39;t want to spend time searching where the next form control is.
+                                By using one column, there is only one direction to follow.</p>
+                                
+                                <aside class="note"><b>Note: </b> Always ensure that forms are accessible for people who use only the keyboard to navigate websites—either through preference or circumstance. Test your form by only using keyboard navigation. The tab order should follow the visual order. You can view the <a href="https://developer.chrome.com/blog/new-in-devtools-92#source-order">source order in Chrome DevTools</a>. </aside>
+                                
+                                <h3 id="help_users_interact_with_forms" data-text="Help users interact with forms" tabindex="-1">Help users interact with forms</h3>
+                                
+                                <p>To avoid accidental taps and clicks,
+                                and help users interact with your form, make your buttons big enough.
+                                The recommended
+                                <a href="/articles/accessible-tap-targets">tap target size</a> of a button is at least 48px.
+                                You should also add enough spacing between form controls using the <code translate="no" dir="ltr">margin</code>
+                                CSS property to help avoid accidental interactions.</p>
+                                
+                                <p>The default size of form controls is too small to be really usable. You should increase the size by using <code translate="no" dir="ltr">padding</code> and changing the default <code translate="no" dir="ltr">font-size</code>.</p>
+                                
+                                <aside class="note"><b>Note: </b> Use at least <code translate="no" dir="ltr">1rem</code> (which for most browsers has a default value of 16px) as the <code translate="no" dir="ltr">font-size</code> for your form controls. This <a href="https://css-tricks.com/16px-or-larger-text-prevents-ios-form-zoom/">prevents a page zoom</a> on iOS Safari when a form control is focused. </aside>
+                                
+                                <p>You can define different sizes for different pointing devices,
+                                for example, a mouse, using the  <code translate="no" dir="ltr">pointer</code> CSS media feature.</p>
+                                <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">// pointer device, for example, a mouse
+                                @media (pointer: fine) {
+                                  input[type=&#34;checkbox&#34;] {
+                                    width: 15px;
+                                    height: 15px;
+                                  }
+                                }
+                                
+                                // pointer device of limited accuracy, for example, a touch-based device
+                                @media (pointer: coarse) {
+                                  input[type=&#34;checkbox&#34;] {
+                                    width: 30px;
+                                    height: 30px;
+                                  }
+                                }
+                                </code></pre>
+                                <p>Learn more about the
+                                <a href="https://developer.mozilla.org/docs/Web/CSS/@media/pointer"><code translate="no" dir="ltr">pointer</code> CSS media feature</a>.</p>
+                                
+                                <h3 id="show_errors_where_they_happen" data-text="Show errors where they happen" tabindex="-1">Show errors where they happen</h3>
+                                
+                                <p>To make it straightforward for users to find out which form control needs their attention,
+                                display error messages next to the form control they refer to.
+                                When displaying errors on form submission, make sure to navigate to the first invalid form control.</p>
+                                
+                                <h3 id="make_it_clear_to_users_what_data_to_enter" data-text="Make it clear to users what data to enter" tabindex="-1">Make it clear to users what data to enter</h3>
+                                
+                                <p>Make sure users understand how to enter valid data.
+                                Do they need to enter at least eight characters for a password? Tell them.</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;label for=&#34;password&#34;&gt;Password (required)&lt;/label&gt;
+                                &lt;input required minlength=&#34;8&#34; type=&#34;password&#34; id=&#34;password&#34; name=&#34;password&#34; aria-describedby=&#34;password-minlength&#34;&gt;
+                                &lt;span id=&#34;password-minlength&#34;&gt;Enter at least eight characters&lt;/span&gt;
+                                </code></pre>
+                                <h3 id="make_it_clear_to_users_which_fields_are_required" data-text="Make it clear to users which fields are required" tabindex="-1">Make it clear to users which fields are required</h3>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;label for=&#34;name&#34;&gt;Name (required)&lt;/label&gt;
+                                &lt;input name=&#34;name&#34; id=&#34;name&#34; required&gt;
+                                </code></pre>
+                                <p>If a field is mandatory, make it obvious! <a href="https://www.deque.com/blog/anatomy-of-accessible-forms-required-form-fields/">The Anatomy of Accessible Forms</a> explains alternatives for indicating 
+                                required fields. If most fields in a form are required, it may be better to 
+                                <a href="https://www.lukew.com/ff/entry.asp?725">indicate optional fields</a>.</p>
+                                
+                                <p>How can you connect error messages to form controls to make them accessible for screen readers?
+                                You can learn about this in <a href="/learn/forms/accessibility">the next module</a>.</p>
+
+
+
+
+
+
+
+
+
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
                     </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
-                            </ul>
-                        </nav>
-                    </footer>
+                    
                                         
                 </div>
             </main>

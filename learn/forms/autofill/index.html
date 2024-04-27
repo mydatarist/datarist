@@ -1172,38 +1172,270 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                    
+                    
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Autofill</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
+                        <section aria-labelledby="the_story_of_your_first_website">
+                         
+                            
+
+
+
+
+
+
+                            <p>Having to re-enter your address for the tenth time is tiring. Browsers, and you,
+                                as a developer, can help users enter data faster, and avoid re-entering data.
+                                This module teaches you how autofill works, and how <code translate="no" dir="ltr">autocomplete</code> and other
+                                element attributes can ensure that browsers offer appropriate autofill options.</p>
+                                
+                                <h2 id="how_does_autofill_work" data-text="How does autofill work?" tabindex="-1">How does autofill work?</h2>
+                                
+                                <p>In the <a href="/learn/forms/auto">intro to autofill</a>, you already learned the basics of
+                                autofill. But why do browsers offer autofill?</p>
+                                
+                                <p>Filling out forms isn&#39;t an interesting activity, but still something you do
+                                often. Over time, you fill out many forms, and you often fill in the same data.
+                                One way to help users fill out forms faster is by offering them the option to
+                                automatically fill in form fields with previously entered data. That&#39;s autofill.</p>
+                                
+                                <p>How do browsers know what data to autofill? Take a look at an example form
+                                field to find out.</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;label for=&#34;name&#34;&gt;Name&lt;/label&gt;
+                                &lt;input name=&#34;name&#34; id=&#34;name&#34;&gt;
+                                </code></pre>
+                                <p>If you submit this form field, browsers store the value (the data you entered)
+                                along with the value of the <code translate="no" dir="ltr">name</code> attribute (name). Some browsers also look at
+                                the <code translate="no" dir="ltr">id</code> attribute when storing and filling in data.</p>
+                                
+                                <p>Say, weeks later, you fill out another form on another website. This site also
+                                contains a form field with <code translate="no" dir="ltr">name=&quot;name&quot;</code>. Your browser can now offer autofill,
+                                because a value for name is already stored.</p>
+                                
+                                <aside class="note">
+                                <b>Note</b>: Use the <a href="https://developer.mozilla.org/docs/Web/CSS/:autofill"><code translate="no" dir="ltr">:autofill</code></a> CSS pseudo-class to style form controls that the browser has autofilled. Use <code translate="no" dir="ltr">:autofill</code> and the prefixed version <code translate="no" dir="ltr">:-webkit-autofill</code> for best browser compatibility.
+                                </aside>
+                                
+                                <p>Autofill is especially useful in forms you regularly use, such as sign-up and
+                                sign-in, payment, checkout, and forms where you have to enter your name or
+                                address.</p>
+                                
+                                <p>You can help browsers offer the best autofill options by using appropriate
+                                values for the <code translate="no" dir="ltr">autocomplete</code> attribute. There are many possible values for <code translate="no" dir="ltr">autocomplete</code>. Here is an example of addresses.</p>
+                                
+                                <div class="wd-embed" style="height: 600px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/f6eac7a585a34d0c2de36a365eaa8662?height=600&theme-id=light&default-tab=result%2Chtml&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen f6eac7a585a34d0c2de36a365eaa8662 by web-dot-dev on Codepen"></iframe>
+                                </div>
+                                
+                                <p>Does your browser already have an address saved for you? Great! After you
+                                interact with the first field in the address form, the browser shows you a list
+                                of saved addresses. You can choose one, and the browser fills in all fields
+                                related to the address. Autofill makes filling out forms fast and easy.</p>
+                                
+                                <p>Not every address form has the same fields, and the order of fields also varies.
+                                Using the correct values for <code translate="no" dir="ltr">autocomplete</code> ensures that the browser fills in
+                                the correct values for a form. There are values for <code translate="no" dir="ltr">country</code>, <code translate="no" dir="ltr">postal-code</code>,
+                                and <a href="https://developer.mozilla.org/docs/Web/HTML/Attributes/autocomplete#values">many
+                                more</a>.</p>
+                                
+                                <aside class="note"><b>Note: </b> You can define multiple values separated by a space for <code translate="no" dir="ltr">autocomplete</code>. Say, you have a form with a shipping address and another form for a billing address. To tell the browser which is the postal code for the billing address, you can use <code translate="no" dir="ltr">autocomplete=&quot;billing postal-code&quot;</code>. For the shipping address, use <code translate="no" dir="ltr">shipping</code> as the first value. </aside>
+                                
+                                <h2 id="ensure_users_can_sign_in_fast_and_use_secure_passwords" data-text="Ensure users can sign in fast and use secure passwords" tabindex="-1">Ensure users can sign in fast and use secure passwords</h2>
+                                
+                                <p>Many people aren&#39;t good at remembering passwords. The <a href="https://en.wikipedia.org/wiki/List_of_the_most_common_passwords">most common
+                                password</a> is
+                                &#39;123456&#39;, followed by other easy-to-remember combinations. How can you use
+                                secure and unique passwords without remembering them all?</p>
+                                
+                                <p>Browsers have built-in passwords managers to generate, save, and fill in
+                                passwords for you. See how you can help browsers with auto-filling emails
+                                and managing passwords.</p>
+                                
+                                <div class="wd-embed" style="height: 380px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/e7e95d2d671d577b0a141aaab4388b28?height=380&theme-id=light&default-tab=result&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen e7e95d2d671d577b0a141aaab4388b28 by web-dot-dev on Codepen"></iframe>
+                                </div>
+                                
+                                <p>You can use <code translate="no" dir="ltr">autocomplete=&quot;email&quot;</code> for an email field, so users get the autofill
+                                option for an email address.</p>
+                                
+                                <p>As this is a sign-up form, users shouldn&#39;t get the option to fill in previously
+                                used passwords. You can use <code translate="no" dir="ltr">autocomplete=&quot;new-password&quot;</code> to ensure browsers
+                                offer the option to generate a new password.</p>
+                                
+                                <aside class="note"><b>Note: </b> To ensure a secure sign-up form it may be better to use a <a href="/articles/sign-up-form-best-practices#federated-login">third-party identity provider</a>, instead of building your own <a href="https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html">authentication</a> system. </aside>
+                                
+                                <p>On the sign-in form, you can use <code translate="no" dir="ltr">autocomplete=&quot;current-password&quot;</code> to tell
+                                browsers to offer the option to fill in previously saved passwords for this
+                                website.</p>
+                                
+                                <p>You can set up two-factor authentication on many websites. In addition to the
+                                password, a one-time code is sent with SMS or a two-factor authentication app.</p>
+                                
+                                <p>Wouldn&#39;t it be great if the code you received in the SMS message was suggested
+                                by the on-screen keyboard, and you could directly select it to fill in the
+                                value? On Safari 14 or later, you can use
+                                <a href="https://developer.apple.com/documentation/security/password_autofill/enabling_password_autofill_on_an_html_input_element"><code translate="no" dir="ltr">autocomplete=&quot;one-time-code&quot;</code></a>
+                                to achieve this. On Chrome on Android, you can use the <a href="https://developer.chrome.com/docs/identity/web-apis/web-otp">WebOTP
+                                API</a> to achieve
+                                this with JavaScript.</p>
+                                
+                                <p>Learn more about how to verify phone numbers on the web with the <a href="/articles/sms-otp-form">SMS OTP form
+                                best practices</a>.</p>
+                                
+                                <aside class="caution"><b>Caution</b>: SMS isn't the most secure method of authentication by itself, because phone numbers can be recycled and hijacked. Consider using other two-factor authentication methods or multifactor authentication.  Learn more about <a href="https://cheatsheetseries.owasp.org/cheatsheets/Multifactor_Authentication_Cheat_Sheet.html">multifactor authentication</a>. </aside>
+                                
+                                <h2 id="help_users_fill_in_their_credit_card_information" data-text="Help users fill in their credit card information" tabindex="-1">Help users fill in their credit card information</h2>
+                                
+                                <p>On many ecommerce websites, you can use your credit card to purchase products.
+                                Sites may use third-party payment platforms that provide their own forms, but if
+                                you do need to build your own payment forms, make sure people can easily fill in
+                                payment information.</p>
+                                
+                                <p>You can use the <code translate="no" dir="ltr">autocomplete</code> attribute again, to ensure browsers offer the
+                                correct autofill options.</p>
+                                
+                                <p>There are values for the credit card number <code translate="no" dir="ltr">cc-number</code>, credit card expiration
+                                date <code translate="no" dir="ltr">cc-exp</code>, and <a href="https://developer.mozilla.org/docs/Web/HTML/Attributes/autocomplete#values">all other information
+                                needed</a>
+                                for a credit card payment.</p>
+                                
+                                <p>Use a single input for numbers such as credit card numbers and telephone
+                                numbers, to ensure browsers offer autofill. Use standard form elements, for
+                                example, a <code translate="no" dir="ltr">&lt;select&gt;</code> for the payment card dates, instead of custom elements, to
+                                ensure autocomplete is available.</p>
+                                
+                                <p>Learn more about <a href="/learn/forms/payment#help_users_enter_their_payment_details">helping users to avoid re-entering payment
+                                data</a>.</p>
+                                
+                                <h2 id="ensure_autofill_works_for_all_your_fields" data-text="Ensure autofill works for all your fields" tabindex="-1">Ensure autofill works for all your fields</h2>
+                                
+                                <p>In addition to addresses, account information, and credit card information,
+                                there are many more fields where browsers can help users with autofill.</p>
+                                
+                                <p>When adding a telephone field to your form check if you can use any of the
+                                <a href="https://developer.mozilla.org/docs/Web/HTML/Attributes/autocomplete#values">available
+                                values</a>
+                                for autocomplete. Found an appropriate value for your form field? Add it.</p>
+                                
+                                <p>Using suitable values for the <code translate="no" dir="ltr">autocomplete</code> attribute helps browsers offer the
+                                best autofill option, and helps users fill out forms faster.</p>
+                                
+                                <h2 id="help_browsers_understand_that_a_field_shouldnt_be_autofilled" data-text="Help browsers understand that a field shouldn't be autofilled" tabindex="-1">Help browsers understand that a field shouldn't be autofilled</h2>
+                                
+                                <p>You learned how autofill works, how you can help browsers with autofill, and why
+                                autofill makes it convenient for users to fill out forms. Sometimes, though, you
+                                don&#39;t want browsers to offer autofill.</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;label for=&#34;one-time-code&#34;&gt;One-time code&lt;/label&gt;
+                                &lt;input autocomplete=&#34;off&#34; type=&#34;text&#34; name=&#34;one-time-code&#34; id=&#34;one-time-code&#34;&gt;
+                                </code></pre>
+                                <p>One place where autofill isn&#39;t helpful is when entering one-off, unique values
+                                such as a one-time code field. The value is different every time, and the
+                                browser shouldn&#39;t save values or offer an autofill option. You can use
+                                <code translate="no" dir="ltr">autocomplete=&quot;off&quot;</code> for such fields to prevent autofill.</p>
+                                
+                                <aside class="note"><b>Note: </b> Autofill and autocomplete provide accessibility benefits. Using autofill, people don't have to remember information or manually re-enter data.  For more information, see the <a href="https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose.html">W3C accessibility guidelines</a> </aside>
+                                
+                                <p>Another use case for <code translate="no" dir="ltr">autocomplete=&quot;off&quot;</code> is a honeypot field (see <a href="/learn/forms/security-privacy#a_honeypot">previous
+                                module</a>). Even though the field isn&#39;t
+                                visible, browsers may autofill it with the rest of the fields. Turning autofill
+                                off ensures a real user isn&#39;t identified as a bot, due to the field being
+                                completed automatically.</p>
+                                
+                                <aside class="note"><b>Note: </b> You learned how important it is to use unique, and secure passwords. In-browser password managers ensure that you use strong passwords. Therefore browsers will still offer autofill options for passwords, even though <code translate="no" dir="ltr">autocomplete="off"</code> is used, to allow these password managers to do their job.  Learn more about <a href="https://developer.mozilla.org/docs/Web/Security/Securing_your_site/Turning_off_form_autocompletion#the_autocomplete_attribute_and_login_fields">the autocomplete attribute and sign-in fields</a>. </aside>
+                                
+                                <p>You should only disable autofill if you are sure it will help users.</p>
+                                
+                                <h3 id="check_your_understanding" class="hide-from-toc" data-text="Check your understanding" tabindex="-1">Check your understanding</h3>
+                                
+                                <p>Test your knowledge of autofill</p>
+                                
+                                <div class="wd-assessment"><devsite-multiple-choice>
+                                   <div><p>What autocomplete value should you use for the password field in a sign-up form?</p>
+                                </div>
+                                
+                                <div>
+                                   <div><code translate="no" dir="ltr">autocomplete=&quot;password&quot;</code></div>
+                                   <div>Try again!</div>
+                                </div>
+                                
+                                <div>
+                                   <div><code translate="no" dir="ltr">autocomplete=&quot;off&quot;</code></div>
+                                   <div>Try again!</div>
+                                </div>
+                                
+                                <div correct>
+                                   <div><code translate="no" dir="ltr">autocomplete=&quot;new-password&quot;</code></div>
+                                   <div>🎉</div>
+                                </div>
+                                
+                                <div>
+                                   <div><code translate="no" dir="ltr">autocomplete=&quot;current-password&quot;</code></div>
+                                   <div>Try again!</div>
+                                </div>
+                                </devsite-multiple-choice>
+                                </div>
+                                
+                                <h2 id="resources" data-text="Resources" tabindex="-1">Resources</h2>
+                                
+                                <ul>
+                                <li>The <a href="https://developer.mozilla.org/docs/Web/HTML/Attributes/autocomplete">autocomplete
+                                attribute</a>.
+                                <ul>
+                                <li><a href="/articles/payment-and-address-form-best-practices">Payment and address form best
+                                practices</a></li>
+                                </ul></li>
+                                </ul>
+
+
+
+
+
+
+
+
+
+
+
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
                     </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
-                            </ul>
-                        </nav>
-                    </footer>
+                    
                                         
                 </div>
             </main>

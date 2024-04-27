@@ -1172,38 +1172,201 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                    
+                    
+
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Patterns</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
+                        <section aria-labelledby="the_story_of_your_first_website">
+                                
+                            
+
+
+
+
+
+                            <p>A design viewed on a small screen shouldn&#39;t look like a shrunk-down version of a large-screen layout. Likewise, a design viewed on a large screen shouldn&#39;t look like a blown-up version of a small-screen layout. Instead, the design needs to be flexible enough to adapt to all screen sizes. A successful responsive design makes the most of every form factor.</p>
+
+                            <p>This means that some interface elements may need to look quite different depending on the context they&#39;re viewed in. You might need to apply very different CSS to the same HTML codebase to make the most of different screen sizes. That can be quite a design challenge!</p>
+                            
+                            <p>Here are some common challenges that you might face.</p>
+                            
+                            <h2 id="navigation" data-text="Navigation" tabindex="-1">Navigation</h2>
+                            
+                            <p>Displaying a list of navigation links is quite straightforward on a large screen. There&#39;s plenty of space to accommodate those links.</p>
+                            
+                            <p>On a small screen, space is at a premium. When you&#39;re designing for this situation, it&#39;s tempting to hide navigation behind a button. The problem with this solution is that users have to then take two steps to get anywhere: open the menu, then choose an option. Until the menu is opened, the user is left wondering &quot;where can I go?”</p>
+                            
+                            <p>Try to find a strategy that avoids hiding your navigation. If you have a relatively small number of items, you can style the navigation to look good on small screens.</p>
+                            
+                            <p><img src="/static/learn/design/ui-patterns/image/the-same-website-five-na-5068e5d65921e.png" alt="The same website with five navigation links viewed in a mobile browser and viewed in a tablet browser. The navigation is visible on both devices." width="800" height="409" srcset="https://web.dev/static/learn/design/ui-patterns/image/the-same-website-five-na-5068e5d65921e_36.png 36w,https://web.dev/static/learn/design/ui-patterns/image/the-same-website-five-na-5068e5d65921e_48.png 48w,https://web.dev/static/learn/design/ui-patterns/image/the-same-website-five-na-5068e5d65921e_72.png 72w,https://web.dev/static/learn/design/ui-patterns/image/the-same-website-five-na-5068e5d65921e_96.png 96w,https://web.dev/static/learn/design/ui-patterns/image/the-same-website-five-na-5068e5d65921e_480.png 480w,https://web.dev/static/learn/design/ui-patterns/image/the-same-website-five-na-5068e5d65921e_720.png 720w,https://web.dev/static/learn/design/ui-patterns/image/the-same-website-five-na-5068e5d65921e_856.png 856w,https://web.dev/static/learn/design/ui-patterns/image/the-same-website-five-na-5068e5d65921e_960.png 960w,https://web.dev/static/learn/design/ui-patterns/image/the-same-website-five-na-5068e5d65921e_1440.png 1440w,https://web.dev/static/learn/design/ui-patterns/image/the-same-website-five-na-5068e5d65921e_1920.png 1920w,https://web.dev/static/learn/design/ui-patterns/image/the-same-website-five-na-5068e5d65921e_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                            
+                            <p>That pattern won&#39;t scale if your navigation has lots of links. The navigation will look cluttered if the links wrap onto two or three lines on a small screen.</p>
+                            
+                            <p>One possible solution is to keep links on one line but truncate the list at the edge of the screen. Users can swipe horizontally to reveal the links that aren&#39;t immediately visible. This is the overflow pattern.</p>
+                            
+                            <video controls > <source src="/static/learn/design/ui-patterns/video/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/jNM3gZrkksJc6banrxcE.mp4" type="video/mp4" /> </video>
+                            
+                            <p>The advantage of this technique is that it scales to any device width and any number of links. The disadvantage is that users might miss links that aren&#39;t initially visible. If you use this technique for your main navigation, make sure the first few links are the most important ones and visually indicate that there are more items in the list. The previous example uses a gradient for this indicator.</p>
+                            
+                            <p>As a last resort you could choose to have your navigation hidden by default and provide a toggle mechanism for users to show and hide the contents. This is called progressive disclosure.</p>
+                            
+                            <p><img src="/static/learn/design/ui-patterns/image/the-same-website-five-na-382970acfbe0f.png" alt="The same website with five navigation links viewed in a mobile browser and viewed in a tablet browser. The navigation is visible on the tablet, but hidden on the mobile device." width="800" height="409" srcset="https://web.dev/static/learn/design/ui-patterns/image/the-same-website-five-na-382970acfbe0f_36.png 36w,https://web.dev/static/learn/design/ui-patterns/image/the-same-website-five-na-382970acfbe0f_48.png 48w,https://web.dev/static/learn/design/ui-patterns/image/the-same-website-five-na-382970acfbe0f_72.png 72w,https://web.dev/static/learn/design/ui-patterns/image/the-same-website-five-na-382970acfbe0f_96.png 96w,https://web.dev/static/learn/design/ui-patterns/image/the-same-website-five-na-382970acfbe0f_480.png 480w,https://web.dev/static/learn/design/ui-patterns/image/the-same-website-five-na-382970acfbe0f_720.png 720w,https://web.dev/static/learn/design/ui-patterns/image/the-same-website-five-na-382970acfbe0f_856.png 856w,https://web.dev/static/learn/design/ui-patterns/image/the-same-website-five-na-382970acfbe0f_960.png 960w,https://web.dev/static/learn/design/ui-patterns/image/the-same-website-five-na-382970acfbe0f_1440.png 1440w,https://web.dev/static/learn/design/ui-patterns/image/the-same-website-five-na-382970acfbe0f_1920.png 1920w,https://web.dev/static/learn/design/ui-patterns/image/the-same-website-five-na-382970acfbe0f_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                            
+                            <p>Make sure the button that toggles the display of the navigation is labeled. Don&#39;t rely on an icon to be understood.</p>
+                            
+                            <p><img src="/static/learn/design/ui-patterns/image/three-unlabelled-icons-8ad9bd0609ab9.png" alt="Three unlabelled icons: the first is three horizontal lines; the second is three by three grid; the third is three circles arranged vertically." width="640" height="240" srcset="https://web.dev/static/learn/design/ui-patterns/image/three-unlabelled-icons-8ad9bd0609ab9_36.png 36w,https://web.dev/static/learn/design/ui-patterns/image/three-unlabelled-icons-8ad9bd0609ab9_48.png 48w,https://web.dev/static/learn/design/ui-patterns/image/three-unlabelled-icons-8ad9bd0609ab9_72.png 72w,https://web.dev/static/learn/design/ui-patterns/image/three-unlabelled-icons-8ad9bd0609ab9_96.png 96w,https://web.dev/static/learn/design/ui-patterns/image/three-unlabelled-icons-8ad9bd0609ab9_480.png 480w,https://web.dev/static/learn/design/ui-patterns/image/three-unlabelled-icons-8ad9bd0609ab9_720.png 720w,https://web.dev/static/learn/design/ui-patterns/image/three-unlabelled-icons-8ad9bd0609ab9_856.png 856w,https://web.dev/static/learn/design/ui-patterns/image/three-unlabelled-icons-8ad9bd0609ab9_960.png 960w,https://web.dev/static/learn/design/ui-patterns/image/three-unlabelled-icons-8ad9bd0609ab9_1440.png 1440w,https://web.dev/static/learn/design/ui-patterns/image/three-unlabelled-icons-8ad9bd0609ab9_1920.png 1920w,https://web.dev/static/learn/design/ui-patterns/image/three-unlabelled-icons-8ad9bd0609ab9_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                            
+                            <p>An unlabelled icon is &quot;mystery meat” navigation—users won&#39;t know what&#39;s in there until they bite into it. Provide a text label to let users know what the button will reveal.</p>
+                            
+                            <video controls loop > <source src="/static/learn/design/ui-patterns/video/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/jzRDWQyKNcV1JNBU6mYS.mp4" type="video/mp4" /> </video>
+                            
+                            <h2 id="carousels" data-text="Carousels" tabindex="-1">Carousels</h2>
+                            
+                            <p>What&#39;s true of navigation is also true of other content: try not to hide anything anyway. A carousel is a common method of hiding content away. It can look quite neat, but there&#39;s a good chance that your users will never discover the hidden content. Carousels are better at solving organizational problems—like what content should feature on the homepage—than at serving users.</p>
+                            
+                            <p>That said, when space is at a premium, carousels can prevent a page getting too long and cluttered. You could employ a hybrid approach: show content in a carousel for small screens, but display the same content in a grid for larger screens.</p>
+                            
+                            <p>For narrow screens, display items in a row using flexbox. The row of items will extend beyond the edge of the screen. Use <code translate="no" dir="ltr">overflow-x: auto</code> to allow horizontal swiping.</p>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">@media (max-width: 50em) {
+                              .cards {
+                                display: flex;
+                                flex-direction: row;
+                                overflow-x: auto;
+                                scroll-snap-type: inline mandatory;
+                                scroll-behavior: smooth;
+                              }
+                              .cards .card {
+                                flex-shrink: 0;
+                                flex-basis: 15em;
+                                scroll-snap-align: start;
+                              }
+                            }
+                            </code></pre>
+                            <aside class="note"><b>Note: </b> The logical version of <code translate="no" dir="ltr">overflow-x</code> is <a href="https://developer.mozilla.org/docs/Web/CSS/overflow-inline"><code translate="no" dir="ltr">overflow-inline</code></a> which would better match with the value for <code translate="no" dir="ltr">scroll-snap-type</code>. This example uses the physical version for better cross-browser support. </aside>
+                            
+                            <p>The <a href="/articles/css-scroll-snap"><code translate="no" dir="ltr">scroll-snap</code></a> properties ensure that the items can be swiped in a way that feels smooth. Thanks to <code translate="no" dir="ltr">scroll-snap-type: inline mandatory</code>, the items snap into place.</p>
+                            
+                            <p>When the screen is large enough—wider than <code translate="no" dir="ltr">50em</code> in this case—switch over to grid and display the items in rows and columns, without hiding anything.</p>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">@media (min-width: 50em) {
+                              .cards {
+                                display: grid;
+                                grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+                              }
+                            }
+                            </code></pre>
+                            <div class="wd-embed" style="height: 500px; width: 100%">
+                              <iframe
+                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                              loading="lazy"
+                              src="https://codepen.io/web-dot-dev/embed/XWeNPzY?height=500&theme-id=dark&default-tab=result&editable=true"
+                              style="height: 100%; width: 100%; border: 0;"
+                              title="Pen XWeNPzY by web-dot-dev on Codepen"
+                            ></iframe>
+                            </div>
+                            
+                            <video controls > <source src="/static/learn/design/ui-patterns/video/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/jw00jziSxqLm3JBYRk5o.mp4" type="video/mp4" /> </video>
+                            
+                            <p>Crucially, an item in the carousel view doesn&#39;t take up the full width. If it did, there would be no indication that more content is available beyond the edge of the viewport.</p>
+                            
+                            <p>Carousels are another example of the overflow pattern in action. If you have many items that people can browse through, you could keep using the overflow pattern even on large screens, including televisions. This <a href="https://gui-challenges.web.app/media-scroller/dist/">media scroller</a> uses multiple carousels to manage a significant amount of options.</p>
+                            
+                            <p>Again, the <code translate="no" dir="ltr">scroll-snap</code> properties ensure that the interaction feels smooth. Also, notice that the images in the carousel have <code translate="no" dir="ltr">loading=&quot;lazy&quot;</code> applied to them. In this case, the images aren&#39;t below the fold, they&#39;re beyond the edge, but the same principle applies: if the user never swipes as far as that item, the image won&#39;t be downloaded, saving on bandwidth.</p>
+                            
+                            <div class="wd-embed" style="height: 500px; width: 100%">
+                              <iframe
+                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                              loading="lazy"
+                              src="https://codepen.io/argyleink/embed/bGgyOGP?height=500&theme-id=dark&default-tab=result&editable=true"
+                              style="height: 100%; width: 100%; border: 0;"
+                              title="Pen bGgyOGP by argyleink on Codepen"
+                            ></iframe>
+                            </div>
+                            
+                            <aside class="note"><b>Note: </b> The previous example shows a more complete demo, you can read more about it in the article <a href="/articles/building/a-media-scroller-component">building a media scroller component</a>. </aside>
+                            
+                            <p>With the addition of JavaScript, you can add interactive controls to a carousel. You could even make it automatically cycle through items. But think long and hard before doing that—autoplaying might work if the carousel is the only content on the page, but an autoplaying carousel is incredibly annoying if someone is trying to interact with other content (like reading text, for example). You can read more <a href="/articles/carousel-best-practices">carousel best practices</a>.</p>
+                            
+                            <h2 id="data_tables" data-text="Data tables" tabindex="-1">Data tables</h2>
+                            
+                            <p>The <code translate="no" dir="ltr">table</code> element is perfect for structuring tabular data; rows and columns of related information. But if the table gets too large, it could break your small-screen layout.</p>
+                            
+                            <p>You can apply the overflow pattern to tables. In this example, the table is wrapped in a <code translate="no" dir="ltr">div</code> with a class of <code translate="no" dir="ltr">table-container</code>.</p>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">.table-container {
+                              max-inline-size: 100%;
+                              overflow-x: auto;
+                              scroll-snap-type: inline mandatory;
+                              scroll-behavior: smooth;
+                            }
+                            .table-container th, 
+                            .table-container td {
+                              scroll-snap-align: start;
+                              padding: var(--metric-box-spacing);
+                            }
+                            </code></pre>
+                            <div class="wd-embed" style="height: 500px; width: 100%">
+                              <iframe
+                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                              loading="lazy"
+                              src="https://codepen.io/web-dot-dev/embed/MWEbqQQ?height=500&theme-id=dark&default-tab=result&editable=true"
+                              style="height: 100%; width: 100%; border: 0;"
+                              title="Pen MWEbqQQ by web-dot-dev on Codepen"
+                            ></iframe>
+                            </div>
+                            
+                            <h2 id="guidelines" data-text="Guidelines" tabindex="-1">Guidelines</h2>
+                            
+                            <p>The overflow pattern is a good compromise for small screens but make sure it&#39;s clear that the off-screen content is reachable. Consider placing a shadow or a gradient over the edge where content is truncated.</p>
+                            
+                            <p>Progressive disclosure is a useful way to save space, but be careful about using it for very important content. It&#39;s better suited to secondary actions. Ensure the interface element that triggers the disclosure is clearly labeled—don&#39;t rely on iconography alone.</p>
+                            
+                            <p>Design for smaller screens first. It&#39;s easier to adapt small-screen designs to larger screens than the other way around. If you design for a large screen first, there&#39;s a danger that your small-screen design will feel like an afterthought.</p>
+                            
+                            <p>For more layout and UI element patterns, explore the web.dev <a href="/patterns">Patterns</a> section.</p>
+                            
+                            <p>When you&#39;re adapting interface elements to different screen sizes, media queries are very useful for figuring out the dimensions of the device. But media features like <code translate="no" dir="ltr">min-width</code>and <code translate="no" dir="ltr">min-height</code> are just the beginning. Next, you&#39;ll discover a whole host of other media features.</p>
+                            
+                              
+
+
+
+
+
+
+
+
+
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
                     </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
-                            </ul>
-                        </nav>
-                    </footer>
+                    
                                         
                 </div>
             </main>

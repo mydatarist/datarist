@@ -1172,38 +1172,484 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                   
+                    
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Interaction</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
+                        <section aria-labelledby="the_story_of_your_first_website">
+                             
+                            
+
+
+
+
+
+                            <p>Small screen devices like mobile phones often have touchscreens. Large screen devices like laptops and desktop computers often come with hardware like a mouse or a trackpad. It’s tempting to equate small screens with touch and large screens with pointers.</p>
+
+                            <p>But the reality is more nuanced. Some laptops have touch screen capabilities. Users can interact with either a touchscreen or a trackpad or both. Likewise it’s possible to use an external keyboard or mouse with a touchscreen device like a tablet.</p>
+                            
+                            <p>Instead of trying to infer the input mechanism from screen size, use media features in CSS.</p>
+                            
+                            <h2 id="pointer" data-text="Pointer" tabindex="-1">Pointer</h2>
+                            
+                            <p>You can test for three possible values with the <code translate="no" dir="ltr">pointer</code> media feature: <code translate="no" dir="ltr">none</code>, <code translate="no" dir="ltr">coarse</code>, and <code translate="no" dir="ltr">fine</code>.</p>
+                            
+                            <p>If a browser reports a <code translate="no" dir="ltr">pointer</code> value of <code translate="no" dir="ltr">none</code> the user might be using a keyboard to interact with your website.</p>
+                            
+                            <p>If a browser reports a <code translate="no" dir="ltr">pointer</code> value of <code translate="no" dir="ltr">coarse</code> it means the primary input mechanism isn’t very accurate. A finger on a touchscreen is a coarse pointer.</p>
+                            
+                            <p>If a browser reports a <code translate="no" dir="ltr">pointer</code> value of <code translate="no" dir="ltr">fine</code> it means the primary input mechanism is capable of fine-grained control. A mouse or stylus is a fine pointer.</p>
+                            
+                            <p>You can adjust the size of your interface elements to suit the <code translate="no" dir="ltr">pointer</code> value. Try visiting <a href="https://gui-challenges.web.app/settings/dist/">this website</a> in different kinds of devices to see how the interface adapts.</p>
+                            
+                            <p>In this example, buttons are made larger for coarse pointers:</p>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">button {
+                              padding: 0.5em 1em;
+                            }
+                            @media (pointer: coarse) {
+                              button {
+                                padding: 1em 2em;
+                              }
+                            }
+                            </code></pre>
+                            <p>It’s possible to also make elements smaller for fine pointers but be careful about doing this:</p>
+                            
+                            <div class="wd-compare">
+                              <div class="compare-worse">Don't</div>
+                              <pre class="prettyprint lang-css" translate="no" dir="ltr">@media (pointer: fine) {
+                              button {
+                                padding: 0.25em 0.5em;
+                              }
+                            }
+                            </pre>
+                            
+                            </div>
+                            
+                            <p>Even if someone has a primary input mechanism capable of fine-grained control, think twice before reducing the size of interactive elements. <a href="https://en.wikipedia.org/wiki/Fitts&#x27;s_law">Fitts’s Law</a> still applies. A smaller target requires more concentration even with a fine pointer. A larger target area benefits everyone regardless of pointing device.</p>
+                            
+                            <h2 id="any_pointer" data-text="Any pointer" tabindex="-1">Any pointer</h2>
+                            
+                            <p>The <code translate="no" dir="ltr">pointer</code> media feature reports the fineness of the <em>primary</em> input mechanism. But many devices have more than one input mechanism. It’s possible that someone is interacting with your website using both a touchscreen and a mouse at the same time.</p>
+                            
+                            <p>The <code translate="no" dir="ltr">any-pointer</code> differs from the <code translate="no" dir="ltr">pointer</code> media feature in that it reports if any pointing device passes the test.</p>
+                            
+                            <p>An <code translate="no" dir="ltr">any-pointer</code> value of <code translate="no" dir="ltr">none</code> means that no pointing device is available.</p>
+                            
+                            <p>An <code translate="no" dir="ltr">any-pointer</code> value of <code translate="no" dir="ltr">coarse</code> means that at least one pointing device is not very accurate. But that might not be the primary input mechanism.</p>
+                            
+                            <p>An <code translate="no" dir="ltr">any-pointer</code> value of <code translate="no" dir="ltr">fine</code> means that at least one pointing device is capable of fine-grained control. But again, this might not be the primary input mechanism.</p>
+                            
+                            <p>Because the <code translate="no" dir="ltr">any-pointer</code> media query will report a positive result if <em>any</em> of the input mechanisms pass the test, it’s possible for a browser to report a result for <code translate="no" dir="ltr">any-pointer: fine</code> and also report a result for <code translate="no" dir="ltr">any-pointer: coarse</code>. In that case the order of your media queries matters. The last one will take precedence.</p>
+                            
+                            <p>In this example, if the device has both a fine and a coarse input mechanism, the coarse styles are applied.</p>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">@media (any-pointer: fine) {
+                              button {
+                                padding: 0.5em 1em;
+                              }
+                            }
+                            @media (any-pointer: coarse) {
+                              button {
+                                padding: 1em 2em;
+                              }
+                            }
+                            </code></pre>
+                            <h2 id="hover" data-text="Hover" tabindex="-1">Hover</h2>
+                            
+                            <p>The <code translate="no" dir="ltr">hover</code> media feature reports on whether the primary input mechanism can hover over elements. This usually means there’s some kind of cursor on the screen being controlled by a mouse or a trackpad.</p>
+                            
+                            <p>Unlike the <code translate="no" dir="ltr">pointer</code> media feature which differentiates between fine and coarse pointers, the <code translate="no" dir="ltr">hover</code> media feature is binary. If the primary input device is capable of hovering over elements it will report a value of <code translate="no" dir="ltr">hover</code>. Otherwise the value is <code translate="no" dir="ltr">none</code>.</p>
+                            
+                            <p>In this example, some supplementary icon is available on hover but only if the primary input device is capable of hovering over an element.</p>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">button .extra {
+                              visibility: visible;
+                            }
+                            @media (hover: hover) {
+                              button .extra {
+                                visibility: hidden;
+                              }
+                              button:hover .extra {
+                                visibility: visible;
+                              }
+                            }
+                            </code></pre>
+                            <div class="wd-embed" style="height: 200px; width: 100%">
+                              <iframe
+                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                              loading="lazy"
+                              src="https://codepen.io/web-dot-dev/embed/VwMrYav?height=200&theme-id=dark&default-tab=result&editable=true"
+                              style="height: 100%; width: 100%; border: 0;"
+                              title="Pen VwMrYav by web-dot-dev on Codepen"
+                            ></iframe>
+                            </div>
+                            
+                            <p>If you use your mouse to hover over that button, the icon will appear. But if you use your keyboard to tab to the button, the icon remains invisible. When you use the keyboard, you’re focusing rather than hovering. A desktop device with a mouse attached will report that the primary input mechanism is capable of hovering, which is true. But anyone using a keyboard while a mouse is attached won’t get the benefit of the <code translate="no" dir="ltr">:hover</code> styles. So it’s a good idea to combine <code translate="no" dir="ltr">:hover</code> and <code translate="no" dir="ltr">:focus</code> styles to cover both interactions.</p>
+                            <pre class="prettyprint lang-css/7-7" translate="no" dir="ltr"><code translate="no" dir="ltr">button .extra {
+                              visibility: visible;
+                            }
+                            @media (hover: hover) {
+                              button .extra {
+                                visibility: hidden;
+                              }
+                              button:is(:hover, :focus) .extra {
+                                visibility: visible;
+                              }
+                            }
+                            </code></pre>
+                            <div class="wd-embed" style="height: 200px; width: 100%">
+                              <iframe
+                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                              loading="lazy"
+                              src="https://codepen.io/web-dot-dev/embed/LYzOEZE?height=200&theme-id=dark&default-tab=result&editable=true"
+                              style="height: 100%; width: 100%; border: 0;"
+                              title="Pen LYzOEZE by web-dot-dev on Codepen"
+                            ></iframe>
+                            </div>
+                            
+                            <p>Even if the primary input device is capable of hovering over elements, be careful about hiding information behind a hover interaction. The information becomes less discoverable. Don’t use hover to hide important information or an important interface element.</p>
+                            
+                            <h2 id="any_hover" data-text="Any hover" tabindex="-1">Any hover</h2>
+                            
+                            <p>The <code translate="no" dir="ltr">hover</code> media query only reports on the <em>primary</em> input mechanism. Some devices have multiple input mechanisms: touchscreen, mouse, keyboard, trackpad.</p>
+                            
+                            <p>Just as <code translate="no" dir="ltr">any-pointer</code> reports on any of the input mechanisms, <code translate="no" dir="ltr">any-hover</code> will be true if any of the available input mechanisms are capable of hovering over elements.</p>
+                            
+                            <p>If you decided to reverse the logic in the previous example, you could make the hover styles the default and then remove them if <code translate="no" dir="ltr">any-hover</code> has a value of <code translate="no" dir="ltr">none</code>.</p>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">button .extra {
+                              visibility: hidden;
+                            }
+                            button:hover .extra,
+                            button:focus .extra {
+                              visibility: visible;
+                            }
+                            @media (any-hover: none) {
+                              button .extra {
+                                visibility: visible;
+                              }
+                            }
+                            </code></pre>
+                            <div class="wd-embed" style="height: 200px; width: 100%">
+                              <iframe
+                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                              loading="lazy"
+                              src="https://codepen.io/web-dot-dev/embed/Bawmyzd?height=200&theme-id=dark&default-tab=result&editable=true"
+                              style="height: 100%; width: 100%; border: 0;"
+                              title="Pen Bawmyzd by web-dot-dev on Codepen"
+                            ></iframe>
+                            </div>
+                            
+                            <p>On a device that has no input mechanism capable of hovering, the extra icon is always visible.</p>
+                            
+                            <h2 id="virtual_keyboards" data-text="Virtual keyboards" tabindex="-1">Virtual keyboards</h2>
+                            
+                            <p>People use cursors and fingers to explore interfaces but when it comes time to enter information, they need a keyboard. That’s fine if there’s a physical keyboard attached to their device, but if they’re using a touchscreen device it’s a little more complicated. These devices provide on-screen virtual keyboards.</p>
+                            
+                            <h3 id="input_types" data-text="Input types" tabindex="-1">Input types</h3>
+                            
+                            <p>Unlike a physical keyboard, virtual keyboards can be tailored to match the expected input. If you provide information about the expected input, devices can serve up the most appropriate virtual keyboard.</p>
+                            
+                            <p><a href="https://developer.mozilla.org/docs/Learn/Forms/HTML5_input_types">HTML5 input types</a> are a great way of describing your <code translate="no" dir="ltr">input</code> elements. The <code translate="no" dir="ltr">type</code> attribute accepts values such as <code translate="no" dir="ltr">email</code>, <code translate="no" dir="ltr">number</code>, <code translate="no" dir="ltr">tel</code>, <code translate="no" dir="ltr">url</code>, and more.</p>
+                            <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">  &lt;label for=&#34;email&#34;&gt;Email&lt;/label&gt;
+                              &lt;input type=&#34;email&#34; id=&#34;email&#34;&gt;
+                            </code></pre><pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">  &lt;label for=&#34;number&#34;&gt;Number&lt;/label&gt;
+                              &lt;input type=&#34;number&#34; id=&#34;number&#34;&gt;
+                            </code></pre><pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">  &lt;label for=&#34;tel&#34;&gt;Tel&lt;/label&gt;
+                              &lt;input type=&#34;tel&#34; id=&#34;tel&#34;&gt;
+                            </code></pre><pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">  &lt;label for=&#34;url&#34;&gt;URL&lt;/label&gt;
+                              &lt;input type=&#34;url&#34; id=&#34;url&#34;&gt;
+                            </code></pre>
+                            <div class="wd-embed" style="height: 400px; width: 100%">
+                              <iframe
+                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                              loading="lazy"
+                              src="https://codepen.io/web-dot-dev/embed/zYEPxBX?height=400&theme-id=dark&default-tab=html%2C%20result&editable=true"
+                              style="height: 100%; width: 100%; border: 0;"
+                              title="Pen zYEPxBX by web-dot-dev on Codepen"
+                            ></iframe>
+                            </div>
+                            
+                            <video controls loop > <source src="/static/learn/design/interaction/video/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/xdbqHZ1fp2O8FpwXWQAH.mp4" type="video/mp4" /> </video>
+                            
+                            <h3 id="input_modes" data-text="Input modes" tabindex="-1">Input modes</h3>
+                            
+                            <p>
+                              
+                                
+                                
+                                
+                                
+                              
+                              
+                              
+                                
+                                  
+                                
+                              
+                                
+                                  
+                                
+                              
+                                
+                                  
+                                
+                               
+                            
+                                
+                                
+                                  
+                                  <div class="wd-browser-compat">
+                                    <p>Browser Support</p>
+                                    <ul>
+                                      
+                              
+                              
+                                
+                                  
+                                    
+                                      
+                                      
+                                    
+                                  
+                                
+                                
+                              
+                              <li
+                                data-browser="chrome"
+                                data-support="yes">66</li>
+                              
+                              
+                                      
+                              
+                              
+                                
+                                  
+                                    
+                                      
+                                      
+                                    
+                                  
+                                
+                                
+                              
+                              <li
+                                data-browser="edge"
+                                data-support="yes">79</li>
+                              
+                              
+                                      
+                              
+                              
+                                
+                                  
+                                    
+                                      
+                                      
+                                    
+                                  
+                                
+                                
+                              
+                              <li
+                                data-browser="firefox"
+                                data-support="yes">95</li>
+                              
+                              
+                                      
+                              
+                              
+                                
+                                  
+                                  
+                                
+                                
+                              
+                              <li
+                                data-browser="safari"
+                                data-support="no">x</li>
+                              
+                              
+                                    </ul>
+                                    
+                                    <p><a href="https://developer.mozilla.org/docs/Web/HTML/Global_attributes/inputmode">Source</a></p>
+                                    
+                                  </div>
+                                
+                                
+                                
+                              </p>
+                            
+                            <p><a href="https://developer.mozilla.org/docs/Web/HTML/Global_attributes/inputmode">The <code translate="no" dir="ltr">inputmode</code> attribute</a> gives you fine-grained control over virtual keyboards. For example, whereas there’s one <code translate="no" dir="ltr">input</code> <code translate="no" dir="ltr">type</code> with a value of <code translate="no" dir="ltr">number</code>, you can use the <code translate="no" dir="ltr">inputmode</code> attribute to differentiate between whole numbers and decimals.</p>
+                            
+                            <p>If you’re asking for a whole number, like somebody’s age, use <code translate="no" dir="ltr">inputmode=&quot;numeric&quot;</code>.</p>
+                            <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;label for=&#34;age&#34;&gt;Age&lt;/label&gt;
+                            &lt;input type=&#34;number&#34; id=&#34;age&#34; inputmode=&#34;numeric&#34;&gt;
+                            </code></pre>
+                            <p>If you’re asking for a number that includes decimal places, like a price, use <code translate="no" dir="ltr">inputmode=&quot;decimal&quot;</code>.</p>
+                            <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;label for=&#34;price&#34;&gt;Price&lt;/label&gt;
+                            &lt;input type=&#34;number&#34; id=&#34;price&#34; inputmode=&#34;decimal&#34;&gt;
+                            </code></pre>
+                            <div class="wd-embed" style="height: 300px; width: 100%">
+                              <iframe
+                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                              loading="lazy"
+                              src="https://codepen.io/web-dot-dev/embed/mdBqyrO?height=300&theme-id=dark&default-tab=html%2C%20result&editable=true"
+                              style="height: 100%; width: 100%; border: 0;"
+                              title="Pen mdBqyrO by web-dot-dev on Codepen"
+                            ></iframe>
+                            </div>
+                            
+                            <video controls loop > <source src="/static/learn/design/interaction/video/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/gr0tQXIZDgRNFcExwN8W.mp4" type="video/mp4" /> </video>
+                            
+                            <h3 id="autocomplete" data-text="Autocomplete" tabindex="-1">Autocomplete</h3>
+                            
+                            <p>
+                              
+                                
+                                
+                                
+                                
+                              
+                              
+                              
+                                
+                                  
+                                
+                              
+                                
+                                  
+                                
+                              
+                                
+                                  
+                                
+                               
+                            
+                                
+                                
+                                  
+                                  <div class="wd-browser-compat">
+                                    <p>Browser Support</p>
+                                    <ul>
+                                      
+                              
+                              
+                                
+                                  
+                                    
+                                      
+                                      
+                                    
+                                  
+                                
+                                
+                              
+                              <li
+                                data-browser="chrome"
+                                data-support="yes">14</li>
+                              
+                              
+                                      
+                              
+                              
+                                
+                                  
+                                    
+                                      
+                                      
+                                    
+                                  
+                                
+                                
+                              
+                              <li
+                                data-browser="edge"
+                                data-support="yes">≤79</li>
+                              
+                              
+                                      
+                              
+                              
+                                
+                                  
+                                    
+                                      
+                                      
+                                    
+                                  
+                                
+                                
+                              
+                              <li
+                                data-browser="firefox"
+                                data-support="yes">4</li>
+                              
+                              
+                                      
+                              
+                              
+                                
+                                  
+                                    
+                                      
+                                      
+                                    
+                                  
+                                
+                                
+                              
+                              <li
+                                data-browser="safari"
+                                data-support="yes">6</li>
+                              
+                              
+                                    </ul>
+                                    
+                                    <p><a href="https://developer.mozilla.org/docs/Web/HTML/Attributes/autocomplete">Source</a></p>
+                                    
+                                  </div>
+                                
+                                
+                                
+                              </p>
+
+
+
+
+
+
+
+
+
+
+
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
                     </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
-                            </ul>
-                        </nav>
-                    </footer>
+                    
                                         
                 </div>
             </main>

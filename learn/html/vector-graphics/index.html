@@ -1172,38 +1172,1459 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
-                        </div>
-                    </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
+                    
+                    
+
+
+
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Adding vector graphics to the web</h1>
+                        </header>
+                        <div class="section-content">
+                            <ul class="prev-next">
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/HTML/Multimedia_and_embedding/Other_embedding_technologies">
+                                        <span class="button-wrap">Previous </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/HTML/Multimedia_and_embedding">
+                                        <span class="button-wrap">Overview: Multimedia and embedding</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images">
+                                        <span class="button-wrap">Next  </span>
+                                    </a>
+                                </li>
                             </ul>
-                        </nav>
-                    </footer>
+                            <p>Vector graphics are very useful in many circumstances — they have small file sizes and are highly scalable, so they don't pixelate when zoomed in or blown up to a large size. In this article we'll show you how to include one in your webpage.</p>
+                            <figure class="table-container">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Prerequisites:</th>
+                                            <td>
+                                                You should know the
+    <a href="/en-US/docs/Learn/HTML/Introduction_to_HTML">basics of HTML</a>
+                                                and how to
+    <a href="/en-US/docs/Learn/HTML/Multimedia_and_embedding/Images_in_HTML">insert an image into your document</a>
+                                                .
+  
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Objective:</th>
+                                            <td>Learn how to embed an SVG (vector) image into a webpage.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </figure>
+                            <div class="notecard note" id="sect1">
+                                <p>
+                                    <strong>Note:</strong>
+                                    This article doesn't intend to teach you SVG; just what it is, and how to add it to web pages.
+                                </p>
+                            </div>
+                        </div>
+                        <section aria-labelledby="what_are_vector_graphics">
+                            <h2 id="what_are_vector_graphics">
+                                <a href="#what_are_vector_graphics">What are vector graphics?</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    On the web, you'll work with two types of images — <strong>raster images</strong>
+                                    , and <strong>vector images</strong>
+                                    :
+                                </p>
+                                <ul>
+                                    <li>
+                                        <strong>Raster images</strong>
+                                        are defined using a grid of pixels — a raster image file contains information showing exactly where each pixel is to be placed, and exactly what color it should be. Popular web raster formats include Bitmap (<code>.bmp</code>
+                                        ), PNG (<code>.png</code>
+                                        ), JPEG (<code>.jpg</code>
+                                        ), and GIF (<code>.gif</code>
+                                        .)
+                                    </li>
+                                    <li>
+                                        <strong>Vector images</strong>
+                                        are defined using algorithms — a vector image file contains shape and path definitions that the computer can use to work out what the image should look like when rendered on the screen. The <a href="/en-US/docs/Glossary/SVG">SVG</a>
+                                        format allows us to create powerful vector graphics for use on the Web.
+                                    </li>
+                                </ul>
+                                <p>
+                                    To give you an idea of the difference between the two, let's look at an example. You can find this example live on our GitHub repo as <a href="https://mdn.github.io/learning-area/html/multimedia-and-embedding/adding-vector-graphics-to-the-web/vector-versus-raster.html" class="external" target="_blank">vector-versus-raster.html</a>
+                                    — it shows two seemingly identical images side by side, of a red star with a black drop shadow. The difference is that the left one is a PNG, and the right one is an SVG image.
+                                </p>
+                                <p>The difference becomes apparent when you zoom in the page — the PNG image becomes pixelated as you zoom in because it contains information on where each pixel should be (and what color). When it is zoomed, each pixel is increased in size to fill multiple pixels on screen, so the image starts to look blocky. The vector image however continues to look nice and crisp, because no matter what size it is, the algorithms are used to work out the shapes in the image, with the values being scaled as it gets bigger.</p>
+                                <p>
+                                    <img src="/en-US/docs/Learn/HTML/Multimedia_and_embedding/Adding_vector_graphics_to_the_Web/raster-vector-default-size.png" alt="Two star images" width="223" height="112" loading="lazy">
+                                </p>
+                                <p>
+                                    <img src="/en-US/docs/Learn/HTML/Multimedia_and_embedding/Adding_vector_graphics_to_the_Web/raster-vector-zoomed.png" alt="Two star images zoomed in, one crisp and the other blurry" width="677" height="328" loading="lazy">
+                                </p>
+                                <div class="notecard note" id="sect2">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        The images above are actually all PNGs — with the left-hand star in each case representing a raster image, and the right-hand star representing a vector image. Again, go to the <a href="https://mdn.github.io/learning-area/html/multimedia-and-embedding/adding-vector-graphics-to-the-web/vector-versus-raster.html" class="external" target="_blank">vector-versus-raster.html</a>
+                                        demo for a real example!
+                                    </p>
+                                </div>
+                                <p>Moreover, vector image files are much lighter than their raster equivalents, because they only need to hold a handful of algorithms, rather than information on every pixel in the image individually.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="what_is_svg">
+                            <h2 id="what_is_svg">
+                                <a href="#what_is_svg">What is SVG?</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    <a href="/en-US/docs/Web/SVG">SVG</a>
+                                    is an <a href="/en-US/docs/Glossary/XML">XML</a>
+                                    -based language for describing vector images. It's basically markup, like HTML, except that you've got many different elements for defining the shapes you want to appear in your image, and the effects you want to apply to those shapes. SVG is for marking up graphics, not content. SVG defines elements for creating basic shapes, like 
+                                    <a href="/en-US/docs/Web/SVG/Element/circle">
+                                        <code>&lt;circle &gt;</code>
+                                    </a>
+                                    and 
+                                    <a href="/en-US/docs/Web/SVG/Element/rect">
+                                        <code>&lt;rect &gt;</code>
+                                    </a>
+                                    , as well as elements for creating more complex shapes, like 
+                                    <a href="/en-US/docs/Web/SVG/Element/path">
+                                        <code>&lt;path &gt;</code>
+                                    </a>
+                                    and 
+                                    <a href="/en-US/docs/Web/SVG/Element/polygon">
+                                        <code>&lt;polygon &gt;</code>
+                                    </a>
+                                    . More advanced SVG features include 
+                                    <a href="/en-US/docs/Web/SVG/Element/feColorMatrix">
+                                        <code>&lt;feColorMatrix &gt;</code>
+                                    </a>
+                                    (transform colors using a transformation matrix), 
+                                    <a href="/en-US/docs/Web/SVG/Element/animate">
+                                        <code>&lt;animate &gt;</code>
+                                    </a>
+                                    (animate parts of your vector graphic), and 
+                                    <a href="/en-US/docs/Web/SVG/Element/mask">
+                                        <code>&lt;mask &gt;</code>
+                                    </a>
+                                    (apply a mask over the top of your image).
+                                </p>
+                                <p>As a basic example, the following code creates a circle and a rectangle:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">html</span>
+                                    </div>
+                                    <pre class="brush: html notranslate" data-signature="Gh5DAtFuSUjL7+sF9X/WaphBwOKxHguew1U1hSTILcE=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    svg
+                                                </span>
+                                                <span class="token attr-name">version</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    1.1<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">baseProfile</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    full<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">width</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    300<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">height</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    200<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">xmlns</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    http://www.w3.org/2000/svg<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    rect
+                                                </span>
+                                                <span class="token attr-name">width</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    100%<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">height</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    100%<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">fill</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    black<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">/&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    circle
+                                                </span>
+                                                <span class="token attr-name">cx</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    150<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">cy</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    100<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">r</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    90<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">fill</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    blue<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">/&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    svg
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>This creates the following output:</p>
+                                <div class="code-example" id="sect3">
+                                    <div class="example-header" id="sect4"></div>
+                                    <iframe class="sample-code-frame" title="What is SVG sample" id="frame_what_is_svg" width="300" height="240" src="https://live.mdnplay.dev/en-US/docs/Learn/HTML/Multimedia_and_embedding/Adding_vector_graphics_to_the_Web/runner.html?id=what_is_svg" loading="lazy"></iframe>
+                                </div>
+                                <p>
+                                    From the example above, you may get the impression that SVG is easy to hand code. Yes, you can hand code simple SVG in a text editor, but for a complex image this quickly starts to get very difficult. For creating SVG images, most people use a vector graphics editor like <a href="https://inkscape.org/" class="external" target="_blank">Inkscape</a>
+                                    or <a href="https://en.wikipedia.org/wiki/Adobe_Illustrator" class="external" target="_blank">Illustrator</a>
+                                    . These packages allow you to create a variety of illustrations using various graphics tools, and create approximations of photos (for example Inkscape's Trace Bitmap feature.)
+                                </p>
+                                <p>SVG has some additional advantages besides those described so far:</p>
+                                <ul>
+                                    <li>
+                                        Text in vector images remains accessible (which also benefits your <a href="/en-US/docs/Glossary/SEO">SEO</a>
+                                        ).
+                                    </li>
+                                    <li>SVGs lend themselves well to styling/scripting, because each component of the image is an element that can be styled via CSS or scripted via JavaScript.</li>
+                                </ul>
+                                <p>So why would anyone want to use raster graphics over SVG? Well, SVG does have some disadvantages:</p>
+                                <ul>
+                                    <li>SVG can get complicated very quickly, meaning that file sizes can grow; complex SVGs can also take significant processing time in the browser.</li>
+                                    <li>SVG can be harder to create than raster images, depending on what kind of image you are trying to create.</li>
+                                </ul>
+                                <p>Raster graphics are arguably better for complex precision images such as photos, for the reasons described above.</p>
+                                <div class="notecard note" id="sect5">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        In Inkscape, save your files as Plain SVG to save space. Also, please refer to this <a href="http://tavmjong.free.fr/INKSCAPE/MANUAL/html/Web-Inkscape.html" class="external" target="_blank">article describing how to prepare SVGs for the Web</a>
+                                        .
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="adding_svg_to_your_pages">
+                            <h2 id="adding_svg_to_your_pages">
+                                <a href="#adding_svg_to_your_pages">Adding SVG to your pages</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>In this section we'll go through the different ways in which you can add SVG vector graphics to your web pages.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="the_quick_way_img_element">
+                            <h3 id="the_quick_way_img_element">
+                                <a href="#the_quick_way_img_element">
+                                    The quick way: <code>img</code>
+                                    element
+                                </a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    To embed an SVG via an 
+                                    <a href="/en-US/docs/Web/HTML/Element/img">
+                                        <code>&lt;img &gt;</code>
+                                    </a>
+                                    element, you just need to reference it in the src attribute as you'd expect. You will need a <code>height</code>
+                                    or a <code>width</code>
+                                    attribute (or both if your SVG has no inherent aspect ratio). If you have not already done so, please read <a href="/en-US/docs/Learn/HTML/Multimedia_and_embedding/Images_in_HTML">Images in HTML</a>
+                                    .
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">html</span>
+                                    </div>
+                                    <pre class="brush: html notranslate" data-signature="cOODIdizMez/2Q4WIawguaZPrGn1jdpcxqlFFO69TEc=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    img
+                                                </span>
+                                                <span class="token attr-name">src</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    equilateral.svg<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">alt</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    triangle with all three sides equal<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">height</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    87<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">width</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    100<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">/&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <h4 id="pros">Pros</h4>
+                                <ul>
+                                    <li>
+                                        Quick, familiar image syntax with built-in text equivalent available in the <code>alt</code>
+                                        attribute.
+                                    </li>
+                                    <li>
+                                        You can make the image into a hyperlink easily by nesting the <code>&lt;img &gt;</code>
+                                        inside an 
+                                        <a href="/en-US/docs/Web/HTML/Element/a">
+                                            <code>&lt;a &gt;</code>
+                                        </a>
+                                        element.
+                                    </li>
+                                    <li>The SVG file can be cached by the browser, resulting in faster loading times for any page that uses the image loaded in the future.</li>
+                                </ul>
+                                <h4 id="cons">Cons</h4>
+                                <ul>
+                                    <li>You cannot manipulate the image with JavaScript.</li>
+                                    <li>If you want to control the SVG content with CSS, you must include inline CSS styles in your SVG code. (External stylesheets invoked from the SVG file take no effect.)</li>
+                                    <li>
+                                        You cannot restyle the image with CSS pseudoclasses (like <code>:focus</code>
+                                        ).
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section aria-labelledby="troubleshooting_and_cross-browser_support">
+                            <h3 id="troubleshooting_and_cross-browser_support">
+                                <a href="#troubleshooting_and_cross-browser_support">Troubleshooting and cross-browser support</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    For browsers that don't support SVG (IE 8 and below, Android 2.3 and below), you could reference a PNG or JPG from your <code>src</code>
+                                    attribute and use a 
+                                    <a href="/en-US/docs/Web/HTML/Element/img#srcset">
+                                        <code>srcset</code>
+                                    </a>
+                                    attribute (which only recent browsers recognize) to reference the SVG. This being the case, only supporting browsers will load the SVG — older browsers will load the PNG instead:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">html</span>
+                                    </div>
+                                    <pre class="brush: html notranslate" data-signature="YiYiIN6vC15dZiL0MjG3spKysvV1h2cdd+d5X9yKNbg=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    img
+                                                </span>
+                                                <span class="token attr-name">src</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    equilateral.png<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">alt</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    triangle with equal sides<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">srcset</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    equilateral.svg<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">/&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>You can also use SVGs as CSS background images, as shown below. In the below code, older browsers will stick with the PNG that they understand, while newer browsers will load the SVG:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="3krmlyoPmKCDGTc4be+yTNrrhCougpokjNZNB3FEXN8=">
+                                        <code>
+                                            <span class="token property">background</span>
+                                            <span class="token punctuation">:</span>
+                                            <span class="token url">
+                                                <span class="token function">url</span>
+                                                <span class="token punctuation">(</span>
+                                                <span class="token string url">"fallback.png"</span>
+                                                <span class="token punctuation">)</span>
+                                            </span>
+                                            no-repeat center<span class="token punctuation">;</span>
+                                            <span class="token property">background-image</span>
+                                            <span class="token punctuation">:</span>
+                                            <span class="token url">
+                                                <span class="token function">url</span>
+                                                <span class="token punctuation">(</span>
+                                                <span class="token string url">"image.svg"</span>
+                                                <span class="token punctuation">)</span>
+                                            </span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token property">background-size</span>
+                                            <span class="token punctuation">:</span>
+                                            contain<span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    Like the <code>&lt;img &gt;</code>
+                                    method described above, inserting SVGs using CSS background images means that the SVG can't be manipulated with JavaScript, and is also subject to the same CSS limitations.
+                                </p>
+                                <p>
+                                    If your SVGs aren't showing up at all, it might be because your server isn't set up properly. If that's the problem, this <a href="/en-US/docs/Web/SVG/Tutorial/Getting_Started#a_word_on_web_servers_for_.svgz_files">article will point you in the right direction</a>
+                                    .
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="how_to_include_svg_code_inside_your_html">
+                            <h3 id="how_to_include_svg_code_inside_your_html">
+                                <a href="#how_to_include_svg_code_inside_your_html">How to include SVG code inside your HTML</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    You can also open up the SVG file in a text editor, copy the SVG code, and paste it into your HTML document — this is sometimes called putting your <strong>SVG inline</strong>
+                                    , or <strong>inlining SVG</strong>
+                                    . Make sure your SVG code snippet begins with an <code>&lt;svg &gt;</code>
+                                    start tag and ends with an <code>&lt;/svg &gt;</code>
+                                    end tag. Here's a very simple example of what you might paste into your document:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">html</span>
+                                    </div>
+                                    <pre class="brush: html notranslate" data-signature="Ayt+RaQnXrcz6DP3p3yEc0JVEun+hSpaApYIZIzCMaw=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    svg
+                                                </span>
+                                                <span class="token attr-name">width</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    300<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">height</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    200<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    rect
+                                                </span>
+                                                <span class="token attr-name">width</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    100%<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">height</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    100%<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">fill</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    green<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">/&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    svg
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <h4 id="pros_2">Pros</h4>
+                                <ul>
+                                    <li>Putting your SVG inline saves an HTTP request, and therefore can reduce your loading time a bit.</li>
+                                    <li>
+                                        You can assign <code>class</code>
+                                        es and <code>id</code>
+                                        s to SVG elements and style them with CSS, either within the SVG or wherever you put the CSS style rules for your HTML document. In fact, you can use any <a href="/en-US/docs/Web/SVG/Attribute#presentation_attributes">SVG presentation attribute</a>
+                                        as a CSS property.
+                                    </li>
+                                    <li>
+                                        Inlining SVG is the only approach that lets you use CSS interactions (like <code>:focus</code>
+                                        ) and CSS animations on your SVG image (even in your regular stylesheet.)
+                                    </li>
+                                    <li>
+                                        You can make SVG markup into a hyperlink by wrapping it in an 
+                                        <a href="/en-US/docs/Web/HTML/Element/a">
+                                            <code>&lt;a &gt;</code>
+                                        </a>
+                                        element.
+                                    </li>
+                                </ul>
+                                <h4 id="cons_2">Cons</h4>
+                                <ul>
+                                    <li>This method is only suitable if you're using the SVG in only one place. Duplication makes for resource-intensive maintenance.</li>
+                                    <li>Extra SVG code increases the size of your HTML file.</li>
+                                    <li>The browser cannot cache inline SVG as it would cache regular image assets, so pages that include the image will not load faster after the first page containing the image is loaded.</li>
+                                    <li>
+                                        You may include fallback in a 
+                                        <a href="/en-US/docs/Web/SVG/Element/foreignObject">
+                                            <code>&lt;foreignObject &gt;</code>
+                                        </a>
+                                        element, but browsers that support SVG still download any fallback images. You need to weigh whether the extra overhead is really worthwhile, just to support obsolescent browsers.
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section aria-labelledby="how_to_embed_an_svg_with_an_iframe">
+                            <h3 id="how_to_embed_an_svg_with_an_iframe">
+                                <a href="#how_to_embed_an_svg_with_an_iframe">
+                                    How to embed an SVG with an <code>iframe</code>
+                                </a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    You can open SVG images in your browser just like webpages. So embedding an SVG document with an <code>&lt;iframe &gt;</code>
+                                    is done just like we studied in <a href="/en-US/docs/Learn/HTML/Multimedia_and_embedding/Other_embedding_technologies">From &lt;object &gt;to &lt;iframe &gt;— other embedding technologies</a>
+                                    .
+                                </p>
+                                <p>Here's a quick review:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">html</span>
+                                    </div>
+                                    <pre class="brush: html notranslate" data-signature="jSJyDVUq5Y3O28c3IAUyfa3+ROqzMcZIF+5jrx5BOhk=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    iframe
+                                                </span>
+                                                <span class="token attr-name">src</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    triangle.svg<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">width</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    500<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">height</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    500<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">sandbox</span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    img
+                                                </span>
+                                                <span class="token attr-name">src</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    triangle.png<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">alt</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    Triangle with three unequal sides<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">/&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    iframe
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>This is definitely not the best method to choose:</p>
+                                <h4 id="cons_3">Cons</h4>
+                                <ul>
+                                    <li>
+                                        <code>iframe</code>
+                                        s do have a fallback mechanism, as you can see, but browsers only display the fallback if they lack support for <code>iframe</code>
+                                        s altogether.
+                                    </li>
+                                    <li>
+                                        Moreover, unless the SVG and your current webpage have the same <a href="/en-US/docs/Glossary/Origin">origin</a>
+                                        , you cannot use JavaScript on your main webpage to manipulate the SVG.
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section aria-labelledby="active_learning_playing_with_svg">
+                            <h2 id="active_learning_playing_with_svg">
+                                <a href="#active_learning_playing_with_svg">Active Learning: Playing with SVG</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    In this active learning section we'd like you to have a go at playing with some SVG for fun. In the <em>Input</em>
+                                    section below you'll see that we've already provided you with some samples to get you started. You can also go to the <a href="/en-US/docs/Web/SVG/Element">SVG Element Reference</a>
+                                    , find out more details about other toys you can use in SVG, and try those out too. This section is all about practising your research skills, and having some fun.
+                                </p>
+                                <p>
+                                    If you get stuck and can't get your code working, you can always reset it using the <em>Reset</em>
+                                    button.
+                                </p>
+                                <div class="code-example">
+                                    <pre class="brush: html hidden notranslate" data-signature="BWVzP7shm6gKXuJUhoJsCPnZYlSTRbeI3pGSuCNxS54=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    h2
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Live output
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    h2
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    div
+                                                </span>
+                                                <span class="token attr-name">class</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    output<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token special-attr">
+                                                    <span class="token attr-name">style</span>
+                                                    <span class="token attr-value">
+                                                        <span class="token punctuation attr-equals">=</span>
+                                                        <span class="token punctuation">"</span>
+                                                        <span class="token value css language-css">
+                                                            <span class="token property">min-height</span>
+                                                            <span class="token punctuation">:</span>
+                                                            50px<span class="token punctuation">;</span>
+                                                        </span>
+                                                        <span class="token punctuation">"</span>
+                                                    </span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    div
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    h2
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Editable code
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    h2
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token attr-name">class</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    a11y-label<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Press Esc to move focus away from the code area (Tab inserts a tab character).
+
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    textarea
+                                                </span>
+                                                <span class="token attr-name">id</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    code<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">class</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    input<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token special-attr">
+                                                    <span class="token attr-name">style</span>
+                                                    <span class="token attr-value">
+                                                        <span class="token punctuation attr-equals">=</span>
+                                                        <span class="token punctuation">"</span>
+                                                        <span class="token value css language-css">
+                                                            <span class="token property">width</span>
+                                                            <span class="token punctuation">:</span>
+                                                            95%<span class="token punctuation">;</span>
+                                                            <span class="token property">min-height</span>
+                                                            <span class="token punctuation">:</span>
+                                                            200px<span class="token punctuation">;</span>
+                                                        </span>
+                                                        <span class="token punctuation">"</span>
+                                                    </span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    svg
+                                                </span>
+                                                <span class="token attr-name">width</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    100%<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">height</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    100%<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    rect
+                                                </span>
+                                                <span class="token attr-name">width</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    100%<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">height</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    100%<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">fill</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    red<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">/&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    circle
+                                                </span>
+                                                <span class="token attr-name">cx</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    100%<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">cy</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    100%<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">r</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    150<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">fill</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    blue<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">stroke</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    black<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">/&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    polygon
+                                                </span>
+                                                <span class="token attr-name">points</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    120,0 240,225 0,225<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">fill</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    green<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">/&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    text
+                                                </span>
+                                                <span class="token attr-name">x</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    50<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">y</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    100<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">font-family</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    Verdana<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">font-size</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    55<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">fill</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    white<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">stroke</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    black<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">stroke-width</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    2<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Hello!
+
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    text
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    svg
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    textarea
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    div
+                                                </span>
+                                                <span class="token attr-name">class</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    playable-buttons<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    input
+                                                </span>
+                                                <span class="token attr-name">id</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    reset<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">type</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    button<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">value</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    Reset<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">/&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    input
+                                                </span>
+                                                <span class="token attr-name">id</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    solution<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">type</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    button<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">value</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    Show solution<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">disabled</span>
+                                                <span class="token punctuation">/&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    div
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="code-example">
+                                    <pre class="brush: css hidden notranslate" data-signature="rE54QQGFRG3dI9noBugrfixo4OklLJ9Li8khAbWsxOo=">
+                                        <code>
+                                            <span class="token selector">html</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">font-family</span>
+                                            <span class="token punctuation">:</span>
+                                            sans-serif<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token selector">h2</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">font-size</span>
+                                            <span class="token punctuation">:</span>
+                                            16px<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token selector">.a11y-label</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">margin</span>
+                                            <span class="token punctuation">:</span>
+                                            0<span class="token punctuation">;</span>
+                                            <span class="token property">text-align</span>
+                                            <span class="token punctuation">:</span>
+                                            right<span class="token punctuation">;</span>
+                                            <span class="token property">font-size</span>
+                                            <span class="token punctuation">:</span>
+                                            0.7rem<span class="token punctuation">;</span>
+                                            <span class="token property">width</span>
+                                            <span class="token punctuation">:</span>
+                                            98%<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token selector">body</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">margin</span>
+                                            <span class="token punctuation">:</span>
+                                            10px<span class="token punctuation">;</span>
+                                            <span class="token property">background</span>
+                                            <span class="token punctuation">:</span>
+                                            #f5f9fa<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="code-example">
+                                    <pre class="brush: js hidden notranslate" data-signature="M9iQXVe/dJ/wWewnImIOdeFak1VUAZYW8D1v1FY2rGo=">
+                                        <code>
+                                            <span class="token keyword">const</span>
+                                            textarea <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">getElementById</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"code"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            reset <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">getElementById</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"reset"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            solution <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">getElementById</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"solution"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            output <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">querySelector</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">".output"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">let</span>
+                                            code <span class="token operator">=</span>
+                                            textarea<span class="token punctuation">.</span>
+                                            value<span class="token punctuation">;</span>
+                                            <span class="token keyword">let</span>
+                                            userEntry <span class="token operator">=</span>
+                                            textarea<span class="token punctuation">.</span>
+                                            value<span class="token punctuation">;</span>
+                                            <span class="token keyword">function</span>
+                                            <span class="token function">updateCode</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            output<span class="token punctuation">.</span>
+                                            innerHTML <span class="token operator">=</span>
+                                            textarea<span class="token punctuation">.</span>
+                                            value<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            reset<span class="token punctuation">.</span>
+                                            <span class="token function">addEventListener</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"click"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token keyword">function</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            textarea<span class="token punctuation">.</span>
+                                            value <span class="token operator">=</span>
+                                            code<span class="token punctuation">;</span>
+                                            userEntry <span class="token operator">=</span>
+                                            textarea<span class="token punctuation">.</span>
+                                            value<span class="token punctuation">;</span>
+                                            solutionEntry <span class="token operator">=</span>
+                                            htmlSolution<span class="token punctuation">;</span>
+                                            solution<span class="token punctuation">.</span>
+                                            value <span class="token operator">=</span>
+                                            <span class="token string">"Show solution"</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token function">updateCode</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            solution<span class="token punctuation">.</span>
+                                            <span class="token function">addEventListener</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"click"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token keyword">function</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">if</span>
+                                            <span class="token punctuation">(</span>
+                                            solution<span class="token punctuation">.</span>
+                                            value <span class="token operator">===</span>
+                                            <span class="token string">"Show solution"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            textarea<span class="token punctuation">.</span>
+                                            value <span class="token operator">=</span>
+                                            solutionEntry<span class="token punctuation">;</span>
+                                            solution<span class="token punctuation">.</span>
+                                            value <span class="token operator">=</span>
+                                            <span class="token string">"Hide solution"</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token keyword">else</span>
+                                            <span class="token punctuation">{</span>
+                                            textarea<span class="token punctuation">.</span>
+                                            value <span class="token operator">=</span>
+                                            userEntry<span class="token punctuation">;</span>
+                                            solution<span class="token punctuation">.</span>
+                                            value <span class="token operator">=</span>
+                                            <span class="token string">"Show solution"</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token function">updateCode</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            htmlSolution <span class="token operator">=</span>
+                                            <span class="token string">""</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">let</span>
+                                            solutionEntry <span class="token operator">=</span>
+                                            htmlSolution<span class="token punctuation">;</span>
+                                            textarea<span class="token punctuation">.</span>
+                                            <span class="token function">addEventListener</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"input"</span>
+                                            <span class="token punctuation">,</span>
+                                            updateCode<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            window<span class="token punctuation">.</span>
+                                            <span class="token function">addEventListener</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"load"</span>
+                                            <span class="token punctuation">,</span>
+                                            updateCode<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token comment">// stop tab key tabbing out of textarea and</span>
+                                            <span class="token comment">// make it write a tab at the caret position instead</span>
+                                            textarea<span class="token punctuation">.</span>
+                                            <span class="token function-variable function">onkeydown</span>
+                                            <span class="token operator">=</span>
+                                            <span class="token keyword">function</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">e</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">if</span>
+                                            <span class="token punctuation">(</span>
+                                            e<span class="token punctuation">.</span>
+                                            keyCode <span class="token operator">===</span>
+                                            <span class="token number">9</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            e<span class="token punctuation">.</span>
+                                            <span class="token function">preventDefault</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token function">insertAtCaret</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"\t"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token keyword">if</span>
+                                            <span class="token punctuation">(</span>
+                                            e<span class="token punctuation">.</span>
+                                            keyCode <span class="token operator">===</span>
+                                            <span class="token number">27</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            textarea<span class="token punctuation">.</span>
+                                            <span class="token function">blur</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">function</span>
+                                            <span class="token function">insertAtCaret</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">text</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">const</span>
+                                            scrollPos <span class="token operator">=</span>
+                                            textarea<span class="token punctuation">.</span>
+                                            scrollTop<span class="token punctuation">;</span>
+                                            <span class="token keyword">let</span>
+                                            caretPos <span class="token operator">=</span>
+                                            textarea<span class="token punctuation">.</span>
+                                            selectionStart<span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            front <span class="token operator">=</span>
+                                            textarea<span class="token punctuation">.</span>
+                                            value<span class="token punctuation">.</span>
+                                            <span class="token function">substring</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token number">0</span>
+                                            <span class="token punctuation">,</span>
+                                            caretPos<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">const</span>
+                                            back <span class="token operator">=</span>
+                                            textarea<span class="token punctuation">.</span>
+                                            value<span class="token punctuation">.</span>
+                                            <span class="token function">substring</span>
+                                            <span class="token punctuation">(</span>
+                                            textarea<span class="token punctuation">.</span>
+                                            selectionEnd<span class="token punctuation">,</span>
+                                            textarea<span class="token punctuation">.</span>
+                                            value<span class="token punctuation">.</span>
+                                            length<span class="token punctuation">,</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            textarea<span class="token punctuation">.</span>
+                                            value <span class="token operator">=</span>
+                                            front <span class="token operator">+</span>
+                                            text <span class="token operator">+</span>
+                                            back<span class="token punctuation">;</span>
+                                            caretPos <span class="token operator">+=</span>
+                                            text<span class="token punctuation">.</span>
+                                            length<span class="token punctuation">;</span>
+                                            textarea<span class="token punctuation">.</span>
+                                            selectionStart <span class="token operator">=</span>
+                                            caretPos<span class="token punctuation">;</span>
+                                            textarea<span class="token punctuation">.</span>
+                                            selectionEnd <span class="token operator">=</span>
+                                            caretPos<span class="token punctuation">;</span>
+                                            textarea<span class="token punctuation">.</span>
+                                            <span class="token function">focus</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            textarea<span class="token punctuation">.</span>
+                                            scrollTop <span class="token operator">=</span>
+                                            scrollPos<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token comment">// Update the saved userCode every time the user updates the text area code</span>
+                                            textarea<span class="token punctuation">.</span>
+                                            <span class="token function-variable function">onkeyup</span>
+                                            <span class="token operator">=</span>
+                                            <span class="token keyword">function</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token comment">// We only want to save the state when the user code is being shown,</span>
+                                            <span class="token comment">// not the solution, so that solution is not saved over the user code</span>
+                                            <span class="token keyword">if</span>
+                                            <span class="token punctuation">(</span>
+                                            solution<span class="token punctuation">.</span>
+                                            value <span class="token operator">===</span>
+                                            <span class="token string">"Show solution"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            userEntry <span class="token operator">=</span>
+                                            textarea<span class="token punctuation">.</span>
+                                            value<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token keyword">else</span>
+                                            <span class="token punctuation">{</span>
+                                            solutionEntry <span class="token operator">=</span>
+                                            textarea<span class="token punctuation">.</span>
+                                            value<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token function">updateCode</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="code-example" id="sect6">
+                                    <div class="example-header" id="sect7"></div>
+                                    <iframe class="sample-code-frame" title="Active Learning Playing with SVG sample" id="frame_active_learning_playing_with_svg" width="700" height="540" src="https://live.mdnplay.dev/en-US/docs/Learn/HTML/Multimedia_and_embedding/Adding_vector_graphics_to_the_Web/runner.html?id=active_learning_playing_with_svg" loading="lazy"></iframe>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="summary">
+                            <h2 id="summary">
+                                <a href="#summary">Summary</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>This article has provided you with a quick tour of what vector graphics and SVG are, why they are useful to know about, and how to include SVG inside your webpages. It was never intended to be a full guide to learning SVG, just a pointer so you know what SVG is if you meet it in your travels around the Web. So don't worry if you don't feel like you are an SVG expert yet. We've included some links below that might help you if you wish to go and find out more about how it works.</p>
+                                <p>
+                                    In the last article of this module, we'll explore <a href="/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images">responsive images</a>
+                                    in detail, looking at the tools HTML has to allow you to make your images work better across different devices.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="see_also">
+                            <h2 id="see_also">
+                                <a href="#see_also">See also</a>
+                            </h2>
+                            <div class="section-content">
+                                <ul>
+                                    <li>
+                                        <a href="/en-US/docs/Web/SVG/Tutorial/Getting_Started">SVG tutorial</a>
+                                        on MDN
+                                    </li>
+                                    <li>
+                                        <a href="https://tympanus.net/codrops/2014/08/19/making-svgs-responsive-with-css/" class="external" target="_blank">Sara Soueidan's tutorial on responsive SVG images</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.w3.org/TR/SVG-access/" class="external" target="_blank">Accessibility benefits of SVG</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://css-tricks.com/svg-properties-and-css/" class="external" target="_blank">SVG Properties and CSS</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://css-tricks.com/scale-svg/" class="external" target="_blank">How to scale SVGs</a>
+                                        (it's not as simple as raster graphics!)
+                                    </li>
+                                </ul>
+                                <ul class="prev-next">
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/HTML/Multimedia_and_embedding/Other_embedding_technologies">
+                                            <span class="button-wrap">Previous </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/HTML/Multimedia_and_embedding">
+                                            <span class="button-wrap">Overview: Multimedia and embedding</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images">
+                                            <span class="button-wrap">Next  </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
+                    </div>
+                    
                                         
                 </div>
             </main>

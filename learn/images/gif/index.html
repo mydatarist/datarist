@@ -1172,38 +1172,138 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                    
+                    
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>GIF</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
+                        <section aria-labelledby="the_story_of_your_first_website">
+                              
+                            
+
+
+
+
+                            <p>While not terribly useful on the modern web, GIF (Graphics Interchange Format) provides a solid introduction to the core
+                                concepts of image encoding.</p>
+                                
+                                <p>GIF can be thought of as a wrapper for image data. It has a viewport, of sorts, called a &quot;logical screen,&quot; to which individual
+                                frames of image data are drawn—a bit like layers in a Photoshop document. That&#39;s how GIF supports its flipbook-like animation:
+                                a single frame is drawn to the logical screen, then replaced by another, then another. Of course, this distinction isn&#39;t important
+                                when we&#39;re dealing with a static GIF, made up of a single frame drawn to the logical screen.</p>
+                                
+                                <p>GIF uses a lossless data compression method—a variant of the &quot;<a href="https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Welch">Lempel–Ziv–Welch</a>&quot;
+                                algorithm, if you&#39;re curious. The finer details of how this algorithm works are more than we need to get into here, but at a high level: it
+                                works a bit like &quot;Uglifying&quot; JavaScript, where repeated strings of characters throughout the file are saved to a sort of internal dictionary,
+                                so they can be referenced rather than repeated every time they appear.</p>
+                                
+                                <p><img src="/static/learn/images/gif/image/visualization-the-gif-re-7a458bb237284.png" alt="Visualization of the gif reference using a four-by-four grid." width="800" height="873" srcset="https://web.dev/static/learn/images/gif/image/visualization-the-gif-re-7a458bb237284_36.png 36w,https://web.dev/static/learn/images/gif/image/visualization-the-gif-re-7a458bb237284_48.png 48w,https://web.dev/static/learn/images/gif/image/visualization-the-gif-re-7a458bb237284_72.png 72w,https://web.dev/static/learn/images/gif/image/visualization-the-gif-re-7a458bb237284_96.png 96w,https://web.dev/static/learn/images/gif/image/visualization-the-gif-re-7a458bb237284_480.png 480w,https://web.dev/static/learn/images/gif/image/visualization-the-gif-re-7a458bb237284_720.png 720w,https://web.dev/static/learn/images/gif/image/visualization-the-gif-re-7a458bb237284_856.png 856w,https://web.dev/static/learn/images/gif/image/visualization-the-gif-re-7a458bb237284_960.png 960w,https://web.dev/static/learn/images/gif/image/visualization-the-gif-re-7a458bb237284_1440.png 1440w,https://web.dev/static/learn/images/gif/image/visualization-the-gif-re-7a458bb237284_1920.png 1920w,https://web.dev/static/learn/images/gif/image/visualization-the-gif-re-7a458bb237284_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                                
+                                <p>Granted, the <a href="https://giflib.sourceforge.net/whatsinagif/lzw_image_data.html">algorithm isn&#39;t quite as simple</a> as a paint-by-number. It steps
+                                again through the generated table of color codes to find repeated sequences of pixel colors and creates a second table of referencable codes. At no
+                                point is any image data lost, however—just sorted and reorganized in a way that can be read without fundamentally changing it.</p>
+                                
+                                <p>While GIF technically uses lossless <em>compression</em>, it does have a major limitation that severely impacts the quality of the images:
+                                saving an image as a GIF will always result in reduced fidelity, unless the image already uses 256 colors or less.</p>
+                                
+                                <p>Each frame drawn to the GIF&#39;s logical screen can only contain a maximum of 256 colors. GIF also supports “index transparency,” where a
+                                transparent pixel will reference the index of a transparent “color” in the color table.</p>
+                                
+                                <p>The practice of reducing a range of values to a smaller, approximated set of output values is called <em>quantization</em>, a term you&#39;ll be seeing a lot
+                                when learning about image encodings. The results of this palette quantization are usually obvious:</p>
+                                
+                                <p><img src="/static/learn/images/gif/image/static-gif-example-6127592e2958d.png" alt="Static gif example" width="393" height="399" srcset="https://web.dev/static/learn/images/gif/image/static-gif-example-6127592e2958d_36.png 36w,https://web.dev/static/learn/images/gif/image/static-gif-example-6127592e2958d_48.png 48w,https://web.dev/static/learn/images/gif/image/static-gif-example-6127592e2958d_72.png 72w,https://web.dev/static/learn/images/gif/image/static-gif-example-6127592e2958d_96.png 96w,https://web.dev/static/learn/images/gif/image/static-gif-example-6127592e2958d_480.png 480w,https://web.dev/static/learn/images/gif/image/static-gif-example-6127592e2958d_720.png 720w,https://web.dev/static/learn/images/gif/image/static-gif-example-6127592e2958d_856.png 856w,https://web.dev/static/learn/images/gif/image/static-gif-example-6127592e2958d_960.png 960w,https://web.dev/static/learn/images/gif/image/static-gif-example-6127592e2958d_1440.png 1440w,https://web.dev/static/learn/images/gif/image/static-gif-example-6127592e2958d_1920.png 1920w,https://web.dev/static/learn/images/gif/image/static-gif-example-6127592e2958d_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                                
+                                <p>To better understand this process, think back to the raster image grid you were able to recreate from my description.</p>
+                                
+                                <p><img src="/static/learn/images/gif/image/three-horizontal-blue-box-eaa9ab16e7cb.png" alt="Three horizontal blue boxes followed by one red box" width="652" height="204" srcset="https://web.dev/static/learn/images/gif/image/three-horizontal-blue-box-eaa9ab16e7cb_36.png 36w,https://web.dev/static/learn/images/gif/image/three-horizontal-blue-box-eaa9ab16e7cb_48.png 48w,https://web.dev/static/learn/images/gif/image/three-horizontal-blue-box-eaa9ab16e7cb_72.png 72w,https://web.dev/static/learn/images/gif/image/three-horizontal-blue-box-eaa9ab16e7cb_96.png 96w,https://web.dev/static/learn/images/gif/image/three-horizontal-blue-box-eaa9ab16e7cb_480.png 480w,https://web.dev/static/learn/images/gif/image/three-horizontal-blue-box-eaa9ab16e7cb_720.png 720w,https://web.dev/static/learn/images/gif/image/three-horizontal-blue-box-eaa9ab16e7cb_856.png 856w,https://web.dev/static/learn/images/gif/image/three-horizontal-blue-box-eaa9ab16e7cb_960.png 960w,https://web.dev/static/learn/images/gif/image/three-horizontal-blue-box-eaa9ab16e7cb_1440.png 1440w,https://web.dev/static/learn/images/gif/image/three-horizontal-blue-box-eaa9ab16e7cb_1920.png 1920w,https://web.dev/static/learn/images/gif/image/three-horizontal-blue-box-eaa9ab16e7cb_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                                
+                                <p>This time around, add a little more detail to that original image: a few more pixels, one of which is a slightly darker shade of blue:</p>
+                                
+                                <p><img src="/static/learn/images/gif/image/blue-red-horizontal-boxe-5e34e28510119.png" alt="Blue to red horizontal boxes in a two-by-four configuration, with one blue box shaded darker than the others." width="752" height="400" srcset="https://web.dev/static/learn/images/gif/image/blue-red-horizontal-boxe-5e34e28510119_36.png 36w,https://web.dev/static/learn/images/gif/image/blue-red-horizontal-boxe-5e34e28510119_48.png 48w,https://web.dev/static/learn/images/gif/image/blue-red-horizontal-boxe-5e34e28510119_72.png 72w,https://web.dev/static/learn/images/gif/image/blue-red-horizontal-boxe-5e34e28510119_96.png 96w,https://web.dev/static/learn/images/gif/image/blue-red-horizontal-boxe-5e34e28510119_480.png 480w,https://web.dev/static/learn/images/gif/image/blue-red-horizontal-boxe-5e34e28510119_720.png 720w,https://web.dev/static/learn/images/gif/image/blue-red-horizontal-boxe-5e34e28510119_856.png 856w,https://web.dev/static/learn/images/gif/image/blue-red-horizontal-boxe-5e34e28510119_960.png 960w,https://web.dev/static/learn/images/gif/image/blue-red-horizontal-boxe-5e34e28510119_1440.png 1440w,https://web.dev/static/learn/images/gif/image/blue-red-horizontal-boxe-5e34e28510119_1920.png 1920w,https://web.dev/static/learn/images/gif/image/blue-red-horizontal-boxe-5e34e28510119_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                                
+                                <p>Absent any compression—so to speak—you could describe this grid as:</p>
+                                
+                                <blockquote>
+                                <p>Row one, column one is #0000FF. Row one, column two is #0000FF. Row one, column three is #0000FF. Row one, column four is #FF0000. Row two, column one is #0000FF. Row two, column two is #000085. Row two, column three is #0000FF. Row two, column four is #FF0000.</p>
+                                </blockquote>
+                                
+                                <p>Using something akin to GIF&#39;s lossless data compression and color indexing, you might describe it as:</p>
+                                
+                                <blockquote>
+                                <p>A: #0000FF, B: #FF0000, C: #000085. Row one, columns one through three are A. Row one, column four is B. Row two, column one is A. Row two, column two is C. Row two, column three is A. Row two, column four is B.</p>
+                                </blockquote>
+                                
+                                <p>This manages to condense the pixel-by-pixel description in a few places (“columns one through three are…”), and saves a
+                                few characters by defining the repeated colors in a dictionary, of sorts, up front. There&#39;s no change to the visual fidelity.
+                                The information has been compressed without any loss.</p>
+                                
+                                <p><img src="/static/learn/images/gif/image/blue-red-horizontal-boxe-95873fb33ab1.png" alt="Blue to red horizontal boxes, with a single dark pixel at 2x2." width="752" height="400" srcset="https://web.dev/static/learn/images/gif/image/blue-red-horizontal-boxe-95873fb33ab1_36.png 36w,https://web.dev/static/learn/images/gif/image/blue-red-horizontal-boxe-95873fb33ab1_48.png 48w,https://web.dev/static/learn/images/gif/image/blue-red-horizontal-boxe-95873fb33ab1_72.png 72w,https://web.dev/static/learn/images/gif/image/blue-red-horizontal-boxe-95873fb33ab1_96.png 96w,https://web.dev/static/learn/images/gif/image/blue-red-horizontal-boxe-95873fb33ab1_480.png 480w,https://web.dev/static/learn/images/gif/image/blue-red-horizontal-boxe-95873fb33ab1_720.png 720w,https://web.dev/static/learn/images/gif/image/blue-red-horizontal-boxe-95873fb33ab1_856.png 856w,https://web.dev/static/learn/images/gif/image/blue-red-horizontal-boxe-95873fb33ab1_960.png 960w,https://web.dev/static/learn/images/gif/image/blue-red-horizontal-boxe-95873fb33ab1_1440.png 1440w,https://web.dev/static/learn/images/gif/image/blue-red-horizontal-boxe-95873fb33ab1_1920.png 1920w,https://web.dev/static/learn/images/gif/image/blue-red-horizontal-boxe-95873fb33ab1_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                                
+                                <p>As you can see, however, the single dark blue pixel is having an outsized impact on the size of our encoding. If I were to
+                                limit myself to a quantized color palette, it could be reduced much further:</p>
+                                
+                                <blockquote>
+                                <p>A: #0000FF, B: #FF0000. Row one, columns one through three are A. Row one, column four is B. Row two, columns one through three are A. Row two, column four is B.</p>
+                                </blockquote>
+                                
+                                <p>The unfortunate end result of those saved bytes is that you&#39;ve lost pixel-perfection.</p>
+                                
+                                <p><img src="/static/learn/images/gif/image/uniformly-blue-red-horiz-419d61c7b3ef.png" alt="Uniformly blue to red horizontal boxes." width="800" height="421" srcset="https://web.dev/static/learn/images/gif/image/uniformly-blue-red-horiz-419d61c7b3ef_36.png 36w,https://web.dev/static/learn/images/gif/image/uniformly-blue-red-horiz-419d61c7b3ef_48.png 48w,https://web.dev/static/learn/images/gif/image/uniformly-blue-red-horiz-419d61c7b3ef_72.png 72w,https://web.dev/static/learn/images/gif/image/uniformly-blue-red-horiz-419d61c7b3ef_96.png 96w,https://web.dev/static/learn/images/gif/image/uniformly-blue-red-horiz-419d61c7b3ef_480.png 480w,https://web.dev/static/learn/images/gif/image/uniformly-blue-red-horiz-419d61c7b3ef_720.png 720w,https://web.dev/static/learn/images/gif/image/uniformly-blue-red-horiz-419d61c7b3ef_856.png 856w,https://web.dev/static/learn/images/gif/image/uniformly-blue-red-horiz-419d61c7b3ef_960.png 960w,https://web.dev/static/learn/images/gif/image/uniformly-blue-red-horiz-419d61c7b3ef_1440.png 1440w,https://web.dev/static/learn/images/gif/image/uniformly-blue-red-horiz-419d61c7b3ef_1920.png 1920w,https://web.dev/static/learn/images/gif/image/uniformly-blue-red-horiz-419d61c7b3ef_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                                
+                                <p>Of course, you, the rendering engine, don&#39;t know that—the detail of the darker blue pixel was left out of how I encoded my source image.
+                                You&#39;ve rendered the image exactly as I&#39;ve encoded it, based on our shared understanding of the colors we have at hand.</p>
+                                
+                                <p>Now, in this exaggerated example, reducing three colors to two makes for an obvious difference in quality. Across a larger and
+                                more detailed image the effects might not be quite as noticeable, but they would still be visible.</p>
+                                
+                                <p>When encoded as a GIF, subtle gradients like shadows become mottled, with individual pixels standing out from their surroundings:</p>
+                                
+                                <p><img src="/static/learn/images/gif/image/pink-flowers-a-green-bac-8f07903ce6cb8.png" alt="Pink flowers on a green background." width="800" height="595" srcset="https://web.dev/static/learn/images/gif/image/pink-flowers-a-green-bac-8f07903ce6cb8_36.png 36w,https://web.dev/static/learn/images/gif/image/pink-flowers-a-green-bac-8f07903ce6cb8_48.png 48w,https://web.dev/static/learn/images/gif/image/pink-flowers-a-green-bac-8f07903ce6cb8_72.png 72w,https://web.dev/static/learn/images/gif/image/pink-flowers-a-green-bac-8f07903ce6cb8_96.png 96w,https://web.dev/static/learn/images/gif/image/pink-flowers-a-green-bac-8f07903ce6cb8_480.png 480w,https://web.dev/static/learn/images/gif/image/pink-flowers-a-green-bac-8f07903ce6cb8_720.png 720w,https://web.dev/static/learn/images/gif/image/pink-flowers-a-green-bac-8f07903ce6cb8_856.png 856w,https://web.dev/static/learn/images/gif/image/pink-flowers-a-green-bac-8f07903ce6cb8_960.png 960w,https://web.dev/static/learn/images/gif/image/pink-flowers-a-green-bac-8f07903ce6cb8_1440.png 1440w,https://web.dev/static/learn/images/gif/image/pink-flowers-a-green-bac-8f07903ce6cb8_1920.png 1920w,https://web.dev/static/learn/images/gif/image/pink-flowers-a-green-bac-8f07903ce6cb8_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                                
+                                <p>In practice, the combination of lossless compression and palette quantization means that GIF isn&#39;t very useful in modern
+                                web development. Lossless compression doesn&#39;t do enough to reduce file sizes, and a reduced palette means an obvious reduction in quality.</p>
+                                
+                                <p>Ultimately, GIF is only an efficient format for encoding simple images that already use limited color palettes, hard edges
+                                rather than anti-aliasing, and solid colors rather than gradients—all use cases that are far better served by other formats.
+                                The smaller and more featured PNG is often a better choice for raster images, though both are far inferior to SVG in terms of file
+                                size and visual fidelity for use cases like icons or line art, where vector shines. The most commonly seen modern use case for GIF is
+                                animation, but there are far more efficient—and accessible—modern video formats to serve that purpose.</p>
+
+
+
+
+
+
+
+
+
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
                     </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
-                            </ul>
-                        </nav>
-                    </footer>
+                    
                                         
                 </div>
             </main>

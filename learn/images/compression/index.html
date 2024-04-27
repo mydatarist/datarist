@@ -1172,38 +1172,294 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                    
+                    
+
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Compression</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
+                        <section aria-labelledby="the_story_of_your_first_website">
+                              
+                            
+
+
+
+
+
+
+                            <p>Make generating highly performant image sources a seamless part of your
+                                development process.</p>
+                              
+                              
+                              
+                              
+                              
+                              <p>All of the syntaxes in this course—from the encoding of image data to the information-dense
+                              markup that powers <a href="/learn/images/responsive-images">responsive images</a>—are methods for machines to communicate with machines. You have
+                              discovered a number of ways for a client browser to communicate its needs to a server, and a server to respond in kind.
+                              Responsive image markup (<code translate="no" dir="ltr">srcset</code> and <code translate="no" dir="ltr">sizes</code>, in particular) manage to describe a shocking amount of information in relatively
+                              few characters. For better or worse, that brevity is by design: making these syntaxes less terse, and so easier for developers
+                              to parse, could have made them more difficult for a <em>browser</em> to parse. The more complexity added to a string, the more
+                              potential there is for parser errors, or unintentional differences in behavior from one browser to another.</p>
+                              
+                              <p><img src="/static/learn/images/automating/image/an-automated-image-encodi-0d593c7e9897e.png" alt="An automated image encoding window." width="800" height="472" srcset="https://web.dev/static/learn/images/automating/image/an-automated-image-encodi-0d593c7e9897e_36.png 36w,https://web.dev/static/learn/images/automating/image/an-automated-image-encodi-0d593c7e9897e_48.png 48w,https://web.dev/static/learn/images/automating/image/an-automated-image-encodi-0d593c7e9897e_72.png 72w,https://web.dev/static/learn/images/automating/image/an-automated-image-encodi-0d593c7e9897e_96.png 96w,https://web.dev/static/learn/images/automating/image/an-automated-image-encodi-0d593c7e9897e_480.png 480w,https://web.dev/static/learn/images/automating/image/an-automated-image-encodi-0d593c7e9897e_720.png 720w,https://web.dev/static/learn/images/automating/image/an-automated-image-encodi-0d593c7e9897e_856.png 856w,https://web.dev/static/learn/images/automating/image/an-automated-image-encodi-0d593c7e9897e_960.png 960w,https://web.dev/static/learn/images/automating/image/an-automated-image-encodi-0d593c7e9897e_1440.png 1440w,https://web.dev/static/learn/images/automating/image/an-automated-image-encodi-0d593c7e9897e_1920.png 1920w,https://web.dev/static/learn/images/automating/image/an-automated-image-encodi-0d593c7e9897e_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                              
+                              <p>However, the same trait that can make these subjects feel so intimidating can also provide you with solutions: a syntax easily
+                              <em>read</em> by machines is a syntax more easily <em>written</em> by them. You’ve almost certainly encountered many examples of automated
+                              image encoding and compression as a user of the web: any image uploaded to the web through social media platforms, content
+                              management systems (CMS), and even email clients will almost invariably pass through a system that resizes, re-encodes,
+                              and compresses them.</p>
+                              
+                              <p>Likewise, whether through plugins, external libraries, standalone build process tools, or responsible use of client-side scripting,
+                              responsive image markup readily lends itself to automation.</p>
+                              
+                              <p>Those are the two primary concerns around automating image performance: managing the creation of images—their encodings,
+                              compression, and the alternate sources you’ll use to populate an <code translate="no" dir="ltr">srcset</code> attribute—and generating our user-facing markup.
+                              In this module, you’ll learn about a few common approaches to managing images as part of a modern workflow, whether as an
+                              automated phase in your development process, through the framework or content management system that powers your site, or
+                              almost fully abstracted away by a dedicated content delivery network.</p>
+                              
+                              <h2 id="automating_compression_and_encoding_2" data-text="Automating compression and encoding" tabindex="-1">Automating compression and encoding</h2>
+                              
+                              <p>You’re unlikely to find yourself in a position where you can take the time to manually determine the ideal encoding and level
+                              of compression for each individual image destined for use on a project—nor would you want to. As
+                              <a href="/learn/images/performance-issues">important as it is to keep your image transfer sizes as small as possible</a> , fine-tuning your
+                              compression settings and re-saving alternate sources for every image asset destined for a production website would introduce
+                              a huge bottleneck in your daily work.</p>
+                              
+                              <p>As you learned when reading about the various image formats and compression types, the most efficient encoding for an image will always be dictated by
+                              its content, and as you learned in <a href="/learn/images/responsive-images">Responsive Images</a>, the alternate sizes you’ll need for your image sources will be
+                              dictated by the position those images occupy in the page layout. In a modern workflow, you’ll approach these decisions
+                              holistically rather than individually—determining a set of sensible defaults for images, to best suit the contexts in which
+                              they’re meant to be used.</p>
+                              
+                              <p>When choosing encodings for a directory of photographic images, <a href="/learn/images/avif">AVIF</a> is the clear winner for quality and transfer size
+                              but has limited support, <a href="/learn/images/webp">WebP</a> provides an optimized, modern fallback, and <a href="/learn/images/jpeg">JPEG</a> is the most reliable default. The alternate
+                              sizes we need to produce for images meant to occupy a sidebar in a page layout will vary a great deal from images meant
+                              to occupy the entire browser viewport at our highest breakpoints. Compression settings will require an eye toward blurring
+                              and compression artifacts across multiple resulting files—leaving less room to carve every possible byte from each image
+                              in exchange for a more flexible and reliable workflow. In sum, you’ll be following the same decision making process you’ve
+                              come to understand from this course, writ large.</p>
+                              
+                              <p>As for the processing itself, there are a huge number of open source image processing libraries that provide methods of
+                              converting, modifying, and editing images in batches, competing on speed, efficiency, and reliability. These processing
+                              libraries will allow you to apply encoding and compression settings to whole directories of images at once, without the
+                              need to open image editing software, and in a way that preserves your original image sources should those settings need
+                              to be adjusted on-the-fly. They’re intended to run in a range of contexts, from your local development environment to the
+                              web server itself—for example, the compression-focused <a href="/articles/use-imagemin-to-compress-images">ImageMin</a> for
+                              Node.js can be extended to suit specific applications through an array of <a href="https://www.npmjs.com/search?q=keywords:imageminplugin">plugins</a>,
+                              while the cross-platform <a href="https://imagemagick.org/">ImageMagick</a> and the Node.js based <a href="https://sharp.pixelplumbing.com/">Sharp</a>
+                              come with a staggering number of features right out of the box.</p>
+                              
+                              <p>These image processing libraries make it possible for developers to build tools dedicated to seamlessly optimizing images
+                              as part of your standard development processes—ensuring that your project will always be referencing production-ready image
+                              sources with as little overhead as possible.</p>
+                              
+                              <h2 id="local_development_tools_and_workflows" data-text="Local development tools and workflows" tabindex="-1">Local development tools and workflows</h2>
+                              
+                              <p><a href="/articles/use-imagemin-to-compress-images">Task-runners and bundlers like Grunt, Gulp, or Webpack</a> can be used to
+                              optimize image assets alongside other common performance-related tasks, such as minification of CSS and JavaScript. To
+                              illustrate, let’s take a relatively simple use case: a directory in your project contains a dozen photographic images,
+                              meant to be used on a public-facing website.</p>
+                              
+                              <p>First, you’ll need to ensure consistent, efficient encoding for these images. As you’ve learned in the previous modules,
+                              WebP is an efficient default for photographic images in terms of both quality and file size. WebP is <em>well</em> supported,
+                              but not <em>universally</em> supported, so you’ll also want to include a fallback in the form of a progressive JPEG. Then,
+                              in order to make use of the <code translate="no" dir="ltr">srcset</code> attribute for efficient delivery of these assets, you’ll need to produce multiple
+                              alternate sizes for each encoding.</p>
+                              
+                              <p>While this would be a repetitive and time-consuming chore if done with image editing software, task runners like
+                              <a href="https://gulpjs.com/">Gulp</a> are designed to automate exactly this sort of repetition. The <a href="https://www.npmjs.com/package/gulp-responsive">gulp-responsive</a>
+                              plugin, which makes use of <a href="https://www.npmjs.com/package/sharp">Sharp</a>, is one option of many that all follow a similar pattern:
+                              collecting all the files in a source directory, re-encode them, and compress them based on the same standardized &quot;quality&quot;
+                              shorthand you learned about in <a href="/learn/images/png">Image Formats and Compression</a>. The resulting files are then output to a path you define,
+                              ready to be referenced in the <code translate="no" dir="ltr">src</code> attributes of your user-facing <code translate="no" dir="ltr">img</code> elements while leaving your original files intact.</p>
+                              <pre class="prettyprint lang-javascript" translate="no" dir="ltr"><code translate="no" dir="ltr">const { src, dest } = require(&#39;gulp&#39;);
+                              const respimg = require(&#39;gulp-responsive&#39;);
+                              
+                              exports.webp = function() {
+                                return src(&#39;./src-img/*&#39;)
+                                  .pipe(respimg({
+                                    &#39;*&#39;: [{
+                                      quality: 70,
+                                      format: [&#39;webp&#39;, &#39;jpeg&#39;],
+                                      progressive: true
+                                    }]
+                                }))
+                                .pipe(dest(&#39;./img/&#39;));
+                              }
+                              </code></pre>
+                              <p>With a process like this in place, no harm would be done to a production environment if someone on the project inadvertently
+                              added a photograph encoded as a massive truecolor PNG to the directory containing your original image sources—regardless of
+                              the original image’s encoding, this task will produce an efficient WebP and reliable progressive JPEG fallback, and at a
+                              compression level that can be easily adjusted on-the-fly. Of course, this process also ensures that your original image
+                              files will be retained within the project’s development environment, meaning that these settings can be adjusted at any
+                              time with only the automated output overwritten.</p>
+                              
+                              <p>In order to output multiple files, you pass along multiple configuration objects—all the same, apart from the addition of
+                              a <code translate="no" dir="ltr">width</code> key and a value in pixels:</p>
+                              <pre class="prettyprint lang-javascript" translate="no" dir="ltr"><code translate="no" dir="ltr">const { src, dest } = require(&#39;gulp&#39;);
+                              const respimg = require(&#39;gulp-responsive&#39;);
+                              
+                              exports.default = function() {
+                                return src(&#39;./src-img/*&#39;)
+                                  .pipe(respimg({
+                                  &#39;*&#39;: [{
+                                          width: 1000,
+                                          format: [&#39;jpeg&#39;, &#39;webp&#39;],
+                                          progressive: true,
+                                          rename: { suffix: &#39;-1000&#39; }
+                                          },
+                                          {
+                                          width: 800,
+                                          format: [&#39;jpeg&#39;, &#39;webp&#39;],
+                                          progressive: true,
+                                          rename: { suffix: &#39;-800&#39; }
+                                          },
+                                          {
+                                          width: 400,
+                                          format: [&#39;jpeg&#39;, &#39;webp&#39;],
+                                          progressive: true,
+                                          rename: { suffix: &#39;-400&#39; },
+                                      }]
+                                      })
+                                  )
+                                  .pipe(dest(&#39;./img/&#39;));
+                              }
+                              </code></pre>
+                              <p>In the case of the example above, the original image (monarch.png) was more than 3.3MB. The largest file generated by
+                              this task (monarch-1000.jpeg) is approximately 150KB. The smallest, monarch-400.web, is only 32KB.</p>
+                              <pre class="prettyprint lang-shell" translate="no" dir="ltr"><code translate="no" dir="ltr">[10:30:54] Starting &#39;default&#39;...
+                              [10:30:54] gulp-responsive: monarch.png -&gt; monarch-400.jpeg
+                              [10:30:54] gulp-responsive: monarch.png -&gt; monarch-800.jpeg
+                              [10:30:54] gulp-responsive: monarch.png -&gt; monarch-1000.jpeg
+                              [10:30:54] gulp-responsive: monarch.png -&gt; monarch-400.webp
+                              [10:30:54] gulp-responsive: monarch.png -&gt; monarch-800.webp
+                              [10:30:54] gulp-responsive: monarch.png -&gt; monarch-1000.webp
+                              [10:30:54] gulp-responsive: Created 6 images (matched 1 of 1 image)
+                              [10:30:54] Finished &#39;default&#39; after 374 ms
+                              </code></pre>
+                              <p>Of course, you’ll want to carefully examine the results for visible compression artifacts, or possibly increase compression
+                              for additional savings. Since this task is non-destructive, these settings can be changed easily.</p>
+                              
+                              <p>All told, in exchange for the few kilobytes you could carve away with careful manual micro-optimization, you gain a process
+                              that is not only efficient, but  <em>resilient</em>—a tool that seamlessly applies your knowledge of high-performance image assets
+                              to an entire project, without any manual intervention.</p>
+                              
+                              <h3 id="responsive_image_markup_in_practice" data-text="Responsive image markup in practice" tabindex="-1">Responsive image markup in practice</h3>
+                              
+                              <p>Populating <code translate="no" dir="ltr">srcset</code> attributes will typically be a straightforward manual process, as the attribute really only captures
+                              information about the configuration you’ve already done when generating your sources. In the tasks above, we’ve established
+                              the file names and width information that our attribute will follow:</p>
+                              <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">srcset=&#34;filename-1000.jpg 1000w, filename-800.jpg 800w, filename-400.jpg 400w&#34;
+                              </code></pre>
+                              <p>Remember that the contents of the <code translate="no" dir="ltr">srcset</code> attribute are descriptive, not prescriptive. There’s no harm in overloading an
+                              <code translate="no" dir="ltr">srcset</code> attribute, so long as the aspect ratio of every source is consistent. An <code translate="no" dir="ltr">srcset</code> attribute can contain the URI
+                              and width of every alternate cut generated by the server without causing any unnecessary requests, and the more candidate
+                              sources we provide for a rendered image, the more efficiently the browser will be able to tailor requests.</p>
+                              
+                              <p>As you learned in <a href="/learn/images/responsive-images">Responsive Images</a>, you’ll want to make use of the <code translate="no" dir="ltr">&lt;picture&gt;</code> element to seamlessly handle the WebP
+                              or JPEG fallback pattern. In this case, you’ll be using the <code translate="no" dir="ltr">type</code> attribute in concert with <code translate="no" dir="ltr">srcset</code>.</p>
+                              <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;picture&gt;
+                                &lt;source type=&#34;image/webp&#34; srcset=&#34;filename-1000.webp 1000w, filename-800.webp 800w, filename-400.webp 400w&#34;&gt;
+                                &lt;img srcset=&#34;filename-1000.jpg 1000w, filename-800.jpg 800w, filename-400.jpg 400w&#34; sizes=&#34;…&#34; alt=&#34;…&#34;&gt;
+                              &lt;/picture&gt;
+                              </code></pre>
+                              <p>As you’ve learned, browsers that support WebP will recognize the contents of the <code translate="no" dir="ltr">type</code> attribute, and select that <code translate="no" dir="ltr">&lt;source&gt;</code>
+                              element’s <code translate="no" dir="ltr">srcset</code> attribute as the list of image candidates. Browsers that don’t recognize <code translate="no" dir="ltr">image/webp</code> as a valid media
+                              type will ignore this <code translate="no" dir="ltr">&lt;source&gt;</code>, and instead use the inner <code translate="no" dir="ltr">&lt;img&gt;</code> element’s <code translate="no" dir="ltr">srcset</code> attribute.</p>
+                              
+                              <p>There’s one more consideration in terms of browser support: browsers without support for any responsive image markup will
+                              still need a fallback, or we could run the risk of a broken image in especially old browsing contexts. Because <code translate="no" dir="ltr">&lt;picture&gt;</code>,
+                              <code translate="no" dir="ltr">&lt;source&gt;</code>, and <code translate="no" dir="ltr">srcset</code> are all ignored in these browsers, we’ll want to specify a default source in the inner <code translate="no" dir="ltr">&lt;img&gt;</code>’s
+                              <code translate="no" dir="ltr">src</code> attribute.</p>
+                              
+                              <p>Because scaling an image downwards is <em>visually</em> seamless and JPEG encoding is universally supported, the largest JPEG is
+                              a sensible choice.</p>
+                              <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;picture&gt;
+                                &lt;source type=&#34;image/webp&#34; srcset=&#34;filename-1000.webp 1000w, filename-800.webp 800w, filename-400.webp 400w&#34;&gt;
+                                &lt;img src=&#34;filename-1000.jpg&#34; srcset=&#34;filename-1000.jpg 1000w, filename-800.jpg 800w, filename-400.jpg 400w&#34; sizes=&#34;…&#34; alt=&#34;…&#34;&gt;
+                              &lt;/picture&gt;
+                              </code></pre>
+                              <p><code translate="no" dir="ltr">sizes</code> can be a little more difficult to deal with. As you&#39;ve <a href="/learn/images/responsive-images">learned</a>, <code translate="no" dir="ltr">sizes</code> is necessarily contextual—you
+                              can’t populate the attribute without knowing the amount of space the image is meant to occupy in the rendered layout. For
+                              the most efficient possible requests, an accurate <code translate="no" dir="ltr">sizes</code> attribute needs to be in our markup at the time those requests
+                              are made by the end user, long before the styles that govern the page layout have been requested. Omitting <code translate="no" dir="ltr">sizes</code> altogether
+                              is not only a violation of the HTML specification, but results in default behavior equivalent to <code translate="no" dir="ltr">sizes=&quot;100vw&quot;</code>—informing
+                              the browser that this image is only constrained by the viewport itself, resulting in the largest possible candidates sources
+                              being selected.</p>
+                              
+                              <p>As is the case with any particularly burdensome web development task, a number of tools have been created to abstract away
+                              the process of hand-writing <code translate="no" dir="ltr">sizes</code> attributes. <a href="https://ausi.github.io/respimagelint/"><code translate="no" dir="ltr">respImageLint</code></a> is an absolutely
+                              essential snippet of code intended to vet your <code translate="no" dir="ltr">sizes</code> attributes for accuracy and provide suggestions for improvement.
+                              It runs as a bookmarklet—a tool you run in your browser, while pointed at the fully rendered page containing your image
+                              elements. In a context where the browser has full understanding of the page layout, it will also have nearly pixel-perfect
+                              awareness of the space an image is meant to occupy in that layout at every possible viewport size.</p>
+                              
+                              <p><img src="/static/learn/images/automating/image/responsive-image-report-s-f8c412f058e06.png" alt="Responsive image report showing size/width mismatch." width="800" height="861" srcset="https://web.dev/static/learn/images/automating/image/responsive-image-report-s-f8c412f058e06_36.png 36w,https://web.dev/static/learn/images/automating/image/responsive-image-report-s-f8c412f058e06_48.png 48w,https://web.dev/static/learn/images/automating/image/responsive-image-report-s-f8c412f058e06_72.png 72w,https://web.dev/static/learn/images/automating/image/responsive-image-report-s-f8c412f058e06_96.png 96w,https://web.dev/static/learn/images/automating/image/responsive-image-report-s-f8c412f058e06_480.png 480w,https://web.dev/static/learn/images/automating/image/responsive-image-report-s-f8c412f058e06_720.png 720w,https://web.dev/static/learn/images/automating/image/responsive-image-report-s-f8c412f058e06_856.png 856w,https://web.dev/static/learn/images/automating/image/responsive-image-report-s-f8c412f058e06_960.png 960w,https://web.dev/static/learn/images/automating/image/responsive-image-report-s-f8c412f058e06_1440.png 1440w,https://web.dev/static/learn/images/automating/image/responsive-image-report-s-f8c412f058e06_1920.png 1920w,https://web.dev/static/learn/images/automating/image/responsive-image-report-s-f8c412f058e06_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                              
+                              <p>A tool for linting your <code translate="no" dir="ltr">sizes</code> attributes is certainly useful, but it has even more value as a tool to generate them wholesale.
+                              As you know, <code translate="no" dir="ltr">srcset</code> and <code translate="no" dir="ltr">sizes</code> syntax is intended to optimize requests for image assets in a visually seamless way. Though
+                              not something that should ever be used in production, a default <code translate="no" dir="ltr">sizes</code> placeholder value of <code translate="no" dir="ltr">100vw</code> is perfectly reasonable
+                              while working on a page’s layout in your local development environment. Once layout styles are in place, running <code translate="no" dir="ltr">respImageLint</code>
+                              will provide you with tailored <code translate="no" dir="ltr">sizes</code> attributes that you can copy and paste into your markup, at a level of detail far greater
+                              than one written by hand:</p>
+                              
+                              <p><img src="/static/learn/images/automating/image/responsive-image-report-6b38c34ba1c81.png" alt="Responsive image report with suggested dimensions." width="800" height="861" srcset="https://web.dev/static/learn/images/automating/image/responsive-image-report-6b38c34ba1c81_36.png 36w,https://web.dev/static/learn/images/automating/image/responsive-image-report-6b38c34ba1c81_48.png 48w,https://web.dev/static/learn/images/automating/image/responsive-image-report-6b38c34ba1c81_72.png 72w,https://web.dev/static/learn/images/automating/image/responsive-image-report-6b38c34ba1c81_96.png 96w,https://web.dev/static/learn/images/automating/image/responsive-image-report-6b38c34ba1c81_480.png 480w,https://web.dev/static/learn/images/automating/image/responsive-image-report-6b38c34ba1c81_720.png 720w,https://web.dev/static/learn/images/automating/image/responsive-image-report-6b38c34ba1c81_856.png 856w,https://web.dev/static/learn/images/automating/image/responsive-image-report-6b38c34ba1c81_960.png 960w,https://web.dev/static/learn/images/automating/image/responsive-image-report-6b38c34ba1c81_1440.png 1440w,https://web.dev/static/learn/images/automating/image/responsive-image-report-6b38c34ba1c81_1920.png 1920w,https://web.dev/static/learn/images/automating/image/responsive-image-report-6b38c34ba1c81_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                              
+                              <p>Though image requests initiated by server-rendered markup happen too quickly for JavaScript to generate a client-side <code translate="no" dir="ltr">sizes</code> attribute,
+                              the same reasoning doesn’t apply if those requests are <em>initiated</em> client-side. The <a href="https://github.com/aFarkas/lazysizes">Lazysizes</a> project,
+                              for example, allows you to fully defer image requests until after the layout has been established, allowing JavaScript to generate
+                              our <code translate="no" dir="ltr">sizes</code> values for us—a huge convenience for you, and a guarantee of the most efficient possible requests for your users.
+                              Keep in mind, however, that this approach does mean sacrificing the reliability of server-rendered markup and the speed
+                              optimizations built into browsers, and initiating these requests only after the page has been rendered will have an outsized
+                              negative impact on your LCP score.</p>
+                              
+                              <p>Of course, if you’re already depending on a client-side rendering framework such as React or Vue, that’s a debt you’ll already
+                              be incurring—and in those cases, using Lazysizes means your <code translate="no" dir="ltr">sizes</code> attributes can be almost completely abstracted away.
+                              Better still: as <a href="https://github.com/whatwg/html/pull/8008"><code translate="no" dir="ltr">sizes=&quot;auto&quot;</code></a> on lazy loaded images gains consensus and
+                              native implementations, Lazysizes will effectively become a polyfill for that newly standardized browser behavior.</p>
+                              
+                               
+
+
+
+
+
+
+
+
+
+
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
                     </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
-                            </ul>
-                        </nav>
-                    </footer>
+                    
                                         
                 </div>
             </main>

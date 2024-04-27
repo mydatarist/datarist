@@ -1172,38 +1172,1395 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
-                        </div>
-                    </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
+                    
+                    
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Creating hyperlinks</h1>
+                        </header>
+                        <div class="section-content">
+                            <ul class="prev-next">
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/HTML/Introduction_to_HTML/HTML_text_fundamentals">
+                                        <span class="button-wrap">Previous </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/HTML/Introduction_to_HTML">
+                                        <span class="button-wrap">Overview: Introduction to HTML</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/HTML/Introduction_to_HTML/Advanced_text_formatting">
+                                        <span class="button-wrap">Next  </span>
+                                    </a>
+                                </li>
                             </ul>
-                        </nav>
-                    </footer>
+                            <p>
+                                Hyperlinks are really important — they are what makes the Web <em>a web</em>
+                                .
+This article shows the syntax required to make a link, and discusses link best practices.
+
+                            </p>
+                            <figure class="table-container">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Prerequisites:</th>
+                                            <td>
+                                                Basic HTML familiarity, as covered in
+    <a href="/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started">Getting started with HTML</a>
+                                                . HTML text formatting, as covered in
+    <a href="/en-US/docs/Learn/HTML/Introduction_to_HTML/HTML_text_fundamentals">HTML text fundamentals</a>
+                                                .
+  
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Objective:</th>
+                                            <td>To learn how to implement a hyperlink effectively, and link multiple
+    files together.
+  </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </figure>
+                        </div>
+                        <section aria-labelledby="what_is_a_hyperlink">
+                            <h2 id="what_is_a_hyperlink">
+                                <a href="#what_is_a_hyperlink">What is a hyperlink?</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    Hyperlinks are one of the most exciting innovations the Web has to offer.
+They've been a feature of the Web since the beginning, and are what makes the Web <em>a web.</em>
+                                    Hyperlinks allow us to link documents to other documents or resources, link to specific parts of documents, or make apps available at a web address.
+Almost any web content can be converted to a link so that when clicked or otherwise activated the web browser goes to another web address (<a href="/en-US/docs/Glossary/URL">URL</a>
+                                    ).
+
+                                </p>
+                                <div class="notecard note" id="sect1">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        A URL can point to HTML files, text files, images, text documents, video and audio files, or anything else that lives on the Web.
+If the web browser doesn't know how to display or handle the file, it will ask you if you want to open the file (in which case the duty of opening or handling the file is passed to a suitable native app on the device) or download the file (in which case you can try to deal with it later on).
+
+                                    </p>
+                                </div>
+                                <p>For example, the BBC homepage contains many links that point not only to multiple news stories, but also different areas of the site (navigation functionality), login/registration pages (user tools), and more.</p>
+                                <p>
+                                    <img src="/en-US/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks/updated-bbc-website.png" alt="front page of bbc.co.uk, showing many news items, and navigation menu functionality" width="700" height="453" loading="lazy">
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="anatomy_of_a_link">
+                            <h2 id="anatomy_of_a_link">
+                                <a href="#anatomy_of_a_link">Anatomy of a link</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    A basic link is created by wrapping the text or other content inside an 
+                                    <a href="/en-US/docs/Web/HTML/Element/a">
+                                        <code>&lt;a &gt;</code>
+                                    </a>
+                                    element and using the 
+                                    <a href="/en-US/docs/Web/HTML/Element/a#href">
+                                        <code>href</code>
+                                    </a>
+                                    attribute, also known as a <strong>Hypertext Reference</strong>
+                                    , or <strong>target</strong>
+                                    , that contains the web address.
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">html</span>
+                                    </div>
+                                    <pre class="brush: html notranslate" data-signature="OCkNCh8UaUqVon19q608wisqRFLSOuDy7+22OVJpY9w=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            I'm creating a link to
+
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    a
+                                                </span>
+                                                <span class="token attr-name">href</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    https://www.mozilla.org/en-US/<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            the Mozilla homepage
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    a
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            .
+
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    This gives us the following result:<br>
+                                    I'm creating a link to <a href="https://www.mozilla.org/en-US/" class="external" target="_blank">the Mozilla homepage</a>
+                                    .
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="block_level_links">
+                            <h3 id="block_level_links">
+                                <a href="#block_level_links">Block level links</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    As mentioned before, almost any content can be made into a link, even <a href="/en-US/docs/Glossary/Block/CSS">block-level elements</a>
+                                    .
+If you want to make a heading element a link then wrap it in an anchor (<code>&lt;a &gt;</code>
+                                    ) element as shown in the following code snippet:
+
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">html</span>
+                                    </div>
+                                    <pre class="brush: html notranslate" data-signature="yMa+y/zaKC2Zj+XvU8z69LWTYvRbm4ZKaxPMo56o2+4=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    a
+                                                </span>
+                                                <span class="token attr-name">href</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    https://developer.mozilla.org/en-US/<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    h1
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            MDN Web Docs
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    h1
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    a
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Documenting web technologies, including CSS, HTML, and JavaScript, since 2005.
+
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>This turns the heading into a link:
+</p>
+                                <div class="code-example" id="sect2">
+                                    <div class="example-header" id="sect3"></div>
+                                    <iframe class="sample-code-frame" title="Block level links sample" id="frame_block_level_links" width="100%" height="150" src="https://live.mdnplay.dev/en-US/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks/runner.html?id=block_level_links" loading="lazy"></iframe>
+                                </div>
+                                <p></p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="image_links">
+                            <h3 id="image_links">
+                                <a href="#image_links">Image links</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    If you have an image you want to make into a link, use the 
+                                    <a href="/en-US/docs/Web/HTML/Element/a">
+                                        <code>&lt;a &gt;</code>
+                                    </a>
+                                    element to wrap the image file referenced with the 
+                                    <a href="/en-US/docs/Web/HTML/Element/img">
+                                        <code>&lt;img &gt;</code>
+                                    </a>
+                                    element. The example below uses a relative path to reference a locally stored SVG image file.
+                                </p>
+                                <div class="code-example">
+                                    <pre class="brush: css hidden notranslate" data-signature="4cOfpXQzFOf7I+AQpotIUv4amFu3ypSz+p/CjqJNcTU=">
+                                        <code>
+                                            <span class="token selector">img</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">height</span>
+                                            <span class="token punctuation">:</span>
+                                            100px<span class="token punctuation">;</span>
+                                            <span class="token property">width</span>
+                                            <span class="token punctuation">:</span>
+                                            150px<span class="token punctuation">;</span>
+                                            <span class="token property">border</span>
+                                            <span class="token punctuation">:</span>
+                                            1px solid gray<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">html</span>
+                                    </div>
+                                    <pre class="brush: html notranslate" data-signature="5zo55lNJxN2S8T8ZjLX4ZiXjykH+P1f2XXsnWgYIUd0=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    a
+                                                </span>
+                                                <span class="token attr-name">href</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    https://developer.mozilla.org/en-US/<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    img
+                                                </span>
+                                                <span class="token attr-name">src</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    mdn_logo.svg<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">alt</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    MDN Web Docs<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">/&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    a
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>This makes the MDN logo a link:
+</p>
+                                <div class="code-example" id="sect4">
+                                    <div class="example-header" id="sect5"></div>
+                                    <iframe class="sample-code-frame" title="Image links sample" id="frame_image_links" width="100%" height="150" src="https://live.mdnplay.dev/en-US/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks/runner.html?id=image_links" loading="lazy"></iframe>
+                                </div>
+                                <p></p>
+                                <div class="notecard note" id="sect6">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        You'll find out more about using images on the Web in a future article.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="adding_supporting_information_with_the_title_attribute">
+                            <h3 id="adding_supporting_information_with_the_title_attribute">
+                                <a href="#adding_supporting_information_with_the_title_attribute">Adding supporting information with the title attribute</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    Another attribute you may want to add to your links is <code>title</code>
+                                    .
+The title contains additional information about the link, such as which kind of information the page contains, or things to be aware of on the website.
+
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">html</span>
+                                    </div>
+                                    <pre class="brush: html notranslate" data-signature="AUP9H/sQb5N9QawK7z0QTCwMrYyXiTIZPUSoIr58MaQ=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            I'm creating a link to
+
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    a
+                                                </span>
+                                                <span class="token attr-name">href</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    https://www.mozilla.org/en-US/<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">title</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    The best place to find more information about Mozilla's
+      mission and how to contribute<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            the Mozilla homepage
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    a
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            .
+
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>This gives us the following result and hovering over the link displays the title as a tooltip:</p>
+                                <div class="code-example" id="sect7">
+                                    <div class="example-header" id="sect8"></div>
+                                    <iframe class="sample-code-frame" title="Adding supporting information with the title attribute sample" id="frame_adding_supporting_information_with_the_title_attribute" width="100%" height="150" src="https://live.mdnplay.dev/en-US/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks/runner.html?id=adding_supporting_information_with_the_title_attribute" loading="lazy"></iframe>
+                                </div>
+                                <div class="notecard note" id="sect9">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        A link title is only revealed on mouse hover, which means that people relying on keyboard controls or touchscreens to navigate web pages will have difficulty accessing title information.
+If a title's information is truly important to the usability of the page, then you should present it in a manner that will be accessible to all users, for example by putting it in the regular text.
+
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="active_learning_creating_your_own_example_link">
+                            <h3 id="active_learning_creating_your_own_example_link">
+                                <a href="#active_learning_creating_your_own_example_link">Active learning: creating your own example link</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    Create an HTML document using your local code editor and our <a href="https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/getting-started/index.html" class="external" target="_blank">getting started template</a>
+                                    .
+                                </p>
+                                <ul>
+                                    <li>Inside the HTML body, add one or more paragraphs or other types of content you already know about.</li>
+                                    <li>Change some of the content into links.</li>
+                                    <li>Include title attributes.</li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section aria-labelledby="a_quick_primer_on_urls_and_paths">
+                            <h2 id="a_quick_primer_on_urls_and_paths">
+                                <a href="#a_quick_primer_on_urls_and_paths">A quick primer on URLs and paths</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>To fully understand link targets, you need to understand URLs and file paths. This section gives you the information you need to achieve this.</p>
+                                <p>
+                                    A URL, or Uniform Resource Locator is a string of text that defines where something is located on the Web. For example, Mozilla's English homepage is located at <code>https://www.mozilla.org/en-US/</code>
+                                    .
+                                </p>
+                                <p>
+                                    URLs use paths to find files. Paths specify where the file you're interested in is located in the filesystem. Let's look at an example of a directory structure, see the <a href="https://github.com/mdn/learning-area/tree/main/html/introduction-to-html/creating-hyperlinks" class="external" target="_blank">creating-hyperlinks</a>
+                                    directory.
+                                </p>
+                                <p>
+                                    <img src="/en-US/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks/simple-directory.png" alt="A simple directory structure. The parent directory is called creating-hyperlinks and contains two files called index.html and contacts.html, and two directories called projects and pdfs, which contain an index.html and a project-brief.pdf file, respectively" width="882" height="548" loading="lazy">
+                                </p>
+                                <p>
+                                    The <strong>root</strong>
+                                    of this directory structure is called <code>creating-hyperlinks</code>
+                                    . When working locally with a website, you'll have one directory that contains the entire site. Inside the <strong>root</strong>
+                                    , we have an <code>index.html</code>
+                                    file and a <code>contacts.html</code>
+                                    . In a real website, <code>index.html</code>
+                                    would be our home page or landing page (a web page that serves as the entry point for a website or a particular section of a website.).
+                                </p>
+                                <p>
+                                    There are also two directories inside our root — <code>pdfs</code>
+                                    and <code>projects</code>
+                                    . These each have a single file inside them — a PDF (<code>project-brief.pdf</code>
+                                    ) and an <code>index.html</code>
+                                    file, respectively. Note that you can have two <code>index.html</code>
+                                    files in one project, as long as they're in different filesystem locations. The second <code>index.html</code>
+                                    would perhaps be the main landing page for project-related information.
+                                </p>
+                                <ul>
+                                    <li>
+                                        <strong>Same directory</strong>
+                                        : If you wanted to include a hyperlink inside <code>index.html</code>
+                                        (the top level <code>index.html</code>
+                                        ) pointing to <code>contacts.html</code>
+                                        , you would specify the filename that you want to link to, because it's in the same directory as the current file. The URL you would use is <code>contacts.html</code>
+                                        :
+
+                                        <div class="code-example">
+                                            <div class="example-header">
+                                                <span class="language-name">html</span>
+                                            </div>
+                                            <pre class="brush: html notranslate" data-signature="9GLmgkxgTIQ4nB93egzEd77xDSRf8zQHriaRZwOrAGI=">
+                                                <code>
+                                                    <span class="token tag">
+                                                        <span class="token tag">
+                                                            <span class="token punctuation">&lt;</span>
+                                                            p
+                                                        </span>
+                                                        <span class="token punctuation">&gt;</span>
+                                                    </span>
+                                                    Want to contact a specific staff member? Find details on our
+
+                                                    <span class="token tag">
+                                                        <span class="token tag">
+                                                            <span class="token punctuation">&lt;</span>
+                                                            a
+                                                        </span>
+                                                        <span class="token attr-name">href</span>
+                                                        <span class="token attr-value">
+                                                            <span class="token punctuation attr-equals">=</span>
+                                                            <span class="token punctuation">"</span>
+                                                            contacts.html<span class="token punctuation">"</span>
+                                                        </span>
+                                                        <span class="token punctuation">&gt;</span>
+                                                    </span>
+                                                    contacts page
+                                                    <span class="token tag">
+                                                        <span class="token tag">
+                                                            <span class="token punctuation">&lt;/</span>
+                                                            a
+                                                        </span>
+                                                        <span class="token punctuation">&gt;</span>
+                                                    </span>
+                                                    .
+
+                                                    <span class="token tag">
+                                                        <span class="token tag">
+                                                            <span class="token punctuation">&lt;/</span>
+                                                            p
+                                                        </span>
+                                                        <span class="token punctuation">&gt;</span>
+                                                    </span>
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <strong>Moving down into subdirectories</strong>
+                                        : If you wanted to include a hyperlink inside <code>index.html</code>
+                                        (the top level <code>index.html</code>
+                                        ) pointing to <code>projects/index.html</code>
+                                        , you would need to go down into the <code>projects</code>
+                                        directory before indicating the file you want to link to.
+This is done by specifying the directory's name, then a forward slash, then the name of the file. The URL you would use is <code>projects/index.html</code>
+                                        :
+
+                                        <div class="code-example">
+                                            <div class="example-header">
+                                                <span class="language-name">html</span>
+                                            </div>
+                                            <pre class="brush: html notranslate" data-signature="+WIBnYLRofzZywvpWuqPL4GRJ30Pxgj9kFsHKqhqDzg=">
+                                                <code>
+                                                    <span class="token tag">
+                                                        <span class="token tag">
+                                                            <span class="token punctuation">&lt;</span>
+                                                            p
+                                                        </span>
+                                                        <span class="token punctuation">&gt;</span>
+                                                    </span>
+                                                    Visit my 
+                                                    <span class="token tag">
+                                                        <span class="token tag">
+                                                            <span class="token punctuation">&lt;</span>
+                                                            a
+                                                        </span>
+                                                        <span class="token attr-name">href</span>
+                                                        <span class="token attr-value">
+                                                            <span class="token punctuation attr-equals">=</span>
+                                                            <span class="token punctuation">"</span>
+                                                            projects/index.html<span class="token punctuation">"</span>
+                                                        </span>
+                                                        <span class="token punctuation">&gt;</span>
+                                                    </span>
+                                                    project homepage
+                                                    <span class="token tag">
+                                                        <span class="token tag">
+                                                            <span class="token punctuation">&lt;/</span>
+                                                            a
+                                                        </span>
+                                                        <span class="token punctuation">&gt;</span>
+                                                    </span>
+                                                    .
+                                                    <span class="token tag">
+                                                        <span class="token tag">
+                                                            <span class="token punctuation">&lt;/</span>
+                                                            p
+                                                        </span>
+                                                        <span class="token punctuation">&gt;</span>
+                                                    </span>
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <strong>Moving back up into parent directories</strong>
+                                        : If you wanted to include a hyperlink inside <code>projects/index.html</code>
+                                        pointing to <code>pdfs/project-brief.pdf</code>
+                                        , you'd have to go up a directory level, then back down into the <code>pdfs</code>
+                                        directory.
+To go up a directory, use two dots — <code>..</code>
+                                        — so the URL you would use is <code>../pdfs/project-brief.pdf</code>
+                                        :
+
+                                        <div class="code-example">
+                                            <div class="example-header">
+                                                <span class="language-name">html</span>
+                                            </div>
+                                            <pre class="brush: html notranslate" data-signature="LjVg4mHaeSj4km4DpjqaJwkZEXz0ChGukmOAG5UNabo=">
+                                                <code>
+                                                    <span class="token tag">
+                                                        <span class="token tag">
+                                                            <span class="token punctuation">&lt;</span>
+                                                            p
+                                                        </span>
+                                                        <span class="token punctuation">&gt;</span>
+                                                    </span>
+                                                    A link to my 
+                                                    <span class="token tag">
+                                                        <span class="token tag">
+                                                            <span class="token punctuation">&lt;</span>
+                                                            a
+                                                        </span>
+                                                        <span class="token attr-name">href</span>
+                                                        <span class="token attr-value">
+                                                            <span class="token punctuation attr-equals">=</span>
+                                                            <span class="token punctuation">"</span>
+                                                            ../pdfs/project-brief.pdf<span class="token punctuation">"</span>
+                                                        </span>
+                                                        <span class="token punctuation">&gt;</span>
+                                                    </span>
+                                                    project brief
+                                                    <span class="token tag">
+                                                        <span class="token tag">
+                                                            <span class="token punctuation">&lt;/</span>
+                                                            a
+                                                        </span>
+                                                        <span class="token punctuation">&gt;</span>
+                                                    </span>
+                                                    .
+                                                    <span class="token tag">
+                                                        <span class="token tag">
+                                                            <span class="token punctuation">&lt;/</span>
+                                                            p
+                                                        </span>
+                                                        <span class="token punctuation">&gt;</span>
+                                                    </span>
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="notecard note" id="sect10">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        You can combine multiple instances of these features into complex URLs, if needed, for example: <code>../../../complex/path/to/my/file.html</code>
+                                        .
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="document_fragments">
+                            <h3 id="document_fragments">
+                                <a href="#document_fragments">Document fragments</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    It's possible to link to a specific part of an HTML document, known as a <strong>document fragment</strong>
+                                    , rather than just to the top of the document.
+To do this you first have to assign an 
+                                    <a href="/en-US/docs/Web/HTML/Global_attributes#id">
+                                        <code>id</code>
+                                    </a>
+                                    attribute to the element you want to link to.
+It normally makes sense to link to a specific heading, so this would look something like the following:
+
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">html</span>
+                                    </div>
+                                    <pre class="brush: html notranslate" data-signature="T39JW//X2I/vFwXdSsp2V66iojQSzznd8UHtlQmpKqg=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    h2
+                                                </span>
+                                                <span class="token attr-name">id</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    Mailing_address<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Mailing address
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    h2
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    Then to link to that specific <code>id</code>
+                                    , you'd include it at the end of the URL, preceded by a hash/pound symbol (<code>#</code>
+                                    ), for example:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">html</span>
+                                    </div>
+                                    <pre class="brush: html notranslate" data-signature="TC7y2swsIUMtqzGu+ad5rJ1uLy2fDTlLSWInnbtT9PU=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Want to write us a letter? Use our
+
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    a
+                                                </span>
+                                                <span class="token attr-name">href</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    contacts.html#Mailing_address<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            mailing address
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    a
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            .
+
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    You can even use the document fragment reference on its own to link to <em>another part of the current document</em>
+                                    :
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">html</span>
+                                    </div>
+                                    <pre class="brush: html notranslate" data-signature="E/JGxwVaRmDjBFaZjiLSJH+136XSx/AqU856OT5o/qo=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            The 
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    a
+                                                </span>
+                                                <span class="token attr-name">href</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    #Mailing_address<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            company mailing address
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    a
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            can be found at the
+bottom of this page.
+
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="absolute_versus_relative_urls">
+                            <h3 id="absolute_versus_relative_urls">
+                                <a href="#absolute_versus_relative_urls">Absolute versus relative URLs</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    Two terms you'll come across on the Web are <strong>absolute URL</strong>
+                                    and <strong>relative URL:</strong>
+                                </p>
+                                <p>
+                                    <strong>absolute URL</strong>
+                                    : Points to a location defined by its absolute location on the web, including <a href="/en-US/docs/Glossary/Protocol">protocol</a>
+                                    and <a href="/en-US/docs/Glossary/Domain_name">domain name</a>
+                                    .
+For example, if an <code>index.html</code>
+                                    page is uploaded to a directory called <code>projects</code>
+                                    that sits inside the <strong>root</strong>
+                                    of a web server, and the website's domain is <code>https://www.example.com</code>
+                                    , the page would be available at <code>https://www.example.com/projects/index.html</code>
+                                    (or even just <code>https://www.example.com/projects/</code>
+                                    , as most web servers just look for a landing page such as <code>index.html</code>
+                                    to load if it isn't specified in the URL.)
+
+                                </p>
+                                <p>An absolute URL will always point to the same location, no matter where it's used.</p>
+                                <p>
+                                    <strong>relative URL</strong>
+                                    : Points to a location that is <em>relative</em>
+                                    to the file you are linking from, more like what we looked at in the previous section.
+For example, if we wanted to link from our example file at <code>https://www.example.com/projects/index.html</code>
+                                    to a PDF file in the same directory, the URL would just be the filename — <code>project-brief.pdf</code>
+                                    — no extra information needed. If the PDF was available in a subdirectory inside <code>projects</code>
+                                    called <code>pdfs</code>
+                                    , the relative link would be <code>pdfs/project-brief.pdf</code>
+                                    (the equivalent absolute URL would be <code>https://www.example.com/projects/pdfs/project-brief.pdf</code>
+                                    .)
+
+                                </p>
+                                <p>
+                                    A relative URL will point to different places depending on the actual location of the file you refer from — for example if we moved our <code>index.html</code>
+                                    file out of the <code>projects</code>
+                                    directory and into the <strong>root</strong>
+                                    of the website (the top level, not in any directories), the <code>pdfs/project-brief.pdf</code>
+                                    relative URL link inside it would now point to a file located at <code>https://www.example.com/pdfs/project-brief.pdf</code>
+                                    , not a file located at <code>https://www.example.com/projects/pdfs/project-brief.pdf</code>
+                                    .
+                                </p>
+                                <p>
+                                    Of course, the location of the <code>project-brief.pdf</code>
+                                    file and <code>pdfs</code>
+                                    folder won't suddenly change because you moved the <code>index.html</code>
+                                    file — this would make your link point to the wrong place, so it wouldn't work if clicked on. You need to be careful!
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="link_best_practices">
+                            <h2 id="link_best_practices">
+                                <a href="#link_best_practices">Link best practices</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>There are some best practices to follow when writing links. Let's look at these now.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="use_clear_link_wording">
+                            <h3 id="use_clear_link_wording">
+                                <a href="#use_clear_link_wording">Use clear link wording</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    It's easy to throw links up on your page. That's not enough. We need to make our links <em>accessible</em>
+                                    to all readers, regardless of their current context and which tools they prefer. For example:
+                                </p>
+                                <ul>
+                                    <li>Screen reader users like jumping around from link to link on the page, and reading links out of context.</li>
+                                    <li>Search engines use link text to index target files, so it is a good idea to include keywords in your link text to effectively describe what is being linked to.</li>
+                                    <li>Visual readers skim over the page rather than reading every word, and their eyes will be drawn to page features that stand out, like links. They will find descriptive link text useful.</li>
+                                </ul>
+                                <p>Let's look at a specific example:</p>
+                                <p>
+                                    <strong>Good</strong>
+                                    link text: <a href="https://www.mozilla.org/en-US/firefox/new/?redirect_source=firefox-com" class="external" target="_blank">Download Firefox</a>
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">html</span>
+                                    </div>
+                                    <pre class="brush: html example-good notranslate" data-signature="XZyMzFyCbjFvHF2ZaSMqWoTra/CJldFYMQ/UN4gL1FI=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    a
+                                                </span>
+                                                <span class="token attr-name">href</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    https://www.mozilla.org/firefox/<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Download Firefox
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    a
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    <strong>Bad</strong>
+                                    link text: <a href="https://www.mozilla.org/firefox/" class="external" target="_blank">Click here</a>
+                                    to download Firefox
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">html</span>
+                                    </div>
+                                    <pre class="brush: html example-bad notranslate" data-signature="yDOxmmFD7oPQ52NMfFl1G3N75fNsZdtNkddiT6y013Y=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    a
+                                                </span>
+                                                <span class="token attr-name">href</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    https://www.mozilla.org/firefox/<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Click here
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    a
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            to download Firefox
+
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>Other tips:</p>
+                                <ul>
+                                    <li>Don't repeat the URL as part of the link text — URLs look ugly, and sound even uglier when a screen reader reads them out letter by letter.</li>
+                                    <li>Don't say "link" or "links to" in the link text — it's just noise. Screen readers tell people there's a link.
+Visual users will also know there's a link, because links are generally styled in a different color and underlined (this convention generally shouldn't be broken, as users are used to it).
+</li>
+                                    <li>Keep your link text as short as possible — this is helpful because screen readers need to interpret the entire link text.</li>
+                                    <li>Minimize instances where multiple copies of the same text are linked to different places.
+This can cause problems for screen reader users, if there's a list of links out of context that are labeled "click here", "click here", "click here".
+</li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section aria-labelledby="linking_to_non-html_resources_—_leave_clear_signposts">
+                            <h3 id="linking_to_non-html_resources_—_leave_clear_signposts">
+                                <a href="#linking_to_non-html_resources_—_leave_clear_signposts">Linking to non-HTML resources — leave clear signposts</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>When linking to a resource that will be downloaded (like a PDF or Word document), streamed (like video or audio), or has another potentially unexpected effect (opens a popup window), you should add clear wording to reduce any confusion.</p>
+                                <p>For example:</p>
+                                <ul>
+                                    <li>If you're on a low bandwidth connection, click a link, and then a multiple megabyte download starts unexpectedly.</li>
+                                </ul>
+                                <p>Let's look at some examples, to see what kind of text can be used here:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">html</span>
+                                    </div>
+                                    <pre class="brush: html notranslate" data-signature="3iwKNH1vRi5vLxhWz+FkIpC9KCMWmT3xZWtZEAUKXqA=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    a
+                                                </span>
+                                                <span class="token attr-name">href</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    https://www.example.com/large-report.pdf<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Download the sales report (PDF, 10MB)
+
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    a
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    a
+                                                </span>
+                                                <span class="token attr-name">href</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    https://www.example.com/video-stream/<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">target</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    _blank<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Watch the video (stream opens in separate tab, HD quality)
+
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    a
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    p
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="use_the_download_attribute_when_linking_to_a_download">
+                            <h3 id="use_the_download_attribute_when_linking_to_a_download">
+                                <a href="#use_the_download_attribute_when_linking_to_a_download">Use the download attribute when linking to a download</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    When you are linking to a resource that's to be downloaded rather than opened in the browser, you can use the <code>download</code>
+                                    attribute to provide a default save filename. Here's an example with a download link to the latest Windows version of Firefox:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">html</span>
+                                    </div>
+                                    <pre class="brush: html notranslate" data-signature="TYYS440Q3RQRc5LiXyqhzzoERUvw6XwfTM1rS6f6kWU=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    a
+                                                </span>
+                                                <span class="token attr-name">href</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    https://download.mozilla.org/?product=firefox-latest-ssl &amp;os=win64 &amp;lang=en-US<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token attr-name">download</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    firefox-latest-64bit-installer.exe<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Download Latest Firefox for Windows (64-bit) (English, US)
+
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    a
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="active_learning_creating_a_navigation_menu">
+                            <h2 id="active_learning_creating_a_navigation_menu">
+                                <a href="#active_learning_creating_a_navigation_menu">Active learning: creating a navigation menu</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>For this exercise, we'd like you to link some pages together with a navigation menu to create a multipage website. This is one common way in which a website is created — the same page structure is used on every page, including the same navigation menu, so when links are clicked it gives the impression that you are staying in the same place, and different content is being brought up.</p>
+                                <p>
+                                    You'll need to make local copies of the following four pages, all in the same directory. For a complete file list, see the <a href="https://github.com/mdn/learning-area/tree/main/html/introduction-to-html/navigation-menu-start" class="external" target="_blank">navigation-menu-start</a>
+                                    directory:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <a href="https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/navigation-menu-start/index.html" class="external" target="_blank">index.html</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/navigation-menu-start/projects.html" class="external" target="_blank">projects.html</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/navigation-menu-start/pictures.html" class="external" target="_blank">pictures.html</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/navigation-menu-start/social.html" class="external" target="_blank">social.html</a>
+                                    </li>
+                                </ul>
+                                <p>You should:</p>
+                                <ol>
+                                    <li>Add an unordered list in the indicated place on one page that includes the names of the pages to link to.
+A navigation menu is usually just a list of links, so this is semantically OK.
+</li>
+                                    <li>Change each page name into a link to that page.</li>
+                                    <li>Copy the navigation menu across to each page.</li>
+                                    <li>On each page, remove just the link to that same page — it's confusing and unnecessary for a page to include a link to itself.
+And, the lack of a link acts a good visual reminder of which page you are currently on.
+</li>
+                                </ol>
+                                <p>The finished example should look similar to the following page:</p>
+                                <p>
+                                    <img src="/en-US/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks/navigation-example.png" alt="An example of a simple HTML navigation menu, with home, pictures, projects, and social menu items" width="628" height="424" loading="lazy">
+                                </p>
+                                <div class="notecard note" id="sect11">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        If you get stuck, or aren't sure if you have got it right, you can check the <a href="https://github.com/mdn/learning-area/tree/main/html/introduction-to-html/navigation-menu-marked-up" class="external" target="_blank">navigation-menu-marked-up</a>
+                                        directory to see the correct answer.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="email_links">
+                            <h2 id="email_links">
+                                <a href="#email_links">Email links</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    It's possible to create links or buttons that, when clicked, open a new outgoing email message rather than linking to a resource or page.
+This is done using the 
+                                    <a href="/en-US/docs/Web/HTML/Element/a">
+                                        <code>&lt;a &gt;</code>
+                                    </a>
+                                    element and the <code>mailto:</code>
+                                    URL scheme.
+
+                                </p>
+                                <p>
+                                    In its most basic and commonly used form, a <code>mailto:</code>
+                                    link indicates the email address of the intended recipient. For example:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">html</span>
+                                    </div>
+                                    <pre class="brush: html notranslate" data-signature="Jb6UJm3VQOXjlsLsQlMeor/X7uynoJTFyLd/jZEdjg0=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    a
+                                                </span>
+                                                <span class="token attr-name">href</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    mailto:nowhere@mozilla.org<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Send email to nowhere
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    a
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    This results in a link that looks like this: <a href="mailto:nowhere@mozilla.org">Send email to nowhere</a>
+                                    .
+                                </p>
+                                <p>
+                                    In fact, the email address is optional. If you omit it and your 
+                                    <a href="/en-US/docs/Web/HTML/Element/a#href">
+                                        <code>href</code>
+                                    </a>
+                                    is "mailto:", a new outgoing email window will be opened by the user's email client with no destination address.
+This is often useful as "Share" links that users can click to send an email to an address of their choosing.
+
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="specifying_details">
+                            <h3 id="specifying_details">
+                                <a href="#specifying_details">Specifying details</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    In addition to the email address, you can provide other information. In fact, any standard mail header fields can be added to the <code>mailto</code>
+                                    URL you provide.
+The most commonly used of these are "subject", "cc", and "body" (which is not a true header field, but allows you to specify a short content message for the new email).
+Each field and its value is specified as a query term.
+
+                                </p>
+                                <p>Here's an example that includes a cc, bcc, subject and body:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">html</span>
+                                    </div>
+                                    <pre class="brush: html notranslate" data-signature="tZbxzO4Oxf+JvE9Ed4iDAhtj32NnFtpwKVBtN2ZyK/g=">
+                                        <code>
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;</span>
+                                                    a
+                                                </span>
+                                                <span class="token attr-name">href</span>
+                                                <span class="token attr-value">
+                                                    <span class="token punctuation attr-equals">=</span>
+                                                    <span class="token punctuation">"</span>
+                                                    mailto:nowhere@mozilla.org?cc=name2@rapidtables.com &amp;bcc=name3@rapidtables.com &amp;subject=The%20subject%20of%20the%20email &amp;body=The%20body%20of%20the%20email<span class="token punctuation">"</span>
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                            Send mail with cc, bcc, subject and body
+
+                                            <span class="token tag">
+                                                <span class="token tag">
+                                                    <span class="token punctuation">&lt;/</span>
+                                                    a
+                                                </span>
+                                                <span class="token punctuation">&gt;</span>
+                                            </span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="notecard note" id="sect12">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        The values of each field must be URL-encoded with non-printing characters (invisible characters like tabs, carriage returns, and page breaks) and spaces <a href="https://en.wikipedia.org/wiki/Percent-encoding" class="external" target="_blank">percent-escaped</a>
+                                        .
+Also, note the use of the question mark (<code>?</code>
+                                        ) to separate the main URL from the field values, and ampersands (&amp;) to separate each field in the <code>mailto:</code>
+                                        URL.
+This is standard URL query notation.
+Read <a href="/en-US/docs/Learn/Forms/Sending_and_retrieving_form_data#the_get_method">The GET method</a>
+                                        to understand what URL query notation is more commonly used for.
+
+                                    </p>
+                                </div>
+                                <p>
+                                    Here are a few other sample <code>mailto</code>
+                                    URLs:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <a href="mailto:">mailto:</a>
+                                    </li>
+                                    <li>
+                                        <a href="mailto:nowhere@mozilla.org">mailto:nowhere@mozilla.org</a>
+                                    </li>
+                                    <li>
+                                        <a href="mailto:nowhere@mozilla.org,nobody@mozilla.org">mailto:nowhere@mozilla.org,nobody@mozilla.org</a>
+                                    </li>
+                                    <li>
+                                        <a href="mailto:nowhere@mozilla.org?cc=nobody@mozilla.org">mailto:nowhere@mozilla.org?cc=nobody@mozilla.org</a>
+                                    </li>
+                                    <li>
+                                        <a href="mailto:nowhere@mozilla.org?cc=nobody@mozilla.org&amp;subject=This%20is%20the%20subject">mailto:nowhere@mozilla.org?cc=nobody@mozilla.org &amp;subject=This%20is%20the%20subject</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section aria-labelledby="test_your_skills!">
+                            <h2 id="test_your_skills!">
+                                <a href="#test_your_skills!">Test your skills!</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    You've reached the end of this article, but can you remember the most important information? You can find some further tests to verify that you've retained this information before you move on — see <a href="/en-US/docs/Learn/HTML/Introduction_to_HTML/Test_your_skills:_Links">Test your skills: Links</a>
+                                    .
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="summary">
+                            <h2 id="summary">
+                                <a href="#summary">Summary</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    That's it for links, for now anyway! You'll return to links later on in the course when you start to look at styling them. Next up for HTML, we'll return to text semantics and look at some more advanced/unusual features that you'll find useful — <a href="/en-US/docs/Learn/HTML/Introduction_to_HTML/Advanced_text_formatting">Advanced text formatting</a>
+                                    is your next stop.
+                                </p>
+                                <ul class="prev-next">
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/HTML/Introduction_to_HTML/HTML_text_fundamentals">
+                                            <span class="button-wrap">Previous </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/HTML/Introduction_to_HTML">
+                                            <span class="button-wrap">Overview: Introduction to HTML</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="button secondary" href="/en-US/docs/Learn/HTML/Introduction_to_HTML/Advanced_text_formatting">
+                                            <span class="button-wrap">Next  </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
+                    </div>
+                    
                                         
                 </div>
             </main>

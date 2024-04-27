@@ -1172,38 +1172,1369 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
-                        </div>
-                    </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
+                    
+                    
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>JavaScript basics</h1>
+                        </header>
+                        <div class="section-content">
+                            <ul class="prev-next">
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics">
+                                        <span class="button-wrap">Previous </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/Getting_started_with_the_web">
+                                        <span class="button-wrap">Overview: Getting started with the web</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/Getting_started_with_the_web/Publishing_your_website">
+                                        <span class="button-wrap">Next  </span>
+                                    </a>
+                                </li>
                             </ul>
-                        </nav>
-                    </footer>
+                            <p>JavaScript is a programming language that adds interactivity to your website. This happens in games, in the behavior of responses when buttons are pressed or with data entry on forms; with dynamic styling; with animation, etc.
+This article helps you get started with JavaScript and furthers your understanding of what is possible.
+</p>
+                        </div>
+                        <section aria-labelledby="what_is_javascript">
+                            <h2 id="what_is_javascript">
+                                <a href="#what_is_javascript">What is JavaScript?</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    <a href="/en-US/docs/Glossary/JavaScript">JavaScript</a>
+                                    is a powerful programming language that can add interactivity to a website.
+It was invented by Brendan Eich.
+
+                                </p>
+                                <p>JavaScript is versatile and beginner-friendly.
+With more experience, you'll be able to create games, animated 2D and 3D graphics, comprehensive database-driven apps, and much more!
+</p>
+                                <p>JavaScript itself is relatively compact, yet very flexible. Developers have written a variety of tools on top of the core JavaScript language, unlocking a vast amount of functionality with minimum effort. These include:</p>
+                                <ul>
+                                    <li>
+                                        Browser Application Programming Interfaces (<a href="/en-US/docs/Glossary/API">APIs</a>
+                                        ) built into web browsers, providing functionality such as dynamically creating HTML and setting CSS styles; collecting and manipulating a video stream from a user's webcam, or generating 3D graphics and audio samples.
+                                    </li>
+                                    <li>
+                                        Third-party APIs that allow developers to incorporate functionality in sites from other content providers, such as <a href="https://disqus.com/" class="external" target="_blank">Disqus</a>
+                                        or Facebook.
+                                    </li>
+                                    <li>Third-party frameworks and libraries that you can apply to HTML to accelerate the work of building sites and applications.</li>
+                                </ul>
+                                <p>
+                                    It's outside the scope of this article—as a light introduction to JavaScript—to present the details of how the core JavaScript language is different from the tools listed above. You can learn more in MDN's <a href="/en-US/docs/Learn/JavaScript">JavaScript learning area</a>
+                                    , as well as in other parts of MDN.
+                                </p>
+                                <p>The section below introduces some aspects of the core language and offers an opportunity to play with a few browser API features too. Have fun!</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="a_hello_world!_example">
+                            <h2 id="a_hello_world!_example">
+                                <a href="#a_hello_world!_example">A "Hello world!" example</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>JavaScript is one of the most popular modern web technologies! As your JavaScript skills grow, your websites will enter a new dimension of power and creativity.</p>
+                                <p>
+                                    However, getting comfortable with JavaScript is more challenging than getting comfortable with HTML and CSS. You may have to start small, and progress gradually. To begin, let's examine how to add JavaScript to your page for creating a <em>Hello world!</em>
+                                    example. (<em>Hello world!</em>
+                                    is <a href="https://en.wikipedia.org/wiki/%22Hello,_World!%22_program" class="external" target="_blank">the standard for introductory programming examples</a>
+                                    .)
+                                </p>
+                                <div class="notecard warning" id="sect1">
+                                    <p>
+                                        <strong>Warning:</strong>
+                                        If you haven't been following along with the rest of our course, <a href="https://codeload.github.com/mdn/beginner-html-site-styled/zip/refs/heads/gh-pages" class="external" target="_blank">download this example code</a>
+                                        and use it as a starting point.
+                                    </p>
+                                </div>
+                                <ol>
+                                    <li>
+                                        Go to your test site and create a new folder named <code>scripts</code>
+                                        . Within the scripts folder, create a new text document called <code>main.js</code>
+                                        , and save it.
+                                    </li>
+                                    <li>
+                                        In your <code>index.html</code>
+                                        file, enter this code on a new line, just before the closing <code>&lt;/body &gt;</code>
+                                        tag:
+
+                                        <div class="code-example">
+                                            <div class="example-header">
+                                                <span class="language-name">html</span>
+                                            </div>
+                                            <pre class="brush: html notranslate" data-signature="WaeIhGSD88dgfFFBqKsoMSRBzAYp5xZNn8t+O0Qx26Y=">
+                                                <code>
+                                                    <span class="token tag">
+                                                        <span class="token tag">
+                                                            <span class="token punctuation">&lt;</span>
+                                                            script
+                                                        </span>
+                                                        <span class="token attr-name">src</span>
+                                                        <span class="token attr-value">
+                                                            <span class="token punctuation attr-equals">=</span>
+                                                            <span class="token punctuation">"</span>
+                                                            scripts/main.js<span class="token punctuation">"</span>
+                                                        </span>
+                                                        <span class="token punctuation">&gt;</span>
+                                                    </span>
+                                                    <span class="token script"></span>
+                                                    <span class="token tag">
+                                                        <span class="token tag">
+                                                            <span class="token punctuation">&lt;/</span>
+                                                            script
+                                                        </span>
+                                                        <span class="token punctuation">&gt;</span>
+                                                    </span>
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        This is doing the same job as the 
+                                        <a href="/en-US/docs/Web/HTML/Element/link">
+                                            <code>&lt;link &gt;</code>
+                                        </a>
+                                        element for CSS. It applies the JavaScript to the page, so it can have an effect on the HTML (along with the CSS, and anything else on the page).
+                                    </li>
+                                    <li>
+                                        Add this code to the <code>main.js</code>
+                                        file:
+
+                                        <div class="code-example">
+                                            <div class="example-header">
+                                                <span class="language-name">js</span>
+                                            </div>
+                                            <pre class="brush: js notranslate" data-signature="uoDoLQA8JFalzD0faw5NnlSujyRGEo5TIUiSYee2Cjg=">
+                                                <code>
+                                                    <span class="token keyword">const</span>
+                                                    myHeading <span class="token operator">=</span>
+                                                    document<span class="token punctuation">.</span>
+                                                    <span class="token function">querySelector</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token string">"h1"</span>
+                                                    <span class="token punctuation">)</span>
+                                                    <span class="token punctuation">;</span>
+                                                    myHeading<span class="token punctuation">.</span>
+                                                    textContent <span class="token operator">=</span>
+                                                    <span class="token string">"Hello world!"</span>
+                                                    <span class="token punctuation">;</span>
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        Make sure the HTML and JavaScript files are saved. Then load <code>index.html</code>
+                                        in your browser. You should see something like this:
+                                    </li>
+                                </ol>
+                                <p>
+                                    <img src="/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics/hello-world.png" alt="Heading &quot;hello world&quot; above a firefox logo" width="806" height="236" loading="lazy">
+                                </p>
+                                <div class="notecard note" id="sect2">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        The reason the instructions (above) place the 
+                                        <a href="/en-US/docs/Web/HTML/Element/script">
+                                            <code>&lt;script &gt;</code>
+                                        </a>
+                                        element near the bottom of the HTML file is that <strong>the browser reads code in the order it appears in the file</strong>
+                                        .
+                                    </p>
+                                    <p>
+                                        If the JavaScript loads first and it is supposed to affect the HTML that hasn't loaded yet, there could be problems. Placing JavaScript near the bottom of an HTML page is one way to accommodate this dependency. To learn more about alternative approaches, see <a href="/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript#script_loading_strategies">Script loading strategies</a>
+                                        .
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="what_happened">
+                            <h3 id="what_happened">
+                                <a href="#what_happened">What happened?</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    The heading text changed to <em>Hello world!</em>
+                                    using JavaScript. You did this by using a function called 
+                                    <a href="/en-US/docs/Web/API/Document/querySelector" title="querySelector()">
+                                        <code>querySelector()</code>
+                                    </a>
+                                    to grab a reference to your heading, and then store it in a variable called <code>myHeading</code>
+                                    . This is similar to what we did using CSS selectors. When you want to do something to an element, you need to select it first.
+                                </p>
+                                <p>
+                                    Following that, the code set the value of the <code>myHeading</code>
+                                    variable's 
+                                    <a href="/en-US/docs/Web/API/Node/textContent" title="textContent">
+                                        <code>textContent</code>
+                                    </a>
+                                    property (which represents the content of the heading) to <em>Hello world!</em>
+                                    .
+                                </p>
+                                <div class="notecard note" id="sect3">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        Both of the features you used in this exercise are parts of the <a href="/en-US/docs/Web/API/Document_Object_Model">Document Object Model (DOM) API</a>
+                                        , which has the capability to manipulate documents.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="language_basics_crash_course">
+                            <h2 id="language_basics_crash_course">
+                                <a href="#language_basics_crash_course">Language basics crash course</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>To give you a better understanding of how JavaScript works, let's explain some of the core features of the language. It's worth noting that these features are common to all programming languages. If you master these fundamentals, you have a head start on coding in other languages too!</p>
+                                <div class="notecard warning" id="sect4">
+                                    <p>
+                                        <strong>Warning:</strong>
+                                        In this article, try entering the example code lines into your JavaScript console to see what happens. For more details on JavaScript consoles, see <a href="/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools">Discover browser developer tools</a>
+                                        .
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="variables">
+                            <h3 id="variables">
+                                <a href="#variables">Variables</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    <a href="/en-US/docs/Glossary/Variable">Variables</a>
+                                    are containers that store values. You start by declaring a variable with the 
+                                    <a href="/en-US/docs/Web/JavaScript/Reference/Statements/let">
+                                        <code>let</code>
+                                    </a>
+                                    keyword, followed by the name you give to the variable:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="RImktON9/mYVg8mmpJ6Cc4JsVvO7f54E5VV5pY1e42I=">
+                                        <code>
+                                            <span class="token keyword">let</span>
+                                            myVariable<span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    A semicolon at the end of a line indicates where a statement ends. It is only required when you need to separate statements on a single line. However, some people believe it's good practice to have semicolons at the end of each statement. There are other rules for when you should and shouldn't use semicolons. For more details, see <a href="https://www.codecademy.com/resources/blog/your-guide-to-semicolons-in-javascript/" class="external" target="_blank">Your Guide to Semicolons in JavaScript</a>
+                                    .
+                                </p>
+                                <p>
+                                    You can name a variable nearly anything, but there are some restrictions. (See <a href="/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#variables">this section about naming rules</a>
+                                    .) If you are unsure, you can <a href="https://mothereff.in/js-variables" class="external" target="_blank">check your variable name</a>
+                                    to see if it's valid.
+                                </p>
+                                <p>
+                                    JavaScript is case sensitive. This means <code>myVariable</code>
+                                    is not the same as <code>myvariable</code>
+                                    . If you have problems in your code, check the case!
+                                </p>
+                                <p>After declaring a variable, you can give it a value:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="AwTaRtGQNH8yxswwPhvxGMt4Dsu1aXW2tVMKrz8qRPo=">
+                                        <code>
+                                            myVariable <span class="token operator">=</span>
+                                            <span class="token string">"Bob"</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>Also, you can do both these operations on the same line:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="5KtHqV+QIFzlnTLWgiJAmsnavUcsrpQ87eltxDpi6bA=">
+                                        <code>
+                                            <span class="token keyword">let</span>
+                                            myVariable <span class="token operator">=</span>
+                                            <span class="token string">"Bob"</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>You retrieve the value by calling the variable name:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="Y4d1inW89p4jmqyFYjQIg+hSxvJD/v3gvPPgtIS01XQ=">
+                                        <code>
+                                            myVariable<span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>After assigning a value to a variable, you can change it later in the code:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="9b2cW0igxGpbtNAXD0seMXLvbvDGupEQDHORJdOhWb8=">
+                                        <code>
+                                            <span class="token keyword">let</span>
+                                            myVariable <span class="token operator">=</span>
+                                            <span class="token string">"Bob"</span>
+                                            <span class="token punctuation">;</span>
+                                            myVariable <span class="token operator">=</span>
+                                            <span class="token string">"Steve"</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    Note that variables may hold values that have different <a href="/en-US/docs/Web/JavaScript/Data_structures">data types</a>
+                                    :
+                                </p>
+                                <figure class="table-container">
+                                    <table class="standard-table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="row">Variable</th>
+                                                <th scope="col">Explanation</th>
+                                                <th scope="col">Example</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">
+                                                    <a href="/en-US/docs/Glossary/String">String</a>
+                                                </th>
+                                                <td>This is a sequence of text known as a string. To signify that the value
+    is a string, enclose it in single or double quote marks.
+  </td>
+                                                <td>
+                                                    <code>let myVariable = 'Bob';</code>
+                                                    or<br>
+                                                    <code>let myVariable = "Bob";</code>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <a href="/en-US/docs/Glossary/Number">Number</a>
+                                                </th>
+                                                <td>This is a number. Numbers don't have quotes around them.</td>
+                                                <td>
+                                                    <code>let myVariable = 10;</code>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <a href="/en-US/docs/Glossary/Boolean">Boolean</a>
+                                                </th>
+                                                <td>
+                                                    This is a True/False value. The words <code>true</code>
+                                                    and
+    <code>false</code>
+                                                    are special keywords that don't need quote marks.
+  
+                                                </td>
+                                                <td>
+                                                    <code>let myVariable = true;</code>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <a href="/en-US/docs/Glossary/Array">Array</a>
+                                                </th>
+                                                <td>This is a structure that allows you to store multiple values in a single
+    reference.
+  </td>
+                                                <td>
+                                                    <code>let myVariable = [1,'Bob','Steve',10];</code>
+                                                    <br>
+                                                    Refer to each
+    member of the array like this:<br>
+                                                    <code>myVariable[0]</code>
+                                                    ,
+    <code>myVariable[1]</code>
+                                                    , etc.
+  
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <a href="/en-US/docs/Glossary/Object">Object</a>
+                                                </th>
+                                                <td>This can be anything. Everything in JavaScript is an object and can be
+    stored in a variable. Keep this in mind as you learn.
+  </td>
+                                                <td>
+                                                    <code>let myVariable = document.querySelector('h1');</code>
+                                                    <br>All of
+    the above examples too.
+  
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </figure>
+                                <p>So why do we need variables? Variables are necessary to do anything interesting in programming. If values couldn't change, then you couldn't do anything dynamic, like personalize a greeting message or change an image displayed in an image gallery.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="comments">
+                            <h3 id="comments">
+                                <a href="#comments">Comments</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>Comments are snippets of text that can be added along with code. The browser ignores text marked as comments. You can write comments in JavaScript just as you can in CSS:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="AJ4inutW+in74KdyYscFKH/JS6wVKrcRWtspBAgT3Cg=">
+                                        <code>
+                                            <span class="token comment">/*
+Everything in between is a comment.
+*/</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>If your comment contains no line breaks, it's an option to put it behind two slashes like this:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="NYNaWYgPUYQioaqCXvN0s7UcsI9dCH/usV62XCvd2S0=">
+                                        <code>
+                                            <span class="token comment">// This is a comment</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="operators">
+                            <h3 id="operators">
+                                <a href="#operators">Operators</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    An 
+                                    <code>
+                                        <a href="/en-US/docs/Glossary/Operator">operator</a>
+                                    </code>
+                                    is a mathematical symbol that produces a result based on two values (or variables). In the following table, you can see some of the simplest operators, along with some examples to try in the JavaScript console.
+                                </p>
+                                <figure class="table-container">
+                                    <table class="standard-table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="row">Operator</th>
+                                                <th scope="col">Explanation</th>
+                                                <th scope="col">Symbol(s)</th>
+                                                <th scope="col">Example</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">Addition</th>
+                                                <td>Add two numbers together or combine two strings.</td>
+                                                <td>
+                                                    <code>+</code>
+                                                </td>
+                                                <td>
+                                                    <code>
+                                                        6 + 9;<br>'Hello ' + 'world!';
+                                                    </code>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Subtraction, Multiplication, Division</th>
+                                                <td>These do what you'd expect them to do in basic math.</td>
+                                                <td>
+                                                    <code>-</code>
+                                                    , <code>*</code>
+                                                    , <code>/</code>
+                                                </td>
+                                                <td>
+                                                    <code>
+                                                        9 - 3;<br>
+                                                        8 * 2; // multiply in JS is an asterisk<br>9 / 3;
+                                                    </code>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Assignment</th>
+                                                <td>As you've seen already: this assigns a value to a variable.</td>
+                                                <td>
+                                                    <code>=</code>
+                                                </td>
+                                                <td>
+                                                    <code>let myVariable = 'Bob';</code>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Strict equality</th>
+                                                <td>
+                                                    This performs a test to see if two values are equal and of the same data type. It returns a
+    <code>true</code>
+                                                    /<code>false</code>
+                                                    (Boolean) result.
+  
+                                                </td>
+                                                <td>
+                                                    <a href="/en-US/docs/Web/JavaScript/Reference/Operators/Strict_equality">
+                                                        <code>===</code>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <code>
+                                                        let myVariable = 3;<br>myVariable === 4;
+                                                    </code>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Not, Does-not-equal</th>
+                                                <td>
+                                                    This returns the logically opposite value of what it precedes. It turns
+    a <code>true</code>
+                                                    into a <code>false</code>
+                                                    , etc.. When it is used
+    alongside the Equality operator, the negation operator tests whether two
+    values are <em>not</em>
+                                                    equal.
+  
+                                                </td>
+                                                <td>
+                                                    <code>!</code>
+                                                    , <code>!==</code>
+                                                </td>
+                                                <td>
+                                                    <p>
+                                                        For "Not", the basic expression is <code>true</code>
+                                                        , but the
+      comparison returns <code>false</code>
+                                                        because we negate it:
+    
+                                                    </p>
+                                                    <p>
+                                                        <code>
+                                                            let myVariable = 3;<br>!(myVariable === 3);
+                                                        </code>
+                                                    </p>
+                                                    <p>
+                                                        "Does-not-equal" gives basically the same result with different
+      syntax. Here we are testing "is <code>myVariable</code>
+                                                        NOT equal to
+      3". This returns<code>false</code>
+                                                        because <code>myVariable</code>
+                                                        IS
+      equal to 3:
+    
+                                                    </p>
+                                                    <p>
+                                                        <code>
+                                                            let myVariable = 3;<br>myVariable !== 3;
+                                                        </code>
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </figure>
+                                <p>
+                                    There are a lot more operators to explore, but this is enough for now. See <a href="/en-US/docs/Web/JavaScript/Reference/Operators">Expressions and operators</a>
+                                    for a complete list.
+                                </p>
+                                <div class="notecard note" id="sect5">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        Mixing data types can lead to some strange results when performing calculations. Be careful that you are referring to your variables correctly, and getting the results you expect. For example, enter <code>'35' + '25'</code>
+                                        into your console. Why don't you get the result you expected? Because the quote marks turn the numbers into strings, so you've ended up concatenating strings rather than adding numbers. If you enter <code>35 + 25</code>
+                                        you'll get the total of the two numbers.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="conditionals">
+                            <h3 id="conditionals">
+                                <a href="#conditionals">Conditionals</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    Conditionals are code structures used to test if an expression returns true or not. A very common form of conditionals is the <code>if...else</code>
+                                    statement. For example:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="v28LMSfZH5ZwRGQIe7P/WnMxJ83ZbpOASaIvhP/VuKM=">
+                                        <code>
+                                            <span class="token keyword">let</span>
+                                            iceCream <span class="token operator">=</span>
+                                            <span class="token string">"chocolate"</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">if</span>
+                                            <span class="token punctuation">(</span>
+                                            iceCream <span class="token operator">===</span>
+                                            <span class="token string">"chocolate"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token function">alert</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"Yay, I love chocolate ice cream!"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token keyword">else</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token function">alert</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"Awwww, but chocolate is my favorite…"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    The expression inside the <code>if ()</code>
+                                    is the test. This uses the strict equality operator (as described above) to compare the variable <code>iceCream</code>
+                                    with the string <code>chocolate</code>
+                                    to see if the two are equal. If this comparison returns <code>true</code>
+                                    , the first block of code runs. If the comparison is not true, the second block of code—after the <code>else</code>
+                                    statement—runs instead.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="functions">
+                            <h3 id="functions">
+                                <a href="#functions">Functions</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    <a href="/en-US/docs/Glossary/Function">Functions</a>
+                                    are a way of packaging functionality that you wish to reuse. It's possible to define a body of code as a function that executes when you call the function name in your code. This is a good alternative to repeatedly writing the same code. You have already seen some uses of functions. For example:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="eQiymgCib5qhACT0hH5saT+iGMrhNi6vZCDpL41xNEM=">
+                                        <code>
+                                            <span class="token keyword">let</span>
+                                            myVariable <span class="token operator">=</span>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">querySelector</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"h1"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="QNapTZRKHCvsbW6lM98dvs9zU4UcwarbEI8v/qNNHkg=">
+                                        <code>
+                                            <span class="token function">alert</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"hello!"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    These functions, <code>document.querySelector</code>
+                                    and <code>alert</code>
+                                    , are built into the browser.
+                                </p>
+                                <p>
+                                    If you see something which looks like a variable name, but it's followed by parentheses— <code>()</code>
+                                    —it is likely a function. Functions often take <a href="/en-US/docs/Glossary/Argument">arguments</a>
+                                    : bits of data they need to do their job. Arguments go inside the parentheses, separated by commas if there is more than one argument.
+                                </p>
+                                <p>
+                                    For example, the <code>alert()</code>
+                                    function makes a pop-up box appear inside the browser window, but we need to give it a string as an argument to tell the function what message to display.
+                                </p>
+                                <p>You can also define your own functions. In the next example, we create a simple function which takes two numbers as arguments and multiplies them:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="8x4pkUyQSaJp3I/SnZTDaIDqoVjoIlqIXelU5Ho3hOA=">
+                                        <code>
+                                            <span class="token keyword">function</span>
+                                            <span class="token function">multiply</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token parameter">
+                                                num1<span class="token punctuation">,</span>
+                                                num2
+                                            </span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">let</span>
+                                            result <span class="token operator">=</span>
+                                            num1 <span class="token operator">*</span>
+                                            num2<span class="token punctuation">;</span>
+                                            <span class="token keyword">return</span>
+                                            result<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>Try running this in the console; then test with several arguments. For example:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="7zCwpVmG7PzF6QzxIQAsni5qo9tGiSODpYfN0d7AraY=">
+                                        <code>
+                                            <span class="token function">multiply</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token number">4</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token number">7</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token function">multiply</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token number">20</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token number">20</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token function">multiply</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token number">0.5</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token number">3</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <div class="notecard note" id="sect6">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        The 
+                                        <a href="/en-US/docs/Web/JavaScript/Reference/Statements/return">
+                                            <code>return</code>
+                                        </a>
+                                        statement tells the browser to return the <code>result</code>
+                                        variable out of the function so it is available to use. This is necessary because variables defined inside functions are only available inside those functions. This is called variable <a href="/en-US/docs/Glossary/Scope">scoping</a>
+                                        . (Read more about <a href="/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#variable_scope">variable scoping</a>
+                                        .)
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="events">
+                            <h3 id="events">
+                                <a href="#events">Events</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    Real interactivity on a website requires event handlers. These are code structures that listen for activity in the browser, and run code in response. The most obvious example is handling the <a href="/en-US/docs/Web/API/Element/click_event">click event</a>
+                                    , which is fired by the browser when you click on something with your mouse. To demonstrate this, enter the following into your console, then click on the current webpage:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="+77zf//N2p3wqtD2NfpmNcwDiNJAIAuwbOQyf9+gu5A=">
+                                        <code>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">querySelector</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"html"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">.</span>
+                                            <span class="token function">addEventListener</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"click"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token keyword">function</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token function">alert</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"Ouch! Stop poking me!"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    There are a number of ways to attach an event handler to an element.
+Here we select the 
+                                    <a href="/en-US/docs/Web/HTML/Element/html">
+                                        <code>&lt;html &gt;</code>
+                                    </a>
+                                    element. We then call its 
+                                    <a href="/en-US/docs/Web/API/EventTarget/addEventListener">
+                                        <code>addEventListener()</code>
+                                    </a>
+                                    function, passing in the name of the event to listen to (<code>'click'</code>
+                                    ) and a function to run when the event happens.
+
+                                </p>
+                                <p>
+                                    The function we just passed to <code>addEventListener()</code>
+                                    here is called an <em>anonymous function</em>
+                                    , because it doesn't have a name. There's an alternative way of writing anonymous functions, which we call an <em>arrow function</em>
+                                    .
+An arrow function uses <code>() =&gt;</code>
+                                    instead of <code>function ()</code>
+                                    :
+
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="uctXS/L6TDzgB2EmRQD11bwOVpnVdSCQQeOX2/Tk1A0=">
+                                        <code>
+                                            document<span class="token punctuation">.</span>
+                                            <span class="token function">querySelector</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"html"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">.</span>
+                                            <span class="token function">addEventListener</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"click"</span>
+                                            <span class="token punctuation">,</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token operator">=&gt;</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token function">alert</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"Ouch! Stop poking me!"</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="supercharging_our_example_website">
+                            <h2 id="supercharging_our_example_website">
+                                <a href="#supercharging_our_example_website">Supercharging our example website</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>With this review of JavaScript basics completed (above), let's add some new features to our example site.</p>
+                                <p>
+                                    Before going any further, delete the current contents of your <code>main.js</code>
+                                    file — the bit you added earlier during the "Hello world!" example — and save the empty file. If you don't, the existing code will clash with the new code you are about to add.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="adding_an_image_changer">
+                            <h3 id="adding_an_image_changer">
+                                <a href="#adding_an_image_changer">Adding an image changer</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>In this section, you will learn how to use JavaScript and DOM API features to alternate the display of one of two images. This change will happen as a user clicks the displayed image.</p>
+                                <ol>
+                                    <li>Choose an image you want to feature on your example site. Ideally, the image will be the same size as the image you added previously, or as close as possible.</li>
+                                    <li>
+                                        Save this image in your <code>images</code>
+                                        folder.
+                                    </li>
+                                    <li>
+                                        Rename the image <em>firefox2.png</em>
+                                        .
+                                    </li>
+                                    <li>
+                                        Add the following JavaScript code to your <code>main.js</code>
+                                        file.
+
+                                        <div class="code-example">
+                                            <div class="example-header">
+                                                <span class="language-name">js</span>
+                                            </div>
+                                            <pre class="brush: js notranslate" data-signature="gV0Gf16jNQuk0rdPiDxQrrySgFyeuoxnan7d1KBctjE=">
+                                                <code>
+                                                    <span class="token keyword">const</span>
+                                                    myImage <span class="token operator">=</span>
+                                                    document<span class="token punctuation">.</span>
+                                                    <span class="token function">querySelector</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token string">"img"</span>
+                                                    <span class="token punctuation">)</span>
+                                                    <span class="token punctuation">;</span>
+                                                    myImage<span class="token punctuation">.</span>
+                                                    <span class="token function-variable function">onclick</span>
+                                                    <span class="token operator">=</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token punctuation">)</span>
+                                                    <span class="token operator">=&gt;</span>
+                                                    <span class="token punctuation">{</span>
+                                                    <span class="token keyword">const</span>
+                                                    mySrc <span class="token operator">=</span>
+                                                    myImage<span class="token punctuation">.</span>
+                                                    <span class="token function">getAttribute</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token string">"src"</span>
+                                                    <span class="token punctuation">)</span>
+                                                    <span class="token punctuation">;</span>
+                                                    <span class="token keyword">if</span>
+                                                    <span class="token punctuation">(</span>
+                                                    mySrc <span class="token operator">===</span>
+                                                    <span class="token string">"images/firefox-icon.png"</span>
+                                                    <span class="token punctuation">)</span>
+                                                    <span class="token punctuation">{</span>
+                                                    myImage<span class="token punctuation">.</span>
+                                                    <span class="token function">setAttribute</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token string">"src"</span>
+                                                    <span class="token punctuation">,</span>
+                                                    <span class="token string">"images/firefox2.png"</span>
+                                                    <span class="token punctuation">)</span>
+                                                    <span class="token punctuation">;</span>
+                                                    <span class="token punctuation">}</span>
+                                                    <span class="token keyword">else</span>
+                                                    <span class="token punctuation">{</span>
+                                                    myImage<span class="token punctuation">.</span>
+                                                    <span class="token function">setAttribute</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token string">"src"</span>
+                                                    <span class="token punctuation">,</span>
+                                                    <span class="token string">"images/firefox-icon.png"</span>
+                                                    <span class="token punctuation">)</span>
+                                                    <span class="token punctuation">;</span>
+                                                    <span class="token punctuation">}</span>
+                                                    <span class="token punctuation">}</span>
+                                                    <span class="token punctuation">;</span>
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        Save all files and load <code>index.html</code>
+                                        in the browser. Now when you click the image, it should change to the other one.
+                                    </li>
+                                </ol>
+                                <p>
+                                    This is what happened. You stored a reference to your 
+                                    <a href="/en-US/docs/Web/HTML/Element/img">
+                                        <code>&lt;img &gt;</code>
+                                    </a>
+                                    element in <code>myImage</code>
+                                    . Next, you made its <code>onclick</code>
+                                    event handler property equal to a function with no name (an "anonymous" function). So every time this element is clicked:
+                                </p>
+                                <ol>
+                                    <li>
+                                        The code retrieves the value of the image's <code>src</code>
+                                        attribute.
+                                    </li>
+                                    <li>
+                                        The code uses a conditional to check if the <code>src</code>
+                                        value is equal to the path of the original image:
+
+                                        <ol>
+                                            <li>
+                                                If it is, the code changes the <code>src</code>
+                                                value to the path of the second image, forcing the other image to be loaded inside the 
+                                                <a href="/en-US/docs/Web/HTML/Element/img">
+                                                    <code>&lt;img &gt;</code>
+                                                </a>
+                                                element.
+                                            </li>
+                                            <li>
+                                                If it isn't (meaning it must already have changed), the <code>src</code>
+                                                value swaps back to the original image path, to the original state.
+                                            </li>
+                                        </ol>
+                                    </li>
+                                </ol>
+                            </div>
+                        </section>
+                        <section aria-labelledby="adding_a_personalized_welcome_message">
+                            <h3 id="adding_a_personalized_welcome_message">
+                                <a href="#adding_a_personalized_welcome_message">Adding a personalized welcome message</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    Next, let's change the page title to a personalized welcome message when the user first visits the site. This welcome message will persist. Should the user leave the site and return later, we will save the message using the <a href="/en-US/docs/Web/API/Web_Storage_API">Web Storage API</a>
+                                    . We will also include an option to change the user, and therefore, the welcome message.
+                                </p>
+                                <ol>
+                                    <li>
+                                        In <code>index.html</code>
+                                        , add the following line just before the 
+                                        <a href="/en-US/docs/Web/HTML/Element/script">
+                                            <code>&lt;script &gt;</code>
+                                        </a>
+                                        element:
+
+                                        <div class="code-example">
+                                            <div class="example-header">
+                                                <span class="language-name">html</span>
+                                            </div>
+                                            <pre class="brush: html notranslate" data-signature="8/E0ITsov7RuCLISfaPS8h5akgJs0vbkMU9KsYeB4Rc=">
+                                                <code>
+                                                    <span class="token tag">
+                                                        <span class="token tag">
+                                                            <span class="token punctuation">&lt;</span>
+                                                            button
+                                                        </span>
+                                                        <span class="token punctuation">&gt;</span>
+                                                    </span>
+                                                    Change user
+                                                    <span class="token tag">
+                                                        <span class="token tag">
+                                                            <span class="token punctuation">&lt;/</span>
+                                                            button
+                                                        </span>
+                                                        <span class="token punctuation">&gt;</span>
+                                                    </span>
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        In <code>main.js</code>
+                                        , place the following code at the bottom of the file, exactly as it is written. This takes references to the new button and the heading, storing each inside variables:
+
+                                        <div class="code-example">
+                                            <div class="example-header">
+                                                <span class="language-name">js</span>
+                                            </div>
+                                            <pre class="brush: js notranslate" data-signature="TZXxaEwtVwqCpNkKyWcrRmpApKQzY9R1Kef1KrUZFQw=">
+                                                <code>
+                                                    <span class="token keyword">let</span>
+                                                    myButton <span class="token operator">=</span>
+                                                    document<span class="token punctuation">.</span>
+                                                    <span class="token function">querySelector</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token string">"button"</span>
+                                                    <span class="token punctuation">)</span>
+                                                    <span class="token punctuation">;</span>
+                                                    <span class="token keyword">let</span>
+                                                    myHeading <span class="token operator">=</span>
+                                                    document<span class="token punctuation">.</span>
+                                                    <span class="token function">querySelector</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token string">"h1"</span>
+                                                    <span class="token punctuation">)</span>
+                                                    <span class="token punctuation">;</span>
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        Add the following function to set the personalized greeting. This won't do anything yet, but this will change soon.
+
+                                        <div class="code-example">
+                                            <div class="example-header">
+                                                <span class="language-name">js</span>
+                                            </div>
+                                            <pre class="brush: js notranslate" data-signature="rPYJCQWhLQ2if6W9qItctZbm5xlLKzSKIBpeEgp04tY=">
+                                                <code>
+                                                    <span class="token keyword">function</span>
+                                                    <span class="token function">setUserName</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token punctuation">)</span>
+                                                    <span class="token punctuation">{</span>
+                                                    <span class="token keyword">const</span>
+                                                    myName <span class="token operator">=</span>
+                                                    <span class="token function">prompt</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token string">"Please enter your name."</span>
+                                                    <span class="token punctuation">)</span>
+                                                    <span class="token punctuation">;</span>
+                                                    localStorage<span class="token punctuation">.</span>
+                                                    <span class="token function">setItem</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token string">"name"</span>
+                                                    <span class="token punctuation">,</span>
+                                                    myName<span class="token punctuation">)</span>
+                                                    <span class="token punctuation">;</span>
+                                                    myHeading<span class="token punctuation">.</span>
+                                                    textContent <span class="token operator">=</span>
+                                                    <span class="token template-string">
+                                                        <span class="token template-punctuation string">`</span>
+                                                        <span class="token string">Mozilla is cool, </span>
+                                                        <span class="token interpolation">
+                                                            <span class="token interpolation-punctuation punctuation">${</span>
+                                                            myName<span class="token interpolation-punctuation punctuation">}</span>
+                                                        </span>
+                                                        <span class="token template-punctuation string">`</span>
+                                                    </span>
+                                                    <span class="token punctuation">;</span>
+                                                    <span class="token punctuation">}</span>
+                                                </code>
+                                            </pre>
+                                        </div>
+                                        The <code>setUserName()</code>
+                                        function contains a 
+                                        <a href="/en-US/docs/Web/API/Window/prompt">
+                                            <code>prompt()</code>
+                                        </a>
+                                        function, which displays a dialog box, similar to <code>alert()</code>
+                                        . This <code>prompt()</code>
+                                        function does more than <code>alert()</code>
+                                        , asking the user to enter data, and storing it in a variable after the user clicks <em>OK</em>
+                                        . In this case, we are asking the user to enter a name. Next, the code calls on an API <code>localStorage</code>
+                                        , which allows us to store data in the browser and retrieve it later. We use localStorage's <code>setItem()</code>
+                                        function to create and store a data item called <code>'name'</code>
+                                        , setting its value to the <code>myName</code>
+                                        variable which contains the user's entry for the name. Finally, we set the <code>textContent</code>
+                                        of the heading to a string, plus the user's newly stored name.
+
+                                    </li>
+                                    <li>
+                                        Add the following condition block after the function declaration. We could call this initialization code, as it structures the app when it first loads.
+
+                                        <div class="code-example">
+                                            <div class="example-header">
+                                                <span class="language-name">js</span>
+                                            </div>
+                                            <pre class="brush: js notranslate" data-signature="T4zWDksHa4kdKrMAkS6tvUptuXnudN3oGk+vhxn5j/A=">
+                                                <code>
+                                                    <span class="token keyword">if</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token operator">!</span>
+                                                    localStorage<span class="token punctuation">.</span>
+                                                    <span class="token function">getItem</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token string">"name"</span>
+                                                    <span class="token punctuation">)</span>
+                                                    <span class="token punctuation">)</span>
+                                                    <span class="token punctuation">{</span>
+                                                    <span class="token function">setUserName</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token punctuation">)</span>
+                                                    <span class="token punctuation">;</span>
+                                                    <span class="token punctuation">}</span>
+                                                    <span class="token keyword">else</span>
+                                                    <span class="token punctuation">{</span>
+                                                    <span class="token keyword">const</span>
+                                                    storedName <span class="token operator">=</span>
+                                                    localStorage<span class="token punctuation">.</span>
+                                                    <span class="token function">getItem</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token string">"name"</span>
+                                                    <span class="token punctuation">)</span>
+                                                    <span class="token punctuation">;</span>
+                                                    myHeading<span class="token punctuation">.</span>
+                                                    textContent <span class="token operator">=</span>
+                                                    <span class="token template-string">
+                                                        <span class="token template-punctuation string">`</span>
+                                                        <span class="token string">Mozilla is cool, </span>
+                                                        <span class="token interpolation">
+                                                            <span class="token interpolation-punctuation punctuation">${</span>
+                                                            storedName<span class="token interpolation-punctuation punctuation">}</span>
+                                                        </span>
+                                                        <span class="token template-punctuation string">`</span>
+                                                    </span>
+                                                    <span class="token punctuation">;</span>
+                                                    <span class="token punctuation">}</span>
+                                                </code>
+                                            </pre>
+                                        </div>
+                                        This first line of this block uses the negation operator (logical NOT, represented by the <code>!</code>
+                                        ) to check whether the <code>name</code>
+                                        data exists. If not, the <code>setUserName()</code>
+                                        function runs to create it. If it exists (that is, the user set a user name during a previous visit), we retrieve the stored name using <code>getItem()</code>
+                                        and set the <code>textContent</code>
+                                        of the heading to a string, plus the user's name, as we did inside <code>setUserName()</code>
+                                        .
+
+                                    </li>
+                                    <li>
+                                        Put this <code>onclick</code>
+                                        event handler (below) on the button. When clicked, <code>setUserName()</code>
+                                        runs. This allows the user to enter a different name by pressing the button.
+
+                                        <div class="code-example">
+                                            <div class="example-header">
+                                                <span class="language-name">js</span>
+                                            </div>
+                                            <pre class="brush: js notranslate" data-signature="hCL7M2lrZmA8oaT1CB0jx+xOMTuJ3jAKFqStdvOlXB8=">
+                                                <code>
+                                                    myButton<span class="token punctuation">.</span>
+                                                    <span class="token function-variable function">onclick</span>
+                                                    <span class="token operator">=</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token punctuation">)</span>
+                                                    <span class="token operator">=&gt;</span>
+                                                    <span class="token punctuation">{</span>
+                                                    <span class="token function">setUserName</span>
+                                                    <span class="token punctuation">(</span>
+                                                    <span class="token punctuation">)</span>
+                                                    <span class="token punctuation">;</span>
+                                                    <span class="token punctuation">}</span>
+                                                    <span class="token punctuation">;</span>
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </li>
+                                </ol>
+                            </div>
+                        </section>
+                        <section aria-labelledby="a_user_name_of_null">
+                            <h3 id="a_user_name_of_null">
+                                <a href="#a_user_name_of_null">A user name of null?</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    When you run the example and get the dialog box that prompts you to enter your user name, try pressing the <em>Cancel</em>
+                                    button. You should end up with a title that reads <em>Mozilla is cool, null</em>
+                                    . This happens because—when you cancel the prompt—the value is set as 
+                                    <a href="/en-US/docs/Web/JavaScript/Reference/Operators/null">
+                                        <code>null</code>
+                                    </a>
+                                    . <em>Null</em>
+                                    is a special value in JavaScript that refers to the absence of a value.
+                                </p>
+                                <p>
+                                    Also, try clicking <em>OK</em>
+                                    without entering a name. You should end up with a title that reads <em>Mozilla is cool,</em>
+                                    for fairly obvious reasons.
+                                </p>
+                                <p>
+                                    To avoid these problems, you could check that the user hasn't entered a blank name. Update your <code>setUserName()</code>
+                                    function to this:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">js</span>
+                                    </div>
+                                    <pre class="brush: js notranslate" data-signature="jvNAPFaIcJthrto3ZE7yZfQSB/uEnMdrWSdDN9MUhDE=">
+                                        <code>
+                                            <span class="token keyword">function</span>
+                                            <span class="token function">setUserName</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token keyword">const</span>
+                                            myName <span class="token operator">=</span>
+                                            <span class="token function">prompt</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"Please enter your name."</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token keyword">if</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token operator">!</span>
+                                            myName<span class="token punctuation">)</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token function">setUserName</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token keyword">else</span>
+                                            <span class="token punctuation">{</span>
+                                            localStorage<span class="token punctuation">.</span>
+                                            <span class="token function">setItem</span>
+                                            <span class="token punctuation">(</span>
+                                            <span class="token string">"name"</span>
+                                            <span class="token punctuation">,</span>
+                                            myName<span class="token punctuation">)</span>
+                                            <span class="token punctuation">;</span>
+                                            myHeading<span class="token punctuation">.</span>
+                                            textContent <span class="token operator">=</span>
+                                            <span class="token template-string">
+                                                <span class="token template-punctuation string">`</span>
+                                                <span class="token string">Mozilla is cool, </span>
+                                                <span class="token interpolation">
+                                                    <span class="token interpolation-punctuation punctuation">${</span>
+                                                    myName<span class="token interpolation-punctuation punctuation">}</span>
+                                                </span>
+                                                <span class="token template-punctuation string">`</span>
+                                            </span>
+                                            <span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    In human language, this means: If <code>myName</code>
+                                    has no value, run <code>setUserName()</code>
+                                    again from the start. If it does have a value (if the above statement is not true), then store the value in <code>localStorage</code>
+                                    and set it as the heading's text.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="conclusion">
+                            <h2 id="conclusion">
+                                <a href="#conclusion">Conclusion</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    If you have followed all the instructions in this article, you should end up with a page that looks something like the image below. You can also <a href="https://mdn.github.io/beginner-html-site-scripted/" class="external" target="_blank">view our version</a>
+                                    .
+                                </p>
+                                <p>
+                                    <img src="/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics/website-screen-scripted.png" alt="Final look of HTML page after creating elements: a header, large centered logo, content, and a button" width="800" height="995" loading="lazy">
+                                </p>
+                                <p>
+                                    If you get stuck, you can compare your work with our <a href="https://github.com/mdn/beginner-html-site-scripted/blob/gh-pages/scripts/main.js" class="external" target="_blank">finished example code on GitHub</a>
+                                    .
+                                </p>
+                                <p>We have just scratched the surface of JavaScript. If you enjoyed playing, and wish to go further, take advantage of the resources listed below.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="see_also">
+                            <h2 id="see_also">
+                                <a href="#see_also">See also</a>
+                            </h2>
+                            <div class="section-content">
+                                <dl>
+                                    <dt id="dynamic_client-side_scripting_with_javascript">
+                                        <a href="/en-US/docs/Learn/JavaScript">Dynamic client-side scripting with JavaScript</a>
+                                    </dt>
+                                    <dd>
+                                        <p>Dive into JavaScript in much more detail.</p>
+                                    </dd>
+                                    <dt id="learn_javascript">
+                                        <a href="https://learnjavascript.online/" class="external" target="_blank">Learn JavaScript</a>
+                                    </dt>
+                                    <dd>
+                                        <p>This is an excellent resource for aspiring web developers! Learn JavaScript in an interactive environment, with short lessons and interactive tests, guided by an automated assessment. The first 40 lessons are free. The complete course is available for a small one-time payment.</p>
+                                    </dd>
+                                </dl>
+                                
+                            </div>
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
+                    </div>
+                    
                                         
                 </div>
             </main>

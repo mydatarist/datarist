@@ -1172,38 +1172,816 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
-                        </div>
-                    </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
+                    
+                    
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>CSS basics</h1>
+                        </header>
+                        <div class="section-content">
+                            <ul class="prev-next">
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics">
+                                        <span class="button-wrap">Previous </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/Getting_started_with_the_web">
+                                        <span class="button-wrap">Overview: Getting started with the web</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="button secondary" href="/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics">
+                                        <span class="button-wrap">Next  </span>
+                                    </a>
+                                </li>
                             </ul>
-                        </nav>
-                    </footer>
+                            <p>
+                                CSS (Cascading Style Sheets) is the code that styles web content. <em>CSS basics</em>
+                                walks through what you need to get started. We'll answer questions like: How do I make text red? How do I make content display at a certain location in the (webpage) layout? How do I decorate my webpage with background images and colors?
+                            </p>
+                        </div>
+                        <section aria-labelledby="what_is_css">
+                            <h2 id="what_is_css">
+                                <a href="#what_is_css">What is CSS?</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    Like HTML, CSS is not a programming language. It's not a markup language either. <strong>CSS is a style sheet language.</strong>
+                                    CSS is what you use to selectively style HTML elements. For example, this CSS selects paragraph text, setting the color to red:
+                                </p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="lyA7C1EWXZIsvxJmALFqYoqmvPOOBUmCp7wBryah+lI=">
+                                        <code>
+                                            <span class="token selector">p</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">color</span>
+                                            <span class="token punctuation">:</span>
+                                            red<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    Let's try it out! Using a text editor, paste the three lines of CSS (above) into a new file. Save the file as <code>style.css</code>
+                                    in a directory named <code>styles</code>
+                                    .
+                                </p>
+                                <p>
+                                    To make the code work, we still need to apply this CSS (above) to your HTML document. Otherwise, the styling won't change the appearance of the HTML. (If you haven't been following our project, pause here to read <a href="/en-US/docs/Learn/Getting_started_with_the_web/Dealing_with_files">Dealing with files</a>
+                                    and <a href="/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics">HTML basics</a>
+                                    .)
+                                </p>
+                                <ol>
+                                    <li>
+                                        Open your <code>index.html</code>
+                                        file. Paste the following line in the head (between the 
+                                        <a href="/en-US/docs/Web/HTML/Element/head">
+                                            <code>&lt;head &gt;</code>
+                                        </a>
+                                        and <code>&lt;/head &gt;</code>
+                                        tags):
+
+                                        <div class="code-example">
+                                            <div class="example-header">
+                                                <span class="language-name">html</span>
+                                            </div>
+                                            <pre class="brush: html notranslate" data-signature="Zgo3ScS5h2dzJQCJLFU0LLXIqB2TJTvmoFOoHyHeUS4=">
+                                                <code>
+                                                    <span class="token tag">
+                                                        <span class="token tag">
+                                                            <span class="token punctuation">&lt;</span>
+                                                            link
+                                                        </span>
+                                                        <span class="token attr-name">href</span>
+                                                        <span class="token attr-value">
+                                                            <span class="token punctuation attr-equals">=</span>
+                                                            <span class="token punctuation">"</span>
+                                                            styles/style.css<span class="token punctuation">"</span>
+                                                        </span>
+                                                        <span class="token attr-name">rel</span>
+                                                        <span class="token attr-value">
+                                                            <span class="token punctuation attr-equals">=</span>
+                                                            <span class="token punctuation">"</span>
+                                                            stylesheet<span class="token punctuation">"</span>
+                                                        </span>
+                                                        <span class="token punctuation">/&gt;</span>
+                                                    </span>
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        Save <code>index.html</code>
+                                        and load it in your browser. You should see something like this:
+                                    </li>
+                                </ol>
+                                <p>
+                                    <img src="/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics/website-screenshot-styled.png" alt="A Mozilla logo and some paragraphs. The paragraph text has been styled red by our css." width="711" height="832" loading="lazy">If your paragraph text is red, congratulations! Your CSS is working.
+
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="anatomy_of_a_css_ruleset">
+                            <h3 id="anatomy_of_a_css_ruleset">
+                                <a href="#anatomy_of_a_css_ruleset">Anatomy of a CSS ruleset</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>Let's dissect the CSS code for red paragraph text to understand how it works:</p>
+                                <p>
+                                    <img src="/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics/css-declaration-small.png" alt="CSS p declaration color red" width="850" height="480" loading="lazy">
+                                </p>
+                                <p>
+                                    The whole structure is called a <strong>ruleset</strong>
+                                    . (The term <em>ruleset</em>
+                                    is often referred to as just <em>rule</em>
+                                    .) Note the names of the individual parts:
+                                </p>
+                                <dl>
+                                    <dt id="selector">
+                                        <a href="#selector">Selector</a>
+                                    </dt>
+                                    <dd>
+                                        <p>
+                                            This is the HTML element name at the start of the ruleset. It defines the element(s) to be styled (in this example, 
+                                            <a href="/en-US/docs/Web/HTML/Element/p">
+                                                <code>&lt;p &gt;</code>
+                                            </a>
+                                            elements). To style a different element, change the selector.
+                                        </p>
+                                    </dd>
+                                    <dt id="declaration">
+                                        <a href="#declaration">Declaration</a>
+                                    </dt>
+                                    <dd>
+                                        <p>
+                                            This is a single rule like <code>color: red;</code>
+                                            . It specifies which of the element's <strong>properties</strong>
+                                            you want to style.
+                                        </p>
+                                    </dd>
+                                    <dt id="properties">
+                                        <a href="#properties">Properties</a>
+                                    </dt>
+                                    <dd>
+                                        <p>
+                                            These are ways in which you can style an HTML element. (In this example, <code>color</code>
+                                            is a property of the 
+                                            <a href="/en-US/docs/Web/HTML/Element/p">
+                                                <code>&lt;p &gt;</code>
+                                            </a>
+                                            elements.) In CSS, you choose which properties you want to affect in the rule.
+                                        </p>
+                                    </dd>
+                                    <dt id="property_value">
+                                        <a href="#property_value">Property value</a>
+                                    </dt>
+                                    <dd>
+                                        <p>
+                                            To the right of the property—after the colon—there is the <strong>property value</strong>
+                                            . This chooses one out of many possible appearances for a given property. (For example, there are many <code>color</code>
+                                            values in addition to <code>red</code>
+                                            .)
+                                        </p>
+                                    </dd>
+                                </dl>
+                                <p>Note the other important parts of the syntax:</p>
+                                <ul>
+                                    <li>
+                                        Apart from the selector, each ruleset must be wrapped in curly braces. (<code>{}</code>
+                                        )
+                                    </li>
+                                    <li>
+                                        Within each declaration, you must use a colon (<code>:</code>
+                                        ) to separate the property from its value or values.
+                                    </li>
+                                    <li>
+                                        Within each ruleset, you must use a semicolon (<code>;</code>
+                                        ) to separate each declaration from the next one.
+                                    </li>
+                                </ul>
+                                <p>To modify multiple property values in one ruleset, write them separated by semicolons, like this:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="z2BTPDnYXRXR42J15KPSSplg9V9DqGZnSVhjhAs6jSY=">
+                                        <code>
+                                            <span class="token selector">p</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">color</span>
+                                            <span class="token punctuation">:</span>
+                                            red<span class="token punctuation">;</span>
+                                            <span class="token property">width</span>
+                                            <span class="token punctuation">:</span>
+                                            500px<span class="token punctuation">;</span>
+                                            <span class="token property">border</span>
+                                            <span class="token punctuation">:</span>
+                                            1px solid black<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="selecting_multiple_elements">
+                            <h3 id="selecting_multiple_elements">
+                                <a href="#selecting_multiple_elements">Selecting multiple elements</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>You can also select multiple elements and apply a single ruleset to all of them. Separate multiple selectors by commas. For example:</p>
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="c6a0c0/bAhdPw84t1dgdyM6fsmy2lsM1kCGuQLgTEdA=">
+                                        <code>
+                                            <span class="token selector">p,
+li,
+h1</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">color</span>
+                                            <span class="token punctuation">:</span>
+                                            red<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="different_types_of_selectors">
+                            <h3 id="different_types_of_selectors">
+                                <a href="#different_types_of_selectors">Different types of selectors</a>
+                            </h3>
+                            <div class="section-content">
+                                <p>
+                                    There are many different types of selectors. The examples above use <strong>element selectors</strong>
+                                    , which select all elements of a given type. But we can make more specific selections as well. Here are some of the more common types of selectors:
+                                </p>
+                                <figure class="table-container">
+                                    <table class="standard-table no-markdown">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Selector name</th>
+                                                <th scope="col">What does it select</th>
+                                                <th scope="col">Example</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Element selector (sometimes called a tag or type selector)</td>
+                                                <td>All HTML elements of the specified type.</td>
+                                                <td>
+                                                    <code>p</code>
+                                                    <br>
+                                                    selects <code>&lt;p &gt;</code>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>ID selector</td>
+                                                <td>The element on the page with the specified ID. On a given HTML page,
+    each id value should be unique.
+  </td>
+                                                <td>
+                                                    <code>#my-id</code>
+                                                    <br>
+                                                    selects <code>&lt;p id="my-id"&gt;</code>
+                                                    or
+    <code>&lt;a id="my-id"&gt;</code>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Class selector</td>
+                                                <td>The element(s) on the page with the specified class. Multiple instances
+    of the same class can appear on a page.
+  </td>
+                                                <td>
+                                                    <code>.my-class</code>
+                                                    <br>
+                                                    selects
+    <code>&lt;p class="my-class"&gt;</code>
+                                                    and
+    <code>&lt;a class="my-class"&gt;</code>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Attribute selector</td>
+                                                <td>The element(s) on the page with the specified attribute.</td>
+                                                <td>
+                                                    <code>img[src]</code>
+                                                    <br>
+                                                    selects
+    <code>&lt;img src="myimage.png"&gt;</code>
+                                                    but not
+    <code>&lt;img &gt;</code>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Pseudo-class selector</td>
+                                                <td>The specified element(s), but only when in the specified state. (For
+    example, when a cursor hovers over a link.)
+  </td>
+                                                <td>
+                                                    <code>a:hover</code>
+                                                    <br>
+                                                    selects <code>&lt;a &gt;</code>
+                                                    , but only when
+    the mouse pointer is hovering over the link.
+  
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </figure>
+                                <p>
+                                    There are many more selectors to discover. To learn more, see the MDN <a href="/en-US/docs/Learn/CSS/Building_blocks/Selectors">Selectors guide</a>
+                                    .
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="fonts_and_text">
+                            <h2 id="fonts_and_text">
+                                <a href="#fonts_and_text">Fonts and text</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>
+                                    Now that we've explored some CSS fundamentals, let's improve the appearance of the example by adding more rules and information to the <code>style.css</code>
+                                    file.
+                                </p>
+                                <ol>
+                                    <li>
+                                        First, find the <a href="/en-US/docs/Learn/Getting_started_with_the_web/What_will_your_website_look_like#font">output from Google Fonts</a>
+                                        that you previously saved from <a href="/en-US/docs/Learn/Getting_started_with_the_web/What_will_your_website_look_like">What will your website look like?</a>
+                                        . Add the 
+                                        <a href="/en-US/docs/Web/HTML/Element/link">
+                                            <code>&lt;link &gt;</code>
+                                        </a>
+                                        element somewhere inside your <code>index.html</code>
+                                        's head (anywhere between the 
+                                        <a href="/en-US/docs/Web/HTML/Element/head">
+                                            <code>&lt;head &gt;</code>
+                                        </a>
+                                        and <code>&lt;/head &gt;</code>
+                                        tags). It looks something like this:
+
+                                        <div class="code-example">
+                                            <div class="example-header">
+                                                <span class="language-name">html</span>
+                                            </div>
+                                            <pre class="brush: html notranslate" data-signature="x/mC1/X+dreqatSxPBRqZZPdqVElp43euHbPhEeONQQ=">
+                                                <code>
+                                                    <span class="token tag">
+                                                        <span class="token tag">
+                                                            <span class="token punctuation">&lt;</span>
+                                                            link
+                                                        </span>
+                                                        <span class="token attr-name">href</span>
+                                                        <span class="token attr-value">
+                                                            <span class="token punctuation attr-equals">=</span>
+                                                            <span class="token punctuation">"</span>
+                                                            https://fonts.googleapis.com/css?family=Open+Sans<span class="token punctuation">"</span>
+                                                        </span>
+                                                        <span class="token attr-name">rel</span>
+                                                        <span class="token attr-value">
+                                                            <span class="token punctuation attr-equals">=</span>
+                                                            <span class="token punctuation">"</span>
+                                                            stylesheet<span class="token punctuation">"</span>
+                                                        </span>
+                                                        <span class="token punctuation">/&gt;</span>
+                                                    </span>
+                                                </code>
+                                            </pre>
+                                        </div>
+                                        This code links your page to a style sheet that loads the Open Sans font family with your webpage.
+
+                                    </li>
+                                    <li>
+                                        Next, delete the existing rule you have in your <code>style.css</code>
+                                        file. It was a good test, but let's not continue with lots of red text.
+                                    </li>
+                                    <li>
+                                        Add the following lines (shown below), replacing the <code>font-family</code>
+                                        assignment with your <code>font-family</code>
+                                        selection from <a href="/en-US/docs/Learn/Getting_started_with_the_web/What_will_your_website_look_like#font">What will your website look like?</a>
+                                        . The property <code>font-family</code>
+                                        refers to the font(s) you want to use for text. This rule defines a global base font and font size for the whole page. Since 
+                                        <a href="/en-US/docs/Web/HTML/Element/html">
+                                            <code>&lt;html &gt;</code>
+                                        </a>
+                                        is the parent element of the whole page, all elements inside it inherit the same <code>font-size</code>
+                                        and <code>font-family</code>
+                                        .
+
+                                        <div class="code-example">
+                                            <div class="example-header">
+                                                <span class="language-name">css</span>
+                                            </div>
+                                            <pre class="brush: css notranslate" data-signature="YmVasM1u4D+xzU1hmcDetB03/Ym9tBbg3qkAq4Ytzas=">
+                                                <code>
+                                                    <span class="token selector">html</span>
+                                                    <span class="token punctuation">{</span>
+                                                    <span class="token property">font-size</span>
+                                                    <span class="token punctuation">:</span>
+                                                    10px<span class="token punctuation">;</span>
+                                                    <span class="token comment">/* px means "pixels": the base font size is now 10 pixels high */</span>
+                                                    <span class="token property">font-family</span>
+                                                    <span class="token punctuation">:</span>
+                                                    <span class="token string">"Open Sans"</span>
+                                                    <span class="token punctuation">,</span>
+                                                    sans-serif<span class="token punctuation">;</span>
+                                                    <span class="token comment">/* this should be the rest of the output you got from Google Fonts */</span>
+                                                    <span class="token punctuation">}</span>
+                                                </code>
+                                            </pre>
+                                        </div>
+                                        <div class="notecard note" id="sect1">
+                                            <p>
+                                                <strong>Note:</strong>
+                                                Anything in CSS between <code>/*</code>
+                                                and <code>*/</code>
+                                                is a <strong>CSS comment</strong>
+                                                . The browser ignores comments as it renders the code. CSS comments are a way for you to write helpful notes about your code or logic.
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        Now let's set font sizes for elements that will have text inside the HTML body (<a href="/en-US/docs/Web/HTML/Element/Heading_Elements">&lt;h1 &gt;</a>
+                                        , 
+                                        <a href="/en-US/docs/Web/HTML/Element/li">
+                                            <code>&lt;li &gt;</code>
+                                        </a>
+                                        , and 
+                                        <a href="/en-US/docs/Web/HTML/Element/p">
+                                            <code>&lt;p &gt;</code>
+                                        </a>
+                                        ). We'll also center the heading. Finally, let's expand the second ruleset (below) with settings for line height and letter spacing to make body content more readable.
+
+                                        <div class="code-example">
+                                            <div class="example-header">
+                                                <span class="language-name">css</span>
+                                            </div>
+                                            <pre class="brush: css notranslate" data-signature="F82X8jOyKBVP8rEGw+cisEYq4Z3wmE15/8x+NBMKJ4E=">
+                                                <code>
+                                                    <span class="token selector">h1</span>
+                                                    <span class="token punctuation">{</span>
+                                                    <span class="token property">font-size</span>
+                                                    <span class="token punctuation">:</span>
+                                                    60px<span class="token punctuation">;</span>
+                                                    <span class="token property">text-align</span>
+                                                    <span class="token punctuation">:</span>
+                                                    center<span class="token punctuation">;</span>
+                                                    <span class="token punctuation">}</span>
+                                                    <span class="token selector">p,
+li</span>
+                                                    <span class="token punctuation">{</span>
+                                                    <span class="token property">font-size</span>
+                                                    <span class="token punctuation">:</span>
+                                                    16px<span class="token punctuation">;</span>
+                                                    <span class="token property">line-height</span>
+                                                    <span class="token punctuation">:</span>
+                                                    2<span class="token punctuation">;</span>
+                                                    <span class="token property">letter-spacing</span>
+                                                    <span class="token punctuation">:</span>
+                                                    1px<span class="token punctuation">;</span>
+                                                    <span class="token punctuation">}</span>
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </li>
+                                </ol>
+                                <p>
+                                    Adjust the <code>px</code>
+                                    values as you like. Your work-in-progress should look similar to this:
+                                </p>
+                                <p>
+                                    <img src="/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics/website-screenshot-font-small.png" alt="A Mozilla logo and some paragraphs. A sans-serif font has been set, the font sizes, line height and letter spacing are adjusted, and the main page heading has been centered" width="921" height="1020" loading="lazy">
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="css_all_about_boxes">
+                            <h2 id="css_all_about_boxes">
+                                <a href="#css_all_about_boxes">CSS: all about boxes</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>Something you'll notice about writing CSS: a lot of it is about boxes. This includes setting size, color, and position. Most HTML elements on your page can be thought of as boxes sitting on top of other boxes.</p>
+                                <p>
+                                    <img src="/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics/boxes.jpg" alt="A big stack of boxes or crates sat on top of one another" width="640" height="463" loading="lazy">
+                                </p>
+                                <p>
+                                    Photo from <a href="https://www.geograph.org.uk/photo/3418115" class="external" target="_blank">https://www.geograph.org.uk/photo/3418115</a>
+                                    Copyright © <a href="https://www.geograph.org.uk/profile/26362" class="external" target="_blank">Jim Barton</a>
+                                    <a href="https://creativecommons.org/licenses/by-sa/2.0/" class="external" target="_blank">cc-by-sa/2.0</a>
+                                </p>
+                                <p>
+                                    CSS layout is mostly based on the <em>box model.</em>
+                                    Each box taking up space on your page has properties like:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <code>padding</code>
+                                        , the space around the content. In the example below, it is the space around the paragraph text.
+                                    </li>
+                                    <li>
+                                        <code>border</code>
+                                        , the solid line that is just outside the padding.
+                                    </li>
+                                    <li>
+                                        <code>margin</code>
+                                        , the space around the outside of the border.
+                                    </li>
+                                </ul>
+                                <p>
+                                    <img src="/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics/box-model.png" alt="Three boxes sat inside one another. From outside to in they are labelled margin, border and padding" width="574" height="450" loading="lazy">
+                                </p>
+                                <p>In this section we also use:</p>
+                                <ul>
+                                    <li>
+                                        <code>width</code>
+                                        (of an element).
+                                    </li>
+                                    <li>
+                                        <code>background-color</code>
+                                        , the color behind an element's content and padding.
+                                    </li>
+                                    <li>
+                                        <code>color</code>
+                                        , the color of an element's content (usually text).
+                                    </li>
+                                    <li>
+                                        <code>text-shadow</code>
+                                        sets a drop shadow on the text inside an element.
+                                    </li>
+                                    <li>
+                                        <code>display</code>
+                                        sets the display mode of an element. (keep reading to learn more)
+                                    </li>
+                                </ul>
+                                <p>
+                                    To continue, let's add more CSS. Keep adding these new rules at the bottom of <code>style.css</code>
+                                    . Experiment with changing values to see what happens.
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="changing_the_page_color">
+                            <h3 id="changing_the_page_color">
+                                <a href="#changing_the_page_color">Changing the page color</a>
+                            </h3>
+                            <div class="section-content">
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="1nQJrZ9BHrr/hjvavsnmVzXOG2hbfk9oeCrj7qb9zVE=">
+                                        <code>
+                                            <span class="token selector">html</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">background-color</span>
+                                            <span class="token punctuation">:</span>
+                                            #00539f<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    This rule sets a background color for the entire page. Change the color code to <a href="/en-US/docs/Learn/Getting_started_with_the_web/What_will_your_website_look_like#theme_color">the color you chose in What will my website look like?</a>
+                                    .
+                                </p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="styling_the_body">
+                            <h3 id="styling_the_body">
+                                <a href="#styling_the_body">Styling the body</a>
+                            </h3>
+                            <div class="section-content">
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="SlEXuoDZlwB0TuPjKY5pmuupgbg8kwlVT9XLMHpgcFM=">
+                                        <code>
+                                            <span class="token selector">body</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">width</span>
+                                            <span class="token punctuation">:</span>
+                                            600px<span class="token punctuation">;</span>
+                                            <span class="token property">margin</span>
+                                            <span class="token punctuation">:</span>
+                                            0 auto<span class="token punctuation">;</span>
+                                            <span class="token property">background-color</span>
+                                            <span class="token punctuation">:</span>
+                                            #ff9500<span class="token punctuation">;</span>
+                                            <span class="token property">padding</span>
+                                            <span class="token punctuation">:</span>
+                                            0 20px 20px 20px<span class="token punctuation">;</span>
+                                            <span class="token property">border</span>
+                                            <span class="token punctuation">:</span>
+                                            5px solid black<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    There are several declarations for the 
+                                    <a href="/en-US/docs/Web/HTML/Element/body">
+                                        <code>&lt;body &gt;</code>
+                                    </a>
+                                    element. Let's go through these line-by-line:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <code>width: 600px;</code>
+                                        This forces the body to always be 600 pixels wide.
+                                    </li>
+                                    <li>
+                                        <code>margin: 0 auto;</code>
+                                        When you set two values on a property like <code>margin</code>
+                                        or <code>padding</code>
+                                        , the first value affects the element's top <em>and</em>
+                                        bottom side (setting it to <code>0</code>
+                                        in this case); the second value affects the left <em>and</em>
+                                        right side. (Here, <code>auto</code>
+                                        is a special value that divides the available horizontal space evenly between left and right). You can also use one, two, three, or four values, as documented in <a href="/en-US/docs/Web/CSS/margin#syntax">Margin Syntax</a>
+                                        .
+                                    </li>
+                                    <li>
+                                        <code>background-color: #FF9500;</code>
+                                        This sets the element's background color. This project uses a reddish orange for the body background color, as opposed to dark blue for the 
+                                        <a href="/en-US/docs/Web/HTML/Element/html">
+                                            <code>&lt;html &gt;</code>
+                                        </a>
+                                        element. (Feel free to experiment.)
+                                    </li>
+                                    <li>
+                                        <code>padding: 0 20px 20px 20px;</code>
+                                        This sets four values for padding. The goal is to put some space around the content. In this example, there is no padding on the top of the body, and 20 pixels on the right, bottom and left. The values set top, right, bottom, left, in that order. As with <code>margin</code>
+                                        , you can use one, two, three, or four values, as documented in <a href="/en-US/docs/Web/CSS/padding#syntax">Padding Syntax</a>
+                                        .
+                                    </li>
+                                    <li>
+                                        <code>border: 5px solid black;</code>
+                                        This sets values for the width, style and color of the border. In this case, it's a five-pixel–wide, solid black border, on all sides of the body.
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section aria-labelledby="positioning_and_styling_the_main_page_title">
+                            <h3 id="positioning_and_styling_the_main_page_title">
+                                <a href="#positioning_and_styling_the_main_page_title">Positioning and styling the main page title</a>
+                            </h3>
+                            <div class="section-content">
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="aufP1MZrekM9Z2BGEjKudUJUeRmG8TnnuX7WRZQMR1w=">
+                                        <code>
+                                            <span class="token selector">h1</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">margin</span>
+                                            <span class="token punctuation">:</span>
+                                            0<span class="token punctuation">;</span>
+                                            <span class="token property">padding</span>
+                                            <span class="token punctuation">:</span>
+                                            20px 0<span class="token punctuation">;</span>
+                                            <span class="token property">color</span>
+                                            <span class="token punctuation">:</span>
+                                            #00539f<span class="token punctuation">;</span>
+                                            <span class="token property">text-shadow</span>
+                                            <span class="token punctuation">:</span>
+                                            3px 3px 1px black<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    You may have noticed there's a horrible gap at the top of the body. That happens because browsers apply default styling to the <a href="/en-US/docs/Web/HTML/Element/Heading_Elements">h1</a>
+                                    element (among others). That might seem like a bad idea, but the intent is to provide basic readability for unstyled pages. To eliminate the gap, we overwrite the browser's default styling with the setting <code>margin: 0;</code>
+                                    .
+                                </p>
+                                <p>Next, we set the heading's top and bottom padding to 20 pixels.</p>
+                                <p>Following that, we set the heading text to be the same color as the HTML background color.</p>
+                                <p>
+                                    Finally, <code>text-shadow</code>
+                                    applies a shadow to the text content of the element. Its four values are:
+                                </p>
+                                <ul>
+                                    <li>
+                                        The first pixel value sets the <strong>horizontal offset</strong>
+                                        of the shadow from the text: how far it moves across.
+                                    </li>
+                                    <li>
+                                        The second pixel value sets the <strong>vertical offset</strong>
+                                        of the shadow from the text: how far it moves down.
+                                    </li>
+                                    <li>
+                                        The third pixel value sets the <strong>blur radius</strong>
+                                        of the shadow. A larger value produces a more fuzzy-looking shadow.
+                                    </li>
+                                    <li>The fourth value sets the base color of the shadow.</li>
+                                </ul>
+                                <p>Try experimenting with different values to see how it changes the appearance.</p>
+                            </div>
+                        </section>
+                        <section aria-labelledby="centering_the_image">
+                            <h3 id="centering_the_image">
+                                <a href="#centering_the_image">Centering the image</a>
+                            </h3>
+                            <div class="section-content">
+                                <div class="code-example">
+                                    <div class="example-header">
+                                        <span class="language-name">css</span>
+                                    </div>
+                                    <pre class="brush: css notranslate" data-signature="TjCLtaQfPnuF7OR6Zz+J1EWnbm/OT9FtdvuUXuWZo/w=">
+                                        <code>
+                                            <span class="token selector">img</span>
+                                            <span class="token punctuation">{</span>
+                                            <span class="token property">display</span>
+                                            <span class="token punctuation">:</span>
+                                            block<span class="token punctuation">;</span>
+                                            <span class="token property">margin</span>
+                                            <span class="token punctuation">:</span>
+                                            0 auto<span class="token punctuation">;</span>
+                                            <span class="token punctuation">}</span>
+                                        </code>
+                                    </pre>
+                                </div>
+                                <p>
+                                    Next, we center the image to make it look better. We could use the <code>margin: 0 auto</code>
+                                    trick again as we did for the body. But there are differences that require an additional setting to make the CSS work.
+                                </p>
+                                <p>
+                                    The 
+                                    <a href="/en-US/docs/Web/HTML/Element/body">
+                                        <code>&lt;body &gt;</code>
+                                    </a>
+                                    is a <strong>block</strong>
+                                    element, meaning it takes up space on the page. The margin applied to a block element will be respected by other elements on the page. In contrast, images are <strong>inline</strong>
+                                    elements, for the auto margin trick to work on this image, we must give it block-level behavior using <code>display: block;</code>
+                                    .
+                                </p>
+                                <div class="notecard note" id="sect2">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        The instructions above assume that you're using an image smaller than the width set on the body. (600 pixels) If your image is larger, it will overflow the body, spilling into the rest of the page. To fix this, you can either: 1) reduce the image width using a <a href="https://en.wikipedia.org/wiki/Raster_graphics_editor" class="external" target="_blank">graphics editor</a>
+                                        , or 2) use CSS to size the image by setting the 
+                                        <a href="/en-US/docs/Web/CSS/width">
+                                            <code>width</code>
+                                        </a>
+                                        property on the <code>&lt;img &gt;</code>
+                                        element with a smaller value.
+                                    </p>
+                                </div>
+                                <div class="notecard note" id="sect3">
+                                    <p>
+                                        <strong>Note:</strong>
+                                        Don't be too concerned if you don't completely understand <code>display: block;</code>
+                                        or the differences between a block element and an inline element. It will make more sense as you continue your study of CSS. You can find more information about different display values on MDN's <a href="/en-US/docs/Web/CSS/display">display reference page</a>
+                                        .
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section aria-labelledby="conclusion">
+                            <h2 id="conclusion">
+                                <a href="#conclusion">Conclusion</a>
+                            </h2>
+                            <div class="section-content">
+                                <p>If you followed all the instructions in this article, you should have a page that looks similar to this one:</p>
+                                <p>
+                                    <img src="/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics/website-screenshot-final.png" alt="A Mozilla logo, centered, and a header and paragraphs. It now looks nicely styled, with a blue background for the whole page and orange background for the centered main content strip." width="940" height="1084" loading="lazy">
+                                </p>
+                                <p>
+                                    (You can <a href="https://mdn.github.io/beginner-html-site-styled/" class="external" target="_blank">view our version here</a>
+                                    .) If you get stuck, you can always compare your work with our <a href="https://github.com/mdn/beginner-html-site-styled/blob/gh-pages/styles/style.css" class="external" target="_blank">finished example code on GitHub</a>
+                                    .
+                                </p>
+                                <p>
+                                    In this exercise, we have just scratched the surface of CSS. To go further, see <a href="/en-US/docs/Learn/CSS">Learning to style HTML using CSS</a>
+                                    .
+                                </p>
+                                
+                            </div>
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
+                    </div>
+                    
                                         
                 </div>
             </main>

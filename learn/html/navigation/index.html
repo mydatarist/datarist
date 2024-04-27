@@ -1172,38 +1172,362 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                    
+                    
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Navigation</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
+                        <section aria-labelledby="the_story_of_your_first_website">
+                            
+                            
+
+
+
+                            <p>As you learned in <a href="/learn/html/links">links</a>, the <code translate="no" dir="ltr">&lt;a&gt;</code> element with the <code translate="no" dir="ltr">href</code> attribute creates links that users can follow by clicking or
+                                tapping. In <a href="/learn/html/lists">lists</a>, you learned how to create lists of content. In this section, you will discover how to group lists of
+                                links together to create navigation.</p>
+                                
+                                <p>There are several types of navigation and several ways to display them. Named anchors within text linking to other pages within
+                                the same website are considered local navigation. Local navigation that consists of a series of links displaying the hierarchy of
+                                the current page in relation to the site&#39;s structure, or the pages the user followed to get to the current page, is called a breadcrumb.
+                                A page&#39;s table of contents is another type of local navigation. A page containing hierarchical links to every single page on a site is called
+                                a site map. The navigation section leading to the top-level pages of the website which is found on every page is called global navigation.
+                                Global navigation can be displayed in several different ways, including navigation bars, drop-down menus, and flyout menus.
+                                The same site may display its global navigation differently, depending on the viewport size.</p>
+                                
+                                <p>Always make sure users can navigate to any page on your site with the fewest number of clicks, while making sure the navigation
+                                is intuitive and not overwhelming. That said, there are no specific requirements for navigational elements. <a href="https://machinelearningworkshop.com">MachineLearningWorkshop.com</a>,
+                                being a single-page website, has a local navigation bar in the top right; this is where multi-page sites often put their global navigation.</p>
+                                
+                                <p><img src="/static/learn/html/navigation/image/the-front-page-this-page-7bd01d25c4e72.png" alt="The front page of this page, including the breadcrumbs at top, a button to show the table of contents for this page, and the local navigations for the series." width="600" height="628" srcset="https://web.dev/static/learn/html/navigation/image/the-front-page-this-page-7bd01d25c4e72_36.png 36w,https://web.dev/static/learn/html/navigation/image/the-front-page-this-page-7bd01d25c4e72_48.png 48w,https://web.dev/static/learn/html/navigation/image/the-front-page-this-page-7bd01d25c4e72_72.png 72w,https://web.dev/static/learn/html/navigation/image/the-front-page-this-page-7bd01d25c4e72_96.png 96w,https://web.dev/static/learn/html/navigation/image/the-front-page-this-page-7bd01d25c4e72_480.png 480w,https://web.dev/static/learn/html/navigation/image/the-front-page-this-page-7bd01d25c4e72_720.png 720w,https://web.dev/static/learn/html/navigation/image/the-front-page-this-page-7bd01d25c4e72_856.png 856w,https://web.dev/static/learn/html/navigation/image/the-front-page-this-page-7bd01d25c4e72_960.png 960w,https://web.dev/static/learn/html/navigation/image/the-front-page-this-page-7bd01d25c4e72_1440.png 1440w,https://web.dev/static/learn/html/navigation/image/the-front-page-this-page-7bd01d25c4e72_1920.png 1920w,https://web.dev/static/learn/html/navigation/image/the-front-page-this-page-7bd01d25c4e72_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                                
+                                <p>If you are viewing this page on web.dev, you can spot a few navigational features. There is a breadcrumb above the title,
+                                an &quot;on this page&quot; table of contents after the title, and a &quot;Learn HTML&quot; table of contents that, depending on the width of your screen,
+                                is either always displayed or made visible with the click of a menu button. The first element on the page is a hidden link to #main, which enables you to skip both the sidebar and breadcrumb links.</p>
+                                
+                                <h2 id="skip_to_content_link" data-text='"Skip to content" link' tabindex="-1">"Skip to content" link</h2>
+                                
+                                <p>The first element on the page is an internal link:</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;a href=&#34;#main&#34; class=&#34;skip-link button&#34;&gt;Skip to main&lt;/a&gt;
+                                </code></pre>
+                                <p>which, when clicked, or when it has focus and the user hits <code translate="no" dir="ltr">Enter</code>, scrolls the page and gives focus to the main content:
+                                a landmark <code translate="no" dir="ltr">&lt;main&gt;</code> with an <code translate="no" dir="ltr">id</code> of <code translate="no" dir="ltr">main</code>:</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;main id=&#34;main&#34;&gt;
+                                </code></pre>
+                                <p>You may never have seen the link on this site, even if you have read through all the previous sections.
+                                It is only displayed when it has focus:</p>
+                                
+                                <p><img src="/static/learn/html/navigation/image/skip-main-button-43735f8e63465.png" alt="Skip to Main button." width="680" height="300" srcset="https://web.dev/static/learn/html/navigation/image/skip-main-button-43735f8e63465_36.png 36w,https://web.dev/static/learn/html/navigation/image/skip-main-button-43735f8e63465_48.png 48w,https://web.dev/static/learn/html/navigation/image/skip-main-button-43735f8e63465_72.png 72w,https://web.dev/static/learn/html/navigation/image/skip-main-button-43735f8e63465_96.png 96w,https://web.dev/static/learn/html/navigation/image/skip-main-button-43735f8e63465_480.png 480w,https://web.dev/static/learn/html/navigation/image/skip-main-button-43735f8e63465_720.png 720w,https://web.dev/static/learn/html/navigation/image/skip-main-button-43735f8e63465_856.png 856w,https://web.dev/static/learn/html/navigation/image/skip-main-button-43735f8e63465_960.png 960w,https://web.dev/static/learn/html/navigation/image/skip-main-button-43735f8e63465_1440.png 1440w,https://web.dev/static/learn/html/navigation/image/skip-main-button-43735f8e63465_1920.png 1920w,https://web.dev/static/learn/html/navigation/image/skip-main-button-43735f8e63465_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                                
+                                <p>For improved usability and accessibility, it&#39;s important to let users bypass the blocks of content that are repeated on every page.
+                                The skip link is included so when a keyboard user hits <code translate="no" dir="ltr">tab</code> on load, they can quickly skip to the main content of the site—avoiding
+                                having to tab through extensive linkages. On this page, the skip link skips the section-wide sidebar navigation and the breadcrumb navigation,
+                                taking the user directly to the page title.</p>
+                                
+                                <p>Most designers don&#39;t like the appearance of having a link at the top of the page. It is fine to hide the link from view while remembering
+                                that when the link gets focus, which will happen when a keyboard user tabs through the link on the page, the link must be visible to all users.
+                                Only hide content in the non-focused and non-active state using a selector similar to <code translate="no" dir="ltr">.visually-hidden:not(:focus):not(:active)</code>.</p>
+                                
+                                <p>The link text reads &quot;skip to main.&quot; This is the link&#39;s accessible name. This is a technical site, and users probably know what &quot;main&quot; means.
+                                Like all link text, the accessible name should clearly indicate where the link takes the user. The link target should be the beginning of the
+                                page&#39;s main content. To test this, when the page loads, tab to the &quot;Skip to main&quot; link. Then press <code translate="no" dir="ltr">Enter</code> to ensure it &quot;jumps&quot; to the main content.</p>
+                                
+                                <h2 id="table_of_contents" data-text="Table of contents" tabindex="-1">Table of contents</h2>
+                                
+                                <p>The skip-to-content link scrolls the main content into view. The first element is the <code translate="no" dir="ltr">&lt;h1&gt;</code> heading with the title of this section.
+                                In this case, <code translate="no" dir="ltr">&lt;h1&gt;Marking up navigation&lt;/h1&gt;</code>. The main heading is followed by the tagline, a brief description of the contents of this
+                                tutorial. Whether the table of contents navigation comes before or after the heading in the codebase depends on the width of your browser.</p>
+                                
+                                <figure>
+                                <img src="/static/learn/html/navigation/image/on-narrow-screens-table-c83e6648833a5.png" alt="On narrow screens, the table of contents is hidden behind an on this page button that toggles the navigations visibility." width="446" height="300" srcset="https://web.dev/static/learn/html/navigation/image/on-narrow-screens-table-c83e6648833a5_36.png 36w,https://web.dev/static/learn/html/navigation/image/on-narrow-screens-table-c83e6648833a5_48.png 48w,https://web.dev/static/learn/html/navigation/image/on-narrow-screens-table-c83e6648833a5_72.png 72w,https://web.dev/static/learn/html/navigation/image/on-narrow-screens-table-c83e6648833a5_96.png 96w,https://web.dev/static/learn/html/navigation/image/on-narrow-screens-table-c83e6648833a5_480.png 480w,https://web.dev/static/learn/html/navigation/image/on-narrow-screens-table-c83e6648833a5_720.png 720w,https://web.dev/static/learn/html/navigation/image/on-narrow-screens-table-c83e6648833a5_856.png 856w,https://web.dev/static/learn/html/navigation/image/on-narrow-screens-table-c83e6648833a5_960.png 960w,https://web.dev/static/learn/html/navigation/image/on-narrow-screens-table-c83e6648833a5_1440.png 1440w,https://web.dev/static/learn/html/navigation/image/on-narrow-screens-table-c83e6648833a5_1920.png 1920w,https://web.dev/static/learn/html/navigation/image/on-narrow-screens-table-c83e6648833a5_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px">
+                                  <figcaption class="wd-caption">On narrow screens, the table of contents is hidden behind an on this page button that toggles the navigations visibility.</figcaption>
+                                </figure>
+                                
+                                <figure>
+                                <img src="/static/learn/html/navigation/image/on-wide-screens-table-fd8614138c606.png" alt="On wide screens, the table of contents is always visible, with the link to the current section being highlighted in blue." width="236" height="300" srcset="https://web.dev/static/learn/html/navigation/image/on-wide-screens-table-fd8614138c606_36.png 36w,https://web.dev/static/learn/html/navigation/image/on-wide-screens-table-fd8614138c606_48.png 48w,https://web.dev/static/learn/html/navigation/image/on-wide-screens-table-fd8614138c606_72.png 72w,https://web.dev/static/learn/html/navigation/image/on-wide-screens-table-fd8614138c606_96.png 96w,https://web.dev/static/learn/html/navigation/image/on-wide-screens-table-fd8614138c606_480.png 480w,https://web.dev/static/learn/html/navigation/image/on-wide-screens-table-fd8614138c606_720.png 720w,https://web.dev/static/learn/html/navigation/image/on-wide-screens-table-fd8614138c606_856.png 856w,https://web.dev/static/learn/html/navigation/image/on-wide-screens-table-fd8614138c606_960.png 960w,https://web.dev/static/learn/html/navigation/image/on-wide-screens-table-fd8614138c606_1440.png 1440w,https://web.dev/static/learn/html/navigation/image/on-wide-screens-table-fd8614138c606_1920.png 1920w,https://web.dev/static/learn/html/navigation/image/on-wide-screens-table-fd8614138c606_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px">
+                                  <figcaption class="wd-caption">On wide screens, the table of contents is always visible, with the link to the current section being highlighted in blue.</figcaption>
+                                </figure>
+                                
+                                <p>If your browser is wider than 80em, the Table of contents comes before the heading in the markup, and is similar to the following
+                                (the class names have been removed to simplify the markup):</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;nav aria-label=&#34;On this page&#34;&gt;
+                                  &lt;div&gt;On this page&lt;/div&gt;
+                                  &lt;div&gt;
+                                    &lt;ul&gt;
+                                      &lt;li&gt;
+                                        &lt;a href=&#34;#skip&#34;&gt;Skip to content link&lt;/a&gt;
+                                      &lt;/li&gt;
+                                      &lt;li&gt;
+                                        &lt;a href=&#34;#toc&#34;&gt;Table of contents&lt;/a&gt;
+                                      &lt;/li&gt;
+                                      &lt;li&gt;
+                                        &lt;a href=&#34;#bc&#34;&gt;Page breadcrumbs&lt;/a&gt;
+                                      &lt;/li&gt;
+                                      &lt;li&gt;
+                                        &lt;a href=&#34;#ln&#34;&gt;Local navigation&lt;/a&gt;
+                                      &lt;/li&gt;
+                                      &lt;li&gt;
+                                        &lt;a href=&#34;#global&#34;&gt;Global navigation&lt;/a&gt;
+                                      &lt;/li&gt;
+                                    &lt;/ul&gt;
+                                  &lt;/div&gt;
+                                &lt;/nav&gt;
+                                </code></pre>
+                                <p>The <code translate="no" dir="ltr">&lt;nav&gt;</code> is the best element to use for sections of navigation: it automatically informs the screen reader and search engine
+                                that a section has a role of <code translate="no" dir="ltr">navigation</code>, a landmark role.</p>
+                                
+                                <p>Including the <a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Attributes/aria-label"><code translate="no" dir="ltr">aria-label</code></a> attribute
+                                provides a brief description of the purpose of the navigation. In this case, as the value of the attribute is redundant to
+                                text that is visible on the page, it is preferable to use <a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby"><code translate="no" dir="ltr">aria-labelledby</code></a>
+                                to reference the visible text.</p>
+                                
+                                <p>We can change the non-semantic <code translate="no" dir="ltr">&lt;div&gt;</code> to a paragraph <code translate="no" dir="ltr">&lt;p&gt;</code>, then add an <a href="/learn/html/attributes#id"><code translate="no" dir="ltr">id</code></a> so it can be referenced. We then use <code translate="no" dir="ltr">aria-labelledby</code>:</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;nav aria-labelledby=&#34;tocTitle&#34;&gt;
+                                  &lt;p id=&#34;tocTitle&#34;&gt;On this page&lt;/p&gt;
+                                </code></pre>
+                                <p>In addition to reducing redundancy, visible text gets translated by translation services, whereas attribute values may not.
+                                When possible, if text is present that provides for an adequate label, prefer that over attribute text.</p>
+                                
+                                <p>This navigation is the table of contents. If you want to use the <code translate="no" dir="ltr">aria-label</code>, provide that information rather than repeating visible text:</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;nav aria-label=&#34;Table of Contents&#34;&gt;
+                                  &lt;p&gt;On this page&lt;/p&gt;
+                                </code></pre>
+                                <p>When providing an accessible name on an element, don&#39;t include the name of the element. Screen readers provide that information to the user.
+                                For example, when using the <code translate="no" dir="ltr">&lt;nav&gt;</code> element, don&#39;t include &quot;navigation&quot;; that information is included when using semantic elements.</p>
+                                
+                                <p>The links themselves are in an unordered list. While they don&#39;t have to be nested in a list, using a list enables screen reader users to know how many
+                                list items, and therefore links, are an individual list in a navigation.</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;nav aria-labelledby=&#34;tocTitle&#34;&gt;
+                                  &lt;p id=&#34;tocTitle&#34;&gt;On this page&lt;/p&gt;
+                                  &lt;ul role=&#34;list&#34;&gt;
+                                    &lt;li&gt;
+                                      &lt;a href=&#34;#skip&#34;&gt;Skip to content link&lt;/a&gt;
+                                    &lt;/li&gt;
+                                    &lt;li&gt;
+                                      &lt;a href=&#34;#toc&#34;&gt;Table of contents&lt;/a&gt;
+                                    &lt;/li&gt;
+                                    &lt;li&gt;
+                                      &lt;a href=&#34;#bc&#34;&gt;Page breadcrumbs&lt;/a&gt;
+                                    &lt;/li&gt;
+                                    &lt;li&gt;
+                                      &lt;a href=&#34;#ln&#34;&gt;Local navigation&lt;/a&gt;
+                                    &lt;/li&gt;
+                                    &lt;li&gt;
+                                      &lt;a href=&#34;#global&#34;&gt;Global navigation&lt;/a&gt;
+                                    &lt;/li&gt;
+                                  &lt;/ul&gt;
+                                &lt;/nav&gt;
+                                </code></pre>
+                                <p>If your browser is less than 80em wide, the &quot;On this page&quot; widget is below the heading and tagline. This is done by including
+                                two table-of-contents navigation components and hiding one or the other with CSS <code translate="no" dir="ltr">display: none;</code> based on a media query.</p>
+                                
+                                <p>Including two identical widgets to only show one is an anti-pattern. The extra bytes are negligible. Hiding HTML content from
+                                all users by using CSS <code translate="no" dir="ltr">display: none</code> is appropriate. The issue is that, on wide screens, the table of contents comes before <code translate="no" dir="ltr">#main</code>;
+                                and on narrower screens, the table of contents is nested within #main. Using the keyboard to skip to content skips over the table of
+                                contents on a wide screen. While users are accustomed to content being responsive and changing location when they change devices or
+                                increase their font size, they do not expect the tab order to change when they do so. Page layouts should be accessible, predictable,
+                                and consistent across a site. Here, the location of the table of contents is not predictable.</p>
+                                
+                                <h2 id="page_breadcrumbs" data-text="Page breadcrumbs" tabindex="-1">Page breadcrumbs</h2>
+                                
+                                <p>Breadcrumbs provide secondary navigation to help users understand where they are on a website. They generally show the URL hierarchy
+                                of the current document and the location of the current page in the site structure. The site structure from a user perspective may differ
+                                from the file structure on the server. That is fine. The user doesn&#39;t need to know how you organize your files, but they do need to be able
+                                to navigate through your content.</p>
+                                
+                                <p>Breadcrumbs help users navigate and understand the organization of your site, allowing them to quickly navigate anywhere up to any ancestor
+                                sections without having to step back through each prior page visited to get to the current page using <code translate="no" dir="ltr">back</code> functionality.</p>
+                                
+                                <p>If the site has a simple hierarchical directory structure, as is the case with web.dev, the breadcrumb navigation will often be composed
+                                of a link to the home, or hostname, with a link to the index file of each directory in the URL&#39;s pathname. The inclusion of the
+                                current page is optional and requires a little extra attention.</p>
+                                <pre class="prettyprint lang-js" translate="no" dir="ltr"><code translate="no" dir="ltr">const url = new URL(&#34;https://web.dev/learn/html/navigation&#34;);
+                                const sections = url.hostname + url.pathname.split(&#39;/&#39;);
+                                // &#34;web.dev,learn,html,navigation&#34;
+                                </code></pre>
+                                <p>The sections of the breadcrumb show the path from the current page back to the home page, showing each level in-between.</p>
+                                
+                                <p><img src="/static/learn/html/navigation/image/breadcrumbs-indicating-p-9ca79a1825c14.png" alt="Breadcrumbs indicating the path to the current page." width="300" height="75" srcset="https://web.dev/static/learn/html/navigation/image/breadcrumbs-indicating-p-9ca79a1825c14_36.png 36w,https://web.dev/static/learn/html/navigation/image/breadcrumbs-indicating-p-9ca79a1825c14_48.png 48w,https://web.dev/static/learn/html/navigation/image/breadcrumbs-indicating-p-9ca79a1825c14_72.png 72w,https://web.dev/static/learn/html/navigation/image/breadcrumbs-indicating-p-9ca79a1825c14_96.png 96w,https://web.dev/static/learn/html/navigation/image/breadcrumbs-indicating-p-9ca79a1825c14_480.png 480w,https://web.dev/static/learn/html/navigation/image/breadcrumbs-indicating-p-9ca79a1825c14_720.png 720w,https://web.dev/static/learn/html/navigation/image/breadcrumbs-indicating-p-9ca79a1825c14_856.png 856w,https://web.dev/static/learn/html/navigation/image/breadcrumbs-indicating-p-9ca79a1825c14_960.png 960w,https://web.dev/static/learn/html/navigation/image/breadcrumbs-indicating-p-9ca79a1825c14_1440.png 1440w,https://web.dev/static/learn/html/navigation/image/breadcrumbs-indicating-p-9ca79a1825c14_1920.png 1920w,https://web.dev/static/learn/html/navigation/image/breadcrumbs-indicating-p-9ca79a1825c14_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                                
+                                <p>Every Learn HTML module page has the same breadcrumb navigation, displaying the hierarchy of the <code translate="no" dir="ltr">HTML</code> lessons within the
+                                <code translate="no" dir="ltr">learn</code> section of <code translate="no" dir="ltr">web.dev</code>. The code is similar to the following, with classes and SVG details removed for clarity:</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;nav aria-label=&#34;breadcrumbs&#34;&gt;
+                                  &lt;ul role=&#34;list&#34;&gt;
+                                    &lt;li&gt;
+                                      &lt;a href=&#34;/&#34;&gt;
+                                        &lt;svg aria-label=&#34;web.dev&#34; role=&#34;img&#34;&gt;
+                                          &lt;use href=&#34;#webDevLogo&#34; /&gt;
+                                        &lt;/svg&gt;
+                                      &lt;/a&gt;
+                                    &lt;/li&gt;
+                                    &lt;li&gt;
+                                      &lt;a href=&#34;/learn&#34;&gt;Learn&lt;/a&gt;
+                                    &lt;/li&gt;
+                                    &lt;li&gt;
+                                      &lt;a href=&#34;/learn/html&#34;&gt;Learn HTML!&lt;/a&gt;
+                                    &lt;/li&gt;
+                                  &lt;/ul&gt;
+                                  &lt;share-action authors=&#34;@estellevw&#34; data-action=&#34;click&#34; data-category=&#34;web.dev&#34; data-icon=&#34;share&#34; data-label=&#34;share, twitter&#34; role=&#34;button&#34; tabindex=&#34;0&#34;&gt;
+                                    &lt;svg aria-label=&#34;share&#34; role=&#34;img&#34;&gt;
+                                      &lt;use href=&#34;#shareIcon&#34; /&gt;
+                                    &lt;/svg&gt;
+                                    &lt;span&gt;Share&lt;/span&gt;
+                                  &lt;/share-action&gt;
+                                &lt;/nav&gt;
+                                </code></pre>
+                                <p>This breadcrumb follows best practices. It uses the <code translate="no" dir="ltr">&lt;nav&gt;</code> element, a landmark role, so assistive technology presents the breadcrumbs as a navigational element on the page.
+                                The accessible name of &quot;breadcrumbs&quot;, provided with the <code translate="no" dir="ltr">aria-label</code>, differentiates it from the other navigation landmarks in the current document.</p>
+                                
+                                <p>Between links there are CSS-generated content separators. The separators come before each list item starting with the second <code translate="no" dir="ltr">&lt;li&gt;</code>.</p>
+                                <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">[aria-label^=&#34;breadcrumb&#34; i] li + li::before {
+                                  content: &#34;&#34;;
+                                  display: block;
+                                  width: 8px;
+                                  height: 8px;
+                                  border-top: 2px solid currentColor;
+                                  border-right: 2px solid currentColor;
+                                  rotate: 45deg;
+                                  opacity: .8
+                                }
+                                </code></pre>
+                                <p>Screen readers will not &quot;see&quot; them, which is best practice: separators between breadcrumb links should be hidden from screen readers.
+                                They must also have enough contrast against their background, the same as regular text.</p>
+                                
+                                <p>This version uses an unordered list and list items. An ordered list is preferable as ordered list items are enumerated.
+                                Also it is a list: <code translate="no" dir="ltr">role=&quot;list&quot;</code> was added back in because some CSS display property values remove the semantics from some elements.</p>
+                                
+                                <p>Generally, the link to the home page in a breadcrumb should read &quot;home&quot; rather than be the site logo with the name of the site as
+                                the label. But as the breadcrumb is at the top of the document and is the only occurrence of the logo on the page, it makes sense
+                                as to why this anti-pattern was used.</p>
+                                
+                                <p>The last element is a custom <code translate="no" dir="ltr">&lt;share-action&gt;</code> element. Custom elements are discussed in section 15. While this custom element
+                                is not part of the breadcrumb, including an unrelated element in a <code translate="no" dir="ltr">&lt;nav&gt;</code> is fine, as long as the inclusion is consistent on all pages.</p>
+                                
+                                <h3 id="current_page" data-text="Current page" tabindex="-1">Current page</h3>
+                                
+                                <p>On this page, the current page, &quot;Navigation&quot;, is not included in the breadcrumb. When the current page is included in a
+                                breadcrumb, the text should preferably not be a link, and <code translate="no" dir="ltr">aria-current=&quot;page&quot;</code> should be included on the current page&#39;s
+                                list item. When it isn&#39;t included, it is helpful to indicate that the heading that follows is the current page with an
+                                icon or other symbol.</p>
+                                
+                                <p>Should the design change, an alternative version of the breadcrumb could be used:</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;nav aria-label=&#34;breadcrumbs&#34;&gt;
+                                  &lt;ol role=&#34;list&#34;&gt;
+                                    &lt;li&gt;
+                                      &lt;a href=&#34;/&#34;&gt;Home&lt;/a&gt;
+                                    &lt;/li&gt;
+                                    &lt;li&gt;
+                                      &lt;a href=&#34;/learn&#34;&gt;Learn&lt;/a&gt;
+                                    &lt;/li&gt;
+                                    &lt;li&gt;
+                                      &lt;a href=&#34;/learn/html&#34;&gt;Learn HTML!&lt;/a&gt;
+                                    &lt;/li&gt;
+                                    &lt;li aria-current=&#34;page&#34;&gt;
+                                      Navigation
+                                    &lt;/li&gt;
+                                  &lt;/ol&gt;
+                                &lt;/nav&gt;
+                                </code></pre>
+                                <p>Breadcrumbs are not for linear steps. For example, a list of the path the user followed to get to the current page or the
+                                list of steps followed up to this point in a recipe can be nested within a <code translate="no" dir="ltr">&lt;nav&gt;</code>,  but should not be labeled as a breadcrumb.</p>
+                                
+                                <h2 id="local_navigation" data-text="Local navigation" tabindex="-1">Local navigation</h2>
+                                
+                                <p>There is another navigational component on this page. If you are on a wide screen, there is a sidebar on the left with the
+                                &quot;Learn HTML&quot; logo, a search bar, and links to each of the 20 sections in Learn HTML. Each link contains the chapter number,
+                                the section title, and a checkmark to the right on sections that you have already visited—possibly this one if you have navigated away and have come back. The links to all the sections in Learn HTML, along with the search and local header, are the location navigation.</p>
+                                
+                                <p>If you are visiting this site on a tablet or mobile device, or otherwise have a narrower screen, when you load this page, the sidebar is hidden. You can make it visible via the hamburger menu in the top navigation bar (yes, the header is a custom <code translate="no" dir="ltr">&lt;web-header&gt;</code> element with <code translate="no" dir="ltr">role=&quot;navigation&quot;</code> set).</p>
+                                
+                                <p>The main difference between the permanent local navigation on wide screens and the local navigation on narrower screens that can be made to appear and disappear, is the display of the close button on the version that can be hidden. This icon is hidden on wide screens with <code translate="no" dir="ltr">display: none;</code>.</p>
+                                
+                                <p><img src="/static/learn/html/navigation/image/the-local-navigation-is-s-9a47e6651a996.png" alt="The local navigation is showing a checkmark next to the name of this chapter." width="365" height="75" srcset="https://web.dev/static/learn/html/navigation/image/the-local-navigation-is-s-9a47e6651a996_36.png 36w,https://web.dev/static/learn/html/navigation/image/the-local-navigation-is-s-9a47e6651a996_48.png 48w,https://web.dev/static/learn/html/navigation/image/the-local-navigation-is-s-9a47e6651a996_72.png 72w,https://web.dev/static/learn/html/navigation/image/the-local-navigation-is-s-9a47e6651a996_96.png 96w,https://web.dev/static/learn/html/navigation/image/the-local-navigation-is-s-9a47e6651a996_480.png 480w,https://web.dev/static/learn/html/navigation/image/the-local-navigation-is-s-9a47e6651a996_720.png 720w,https://web.dev/static/learn/html/navigation/image/the-local-navigation-is-s-9a47e6651a996_856.png 856w,https://web.dev/static/learn/html/navigation/image/the-local-navigation-is-s-9a47e6651a996_960.png 960w,https://web.dev/static/learn/html/navigation/image/the-local-navigation-is-s-9a47e6651a996_1440.png 1440w,https://web.dev/static/learn/html/navigation/image/the-local-navigation-is-s-9a47e6651a996_1920.png 1920w,https://web.dev/static/learn/html/navigation/image/the-local-navigation-is-s-9a47e6651a996_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                                
+                                <p>The link to this document, section 010, has a slightly different appearance from the other links in the local navigation to indicate to sighted users that this is the current page. This visual difference is created with CSS. The current page is also identified with the <code translate="no" dir="ltr">aria-current=&quot;page&quot;</code> attribute. This informs assistive technologies that it is a link to the current page. The HTML for this list item within this local navigation is similar to:</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;li&gt;
+                                  &lt;a aria-current=&#34;page&#34; href=&#34;/learn/html/navigation&#34; data-complete=&#34;true&#34;&gt;
+                                    &lt;span&gt;010&lt;/span&gt;
+                                    &lt;span&gt;Navigation&lt;/span&gt;
+                                    &lt;svg aria-label=&#34;Check&#34; role=&#34;img&#34;&gt;
+                                      &lt;use href=&#34;#checkmark&#34; /&gt;
+                                    &lt;/svg&gt;
+                                  &lt;/a&gt;
+                                &lt;/li&gt;
+                                </code></pre>
+                                <p>If this isn&#39;t the first time you visit this page, the checkmark will not be visible. If you have visited this page in the past, the
+                                <code translate="no" dir="ltr">data-complete</code> <a href="/learn/html/attributes">custom attribute</a> is set to <code translate="no" dir="ltr">true</code>, and the checkmark will be displayed. The checkmark is included
+                                in each link, but CSS hides the checkbox from users who have not been to this page before with <code translate="no" dir="ltr">display: none</code> based on the absence of the
+                                <code translate="no" dir="ltr">data-complete=&quot;true&quot;</code> attribute and value:</p>
+                                <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">.course .stack-nav a:not([data-complete=&#34;true&#34;]) svg {
+                                  display: none;
+                                }
+                                </code></pre>
+                                <p>When <code translate="no" dir="ltr">display</code> is set to something other than <code translate="no" dir="ltr">none</code>, the <code translate="no" dir="ltr">role</code> informs assistive technology that the inline SVG is an image,
+                                and the <code translate="no" dir="ltr">aria-label</code> acts as the <code translate="no" dir="ltr">alt</code> attribute on an <code translate="no" dir="ltr">&lt;img&gt;</code>would.</p>
+                                
+                                <h2 id="global_navigation" data-text="Global navigation" tabindex="-1">Global navigation</h2>
+                                
+                                <p>Global navigation is the navigation section leading to the top-level pages of the website that is the same on every page of a site.
+                                A site&#39;s global navigation may also be made up of tabs that open nested lists of links that link to all the subsections of a site or other menus.
+                                It may include titled sections, buttons, and search widgets. These additional features aren&#39;t a requirement. What is required is that
+                                the navigation appears on every page, and is the same on every page; with <code translate="no" dir="ltr">aria-current=&quot;page&quot;</code> on any links to the current page, of course.</p>
+                                
+                                <p>Global navigation provides a consistent means of traveling anywhere in the application or website. Google doesn&#39;t have global
+                                navigation at the top of the page. Yahoo! does. While all the main Yahoo! properties have different styles, the content for
+                                most sections are the same.</p>
+                                
+                                <p><img src="/static/learn/html/navigation/image/a-contrasted-navigation-ec6f9eb4890ee.png" alt="A well-contrasted navigation header, with a white picker on a black background." width="600" height="31" srcset="https://web.dev/static/learn/html/navigation/image/a-contrasted-navigation-ec6f9eb4890ee_36.png 36w,https://web.dev/static/learn/html/navigation/image/a-contrasted-navigation-ec6f9eb4890ee_48.png 48w,https://web.dev/static/learn/html/navigation/image/a-contrasted-navigation-ec6f9eb4890ee_72.png 72w,https://web.dev/static/learn/html/navigation/image/a-contrasted-navigation-ec6f9eb4890ee_96.png 96w,https://web.dev/static/learn/html/navigation/image/a-contrasted-navigation-ec6f9eb4890ee_480.png 480w,https://web.dev/static/learn/html/navigation/image/a-contrasted-navigation-ec6f9eb4890ee_720.png 720w,https://web.dev/static/learn/html/navigation/image/a-contrasted-navigation-ec6f9eb4890ee_856.png 856w,https://web.dev/static/learn/html/navigation/image/a-contrasted-navigation-ec6f9eb4890ee_960.png 960w,https://web.dev/static/learn/html/navigation/image/a-contrasted-navigation-ec6f9eb4890ee_1440.png 1440w,https://web.dev/static/learn/html/navigation/image/a-contrasted-navigation-ec6f9eb4890ee_1920.png 1920w,https://web.dev/static/learn/html/navigation/image/a-contrasted-navigation-ec6f9eb4890ee_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                                
+                                <p><img src="/static/learn/html/navigation/image/a-poorly-contrasted-navig-26844a4363eed.png" alt="A poorly-contrasted navigation header, with a black picker on a grey background." width="600" height="35" srcset="https://web.dev/static/learn/html/navigation/image/a-poorly-contrasted-navig-26844a4363eed_36.png 36w,https://web.dev/static/learn/html/navigation/image/a-poorly-contrasted-navig-26844a4363eed_48.png 48w,https://web.dev/static/learn/html/navigation/image/a-poorly-contrasted-navig-26844a4363eed_72.png 72w,https://web.dev/static/learn/html/navigation/image/a-poorly-contrasted-navig-26844a4363eed_96.png 96w,https://web.dev/static/learn/html/navigation/image/a-poorly-contrasted-navig-26844a4363eed_480.png 480w,https://web.dev/static/learn/html/navigation/image/a-poorly-contrasted-navig-26844a4363eed_720.png 720w,https://web.dev/static/learn/html/navigation/image/a-poorly-contrasted-navig-26844a4363eed_856.png 856w,https://web.dev/static/learn/html/navigation/image/a-poorly-contrasted-navig-26844a4363eed_960.png 960w,https://web.dev/static/learn/html/navigation/image/a-poorly-contrasted-navig-26844a4363eed_1440.png 1440w,https://web.dev/static/learn/html/navigation/image/a-poorly-contrasted-navig-26844a4363eed_1920.png 1920w,https://web.dev/static/learn/html/navigation/image/a-poorly-contrasted-navig-26844a4363eed_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                                
+                                <p>The content of the news and sports global navigation headers are the same, but the icon showing that the user is currently
+                                on sports does not have enough contrast to be accessible; even for visitors who don&#39;t have low vision. Both sections have a global
+                                navigation with a section-specific local navigation below it.</p>
+                                
+                                <p>Similar to global navigations, footers should be identical on all pages. But that is the only similarity. Global navigation
+                                enables navigation to all parts of the site from a product perspective. Navigation elements within a footer don&#39;t have specific requirements.
+                                Generally, the footer will include corporate links, such as legal statements, about the company, and careers, and can lead to external
+                                sources, such as social media icons.</p>
+                                
+                                <p>This page&#39;s footer contains three additional <code translate="no" dir="ltr">&lt;nav&gt;</code> elements: the footer navigation, Google developers, and terms and policies,
+                                with each being a link. The footer navigation includes how to contribute to web.dev on Github, other educational content provided by
+                                Google outside of web.dev, and external &quot;how to connect&quot; links.</p>
+                                
+                                <p>These three navigations in the <code translate="no" dir="ltr">&lt;footer&gt;</code> are <code translate="no" dir="ltr">&lt;nav&gt;</code> elements with an <code translate="no" dir="ltr">aria-label</code>providing an accessible name for these landmark roles.
+                                All the navigations we&#39;ve seen have been <a href="/learn/html/links">links</a> nested in <a href="/learn/html/lists">lists</a> within a nav. We&#39;ve covered all you need to know to create your own navigations.
+                                Up next, we will look at marking up data tables.</p>
+
+
+
+
+
+
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
                     </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
-                            </ul>
-                        </nav>
-                    </footer>
+                    
                                         
                 </div>
             </main>

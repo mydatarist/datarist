@@ -1172,38 +1172,276 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                    
+                    
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Icons</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
+                        <section aria-labelledby="the_story_of_your_first_website">
+                                
+                            
+
+
+
+
+                            <p>Most images are part of your content, but icons are part of your user interface. 
+                                They should scale and adapt in the same way that the text of your UI scales and adapts.</p>
+                                
+                                <h2 id="scalable_vector_graphics" data-text="Scalable Vector Graphics" tabindex="-1">Scalable Vector Graphics</h2>
+                                
+                                <p>When it comes to photographic imagery, there are lots of choices for the image format: JPG, WebP, and AVIF. 
+                                For non-photographic imagery, you have a choice between the Portable Network Graphics (PNG) format and the Scalable Vector Graphics (SVG) format.</p>
+                                
+                                <p>Both PNGs and SVGs are good at dealing with areas of flat color, and they both allow your images to have transparent backgrounds. 
+                                If you use a PNG you&#39;ll probably need to make multiple versions of your image in different sizes and use the <code translate="no" dir="ltr">srcset</code> attribute on your <code translate="no" dir="ltr">img</code> element to <a href="/learn/design/responsive-images">make the image responsive</a>. If you use an SVG, it&#39;s responsive by default.</p>
+                                
+                                <p>PNGs (and JPGs, WebP, and AVIF) are bitmap images. Bitmap images store information as pixels. In an SVG, information is stored as drawing instructions. When the browser reads the SVG file the instructions are converted into pixels. Best of all, these instructions are relative. Regardless of the dimensions you use to describe lines and shapes, everything renders at just the right crispness. Instead of creating multiple SVGs of different sizes you can make one SVG that will work at all sizes. There&#39;s no need to use the <code translate="no" dir="ltr">srcset</code> attribute.</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;img src=&#34;image.svg&#34; alt=&#34;A description of the image.&#34; width=&#34;25&#34; height=&#34;25&#34;&gt;
+                                &lt;img src=&#34;image.svg&#34; alt=&#34;A description of the image.&#34; width=&#34;250&#34; height=&#34;250&#34;&gt;
+                                </code></pre>
+                                <div class="wd-embed" style="height: 360px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/YzrKoWY?height=360&theme-id=dark&default-tab=html%2Cresult&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen YzrKoWY by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                
+                                <p>XML is used to write the instructions in an SVG file. This is a markup language, like HTML.</p>
+                                <pre class="prettyprint lang-xml" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;
+                                &lt;!DOCTYPE svg&gt;
+                                &lt;svg version=&#34;1.1&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;-21 -21 42 42&#34; width=&#34;100&#34; height=&#34;100&#34;&gt;
+                                  &lt;title&gt;Smiling face&lt;/title&gt;
+                                  &lt;circle r=&#34;20&#34; fill=&#34;yellow&#34; stroke=&#34;black&#34;/&gt;
+                                  &lt;ellipse rx=&#34;2.5&#34; ry=&#34;4&#34; cx=&#34;-6&#34; cy=&#34;-7&#34; fill=&#34;black&#34;/&gt;
+                                  &lt;ellipse rx=&#34;2.5&#34; ry=&#34;4&#34; cx=&#34;6&#34; cy=&#34;-7&#34; fill=&#34;black&#34;/&gt;
+                                  &lt;path stroke=&#34;black&#34; d=&#34;M -12,5 A 13.5,13.5,0 0,0 12,5 A 13,13,0 0,1 -12,5&#34;/&gt;
+                                &lt;/svg&gt;
+                                </code></pre>
+                                <p><img src="/static/learn/design/icons/image/smiley-face-c6edfc71214c.svg" alt="Smiley face." width="800" height="800"></p>
+                                
+                                <p>You can even put SVG inside HTML.</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;figure&gt;
+                                  &lt;svg version=&#34;1.1&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;-21 -21 42 42&#34; width=&#34;100&#34; height=&#34;100&#34;&gt;
+                                    &lt;title&gt;Smiling face&lt;/title&gt;
+                                    &lt;circle r=&#34;20&#34; fill=&#34;yellow&#34; stroke=&#34;black&#34;/&gt;
+                                    &lt;ellipse rx=&#34;2.5&#34; ry=&#34;4&#34; cx=&#34;-6&#34; cy=&#34;-7&#34; fill=&#34;black&#34;/&gt;
+                                    &lt;ellipse rx=&#34;2.5&#34; ry=&#34;4&#34; cx=&#34;6&#34; cy=&#34;-7&#34; fill=&#34;black&#34;/&gt;
+                                    &lt;path stroke=&#34;black&#34; d=&#34;M -12,5 A 13.5,13.5,0 0,0 12,5 A 13,13,0 0,1 -12,5&#34;/&gt;
+                                  &lt;/svg&gt;
+                                  &lt;figcaption&gt;
+                                  A description of the image.
+                                  &lt;/figcaption&gt;
+                                &lt;/figure&gt;
+                                </code></pre>
+                                <p>If you embed an SVG like that, that&#39;s one less request that the browser needs to make. There&#39;ll be no wait for the image to download because it arrives with the HTML …<em>in</em> the HTML! Also, as you&#39;ll soon find out, embedding SVGs like this gives you more control over styling them too.</p>
+                                
+                                <h2 id="icons_and_text" data-text="Icons and text" tabindex="-1">Icons and text</h2>
+                                
+                                <p>Icon images often feature simple shapes on a transparent background. SVG is ideal for icons.</p>
+                                
+                                <p>If you have a button or a link with text and an icon inside it, the icon is presentational. It&#39;s the text that matters. When using an <code translate="no" dir="ltr">img</code> element, an empty <code translate="no" dir="ltr">alt</code> attribute indicates that the image is presentational.</p>
+                                
+                                <aside class="note"><b>Note: </b> An empty <code translate="no" dir="ltr">alt</code> attribute is not the same as a missing <code translate="no" dir="ltr">alt</code> attribute. Always provide an <code translate="no" dir="ltr">alt</code> attribute even if an image is presentational and the <code translate="no" dir="ltr">alt</code> attribute has no content. </aside>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;button&gt;
+                                &lt;img src=&#34;hamburger.svg&#34; alt=&#34;&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+                                Menu
+                                &lt;/button&gt;
+                                </code></pre>
+                                <div class="wd-embed" style="height: 200px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/qBPWzam?height=200&theme-id=dark&default-tab=html%2Cresult&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen qBPWzam by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                
+                                <p>Because CSS is for presentation, you could put the icon in your CSS as a background image.</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;button class=&#34;menu&#34;&gt;
+                                Menu
+                                &lt;/button&gt;
+                                </code></pre><pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">.menu {
+                                  background-image: url(hamburger.svg);
+                                  background-position: 0.5em;
+                                  background-repeat: no-repeat;
+                                  background-size: 1em;
+                                  padding-inline-start: 2em;
+                                }
+                                </code></pre>
+                                <div class="wd-embed" style="height: 200px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/gOGYNwj?height=200&theme-id=dark&default-tab=html%2Cresult&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen gOGYNwj by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                
+                                <p>If you put the SVG inside your HTML, use the <code translate="no" dir="ltr">aria-hidden</code> attribute to hide it from assistive technology.</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;button class=&#34;menu&#34;&gt;
+                                  &lt;svg aria-hidden=&#34;true&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 100 80&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+                                    &lt;rect width=&#34;100&#34; height=&#34;20&#34; /&gt;
+                                    &lt;rect y=&#34;30&#34; width=&#34;100&#34; height=&#34;20&#34;/&gt;
+                                    &lt;rect y=&#34;60&#34; width=&#34;100&#34; height=&#34;20&#34;/&gt;
+                                  &lt;/svg&gt;
+                                  Menu
+                                &lt;/button&gt;
+                                </code></pre>
+                                <div class="wd-embed" style="height: 200px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/bGobPwz?height=200&theme-id=dark&default-tab=html%2Cresult&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen bGobPwz by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                
+                                <aside class="note"><b>Note: </b> If you use the same icon multiple times in one page, it would be inefficient to repeat the entire SVG markup each time. There's an element in SVG called <a href="https://developer.mozilla.org/docs/Web/SVG/Element/use"><code translate="no" dir="ltr">use</code></a> which allows you to “clone” part of an SVG, even from a different SVG element. </aside>
+                                
+                                <h2 id="standalone_icons" data-text="Standalone icons" tabindex="-1">Standalone icons</h2>
+                                
+                                <p>Use text inside your buttons and links if you want their purpose to be clear. You can use an icon without any text but don&#39;t assume that everyone understands the meaning of a particular icon. When in doubt, test with real users.</p>
+                                
+                                <p>If you decide to use an icon without any accompanying text, the icon is no longer presentational. A background image in CSS is not an appropriate way to display the icon. The icon needs to be given an accessible name in HTML.</p>
+                                
+                                <p>If you use an <code translate="no" dir="ltr">img</code> element, the icon gets its accessible name from the <code translate="no" dir="ltr">alt</code> attribute.</p>
+                                
+                                <aside class="note"><b>Note: </b> Usually the <code translate="no" dir="ltr">alt</code> attribute describes the contents of the image (“Three horizontal lines.”) but with standalone icons, the <code translate="no" dir="ltr">alt</code> attribute describes the meaning of the image (“Menu”). </aside>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;button&gt;
+                                &lt;img src=&#34;hamburger.svg&#34; alt=&#34;Menu&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+                                &lt;/button&gt;
+                                </code></pre>
+                                <div class="wd-embed" style="height: 200px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/MWEgMbY?height=200&theme-id=dark&default-tab=html%2Cresult&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen MWEgMbY by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                
+                                <p>Another option is to put the accessible name on the link or button itself and declare that the image is presentational. Use the <code translate="no" dir="ltr">aria-label</code> attribute to provide the accessible name.</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;button aria-label=&#34;Menu&#34;&gt;
+                                &lt;img src=&#34;hamburger.svg&#34; alt=&#34;&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+                                &lt;/button&gt;
+                                </code></pre>
+                                <div class="wd-embed" style="height: 200px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/VwMZJmr?height=200&theme-id=dark&default-tab=html%2Cresult&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen VwMZJmr by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                
+                                <p>If you put the SVG inside your HTML, use the <code translate="no" dir="ltr">aria-label</code> attribute on the link or button to give it an accessible name and use the <code translate="no" dir="ltr">aria-hidden</code> attribute on the icon.</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;button aria-label=&#34;Menu&#34;&gt;
+                                  &lt;svg aria-hidden=&#34;true&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 100 80&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+                                    &lt;rect width=&#34;100&#34; height=&#34;20&#34; /&gt;
+                                    &lt;rect y=&#34;30&#34; width=&#34;100&#34; height=&#34;20&#34;/&gt;
+                                    &lt;rect y=&#34;60&#34; width=&#34;100&#34; height=&#34;20&#34;/&gt;
+                                  &lt;/svg&gt;
+                                &lt;/button&gt;
+                                </code></pre>
+                                <div class="wd-embed" style="height: 200px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/OJxLebB?height=200&theme-id=dark&default-tab=html%2Cresult&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen OJxLebB by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                
+                                <h2 id="styling_icons" data-text="Styling icons" tabindex="-1">Styling icons</h2>
+                                
+                                <p>If you embed your SVG icons directly in your HTML you can style parts of them just like any other element in your page. You can&#39;t do that if you use an <code translate="no" dir="ltr">img</code> element to display your icons.</p>
+                                
+                                <p>In the following example, the <code translate="no" dir="ltr">rect</code> elements inside the SVG have a <code translate="no" dir="ltr">fill</code> value of <code translate="no" dir="ltr">blue</code> to match the styles for the button&#39;s text.</p>
+                                <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">button {
+                                 color: blue;
+                                }
+                                button rect {
+                                  fill: blue;
+                                }
+                                </code></pre>
+                                <p>You can apply <code translate="no" dir="ltr">hover</code> and <code translate="no" dir="ltr">focus</code> styles too.</p>
+                                <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">button:hover,
+                                button:focus {
+                                  color: red;
+                                }
+                                button:hover rect,
+                                button:focus rect {
+                                  fill: red;
+                                }
+                                </code></pre>
+                                <div class="wd-embed" style="height: 200px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/rNGBEje?height=200&theme-id=dark&default-tab=html%2Cresult&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen rNGBEje by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                
+                                <h2 id="resources" data-text="Resources" tabindex="-1">Resources</h2>
+                                
+                                <ul>
+                                <li>If you need to style SVGs that are background images in your CSS, read Una&#39;s article on <a href="https://css-tricks.com/solved-with-css-colorizing-svg-backgrounds/">colorizing SVG backgrounds</a>.</li>
+                                <li>Sara Soueidan has written about <a href="https://www.sarasoueidan.com/blog/accessible-icon-buttons/">accessible icon buttons</a>.</li>
+                                <li>Scott O&#39;Hara has written about <a href="https://www.scottohara.me/blog/2019/05/22/contextual-images-svgs-and-a11y.html">contextually marking up accessible images and SVGs</a>.</li>
+                                <li>If you&#39;re using a graphic design tool to export SVGs, use <a href="https://jakearchibald.github.io/svgomg/">SVGOMG</a> to optimize the output.</li>
+                                </ul>
+                                
+                                <p>Icons are an important part of your site&#39;s branding. Next you&#39;ll find out how to make other aspects of your branding responsive through the power of <a href="/learn/design/theming">theming</a>.</p>
+                                
+
+
+
+
+
+
+
+
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
                     </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
-                            </ul>
-                        </nav>
-                    </footer>
+                    
                                         
                 </div>
             </main>

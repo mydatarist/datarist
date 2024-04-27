@@ -1172,38 +1172,231 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                    
+                    
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Internationalization</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
+                        <section aria-labelledby="the_story_of_your_first_website">
+                               
+                            
+
+
+
+
+                            <p>The World Wide Web is available to everyone in the world—it&#39;s right there in the name! 
+                                That means that your website is potentially available to anyone who has access to the internet, 
+                                regardless of where they are, what device they&#39;re using, or what languages they speak.</p>
+                                
+                                <p>The goal of responsive design is to make your content available to everyone. 
+                                Applying that same philosophy to human languages is the driving force behind internationalization—preparing your content and designs for an international audience.</p>
+                                
+                                <h2 id="logical_properties" data-text="Logical properties" tabindex="-1">Logical properties</h2>
+                                
+                                <p>English is written from left to right and top to bottom, 
+                                but not all languages are written this way. 
+                                Some languages like Arabic and Hebrew read from right to left, 
+                                and some Japanese typefaces read vertically instead of horizontally. 
+                                To accommodate these writing modes, 
+                                logical properties were introduced in CSS.</p>
+                                
+                                <p>If you write CSS, you may have used directional keywords like &quot;left&quot;, &quot;right&quot;, &quot;top&quot;, and &quot;bottom.&quot; 
+                                Those keywords refer to the physical layout of the user&#39;s device.</p>
+                                
+                                <p><a href="/learn/css/logical-properties">Logical properties</a>, on the other hand, 
+                                refer to the edges of a box as they relate to the flow of content. 
+                                If the writing mode changes, CSS written with logical properties will update accordingly. 
+                                That&#39;s not the case with directional properties.</p>
+                                
+                                <p>Whereas the directional property <code translate="no" dir="ltr">margin-left</code> always refers to the margin on the left side of a content box, 
+                                the logical property <code translate="no" dir="ltr">margin-inline-start</code> refers to the margin on the left side of a content box in a left-to-right language, 
+                                and the margin on the right side of a content box in a right-to-left language.</p>
+                                
+                                <p>In order for your designs to adapt to different writing modes, avoid directional properties. Use logical properties instead.</p>
+                                
+                                <div class="wd-compare">
+                                  <div class="compare-worse">Don't</div>
+                                  <pre class="prettyprint lang-css" translate="no" dir="ltr">.byline {
+                                  text-align: right;
+                                }
+                                </pre>
+                                
+                                </div>
+                                
+                                <div class="wd-compare">
+                                  <div class="compare-better">Do</div>
+                                  <pre class="prettyprint lang-css" translate="no" dir="ltr">.byline {
+                                  text-align: end;
+                                }
+                                </pre>
+                                
+                                </div>
+                                
+                                <p>When CSS has a specific directional value like <code translate="no" dir="ltr">left</code> or <code translate="no" dir="ltr">right</code>, 
+                                there&#39;s a corresponding logical property. Where once we had <code translate="no" dir="ltr">margin-left</code> now we also have <code translate="no" dir="ltr">margin-inline-start</code>.</p>
+                                
+                                <p>In a language like English where text flows from left to right, 
+                                <code translate="no" dir="ltr">inline-start</code> corresponds to &quot;left&quot; and <code translate="no" dir="ltr">inline-end</code> corresponds to &quot;right&quot;.</p>
+                                
+                                <p>Likewise, in a language like English where the text is written from top to bottom, 
+                                <code translate="no" dir="ltr">block-start</code> corresponds to &quot;top&quot; and <code translate="no" dir="ltr">block-end</code> corresponds to &quot;bottom.&quot;</p>
+                                
+                                <p><img src="/static/learn/design/internationalization/image/latin-hebrew-japanese-a-538b56c52363b.webp" alt="Latin, Hebrew and Japanese are shown rendering placeholder text within a device frame. Arrows and colors follow the text to help associate the 2 directions of block and inline." width="800" height="577"></p>
+                                
+                                <p>If you use logical properties in your CSS, you can use the same stylesheet for translations of your pages. 
+                                Even if your pages are translated into languages written from right to left or bottom to top, your design will adjust accordingly. 
+                                You don&#39;t need to make separate designs for each language. 
+                                By using logical properties, your design will respond to every writing mode. 
+                                That means your design can reach more people without you having to spend time making separate designs for every language.</p>
+                                
+                                <p>Modern CSS layout techniques like <a href="/learn/css/grid">grid</a> and <a href="/learn/css/flexbox">flexbox</a> use logical properties by default. 
+                                If you think in terms of <code translate="no" dir="ltr">inline-start</code> and <code translate="no" dir="ltr">block-start</code> instead of <code translate="no" dir="ltr">left</code> and <code translate="no" dir="ltr">top</code> 
+                                then you&#39;ll find these modern techniques easier to understand.</p>
+                                
+                                <p>Take a common pattern like <a href="/learn/css/logical-properties#solving_the_icon_issue">an icon next to some text</a> or a label next to a form field. 
+                                Instead of thinking &quot;the label should have a margin on the right,&quot; think &quot;the label should have a margin on the end of its inline axis.&quot;</p>
+                                
+                                <div class="wd-compare">
+                                  <div class="compare-worse">Don't</div>
+                                  <pre class="prettyprint lang-css" translate="no" dir="ltr">label {
+                                  margin-right: 0.5em;
+                                }
+                                </pre>
+                                
+                                </div>
+                                
+                                <div class="wd-compare">
+                                  <div class="compare-better">Do</div>
+                                  <pre class="prettyprint lang-css" translate="no" dir="ltr">label {
+                                  margin-inline-end: 0.5em;
+                                }
+                                </pre>
+                                
+                                </div>
+                                
+                                <div class="wd-embed" style="height: 300px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/gOxXOLK?height=300&theme-id=dark&default-tab=css%2Cresult&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen gOxXOLK by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                
+                                <p>If that page is translated into a right-to-left language, 
+                                the styles won&#39;t need to be updated. 
+                                You can mimic the effect of seeing your pages in a right-to-left language by using the <code translate="no" dir="ltr">dir</code> attribute on your <code translate="no" dir="ltr">html</code> element. 
+                                A value of <code translate="no" dir="ltr">ltr</code> means &quot;left to right.&quot; A value of &quot;rtl&quot; means &quot;right to left.&quot;</p>
+                                
+                                <div class="wd-embed" style="height: 300px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/mdMqdOx?height=300&theme-id=dark&default-tab=html%2Cresult&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen mdMqdOx by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                
+                                <p>If you&#39;d like to experiment with all the permutations of document directions (the block axis) and writing modes (the inline axis), 
+                                here&#39;s <a href="https://codepen.io/argyleink/pen/vYNwbgM">an interactive demonstration</a>.</p>
+                                
+                                <div class="wd-embed" style="height: 800px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/argyleink/embed/vYNwbgM?height=800&theme-id=dark&default-tab=result&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen vYNwbgM by argyleink on Codepen"
+                                ></iframe>
+                                </div>
+                                
+                                <h2 id="identify_page_language" data-text="Identify page language" tabindex="-1">Identify page language</h2>
+                                
+                                <p>It&#39;s a good idea to identify the language of your page by using the <code translate="no" dir="ltr">lang</code> attribute on the <code translate="no" dir="ltr">html</code> element.</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;html lang=&#34;en&#34;&gt;
+                                </code></pre>
+                                <p>That example is for a page in English. You can be even more specific. Here&#39;s how you declare that a page is using US English:</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;html lang=&#34;en-us&#34;&gt;
+                                </code></pre>
+                                <p>Declaring the language of your document is useful for search engines. 
+                                It&#39;s also useful for assistive technologies like screen readers and voice assistants. 
+                                By providing language metadata you&#39;re helping these kinds of speech synthesizers pronounce your content correctly.</p>
+                                
+                                <p>The <code translate="no" dir="ltr">lang</code> attribute can go on any HTML element, not just <code translate="no" dir="ltr">html</code>. If you switch languages in your web page, indicate that change. 
+                                In this case, one word is in German:</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;p&gt;I felt some &lt;span lang=&#34;de&#34;&gt;schadenfreude&lt;/span&gt;.&lt;/p&gt;
+                                </code></pre>
+                                <h2 id="identify_a_linked_documents_language" data-text="Identify a linked document's language" tabindex="-1">Identify a linked document's language</h2>
+                                
+                                <p>There&#39;s another attribute called <code translate="no" dir="ltr">hreflang</code> which you can use on links. 
+                                The <code translate="no" dir="ltr">hreflang</code> takes the same language code notation as the <code translate="no" dir="ltr">lang</code> attribute and describes the linked document&#39;s language. 
+                                If there&#39;s a translation of your entire page available in German, link to it like this:</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;a href=&#34;/path/to/german/version&#34; hreflang=&#34;de&#34;&gt;German version&lt;/a&gt;
+                                </code></pre>
+                                <p>If you use text in German to describe the link to the German version, use both <code translate="no" dir="ltr">hreflang</code> and <code translate="no" dir="ltr">lang</code>. 
+                                Here, the text &quot;Deutsche Version&quot; is marked up as being in the German language, and the destination link is also marked up as being in German:</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;a href=&#34;/path/to/german/version&#34; hreflang=&#34;de&#34; lang=&#34;de&#34;&gt;Deutsche Version&lt;/a&gt;
+                                </code></pre>
+                                <p>You can also use the <code translate="no" dir="ltr">hreflang</code> attribute on the <code translate="no" dir="ltr">link</code> element. This goes in the <code translate="no" dir="ltr">head</code> of your document:</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;link href=&#34;/path/to/german/version&#34; rel=&#34;alternate&#34; hreflang=&#34;de&#34;&gt;
+                                </code></pre>
+                                <p>But unlike the <code translate="no" dir="ltr">lang</code> attribute, which can go on any element, <code translate="no" dir="ltr">hreflang</code> can only be applied to <code translate="no" dir="ltr">a</code> and <code translate="no" dir="ltr">link</code> elements.</p>
+                                
+                                <h2 id="consider_internationalization_in_your_design" data-text="Consider internationalization in your design" tabindex="-1">Consider internationalization in your design</h2>
+                                
+                                <p>When you&#39;re designing websites that will be translated into other languages and writing modes, think about these factors:</p>
+                                
+                                <ul>
+                                <li>Some languages, like German, have long words in common usage. Your interface needs to adapt to these words so avoid designing narrow columns. You can also <a href="https://developer.mozilla.org/docs/Web/CSS/hyphens">use CSS to introduce hyphens</a>.</li>
+                                <li>Make sure your <code translate="no" dir="ltr">line-height</code> values can accommodate characters like accents and other diacritics. Lines of text that look fine in English might overlap in a different language.</li>
+                                <li>If you&#39;re using a web font, make sure it has a range of characters broad enough to cover the languages you&#39;ll be translating into.</li>
+                                <li>Don&#39;t create images that have text in them. If you do, you&#39;ll have to create separate images for each language. Instead, separate the text and the image, and use CSS to overlay the text on the image.</li>
+                                </ul>
+                                
+                                <h2 id="think_internationally" data-text="Think internationally" tabindex="-1">Think internationally</h2>
+                                
+                                <p>Attributes like <code translate="no" dir="ltr">lang</code> and <code translate="no" dir="ltr">hreflang</code> make your HTML more meaningful for internationalization. 
+                                Likewise, logical properties make your CSS more adaptable.</p>
+                                
+                                <p>If you&#39;re used to thinking in terms of <code translate="no" dir="ltr">top</code>, <code translate="no" dir="ltr">bottom</code>, <code translate="no" dir="ltr">left</code>, and <code translate="no" dir="ltr">right</code>, 
+                                it might be hard to start thinking of <code translate="no" dir="ltr">block start</code>, <code translate="no" dir="ltr">block end</code>, <code translate="no" dir="ltr">inline start</code> and <code translate="no" dir="ltr">inline end</code> instead. 
+                                But it&#39;s worth it. Logical properties are key to creating truly responsive layouts.</p>
+
+
+
+
+
+
+
+
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
                     </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
-                            </ul>
-                        </nav>
-                    </footer>
+                    
                                         
                 </div>
             </main>

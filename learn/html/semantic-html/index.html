@@ -1172,38 +1172,203 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                    
+                    
+
+
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Semantic HTML</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
+                        <section aria-labelledby="the_story_of_your_first_website">
+
+
+
+
+
+                            <p>With over 100 HTML elements, and the ability to create custom elements, there are infinite ways to mark up your content; but some ways—notably <em>semantically</em>—are better than others.</p>
+
+                            <p><em>Semantic</em> means &quot;relating to meaning&quot;. Writing semantic HTML means using HTML elements to structure your content based on each element&#39;s meaning, not its appearance.</p>
+                            
+                            <p>This series hasn&#39;t covered many HTML elements yet, but even without knowing HTML, the following two code snippets show how semantic markup can give content context. Both use a word count instead of <em>ipsum lorem</em> to save some scrolling—use your imagination to expand &quot;thirty words&quot; into 30 words:</p>
+                            
+                            <p>The first code snippet uses <code translate="no" dir="ltr">&lt;div&gt;</code> and <code translate="no" dir="ltr">&lt;span&gt;</code>, two elements with no semantic value.</p>
+                            <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;div&gt;
+                              &lt;span&gt;Three words&lt;/span&gt;
+                              &lt;div&gt;
+                                &lt;a&gt;one word&lt;/a&gt;
+                                &lt;a&gt;one word&lt;/a&gt;
+                                &lt;a&gt;one word&lt;/a&gt;
+                                &lt;a&gt;one word&lt;/a&gt;
+                              &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                              &lt;div&gt;
+                                &lt;div&gt;five words&lt;/div&gt;
+                              &lt;/div&gt;
+                              &lt;div&gt;
+                                &lt;div&gt;three words&lt;/div&gt;
+                                &lt;div&gt;forty-six words&lt;/div&gt;
+                                &lt;div&gt;forty-four words&lt;/div&gt;
+                              &lt;/div&gt;
+                              &lt;div&gt;
+                                &lt;div&gt;seven words&lt;/h2&gt;
+                                &lt;div&gt;sixty-eight words&lt;/div&gt;
+                                &lt;div&gt;forty-four words&lt;/div&gt;
+                              &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                               &lt;span&gt;five words&lt;/span&gt;
+                            &lt;/div&gt;
+                            </code></pre>
+                            <p>Do you get a sense of what those words expand to? Not really.</p>
+                            
+                            <p>Let&#39;s rewrite this code with semantic elements:</p>
+                            <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;header&gt;
+                              &lt;h1&gt;Three words&lt;/h1&gt;
+                              &lt;nav&gt;
+                                &lt;a&gt;one word&lt;/a&gt;
+                                &lt;a&gt;one word&lt;/a&gt;
+                                &lt;a&gt;one word&lt;/a&gt;
+                                &lt;a&gt;one word&lt;/a&gt;
+                              &lt;/nav&gt;
+                            &lt;/header&gt;
+                            &lt;main&gt;
+                              &lt;header&gt;
+                                &lt;h1&gt;five words&lt;/h1&gt;
+                              &lt;/header&gt;
+                              &lt;section&gt;
+                                &lt;h2&gt;three words&lt;/h2&gt;
+                                &lt;p&gt;forty-six words&lt;/p&gt;
+                                &lt;p&gt;forty-four words&lt;/p&gt;
+                              &lt;/section&gt;
+                              &lt;section&gt;
+                                &lt;h2&gt;seven words&lt;/h2&gt;
+                                &lt;p&gt;sixty-eight words&lt;/p&gt;
+                                &lt;p&gt;forty-four words&lt;/p&gt;
+                              &lt;/section&gt;
+                            &lt;/main&gt;
+                            &lt;footer&gt;
+                              &lt;p&gt;five words&lt;/p&gt;
+                            &lt;/footer&gt;
+                            </code></pre>
+                            <p>Which code block conveyed meaning?  Using only the non-semantic elements of <code translate="no" dir="ltr">&lt;div&gt;</code> and <code translate="no" dir="ltr">&lt;span&gt;</code>, you really can&#39;t tell what the content in the first code block represents. The second code example, with semantic elements, provides enough context for a non-coder to decipher the purpose and meaning without having ever encountered an HTML tag. It definitely provides enough context for the developer to understand the outline of the page, even if they don&#39;t understand the content, such as content in a foreign language.</p>
+                            
+                            <p>In the second code block, we can understand the architecture even without understanding the content because semantic elements provide meaning and structure. You can tell that the first header is the site&#39;s banner, with the <code translate="no" dir="ltr">&lt;h1&gt;</code> likely to be the site name. The footer is the site footer: the five words may be a copyright statement or business address.</p>
+                            
+                            <p>Semantic markup isn&#39;t just about making markup easier for developers to read; it&#39;s mostly about making markup easy for automated tools to decipher. Developer tools demonstrate how semantic elements provide machine-readable structure as well.</p>
+                            
+                            <h2 id="accessibility_object_model_aom" data-text="Accessibility object model (AOM)" tabindex="-1">Accessibility object model (AOM)</h2>
+                            
+                            <p>As the browser parses the content received, it builds the document object model (DOM) and the CSS object model (CSSOM). It then also builds an accessibility tree. Assistive devices, such as screen readers, use the AOM to parse and interpret content. The DOM is a tree of all the nodes in the document. The AOM is like a semantic version of the DOM.</p>
+                            
+                            <p>Let&#39;s compare how both of these document structures are rendered in Firefox&#39;s accessibility panel:</p>
+                            
+                            <div class="wd-switcher">
+                              <figure>
+                                <img src="/static/learn/html/semantic-html/image/a-list-nodes-are-link-ecd99b332edd7.png" alt="A list of nodes which are all link or text leaf." width="312" height="762" srcset="https://web.dev/static/learn/html/semantic-html/image/a-list-nodes-are-link-ecd99b332edd7_36.png 36w,https://web.dev/static/learn/html/semantic-html/image/a-list-nodes-are-link-ecd99b332edd7_48.png 48w,https://web.dev/static/learn/html/semantic-html/image/a-list-nodes-are-link-ecd99b332edd7_72.png 72w,https://web.dev/static/learn/html/semantic-html/image/a-list-nodes-are-link-ecd99b332edd7_96.png 96w,https://web.dev/static/learn/html/semantic-html/image/a-list-nodes-are-link-ecd99b332edd7_480.png 480w,https://web.dev/static/learn/html/semantic-html/image/a-list-nodes-are-link-ecd99b332edd7_720.png 720w,https://web.dev/static/learn/html/semantic-html/image/a-list-nodes-are-link-ecd99b332edd7_856.png 856w,https://web.dev/static/learn/html/semantic-html/image/a-list-nodes-are-link-ecd99b332edd7_960.png 960w,https://web.dev/static/learn/html/semantic-html/image/a-list-nodes-are-link-ecd99b332edd7_1440.png 1440w,https://web.dev/static/learn/html/semantic-html/image/a-list-nodes-are-link-ecd99b332edd7_1920.png 1920w,https://web.dev/static/learn/html/semantic-html/image/a-list-nodes-are-link-ecd99b332edd7_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px">
+                                <figcaption class="wd-caption">
+                                  The first code snippet.
+                                </figcaption>
+                              </figure>
+                              <figure>
+                                <img src="/static/learn/html/semantic-html/image/a-list-nodes-clear-land-42d8c845e5b74.png" alt="A list of nodes with clear landmarks." width="332" height="888" srcset="https://web.dev/static/learn/html/semantic-html/image/a-list-nodes-clear-land-42d8c845e5b74_36.png 36w,https://web.dev/static/learn/html/semantic-html/image/a-list-nodes-clear-land-42d8c845e5b74_48.png 48w,https://web.dev/static/learn/html/semantic-html/image/a-list-nodes-clear-land-42d8c845e5b74_72.png 72w,https://web.dev/static/learn/html/semantic-html/image/a-list-nodes-clear-land-42d8c845e5b74_96.png 96w,https://web.dev/static/learn/html/semantic-html/image/a-list-nodes-clear-land-42d8c845e5b74_480.png 480w,https://web.dev/static/learn/html/semantic-html/image/a-list-nodes-clear-land-42d8c845e5b74_720.png 720w,https://web.dev/static/learn/html/semantic-html/image/a-list-nodes-clear-land-42d8c845e5b74_856.png 856w,https://web.dev/static/learn/html/semantic-html/image/a-list-nodes-clear-land-42d8c845e5b74_960.png 960w,https://web.dev/static/learn/html/semantic-html/image/a-list-nodes-clear-land-42d8c845e5b74_1440.png 1440w,https://web.dev/static/learn/html/semantic-html/image/a-list-nodes-clear-land-42d8c845e5b74_1920.png 1920w,https://web.dev/static/learn/html/semantic-html/image/a-list-nodes-clear-land-42d8c845e5b74_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px">
+                                <figcaption class="wd-caption">
+                                  The second code snippet.
+                                </figcaption>
+                              </figure>
+                            </div>
+                            
+                            <p>In the second screen shot, there are four landmark roles in the second code block. It uses semantic landmarks conveniently named <code translate="no" dir="ltr">&lt;header&gt;</code>, <code translate="no" dir="ltr">&lt;main&gt;</code>, <code translate="no" dir="ltr">&lt;footer&gt;</code>, and <code translate="no" dir="ltr">&lt;nav&gt;</code> for &quot;navigation&quot;.   Landmarks provide structure to web content and ensure important sections of content are easily keyboard navigable for screen reader users.</p>
+                            
+                            <p>Note that <code translate="no" dir="ltr">&lt;header&gt;</code> and <code translate="no" dir="ltr">&lt;footer&gt;</code> are landmarks, with the roles of <code translate="no" dir="ltr">banner</code> and <code translate="no" dir="ltr">contentinfo</code> respectively, when they are not nested in other landmarks. Chrome&#39;s AOM shows this as follows:</p>
+                            
+                            <div class="wd-switcher">
+                              <figure>
+                                <img src="/static/learn/html/semantic-html/image/all-text-nodes-are-listed-3f0a6e26b2d99.png" alt="All text nodes are listed as static text." width="456" height="602" srcset="https://web.dev/static/learn/html/semantic-html/image/all-text-nodes-are-listed-3f0a6e26b2d99_36.png 36w,https://web.dev/static/learn/html/semantic-html/image/all-text-nodes-are-listed-3f0a6e26b2d99_48.png 48w,https://web.dev/static/learn/html/semantic-html/image/all-text-nodes-are-listed-3f0a6e26b2d99_72.png 72w,https://web.dev/static/learn/html/semantic-html/image/all-text-nodes-are-listed-3f0a6e26b2d99_96.png 96w,https://web.dev/static/learn/html/semantic-html/image/all-text-nodes-are-listed-3f0a6e26b2d99_480.png 480w,https://web.dev/static/learn/html/semantic-html/image/all-text-nodes-are-listed-3f0a6e26b2d99_720.png 720w,https://web.dev/static/learn/html/semantic-html/image/all-text-nodes-are-listed-3f0a6e26b2d99_856.png 856w,https://web.dev/static/learn/html/semantic-html/image/all-text-nodes-are-listed-3f0a6e26b2d99_960.png 960w,https://web.dev/static/learn/html/semantic-html/image/all-text-nodes-are-listed-3f0a6e26b2d99_1440.png 1440w,https://web.dev/static/learn/html/semantic-html/image/all-text-nodes-are-listed-3f0a6e26b2d99_1920.png 1920w,https://web.dev/static/learn/html/semantic-html/image/all-text-nodes-are-listed-3f0a6e26b2d99_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px">
+                                <figcaption class="wd-caption">
+                                  The first code snippet.
+                                </figcaption>
+                              </figure>
+                              <figure>
+                                <img src="/static/learn/html/semantic-html/image/the-text-nodes-have-desc-9cd0a6c89d981.png" alt="The text nodes all have descriptions." width="582" height="1046" srcset="https://web.dev/static/learn/html/semantic-html/image/the-text-nodes-have-desc-9cd0a6c89d981_36.png 36w,https://web.dev/static/learn/html/semantic-html/image/the-text-nodes-have-desc-9cd0a6c89d981_48.png 48w,https://web.dev/static/learn/html/semantic-html/image/the-text-nodes-have-desc-9cd0a6c89d981_72.png 72w,https://web.dev/static/learn/html/semantic-html/image/the-text-nodes-have-desc-9cd0a6c89d981_96.png 96w,https://web.dev/static/learn/html/semantic-html/image/the-text-nodes-have-desc-9cd0a6c89d981_480.png 480w,https://web.dev/static/learn/html/semantic-html/image/the-text-nodes-have-desc-9cd0a6c89d981_720.png 720w,https://web.dev/static/learn/html/semantic-html/image/the-text-nodes-have-desc-9cd0a6c89d981_856.png 856w,https://web.dev/static/learn/html/semantic-html/image/the-text-nodes-have-desc-9cd0a6c89d981_960.png 960w,https://web.dev/static/learn/html/semantic-html/image/the-text-nodes-have-desc-9cd0a6c89d981_1440.png 1440w,https://web.dev/static/learn/html/semantic-html/image/the-text-nodes-have-desc-9cd0a6c89d981_1920.png 1920w,https://web.dev/static/learn/html/semantic-html/image/the-text-nodes-have-desc-9cd0a6c89d981_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px">
+                                <figcaption class="wd-caption">
+                                  The second code snippet.
+                                </figcaption>
+                              </figure>
+                            </div>
+                            
+                            <p>Looking at Chrome developer tools, you&#39;ll note a significant difference between the accessibility object model when using semantic elements versus when you don&#39;t.</p>
+                            
+                            <p>It&#39;s pretty clear that semantic element usage helps accessibility, and using non-semantic elements reduces accessibility. HTML is generally, by default, accessible. Our job as developers is to both protect HTML&#39;s default accessible nature and ensure that we maximize accessibility. You can <a href="https://developer.chrome.com/docs/devtools/accessibility/reference#explore-tree">inspect the AOM in developer tools</a>.</p>
+                            
+                            <h3 id="the_role_attribute" data-text="The role attribute" tabindex="-1">The <code translate="no" dir="ltr">role</code> attribute</h3>
+                            
+                            <p>The <code translate="no" dir="ltr">role</code> attribute describes the role an element has in the context of the document. The <code translate="no" dir="ltr">role</code> attribute is a global attribute—meaning it is valid on all elements—defined by the <a href="https://w3c.github.io/aria/#dfn-role">ARIA specification</a> rather than the <a href="https://html.spec.whatwg.org/dev/">WHATWG HTML specification</a>, where almost everything else in this series is defined.</p>
+                            
+                            <p>Semantic elements each have an implicit role, some depending on the context. As we saw in the Firefox accessibility dev tools screenshot, the top level <code translate="no" dir="ltr">&lt;header&gt;</code>, <code translate="no" dir="ltr">&lt;main&gt;</code>, <code translate="no" dir="ltr">&lt;footer&gt;</code>, and <code translate="no" dir="ltr">&lt;nav&gt;</code> were all landmarks, while the <code translate="no" dir="ltr">&lt;header&gt;</code> nested in <code translate="no" dir="ltr">&lt;main&gt;</code> was a section. The Chrome screenshot lists these elements&#39; <a href="https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles">ARIA  roles</a>: <code translate="no" dir="ltr">&lt;main&gt;</code> is <code translate="no" dir="ltr">main</code>, <code translate="no" dir="ltr">&lt;nav&gt;</code> is <code translate="no" dir="ltr">navigation</code>, and <code translate="no" dir="ltr">&lt;footer&gt;</code>, as it was the footer of the document, is <code translate="no" dir="ltr">contentinfo</code>. When <code translate="no" dir="ltr">&lt;header&gt;</code> is the header for the document, the default role is <code translate="no" dir="ltr">banner</code>, which defines the section as the global site header. When a <code translate="no" dir="ltr">&lt;header&gt;</code> or <code translate="no" dir="ltr">&lt;footer&gt;</code> is nested within a sectioning element, it is not a landmark role. Both dev tools&#39; screenshots show this.</p>
+                            
+                            <p>Element role names are important in building the AOM. The semantics of an element, or &#39;role&#39;,  are important to assistive technologies and, in some cases, search engines.  Assistive technology users rely on semantics to navigate through and understand the meaning of content. The element&#39;s role enables a user to access the content they seek quickly and, possibly, more importantly, the role informs the screen reader user how to interact with an interactive element once it has focus.</p>
+                            
+                            <p>Interactive elements, such as buttons, links, ranges, and checkboxes, all have implicit roles, all are automatically added to the keyboard tab sequence, and all have default expected user action support. The implicit role, or explicit <code translate="no" dir="ltr">role</code> value, informs the user to expect element-specific default user interactions.</p>
+                            
+                            <p>Using the <code translate="no" dir="ltr">role</code> attribute, you can give any element a role, including a different role than the tag implies. For example, <code translate="no" dir="ltr">&lt;button&gt;</code> has the implicit role of <code translate="no" dir="ltr">button</code>.  With <code translate="no" dir="ltr">role=&quot;button&quot;</code>, you can turn any element semantically into a button: <code translate="no" dir="ltr">&lt;p role=&quot;button&quot;&gt;Click Me&lt;/p&gt;</code>.</p>
+                            
+                            <p>While adding <code translate="no" dir="ltr">role=&quot;button&quot;</code> to an element will inform screen readers that the element is a button, it doesn&#39;t change the appearance or functionality of the element. The <code translate="no" dir="ltr">button</code> element provides so many features without you doing any work. The <code translate="no" dir="ltr">button</code> element is automatically added to the document&#39;s tab ordering sequence, meaning it is by default keyboard focusable. The Enter and Space keys both activate the button. Buttons also have all the methods and properties provided to them by the <a href="https://developer.mozilla.org/docs/Web/API/HTMLButtonElement">HTMLButtonElement</a> interface. If you don&#39;t use the semantic button for your button, you have to program all those features back in. It&#39;s so much easier to just go with <code translate="no" dir="ltr">&lt;button&gt;</code>.</p>
+                            
+                            <p>Go back to the screenshot of the AOM for the non-semantic code block. You&#39;ll note that non-semantic elements don&#39;t have implicit roles. We can make the non-semantic version semantic by assigning each element a role:</p>
+                            <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;div role=&#34;banner&#34;&gt;
+                              &lt;span role=&#34;heading&#34; aria-level=&#34;1&#34;&gt;Three words&lt;/span&gt;
+                              &lt;div role=&#34;navigation&#34;&gt;
+                                &lt;a&gt;one word&lt;/a&gt;
+                                &lt;a&gt;one word&lt;/a&gt;
+                                &lt;a&gt;one word&lt;/a&gt;
+                                &lt;a&gt;one word&lt;/a&gt;
+                              &lt;/div&gt;
+                            &lt;/div&gt;
+                            </code></pre>
+                            <p>While the <code translate="no" dir="ltr">role</code> attribute can be used to add semantics to any element, you should instead use elements with the implicit role you need.</p>
+                            
+                            <h2 id="semantic_elements" data-text="Semantic elements" tabindex="-1">Semantic elements</h2>
+                            
+                            <p>Asking yourself, &quot;Which element best represents the function of this section of markup?&quot; will generally result in you picking the best element for the job. The element you choose, and therefore the tags you use, should be appropriate for the content you are displaying, as tags have semantic meaning.</p>
+                            
+                            <p>HTML should be used to structure content, not to define content&#39;s appearance. The appearance is the realm of CSS. While some elements are defined to appear a certain way, don&#39;t use an element based on how the user agent stylesheet makes that element appear by default. Rather, select each element based on the element&#39;s semantic meaning and functionality. Coding HTML in a logical, semantic, and meaningful way helps to ensure CSS is applied as intended.</p>
+                            
+                            <p>Choosing the right elements for the job as you code means you won&#39;t have to refactor or comment your HTML. If you think about using the right element for the job, you&#39;ll most often pick the right element for the job. If you don&#39;t, you probably won&#39;t. When you understand the semantics of each element and are aware of why choosing the right element is important, you will generally be able to make the right choice without much additional effort.</p>
+                            
+                            <p>In the next section, you&#39;ll use the semantic elements to build your <a href="/learn/html/document-structure">document structure</a>.</p>
+
+
+
+                                                    
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
                     </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
-                            </ul>
-                        </nav>
-                    </footer>
+                    
                                         
                 </div>
             </main>

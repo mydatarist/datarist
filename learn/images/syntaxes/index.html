@@ -1172,38 +1172,540 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                    
+                    
+
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Syntaxes</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
+                        <section aria-labelledby="the_story_of_your_first_website">
+                               
+                            
+
+
+
+
+
+                            <p>In this module, you&#39;ll learn how to give the browser a choice of images so that it can make the best decisions about what to display. <code translate="no" dir="ltr">srcset</code>
+                                isn&#39;t a method for swapping image sources at specific breakpoints, and it isn&#39;t meant to swap one image for another. These syntaxes allow the
+                                browser to solve a very difficult problem, independent of us: seamlessly requesting and rendering an image source tailored to a user&#39;s browsing context,
+                                including viewport size, display density, user preferences, bandwidth, and countless other factors.</p>
+                                
+                                <p>It&#39;s a big ask—certainly more than we want to consider when we&#39;re simply marking up an image for the web, and doing it well involves more
+                                information than we can access.</p>
+                                
+                                <h2 id="describing_density_with_x" data-text="Describing density with x" tabindex="-1">Describing density with <code translate="no" dir="ltr">x</code></h2>
+                                
+                                <p>An <code translate="no" dir="ltr">&lt;img&gt;</code> with a fixed width will occupy the same amount of the viewport in any browsing context, regardless of the <em>density</em> of a user&#39;s
+                                display—the number of physical pixels that make their screen. For example, an image with an inherent width of <code translate="no" dir="ltr">400px</code> will occupy almost
+                                the entire browser viewport on both the original Google Pixel and much newer Pixel 6 Pro—both devices have a normalized <code translate="no" dir="ltr">412px</code>
+                                <a href="https://developer.mozilla.org/docs/Glossary/CSS_pixel">logical pixel</a> wide viewport.</p>
+                                
+                                <p>The Pixel 6 Pro has a much <em>sharper</em> display, however: the 6 Pro has a <em>physical</em> resolution of 1440 × 3120 pixels, while the
+                                Pixel is 1080 × 1920 pixels—that is, the number of hardware pixels that make up the screen itself.</p>
+                                
+                                <p>The ratio between a device&#39;s logical pixels and physical pixels is the <em>device pixel ratio</em> for that display (DPR). DPR is
+                                calculated by dividing the device&#39;s actual screen resolution by a viewport&#39;s CSS pixels.</p>
+                                
+                                <p><img src="/static/learn/images/descriptive/image/a-dpr-2-displayed-a-con-31bc491f0ea9d.png" alt="A DPR of 2 displayed in a console window." width="800" height="277" srcset="https://web.dev/static/learn/images/descriptive/image/a-dpr-2-displayed-a-con-31bc491f0ea9d_36.png 36w,https://web.dev/static/learn/images/descriptive/image/a-dpr-2-displayed-a-con-31bc491f0ea9d_48.png 48w,https://web.dev/static/learn/images/descriptive/image/a-dpr-2-displayed-a-con-31bc491f0ea9d_72.png 72w,https://web.dev/static/learn/images/descriptive/image/a-dpr-2-displayed-a-con-31bc491f0ea9d_96.png 96w,https://web.dev/static/learn/images/descriptive/image/a-dpr-2-displayed-a-con-31bc491f0ea9d_480.png 480w,https://web.dev/static/learn/images/descriptive/image/a-dpr-2-displayed-a-con-31bc491f0ea9d_720.png 720w,https://web.dev/static/learn/images/descriptive/image/a-dpr-2-displayed-a-con-31bc491f0ea9d_856.png 856w,https://web.dev/static/learn/images/descriptive/image/a-dpr-2-displayed-a-con-31bc491f0ea9d_960.png 960w,https://web.dev/static/learn/images/descriptive/image/a-dpr-2-displayed-a-con-31bc491f0ea9d_1440.png 1440w,https://web.dev/static/learn/images/descriptive/image/a-dpr-2-displayed-a-con-31bc491f0ea9d_1920.png 1920w,https://web.dev/static/learn/images/descriptive/image/a-dpr-2-displayed-a-con-31bc491f0ea9d_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                                
+                                <p>So, the original Pixel has a DPR of 2.6, while the Pixel 6 Pro has a DPR of 3.5.</p>
+                                
+                                <p>The iPhone 4, the first device with a DPR greater than 1, reports a device pixel ratio of 2—the physical resolution of the screen is
+                                double the logical resolution. Any device prior to the iPhone 4 had a DPR of 1: one logical pixel to one physical pixel.</p>
+                                
+                                <p>If you view that <code translate="no" dir="ltr">400px</code>-wide image on a display with a DPR of <code translate="no" dir="ltr">2</code>, each logical pixel is being rendered across four of the
+                                display&#39;s physical pixels: two horizontal and two vertical. The image doesn&#39;t benefit from the high-density display—it will look the
+                                same as it would on a display with a DPR of <code translate="no" dir="ltr">1</code>. Of course, anything &quot;drawn&quot; by the browser&#39;s rendering engine—text, CSS shapes, or SVGs,
+                                for example—will be drawn to suit the higher-density display. But as you learned from <a href="/learn/images/raster-images">Image Formats and Compression</a>, raster images are fixed
+                                grids of pixels. While it may not always be glaringly obvious, a raster image upscaled to suit a higher-density display will look
+                                low-resolution compared to the surrounding page.</p>
+                                
+                                <p>In order to prevent this upscaling, the image being rendered has to have an intrinsic width of at least <code translate="no" dir="ltr">800</code> pixels. When scaled down
+                                to fit a space in a layout 400 logical pixels wide, that 800-pixel image source has double the pixel density—on a display with a DPR of <code translate="no" dir="ltr">2</code>,
+                                it&#39;ll look nice and sharp.</p>
+                                
+                                <p><img src="/static/learn/images/descriptive/image/close-of-flower-petal-s-d69d16ef9288a.png" alt="Close up of a flower petal showing disparity in density." width="800" height="417" srcset="https://web.dev/static/learn/images/descriptive/image/close-of-flower-petal-s-d69d16ef9288a_36.png 36w,https://web.dev/static/learn/images/descriptive/image/close-of-flower-petal-s-d69d16ef9288a_48.png 48w,https://web.dev/static/learn/images/descriptive/image/close-of-flower-petal-s-d69d16ef9288a_72.png 72w,https://web.dev/static/learn/images/descriptive/image/close-of-flower-petal-s-d69d16ef9288a_96.png 96w,https://web.dev/static/learn/images/descriptive/image/close-of-flower-petal-s-d69d16ef9288a_480.png 480w,https://web.dev/static/learn/images/descriptive/image/close-of-flower-petal-s-d69d16ef9288a_720.png 720w,https://web.dev/static/learn/images/descriptive/image/close-of-flower-petal-s-d69d16ef9288a_856.png 856w,https://web.dev/static/learn/images/descriptive/image/close-of-flower-petal-s-d69d16ef9288a_960.png 960w,https://web.dev/static/learn/images/descriptive/image/close-of-flower-petal-s-d69d16ef9288a_1440.png 1440w,https://web.dev/static/learn/images/descriptive/image/close-of-flower-petal-s-d69d16ef9288a_1920.png 1920w,https://web.dev/static/learn/images/descriptive/image/close-of-flower-petal-s-d69d16ef9288a_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                                
+                                <div class="wd-embed" style="height: 300px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/QWBGVyo?height=300&theme-id=light&default-tab=html%2Ccss%2Cresult&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen QWBGVyo by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                
+                                <p>Since a display with a DPR of <code translate="no" dir="ltr">1</code> can&#39;t make use of the increased density of an image, it will be <em>downscaled</em> to match the
+                                display—and as you know, a <em>downscaled</em> image will look just fine. On a low-density display, an image suitable for higher-density
+                                displays will look like any other low-density image.</p>
+                                
+                                <p>As you learned in <a href="/learn/images/performance-issues">Images and Performance</a>, a user with a low-density display viewing an image source scaled down to <code translate="no" dir="ltr">400px</code>
+                                will only <em>need</em> a source with an inherent width of <code translate="no" dir="ltr">400px</code>. While a much larger image would work for all users visually, a huge,
+                                high resolution image source rendered on a small, low density display will <em>look</em> like any other small, low density image, but <em>feel</em> far slower.</p>
+                                
+                                <p>As you might guess, <em>mobile</em> devices with a DPR of 1 are <a href="https://jakearchibald.com/2021/serving-sharp-images-to-high-density-screens/">vanishingly rare</a>,
+                                though it is still <a href="https://twitter.com/TimVereecke/status/1587878439729725442">common in &quot;desktop&quot; browsing contexts</a>. According to data
+                                shared by <a href="https://nooshu.com">Matt Hobbs</a>, approximately 18% of  <a href="https://www.gov.uk/">GOV.UK</a> browsing sessions from November 2022 report a DPR of 1. While high-density images would <em>look</em> the way those users might expect, they&#39;ll come at a much higher bandwidth and processing cost—of
+                                particular concern to users on the older and less powerful devices still likely to have low-density displays.</p>
+                                
+                                <p>Using <code translate="no" dir="ltr">srcset</code> ensures that only devices with high-resolution displays receive image sources large enough to look sharp, without passing that same
+                                bandwidth cost along to users with lower-resolution displays.</p>
+                                
+                                <p>The <code translate="no" dir="ltr">srcset</code> attribute identifies one or more comma-separated <em>candidates</em> for rendering an image. Each candidate is made up of
+                                two things: a URL, just like you would use in <code translate="no" dir="ltr">src</code>, and a syntax that <em>describes</em> that image source. Each candidate in <code translate="no" dir="ltr">srcset</code>
+                                is described by its inherent <em>width</em> (&quot;<code translate="no" dir="ltr">w</code> syntax&quot;) or intended <em>density</em> (&quot;<code translate="no" dir="ltr">x</code> syntax&quot;).</p>
+                                
+                                <p>The <code translate="no" dir="ltr">x</code> syntax is a shorthand for &quot;this source is appropriate for a display with this density&quot;—a candidate followed by <code translate="no" dir="ltr">2x</code> is
+                                appropriate for a display with a DPR of 2.</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;img src=&#34;low-density.jpg&#34; srcset=&#34;double-density.jpg 2x&#34; alt=&#34;...&#34;&gt;
+                                </code></pre>
+                                <p>Browsers that support <code translate="no" dir="ltr">srcset</code> will be presented with two candidates: <code translate="no" dir="ltr">double-density.jpg</code>, which <code translate="no" dir="ltr">2x</code> describes as appropriate
+                                for displays with a DPR of 2, and <code translate="no" dir="ltr">low-density.jpg</code> in the <code translate="no" dir="ltr">src</code> attribute—the candidate selected if nothing more appropriate is
+                                found in <code translate="no" dir="ltr">srcset</code>. For browsers without support for <code translate="no" dir="ltr">srcset</code>, the attribute and its contents will be ignored—the contents of <code translate="no" dir="ltr">src</code>
+                                will be requested, as usual.</p>
+                                
+                                <p>It&#39;s easy to mistake the  values specified in the <code translate="no" dir="ltr">srcset</code> attribute for instructions. That <code translate="no" dir="ltr">2x</code> informs the browser that the
+                                associated source file would be suitable for use on a display with a DPR of 2—information about the source itself. It doesn&#39;t tell
+                                the browser how to use that source, just informs the browser how the source could be used. It&#39;s a subtle but important distinction: this
+                                is a double density <em>image</em>, not an image for use on a double density <em>display</em>.</p>
+                                
+                                <p>The difference between a syntax that says &quot;this source is appropriate for <code translate="no" dir="ltr">2x</code> displays&quot; and one that says &quot;use this source on <code translate="no" dir="ltr">2x</code> displays&quot;
+                                is slight in print, but display density is only one of a huge number of interlinked factors that the browser uses to decide on the candidate
+                                to render, only some of which you can know. For example: individually, it&#39;s possible for you to determine that a user has enabled a
+                                bandwidth-saving browser preference through the <code translate="no" dir="ltr">prefers-reduced-data</code> media query, and use that to always opt users into low-density images
+                                regardless of their display density—but unless implemented consistently, by every developer, on every website, it wouldn&#39;t be of much use to a user.
+                                They might have their preference respected on one site, and run into a bandwidth-obliterating wall of images on the next.</p>
+                                
+                                <p>The deliberately vague resource selection algorithm used by <code translate="no" dir="ltr">srcset</code>/<code translate="no" dir="ltr">sizes</code> leaves room for browsers to decide to select lower density
+                                images with bandwidth dips, or based on a preference to minimize data usage, without us taking on responsibility for how, or when, or at
+                                what threshold. There&#39;s no sense in taking on responsibilities—and additional work—that the browser is better equipped to handle for you.</p>
+                                
+                                <h2 id="describing_widths_with_w" data-text="Describing widths with w" tabindex="-1">Describing widths with <code translate="no" dir="ltr">w</code></h2>
+                                
+                                <p><code translate="no" dir="ltr">srcset</code> accepts a second type of descriptor for image source candidates. It&#39;s a far more powerful one—and for our purposes, a
+                                great deal easier to understand. Rather than flagging a candidate as having the appropriate dimensions for a given display density,
+                                the <code translate="no" dir="ltr">w</code> syntax describes the inherent width of each candidate source. Again, each candidate is identical save for their dimensions—the same
+                                content, the same cropping, and the same aspect ratio. But in this case, you want the user&#39;s browser to choose between two candidates:
+                                small.jpg, a source with an inherent width of 600px, and large.jpg, a source with an inherent width of 1200px.</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">srcset=&#34;small.jpg 600w, large.jpg 1200w&#34;
+                                </code></pre>
+                                <p>This doesn&#39;t tell the browser what to <em>do</em> with this information—just supplies it with a list of candidates for displaying the image.
+                                Before the browser can make a decision about which source to render, you need to provide it with a little more information: a
+                                description of how the image will be rendered on the page. To do that, use the <code translate="no" dir="ltr">sizes</code> attribute.</p>
+                                
+                                <h2 id="describing_usage_with_sizes" data-text="Describing usage with sizes" tabindex="-1">Describing usage with <code translate="no" dir="ltr">sizes</code></h2>
+                                
+                                <p>Browsers are incredibly performant when it comes to transferring images. Requests for image assets will be initiated long
+                                before requests for stylesheets or JavaScript—oftentimes even before the markup has been fully parsed. When the browser
+                                makes these requests, it has no information about the page itself, apart from the markup—it may not have even initiated requests
+                                for external stylesheets yet, let alone applied them. At the time the browser parses your markup and starts making external
+                                requests, it only has browser-level information: the size of the user&#39;s viewport, the pixel density of the user&#39;s display,
+                                user preferences, and so on.</p>
+                                
+                                <p>This doesn&#39;t tell us anything about how an image is intended to be rendered in the page layout—it can&#39;t even use the viewport
+                                as a proxy for the upper bound of the <code translate="no" dir="ltr">img</code> size, as it may occupy a horizontally scrolling container. So we need to
+                                provide the browser with this information and do it using markup. That is all we&#39;ll be able to use for these requests.</p>
+                                
+                                <p>Like <code translate="no" dir="ltr">srcset</code>, <code translate="no" dir="ltr">sizes</code> is intended to make information about an image available as soon as the markup is parsed. Just as the <code translate="no" dir="ltr">srcset</code>
+                                attribute is shorthand for &quot;here are the source files and their inherent sizes,&quot; the <code translate="no" dir="ltr">sizes</code> attribute is shorthand for &quot;here
+                                is the size of the rendered image <em>in the layout</em>.&quot; The way you describe the image is relative to the viewport—again, viewport
+                                size is the only layout information the browser has when the image request is made.</p>
+                                
+                                <p>That may sound a little convoluted in print, but it&#39;s far easier to understand in practice:</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;img
+                                 sizes=&#34;80vw&#34;
+                                 srcset=&#34;small.jpg 600w, medium.jpg 1200w, large.jpg 2000w&#34;
+                                 src=&#34;fallback.jpg&#34;
+                                 alt=&#34;...&#34;&gt;
+                                </code></pre>
+                                <p>Here, this <code translate="no" dir="ltr">sizes</code> value informs the browser that the space in our layout that the <code translate="no" dir="ltr">img</code> occupies has a width of <code translate="no" dir="ltr">80vw</code>—80% of
+                                the viewport. Remember, this isn&#39;t an <em>instruction</em>, but a description of the image&#39;s size in the page layout. It doesn&#39;t say &quot;make this
+                                image occupy 80% of the viewport,&quot; but &quot;this image will end up occupying 80% of the viewport once the page has rendered.&quot;</p>
+                                
+                                <div class="wd-embed" style="height: 500px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/PoBWLYP?height=500&theme-id=light&default-tab=html%2Cresult&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen PoBWLYP by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                
+                                <p>As a developer, your job is done. You&#39;ve accurately described a list of candidate sources in <code translate="no" dir="ltr">srcset</code> and the width of your image
+                                in <code translate="no" dir="ltr">sizes</code>, and, just as with the <code translate="no" dir="ltr">x</code> syntax in <code translate="no" dir="ltr">srcset</code>, the rest is up to the browser.</p>
+                                
+                                <p>But in the interest of fully understanding how this information is used, let&#39;s take a moment to walk through the decisions that
+                                a user&#39;s browser makes upon encountering this markup:</p>
+                                
+                                <p>You&#39;ve informed the browser that this image will take up 80% of the available viewport—so, if we were to render this <code translate="no" dir="ltr">img</code> on a
+                                device with a 1000-pixel-wide viewport, this image will occupy 800 pixels. The browser will then take that value and divide against
+                                it the widths of each of the image source candidates we specified in <code translate="no" dir="ltr">srcset</code>. The smallest source has an inherent size of 600 pixels,
+                                so: 600÷800=.75. Our medium image is 1200 pixels wide: 1200÷800=1.5. Our largest image is 2000 pixels wide: 2000÷800=2.5.</p>
+                                
+                                <p>The results of those calculations (<code translate="no" dir="ltr">.75</code>, <code translate="no" dir="ltr">1.5</code>, and <code translate="no" dir="ltr">2.5</code>) are, effectively, DPR options <em>specifically tailored to the user&#39;s
+                                viewport size</em>. Since the browser also has information on the user&#39;s display density at hand, it makes a series of decisions:</p>
+                                
+                                <p>At this viewport size, the <code translate="no" dir="ltr">small.jpg</code> candidate is discarded regardless of the user&#39;s display density—with a calculated DPR lower
+                                than <code translate="no" dir="ltr">1</code>, this source would require upscaling for any user, so it isn&#39;t appropriate. On a device with a DPR of <code translate="no" dir="ltr">1</code>, <code translate="no" dir="ltr">medium.jpg</code> provides the
+                                closest match—that source is appropriate for display at a DPR of <code translate="no" dir="ltr">1.5</code>, so it is a little larger than necessary, but remember that downscaling is
+                                a visually seamless process. On a device with a DPR of 2,<code translate="no" dir="ltr">large.jpg</code> is the closest match, so it gets selected.</p>
+                                
+                                <p>If the same image is rendered on a 600 pixel wide viewport, the result of all that math would be completely different: 80vw is now 480px.
+                                When we divide our sources&#39; widths against that, we get <code translate="no" dir="ltr">1.25</code>, <code translate="no" dir="ltr">2.5</code>, and <code translate="no" dir="ltr">4.1666666667</code>. At this viewport size, <code translate="no" dir="ltr">small.jpg</code> will be chosen
+                                on 1x devices, and <code translate="no" dir="ltr">medium.jpg</code> will match on 2x devices.</p>
+                                
+                                <p>This image will look identical in all of these browsing contexts: all our source files are exactly the same apart from their dimensions,
+                                and each one is being rendered as sharply as the user&#39;s display density will allow. However, instead of serving <code translate="no" dir="ltr">large.jpg</code> to every user
+                                in order to accommodate the largest viewports and the highest density displays, users will always be served the smallest suitable candidate.
+                                By using a descriptive syntax rather than a prescriptive one, you don&#39;t need to manually set breakpoints and consider future viewports and
+                                DPRs—you simply supply the browser with information and allow it to determine the answers for you.</p>
+                                
+                                <p>Because our <code translate="no" dir="ltr">sizes</code> value is relative to the viewport and completely independent of the page layout, it adds a layer of complication.
+                                It&#39;s rare to have an image that <em>only</em> occupies a percentage of the viewport, without any fixed-width margins, padding, or influence
+                                from other elements on the page. You&#39;ll frequently need to express the width of an image using a combination of units; percentages, <code translate="no" dir="ltr">em</code>, <code translate="no" dir="ltr">px</code>, and so on.</p>
+                                
+                                <p>Fortunately, you can use <code translate="no" dir="ltr">calc()</code> here—any browser with native support for responsive images will support <code translate="no" dir="ltr">calc()</code> as well, allowing us to
+                                mix-and-match CSS units—for example, an image that occupies the full width of the user&#39;s viewport, minus a <code translate="no" dir="ltr">1em</code> margin on either side:</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;img
+                                    sizes=&#34;calc(100vw-2em)&#34;
+                                    srcset=&#34;small.jpg 400w, medium.jpg 800w, large.jpg 1600w, x-large.jpg 2400w&#34;
+                                    src=&#34;fallback.jpg&#34;
+                                    alt=&#34;...&#34;&gt;
+                                </code></pre>
+                                <h2 id="describing_breakpoints" data-text="Describing breakpoints" tabindex="-1">Describing breakpoints</h2>
+                                
+                                <p>If you&#39;ve spent much time working with responsive layouts, you&#39;ve likely noticed something missing from these examples:
+                                the space an image occupies in a layout is very likely to change across our layout&#39;s breakpoints. In that case, you need
+                                to pass a little more detail along to the browser: <code translate="no" dir="ltr">sizes</code> accepts a comma-separated set of candidates for the rendered size of the
+                                image, just like <code translate="no" dir="ltr">srcset</code> accepts comma-separated candidates for image sources. Those conditions use the familiar media query syntax.
+                                This syntax is first-match: as soon as a media condition matches, the browser stops parsing the <code translate="no" dir="ltr">sizes</code> attribute, and the value
+                                specified is applied.</p>
+                                
+                                <p>Say you have an image meant to occupy 80% of the viewport, minus one <code translate="no" dir="ltr">em</code> of padding on either side, on viewports above 1200px—on
+                                smaller viewports, it occupies the full width of the viewport.</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">  &lt;img
+                                     sizes=&#34;(min-width: 1200px) calc(80vw - 2em), 100vw&#34;
+                                     srcset=&#34;small.jpg 600w, medium.jpg 1200w, large.jpg 2000w&#34;
+                                     src=&#34;fallback.jpg&#34;
+                                     alt=&#34;...&#34;&gt;
+                                </code></pre>
+                                <div class="wd-embed" style="height: 500px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/RwBoYRx?height=500&theme-id=light&default-tab=html%2Cresult&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen RwBoYRx by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                
+                                <p>If the user&#39;s viewport is greater than 1200px, <code translate="no" dir="ltr">calc(80vw - 2em)</code> describes the width of the image in our layout. If the
+                                <code translate="no" dir="ltr">(min-width: 1200px)</code> condition <em>doesn&#39;t</em> match, the browser moves on to the next value. Because there isn&#39;t a specific
+                                media condition tied to this value, <code translate="no" dir="ltr">100vw</code> is used as a  default. If you were to write this <code translate="no" dir="ltr">sizes</code> attribute using
+                                <code translate="no" dir="ltr">max-width</code> media queries:</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">  &lt;img
+                                     sizes=&#34;(max-width: 1200px) 100vw, calc(80vw - 2em)&#34;
+                                     srcset=&#34;small.jpg 600w, medium.jpg 1200w, large.jpg 2000w&#34;
+                                     src=&#34;fallback.jpg&#34;
+                                     alt=&#34;...&#34;&gt;
+                                </code></pre>
+                                <div class="wd-embed" style="height: 500px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/BaPQOzO?height=500&theme-id=light&default-tab=html%2Cresult&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen BaPQOzO by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                
+                                <p>In plain language: &quot;does <code translate="no" dir="ltr">(max-width: 1200px)</code> match? If not, move on. The next value—<code translate="no" dir="ltr">calc(80vw - 2em)</code>—has no qualifying condition,
+                                so this is the one selected.</p>
+                                
+                                <p>Now that you&#39;ve provided the browser with all this information about your <code translate="no" dir="ltr">img</code> element—potential sources,  inherent widths,
+                                and how you intend to present the image to the user—the browser uses a fuzzy set of rules for determining what to do with
+                                that information. If that sounds vague, well, that&#39;s because it is—by design. The source-selection algorithm encoded in the
+                                HTML specification is <em>explicitly</em> vague on how a source should be chosen. Once the sources, their descriptors, and how
+                                the image will be rendered has all been parsed, the browser is free to do whatever it wants—you <em>can&#39;t</em> know for certain which
+                                source the browser will choose.</p>
+                                
+                                <p>A syntax that says &quot;use this source on a high-resolution display&quot; would be predictable, but it wouldn&#39;t address the core problem
+                                with images in a responsive layout: conserving user bandwidth. A screen&#39;s pixel density is only tangentially related to internet
+                                connection speed, if at all. If you are using a top-of-the-line laptop, but browsing the web by way of a metered connection, tethered
+                                to your phone, or using a shaky airplane wifi connection—you might want to opt out of high-resolution image sources, regardless of
+                                the quality of your display.</p>
+                                
+                                <p>Leaving the final say to the browser allows for far more performance improvements than we could manage with a strictly prescriptive
+                                syntax. For example: in most browsers, an <code translate="no" dir="ltr">img</code> using the <code translate="no" dir="ltr">srcset</code> or <code translate="no" dir="ltr">sizes</code> syntax will never bother requesting a source with smaller
+                                dimensions than one that the user already has in their browser&#39;s cache. What would be the point in making a new request for a source
+                                that would look identical, when the browser can seamlessly downscale the image source it already has? But if the user scales their
+                                viewport up to the point where a new image is needed in order to avoid upscaling, <em>that</em> request will still get made, so everything
+                                looks the way you expect.</p>
+                                
+                                <p>That lack of explicit control can sound a little scary at face value, but because you&#39;re using source files with identical
+                                content, we&#39;re no more likely to present users with a &quot;broken&quot; experience than we would with a single-source <code translate="no" dir="ltr">src</code>, regardless of
+                                the decisions made by the browser.</p>
+                                
+                                <h2 id="using_sizes_and_srcset" data-text="Using sizes and srcset" tabindex="-1">Using <code translate="no" dir="ltr">sizes</code> and <code translate="no" dir="ltr">srcset</code></h2>
+                                
+                                <p>This is a lot of information—both for you, the reader, and for the browser. <code translate="no" dir="ltr">srcset</code> and <code translate="no" dir="ltr">sizes</code> are both dense syntaxes,
+                                describing a shocking amount of information in relatively few characters. That is, for better or worse, by design: making
+                                these syntaxes less terse—and more easily parsed by us humans—could have made them more difficult for a <em>browser</em> to parse. The
+                                more complexity added to a string, the more potential there is for parser errors or unintentional differences in behavior
+                                from one browser to another. There&#39;s an upside here, however: a syntax more easily read by machines is a syntax more easily written
+                                by them.</p>
+                                
+                                <p><code translate="no" dir="ltr">srcset</code> is a clear-cut case for automation. It&#39;s rare that you&#39;ll be hand-crafting multiple versions of your images for a
+                                production environment, instead automating the process using a task runner like Gulp, a bundler like Webpack, a third-party
+                                CDN like Cloudinary, or functionality already built into your CMS of choice. Given enough information to generate our sources
+                                in the first place, a system would have enough information to write them into a viable <code translate="no" dir="ltr">srcset</code> attribute.</p>
+                                
+                                <p><code translate="no" dir="ltr">sizes</code> is a little more difficult to automate. As you know, the only way a system can calculate the size of an image in a
+                                rendered layout is to have <em>rendered</em> the layout. Fortunately, a number of developer tools have popped up to abstract away
+                                the process of hand-writing <code translate="no" dir="ltr">sizes</code> attributes—with an efficiency you could never match by hand.
+                                <a href="https://github.com/ausi/respimagelint">respImageLint</a>, for example, is a snippet of code intended to vet your <code translate="no" dir="ltr">sizes</code> attributes
+                                for accuracy and provide suggestions for improvement. The <a href="https://github.com/aFarkas/lazysizes">Lazysizes</a> project compromises
+                                some speed for efficiency by deferring image requests until after the layout has been established, allowing JavaScript to
+                                generate  <code translate="no" dir="ltr">sizes</code> values for you. If you&#39;re using a fully client-side rendering framework such as React or Vue, there are a
+                                number of solutions for authoring and/or generating <code translate="no" dir="ltr">srcset</code> and <code translate="no" dir="ltr">sizes</code> attributes, which we&#39;ll discuss further in <a href="/cms">CMS and Frameworks</a>.</p>
+                                
+                                <p>The <code translate="no" dir="ltr">&lt;picture&gt;</code> element doesn&#39;t render anything on its own, but instead acts as a decision engine for an inner <code translate="no" dir="ltr">&lt;img&gt;</code> element,
+                                    telling it what to render. <code translate="no" dir="ltr">&lt;picture&gt;</code> follows a precedent already set by the <code translate="no" dir="ltr">&lt;audio&gt;</code> and <code translate="no" dir="ltr">&lt;video&gt;</code> elements: a wrapper element
+                                    that contains individual <code translate="no" dir="ltr">&lt;source&gt;</code> elements.</p>
+                                    <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;picture&gt;
+                                       &lt;source …&gt;
+                                       &lt;source …&gt;
+                                        &lt;img …&gt;
+                                    &lt;/picture …&gt;
+                                    </code></pre>
+                                    <p>That inner <code translate="no" dir="ltr">&lt;img&gt;</code> also provides you with a reliable fallback pattern for older browsers without support for responsive images:
+                                    if the <code translate="no" dir="ltr">&lt;picture&gt;</code> element isn&#39;t recognized by the user&#39;s browser, it&#39;s ignored. The <code translate="no" dir="ltr">&lt;source&gt;</code> elements are then discarded as well,
+                                    since the browser either won&#39;t recognize them at all, or won&#39;t have meaningful context for them without a <code translate="no" dir="ltr">&lt;video&gt;</code> or <code translate="no" dir="ltr">&lt;audio&gt;</code> parent.
+                                    The inner <code translate="no" dir="ltr">&lt;img&gt;</code> element will be recognized by any browser, though—and the source specified in its <code translate="no" dir="ltr">src</code> will be rendered as expected.</p>
+                                    
+                                    <h2 id="art_directed_images_with_picture" data-text='"Art directed" images with &lt;picture&gt;' tabindex="-1">"Art directed" images with <code translate="no" dir="ltr">&lt;picture&gt;</code></h2>
+                                    
+                                    <p>Making changes to the content or aspect ratio of an image based on the size of the image in the page is typically referred to as &quot;art directed&quot;
+                                    responsive images. <code translate="no" dir="ltr">srcset</code> and <code translate="no" dir="ltr">sizes</code> are designed to work invisibly, seamlessly swapping out sources as the user&#39;s browser dictates.
+                                    There are times, however, where you want to alter sources across breakpoints to better highlight the content, the same way you adapt page layouts.
+                                    For example: a full-width header image with a small central focus may work well on a large viewport:</p>
+                                    
+                                    <p><img src="/static/learn/images/prescriptive/image/a-header-width-image-a-p-9d3a969232cde.png" alt="A header width image of a periwinkle flower surrounded by leaves and stems, being visited by a honeybee." width="800" height="286" srcset="https://web.dev/static/learn/images/prescriptive/image/a-header-width-image-a-p-9d3a969232cde_36.png 36w,https://web.dev/static/learn/images/prescriptive/image/a-header-width-image-a-p-9d3a969232cde_48.png 48w,https://web.dev/static/learn/images/prescriptive/image/a-header-width-image-a-p-9d3a969232cde_72.png 72w,https://web.dev/static/learn/images/prescriptive/image/a-header-width-image-a-p-9d3a969232cde_96.png 96w,https://web.dev/static/learn/images/prescriptive/image/a-header-width-image-a-p-9d3a969232cde_480.png 480w,https://web.dev/static/learn/images/prescriptive/image/a-header-width-image-a-p-9d3a969232cde_720.png 720w,https://web.dev/static/learn/images/prescriptive/image/a-header-width-image-a-p-9d3a969232cde_856.png 856w,https://web.dev/static/learn/images/prescriptive/image/a-header-width-image-a-p-9d3a969232cde_960.png 960w,https://web.dev/static/learn/images/prescriptive/image/a-header-width-image-a-p-9d3a969232cde_1440.png 1440w,https://web.dev/static/learn/images/prescriptive/image/a-header-width-image-a-p-9d3a969232cde_1920.png 1920w,https://web.dev/static/learn/images/prescriptive/image/a-header-width-image-a-p-9d3a969232cde_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                                    
+                                    <p>But when scaled down to suit small viewports, the central focus of the image might be lost:</p>
+                                    
+                                    <div style="width: 50%">
+                                    <img src="/static/learn/images/prescriptive/image/a-header-width-image-a-p-a272cd48c084e.png" alt="A header width image of a periwinkle flower, scaled down. The honeybee is barely visible." width="400" height="143" srcset="https://web.dev/static/learn/images/prescriptive/image/a-header-width-image-a-p-a272cd48c084e_36.png 36w,https://web.dev/static/learn/images/prescriptive/image/a-header-width-image-a-p-a272cd48c084e_48.png 48w,https://web.dev/static/learn/images/prescriptive/image/a-header-width-image-a-p-a272cd48c084e_72.png 72w,https://web.dev/static/learn/images/prescriptive/image/a-header-width-image-a-p-a272cd48c084e_96.png 96w,https://web.dev/static/learn/images/prescriptive/image/a-header-width-image-a-p-a272cd48c084e_480.png 480w,https://web.dev/static/learn/images/prescriptive/image/a-header-width-image-a-p-a272cd48c084e_720.png 720w,https://web.dev/static/learn/images/prescriptive/image/a-header-width-image-a-p-a272cd48c084e_856.png 856w,https://web.dev/static/learn/images/prescriptive/image/a-header-width-image-a-p-a272cd48c084e_960.png 960w,https://web.dev/static/learn/images/prescriptive/image/a-header-width-image-a-p-a272cd48c084e_1440.png 1440w,https://web.dev/static/learn/images/prescriptive/image/a-header-width-image-a-p-a272cd48c084e_1920.png 1920w,https://web.dev/static/learn/images/prescriptive/image/a-header-width-image-a-p-a272cd48c084e_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px">
+                                    </div>
+                                    
+                                    <p>The <em>subject</em> of these image sources are the same, but in order to better focus on that subject visually, you&#39;ll want the
+                                    proportions of the image source to change across breakpoints. For example, a tighter zoom on the center of the image, and
+                                    some of the detail at the edges cropped out:</p>
+                                    
+                                    <p><img src="/static/learn/images/prescriptive/image/a-zoomed-crop-the-periw-a24648a2c221.png" alt="A zoomed in crop of the periwinkle flower." width="400" height="315" srcset="https://web.dev/static/learn/images/prescriptive/image/a-zoomed-crop-the-periw-a24648a2c221_36.png 36w,https://web.dev/static/learn/images/prescriptive/image/a-zoomed-crop-the-periw-a24648a2c221_48.png 48w,https://web.dev/static/learn/images/prescriptive/image/a-zoomed-crop-the-periw-a24648a2c221_72.png 72w,https://web.dev/static/learn/images/prescriptive/image/a-zoomed-crop-the-periw-a24648a2c221_96.png 96w,https://web.dev/static/learn/images/prescriptive/image/a-zoomed-crop-the-periw-a24648a2c221_480.png 480w,https://web.dev/static/learn/images/prescriptive/image/a-zoomed-crop-the-periw-a24648a2c221_720.png 720w,https://web.dev/static/learn/images/prescriptive/image/a-zoomed-crop-the-periw-a24648a2c221_856.png 856w,https://web.dev/static/learn/images/prescriptive/image/a-zoomed-crop-the-periw-a24648a2c221_960.png 960w,https://web.dev/static/learn/images/prescriptive/image/a-zoomed-crop-the-periw-a24648a2c221_1440.png 1440w,https://web.dev/static/learn/images/prescriptive/image/a-zoomed-crop-the-periw-a24648a2c221_1920.png 1920w,https://web.dev/static/learn/images/prescriptive/image/a-zoomed-crop-the-periw-a24648a2c221_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                                    
+                                    <p>That sort of &quot;cropping&quot; can be achieved through CSS, but would leave a user requesting all the data that makes up that image,
+                                    even though they might never end up seeing it.</p>
+                                    
+                                    <p>Each <code translate="no" dir="ltr">source</code> element has attributes defining the conditions for the selection of that <code translate="no" dir="ltr">source</code>: <code translate="no" dir="ltr">media</code>, which accepts a
+                                    media query, and <code translate="no" dir="ltr">type</code>, which accepts a media type (previously known as &quot;MIME type&quot;). The first <code translate="no" dir="ltr">&lt;source&gt;</code> in the source
+                                    order to match the user&#39;s current browsing context is selected, and the contents of the <code translate="no" dir="ltr">srcset</code> attribute on that <code translate="no" dir="ltr">source</code>
+                                    will be used to determine the right candidates for that context. In this example, the first <code translate="no" dir="ltr">source</code> with a <code translate="no" dir="ltr">media</code> attribute
+                                    that matches user&#39;s viewport size will be the one selected:</p>
+                                    <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;picture&gt;
+                                      &lt;source media=&#34;(min-width: 1200px)&#34; srcset=&#34;wide-crop.jpg&#34;&gt;
+                                      &lt;img src=&#34;close-crop.jpg&#34; alt=&#34;…&#34;&gt;
+                                    &lt;/picture&gt;
+                                    </code></pre>
+                                    <div class="wd-embed" style="height: 300px; width: 100%">
+                                      <iframe
+                                      allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                      loading="lazy"
+                                      src="https://codepen.io/web-dot-dev/embed/poZNxyN?height=300&theme-id=light&default-tab=html%2Ccss%2Cresult&editable=true"
+                                      style="height: 100%; width: 100%; border: 0;"
+                                      title="Pen poZNxyN by web-dot-dev on Codepen"
+                                    ></iframe>
+                                    </div>
+                                    
+                                    <p>You should always specify the inner <code translate="no" dir="ltr">img</code> last in the order—if none of the <code translate="no" dir="ltr">source</code> elements match their <code translate="no" dir="ltr">media</code> or <code translate="no" dir="ltr">type</code>
+                                    criteria, the image will act as a &quot;default&quot; source. If you&#39;re using <code translate="no" dir="ltr">min-width</code> media queries, you want to have the largest
+                                    sources first, as seen in the preceding code. When using <code translate="no" dir="ltr">max-width</code> media queries, you should put the smallest source first.</p>
+                                    <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;picture&gt;
+                                       &lt;source media=&#34;(max-width: 400px)&#34; srcset=&#34;mid-bp.jpg&#34;&gt;
+                                       &lt;source media=&#34;(max-width: 800px)&#34; srcset=&#34;high-bp.jpg&#34;&gt;
+                                       &lt;img src=&#34;highest-bp.jpg&#34; alt=&#34;…&#34;&gt;
+                                    &lt;/picture&gt;
+                                    </code></pre>
+                                    <p>When a source is chosen based on the criteria you&#39;ve specified, the <code translate="no" dir="ltr">srcset</code> attribute on <code translate="no" dir="ltr">source</code> is passed along to the
+                                    <code translate="no" dir="ltr">&lt;img&gt;</code> as though it were defined on <code translate="no" dir="ltr">&lt;img&gt;</code> itself—meaning you&#39;re free to use <code translate="no" dir="ltr">sizes</code> to optimize art directed image
+                                    sources as well.</p>
+                                    <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;picture&gt;
+                                       &lt;source media=&#34;(min-width: 800px)&#34; srcset=&#34;high-bp-1600.jpg 1600w, high-bp-1000.jpg 1000w&#34;&gt;
+                                       &lt;source srcset=&#34;lower-bp-1200.jpg 1200w, lower-bp-800.jpg 800w&#34;&gt;
+                                       &lt;img src=&#34;fallback.jpg&#34; alt=&#34;…&#34; sizes=&#34;calc(100vw - 2em)&#34;&gt;
+                                    &lt;/picture&gt;
+                                    </code></pre>
+                                    <p>Of course, an image with proportions that can vary depending on the selected <code translate="no" dir="ltr">&lt;source&gt;</code> element raises a performance issue:
+                                    <code translate="no" dir="ltr">&lt;img&gt;</code> only supports a single <code translate="no" dir="ltr">width</code> and <code translate="no" dir="ltr">height</code> attribute, but <a href="##">omitting those attributes can lead to a measurably worse user experience</a>.
+                                    In order to account for this, a <a href="https://github.com/whatwg/html/pull/5894">relatively recent</a>—but
+                                    <a href="https://developer.mozilla.org/docs/Web/HTML/Element/source#browser_compatibility">well supported</a>—addition to the HTML
+                                    specification allows for use of <code translate="no" dir="ltr">height</code> and <code translate="no" dir="ltr">width</code> attributes on <code translate="no" dir="ltr">&lt;source&gt;</code> elements. These work to reduce layout shifts just as well
+                                    as they do on <code translate="no" dir="ltr">&lt;img&gt;</code>, with the appropriate space reserved in your layout for whatever <code translate="no" dir="ltr">&lt;source&gt;</code> element is selected.</p>
+                                    <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;picture&gt;
+                                       &lt;source
+                                          media=&#34;(min-width: 800px)&#34;
+                                          srcset=&#34;high-bp-1600.jpg 1600w, high-bp-1000.jpg 1000w&#34;
+                                          width=&#34;1600&#34;
+                                          height=&#34;800&#34;&gt;
+                                       &lt;img src=&#34;fallback.jpg&#34;
+                                          srcset=&#34;lower-bp-1200.jpg 1200w, lower-bp-800.jpg 800w&#34;
+                                          sizes=&#34;calc(100vw - 2em)&#34;
+                                          width=&#34;1200&#34;
+                                          height=&#34;750&#34;
+                                          alt=&#34;…&#34;&gt;
+                                    &lt;/picture&gt;
+                                    </code></pre>
+                                    <p>It&#39;s important to note that art direction can be used for more than decisions based on viewport-size—and it should, given that
+                                    the majority of those cases can be more efficiently handled with <code translate="no" dir="ltr">srcset</code>/<code translate="no" dir="ltr">sizes</code>. For example, selecting an image source better
+                                    suited to the color scheme dictated by a user&#39;s preference:</p>
+                                    <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;picture&gt;
+                                       &lt;source media=&#34;(prefers-color-scheme: dark)&#34; srcset=&#34;hero-dark.jpg&#34;&gt;
+                                       &lt;img srcset=&#34;hero-light.jpg&#34;&gt;
+                                    &lt;/picture&gt;
+                                    </code></pre>
+                                    <div class="wd-embed" style="height: 500px; width: 100%">
+                                      <iframe
+                                      allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                      loading="lazy"
+                                      src="https://codepen.io/web-dot-dev/embed/MWBbPJm?height=500&theme-id=light&default-tab=html%2Cresult&editable=true"
+                                      style="height: 100%; width: 100%; border: 0;"
+                                      title="Pen MWBbPJm by web-dot-dev on Codepen"
+                                    ></iframe>
+                                    </div>
+                                    
+                                    <h3 id="the_type_attribute" data-text="The type attribute" tabindex="-1">The <code translate="no" dir="ltr">type</code> attribute</h3>
+                                    
+                                    <p>The <code translate="no" dir="ltr">type</code> attribute allows you to use the <code translate="no" dir="ltr">&lt;picture&gt;</code> element&#39;s single-request decision engine to only serve image formats
+                                    to browsers that support them.</p>
+                                    
+                                    <p>As you learned in <a href="/learn/images/avif#browser_support">Image Formats and Compression</a>, an encoding that the browser can&#39;t parse won&#39;t even be recognizable as
+                                    image data.</p>
+                                    
+                                    <p>Before the introduction of the <code translate="no" dir="ltr">&lt;picture&gt;</code> element, the most viable front-end solutions for serving new image formats required
+                                    the browser to request and attempt to parse an image file before determining whether to throw it away and load a fallback. A
+                                    common example was a script along these lines:</p>
+                                    <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">   &lt;img src=&#34;image.webp&#34;
+                                        data-fallback=&#34;image.jpg&#34;
+                                        onerror=&#34;this.src=this.getAttribute(&#39;data-fallback&#39;); this.onerror=null;&#34;
+                                        alt=&#34;...&#34;&gt;
+                                    </code></pre>
+                                    <p>With this pattern, a request for <code translate="no" dir="ltr">image.webp</code> would still be made in every browser—meaning a wasted transfer for browsers
+                                    without support for WebP. Browsers that couldn&#39;t then parse the WebP encoding would throw an <code translate="no" dir="ltr">onerror</code> event, and swap
+                                    the <code translate="no" dir="ltr">data-fallback</code> value into <code translate="no" dir="ltr">src</code>. It was a wasteful solution, but again, approaches like this one were the only option
+                                    available on the front-end. Remember that the browser begins making requests for images before any custom scripting has a
+                                    chance to run—or even be parsed—so we couldn&#39;t preempt this process.</p>
+                                    
+                                    <p>The <code translate="no" dir="ltr">&lt;picture&gt;</code> element is explicitly designed to avoid those redundant requests. While there&#39;s still no way for a browser
+                                    to recognize a format it doesn&#39;t support without requesting it, the <code translate="no" dir="ltr">type</code> attribute warns the browser about the source
+                                    encodings up-front, so it can decide whether or not to make a request.</p>
+                                    
+                                    <p>In the <code translate="no" dir="ltr">type</code> attribute, you provide the <a href="https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types">Media Type (formerly MIME type)</a>
+                                    of the image source specified in the <code translate="no" dir="ltr">srcset</code> attribute of each <code translate="no" dir="ltr">&lt;source&gt;</code>. This provides the browser with all the information it
+                                    needs to immediately determine whether the image candidate provided by that <code translate="no" dir="ltr">source</code> can be decoded without making any external
+                                    requests—if the media type isn&#39;t recognized, the <code translate="no" dir="ltr">&lt;source&gt;</code> and all its candidates are disregarded, and the browser moves on.</p>
+                                    <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;picture&gt;
+                                     &lt;source type=&#34;image/webp&#34; srcset=&#34;pic.webp&#34;&gt;
+                                     &lt;img src=&#34;pic.jpg&#34; alt=&#34;...&#34;&gt;
+                                    &lt;/picture&gt;
+                                    </code></pre>
+                                    <p>Here, any browser that supports WebP encoding will recognize the <code translate="no" dir="ltr">image/webp</code> Media Type specified in the <code translate="no" dir="ltr">type</code> attribute
+                                    of the <code translate="no" dir="ltr">&lt;source&gt;</code> element, select that <code translate="no" dir="ltr">&lt;source&gt;</code>, and—since we&#39;ve only provided a single candidate in <code translate="no" dir="ltr">srcset</code>—instruct the inner
+                                    <code translate="no" dir="ltr">&lt;img&gt;</code> to request, transfer, and render <code translate="no" dir="ltr">pic.webp</code>. Any browser <em>without</em> support for WebP will disregard the <code translate="no" dir="ltr">source</code>, and
+                                    absent any instructions to the contrary, the <code translate="no" dir="ltr">&lt;img&gt;</code> will render the contents of <code translate="no" dir="ltr">src</code> as it has done since 1992.
+                                    You don&#39;t need to specify a second <code translate="no" dir="ltr">&lt;source&gt;</code> element with <code translate="no" dir="ltr">type=&quot;image/jpeg&quot;</code> here, of course—you can assume universal support for JPEG.</p>
+                                    
+                                    <p>Regardless of the user&#39;s browsing context, all of this is achieved with a single file transfer, and no bandwidth wasted on
+                                    image sources that can&#39;t be rendered. This is forward-thinking, as well: as newer and more efficient file formats will come
+                                    with Media Types of their own, and we&#39;ll be able to take advantage of them thanks to <code translate="no" dir="ltr">picture</code>—with no JavaScript, no serverside
+                                    dependencies, and all the speed of <code translate="no" dir="ltr">&lt;img&gt;</code>.</p>
+                                    
+                                    <h2 id="the_future_of_responsive_images" data-text="The future of responsive images" tabindex="-1">The future of responsive images</h2>
+                                    
+                                    <p>All of the markup patterns discussed here were a heavy lift in terms of standardization: changing the functionality of
+                                    something as established and central to the web as <code translate="no" dir="ltr">&lt;img&gt;</code> was no small feat, and the suite of problems those changes aimed to
+                                    solve were extensive to say the least. If you&#39;ve caught yourself thinking that there&#39;s a lot of room for improvement with these
+                                    markup patterns, you&#39;re absolutely right. From the outset, these standards were intended to provide a baseline for future
+                                    technologies to build on.</p>
+                                    
+                                    <p>All of these solutions have necessarily depended on markup, so as to be included in the initial payload from the server,
+                                    and arrive in time for the browser to request image sources—a limitation that led to the admittedly unwieldy <code translate="no" dir="ltr">sizes</code> attribute.</p>
+                                    
+                                    <p>However, since these features were introduced to the web platform, a native method of deferring image requests was introduced.
+                                    <code translate="no" dir="ltr">&lt;img&gt;</code> elements with the <code translate="no" dir="ltr">loading=&quot;lazy&quot;</code> attribute aren&#39;t requested until the layout of the page is known, in order to defer
+                                    requests for images outside of the user&#39;s initial viewport until later on in the process of rendering the page, potentially avoiding
+                                    unnecessary requests. Because the browser fully understands the page layout at the time these requests are made, a
+                                    <a href="https://github.com/whatwg/html/pull/8008"><code translate="no" dir="ltr">sizes=&quot;auto&quot;</code> attribute has been proposed as an addition to the HTML specification</a>
+                                    to avoid the chore of manually-written <code translate="no" dir="ltr">sizes</code> attributes in these cases.</p>
+                                    
+                                    <p>There are also additions to the <code translate="no" dir="ltr">&lt;picture&gt;</code> element on the horizon as well, to match some exceptionally exciting changes
+                                    to the way we style out page layouts. While viewport information is a sound basis for high-level layout decisions, it
+                                    prevents us from taking a fully component-level approach to development—meaning, a component that can be dropped into
+                                    any part of a page layout, with styles that respond to the space that the component itself occupies. This concern led
+                                    to the creation of <em><a href="https://www.oddbird.net/2022/08/18/cq-syntax/">container queries</a></em>: a method of styling elements
+                                    based on the size of their parent container, rather than the viewport alone.</p>
+                                    
+                                    <p>While the container query syntax has only just stabilized—and browser support is <a href="https://caniuse.com/css-container-queries">very limited</a>,
+                                    at the time of writing—the addition of the browser technologies that enable it will provide the <code translate="no" dir="ltr">&lt;picture&gt;</code> element with a
+                                    means of doing the same thing: a potential <code translate="no" dir="ltr">container</code> attribute that allows for <code translate="no" dir="ltr">&lt;source&gt;</code> selection criteria based on the
+                                    space the <code translate="no" dir="ltr">&lt;picture&gt;</code> element&#39;s <code translate="no" dir="ltr">&lt;img&gt;</code> occupies, rather than based on the size of the viewport.</p>
+                                    
+                                    <p>If that sounds a little vague, well, there&#39;s a good reason: these web standards discussions are ongoing, but far from settled—you
+                                    can&#39;t use them just yet.</p>
+                                    
+                                    <p>While responsive image markup promises to only get easier to work with over time, like any web technology, there are a number
+                                    of services, technologies, and frameworks to help ease the burden of hand-writing this markup available. In the next module,
+                                     we&#39;ll look at how to integrate everything we&#39;ve learned about image formats, compression, and responsive images into a modern development workflow.</p>
+                                    
+                                      
+                                                                    
+
+
+
+
+
+
+
+
+
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
                     </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
-                            </ul>
-                        </nav>
-                    </footer>
+                    
                                         
                 </div>
             </main>

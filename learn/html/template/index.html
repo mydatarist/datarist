@@ -1172,38 +1172,356 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                    
+                    
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Template</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
+                        <section aria-labelledby="the_story_of_your_first_website">
+                             
+                            
+
+
+
+
+
+                            <p>The benefit of web components is their re-usability: you can create a UI widget once, and reuse it multiple times. While you
+                                do need JavaScript to create web components, you don&#39;t need a JavaScript library. HTML and the associated APIs provide everything you need.</p>
+                                
+                                <p>The Web Component standard is made up of three parts—<a href="https://developer.mozilla.org/docs/Web/Web_Components/Using_templates_and_slots">HTML templates</a>,
+                                <a href="https://developer.mozilla.org/docs/Web/Web_Components/Using_custom_elements">Custom Elements</a>, and the <a href="https://developer.mozilla.org/docs/Web/Web_Components/Using_shadow_DOM">Shadow DOM</a>.
+                                Combined, they enable building customized, self-contained (encapsulated), reusable elements that can be seamlessly integrated
+                                into existing applications, like all the other HTML elements we&#39;ve already covered.</p>
+                                
+                                <p>In this section, we&#39;ll create the <code translate="no" dir="ltr">&lt;star-rating&gt;</code> element, a web component that allows users to rate an experience on a
+                                scale of one to five stars. When naming a custom element, it is recommended to use all lowercase letters. Also, include a dash,
+                                as this helps distinguish between regular and custom elements.</p>
+                                
+                                <p>We&#39;ll discuss using the <code translate="no" dir="ltr">&lt;template&gt;</code> and <code translate="no" dir="ltr">&lt;slot&gt;</code> elements, the <code translate="no" dir="ltr">slot</code> attribute, and JavaScript to create a template with
+                                an encapsulated <a href="/articles/shadowdom-v1">Shadow DOM</a>. We&#39;ll then re-use the defined element, customizing a section of text, just
+                                like you would any element or web component. We&#39;ll also briefly discuss using CSS from within and outside of the custom element.</p>
+                                
+                                <h2 id="the_template_element" data-text="The &lt;template&gt; element" tabindex="-1">The <code translate="no" dir="ltr">&lt;template&gt;</code> element</h2>
+                                
+                                <p>The <code translate="no" dir="ltr">&lt;template&gt;</code> element is used to declare fragments of HTML to be cloned and inserted into the DOM with JavaScript. The contents of the element are not rendered by default. Rather, they are instantiated using JavaScript.</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;template id=&#34;star-rating-template&#34;&gt;
+                                  &lt;form&gt;
+                                    &lt;fieldset&gt;
+                                      &lt;legend&gt;Rate your experience:&lt;/legend&gt;
+                                      &lt;rating&gt;
+                                        &lt;input type=&#34;radio&#34; name=&#34;rating&#34; value=&#34;1&#34; aria-label=&#34;1 star&#34; required /&gt;
+                                        &lt;input type=&#34;radio&#34; name=&#34;rating&#34; value=&#34;2&#34; aria-label=&#34;2 stars&#34; /&gt;
+                                        &lt;input type=&#34;radio&#34; name=&#34;rating&#34; value=&#34;3&#34; aria-label=&#34;3 stars&#34; /&gt;
+                                        &lt;input type=&#34;radio&#34; name=&#34;rating&#34; value=&#34;4&#34; aria-label=&#34;4 stars&#34; /&gt;
+                                        &lt;input type=&#34;radio&#34; name=&#34;rating&#34; value=&#34;5&#34; aria-label=&#34;5 stars&#34; /&gt;
+                                      &lt;/rating&gt;
+                                    &lt;/fieldset&gt;
+                                    &lt;button type=&#34;reset&#34;&gt;Reset&lt;/button&gt;
+                                    &lt;button type=&#34;submit&#34;&gt;Submit&lt;/button&gt;
+                                  &lt;/form&gt;
+                                &lt;/template&gt;
+                                </code></pre>
+                                <p>As the contents of a <code translate="no" dir="ltr">&lt;template&gt;</code> element are not written to the screen, the <code translate="no" dir="ltr">&lt;form&gt;</code> and its contents aren&#39;t rendered.
+                                Yes, this Codepen is blank, but if you inspect the HTML tab, you&#39;ll see the <code translate="no" dir="ltr">&lt;template&gt;</code> markup.</p>
+                                
+                                <div class="wd-embed" style="height: 500px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/vYzBNKR?height=500&theme-id=light&default-tab=result&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen vYzBNKR by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                
+                                <p>In this example, the <code translate="no" dir="ltr">&lt;form&gt;</code> is not a child of a <code translate="no" dir="ltr">&lt;template&gt;</code> in the DOM. Rather, contents of <code translate="no" dir="ltr">&lt;template&gt;</code> elements are children
+                                of a <a href="https://developer.mozilla.org/docs/Web/API/DocumentFragment"><code translate="no" dir="ltr">DocumentFragment</code></a> returned by the <a href="https://developer.mozilla.org/docs/Web/API/HTMLTemplateElement/content"><code translate="no" dir="ltr">HTMLTemplateElement.content</code></a>
+                                property. To be made visible, JavaScript must be used to grab the contents and append those contents to the DOM.</p>
+                                
+                                <div class="wd-embed" style="height: 500px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/WNgeQGq?height=500&theme-id=light&default-tab=result&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen WNgeQGq by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                
+                                <p>This brief JavaScript did not create a custom element. Rather, this example has appended the contents of the <code translate="no" dir="ltr">&lt;template&gt;</code> into the <code translate="no" dir="ltr">&lt;body&gt;</code>.
+                                The content has become part of the visible, styleable DOM.</p>
+                                
+                                <p><img src="/static/learn/html/template/image/a-screenshot-the-previou-1110fc490024e.png" alt="A screenshot of the previous codepen as shown in the DOM." width="800" height="375" srcset="https://web.dev/static/learn/html/template/image/a-screenshot-the-previou-1110fc490024e_36.png 36w,https://web.dev/static/learn/html/template/image/a-screenshot-the-previou-1110fc490024e_48.png 48w,https://web.dev/static/learn/html/template/image/a-screenshot-the-previou-1110fc490024e_72.png 72w,https://web.dev/static/learn/html/template/image/a-screenshot-the-previou-1110fc490024e_96.png 96w,https://web.dev/static/learn/html/template/image/a-screenshot-the-previou-1110fc490024e_480.png 480w,https://web.dev/static/learn/html/template/image/a-screenshot-the-previou-1110fc490024e_720.png 720w,https://web.dev/static/learn/html/template/image/a-screenshot-the-previou-1110fc490024e_856.png 856w,https://web.dev/static/learn/html/template/image/a-screenshot-the-previou-1110fc490024e_960.png 960w,https://web.dev/static/learn/html/template/image/a-screenshot-the-previou-1110fc490024e_1440.png 1440w,https://web.dev/static/learn/html/template/image/a-screenshot-the-previou-1110fc490024e_1920.png 1920w,https://web.dev/static/learn/html/template/image/a-screenshot-the-previou-1110fc490024e_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                                
+                                <p>Requiring JavaScript to implement a template for just one star rating isn&#39;t very useful, but creating a web component for a
+                                repeatedly used, customizable star rating widget is useful.</p>
+                                
+                                <h2 id="the_slot_element" data-text="The &lt;slot&gt; element" tabindex="-1">The <code translate="no" dir="ltr">&lt;slot&gt;</code> element</h2>
+                                
+                                <p>We include a slot to include a customized per occurrence legend. HTML provides a <a href="https://developer.mozilla.org/docs/Web/HTML/Element/slot"><code translate="no" dir="ltr">&lt;slot&gt;</code></a>
+                                element as a placeholder inside a <code translate="no" dir="ltr">&lt;template&gt;</code> that, if provided a name, creates a &quot;named slot&quot;. A named slot can be used
+                                to customize content within a web component. The <code translate="no" dir="ltr">&lt;slot&gt;</code> element gives us a way to control where the children of a custom
+                                element should be inserted within its shadow tree.</p>
+                                
+                                <p>In our template, we change the <code translate="no" dir="ltr">&lt;legend&gt;</code> to a <code translate="no" dir="ltr">&lt;slot&gt;</code>:</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;template id=&#34;star-rating-template&#34;&gt;
+                                  &lt;form&gt;
+                                    &lt;fieldset&gt;
+                                      &lt;slot name=&#34;star-rating-legend&#34;&gt;
+                                        &lt;legend&gt;Rate your experience:&lt;/legend&gt;
+                                      &lt;/slot&gt;
+                                </code></pre>
+                                <p>The <code translate="no" dir="ltr">name</code> attribute is used to assign slots to other elements if the element has a <a href="https://developer.mozilla.org/docs/Web/HTML/Global_attributes/slot">slot</a> attribute whose value matches the
+                                name of a named slot. If the custom element doesn&#39;t have a match for a slot, the contents of the <code translate="no" dir="ltr">&lt;slot&gt;</code> will be rendered.
+                                So we included a <code translate="no" dir="ltr">&lt;legend&gt;</code> with generic content that is OK to be rendered if anyone simply includes <code translate="no" dir="ltr">&lt;star-rating&gt;&lt;/star-rating&gt;</code>, with no content, in their HTML.</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;star-rating&gt;
+                                  &lt;legend slot=&#34;star-rating-legend&#34;&gt;Blendan Smooth&lt;/legend&gt;
+                                &lt;/star-rating&gt;
+                                &lt;star-rating&gt;
+                                  &lt;legend slot=&#34;star-rating-legend&#34;&gt;Hoover Sukhdeep&lt;/legend&gt;
+                                &lt;/star-rating&gt;
+                                &lt;star-rating&gt;
+                                  &lt;legend slot=&#34;star-rating-legend&#34;&gt;Toasty McToastface&lt;/legend&gt;
+                                  &lt;p&gt;Is this text visible?&lt;/p&gt;
+                                &lt;/star-rating&gt;
+                                </code></pre>
+                                <p>The <a href="https://developer.mozilla.orgdocs/Web/HTML/Global_attributes/slot">slot</a> attribute is a global attribute that is used
+                                to replace the contents of the <code translate="no" dir="ltr">&lt;slot&gt;</code> within a <code translate="no" dir="ltr">&lt;template&gt;</code>. In our custom element, the element with the slot attribute
+                                is a <code translate="no" dir="ltr">&lt;legend&gt;</code>. It doesn&#39;t need to be. In our template, <code translate="no" dir="ltr">&lt;slot name=&quot;star-rating-legend&quot;&gt;</code> will be replaced with <code translate="no" dir="ltr">&lt;anyElement slot=&quot;star-rating-legend&quot;&gt;</code>,
+                                where <code translate="no" dir="ltr">&lt;anyElement&gt;</code> can be any element, even another custom element.</p>
+                                
+                                <h2 id="undefined_elements" data-text="Undefined elements" tabindex="-1">Undefined elements</h2>
+                                
+                                <p>In our <code translate="no" dir="ltr">&lt;template&gt;</code> we used a <code translate="no" dir="ltr">&lt;rating&gt;</code> element. This is not a custom element. Rather, it&#39;s an unknown element. Browsers
+                                don&#39;t fail when they don&#39;t recognize an element. Unrecognized HTML elements are treated by the browser as anonymous inline
+                                elements that can be styled with CSS. Similar to <code translate="no" dir="ltr">&lt;span&gt;</code>, the <code translate="no" dir="ltr">&lt;rating&gt;</code> and <code translate="no" dir="ltr">&lt;star-rating&gt;</code> elements have no user-agent applied
+                                styles or semantics.</p>
+                                
+                                <div class="wd-embed" style="height: 500px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/jOvNbwO?height=500&theme-id=light&default-tab=result&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen jOvNbwO by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                
+                                <p>Note that the <code translate="no" dir="ltr">&lt;template&gt;</code> and contents are not rendered. The <code translate="no" dir="ltr">&lt;template&gt;</code> is a known element that contains content that
+                                is not to be rendered. The <code translate="no" dir="ltr">&lt;star-rating&gt;</code> element has yet to be defined. Until we define an element, the browser displays it
+                                like all unrecognized elements. For now, the unrecognized <code translate="no" dir="ltr">&lt;star-rating&gt;</code> is treated as an anonymous inline element, so the content
+                                including legends and the <code translate="no" dir="ltr">&lt;p&gt;</code> in the third <code translate="no" dir="ltr">&lt;star-rating&gt;</code> are displayed as they would be if they were in a <code translate="no" dir="ltr">&lt;span&gt;</code> instead.</p>
+                                
+                                <p>Let&#39;s define our element to convert this unrecognized element into a custom element.</p>
+                                
+                                <h3 id="custom_elements" data-text="Custom elements" tabindex="-1">Custom elements</h3>
+                                
+                                <p>JavaScript is required to define custom elements. When defined, the contents of the <code translate="no" dir="ltr">&lt;star-rating&gt;</code> element will be replaced by a
+                                shadow root containing all the contents of the template we associate with it. The <code translate="no" dir="ltr">&lt;slot&gt;</code> elements from the template are replaced
+                                with the contents of the element within the <code translate="no" dir="ltr">&lt;star-rating&gt;</code> whose <code translate="no" dir="ltr">slot</code> attribute value matches the <code translate="no" dir="ltr">&lt;slot&gt;</code>&#39;s name value, if
+                                there is one. If not, the contents of the template&#39;s slots are displayed.</p>
+                                
+                                <p>Content within a custom element that isn&#39;t associated with a slot—the <code translate="no" dir="ltr">&lt;p&gt;Is this text visible?&lt;/p&gt;</code> in our third <code translate="no" dir="ltr">&lt;star-rating&gt;</code>—is not included in
+                                the shadow root and therefore not displayed.</p>
+                                
+                                <p>We <a href="https://developer.mozilla.org/docs/Web/Web_Components/Using_custom_elements">define the custom element</a> named <code translate="no" dir="ltr">star-rating</code>
+                                by extending the <code translate="no" dir="ltr">HTMLElement</code>:</p>
+                                <pre class="prettyprint lang-js" translate="no" dir="ltr"><code translate="no" dir="ltr">customElements.define(&#39;star-rating&#39;,
+                                  class extends HTMLElement {
+                                    constructor() {
+                                      super(); // Always call super first in constructor
+                                      const starRating = document.getElementById(&#39;star-rating-template&#39;).content;
+                                      const shadowRoot = this.attachShadow({
+                                        mode: &#39;open&#39;
+                                      });
+                                      shadowRoot.appendChild(starRating.cloneNode(true));
+                                    }
+                                  });
+                                </code></pre>
+                                <div class="wd-embed" style="height: 500px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/poOzjpj?height=500&theme-id=light&default-tab=result&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen poOzjpj by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                
+                                <p>Now that the element is defined, every time the browser encounters a <code translate="no" dir="ltr">&lt;star-rating&gt;</code> element, it will be rendered as defined
+                                by the element with the <code translate="no" dir="ltr">#star-rating-template</code>, which is our template. The browser will attach a shadow DOM tree to the node, appending
+                                a <a href="https://developer.mozilla.org/docs/Web/API/Node/cloneNode">clone</a> of the template contents to that shadow DOM.
+                                Note that the elements upon which you can <a href="https://developer.mozilla.org/docs/Web/API/Element/attachShadow#elements_you_can_attach_a_shadow_to"><code translate="no" dir="ltr">attachShadow()</code> are limited</a>.</p>
+                                <pre class="prettyprint lang-js" translate="no" dir="ltr"><code translate="no" dir="ltr">const shadowRoot = this.attachShadow({mode: &#39;open&#39;});
+                                shadowRoot.appendChild(starRating.cloneNode(true));
+                                </code></pre>
+                                <p>If you take a look at the developer tools, you&#39;ll note the <code translate="no" dir="ltr">&lt;form&gt;</code> from the <code translate="no" dir="ltr">&lt;template&gt;</code> is part of the shadow root of each custom element.
+                                A clone of the <code translate="no" dir="ltr">&lt;template&gt;</code> contents is apparent in each custom element in the developer tools and visible in the browser, but the contents
+                                of the custom element itself are not rendered to the screen.</p>
+                                
+                                <p><img src="/static/learn/html/template/image/devtools-screenshot-showi-f52a762b2442f.png" alt="DevTools screenshot showing the cloned template contents in each custom element." width="800" height="842" srcset="https://web.dev/static/learn/html/template/image/devtools-screenshot-showi-f52a762b2442f_36.png 36w,https://web.dev/static/learn/html/template/image/devtools-screenshot-showi-f52a762b2442f_48.png 48w,https://web.dev/static/learn/html/template/image/devtools-screenshot-showi-f52a762b2442f_72.png 72w,https://web.dev/static/learn/html/template/image/devtools-screenshot-showi-f52a762b2442f_96.png 96w,https://web.dev/static/learn/html/template/image/devtools-screenshot-showi-f52a762b2442f_480.png 480w,https://web.dev/static/learn/html/template/image/devtools-screenshot-showi-f52a762b2442f_720.png 720w,https://web.dev/static/learn/html/template/image/devtools-screenshot-showi-f52a762b2442f_856.png 856w,https://web.dev/static/learn/html/template/image/devtools-screenshot-showi-f52a762b2442f_960.png 960w,https://web.dev/static/learn/html/template/image/devtools-screenshot-showi-f52a762b2442f_1440.png 1440w,https://web.dev/static/learn/html/template/image/devtools-screenshot-showi-f52a762b2442f_1920.png 1920w,https://web.dev/static/learn/html/template/image/devtools-screenshot-showi-f52a762b2442f_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                                
+                                <p>In the <code translate="no" dir="ltr">&lt;template&gt;</code> example, we appended the template contents to the document body, adding the content to the regular DOM.
+                                In the <a href="https://developer.mozilla.org/docs/Web/API/CustomElementRegistry/define"><code translate="no" dir="ltr">customElements</code> definition</a>, we used the same
+                                <a href="https://developer.mozilla.org/docs/Web/API/Node/appendChild"><code translate="no" dir="ltr">appendChild()</code></a>, but the cloned template contents were appended to an
+                                encapsulated shadow DOM.</p>
+                                
+                                <p>Notice how the stars went back to being unstyled radio buttons? Being part of a shadow DOM rather than the standard DOM, the styling within Codepen&#39;s CSS tab does not apply. That tab&#39;s CSS
+                                styles are scoped to the document, not to the shadow DOM, so the styles aren&#39;t applied. We have to create encapsulated
+                                styles to style our encapsulated Shadow DOM content.</p>
+                                
+                                <h2 id="shadow_dom" data-text="Shadow DOM" tabindex="-1">Shadow DOM</h2>
+                                
+                                <p>The Shadow DOM scopes CSS styles to each shadow tree, isolating it from the rest of the document. This means external CSS
+                                doesn&#39;t apply to your component, and component styles have no effect on the rest of the document, unless we intentionally
+                                direct them to.</p>
+                                
+                                <p>Because we have appended the contents to a shadow DOM, we can include a <a href="/learn/html/document-structure#css"><code translate="no" dir="ltr">&lt;style&gt;</code></a> element
+                                providing encapsulated CSS to the custom element.</p>
+                                
+                                <div class="wd-embed" style="height: 500px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/dyqbYme?height=500&theme-id=light&default-tab=result&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen dyqbYme by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                
+                                <p>Being scoped to the custom element, we don&#39;t have to worry about styles seeping out to the rest of the document. We can
+                                substantially reduce the specificity of the selectors. For example, as the only inputs used in the custom element are radio
+                                buttons, we can use <code translate="no" dir="ltr">input</code> instead of <code translate="no" dir="ltr">input[type=&quot;radio&quot;]</code> as a selector.</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr"> &lt;template id=&#34;star-rating-template&#34;&gt;
+                                  &lt;style&gt;
+                                    rating {
+                                      display: inline-flex;
+                                    }
+                                    input {
+                                      appearance: none;
+                                      margin: 0;
+                                      box-shadow: none;
+                                    }
+                                    input::after {
+                                      content: &#39;\2605&#39;; /* solid star */
+                                      font-size: 32px;
+                                    }
+                                    rating:hover input:invalid::after,
+                                    rating:focus-within input:invalid::after {
+                                      color: #888;
+                                    }
+                                    input:invalid::after,
+                                      rating:hover input:hover ~ input:invalid::after,
+                                      input:focus ~ input:invalid::after  {
+                                      color: #ddd;
+                                    }
+                                    input:valid {
+                                      color: orange;
+                                    }
+                                    input:checked ~ input:not(:checked)::after {
+                                      color: #ccc;
+                                      content: &#39;\2606&#39;; /* hollow star */
+                                    }
+                                  &lt;/style&gt;
+                                  &lt;form&gt;
+                                    &lt;fieldset&gt;
+                                      &lt;slot name=&#34;star-rating-legend&#34;&gt;
+                                        &lt;legend&gt;Rate your experience:&lt;/legend&gt;
+                                      &lt;/slot&gt;
+                                      &lt;rating&gt;
+                                        &lt;input type=&#34;radio&#34; name=&#34;rating&#34; value=&#34;1&#34; aria-label=&#34;1 star&#34; required/&gt;
+                                        &lt;input type=&#34;radio&#34; name=&#34;rating&#34; value=&#34;2&#34; aria-label=&#34;2 stars&#34;/&gt;
+                                        &lt;input type=&#34;radio&#34; name=&#34;rating&#34; value=&#34;3&#34; aria-label=&#34;3 stars&#34;/&gt;
+                                        &lt;input type=&#34;radio&#34; name=&#34;rating&#34; value=&#34;4&#34; aria-label=&#34;4 stars&#34;/&gt;
+                                        &lt;input type=&#34;radio&#34; name=&#34;rating&#34; value=&#34;5&#34; aria-label=&#34;5 stars&#34;/&gt;
+                                      &lt;/rating&gt;
+                                    &lt;/fieldset&gt;
+                                    &lt;button type=&#34;reset&#34;&gt;Reset&lt;/button&gt;
+                                    &lt;button type=&#34;submit&#34;&gt;Submit&lt;/button&gt;
+                                  &lt;/form&gt;
+                                &lt;/template&gt;
+                                </code></pre>
+                                <p>While web components are encapsulated with in-<code translate="no" dir="ltr">&lt;template&gt;</code> markup and CSS styles are scoped to the shadow DOM and hidden
+                                from everything outside of the components, the slot content which gets rendered, the <code translate="no" dir="ltr">&lt;anyElement slot=&quot;star-rating-legend&quot;&gt;</code>
+                                portion of the <code translate="no" dir="ltr">&lt;star-rating&gt;</code>, is not encapsulated.</p>
+                                
+                                <h2 id="styling_outside_of_the_current_scope" data-text="Styling outside of the current scope" tabindex="-1">Styling outside of the current scope</h2>
+                                
+                                <p>It is possible, but not simple, to style the document from within a shadow DOM and to style the contents of a shadow DOM from
+                                the global styles. The shadow boundary, where the shadow DOM ends and the regular DOM begins, can be traversed, but only
+                                very intentionally.</p>
+                                
+                                <p>The <em>shadow tree</em> is the DOM tree inside the shadow DOM. The shadow root is the root node of the shadow tree.</p>
+                                
+                                <p>The <a href="https://developer.mozilla.org/docs/Web/CSS/:host"><code translate="no" dir="ltr">:host</code></a> pseudo-class selects the <code translate="no" dir="ltr">&lt;star-rating&gt;</code>, the shadow host element.
+                                The <em>shadow host</em> is the DOM node that the shadow DOM is attached to. To target only specific versions of the host, use <a href="https://developer.mozilla.org/docs/Web/CSS/:host_function"><code translate="no" dir="ltr">:host()</code></a>.
+                                This will select only the shadow host elements that match the parameter passed, like a class or attribute selector. To select
+                                all the custom elements, you can use <code translate="no" dir="ltr">star-rating { /* styles */ }</code> in the global CSS, or <code translate="no" dir="ltr">:host(:not(#nonExistantId))</code> in the template styles. In terms
+                                of <a href="https://developer.mozilla.org/docs/Web/CSS/Specificity">specificity</a>, the global CSS wins.</p>
+                                
+                                <p>The <a href="https://developer.mozilla.org/docs/Web/CSS/::slotted"><code translate="no" dir="ltr">::slotted()</code></a> pseudo-element crosses the shadow DOM boundary
+                                from within the shadow DOM. It selects a slotted element if it matches the selector. In our example, <code translate="no" dir="ltr">::slotted(legend)</code> matches our three legends.</p>
+                                
+                                <p>To target a shadow DOM from CSS in the global scope, the template needs to be edited. The <a href="https://developer.mozilla.org/docs/Web/HTML/Global_attributes#part"><code translate="no" dir="ltr">part</code></a>
+                                attribute can be added to any element that you want to style. Then use the <a href="https://developer.mozilla.org/docs/Web/CSS/::part"><code translate="no" dir="ltr">::part()</code></a> pseudo-element
+                                to match elements within a shadow tree that match the parameter passed. The anchor or originating element for the pseudo-element is
+                                the host, or custom element name, in this case <code translate="no" dir="ltr">star-rating</code>. The parameter is the value of the <code translate="no" dir="ltr">part</code> attribute.</p>
+                                
+                                <p>If our template markup began as such:</p>
+                                <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;template id=&#34;star-rating-template&#34;&gt;
+                                  &lt;form part=&#34;formPart&#34;&gt;
+                                    &lt;fieldset part=&#34;fieldsetPart&#34;&gt;
+                                </code></pre>
+                                <p>We could target the <code translate="no" dir="ltr">&lt;form&gt;</code> and <code translate="no" dir="ltr">&lt;fieldset&gt;</code> with:</p>
+                                <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">star-rating::part(formPart) { /* styles */ }
+                                star-rating::part(fieldsetPart) { /* styles */ }
+                                </code></pre>
+                                <div class="wd-embed" style="height: 500px; width: 100%">
+                                  <iframe
+                                  allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                                  loading="lazy"
+                                  src="https://codepen.io/web-dot-dev/embed/abaovjL?height=500&theme-id=light&default-tab=result&editable=true"
+                                  style="height: 100%; width: 100%; border: 0;"
+                                  title="Pen abaovjL by web-dot-dev on Codepen"
+                                ></iframe>
+                                </div>
+                                
+                                <p>Part names act similarly to classes: an element can have multiple space-separated part names, and multiple elements can
+                                have the same part name.</p>
+                                
+                                <p>Google has a fantastic checklist for <a href="/articles/custom-elements-best-practices">creating custom elements</a>. You may also want to learn
+                                about <a href="/declarative-shadow-dom">declarative shadow DOMs</a>.</p>
+
+
+
+
+
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
                     </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
-                            </ul>
-                        </nav>
-                    </footer>
+                    
                                         
                 </div>
             </main>

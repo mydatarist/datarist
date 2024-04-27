@@ -1172,38 +1172,181 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                    
+                    
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Attributes</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
+                        <section aria-labelledby="the_story_of_your_first_website">
+                          
+                            
+
+
+
+
+                            <p>HTML element attributes can enhance your <code translate="no" dir="ltr">&lt;form&gt;</code> and form controls.</p>
+
+                            <h2 id="help_users_fill_in_form_controls" data-text="Help users fill in form controls" tabindex="-1">Help users fill in form controls</h2>
+                            
+                            <p>To make it easier for users to fill out forms, 
+                            use an appropriate <code translate="no" dir="ltr">type</code> attribute for your <code translate="no" dir="ltr">&lt;input&gt;</code> elements. </p>
+                            
+                            <p>Browsers display a user interface appropriate for the <code translate="no" dir="ltr">type</code>, 
+                            such as a date picker for an <code translate="no" dir="ltr">&lt;input&gt;</code> of type <code translate="no" dir="ltr">date</code>. 
+                            Browsers on mobile devices show an adapted on-screen keyboard, 
+                            such as a telephone number keypad for <code translate="no" dir="ltr">type=&quot;tel&quot;</code>.</p>
+                            
+                            <p>Some <code translate="no" dir="ltr">&lt;input&gt;</code> types also change validation rules for an element when its form is submitted. 
+                            <code translate="no" dir="ltr">&lt;input type=&quot;url&quot;&gt;</code>, for example, is only valid if it&#39;s not empty and the value is a URL.</p>
+                            
+                            <h2 id="ensure_users_enter_data" data-text="Ensure users enter data" tabindex="-1">Ensure users enter data</h2>
+                            
+                            <p>There are different attributes for providing an appropriate on-screen keyboard on touch devices. 
+                            The first option is to use the <code translate="no" dir="ltr">type</code> attribute, as mentioned above. </p>
+                            
+                            <p>Another option is the <code translate="no" dir="ltr">inputmode</code> attribute supported on 
+                            <a href="https://caniuse.com/?search=inputmode">Android and iOS</a>. 
+                            In contrast to the <code translate="no" dir="ltr">type</code> attribute, the <code translate="no" dir="ltr">inputmode</code> attribute only changes the on-screen keyboard 
+                            provided, not the behavior of the element itself. Using <code translate="no" dir="ltr">inputmode</code> is a good option if you want to 
+                            keep the default user interface and the default validation rules of an <code translate="no" dir="ltr">&lt;input&gt;</code>, but still want an 
+                            optimized on-screen keyboard.</p>
+                            
+                            <aside class="caution"><b>Caution: </b> Use <code translate="no" dir="ltr">type=&quot;number&quot;</code> only for incremental fields such as the quantity of a product. Browsers show an up/down arrow for <code translate="no" dir="ltr">type=&quot;number&quot;</code> which makes no sense for telephone numbers, payment card or account numbers. For telephone numbers, use <code translate="no" dir="ltr">type=&quot;tel&quot;</code>. For other numbers, use <code translate="no" dir="ltr">inputmode=&quot;numeric&quot;</code> to get a numeric on-screen keyboard. </aside>
+                            
+                            <p><img src="/static/learn/forms/attributes/image/two-screenshots-android-8c894c99436c3.jpg" alt="Two screenshots of Android phones, showing a keyboard appropriate for entering an email addresses (using type=email) and for entering a telephone number (with type=tel)." width="800" height="696" srcset="https://web.dev/static/learn/forms/attributes/image/two-screenshots-android-8c894c99436c3_36.jpg 36w,https://web.dev/static/learn/forms/attributes/image/two-screenshots-android-8c894c99436c3_48.jpg 48w,https://web.dev/static/learn/forms/attributes/image/two-screenshots-android-8c894c99436c3_72.jpg 72w,https://web.dev/static/learn/forms/attributes/image/two-screenshots-android-8c894c99436c3_96.jpg 96w,https://web.dev/static/learn/forms/attributes/image/two-screenshots-android-8c894c99436c3_480.jpg 480w,https://web.dev/static/learn/forms/attributes/image/two-screenshots-android-8c894c99436c3_720.jpg 720w,https://web.dev/static/learn/forms/attributes/image/two-screenshots-android-8c894c99436c3_856.jpg 856w,https://web.dev/static/learn/forms/attributes/image/two-screenshots-android-8c894c99436c3_960.jpg 960w,https://web.dev/static/learn/forms/attributes/image/two-screenshots-android-8c894c99436c3_1440.jpg 1440w,https://web.dev/static/learn/forms/attributes/image/two-screenshots-android-8c894c99436c3_1920.jpg 1920w,https://web.dev/static/learn/forms/attributes/image/two-screenshots-android-8c894c99436c3_2880.jpg 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                            
+                            <p>You can change the <code translate="no" dir="ltr">Enter</code> key on on-screen keyboards with the <code translate="no" dir="ltr">enterkeyhint</code> attribute. 
+                            For example, <code translate="no" dir="ltr">enterkeyhint=&quot;next&quot;</code> or <code translate="no" dir="ltr">enterkeyhint=&quot;done&quot;</code> changes the button label to an appropriate icon. 
+                            This helps make it clearer for users what happens when they submit the current form.</p>
+                            
+                            <p><img src="/static/learn/forms/attributes/image/two-screenshots-an-addre-650ce1651539a.png" alt="Two screenshots of an address form on Android showing how the enterkeyhint input attribute changes the enter key button icon." width="800" height="696" srcset="https://web.dev/static/learn/forms/attributes/image/two-screenshots-an-addre-650ce1651539a_36.png 36w,https://web.dev/static/learn/forms/attributes/image/two-screenshots-an-addre-650ce1651539a_48.png 48w,https://web.dev/static/learn/forms/attributes/image/two-screenshots-an-addre-650ce1651539a_72.png 72w,https://web.dev/static/learn/forms/attributes/image/two-screenshots-an-addre-650ce1651539a_96.png 96w,https://web.dev/static/learn/forms/attributes/image/two-screenshots-an-addre-650ce1651539a_480.png 480w,https://web.dev/static/learn/forms/attributes/image/two-screenshots-an-addre-650ce1651539a_720.png 720w,https://web.dev/static/learn/forms/attributes/image/two-screenshots-an-addre-650ce1651539a_856.png 856w,https://web.dev/static/learn/forms/attributes/image/two-screenshots-an-addre-650ce1651539a_960.png 960w,https://web.dev/static/learn/forms/attributes/image/two-screenshots-an-addre-650ce1651539a_1440.png 1440w,https://web.dev/static/learn/forms/attributes/image/two-screenshots-an-addre-650ce1651539a_1920.png 1920w,https://web.dev/static/learn/forms/attributes/image/two-screenshots-an-addre-650ce1651539a_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                            
+                            <aside class="warning"><b>Warning: </b> Automatically focusing a form control using the <code translate="no" dir="ltr">autofocus</code> attribute can confuse people, including screen reader users and people with cognitive impairments. Therefore, our advice is that you should not use the <code translate="no" dir="ltr">autofocus</code> attribute. </aside>
+                            
+                            <h2 id="ensure_users_can_submit_a_form" data-text="Ensure users can submit a form" tabindex="-1">Ensure users can submit a form</h2>
+                            
+                            <p>Say, you fill out a <code translate="no" dir="ltr">&lt;form&gt;</code>, click the <strong>Submit</strong> button, but nothing happens. 
+                            The issue may be that the button has been disabled with the <code translate="no" dir="ltr">disabled</code> attribute. 
+                            It&#39;s a common pattern to disable the <strong>Submit</strong> button until the form is valid.</p>
+                            
+                            <p>In theory this sounds sensible, but you shouldn&#39;t disable a <strong>Submit</strong> button while waiting on 
+                            complete and valid user input. Instead, highlight invalid data when it&#39;s entered, and highlight 
+                            problematic fields to the user when they submit the form. </p>
+                            
+                            <p>However, you may want to disable the <strong>Submit</strong> button once the form is successfully submitted, but 
+                            not yet processed. Learn more about <a href="https://www.smashingmagazine.com/2021/08/frustrating-design-patterns-disabled-buttons/#when-disabled-buttons-and-states-work-well">disabled buttons</a>.</p>
+                            
+                            <h2 id="help_users_by_showing_the_data_they_previously_entered" data-text="Help users by showing the data they previously entered" tabindex="-1">Help users by showing the data they previously entered</h2>
+                            
+                            <p>Imagine you have a checkout form with multiple steps. 
+                            How do you ensure the previously entered values are still there when the user returns to a previous step? 
+                            Use the <code translate="no" dir="ltr">value</code> attribute to show values already completed.</p>
+                            <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;label for=&#34;name&#34;&gt;Name&lt;/label&gt;
+                            &lt;input value=&#34;Hilda&#34; name=&#34;name&#34; id=&#34;name&#34; type=&#34;text&#34;&gt;
+                            </code></pre>
+                            <p>There are multiple  ways to retrieve the value of a form control in JavaScript. 
+                            You can use the 
+                            <a href="https://developer.mozilla.org/docs/Web/HTML/Element/input#attr-value"><code translate="no" dir="ltr">value</code></a> property, or you can access the value with 
+                            <a href="https://developer.mozilla.org/docs/Web/API/Element/getAttribute"><code translate="no" dir="ltr">getAttribute(&#39;value&#39;)</code></a>. 
+                            There is one big difference, 
+                            the <code translate="no" dir="ltr">value</code> property always returns the current value, 
+                            and using <code translate="no" dir="ltr">getAttribute()</code> always returns the initial value.</p>
+                            
+                            <p><a href="https://codepen.io/web-dot-dev/pen/20359edfc39a65c291c3c186a33ab0db?editors=0011">Try it out</a>! 
+                            Change the text of the name field and watch the console. 
+                            Notice how the <code translate="no" dir="ltr">value</code> property returns the currently visible text, 
+                            while <code translate="no" dir="ltr">getAttribute(&#39;value&#39;)</code> always returns the initial value.</p>
+                            
+                            <p>Learn more about the difference between 
+                            <a href="https://stackoverflow.com/questions/6003819/what-is-the-difference-between-properties-and-attributes-in-html/6004028#6004028">DOM attributes and DOM properties</a>.</p>
+                            
+                            <aside class="note"><b>Note: </b> To get all form control values use <a href="https://developer.mozilla.org/docs/Web/API/FormData"><code translate="no" dir="ltr">FormData</code></a>. The <code translate="no" dir="ltr">FormData</code> object is a set of key/value pairs representing the form controls, and the format is the same as the <a href="https://developer.mozilla.org/docs/Web/API/HTMLFormElement/submit"><code translate="no" dir="ltr">submit()</code></a> method uses. </aside>
+                            
+                            <p>For <code translate="no" dir="ltr">&lt;input&gt;</code> elements of type <code translate="no" dir="ltr">checkbox</code> or <code translate="no" dir="ltr">radio</code> use the <code translate="no" dir="ltr">checked</code> attribute. 
+                            Add it if the user selected an option and remove it otherwise.</p>
+                            
+                            <h2 id="ensure_users_understand_the_expected_format" data-text="Ensure users understand the expected format" tabindex="-1">Ensure users understand the expected format</h2>
+                            
+                            <p>The value of the <code translate="no" dir="ltr">placeholder</code> attribute is a hint for what kind of information is expected. </p>
+                            <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;label for=&#34;name&#34;&gt;Name&lt;/label&gt;
+                            &lt;input type=&#34;text&#34; name=&#34;name&#34; id=&#34;name&#34; placeholder=&#34;Karin&#34;&gt;
+                            </code></pre>
+                            <p>This may confuse users, 
+                            as it may seem illogical why a form control appears to be already prefilled. 
+                            In addition, adding a placeholder can make it difficult to see which form fields still need to be completed. 
+                            Furthermore, the default style of placeholder text can be hard to read.</p>
+                            
+                            <p>In general, be cautious when using the <code translate="no" dir="ltr">placeholder</code> attribute and never use the <code translate="no" dir="ltr">placeholder</code> attribute to explain a form control. 
+                            Use the <code translate="no" dir="ltr">&lt;label&gt;</code> element instead. 
+                            Learn more about 
+                            <a href="https://www.smashingmagazine.com/2018/06/placeholder-attribute/">why you should consider avoiding the <code translate="no" dir="ltr">placeholder</code> attribute</a>.</p>
+                            
+                            <p>A better way to give users a hint about what kind of information is expected is to use an extra HTML element 
+                            beneath the form control to add an explanation or example.</p>
+                            
+                            <div class="wd-embed" style="height: 300px; width: 100%">
+                              <iframe
+                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                              loading="lazy"
+                              src="https://codepen.io/web-dot-dev/embed/90199b1fdcbfbcea425686884344352d?height=300&theme-id=light&default-tab=result&editable=true"
+                              style="height: 100%; width: 100%; border: 0;"
+                              title="Pen 90199b1fdcbfbcea425686884344352d by web-dot-dev on Codepen"
+                            ></iframe>
+                            </div>
+                            
+                            <h2 id="ensure_form_controls_are_ready_for_validation" data-text="Ensure form controls are ready for validation" tabindex="-1">Ensure form controls are ready for validation</h2>
+                            
+                            <p>There are various HTML attributes available to activate built-in validation. 
+                            Use the <code translate="no" dir="ltr">required</code> attribute to prevent the submission of empty fields. 
+                            Additional validations can be enforced with the <code translate="no" dir="ltr">type</code> attribute. 
+                            For example, the value of a required <code translate="no" dir="ltr">&lt;input&gt;</code> of <code translate="no" dir="ltr">type=&quot;url&quot;</code> must be a URL.</p>
+                            
+                            <p>To ensure a user enters a minimum number of characters, 
+                            use the <code translate="no" dir="ltr">minlength</code> attribute. 
+                            To disallow any value with more than a maximum number of characters, 
+                            use the <code translate="no" dir="ltr">maxlength</code> attribute. 
+                            For numeric input types such as <code translate="no" dir="ltr">&lt;input type=&quot;number&quot;&gt;</code>, use the <code translate="no" dir="ltr">min</code> and <code translate="no" dir="ltr">max</code> attribute instead.</p>
+                            
+                            <p>Find out more about validation: <a href="/learn/forms/validation">Help users enter the right data in forms</a>.</p>
+
+
+
+
+
+
+
+
+
+
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
                     </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
-                            </ul>
-                        </nav>
-                    </footer>
+                    
                                         
                 </div>
             </main>

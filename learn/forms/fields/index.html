@@ -1172,38 +1172,375 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                    
+                    
+
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Fields</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
-                    </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
+                        <section aria-labelledby="the_story_of_your_first_website">
+                               
+                            
+
+
+
+
+
+
+                            <h2 id="what_form_fields_can_i_use" data-text="What form fields can I use?" tabindex="-1">What form fields can I use?</h2>
+
+                            <p>To provide the best possible user experience,
+                            make sure to use the element and element <code translate="no" dir="ltr">type</code> that&#39;s most appropriate for the data the user is entering.</p>
+                            
+                            <h3 id="help_users_fill_in_text" data-text="Help users fill in text" tabindex="-1">Help users fill in text</h3>
+                            
+                            <p>To provide users with a form field for inserting text, use the <code translate="no" dir="ltr">&lt;input&gt;</code> element.
+                            It&#39;s the best choice for single words and short texts.
+                            For longer text, use the <code translate="no" dir="ltr">&lt;textarea&gt;</code> element.
+                            This allows multiple lines of text,
+                            and makes it easier for the user to see the text they entered, as the element is scrollable and resizable.</p>
+                            
+                            <aside class="note"><b>Note: </b> A <code translate="no" dir="ltr">&lt;textarea&gt;</code> is resizable by default. You can disable the resizing with CSS and the <code translate="no" dir="ltr">resize</code> property: <code translate="no" dir="ltr">resize: none</code>.  However, people may want to see the text they entered all at once. At least keep the option to resize an <code translate="no" dir="ltr">&lt;textarea&gt;</code> vertically. Use <code translate="no" dir="ltr">resize: vertical</code> to ensure users can resize vertically but not horizontally.  Learn more about <a href="https://catalin.red/css-resize-none-is-bad-for-ux/">why disabling resize on <code translate="no" dir="ltr">&lt;textarea&gt;</code> is bad for UX</a>. </aside>
+                            
+                            <h3 id="ensure_users_enter_data_in_the_correct_format" data-text="Ensure users enter data in the correct format" tabindex="-1">Ensure users enter data in the correct format</h3>
+                            
+                            <p>Do you want to help users fill in a telephone number?
+                            Change the <code translate="no" dir="ltr">type</code> attribute to <code translate="no" dir="ltr">type=&quot;tel&quot;</code> for the <code translate="no" dir="ltr">&lt;input&gt;</code>.
+                            Users on mobile devices get an adapted on-screen keyboard,
+                            ensuring they can enter the telephone number faster and more easily.</p>
+                            
+                            <p>For an email address, use <code translate="no" dir="ltr">type=&quot;email&quot;</code>.
+                            Again, an adapted on-screen keyboard is shown.
+                            Use the <code translate="no" dir="ltr">required</code> attribute to make the form field mandatory.
+                            When the form is submitted, the browser checks that the input has a value and that it&#39;s valid: in this case,
+                            that it&#39;s a well-formatted email address.</p>
+                            
+                            <p>Learn more about the different <a href="https://developer.mozilla.org/docs/Web/HTML/Element/input#input_types">input types</a>.
+                            These also provide built-in <a href="/learn/forms/validation">validation features</a>.</p>
+                            
+                            <h3 id="help_users_fill_in_dates" data-text="Help users fill in dates" tabindex="-1">Help users fill in dates</h3>
+                            
+                            <p>When do you want to start your next trip?
+                            To help users fill in dates, use <code translate="no" dir="ltr">type=&quot;date&quot;</code>.
+                            Some browsers show the format as a placeholder such as <code translate="no" dir="ltr">yyyy-mm-dd</code>,
+                            demonstrating how to enter the date.</p>
+                            
+                            <p>All modern browsers provide custom interfaces for selecting dates in the form of a date picker.</p>
+                            
+                            <div class="wd-embed" style="height: 300px; width: 100%">
+                              <iframe
+                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                              loading="lazy"
+                              src="https://codepen.io/web-dot-dev/embed/93693a7c2ce3d39ec5aa9088159b0601?height=300&theme-id=light&default-tab=result&editable=true"
+                              style="height: 100%; width: 100%; border: 0;"
+                              title="Pen 93693a7c2ce3d39ec5aa9088159b0601 by web-dot-dev on Codepen"
+                            ></iframe>
+                            </div>
+                            
+                            <h3 id="help_users_select_an_option" data-text="Help users select an option" tabindex="-1">Help users select an option</h3>
+                            
+                            <p>To ensure users can select or unselect one possible option, use <code translate="no" dir="ltr">type=&quot;checkbox&quot;</code>.
+                            Do you want to offer multiple options?
+                            Depending on your use case, there are various alternatives.
+                            First, let&#39;s look at possible solutions if users should only be able to choose a single option.</p>
+                            
+                            <p>You can use multiple <code translate="no" dir="ltr">&lt;input&gt;</code> elements with <code translate="no" dir="ltr">type=&quot;radio&quot;</code> and the same <code translate="no" dir="ltr">name</code> value. Users see all options at once, but can only choose one.</p>
+                            
+                            <div class="wd-embed" style="height: 300px; width: 100%">
+                              <iframe
+                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                              loading="lazy"
+                              src="https://codepen.io/web-dot-dev/embed/617e51cdae8adeca641d289da1a3e8a2?height=300&theme-id=light&default-tab=result&editable=true"
+                              style="height: 100%; width: 100%; border: 0;"
+                              title="Pen 617e51cdae8adeca641d289da1a3e8a2 by web-dot-dev on Codepen"
+                            ></iframe>
+                            </div>
+                            
+                            <p>Another option is to use the <code translate="no" dir="ltr">&lt;select&gt;</code> element.
+                            Users can scroll through a list of available options and choose one.</p>
+                            
+                            <div class="wd-embed" style="height: 300px; width: 100%">
+                              <iframe
+                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                              loading="lazy"
+                              src="https://codepen.io/web-dot-dev/embed/7225931596b7eeafc448ad55d9c980fd?height=300&theme-id=light&default-tab=result&editable=true"
+                              style="height: 100%; width: 100%; border: 0;"
+                              title="Pen 7225931596b7eeafc448ad55d9c980fd by web-dot-dev on Codepen"
+                            ></iframe>
+                            </div>
+                            
+                            <p>For some use cases, such as choosing a range of numbers,
+                            <code translate="no" dir="ltr">&lt;input&gt;</code> of type <code translate="no" dir="ltr">range</code> may be a good option.</p>
+                            
+                            <div class="wd-embed" style="height: 300px; width: 100%">
+                              <iframe
+                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                              loading="lazy"
+                              src="https://codepen.io/web-dot-dev/embed/242b1ec7ea180c4995711ceabd749c59?height=300&theme-id=light&default-tab=result&editable=true"
+                              style="height: 100%; width: 100%; border: 0;"
+                              title="Pen 242b1ec7ea180c4995711ceabd749c59 by web-dot-dev on Codepen"
+                            ></iframe>
+                            </div>
+                            
+                            <aside class="note"><b>Note: </b> You can use the <a href="/articles/accent-color"><code translate="no" dir="ltr">accent-color</code></a> CSS property to change the color of form controls, including <code translate="no" dir="ltr">&lt;input type=&quot;range&quot;&gt;</code>. 
+                              
+                                
+                                
+                                
+                                
+                              
+                              
+                              
+                                
+                                  
+                                
+                              
+                                
+                                  
+                                
+                              
+                                
+                                  
+                                
+                               
+                            
+                                
+                                
+                                  
+                                  <div class="wd-browser-compat">
+                                    <p>Browser Support</p>
+                                    <ul>
+                                      
+                              
+                              
+                                
+                                  
+                                    
+                                      
+                                      
+                                    
+                                  
+                                
+                                
+                              
+                              <li
+                                data-browser="chrome"
+                                data-support="yes">93</li>
+                              
+                              
+                                      
+                              
+                              
+                                
+                                  
+                                    
+                                      
+                                      
+                                    
+                                  
+                                
+                                
+                              
+                              <li
+                                data-browser="edge"
+                                data-support="yes">93</li>
+                              
+                              
+                                      
+                              
+                              
+                                
+                                  
+                                    
+                                      
+                                      
+                                    
+                                  
+                                
+                                
+                              
+                              <li
+                                data-browser="firefox"
+                                data-support="yes">92</li>
+                              
+                              
+                                      
+                              
+                              
+                                
+                                  
+                                    
+                                      
+                                      
+                                    
+                                  
+                                
+                                
+                              
+                              <li
+                                data-browser="safari"
+                                data-support="yes">15.4</li>
+                              
+                              
+                                    </ul>
+                                    
+                                    <p><a href="https://developer.mozilla.org/docs/Web/CSS/accent-color">Source</a></p>
+                                    
+                                  </div>
+                                
+                                
+                                
+                               </aside>
+                            
+                            <p>Do you need to offer the ability to select multiple options?
+                            Use a <code translate="no" dir="ltr">&lt;select&gt;</code> element with the <code translate="no" dir="ltr">multiple</code> attribute or multiple <code translate="no" dir="ltr">&lt;input&gt;</code> elements of type <code translate="no" dir="ltr">checkbox</code>.</p>
+                            
+                            <p>You may also use an <code translate="no" dir="ltr">&lt;input&gt;</code> in combination with the <a href="https://developer.mozilla.org/docs/Web/HTML/Element/datalist"><code translate="no" dir="ltr">&lt;datalist&gt;</code></a> element.
+                            This gives you a combination of a text field and a list of <code translate="no" dir="ltr">&lt;option&gt;</code> elements.</p>
+                            
+                            <aside class="beta"><b>Try it: </b> How would you tackle the selection of multiple items? Try to implement different versions. Use a <code translate="no" dir="ltr">&lt;select&gt;</code> element, <code translate="no" dir="ltr">&lt;datalist&gt;</code> element, <a href="https://github.com/samdutton/multi-input">multi-select custom element</a>, or build something completely different. </aside>
+                            
+                            <h3 id="ensure_users_can_fill_in_different_types_of_data" data-text="Ensure users can fill in different types of data" tabindex="-1">Ensure users can fill in different types of data</h3>
+                            
+                            <p>There are more input types for specific use cases.</p>
+                            
+                            <p>There is an <code translate="no" dir="ltr">&lt;input&gt;</code> of type <code translate="no" dir="ltr">color</code> to provide users with a color picker in supported browsers,
+                            and there are various other types as well. To ensure users can enter their password, use <code translate="no" dir="ltr">&lt;input&gt;</code>
+                            with <code translate="no" dir="ltr">type=&quot;password&quot;</code>. Every character entered is obscured by an asterisk (&quot;*&quot;) or a dot (&quot;•&quot;),
+                            to ensure the password can&#39;t be read.</p>
+                            
+                            <p>Do you want to include a unique security token in the form data?
+                            Use <code translate="no" dir="ltr">&lt;input&gt;</code> with <code translate="no" dir="ltr">type=&quot;hidden&quot;</code>.
+                            The value of an <code translate="no" dir="ltr">&lt;input&gt;</code> of type <code translate="no" dir="ltr">hidden</code> can&#39;t be seen or modified by users.</p>
+                            
+                            <p>To enable users to upload and submit files, use <code translate="no" dir="ltr">&lt;input&gt;</code> with <code translate="no" dir="ltr">type=&quot;file&quot;</code>.</p>
+                            
+                            <div class="wd-embed" style="height: 300px; width: 100%">
+                              <iframe
+                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                              loading="lazy"
+                              src="https://codepen.io/web-dot-dev/embed/74f2d88b9185b8fa880ea5a92f48f690?height=300&theme-id=light&default-tab=result&editable=true"
+                              style="height: 100%; width: 100%; border: 0;"
+                              title="Pen 74f2d88b9185b8fa880ea5a92f48f690 by web-dot-dev on Codepen"
+                            ></iframe>
+                            </div>
+                            
+                            <aside class="note"><b>Note: </b> An <code translate="no" dir="ltr">&lt;input&gt;</code> of type <code translate="no" dir="ltr">file</code> can also allow multiple uploads at once. You can also specify which file formats are allowed.  Learn more about <a href="https://developer.mozilla.org/docs/Web/HTML/Element/input/file"><code translate="no" dir="ltr">&lt;input type=&quot;file&quot;&gt;</code></a>. </aside>
+                            
+                            <p>You can also define <a href="/articles/more-capable-form-controls#form-associated_custom_elements">custom elements</a> if you have a special use case,
+                            where no built-in element or type is suitable.</p>
+                            
+                            <h2 id="help_users_fill_out_your_form" data-text="Help users fill out your form" tabindex="-1">Help users fill out your form</h2>
+                            
+                            <p>There are many form elements and types, but which one should you choose?</p>
+                            
+                            <p>For some use cases, it&#39;s straightforward to choose the appropriate element and type,
+                            such as <code translate="no" dir="ltr">&lt;input type=&quot;date&quot;&gt;</code>. For others, it depends.
+                            For example, you can use multiple <code translate="no" dir="ltr">&lt;input&gt;</code> elements with <code translate="no" dir="ltr">type=&quot;checkbox&quot;</code> or a <code translate="no" dir="ltr">&lt;select&gt;</code> element.
+                            Learn more about <a href="https://www.nngroup.com/articles/listbox-dropdown/">choosing between listboxes and dropdown lists</a>.</p>
+                            
+                            <p>In general, make sure to
+                            <a href="/learn/forms/usability-testing">test your form with real users</a> to find the best form element and type.</p>
+                            
+                            <h3 id="check_your_understanding" class="hide-from-toc" data-text="Check your understanding" tabindex="-1">Check your understanding</h3>
+                            
+                            <p>Test your knowledge of form fields</p>
+                            
+                            <div class="wd-assessment"><devsite-multiple-choice>
+                               <div><p>Is it possible to upload multiple files with a form control?</p>
+                            </div>
+                            
+                            <div>
+                               <div>Yes, using <code translate="no" dir="ltr">&lt;input type=&quot;files&quot;&gt;</code>.</div>
+                               <div>Try again!</div>
+                            </div>
+                            
+                            <div correct>
+                               <div>Yes, using <code translate="no" dir="ltr">&lt;input type=&quot;file&quot; multiple&gt;</code>.</div>
+                               <div>🎉</div>
+                            </div>
+                            
+                            <div>
+                               <div>No.</div>
+                               <div>Try again!</div>
+                            </div>
+                            
+                            <div>
+                               <div>Yes, using <code translate="no" dir="ltr">&lt;input type=&quot;multiple-files&quot;&gt;</code>.</div>
+                               <div>Try again!</div>
+                            </div>
+                            </devsite-multiple-choice>
+                            <devsite-multiple-choice>
+                               <div><p>What's the difference between <code translate="no" dir="ltr">type=&quot;text&quot;</code> and <code translate="no" dir="ltr">type=&quot;password&quot;</code>?</p>
+                            </div>
+                            
+                            <div>
+                               <div>There is no difference.</div>
+                               <div>Try again!</div>
+                            </div>
+                            
+                            <div>
+                               <div>An adapted on-screen keyboard for entering passwords is shown for <code translate="no" dir="ltr">type=&quot;password&quot;</code>.</div>
+                               <div>Try again!</div>
+                            </div>
+                            
+                            <div correct>
+                               <div>When using <code translate="no" dir="ltr">type=&quot;password&quot;</code> every character entered is obscured by an asterisk (<code translate="no" dir="ltr">*</code>) or a dot (<code translate="no" dir="ltr">•</code>).</div>
+                               <div>🎉</div>
+                            </div>
+                            
+                            <div>
+                               <div>A custom interface for entering passwords is shown for <code translate="no" dir="ltr">type=&quot;password&quot;</code>.</div>
+                               <div>Try again!</div>
+                            </div>
+                            </devsite-multiple-choice>
+                            </div>
+                            
+                            <h2 id="resources" data-text="Resources" tabindex="-1">Resources</h2>
+                            
+                            <ul>
+                            <li><a href="https://developer.mozilla.org/docs/Web/HTML/Element/Input">The <code translate="no" dir="ltr">&lt;input&gt;</code> element</a></li>
+                            <li><a href="https://developer.mozilla.org/docs/Web/HTML/Element/textarea">The <code translate="no" dir="ltr">&lt;textarea&gt;</code> element</a></li>
+                            <li><a href="https://developer.mozilla.org/docs/Web/HTML/Element/select">The <code translate="no" dir="ltr">&lt;select&gt;</code> element</a></li>
+                            <li><a href="https://developer.mozilla.org/docs/Web/HTML/Element/input#input_types"><code translate="no" dir="ltr">&lt;input&gt;</code> types</a></li>
+                            <li><a href="/articles/more-capable-form-controls#form-associated_custom_elements">Custom form elements</a></li>
                             </ul>
-                        </nav>
-                    </footer>
+
+
+
+
+
+
+
+
+
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
+                    </div>
+                    
                                         
                 </div>
             </main>

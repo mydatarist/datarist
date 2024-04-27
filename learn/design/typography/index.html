@@ -1172,38 +1172,323 @@
                     </div>
                 </div>
                 <div class="dd-content ps-lg-2">
-                    <h2 id="start-here">
-                        Start here <a class="anchor-link" href="#start-here" aria-label="Link to this section: Start here"></a>
-                    </h2>
-                    <h2 id="see-also">
-                        See also <a class="anchor-link" href="#see-also" aria-label="Link to this section: See also"></a>
-                    </h2>
-                    <p class="font-monospace text-secondary mt-5">Updated on March 5, 2024 by Datarist.</p>
-<div class="mt-5">
-    <div class="row">
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Help improve Datarist.</h6>
-                              <p class="text-body-secondary">Datarist documents are curated by the Datarist Team. If you notice anything incorrect or unclear, please send an email to: <a href="mailto:docs@datarist.com" class="link-offset-2">docs@datarist.com</a>.</p>
-                            </div>                      
-                            <div class="col-12 col-md-6 mb-3">
-                              <h6 class="mb-3">Still need help?</h6>
-                              <p><a href="https://datarist.com/contact/" class="link-offset-2">Contact support</a></p>
-                            </div>    
+                   
+                    
+
+
+
+
+                    <article class="main-page-content" lang="en-US">
+                        <header>
+                            <h1>Typography</h1>
+                        </header>
+                        <div class="section-content">
+                            <p>
+                                <em>Getting started with ...</em>
+                                is a concise series introducing you to the practicalities of web development. You'll set up the tools you need to construct a simple webpage and publish your own simple code.
+                            </p>
                         </div>
+                        <section aria-labelledby="the_story_of_your_first_website">
+                               
+                            
+
+
+
+
+                            <p>If you don&#39;t specify any styles for your text, browsers will apply their own default styles. These are called <em>User Agent stylesheets</em>, and may vary from browser to browser. Users can set their own preferences for displaying text too.</p>
+
+                            <p>If you don&#39;t specify a line length, browsers will wrap lines of text at the edge of the screen. So text on the web is responsive by default—it flows to fit the user&#39;s viewport.</p>
+                            
+                            <p>But just because text fits on a screen doesn&#39;t mean it&#39;s comfortable to read. Good typography is all about presenting your text in an appropriate way. There&#39;s more to typography than choosing suitable fonts to use. You need to consider the user&#39;s preferences, the size of the text, line length, and the distance between the lines of text.</p>
+                            
+                            <aside class="note"><b>Note: </b> You may even need to consider the primary language of your user, as you may need to leave room for accents and other special characters. Learn more about this in the <a href="/learn/design/internationalization">internationalization</a> module. </aside>
+                            
+                            <h2 id="text_size" data-text="Text size" tabindex="-1">Text size</h2>
+                            
+                            <p>It&#39;s difficult to know what size text on the web should be.</p>
+                            
+                            <p>If someone is using a small screen, it might be a safe bet that their screen will be fairly close to their eyes—a hand&#39;s length away.</p>
+                            
+                            <p>But as screens get larger and larger, it&#39;s harder to make that connection. A laptop-size screen will probably be fairly near to the viewer, but a widescreen desktop monitor is around the same size as a television screen. People sit an arm&#39;s length away from a desktop screen but they sit much further away from a television.</p>
+                            
+                            <p>Still, while you can&#39;t know for certain how far away someone is from a screen, you can try to use text sizes that will hopefully turn out to be appropriate. Use smaller text sizes for smaller screens and larger text sizes for larger screens.</p>
+                            
+                            <p>You can use media queries to change the <code translate="no" dir="ltr">font-size</code> property as the screen size gets wider.</p>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">@media (min-width: 30em) {
+                              html {
+                                font-size: 125%;
+                              }
+                            }
+                            
+                            @media (min-width: 40em) {
+                              html {
+                                font-size: 150%;
+                              }
+                            }
+                            
+                            @media (min-width: 50em) {
+                              html {
+                                font-size: 175%;
+                              }
+                            }
+                            
+                            @media (min-width: 60em) {
+                              html {
+                                font-size: 200%;
+                              }
+                            }
+                            </code></pre>
+                            <div class="wd-embed" style="height: 500px; width: 100%">
+                              <iframe
+                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                              loading="lazy"
+                              src="https://codepen.io/web-dot-dev/embed/WNZeBWY?height=500&theme-id=dark&default-tab=result&editable=true"
+                              style="height: 100%; width: 100%; border: 0;"
+                              title="Pen WNZeBWY by web-dot-dev on Codepen"
+                            ></iframe>
+                            </div>
+                            
+                            <video controls loop > <source src="/static/learn/design/typography/video/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/cH8IU9hV7FGCgN0roNiU.mp4" type="video/mp4" /> </video>
+                            
+                            <h2 id="scaling_text" data-text="Scaling text" tabindex="-1">Scaling text</h2>
+                            
+                            <p>Switching between fixed text sizes at specific breakpoints is quite jumpy. A more responsive approach is to let the user&#39;s device width influence the text size.</p>
+                            
+                            <p>The <code translate="no" dir="ltr">vw</code> unit in CSS stands for “viewport width.” Connecting font sizes to the 
+                             viewport&#39;s width means that the text will grow and shrink in proportion to the browser width. This makes it difficult to predict what the text size will be at any specific width, but you know that the text size will be appropriate for the user&#39;s browser width.</p>
+                            
+                            <p>It&#39;s important that you don&#39;t use the <code translate="no" dir="ltr">vw</code> by itself in a font-size declaration.</p>
+                            
+                            <div class="wd-compare">
+                              <div class="compare-worse">Don't</div>
+                              <pre class="prettyprint lang-css" translate="no" dir="ltr">html {
+                              font-size: 2.5vw;
+                            }
+                            </pre>
+                            
+                            </div>
+                            
+                            <p>If you do, the user won&#39;t be able to resize the text. The text will be resizable if you mix in a relative unit—like <code translate="no" dir="ltr">em</code>, <code translate="no" dir="ltr">rem</code> or <code translate="no" dir="ltr">ch</code>. The CSS <a href="https://developer.mozilla.org/docs/Web/CSS/calc()"><code translate="no" dir="ltr">calc()</code></a> function is perfect for this.</p>
+                            
+                            <div class="wd-compare">
+                              <div class="compare-better">Do</div>
+                              <pre class="prettyprint lang-css" translate="no" dir="ltr">html {
+                              font-size: calc(0.75rem + 1.5vw);
+                            }
+                            </pre>
+                            
+                            </div>
+                            
+                            <p>Let the browser do the math. This makes it difficult to predict exactly what the text size will be at any specific width, but you know that the text size will be in the right range. The user&#39;s browser takes care of figuring out the exact text size calculations.</p>
+                            
+                            <div class="wd-embed" style="height: 500px; width: 100%">
+                              <iframe
+                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                              loading="lazy"
+                              src="https://codepen.io/web-dot-dev/embed/zYEOQQG?height=500&theme-id=dark&default-tab=result&editable=true"
+                              style="height: 100%; width: 100%; border: 0;"
+                              title="Pen zYEOQQG by web-dot-dev on Codepen"
+                            ></iframe>
+                            </div>
+                            
+                            <video controls loop > <source src="/static/learn/design/typography/video/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/x5h7TqkGHJIPa61wPvAs.mp4" type="video/mp4" /> </video>
+                            
+                            <p>But now there&#39;s a possibility that the text will get <em>too</em> small on narrow screens and <em>too</em> big on wide screens.</p>
+                            
+                            <h2 id="clamping_text" data-text="Clamping text" tabindex="-1">Clamping text</h2>
+                            
+                            <p>You probably don&#39;t want your text to shrink and grow to extremes. You can control where the scaling starts and ends using the CSS <a href="https://developer.mozilla.org/docs/Web/CSS/clamp()"><code translate="no" dir="ltr">clamp()</code></a> function. This “clamps” the scaling to a specific range.</p>
+                            
+                            <p>The <code translate="no" dir="ltr">clamp()</code> function is  like the <code translate="no" dir="ltr">calc()</code> function but it takes three values. The middle value is the same as what you pass to <code translate="no" dir="ltr">calc()</code>. The opening value specifies the minimum size, in this case 1rem so as to not go below the user&#39;s preferred font size. The closing value specifies the maximum size.</p>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">html {
+                              font-size: clamp(1rem, 0.75rem + 1.5vw, 2rem);
+                            }
+                            </code></pre>
+                            <div class="wd-embed" style="height: 500px; width: 100%">
+                              <iframe
+                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                              loading="lazy"
+                              src="https://codepen.io/web-dot-dev/embed/wvrwbbx?height=500&theme-id=dark&default-tab=result&editable=true"
+                              style="height: 100%; width: 100%; border: 0;"
+                              title="Pen wvrwbbx by web-dot-dev on Codepen"
+                            ></iframe>
+                            </div>
+                            
+                            <p>Now the text size shrinks and grows in proportion to the user&#39;s screen but the text size will never go below <code translate="no" dir="ltr">1rem</code> or above <code translate="no" dir="ltr">2rem</code>.</p>
+                            
+                            <video controls loop > <source src="/static/learn/design/typography/video/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/vVwP2L0z90zXL28iPYL4.mp4" type="video/mp4" /> </video>
+                            
+                            <h2 id="line_length" data-text="Line length" tabindex="-1">Line length</h2>
+                            
+                            <p>The web is not print, but we can learn lessons from the world of print and apply them on the web.</p>
+                            
+                            <p>In his classic book <a href="http://webtypography.net/2.1.2"><em>The Elements of Typographic Style</em></a>, Robert Bringhurst had this to say on line length (or measure):</p>
+                            
+                            <blockquote>
+                            <p>Anything from 45 to 75 characters is widely regarded as a satisfactory line length for a single-column page set in a serifed text face in a text size. The 66-character line (counting both letters and spaces) is widely regarded as ideal. For multiple column work, a better average is 40 to 50 characters.</p>
+                            </blockquote>
+                            
+                            <p>You can&#39;t set a line length directly in CSS. There is no <code translate="no" dir="ltr">line-length</code> property. But you can stop text from getting too wide by limiting how wide the container can be. The <a href="https://developer.mozilla.org/docs/Web/CSS/max-inline-size"><code translate="no" dir="ltr">max-inline-size</code></a> property is perfect for this.</p>
+                            
+                            <p>Don&#39;t set your line-lengths with a fixed unit like <code translate="no" dir="ltr">px</code>. Users can scale their font size up and down and your line lengths should adjust accordingly. Use a <a href="/learn/css/sizing#relative_lengths">relative unit</a> like <code translate="no" dir="ltr">rem</code> or <code translate="no" dir="ltr">ch</code>.</p>
+                            
+                            <div class="wd-compare">
+                              <div class="compare-worse">Don't</div>
+                              <pre class="prettyprint lang-css" translate="no" dir="ltr">article {
+                              max-inline-size: 700px;
+                            }
+                            </pre>
+                            
+                            </div>
+                            
+                            <div class="wd-compare">
+                              <div class="compare-better">Do</div>
+                              <pre class="prettyprint lang-css" translate="no" dir="ltr">article {
+                              max-inline-size: 66ch;
+                            }
+                            </pre>
+                            
+                            </div>
+                            
+                            <p>Using <code translate="no" dir="ltr">ch</code> units for width will cause new lines to wrap at the 66th character at that font size.</p>
+                            
+                            <div class="wd-embed" style="height: 500px; width: 100%">
+                              <iframe
+                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                              loading="lazy"
+                              src="https://codepen.io/web-dot-dev/embed/MWEgddN?height=500&theme-id=dark&default-tab=result&editable=true"
+                              style="height: 100%; width: 100%; border: 0;"
+                              title="Pen MWEgddN by web-dot-dev on Codepen"
+                            ></iframe>
+                            </div>
+                            
+                            <video controls loop > <source src="/static/learn/design/typography/video/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/9Nxi6HuU28aQhxtzXq7l.mp4" type="video/mp4" /> </video>
+                            
+                            <h2 id="line_height" data-text="Line height" tabindex="-1">Line height</h2>
+                            
+                            <p>Although there is no <code translate="no" dir="ltr">line-length</code> property in CSS, there is a <a href="https://developer.mozilla.org/docs/Web/CSS/line-height"><code translate="no" dir="ltr">line-height</code></a> property.</p>
+                            
+                            <p>Shorter lines of text can have larger <code translate="no" dir="ltr">line-height</code> values. But if you use large <code translate="no" dir="ltr">line-height</code> values for long lines of text, it&#39;s hard for the reader&#39;s eye to move from the end of one line to the start of the next line.</p>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">article {
+                              max-inline-size: 66ch;
+                              line-height: 1.65;
+                            }
+                            blockquote {
+                              max-inline-size: 45ch;
+                              line-height: 2;
+                            }
+                            </code></pre>
+                            <div class="wd-embed" style="height: 500px; width: 100%">
+                              <iframe
+                              allow="camera; clipboard-read; clipboard-write; encrypted-media; geolocation; microphone; midi;"
+                              loading="lazy"
+                              src="https://codepen.io/web-dot-dev/embed/oNGvRrZ?height=500&theme-id=dark&default-tab=result&editable=true"
+                              style="height: 100%; width: 100%; border: 0;"
+                              title="Pen oNGvRrZ by web-dot-dev on Codepen"
+                            ></iframe>
+                            </div>
+                            
+                            <video controls loop > <source src="/static/learn/design/typography/video/KT4TDYaWOHYfN59zz6Rc0X4k4MH3/di6psFbT6JhlwjtMm68j.mp4" type="video/mp4" /> </video>
+                            
+                            <p>Use unitless values for your <code translate="no" dir="ltr">line-height</code> declarations. This ensures that the line height is relative to the <code translate="no" dir="ltr">font-size</code>.</p>
+                            
+                            <div class="wd-compare">
+                              <div class="compare-worse">Don't</div>
+                              <pre class="prettyprint lang-css" translate="no" dir="ltr">line-height: 24px;
+                            </pre>
+                            
+                            </div>
+                            
+                            <div class="wd-compare">
+                              <div class="compare-better">Do</div>
+                              <pre class="prettyprint lang-css" translate="no" dir="ltr">line-height: 1.5;
+                            </pre>
+                            
+                            </div>
+                            
+                            <h2 id="combinations_and_scale" data-text="Combinations and scale" tabindex="-1">Combinations and scale</h2>
+                            
+                            <p>Remember to prioritize hierarchy as you build your user interfaces for better clarity and page flow. A great way to do this is with <a href="https://material.io/design/typography/the-type-system.html#type-scale">a typography scale built into your design system</a>.</p>
+                            
+                            <h2 id="web_fonts" data-text="Web fonts" tabindex="-1">Web fonts</h2>
+                            
+                            <p>A typeface is like a voice for your words. For the longest time on the web there were very few font options. System fonts were the only options. But now you can choose a web font that matches the feel of your content.</p>
+                            
+                            <p>Use <code translate="no" dir="ltr">@font-face</code> to tell browsers where to find your web font files. Use woff2 as your web font format. It&#39;s well supported and has the best performance gains.</p>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">@font-face {
+                              font-family: Roboto;
+                              src: url(&#39;/fonts/roboto-regular.woff2&#39;) format(&#39;woff2&#39;);
+                            }
+                            body {
+                              font-family: Roboto, sans-serif;
+                            }
+                            </code></pre>
+                            <p>But every web font file you add could potentially degrade the user experience as it increases page load time. Remember, design isn&#39;t just about how the final pixels look. How fast those pixels get painted is a critical part of the user experience. An experience that feels fast is a good user experience.</p>
+                            
+                            <h2 id="font_loading" data-text="Font loading" tabindex="-1">Font loading</h2>
+                            
+                            <p>You can request that browsers start downloading a font file as soon as possible. Add a <code translate="no" dir="ltr">link</code> element to the <code translate="no" dir="ltr">head</code> of your document that references your web font file. A <code translate="no" dir="ltr">rel</code> attribute with a value of <code translate="no" dir="ltr">preload</code> tells the browser to prioritize that file. An <code translate="no" dir="ltr">as</code> attribute with a value of <code translate="no" dir="ltr">font</code> tells the browser what kind of file this is. The <code translate="no" dir="ltr">type</code> attribute allows you to be even more specific.</p>
+                            <pre class="prettyprint lang-html" translate="no" dir="ltr"><code translate="no" dir="ltr">&lt;link href=&#34;/fonts/roboto-regular.woff2&#34; type=&#34;font/woff2&#34; 
+                              rel=&#34;preload&#34; as=&#34;font&#34; crossorigin&gt;
+                            </code></pre>
+                            <p>You need to include the <code translate="no" dir="ltr">crossorigin</code> attribute even if you are hosting the font files yourself.</p>
+                            
+                            <p>Use the CSS <a href="https://developer.mozilla.org/docs/Web/CSS/@font-face/font-display"><code translate="no" dir="ltr">font-display</code></a> property to tell the browser how to manage the switchover from a system font to a web font. You could choose to show no text at all until the web font is loaded. You could choose to display the system font immediately and then switch over to the web font once it loads. Both strategies have their downsides. If you wait until the web font is downloaded before showing any text, users may find themselves staring at a blank page for a frustratingly long time. If you show the text in a system font first and then switch over to the web font, users may experience a jarring shifting of content on the page.</p>
+                            
+                            <aside class="note"><b>Note: </b> You can mitigate the jarring effect of text shifting around by using <a href="/articles/css-size-adjust"><code translate="no" dir="ltr">size-adjust</code></a> in your <code translate="no" dir="ltr">@font-face</code> rule. </aside>
+                            
+                            <p>A good compromise is to wait for a short while before displaying any text. If the web font loads before that time is up, the text is displayed using the web font with no content shifts. If the web font still hasn&#39;t loaded after the time is up, the text is displayed using the system font so at least the user can read the content.</p>
+                            
+                            <p>Use a <code translate="no" dir="ltr">font-display</code> value of <code translate="no" dir="ltr">swap</code> if you still want the web font to replace the system font whenever the web font finally loads.</p>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">body {
+                              font-family: Roboto, sans-serif;
+                              font-display: swap;
+                            }
+                            </code></pre>
+                            <p>Use a <code translate="no" dir="ltr">font-display</code> value of <code translate="no" dir="ltr">fallback</code> if you want to stick with the system font once text has been rendered.</p>
+                            <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">body {
+                              font-family: Roboto, sans-serif;
+                              font-display: fallback;
+                            }
+                            </code></pre>
+                            <h2 id="variable_fonts" data-text="Variable fonts" tabindex="-1">Variable fonts</h2>
+                            
+                            <p>If you are using lots of different weights or styles of the same typeface, you may end up using lots of separate font files—a separate font file for each weight or style.</p>
+                            
+                            <p><a href="/articles/variable-fonts">Variable fonts</a> solve this problem by using one file. Instead of having separate files for regular, bold, extra bold, and so on, a variable font file is responsive. It contains all the information it needs to be displayed across a spectrum of weights or styles.</p>
+                            
+                            <p><img src="/static/learn/design/typography/image/the-letter-shown-diff-ddf0d3e19bf74.png" alt="The letter 'A' shown in different weights." width="800" height="218" srcset="https://web.dev/static/learn/design/typography/image/the-letter-shown-diff-ddf0d3e19bf74_36.png 36w,https://web.dev/static/learn/design/typography/image/the-letter-shown-diff-ddf0d3e19bf74_48.png 48w,https://web.dev/static/learn/design/typography/image/the-letter-shown-diff-ddf0d3e19bf74_72.png 72w,https://web.dev/static/learn/design/typography/image/the-letter-shown-diff-ddf0d3e19bf74_96.png 96w,https://web.dev/static/learn/design/typography/image/the-letter-shown-diff-ddf0d3e19bf74_480.png 480w,https://web.dev/static/learn/design/typography/image/the-letter-shown-diff-ddf0d3e19bf74_720.png 720w,https://web.dev/static/learn/design/typography/image/the-letter-shown-diff-ddf0d3e19bf74_856.png 856w,https://web.dev/static/learn/design/typography/image/the-letter-shown-diff-ddf0d3e19bf74_960.png 960w,https://web.dev/static/learn/design/typography/image/the-letter-shown-diff-ddf0d3e19bf74_1440.png 1440w,https://web.dev/static/learn/design/typography/image/the-letter-shown-diff-ddf0d3e19bf74_1920.png 1920w,https://web.dev/static/learn/design/typography/image/the-letter-shown-diff-ddf0d3e19bf74_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+                            
+                            <p>This means that a single variable font file is larger than a single regular font file, but a single variable font file will probably be smaller than multiple regular font files. If you&#39;re using lots of different weights, a variable font could give you a big performance gain.</p>
+                            
+                            <aside class="note"><b>Note: </b> If you're styling elements using the <code translate="no" dir="ltr">system-ui</code> value for <code translate="no" dir="ltr">font-face</code> property, you might get all the benefits of variable fonts without downloading any font files. <a href="/articles/more-variable-font-options-in-chromium-83">More and more system fonts are now variable fonts</a>. </aside>
+                            
+                            <p>Good typography on the web isn&#39;t just about the type choices that you make as a designer. Responsive typography is also about respecting the user&#39;s device and network connection. The end result is a design that feels right no matter how it&#39;s being viewed.</p>
+                            
+                            <p>Now that you&#39;ve mastered responsive text, it&#39;s time to dive into <a href="/learn/design/responsive-images">responsive images</a>.</p>
+                            
+
+
+
+
+
+
+
+
+                        </section>
+                    </article>
+
+
+
+
+
+
+
+                    <p class="text-secondary small mt-5">Updated on April 20, 2024 by Datarist.</p>
+<div class="mt-5">
+    
                     </div>
-                    <footer>                        
-                        <nav class="m-0 p-0" aria-label="Page navigation">
-                            <ul class="pagination m-0 p-0 justify-content-center">
-                              <li class="page-item disabled">
-                                <a class="page-link"><svg class="bi me-1" width="20" height="20"><use xlink:href="#chevron-left"/></svg>Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">Topic</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next<svg class="bi ms-1" width="20" height="20"><use xlink:href="#chevron-right"/></svg></a>
-                              </li>
-                            </ul>
-                        </nav>
-                    </footer>
+                    
                                         
                 </div>
             </main>
