@@ -1156,7 +1156,7 @@
                             <use xlink:href="#chevron-expand"></use>
                         </svg>
                     </button>
-                    <strong class="d-none d-md-block my-2 ms-3">On this page</strong>
+                    <span class="text-black d-none d-md-block my-2 ms-3">On this page</span>
                     <div class="collapse dd-toc-collapse" id="tocContents">
                         <nav id="TableOfContents">
                             <ul>
@@ -1185,23 +1185,6 @@
                             <h1>WAI-ARIA basics</h1>
                         </header>
                         <div class="section-content">
-                            <ul class="prev-next">
-                                <li>
-                                    <a class="button secondary" href="https://datarist.com/learn/Accessibility/CSS_and_JavaScript">
-                                        <span class="button-wrap">Previous </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="button secondary" href="https://datarist.com/learn/Accessibility">
-                                        <span class="button-wrap">Overview: Accessibility</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="button secondary" href="https://datarist.com/learn/Accessibility/Multimedia">
-                                        <span class="button-wrap">Next  </span>
-                                    </a>
-                                </li>
-                            </ul>
                             <p>Following on from the previous article, sometimes making complex UI controls that involve unsemantic HTML and dynamic JavaScript-updated content can be difficult. WAI-ARIA is a technology that can help with such problems by adding in further semantics that browsers and assistive technologies can recognize and use to let users know what is going on. Here we'll show how to use it at a basic level to improve accessibility.</p>
                             <figure class="table-container">
                                 <table>
@@ -1242,15 +1225,15 @@
                                 <p>As web apps started to get more complex and dynamic, a new set of accessibility features and problems started to appear.</p>
                                 <p>
                                     For example, HTML introduced a number of semantic elements to define common page features (
-                                    <a href="/en-US/docs/Web/HTML/Element/nav">
+                                    <a href="https://datarist.com/learn/HTML/Element/nav">
                                         <code>&lt;nav &gt;</code>
                                     </a>
                                     , 
-                                    <a href="/en-US/docs/Web/HTML/Element/footer">
+                                    <a href="https://datarist.com/learn/HTML/Element/footer">
                                         <code>&lt;footer &gt;</code>
                                     </a>
                                     , etc.). Before these were available, developers would use 
-                                    <a href="/en-US/docs/Web/HTML/Element/div">
+                                    <a href="https://datarist.com/learn/HTML/Element/div">
                                         <code>&lt;div &gt;</code>
                                     </a>
                                     s with IDs or classes, e.g. <code>&lt;div class="nav"&gt;</code>
@@ -1332,7 +1315,7 @@
                                 </div>
                                 <p>
                                     These were originally not well-supported and it was, and still is to a lesser extent, difficult to style them, leading designers and developers to opt for custom solutions. Instead of using these native features, some developers rely on JavaScript libraries that generate such controls as a series of nested 
-                                    <a href="/en-US/docs/Web/HTML/Element/div">
+                                    <a href="https://datarist.com/learn/HTML/Element/div">
                                         <code>&lt;div &gt;</code>
                                     </a>
                                     s which are then styled using CSS and controlled using JavaScript.
@@ -1351,18 +1334,18 @@
                                 </p>
                                 <dl>
                                     <dt id="roles">
-                                        <a href="/en-US/docs/Web/Accessibility/ARIA/Roles">Roles</a>
+                                        <a href="https://datarist.com/learn/Accessibility/ARIA/Roles">Roles</a>
                                     </dt>
                                     <dd>
                                         <p>
                                             These define what an element is or does. Many of these are so-called landmark roles, which largely duplicate the semantic value of structural elements, such as <code>role="navigation"</code>
                                             (
-                                            <a href="/en-US/docs/Web/HTML/Element/nav">
+                                            <a href="https://datarist.com/learn/HTML/Element/nav">
                                                 <code>&lt;nav &gt;</code>
                                             </a>
                                             ) or <code>role="complementary"</code>
                                             (
-                                            <a href="/en-US/docs/Web/HTML/Element/aside">
+                                            <a href="https://datarist.com/learn/HTML/Element/aside">
                                                 <code>&lt;aside &gt;</code>
                                             </a>
                                             ). Some other roles describe different page structures, such as <code>role="banner"</code>
@@ -1382,7 +1365,7 @@
                                             allows you to put an ID on an element, then reference it as being the label for anything else on the page, including multiple elements, which is not possible using <code>&lt;label for="input"&gt;</code>
                                             . As an example, you could use <code>aria-labelledby</code>
                                             to specify that a key description contained in a 
-                                            <a href="/en-US/docs/Web/HTML/Element/div">
+                                            <a href="https://datarist.com/learn/HTML/Element/div">
                                                 <code>&lt;div &gt;</code>
                                             </a>
                                             is the label for multiple table cells, or you could use it as an alternative to image alt text — specify existing information on the page as an image's alt text, rather than having to repeat it inside the <code>alt</code>
@@ -1405,7 +1388,7 @@
                                     <p>
                                         <strong>Note:</strong>
                                         You can find a useful list of all the ARIA roles and their uses, with links to further information, in the WAI-ARIA spec — see <a href="https://www.w3.org/TR/wai-aria-1.1/#role_definitions" class="external" target="_blank">Definition of Roles</a>
-                                        — on this site — see <a href="/en-US/docs/Web/Accessibility/ARIA/Roles">ARIA roles</a>
+                                        — on this site — see <a href="https://datarist.com/learn/Accessibility/ARIA/Roles">ARIA roles</a>
                                         .
                                     </p>
                                     <p>
@@ -1466,11 +1449,11 @@
                                     <dd>
                                         <p>
                                             ARIA's 
-                                            <a href="/en-US/docs/Web/Accessibility/ARIA/Roles">
+                                            <a href="https://datarist.com/learn/Accessibility/ARIA/Roles">
                                                 <code>role</code>
                                             </a>
                                             attribute values can act as landmarks that either replicate the semantics of HTML elements (e.g., 
-                                            <a href="/en-US/docs/Web/HTML/Element/nav">
+                                            <a href="https://datarist.com/learn/HTML/Element/nav">
                                                 <code>&lt;nav &gt;</code>
                                             </a>
                                             ), or go beyond HTML semantics to provide signposts to different functional areas, for example, <code>search</code>
@@ -1553,8 +1536,8 @@
                                         <code>role</code>
                                         attribute
                                     </a>
-                                    to browsers, which allows you to add extra semantic value to elements on your site wherever they are needed. The first major area in which this is useful is providing information for screen readers so that their users can find common page elements. Let's look at an example — our <a href="https://github.com/mdn/learning-area/tree/main/accessibility/aria/website-no-roles" class="external" target="_blank">website-no-roles</a>
-                                    example (<a href="https://mdn.github.io/learning-area/accessibility/aria/website-no-roles/" class="external" target="_blank">see it live</a>
+                                    to browsers, which allows you to add extra semantic value to elements on your site wherever they are needed. The first major area in which this is useful is providing information for screen readers so that their users can find common page elements. Let's look at an example — our <a href="https://github.com/mydatarist/learning-area/tree/main/accessibility/aria/website-no-roles" class="external" target="_blank">website-no-roles</a>
+                                    example (<a href="https://datarist.github.io/learning-area/accessibility/aria/website-no-roles/" class="external" target="_blank">see it live</a>
                                     ) has the following structure:
                                 </p>
                                 <div class="code-example">
@@ -1734,19 +1717,19 @@
                                 </p>
                                 <p>
                                     Let's improve it by the use of some ARIA features. First, we'll add some 
-                                    <a href="/en-US/docs/Web/Accessibility/ARIA/Roles">
+                                    <a href="https://datarist.com/learn/Accessibility/ARIA/Roles">
                                         <code>role</code>
                                     </a>
                                     attributes to our HTML structure. You can try taking a copy of our original files (see 
-                                    <a href="https://github.com/mdn/learning-area/blob/main/accessibility/aria/website-no-roles/index.html" class="external" target="_blank">
+                                    <a href="https://github.com/mydatarist/learning-area/blob/main/accessibility/aria/website-no-roles/index.html" class="external" target="_blank">
                                         <code>index.html</code>
                                     </a>
                                     and 
-                                    <a href="https://github.com/mdn/learning-area/blob/main/accessibility/aria/website-no-roles/style.css" class="external" target="_blank">
+                                    <a href="https://github.com/mydatarist/learning-area/blob/main/accessibility/aria/website-no-roles/style.css" class="external" target="_blank">
                                         <code>style.css</code>
                                     </a>
-                                    ), or navigating to our <a href="https://github.com/mdn/learning-area/tree/main/accessibility/aria/website-aria-roles" class="external" target="_blank">website-aria-roles</a>
-                                    example (<a href="https://mdn.github.io/learning-area/accessibility/aria/website-aria-roles/" class="external" target="_blank">see it live</a>
+                                    ), or navigating to our <a href="https://github.com/mydatarist/learning-area/tree/main/accessibility/aria/website-aria-roles" class="external" target="_blank">website-aria-roles</a>
+                                    example (<a href="https://datarist.github.io/learning-area/accessibility/aria/website-aria-roles/" class="external" target="_blank">see it live</a>
                                     ), which has a structure like this:
                                 </p>
                                 <div class="code-example">
@@ -1917,15 +1900,15 @@
                                 </div>
                                 <p>
                                     We've also given you a bonus feature in this example — the 
-                                    <a href="/en-US/docs/Web/HTML/Element/input">
+                                    <a href="https://datarist.com/learn/HTML/Element/input">
                                         <code>&lt;input &gt;</code>
                                     </a>
                                     element has been given the attribute 
-                                    <a href="/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label">
+                                    <a href="https://datarist.com/learn/Accessibility/ARIA/Attributes/aria-label">
                                         <code>aria-label</code>
                                     </a>
                                     , which gives it a descriptive label to be read out by a screen reader, even though we haven't included a 
-                                    <a href="/en-US/docs/Web/HTML/Element/label">
+                                    <a href="https://datarist.com/learn/HTML/Element/label">
                                         <code>&lt;label &gt;</code>
                                     </a>
                                     element. In cases like these, this is very useful — a search form like this one is a very common, easily recognized feature, and adding a visual label would spoil the page design.
@@ -2000,10 +1983,10 @@
                                 </p>
                                 <p>
                                     Let's look at a quick example — see 
-                                    <a href="https://github.com/mdn/learning-area/blob/main/accessibility/aria/aria-no-live.html" class="external" target="_blank">
+                                    <a href="https://github.com/mydatarist/learning-area/blob/main/accessibility/aria/aria-no-live.html" class="external" target="_blank">
                                         <code>aria-no-live.html</code>
                                     </a>
-                                    (also <a href="https://mdn.github.io/learning-area/accessibility/aria/aria-no-live.html" class="external" target="_blank">see it running live</a>
+                                    (also <a href="https://datarist.github.io/learning-area/accessibility/aria/aria-no-live.html" class="external" target="_blank">see it running live</a>
                                     ). In this example, we have a simple random quote box:
                                 </p>
                                 <div class="code-example">
@@ -2074,11 +2057,11 @@
                                 </div>
                                 <p>
                                     Our JavaScript uses the 
-                                    <a href="/en-US/docs/Web/API/fetch">
+                                    <a href="https://datarist.com/learn/API/fetch">
                                         <code>fetch()</code>
                                     </a>
                                     API to load a JSON file via containing a series of random quotes and their authors. Once that is done, we start up a 
-                                    <a href="/en-US/docs/Web/API/setInterval">
+                                    <a href="https://datarist.com/learn/API/setInterval">
                                         <code>setInterval()</code>
                                     </a>
                                     loop that loads a new random quote into the quote box every 10 seconds:
@@ -2103,7 +2086,7 @@
                                 <p>This works OK, but it is not good for accessibility — the content update is not detected by screen readers, so their users would not know what is going on. This is a fairly trivial example, but just imagine if you were creating a complex UI with lots of constantly updating content, like a chat room, or a strategy game UI, or a live updating shopping cart display — it would be impossible to use the app in any effective way without some kind of way of alerting the user to the updates.</p>
                                 <p>
                                     WAI-ARIA, fortunately, provides a useful mechanism to provide these alerts — the 
-                                    <a href="/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-live">
+                                    <a href="https://datarist.com/learn/Accessibility/ARIA/Attributes/aria-live">
                                         <code>aria-live</code>
                                     </a>
                                     property. Applying this to an element causes screen readers to read out the content that is updated. How urgently the content is read out depends on the attribute value:
@@ -2136,11 +2119,11 @@
                                 </dl>
                                 <p>
                                     We'd like you to take a copy of 
-                                    <a href="https://github.com/mdn/learning-area/blob/main/accessibility/aria/aria-no-live.html" class="external" target="_blank">
+                                    <a href="https://github.com/mydatarist/learning-area/blob/main/accessibility/aria/aria-no-live.html" class="external" target="_blank">
                                         <code>aria-no-live.html</code>
                                     </a>
                                     and 
-                                    <a href="https://github.com/mdn/learning-area/blob/main/accessibility/aria/quotes.json" class="external" target="_blank">
+                                    <a href="https://github.com/mydatarist/learning-area/blob/main/accessibility/aria/quotes.json" class="external" target="_blank">
                                         <code>quotes.json</code>
                                     </a>
                                     , and update your <code>&lt;section &gt;</code>
@@ -2187,7 +2170,7 @@
                                 </div>
                                 <p>
                                     There is an additional consideration here — only the bit of text that updates is read out. It might be nice if we always read out the heading too, so the user can remember what is being read out. To do this, we can add the 
-                                    <a href="/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-atomic">
+                                    <a href="https://datarist.com/learn/Accessibility/ARIA/Attributes/aria-atomic">
                                         <code>aria-atomic</code>
                                     </a>
                                     property to the section. Update your <code>&lt;section &gt;</code>
@@ -2237,10 +2220,10 @@
                                     <p>
                                         <strong>Note:</strong>
                                         You can see the finished example at 
-                                        <a href="https://github.com/mdn/learning-area/blob/main/accessibility/aria/aria-live.html" class="external" target="_blank">
+                                        <a href="https://github.com/mydatarist/learning-area/blob/main/accessibility/aria/aria-live.html" class="external" target="_blank">
                                             <code>aria-live.html</code>
                                         </a>
-                                        (<a href="https://mdn.github.io/learning-area/accessibility/aria/aria-live.html" class="external" target="_blank">see it running live</a>
+                                        (<a href="https://datarist.github.io/learning-area/accessibility/aria/aria-live.html" class="external" target="_blank">see it running live</a>
                                         ).
                                     </p>
                                 </div>
@@ -2248,7 +2231,7 @@
                                     <p>
                                         <strong>Note:</strong>
                                         The 
-                                        <a href="/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-relevant">
+                                        <a href="https://datarist.com/learn/Accessibility/ARIA/Attributes/aria-relevant">
                                             <code>aria-relevant</code>
                                         </a>
                                         property is also quite useful for controlling what gets read out when a live region is updated. You can for example only get content additions or removals read out.
@@ -2358,11 +2341,11 @@
                                 </div>
                                 <ul>
                                     <li>
-                                        <a href="/en-US/docs/Web/Accessibility/ARIA/Roles/alert_role">
+                                        <a href="https://datarist.com/learn/Accessibility/ARIA/Roles/alert_role">
                                             <code>role="alert"</code>
                                         </a>
                                         automatically turns the element it is applied to into a live region, so changes to it are read out; it also semantically identifies it as an alert message (important time/context-sensitive information), and represents a better, more accessible way of delivering an alert to a user (modal dialogs like 
-                                        <a href="/en-US/docs/Web/API/Window/alert">
+                                        <a href="https://datarist.com/learn/API/Window/alert">
                                             <code>alert()</code>
                                         </a>
                                         calls have a number of accessibility problems; see <a href="https://webaim.org/techniques/javascript/other#popups" class="external" target="_blank">Popup Windows</a>
@@ -2370,7 +2353,7 @@
                                     </li>
                                     <li>
                                         An 
-                                        <a href="/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-relevant">
+                                        <a href="https://datarist.com/learn/Accessibility/ARIA/Attributes/aria-relevant">
                                             <code>aria-relevant</code>
                                         </a>
                                         value of <code>all</code>
@@ -2381,11 +2364,11 @@
                                 <ol>
                                     <li>
                                         At this point, take a copy of our 
-                                        <a href="https://github.com/mdn/learning-area/blob/main/accessibility/css/form-validation.html" class="external" target="_blank">
+                                        <a href="https://github.com/mydatarist/learning-area/blob/main/accessibility/css/form-validation.html" class="external" target="_blank">
                                             <code>form-validation.html</code>
                                         </a>
                                         and 
-                                        <a href="https://github.com/mdn/learning-area/blob/main/accessibility/css/validation.js" class="external" target="_blank">
+                                        <a href="https://github.com/mydatarist/learning-area/blob/main/accessibility/css/validation.js" class="external" target="_blank">
                                             <code>validation.js</code>
                                         </a>
                                         files, and save them in a local directory.
@@ -2423,7 +2406,7 @@
                                     </li>
                                     <li>
                                         This makes visual sense, but it isn't as easy to understand for screen reader users. Fortunately, WAI-ARIA provides the 
-                                        <a href="/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-required">
+                                        <a href="https://datarist.com/learn/Accessibility/ARIA/Attributes/aria-required">
                                             <code>aria-required</code>
                                         </a>
                                         attribute to give screen readers hints that they should tell users that form inputs need to be filled in. Update the <code>&lt;input &gt;</code>
@@ -2504,11 +2487,11 @@
                                     <li>If you save the example now and test it with a screen reader, you should hear something like "Enter your name star, required, edit text".</li>
                                     <li>
                                         It might also be useful if we give screen reader users and sighted users an idea of what the age value should be. This is often presented as a tooltip or placeholder inside the form field. WAI-ARIA does include 
-                                        <a href="/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-valuemin">
+                                        <a href="https://datarist.com/learn/Accessibility/ARIA/Attributes/aria-valuemin">
                                             <code>aria-valuemin</code>
                                         </a>
                                         and 
-                                        <a href="/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-valuemax">
+                                        <a href="https://datarist.com/learn/Accessibility/ARIA/Attributes/aria-valuemax">
                                             <code>aria-valuemax</code>
                                         </a>
                                         properties to specify min and max values, and screen readers support the native <code>min</code>
@@ -2588,15 +2571,15 @@
                                 </ol>
                                 <p>
                                     Always include a 
-                                    <a href="/en-US/docs/Web/HTML/Element/label">
+                                    <a href="https://datarist.com/learn/HTML/Element/label">
                                         <code>&lt;label &gt;</code>
                                     </a>
                                     for every input. While some screen readers announce the placeholder text, most do not. Acceptable substitutions for providing form controls with an accessible name include 
-                                    <a href="/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label">
+                                    <a href="https://datarist.com/learn/Accessibility/ARIA/Attributes/aria-label">
                                         <code>aria-label</code>
                                     </a>
                                     and 
-                                    <a href="/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby">
+                                    <a href="https://datarist.com/learn/Accessibility/ARIA/Attributes/aria-labelledby">
                                         <code>aria-labelledby</code>
                                     </a>
                                     . But the <code>&lt;label &gt;</code>
@@ -2607,7 +2590,7 @@
                                     <p>
                                         <strong>Note:</strong>
                                         You can see the finished example live at 
-                                        <a href="https://mdn.github.io/learning-area/accessibility/aria/form-validation-updated.html" class="external" target="_blank">
+                                        <a href="https://datarist.github.io/learning-area/accessibility/aria/form-validation-updated.html" class="external" target="_blank">
                                             <code>form-validation-updated.html</code>
                                         </a>
                                         .
@@ -2615,21 +2598,21 @@
                                 </div>
                                 <p>
                                     WAI-ARIA also enables some advanced form labelling techniques, beyond the classic 
-                                    <a href="/en-US/docs/Web/HTML/Element/label">
+                                    <a href="https://datarist.com/learn/HTML/Element/label">
                                         <code>&lt;label &gt;</code>
                                     </a>
                                     element. We already talked about using the 
-                                    <a href="/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label">
+                                    <a href="https://datarist.com/learn/Accessibility/ARIA/Attributes/aria-label">
                                         <code>aria-label</code>
                                     </a>
                                     property to provide a label where we don't want the label to be visible to sighted users (see the <a href="#signpostslandmarks">Signposts/Landmarks</a>
                                     section, above). Some other labeling techniques use other properties such as 
-                                    <a href="/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby">
+                                    <a href="https://datarist.com/learn/Accessibility/ARIA/Attributes/aria-labelledby">
                                         <code>aria-labelledby</code>
                                     </a>
                                     if you want to designate a non-<code>&lt;label &gt;</code>
                                     element as a label or label multiple form inputs with the same label, and 
-                                    <a href="/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby">
+                                    <a href="https://datarist.com/learn/Accessibility/ARIA/Attributes/aria-describedby">
                                         <code>aria-describedby</code>
                                     </a>
                                     , if you want to associate other information with a form input and have it read out as well. See <a href="https://webaim.org/techniques/forms/advanced" class="external" target="_blank">WebAIM's Advanced Form Labeling article</a>
@@ -2641,7 +2624,7 @@
                                 </p>
                                 <p>
                                     If the disabled state of an input is likely to change, then it is also a good idea to indicate when it happens, and what the result is. For example, in our 
-                                    <a href="https://mdn.github.io/learning-area/accessibility/aria/form-validation-checkbox-disabled.html" class="external" target="_blank">
+                                    <a href="https://datarist.github.io/learning-area/accessibility/aria/form-validation-checkbox-disabled.html" class="external" target="_blank">
                                         <code>form-validation-checkbox-disabled.html</code>
                                     </a>
                                     demo, there is a checkbox that when checked, enables another form input to allow further information to be entered. We've set up a hidden live region:
@@ -2781,18 +2764,18 @@
                                 </p>
                                 <p>
                                     But what about screen readers? They still won't see the elements as buttons. If we test our 
-                                    <a href="https://mdn.github.io/learning-area/tools-testing/cross-browser-testing/accessibility/fake-div-buttons.html" class="external" target="_blank">
+                                    <a href="https://datarist.github.io/learning-area/tools-testing/cross-browser-testing/accessibility/fake-div-buttons.html" class="external" target="_blank">
                                         <code>fake-div-buttons.html</code>
                                     </a>
                                     example in a screen reader, our fake buttons will be reported using phrases like "Click me!, group", which is obviously confusing.
                                 </p>
                                 <p>
                                     We can fix this using a WAI-ARIA role. Make a local copy of 
-                                    <a href="https://github.com/mdn/learning-area/blob/main/tools-testing/cross-browser-testing/accessibility/fake-div-buttons.html" class="external" target="_blank">
+                                    <a href="https://github.com/mydatarist/learning-area/blob/main/tools-testing/cross-browser-testing/accessibility/fake-div-buttons.html" class="external" target="_blank">
                                         <code>fake-div-buttons.html</code>
                                     </a>
                                     , and add 
-                                    <a href="/en-US/docs/Web/Accessibility/ARIA/Roles/button_role">
+                                    <a href="https://datarist.com/learn/Accessibility/ARIA/Roles/button_role">
                                         <code>role="button"</code>
                                     </a>
                                     to each button <code>&lt;div &gt;</code>
@@ -2844,7 +2827,7 @@
                                 <p>
                                     Now when you try this using a screen reader, you'll have buttons be reported using phrases like "Click me!, button". While this is much better, you still have to add in all the native button features users expect, like handling <kbd>enter</kbd>
                                     and click events, as explained in the 
-                                    <a href="/en-US/docs/Web/Accessibility/ARIA/Roles/button_role">
+                                    <a href="https://datarist.com/learn/Accessibility/ARIA/Roles/button_role">
                                         <code>button</code>
                                         role documentation
                                     </a>
@@ -2854,11 +2837,11 @@
                                     <p>
                                         <strong>Note:</strong>
                                         Don't forget however that using the correct semantic element where possible is always better. If you want to create a button, and can use a 
-                                        <a href="/en-US/docs/Web/HTML/Element/button">
+                                        <a href="https://datarist.com/learn/HTML/Element/button">
                                             <code>&lt;button &gt;</code>
                                         </a>
                                         element, you should use a 
-                                        <a href="/en-US/docs/Web/HTML/Element/button">
+                                        <a href="https://datarist.com/learn/HTML/Element/button">
                                             <code>&lt;button &gt;</code>
                                         </a>
                                         element!
@@ -2866,21 +2849,21 @@
                                 </div>
                                 <h4 id="guiding_users_through_complex_widgets">Guiding users through complex widgets</h4>
                                 <p>
-                                    There are a whole host of other <a href="/en-US/docs/Web/Accessibility/ARIA/Roles">roles</a>
+                                    There are a whole host of other <a href="https://datarist.com/learn/Accessibility/ARIA/Roles">roles</a>
                                     that can identify non-semantic element structures as common UI features that go beyond what's available in standard HTML, for example 
-                                    <a href="/en-US/docs/Web/Accessibility/ARIA/Roles/combobox_role">
+                                    <a href="https://datarist.com/learn/Accessibility/ARIA/Roles/combobox_role">
                                         <code>combobox</code>
                                     </a>
                                     , 
-                                    <a href="/en-US/docs/Web/Accessibility/ARIA/Roles/slider_role">
+                                    <a href="https://datarist.com/learn/Accessibility/ARIA/Roles/slider_role">
                                         <code>slider</code>
                                     </a>
                                     , 
-                                    <a href="/en-US/docs/Web/Accessibility/ARIA/Roles/tabpanel_role">
+                                    <a href="https://datarist.com/learn/Accessibility/ARIA/Roles/tabpanel_role">
                                         <code>tabpanel</code>
                                     </a>
                                     , 
-                                    <a href="/en-US/docs/Web/Accessibility/ARIA/Roles/tree_role">
+                                    <a href="https://datarist.com/learn/Accessibility/ARIA/Roles/tree_role">
                                         <code>tree</code>
                                     </a>
                                     . You can see several useful examples in the <a href="https://dequeuniversity.com/library/" class="external" target="_blank">Deque university code library</a>
@@ -2888,17 +2871,17 @@
                                 </p>
                                 <p>
                                     Let's go through an example of our own. We'll return to our simple absolutely-positioned tabbed interface (see <a href="https://datarist.com/learn/Accessibility/CSS_and_JavaScript#hiding_things">Hiding things</a>
-                                    in our CSS and JavaScript accessibility article), which you can find at <a href="https://mdn.github.io/learning-area/css/css-layout/practical-positioning-examples/info-box.html" class="external" target="_blank">Tabbed info box example</a>
-                                    (see <a href="https://github.com/mdn/learning-area/blob/main/css/css-layout/practical-positioning-examples/info-box.html" class="external" target="_blank">source code</a>
+                                    in our CSS and JavaScript accessibility article), which you can find at <a href="https://datarist.github.io/learning-area/css/css-layout/practical-positioning-examples/info-box.html" class="external" target="_blank">Tabbed info box example</a>
+                                    (see <a href="https://github.com/mydatarist/learning-area/blob/main/css/css-layout/practical-positioning-examples/info-box.html" class="external" target="_blank">source code</a>
                                     ).
                                 </p>
                                 <p>This example as-is works fine in terms of keyboard accessibility — you can happily tab between the different tabs and select them to show the tab contents. It is also fairly accessible too — you can scroll through the content and use the headings to navigate, even if you can't see what is happening on screen. It is however not that obvious what the content is — a screen reader currently reports the content as a list of links, and some content with three headings. It doesn't give you any idea of what the relationship is between the content. Giving the user more clues as to the structure of the content is always good.</p>
                                 <p>
                                     To improve things, we've created a new version of the example called 
-                                    <a href="https://github.com/mdn/learning-area/blob/main/accessibility/aria/aria-tabbed-info-box.html" class="external" target="_blank">
+                                    <a href="https://github.com/mydatarist/learning-area/blob/main/accessibility/aria/aria-tabbed-info-box.html" class="external" target="_blank">
                                         <code>aria-tabbed-info-box.html</code>
                                     </a>
-                                    (<a href="https://mdn.github.io/learning-area/accessibility/aria/aria-tabbed-info-box.html" class="external" target="_blank">see it running live</a>
+                                    (<a href="https://datarist.github.io/learning-area/accessibility/aria/aria-tabbed-info-box.html" class="external" target="_blank">see it running live</a>
                                     ). We've updated the structure of the tabbed interface like so:
                                 </p>
                                 <div class="code-example">
@@ -3191,15 +3174,15 @@
                                 <dl>
                                     <dt id="new_roles_—">
                                         <a href="#new_roles_%E2%80%94">New roles — </a>
-                                        <a href="/en-US/docs/Web/Accessibility/ARIA/Roles/tablist_role">
+                                        <a href="https://datarist.com/learn/Accessibility/ARIA/Roles/tablist_role">
                                             <code>tablist</code>
                                         </a>
                                         , 
-                                        <a href="/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role">
+                                        <a href="https://datarist.com/learn/Accessibility/ARIA/Roles/tab_role">
                                             <code>tab</code>
                                         </a>
                                         , 
-                                        <a href="/en-US/docs/Web/Accessibility/ARIA/Roles/tabpanel_role">
+                                        <a href="https://datarist.com/learn/Accessibility/ARIA/Roles/tabpanel_role">
                                             <code>tabpanel</code>
                                         </a>
                                     </dt>
@@ -3207,7 +3190,7 @@
                                         <p>These identify the important areas of the tabbed interface — the container for the tabs, the tabs themselves, and the corresponding tabpanels.</p>
                                     </dd>
                                     <dt id="aria-selected">
-                                        <a href="/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-selected">
+                                        <a href="https://datarist.com/learn/Accessibility/ARIA/Attributes/aria-selected">
                                             <code>aria-selected</code>
                                         </a>
                                     </dt>
@@ -3215,7 +3198,7 @@
                                         <p>Defines which tab is currently selected. As different tabs are selected by the user, the value of this attribute on the different tabs is updated via JavaScript.</p>
                                     </dd>
                                     <dt id="aria-hidden">
-                                        <a href="/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-hidden">
+                                        <a href="https://datarist.com/learn/Accessibility/ARIA/Attributes/aria-hidden">
                                             <code>aria-hidden</code>
                                         </a>
                                     </dt>
@@ -3231,7 +3214,7 @@
                                         <p>As we've removed the links, we need to give the list items this attribute to provide it with keyboard focus.</p>
                                     </dd>
                                     <dt id="aria-setsize">
-                                        <a href="/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-setsize">
+                                        <a href="https://datarist.com/learn/Accessibility/ARIA/Attributes/aria-setsize">
                                             <code>aria-setsize</code>
                                         </a>
                                     </dt>
@@ -3239,7 +3222,7 @@
                                         <p>This property allows you to specify to screen readers that an element is part of a series, and how many items the series has.</p>
                                     </dd>
                                     <dt id="aria-posinset">
-                                        <a href="/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-posinset">
+                                        <a href="https://datarist.com/learn/Accessibility/ARIA/Attributes/aria-posinset">
                                             <code>aria-posinset</code>
                                         </a>
                                     </dt>
@@ -3290,13 +3273,13 @@
                             <div class="section-content">
                                 <ul>
                                     <li>
-                                        <a href="/en-US/docs/Web/Accessibility/ARIA/Attributes">Aria states and properties</a>
+                                        <a href="https://datarist.com/learn/Accessibility/ARIA/Attributes">Aria states and properties</a>
                                         : All <code>aria-*</code>
                                         attributes
                                     </li>
                                     <li>
-                                        <a href="/en-US/docs/Web/Accessibility/ARIA/Roles">WAI-ARIA roles</a>
-                                        : Categories of ARIA roles and the roles covered on MDN
+                                        <a href="https://datarist.com/learn/Accessibility/ARIA/Roles">WAI-ARIA roles</a>
+                                        : Categories of ARIA roles and the roles covered on datarist
                                     </li>
                                     <li>
                                         <a href="https://www.w3.org/TR/html-aria/" class="external" target="_blank">ARIA in HTML</a>

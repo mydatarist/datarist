@@ -1156,7 +1156,7 @@
                             <use xlink:href="#chevron-expand"></use>
                         </svg>
                     </button>
-                    <strong class="d-none d-md-block my-2 ms-3">On this page</strong>
+                    <span class="text-black d-none d-md-block my-2 ms-3">On this page</span>
                     <div class="collapse dd-toc-collapse" id="tocContents">
                         <nav id="TableOfContents">
                             <ul>
@@ -1245,18 +1245,18 @@
                                 </p>
                                 <p>
                                     At some point, you will be working on a project and you will find that the CSS you thought should be applied to an element is not working. Often, the problem is that you create two rules that apply different values of the same property to the same element. 
-                                    <a href="/en-US/docs/Web/CSS/Cascade">
+                                    <a href="https://datarist.com/learn/CSS/Cascade">
                                         <strong>Cascade</strong>
                                     </a>
                                     and the closely-related concept of 
-                                    <a href="/en-US/docs/Web/CSS/Specificity">
+                                    <a href="https://datarist.com/learn/CSS/Specificity">
                                         <strong>specificity</strong>
                                     </a>
                                     are mechanisms that control which rule applies when there is such a conflict. The rule that's styling your element may not be the one you expect, so you need to understand how these mechanisms work.
                                 </p>
                                 <p>
                                     Also significant here is the concept of 
-                                    <a href="/en-US/docs/Web/CSS/Inheritance">
+                                    <a href="https://datarist.com/learn/CSS/Inheritance">
                                         <strong>inheritance</strong>
                                     </a>
                                     , which means that some CSS properties by default inherit values set on the current element's parent element and some don't. This can also cause some behavior that you might not expect.
@@ -1271,7 +1271,7 @@
                             <div class="section-content">
                                 <p>
                                     Stylesheets 
-                                    <a href="/en-US/docs/Web/CSS/Cascade">
+                                    <a href="https://datarist.com/learn/CSS/Cascade">
                                         <strong>cascade</strong>
                                     </a>
                                     — at a very simple level, this means that the origin, the cascade layer, and the order of CSS rules matter. When two rules from the same cascade layer apply and both have equal specificity, the one that is defined last in the stylesheet is the one that will be used.
@@ -1281,7 +1281,7 @@
                                     element. The <code>&lt;h1 &gt;</code>
                                     content ends up being colored blue. This is because both the rules are from the same source, have an identical element selector, and therefore, carry the same specificity, but the last one in the source order wins.
                                 </p>
-                                <iframe width="100%" height="500" src="https://mdn.github.io/css-examples/learn/cascade/cascade-simple.html" loading="lazy"></iframe>
+                                <iframe width="100%" height="500" src="https://datarist.github.io/css-examples/learn/cascade/cascade-simple.html" loading="lazy"></iframe>
                             </div>
                         </section>
                         <section aria-labelledby="specificity">
@@ -1290,7 +1290,7 @@
                             </h3>
                             <div class="section-content">
                                 <p>
-                                    <a href="/en-US/docs/Web/CSS/Specificity">Specificity</a>
+                                    <a href="https://datarist.com/learn/CSS/Specificity">Specificity</a>
                                     is the algorithm that the browser uses to decide which property value is applied to an element. If multiple style blocks have different selectors that configure the same property with different values and target the same element, specificity decides the property value that gets applied to the element. Specificity is basically a measure of how specific a selector's selection will be:
                                 </p>
                                 <ul>
@@ -1307,7 +1307,7 @@
                                     gives its rule a higher specificity. So even though the rule with the <code>&lt;h1 &gt;</code>
                                     element selector appears further down in the source order, the one with the higher specificity, defined using the class selector, will be applied.
                                 </p>
-                                <iframe width="100%" height="600" src="https://mdn.github.io/css-examples/learn/cascade/specificity-simple.html" loading="lazy"></iframe>
+                                <iframe width="100%" height="600" src="https://datarist.github.io/css-examples/learn/cascade/specificity-simple.html" loading="lazy"></iframe>
                                 <p>We'll explain the specificity algorithm later on.</p>
                             </div>
                         </section>
@@ -1322,10 +1322,10 @@
                                     and <code>font-family</code>
                                     on an element, every element inside it will also be styled with that color and font, unless you've applied different color and font values directly to them.
                                 </p>
-                                <iframe width="100%" height="650" src="https://mdn.github.io/css-examples/learn/cascade/inheritance-simple.html" loading="lazy"></iframe>
+                                <iframe width="100%" height="650" src="https://datarist.github.io/css-examples/learn/cascade/inheritance-simple.html" loading="lazy"></iframe>
                                 <p>
                                     Some properties do not inherit — for example, if you set a 
-                                    <a href="/en-US/docs/Web/CSS/width">
+                                    <a href="https://datarist.com/learn/CSS/width">
                                         <code>width</code>
                                     </a>
                                     of 50% on an element, all of its descendants do not get a width of 50% of their parent's width. If this was the case, CSS would be very frustrating to use!
@@ -1333,7 +1333,7 @@
                                 <div class="notecard note" id="sect1">
                                     <p>
                                         <strong>Note:</strong>
-                                        On MDN CSS property reference pages, you can find a technical information box called "Formal definition", which lists a number of data points about that property, including whether it is inherited or not. See the <a href="/en-US/docs/Web/CSS/color#formal_definition">color property Formal definition section</a>
+                                        On datarist CSS property reference pages, you can find a technical information box called "Formal definition", which lists a number of data points about that property, including whether it is inherited or not. See the <a href="https://datarist.com/learn/CSS/color#formal_definition">color property Formal definition section</a>
                                         as an example.
                                     </p>
                                 </div>
@@ -1356,7 +1356,7 @@
                             <div class="section-content">
                                 <p>
                                     We'll start with inheritance. In the example below, we have a 
-                                    <a href="/en-US/docs/Web/HTML/Element/ul">
+                                    <a href="https://datarist.com/learn/HTML/Element/ul">
                                         <code>&lt;ul &gt;</code>
                                     </a>
                                     element with two levels of unordered lists nested inside it. We have given the outer <code>&lt;ul &gt;</code>
@@ -1369,7 +1369,7 @@
                                     s and those inside the first nested list. We have then added the class <code>special</code>
                                     to the second nested list and applied a different color to it. This then inherits down through its children.
                                 </p>
-                                <iframe width="100%" height="1100" src="https://mdn.github.io/css-examples/learn/cascade/inheritance.html" loading="lazy"></iframe>
+                                <iframe width="100%" height="1100" src="https://datarist.github.io/css-examples/learn/cascade/inheritance.html" loading="lazy"></iframe>
                                 <p>
                                     Properties like <code>width</code>
                                     (as mentioned earlier), <code>margin</code>
@@ -1388,7 +1388,7 @@
                                 <p>CSS provides five special universal property values for controlling inheritance. Every CSS property accepts these values.</p>
                                 <dl>
                                     <dt id="inherit">
-                                        <a href="/en-US/docs/Web/CSS/inherit">
+                                        <a href="https://datarist.com/learn/CSS/inherit">
                                             <code>inherit</code>
                                         </a>
                                     </dt>
@@ -1396,43 +1396,43 @@
                                         <p>Sets the property value applied to a selected element to be the same as that of its parent element. Effectively, this "turns on inheritance".</p>
                                     </dd>
                                     <dt id="initial">
-                                        <a href="/en-US/docs/Web/CSS/initial">
+                                        <a href="https://datarist.com/learn/CSS/initial">
                                             <code>initial</code>
                                         </a>
                                     </dt>
                                     <dd>
                                         <p>
-                                            Sets the property value applied to a selected element to the <a href="/en-US/docs/Web/CSS/initial_value">initial value</a>
+                                            Sets the property value applied to a selected element to the <a href="https://datarist.com/learn/CSS/initial_value">initial value</a>
                                             of that property.
                                         </p>
                                     </dd>
                                     <dt id="revert">
-                                        <a href="/en-US/docs/Web/CSS/revert">
+                                        <a href="https://datarist.com/learn/CSS/revert">
                                             <code>revert</code>
                                         </a>
                                     </dt>
                                     <dd>
                                         <p>
                                             Resets the property value applied to a selected element to the browser's default styling rather than the defaults applied to that property. This value acts like 
-                                            <a href="/en-US/docs/Web/CSS/unset">
+                                            <a href="https://datarist.com/learn/CSS/unset">
                                                 <code>unset</code>
                                             </a>
                                             in many cases.
                                         </p>
                                     </dd>
                                     <dt id="revert-layer">
-                                        <a href="/en-US/docs/Web/CSS/revert-layer">
+                                        <a href="https://datarist.com/learn/CSS/revert-layer">
                                             <code>revert-layer</code>
                                         </a>
                                     </dt>
                                     <dd>
                                         <p>
-                                            Resets the property value applied to a selected element to the value established in a previous <a href="/en-US/docs/Web/CSS/@layer">cascade layer</a>
+                                            Resets the property value applied to a selected element to the value established in a previous <a href="https://datarist.com/learn/CSS/@layer">cascade layer</a>
                                             .
                                         </p>
                                     </dd>
                                     <dt id="unset">
-                                        <a href="/en-US/docs/Web/CSS/unset">
+                                        <a href="https://datarist.com/learn/CSS/unset">
                                             <code>unset</code>
                                         </a>
                                     </dt>
@@ -1447,7 +1447,7 @@
                                 <div class="notecard note" id="sect2">
                                     <p>
                                         <strong>Note:</strong>
-                                        See <a href="/en-US/docs/Web/CSS/Cascade#origin_types">Origin types</a>
+                                        See <a href="https://datarist.com/learn/CSS/Cascade#origin_types">Origin types</a>
                                         for more information on each of these and how they work.
                                     </p>
                                 </div>
@@ -1476,7 +1476,7 @@
                                         . Notice how the second link is on a new line and has a bullet. What properties do you think were inherited?
                                     </li>
                                 </ol>
-                                <iframe width="100%" height="800" src="https://mdn.github.io/css-examples/learn/cascade/keywords.html" loading="lazy"></iframe>
+                                <iframe width="100%" height="800" src="https://datarist.github.io/css-examples/learn/cascade/keywords.html" loading="lazy"></iframe>
                             </div>
                         </section>
                         <section aria-labelledby="resetting_all_property_values">
@@ -1486,7 +1486,7 @@
                             <div class="section-content">
                                 <p>
                                     The CSS shorthand property 
-                                    <a href="/en-US/docs/Web/CSS/all">
+                                    <a href="https://datarist.com/learn/CSS/all">
                                         <code>all</code>
                                     </a>
                                     can be used to apply one of these inheritance values to (almost) all properties at once. Its value can be any one of the inheritance values (<code>inherit</code>
@@ -1501,7 +1501,7 @@
                                     to <code>unset</code>
                                     .
                                 </p>
-                                <iframe width="100%" height="800" src="https://mdn.github.io/css-examples/learn/cascade/all.html" loading="lazy"></iframe>
+                                <iframe width="100%" height="800" src="https://datarist.github.io/css-examples/learn/cascade/all.html" loading="lazy"></iframe>
                                 <p>
                                     Try setting the value of <code>all</code>
                                     to some of the other available values and observe what the difference is.
@@ -1550,7 +1550,7 @@
                                 <p>As we saw earlier in this lesson, a class selector has more weight than an element selector, so the properties defined in the class style block will override those defined in the element style block.</p>
                                 <p>Something to note here is that although we are thinking about selectors and the rules that are applied to the text or component they select, it isn't the entire rule that is overwritten, only the properties that are declared in multiple places.</p>
                                 <p>This behavior helps avoid repetition in your CSS. A common practice is to define generic styles for the basic elements, and then create classes for those that are different. For example, in the stylesheet below, we have defined generic styles for level 2 headings, and then created some classes that change only some of the properties and values. The values defined initially are applied to all headings, then the more specific values are applied to the headings with the classes.</p>
-                                <iframe width="100%" height="1000" src="https://mdn.github.io/css-examples/learn/cascade/mixing-rules.html" loading="lazy"></iframe>
+                                <iframe width="100%" height="1000" src="https://datarist.github.io/css-examples/learn/cascade/mixing-rules.html" loading="lazy"></iframe>
                                 <p>Let's now have a look at how the browser will calculate specificity. We already know that an element selector has low specificity and can be overwritten by a class. Essentially a value in points is awarded to different types of selectors, and adding these up gives you the weight of that particular selector, which can then be assessed against other potential matches.</p>
                                 <p>The amount of specificity a selector has is measured using three different values (or components), which can be thought of as ID, CLASS, and ELEMENT columns in the hundreds, tens, and ones place:</p>
                                 <ul>
@@ -1571,7 +1571,7 @@
                                     <p>
                                         <strong>Note:</strong>
                                         The universal selector (
-                                        <a href="/en-US/docs/Web/CSS/Universal_selectors">
+                                        <a href="https://datarist.com/learn/CSS/Universal_selectors">
                                             <code>*</code>
                                         </a>
                                         ), <a href="https://datarist.com/learn/CSS/Building_blocks/Selectors/Combinators">combinators</a>
@@ -1579,7 +1579,7 @@
                                         , <code>&gt;</code>
                                         , <code>~</code>
                                         , ' '), and specificity adjustment selector (
-                                        <a href="/en-US/docs/Web/CSS/:where">
+                                        <a href="https://datarist.com/learn/CSS/:where">
                                             <code>:where()</code>
                                         </a>
                                         ) along with its parameters, have no effect on specificity.
@@ -1587,22 +1587,22 @@
                                 </div>
                                 <p>
                                     The negation (
-                                    <a href="/en-US/docs/Web/CSS/:not">
+                                    <a href="https://datarist.com/learn/CSS/:not">
                                         <code>:not()</code>
                                     </a>
                                     ), relational selector (
-                                    <a href="/en-US/docs/Web/CSS/:has">
+                                    <a href="https://datarist.com/learn/CSS/:has">
                                         <code>:has()</code>
                                     </a>
                                     ), the matches-any (
-                                    <a href="/en-US/docs/Web/CSS/:is">
+                                    <a href="https://datarist.com/learn/CSS/:is">
                                         <code>:is()</code>
                                     </a>
-                                    ) pseudo-classes, and <a href="/en-US/docs/Web/CSS/CSS_nesting/Nesting_and_specificity">CSS nesting</a>
+                                    ) pseudo-classes, and <a href="https://datarist.com/learn/CSS/CSS_nesting/Nesting_and_specificity">CSS nesting</a>
                                     themselves don't add to specificity, but their parameters or nested rules do. The specificity weight that each contributes to the specificity algorithm is the specificity weight of the selector in the parameter or nested rule with the greatest weight.
                                 </p>
                                 <p>
-                                    The following table shows a few isolated examples to get you in the mood. Try going through these, and make sure you understand why they have the specificity that we have given them. We've not covered selectors in detail yet, but you can find details of each selector on the MDN <a href="/en-US/docs/Web/CSS/CSS_selectors/Selectors_and_combinators">selectors reference</a>
+                                    The following table shows a few isolated examples to get you in the mood. Try going through these, and make sure you understand why they have the specificity that we have given them. We've not covered selectors in detail yet, but you can find details of each selector on the datarist <a href="https://datarist.com/learn/CSS/CSS_selectors/Selectors_and_combinators">selectors reference</a>
                                     .
                                 </p>
                                 <figure class="table-container">
@@ -1667,7 +1667,7 @@
                                     </table>
                                 </figure>
                                 <p>Before we move on, let's look at an example in action.</p>
-                                <iframe width="100%" height="800" src="https://mdn.github.io/css-examples/learn/cascade/specificity-boxes.html" loading="lazy"></iframe>
+                                <iframe width="100%" height="800" src="https://datarist.github.io/css-examples/learn/cascade/specificity-boxes.html" loading="lazy"></iframe>
                                 <p>So what's going on here? First of all, we are only interested in the first seven rules of this example, and as you'll notice, we have included their specificity values in a comment before each one.</p>
                                 <ul>
                                     <li>The first two selectors are competing over the styling of the link's background color. The second one wins and makes the background color blue because it has an extra ID selector in the chain: its specificity is 2-0-1 vs. 1-0-1.</li>
@@ -1694,7 +1694,7 @@
                             <div class="section-content">
                                 <p>
                                     Inline styles, that is, the style declaration inside a 
-                                    <a href="/en-US/docs/Web/HTML/Global_attributes#style">
+                                    <a href="https://datarist.com/learn/HTML/Global_attributes#style">
                                         <code>style</code>
                                     </a>
                                     attribute, take precedence over all normal styles, no matter the specificity. Such declarations don't have selectors, but their specificity can be construed as 1-0-0-0; always more than any other specificity weight no matter how many IDs are in the selectors.
@@ -1720,20 +1720,20 @@
                                     </p>
                                 </div>
                                 <p>Take a look at this example where we have two paragraphs, one of which has an ID.</p>
-                                <iframe width="100%" height="800" src="https://mdn.github.io/css-examples/learn/cascade/important.html" loading="lazy"></iframe>
+                                <iframe width="100%" height="800" src="https://datarist.github.io/css-examples/learn/cascade/important.html" loading="lazy"></iframe>
                                 <p>Let's walk through this to see what's happening — try removing some of the properties to see what happens if you are finding it hard to understand:</p>
                                 <ol>
                                     <li>
                                         You'll see that the third rule's 
-                                        <a href="/en-US/docs/Web/CSS/color">
+                                        <a href="https://datarist.com/learn/CSS/color">
                                             <code>color</code>
                                         </a>
                                         and 
-                                        <a href="/en-US/docs/Web/CSS/padding">
+                                        <a href="https://datarist.com/learn/CSS/padding">
                                             <code>padding</code>
                                         </a>
                                         values have been applied, but the 
-                                        <a href="/en-US/docs/Web/CSS/background-color">
+                                        <a href="https://datarist.com/learn/CSS/background-color">
                                             <code>background-color</code>
                                         </a>
                                         hasn't. Why? Really, all three should surely apply because rules later in the source order generally override earlier rules.
@@ -1741,12 +1741,12 @@
                                     <li>However, the rules above it win because class selectors have higher specificity than element selectors.</li>
                                     <li>
                                         Both elements have a 
-                                        <a href="/en-US/docs/Web/HTML/Global_attributes#class">
+                                        <a href="https://datarist.com/learn/HTML/Global_attributes#class">
                                             <code>class</code>
                                         </a>
                                         of <code>better</code>
                                         , but the 2nd one has an 
-                                        <a href="/en-US/docs/Web/HTML/Global_attributes#id">
+                                        <a href="https://datarist.com/learn/HTML/Global_attributes#id">
                                             <code>id</code>
                                         </a>
                                         of <code>winning</code>
@@ -1816,7 +1816,7 @@
                             </h3>
                             <div class="section-content">
                                 <p>
-                                    Even though <a href="/en-US/docs/Web/CSS/@layer">cascade layers</a>
+                                    Even though <a href="https://datarist.com/learn/CSS/@layer">cascade layers</a>
                                     is an advanced topic and you might not use this feature right away, it's important to understand how layers cascade.
                                 </p>
                                 <p>
@@ -1824,7 +1824,7 @@
                                     , however, the order is reversed, with important styles in earlier layers taking precedence over important styles declared in subsequent layers or outside of any layer. Inline styles take precedence over all author styles, no matter the layer.
                                 </p>
                                 <p>When you have multiple style blocks in different layers providing competing values for a property on a single element, the order in which the layers are declared determines the precedence. Specificity between layers doesn't matter, but specificity within a single layer still does.</p>
-                                <iframe width="100%" height="800" src="https://mdn.github.io/css-examples/learn/cascade/cascade-layers.html" loading="lazy"></iframe>
+                                <iframe width="100%" height="800" src="https://datarist.github.io/css-examples/learn/cascade/cascade-layers.html" loading="lazy"></iframe>
                                 <p>
                                     Let's discuss a few things from the above example to understand what's happening. Two layers have been declared, <code>firstLayer</code>
                                     and <code>secondLayer</code>
@@ -1846,12 +1846,12 @@
                             <div class="section-content">
                                 <p>
                                     Another advanced topic that you might not use right away but may need to understand in the future is 
-                                    <a href="/en-US/docs/Web/CSS/@scope">
+                                    <a href="https://datarist.com/learn/CSS/@scope">
                                         <code>@scope</code>
                                     </a>
-                                    . This is an <a href="/en-US/docs/Web/CSS/At-rule">at-rule</a>
+                                    . This is an <a href="https://datarist.com/learn/CSS/At-rule">at-rule</a>
                                     that enables you to create a block of rules that will only apply to a specific subsection of the HTML on your page. For example, you can specify styles that will only apply to 
-                                    <a href="/en-US/docs/Web/HTML/Element/img">
+                                    <a href="https://datarist.com/learn/HTML/Element/img">
                                         <code>&lt;img &gt;</code>
                                     </a>
                                     elements when they're nested inside elements that have a <code>feature</code>
@@ -1885,7 +1885,7 @@
                                 <p>
                                     <strong>Scoping proximity</strong>
                                     is the mechanism that resolves conflicts between scoped elements. Scoping proximity states that when two scopes have conflicting styles, the style with the smallest number of hops up the DOM tree hierarchy to the scope root wins. See 
-                                    <a href="/en-US/docs/Web/CSS/@scope#how_scope_conflicts_are_resolved">
+                                    <a href="https://datarist.com/learn/CSS/@scope#how_scope_conflicts_are_resolved">
                                         How <code>@scope</code>
                                         conflicts are resolved
                                     </a>
@@ -1894,9 +1894,9 @@
                                 <div class="notecard note" id="sect8">
                                     <p>
                                         <strong>Note:</strong>
-                                        Scoping proximity overrules source order but is itself overridden by other, higher-priority criteria such as <a href="/en-US/docs/Web/CSS/important">importance</a>
+                                        Scoping proximity overrules source order but is itself overridden by other, higher-priority criteria such as <a href="https://datarist.com/learn/CSS/important">importance</a>
                                         , <a href="https://datarist.com/learn/CSS/Building_blocks/Cascade_layers">layers</a>
-                                        , and <a href="/en-US/docs/Web/CSS/Specificity">specificity</a>
+                                        , and <a href="https://datarist.com/learn/CSS/Specificity">specificity</a>
                                         .
                                     </p>
                                 </div>

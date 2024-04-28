@@ -1156,7 +1156,7 @@
                             <use xlink:href="#chevron-expand"></use>
                         </svg>
                     </button>
-                    <strong class="d-none d-md-block my-2 ms-3">On this page</strong>
+                    <span class="text-black d-none d-md-block my-2 ms-3">On this page</span>
                     <div class="collapse dd-toc-collapse" id="tocContents">
                         <nav id="TableOfContents">
                             <ul>
@@ -1183,23 +1183,6 @@
                             <h1>HTML: A good basis for accessibility</h1>
                         </header>
                         <div class="section-content">
-                            <ul class="prev-next">
-                                <li>
-                                    <a class="button secondary" href="https://datarist.com/learn/Accessibility/What_is_accessibility">
-                                        <span class="button-wrap">Previous </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="button secondary" href="https://datarist.com/learn/Accessibility">
-                                        <span class="button-wrap">Overview: Accessibility</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="button secondary" href="https://datarist.com/learn/Accessibility/CSS_and_JavaScript">
-                                        <span class="button-wrap">Next  </span>
-                                    </a>
-                                </li>
-                            </ul>
                             <p>A great deal of web content can be made accessible just by making sure the correct Hypertext Markup Language elements are used for the correct purpose at all times. This article looks in detail at how HTML can be used to ensure maximum accessibility.</p>
                             <figure class="table-container">
                                 <table>
@@ -1510,7 +1493,7 @@ than the last one.
                                     </pre>
                                 </div>
                                 <p>
-                                    We've prepared a version with longer text for you to try out with a screen reader (see <a href="https://mdn.github.io/learning-area/accessibility/html/good-semantics.html" class="external" target="_blank">good-semantics.html</a>
+                                    We've prepared a version with longer text for you to try out with a screen reader (see <a href="https://datarist.github.io/learning-area/accessibility/html/good-semantics.html" class="external" target="_blank">good-semantics.html</a>
                                     ). If you try navigating through this, you'll see that this is pretty easy to navigate:
                                 </p>
                                 <ol>
@@ -1756,7 +1739,7 @@ the last one.
                                     </pre>
                                 </div>
                                 <p>
-                                    If you try our longer version out with a screen reader (see <a href="https://mdn.github.io/learning-area/accessibility/html/bad-semantics.html" class="external" target="_blank">bad-semantics.html</a>
+                                    If you try our longer version out with a screen reader (see <a href="https://datarist.github.io/learning-area/accessibility/html/bad-semantics.html" class="external" target="_blank">bad-semantics.html</a>
                                     ), you'll not have a very good experience — the screen reader hasn't got anything to use as signposts, so you can't retrieve a useful table of contents, and the whole page is seen as a single giant block, so it is just read out in one go, all at once.
                                 </p>
                                 <p>There are other issues too beyond accessibility — it is harder to style the content using CSS, or manipulate it with JavaScript, for example, because there are no elements to use as selectors.</p>
@@ -1767,7 +1750,7 @@ the last one.
                                     <li>Expand abbreviations — instead of writing Jan, write January.</li>
                                     <li>
                                         Expand acronyms, at least once or twice, then use the 
-                                        <a href="/en-US/docs/Web/HTML/Element/abbr">
+                                        <a href="https://datarist.com/learn/HTML/Element/abbr">
                                             <code>&lt;abbr &gt;</code>
                                         </a>
                                         tag to describe them.
@@ -1782,7 +1765,7 @@ the last one.
                             <div class="section-content">
                                 <p>In the bad old days, people used to create page layouts using HTML tables — using different table cells to contain the header, footer, sidebar, main content column, etc. This is not a good idea because a screen reader will likely give out confusing readouts, especially if the layout is complex and has many nested tables.</p>
                                 <p>
-                                    Try our example <a href="https://mdn.github.io/learning-area/accessibility/html/table-layout.html" class="external" target="_blank">table-layout.html</a>
+                                    Try our example <a href="https://datarist.github.io/learning-area/accessibility/html/table-layout.html" class="external" target="_blank">table-layout.html</a>
                                     example, which looks something like this:
                                 </p>
                                 <div class="code-example">
@@ -2455,7 +2438,7 @@ the last one.
                                 </div>
                                 <p>If you try to navigate this using a screen reader, it will probably tell you that there's a table to be looked at (although some screen readers can guess the difference between table layouts and data tables). You'll then likely (depending on which screen reader you're using) have to go down into the table as an object and look at its features separately, then get out of the table again to carry on navigating the content.</p>
                                 <p>
-                                    Table layouts are a relic of the past — they made sense back when CSS support was not widespread in browsers, but now they just create confusion for screen reader users. Additionally, their source code requires more markup, which makes them less flexible and more difficult to maintain. You can verify these claims by comparing your previous experience with a <a href="https://mdn.github.io/learning-area/html/introduction-to-html/document_and_website_structure/" class="external" target="_blank">more modern website structure example</a>
+                                    Table layouts are a relic of the past — they made sense back when CSS support was not widespread in browsers, but now they just create confusion for screen reader users. Additionally, their source code requires more markup, which makes them less flexible and more difficult to maintain. You can verify these claims by comparing your previous experience with a <a href="https://datarist.github.io/learning-area/html/introduction-to-html/document_and_website_structure/" class="external" target="_blank">more modern website structure example</a>
                                     , which could look something like this:
                                 </p>
                                 <div class="code-example">
@@ -2605,21 +2588,21 @@ the last one.
                                 </div>
                                 <p>If you try our more modern structure example with a screen reader, you'll notice that the layout markup no longer interferes with or causes confusion in the content readout. It is also much leaner and smaller in terms of code size, which means the code is easier to maintain and requires less bandwidth for users to download, making it particularly beneficial for those on slow connections.</p>
                                 <p>
-                                    Another consideration when creating layouts is using HTML semantic elements as seen in the above example (see <a href="/en-US/docs/Web/HTML/Element#content_sectioning">content sectioning</a>
+                                    Another consideration when creating layouts is using HTML semantic elements as seen in the above example (see <a href="https://datarist.com/learn/HTML/Element#content_sectioning">content sectioning</a>
                                     ) — you can create a layout using only nested 
-                                    <a href="/en-US/docs/Web/HTML/Element/div">
+                                    <a href="https://datarist.com/learn/HTML/Element/div">
                                         <code>&lt;div &gt;</code>
                                     </a>
                                     elements, but it is better to use appropriate sectioning elements to wrap your main navigation (
-                                    <a href="/en-US/docs/Web/HTML/Element/nav">
+                                    <a href="https://datarist.com/learn/HTML/Element/nav">
                                         <code>&lt;nav &gt;</code>
                                     </a>
                                     ), footer (
-                                    <a href="/en-US/docs/Web/HTML/Element/footer">
+                                    <a href="https://datarist.com/learn/HTML/Element/footer">
                                         <code>&lt;footer &gt;</code>
                                     </a>
                                     ), repeating content units (
-                                    <a href="/en-US/docs/Web/HTML/Element/article">
+                                    <a href="https://datarist.com/learn/HTML/Element/article">
                                         <code>&lt;article &gt;</code>
                                     </a>
                                     ), etc. These provide extra semantics for screen readers (and other tools) to give users extra clues about the content they are navigating (see <a href="https://www.accessibilityoz.com/2020/02/html5-sectioning-elements-and-screen-readers/" class="external" target="_blank">Screen Reader Support for new HTML5 Section Elements</a>
@@ -2640,8 +2623,8 @@ the last one.
                             <div class="section-content">
                                 <p>By UI controls, we mean the main parts of web documents that users interact with — most commonly buttons, links, and form controls. In this section, we'll look at the basic accessibility concerns to be aware of when creating such controls. Later articles on WAI-ARIA and multimedia will look at other aspects of UI accessibility.</p>
                                 <p>
-                                    One key aspect of the accessibility of UI controls is that by default, browsers allow them to be manipulated by the keyboard. You can try this out using our <a href="https://mdn.github.io/learning-area/tools-testing/cross-browser-testing/accessibility/native-keyboard-accessibility.html" class="external" target="_blank">native-keyboard-accessibility.html</a>
-                                    example (see the <a href="https://github.com/mdn/learning-area/blob/main/tools-testing/cross-browser-testing/accessibility/native-keyboard-accessibility.html" class="external" target="_blank">source code</a>
+                                    One key aspect of the accessibility of UI controls is that by default, browsers allow them to be manipulated by the keyboard. You can try this out using our <a href="https://datarist.github.io/learning-area/tools-testing/cross-browser-testing/accessibility/native-keyboard-accessibility.html" class="external" target="_blank">native-keyboard-accessibility.html</a>
+                                    example (see the <a href="https://github.com/mydatarist/learning-area/blob/main/tools-testing/cross-browser-testing/accessibility/native-keyboard-accessibility.html" class="external" target="_blank">source code</a>
                                     ). Open this in a new tab, and try pressing the tab key; after a few presses, you should see the tab focus start to move through the different focusable elements. The focused elements are given a highlighted default style in every browser (it differs slightly between different browsers) so that you can tell what element is focused.
                                 </p>
                                 <p>
@@ -2656,7 +2639,7 @@ the last one.
                                 </div>
                                 <p>
                                     You can then press Enter/Return to follow a focused link or press a button (we've included some JavaScript to make the buttons alert a message), or start typing to enter text in a text input. Other form elements have different controls; for example, the 
-                                    <a href="/en-US/docs/Web/HTML/Element/select">
+                                    <a href="https://datarist.com/learn/HTML/Element/select">
                                         <code>&lt;select &gt;</code>
                                     </a>
                                     element can have its options displayed and cycled between using the up and down arrow keys.
@@ -3133,14 +3116,14 @@ the last one.
                                 </div>
                                 <p>
                                     This means using links, buttons, form elements, and labels appropriately (including the 
-                                    <a href="/en-US/docs/Web/HTML/Element/label">
+                                    <a href="https://datarist.com/learn/HTML/Element/label">
                                         <code>&lt;label &gt;</code>
                                     </a>
                                     element for form controls).
                                 </p>
                                 <p>
                                     However, it is again the case that people sometimes do strange things with HTML. For example, you sometimes see buttons marked up using 
-                                    <a href="/en-US/docs/Web/HTML/Element/div">
+                                    <a href="https://datarist.com/learn/HTML/Element/div">
                                         <code>&lt;div &gt;</code>
                                     </a>
                                     s, for example:
@@ -3219,11 +3202,11 @@ the last one.
                                 </div>
                                 <p>
                                     But using such code is not advised — you immediately lose the native keyboard accessibility you would have had if you'd just used 
-                                    <a href="/en-US/docs/Web/HTML/Element/button">
+                                    <a href="https://datarist.com/learn/HTML/Element/button">
                                         <code>&lt;button &gt;</code>
                                     </a>
                                     elements, plus you don't get any of the default CSS styling that buttons get. In the rare to non-existent case when you need to use a non-button element for a button, use the 
-                                    <a href="/en-US/docs/Web/Accessibility/ARIA/Roles/button_role">
+                                    <a href="https://datarist.com/learn/Accessibility/ARIA/Roles/button_role">
                                         <code>button</code>
                                         role
                                     </a>
@@ -3231,8 +3214,8 @@ the last one.
                                 </p>
                                 <h4 id="building_keyboard_accessibility_back_in">Building keyboard accessibility back in</h4>
                                 <p>
-                                    Adding such advantages back in takes a bit of work (you can see an example in our <a href="https://mdn.github.io/learning-area/tools-testing/cross-browser-testing/accessibility/fake-div-buttons.html" class="external" target="_blank">fake-div-buttons.html</a>
-                                    example — also see the <a href="https://github.com/mdn/learning-area/blob/main/tools-testing/cross-browser-testing/accessibility/fake-div-buttons.html" class="external" target="_blank">source code</a>
+                                    Adding such advantages back in takes a bit of work (you can see an example in our <a href="https://datarist.github.io/learning-area/tools-testing/cross-browser-testing/accessibility/fake-div-buttons.html" class="external" target="_blank">fake-div-buttons.html</a>
+                                    example — also see the <a href="https://github.com/mydatarist/learning-area/blob/main/tools-testing/cross-browser-testing/accessibility/fake-div-buttons.html" class="external" target="_blank">source code</a>
                                     ). Here we've given our fake <code>&lt;div &gt;</code>
                                     buttons the ability to be focused (including via tab) by giving each one the attribute <code>tabindex="0"</code>
                                     . We also include <code>role="button"</code>
@@ -3351,7 +3334,7 @@ the last one.
                                 </div>
                                 <p>
                                     Basically, the 
-                                    <a href="/en-US/docs/Web/HTML/Global_attributes#tabindex">
+                                    <a href="https://datarist.com/learn/HTML/Global_attributes#tabindex">
                                         <code>tabindex</code>
                                     </a>
                                     attribute is primarily intended to allow tabbable elements to have a custom tab order (specified in positive numerical order), instead of just being tabbed through in their default source order. This is nearly always a bad idea, as it can cause major confusion. Use it only if you really need to, for example, if the layout shows things in a very different visual order to the source code, and you want to make things work more logically. There are two other options for <code>tabindex</code>
@@ -3410,7 +3393,7 @@ the last one.
                                 <p>
                                     Here we add a listener to the <code>document</code>
                                     object to detect when a button has been pressed on the keyboard. We check what button was pressed via the event object's 
-                                    <a href="/en-US/docs/Web/API/KeyboardEvent/key">
+                                    <a href="https://datarist.com/learn/API/KeyboardEvent/key">
                                         <code>key</code>
                                     </a>
                                     property; if the key pressed is <kbd>Enter</kbd>
@@ -3418,7 +3401,7 @@ the last one.
                                     , we run the function stored in the button's <code>onclick</code>
                                     handler using <code>document.activeElement.click()</code>
                                     . 
-                                    <a href="/en-US/docs/Web/API/Document/activeElement">
+                                    <a href="https://datarist.com/learn/API/Document/activeElement">
                                         <code>activeElement</code>
                                     </a>
                                     which gives us the element that is currently focused on the page.
@@ -3534,8 +3517,8 @@ the last one.
                                     <p>
                                         <strong>Note:</strong>
                                         You can find a lot more about link implementation and best practices in our <a href="https://datarist.com/learn/HTML/Introduction_to_HTML/Creating_hyperlinks">Creating hyperlinks</a>
-                                        article. You can also see some good and bad examples at <a href="https://mdn.github.io/learning-area/accessibility/html/good-links.html" class="external" target="_blank">good-links.html</a>
-                                        and <a href="https://mdn.github.io/learning-area/accessibility/html/bad-links.html" class="external" target="_blank">bad-links.html</a>
+                                        article. You can also see some good and bad examples at <a href="https://datarist.github.io/learning-area/accessibility/html/good-links.html" class="external" target="_blank">good-links.html</a>
+                                        and <a href="https://datarist.github.io/learning-area/accessibility/html/bad-links.html" class="external" target="_blank">bad-links.html</a>
                                         .
                                     </p>
                                 </div>
@@ -3654,8 +3637,8 @@ the last one.
                                 <div class="notecard note" id="sect6">
                                     <p>
                                         <strong>Note:</strong>
-                                        You can see some good and bad form examples in <a href="https://mdn.github.io/learning-area/accessibility/html/good-form.html" class="external" target="_blank">good-form.html</a>
-                                        and <a href="https://mdn.github.io/learning-area/accessibility/html/bad-form.html" class="external" target="_blank">bad-form.html</a>
+                                        You can see some good and bad form examples in <a href="https://datarist.github.io/learning-area/accessibility/html/good-form.html" class="external" target="_blank">good-form.html</a>
+                                        and <a href="https://datarist.github.io/learning-area/accessibility/html/bad-form.html" class="external" target="_blank">bad-form.html</a>
                                         .
                                     </p>
                                 </div>
@@ -3932,17 +3915,17 @@ the last one.
                                     </pre>
                                 </div>
                                 <p>
-                                    But this has problems — there is no way for a screen reader user to associate rows or columns together as groupings of data. To do this, you need to know what the header rows are and if they are heading up rows, columns, etc. This can only be done visually for the above table (see <a href="https://mdn.github.io/learning-area/accessibility/html/bad-table.html" class="external" target="_blank">bad-table.html</a>
+                                    But this has problems — there is no way for a screen reader user to associate rows or columns together as groupings of data. To do this, you need to know what the header rows are and if they are heading up rows, columns, etc. This can only be done visually for the above table (see <a href="https://datarist.github.io/learning-area/accessibility/html/bad-table.html" class="external" target="_blank">bad-table.html</a>
                                     and try the example out yourself).
                                 </p>
                                 <p>
-                                    Now have a look at our <a href="https://github.com/mdn/learning-area/blob/main/css/styling-boxes/styling-tables/punk-bands-complete.html" class="external" target="_blank">punk bands table example</a>
+                                    Now have a look at our <a href="https://github.com/mydatarist/learning-area/blob/main/css/styling-boxes/styling-tables/punk-bands-complete.html" class="external" target="_blank">punk bands table example</a>
                                     — you can see a few accessibility aids at work here:
                                 </p>
                                 <ul>
                                     <li>
                                         Table headers are defined using 
-                                        <a href="/en-US/docs/Web/HTML/Element/th">
+                                        <a href="https://datarist.com/learn/HTML/Element/th">
                                             <code>&lt;th &gt;</code>
                                         </a>
                                         elements — you can also specify if they are headers for rows or columns using the <code>scope</code>
@@ -3950,7 +3933,7 @@ the last one.
                                     </li>
                                     <li>
                                         The 
-                                        <a href="/en-US/docs/Web/HTML/Element/caption">
+                                        <a href="https://datarist.com/learn/HTML/Element/caption">
                                             <code>&lt;caption &gt;</code>
                                         </a>
                                         element and the <code>&lt;table &gt;</code>
@@ -3976,13 +3959,13 @@ the last one.
                                 <p>
                                     Whereas textual content is inherently accessible, the same cannot necessarily be said for multimedia content — image and video content cannot be seen by visually-impaired people, and audio content cannot be heard by hearing-impaired people. We cover video and audio content in detail in the <a href="https://datarist.com/learn/Accessibility/Multimedia">Accessible multimedia</a>
                                     , but for this article we'll look at accessibility for the humble 
-                                    <a href="/en-US/docs/Web/HTML/Element/img">
+                                    <a href="https://datarist.com/learn/HTML/Element/img">
                                         <code>&lt;img &gt;</code>
                                     </a>
                                     element.
                                 </p>
                                 <p>
-                                    We have a simple example written up, <a href="https://mdn.github.io/learning-area/accessibility/html/accessible-image.html" class="external" target="_blank">accessible-image.html</a>
+                                    We have a simple example written up, <a href="https://datarist.github.io/learning-area/accessibility/html/accessible-image.html" class="external" target="_blank">accessible-image.html</a>
                                     , which features four copies of the same image:
                                 </p>
                                 <div class="code-example">
@@ -4199,7 +4182,7 @@ a human, with small arms, and a large head with lots of sharp teeth.
                                 <div class="notecard note" id="sect10">
                                     <p>
                                         <strong>Note:</strong>
-                                        <a href="/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby">
+                                        <a href="https://datarist.com/learn/Accessibility/ARIA/Attributes/aria-labelledby">
                                             <code>aria-labelledby</code>
                                         </a>
                                         is part of the <a href="https://www.w3.org/TR/wai-aria-1.1/" class="external" target="_blank">WAI-ARIA</a>
@@ -4216,11 +4199,11 @@ a human, with small arms, and a large head with lots of sharp teeth.
                             <div class="section-content">
                                 <p>
                                     HTML includes two elements — 
-                                    <a href="/en-US/docs/Web/HTML/Element/figure">
+                                    <a href="https://datarist.com/learn/HTML/Element/figure">
                                         <code>&lt;figure &gt;</code>
                                     </a>
                                     and 
-                                    <a href="/en-US/docs/Web/HTML/Element/figcaption">
+                                    <a href="https://datarist.com/learn/HTML/Element/figcaption">
                                         <code>&lt;figcaption &gt;</code>
                                     </a>
                                     — which associate a figure of some kind (it could be anything, not necessarily an image) with a figure caption:
@@ -4298,11 +4281,11 @@ human, with small arms, and a large head with lots of sharp teeth.
                                 </div>
                                 <p>
                                     While there is mixed screen reader support of associating figure captions with their figures, including 
-                                    <a href="/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby">
+                                    <a href="https://datarist.com/learn/Accessibility/ARIA/Attributes/aria-labelledby">
                                         <code>aria-labelledby</code>
                                     </a>
                                     or 
-                                    <a href="/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby">
+                                    <a href="https://datarist.com/learn/Accessibility/ARIA/Attributes/aria-describedby">
                                         <code>aria-describedby</code>
                                     </a>
                                     creates the association if none is present. That said, the element structure is useful for CSS styling, plus it provides a way to place a description of the image next to it in the source.
@@ -4368,11 +4351,11 @@ human, with small arms, and a large head with lots of sharp teeth.
                                     is provided. In the above example, the image is acting as a visual decoration to the heading it's associated with. In cases like this, and in cases where an image is only decoration and has no content value, you should include an empty <code>alt</code>
                                     in your <code>img</code>
                                     elements. Another alternative is to use the aria 
-                                    <a href="/en-US/docs/Web/Accessibility/ARIA/Roles">
+                                    <a href="https://datarist.com/learn/Accessibility/ARIA/Roles">
                                         <code>role</code>
                                     </a>
                                     attribute 
-                                    <a href="/en-US/docs/Web/Accessibility/ARIA/Roles/presentation_role">
+                                    <a href="https://datarist.com/learn/Accessibility/ARIA/Roles/presentation_role">
                                         <code>role="presentation"</code>
                                     </a>
                                     as this also stops screen readers from reading out alternative text.
@@ -4392,7 +4375,7 @@ human, with small arms, and a large head with lots of sharp teeth.
                             <div class="section-content">
                                 <p>
                                     Links (the 
-                                    <a href="/en-US/docs/Web/HTML/Element/a">
+                                    <a href="https://datarist.com/learn/HTML/Element/a">
                                         <code>&lt;a &gt;</code>
                                     </a>
                                     element with an <code>href</code>
@@ -4406,12 +4389,12 @@ human, with small arms, and a large head with lots of sharp teeth.
                             </h3>
                             <div class="section-content">
                                 <p>
-                                    By default, links are visually different from other text in both color and <a href="/en-US/docs/Web/CSS/text-decoration">text-decoration</a>
-                                    , with links being blue and underlined by default, purple and underlined if visited, and with a <a href="/en-US/docs/Web/CSS/:focus">focus-ring</a>
+                                    By default, links are visually different from other text in both color and <a href="https://datarist.com/learn/CSS/text-decoration">text-decoration</a>
+                                    , with links being blue and underlined by default, purple and underlined if visited, and with a <a href="https://datarist.com/learn/CSS/:focus">focus-ring</a>
                                     when they receive keyboard focus.
                                 </p>
                                 <p>
-                                    Color should not be used as the sole method of distinguishing links from non-linking content. Link text color, like all text, has to be significantly different from the background color (<a href="/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast">a 4.5:1 contrast</a>
+                                    Color should not be used as the sole method of distinguishing links from non-linking content. Link text color, like all text, has to be significantly different from the background color (<a href="https://datarist.com/learn/Accessibility/Understanding_WCAG/Perceivable/Color_contrast">a 4.5:1 contrast</a>
                                     ). In addition, links should visually be significantly different from non-linking text, with a minimum contrast requirement of 3:1 between link text and surrounding text and between default, visited, and focus/active states and a 4.5:1 contrast between all those state colors and the background color.
                                 </p>
                             </div>
@@ -4433,7 +4416,7 @@ human, with small arms, and a large head with lots of sharp teeth.
                                 </p>
                                 <p>
                                     These values cause unexpected behavior when copying or dragging links, opening links in a new tab or window, bookmarking, and when JavaScript is still downloading, errors out, or is disabled. This also conveys incorrect semantics to assistive technologies (e.g., screen readers). In these cases, it is recommended to use a 
-                                    <a href="/en-US/docs/Web/HTML/Element/button">
+                                    <a href="https://datarist.com/learn/HTML/Element/button">
                                         <code>&lt;button &gt;</code>
                                     </a>
                                     instead. In general you should only use an anchor for navigation using a proper URL.
@@ -4526,7 +4509,7 @@ human, with small arms, and a large head with lots of sharp teeth.
                                     </pre>
                                 </div>
                                 <p>
-                                    If an icon is used in place of text to signify this kind of links behavior, make sure it includes an <a href="/en-US/docs/Web/HTML/Element/img#alt">alternate description</a>
+                                    If an icon is used in place of text to signify this kind of links behavior, make sure it includes an <a href="https://datarist.com/learn/HTML/Element/img#alt">alternate description</a>
                                     .
                                 </p>
                                 <ul>
@@ -4534,7 +4517,7 @@ human, with small arms, and a large head with lots of sharp teeth.
                                         <a href="https://webaim.org/techniques/hypertext/hypertext_links" class="external" target="_blank">WebAIM: Links and Hypertext - Hypertext Links</a>
                                     </li>
                                     <li>
-                                        <a href="/en-US/docs/Web/Accessibility/Understanding_WCAG/Understandable#guideline_3.2_%E2%80%94_predictable_make_web_pages_appear_and_operate_in_predictable_ways">MDN Understanding WCAG, Guideline 3.2 explanations</a>
+                                        <a href="https://datarist.com/learn/Accessibility/Understanding_WCAG/Understandable#guideline_3.2_%E2%80%94_predictable_make_web_pages_appear_and_operate_in_predictable_ways">datarist Understanding WCAG, Guideline 3.2 explanations</a>
                                     </li>
                                     <li>
                                         <a href="https://www.w3.org/TR/WCAG20-TECHS/G200.html" class="external" target="_blank">G200: Opening new windows and tabs from a link only when necessary | W3C Techniques for WCAG 2.0</a>
@@ -4553,7 +4536,7 @@ human, with small arms, and a large head with lots of sharp teeth.
                                 <p>
                                     A skip link, also known as skipnav, is an <code>a</code>
                                     element placed as close as possible to the opening 
-                                    <a href="/en-US/docs/Web/HTML/Element/body">
+                                    <a href="https://datarist.com/learn/HTML/Element/body">
                                         <code>&lt;body &gt;</code>
                                     </a>
                                     element that links to the beginning of the page's main content. This link allows people to bypass content repeated throughout multiple pages on a website, such as a website's header and primary navigation.
@@ -4567,7 +4550,7 @@ human, with small arms, and a large head with lots of sharp teeth.
                                         <a href="https://www.a11yproject.com/posts/skip-nav-links/" class="external" target="_blank">How–to: Use Skip Navigation links - The A11Y Project</a>
                                     </li>
                                     <li>
-                                        <a href="/en-US/docs/Web/Accessibility/Understanding_WCAG/Operable#guideline_2.4_%e2%80%94_navigable_provide_ways_to_help_users_navigate_find_content_and_determine_where_they_are">MDN Understanding WCAG, Guideline 2.4 explanations</a>
+                                        <a href="https://datarist.com/learn/Accessibility/Understanding_WCAG/Operable#guideline_2.4_%e2%80%94_navigable_provide_ways_to_help_users_navigate_find_content_and_determine_where_they_are">datarist Understanding WCAG, Guideline 2.4 explanations</a>
                                     </li>
                                     <li>
                                         <a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-skip.html" class="external" target="_blank">Understanding Success Criterion 2.4.1 | W3C Understanding WCAG 2.0</a>
@@ -4583,7 +4566,7 @@ human, with small arms, and a large head with lots of sharp teeth.
                                 <p>Large amounts of interactive content—including anchors—placed in close visual proximity to each other should have space inserted to separate them. This spacing is beneficial for people who suffer from fine motor control issues and may accidentally activate the wrong interactive content while navigating.</p>
                                 <p>
                                     Spacing may be created using CSS properties such as 
-                                    <a href="/en-US/docs/Web/CSS/margin">
+                                    <a href="https://datarist.com/learn/CSS/margin">
                                         <code>margin</code>
                                     </a>
                                     .
@@ -5154,8 +5137,8 @@ a:focus</span>
                                     </pre>
                                 </div>
                                 <p>
-                                    You can see some good example CSS in our <a href="https://github.com/mdn/learning-area/blob/main/accessibility/css/form-css.html" class="external" target="_blank">form-css.html</a>
-                                    example (<a href="https://mdn.github.io/learning-area/accessibility/css/form-css.html" class="external" target="_blank">see it live</a>
+                                    You can see some good example CSS in our <a href="https://github.com/mydatarist/learning-area/blob/main/accessibility/css/form-css.html" class="external" target="_blank">form-css.html</a>
+                                    example (<a href="https://datarist.github.io/learning-area/accessibility/css/form-css.html" class="external" target="_blank">see it live</a>
                                     also).
                                 </p>
                                 <p>Most of the CSS you'll write for forms will be for sizing the elements, lining up labels and inputs, and getting them looking neat and tidy.</p>
@@ -5163,8 +5146,8 @@ a:focus</span>
                                 <h4 id="tables">Tables</h4>
                                 <p>Tables for presenting tabular data.</p>
                                 <p>
-                                    You can see a good, simple example of table HTML and CSS in our <a href="https://github.com/mdn/learning-area/blob/main/accessibility/css/table-css.html" class="external" target="_blank">table-css.html</a>
-                                    example (<a href="https://mdn.github.io/learning-area/accessibility/css/table-css.html" class="external" target="_blank">see it live also</a>
+                                    You can see a good, simple example of table HTML and CSS in our <a href="https://github.com/mydatarist/learning-area/blob/main/accessibility/css/table-css.html" class="external" target="_blank">table-css.html</a>
+                                    example (<a href="https://datarist.github.io/learning-area/accessibility/css/table-css.html" class="external" target="_blank">see it live also</a>
                                     ).
                                 </p>
                                 <p>Table CSS generally serves to make the table fit better into your design and look less ugly. It is a good idea to make sure the table headers stand out (normally using bold), and use zebra striping to make different rows easier to parse.</p>
@@ -5195,8 +5178,8 @@ a:focus</span>
                             </h3>
                             <div class="section-content">
                                 <p>
-                                    There are many instances where a visual design will require that not all content is shown at once. For example, in our <a href="https://mdn.github.io/learning-area/css/css-layout/practical-positioning-examples/info-box.html" class="external" target="_blank">Tabbed info box example</a>
-                                    (see <a href="https://github.com/mdn/learning-area/blob/main/css/css-layout/practical-positioning-examples/info-box.html" class="external" target="_blank">source code</a>
+                                    There are many instances where a visual design will require that not all content is shown at once. For example, in our <a href="https://datarist.github.io/learning-area/css/css-layout/practical-positioning-examples/info-box.html" class="external" target="_blank">Tabbed info box example</a>
+                                    (see <a href="https://github.com/mydatarist/learning-area/blob/main/css/css-layout/practical-positioning-examples/info-box.html" class="external" target="_blank">source code</a>
                                     ) we have three panels of information, but we are <a href="https://datarist.com/learn/CSS/CSS_layout/Positioning">positioning</a>
                                     them on top of one another and providing tabs that can be clicked to show each one (it is also keyboard accessible — you can alternatively use Tab and Enter/Return to select them).
                                 </p>
@@ -5206,12 +5189,12 @@ a:focus</span>
                                 <p>Screen reader users don't care about any of this — they are happy with the content as long as the source order makes sense, and they can get to it all. Absolute positioning (as used in this example) is generally seen as one of the best mechanisms of hiding content for visual effect because it doesn't stop screen readers from getting to it.</p>
                                 <p>
                                     On the other hand, you shouldn't use 
-                                    <a href="/en-US/docs/Web/CSS/visibility">
+                                    <a href="https://datarist.com/learn/CSS/visibility">
                                         <code>visibility</code>
                                     </a>
                                     <code>:hidden</code>
                                     or 
-                                    <a href="/en-US/docs/Web/CSS/display">
+                                    <a href="https://datarist.com/learn/CSS/display">
                                         <code>display</code>
                                     </a>
                                     <code>:none</code>
@@ -5260,11 +5243,11 @@ a:focus</span>
                                 <ul>
                                     <li>
                                         Good semantics: Using the right element for the right job. For example, making sure you use headings and paragraphs, and 
-                                        <a href="/en-US/docs/Web/HTML/Element/button">
+                                        <a href="https://datarist.com/learn/HTML/Element/button">
                                             <code>&lt;button &gt;</code>
                                         </a>
                                         and 
-                                        <a href="/en-US/docs/Web/HTML/Element/a">
+                                        <a href="https://datarist.com/learn/HTML/Element/a">
                                             <code>&lt;a &gt;</code>
                                         </a>
                                         elements
@@ -5279,9 +5262,9 @@ a:focus</span>
                                     . This is not ideal — really you should just use the right element for the right job — but it shows that it is possible in situations where for some reason you can't control the markup that is used. Another way to improve accessibility for non-semantic JavaScript-powered widgets is to use WAI-ARIA to provide extra semantics for screen reader users. The next article will also cover this in detail.
                                 </p>
                                 <p>
-                                    Complex functionality like 3D games are not so easy to make accessible — a complex 3D game created using <a href="/en-US/docs/Web/API/WebGL_API">WebGL</a>
+                                    Complex functionality like 3D games are not so easy to make accessible — a complex 3D game created using <a href="https://datarist.com/learn/API/WebGL_API">WebGL</a>
                                     will be rendered on a 
-                                    <a href="/en-US/docs/Web/HTML/Element/canvas">
+                                    <a href="https://datarist.com/learn/HTML/Element/canvas">
                                         <code>&lt;canvas &gt;</code>
                                     </a>
                                     element, which has no facility at this time to provide text alternatives or other information for severely visually impaired users to make use of. It is arguable that such a game doesn't really have this group of people as a part of its main target audience, and it would be unreasonable to expect you to make it 100% accessible to blind people. However, you could implement <a href="/en-US/docs/Games/Techniques/Control_mechanisms/Desktop_with_mouse_and_keyboard">keyboard controls</a>
@@ -5317,8 +5300,8 @@ a:focus</span>
                                     </li>
                                 </ul>
                                 <p>
-                                    As an example, we've written a quick and dirty client-side form validation example — see <a href="https://github.com/mdn/learning-area/blob/main/accessibility/css/form-validation.html" class="external" target="_blank">form-validation.html</a>
-                                    (also <a href="https://mdn.github.io/learning-area/accessibility/css/form-validation.html" class="external" target="_blank">see the demo live</a>
+                                    As an example, we've written a quick and dirty client-side form validation example — see <a href="https://github.com/mydatarist/learning-area/blob/main/accessibility/css/form-validation.html" class="external" target="_blank">form-validation.html</a>
+                                    (also <a href="https://datarist.github.io/learning-area/accessibility/css/form-validation.html" class="external" target="_blank">see the demo live</a>
                                     ). Here you'll see a simple form; when you try to submit the form with one or both fields left empty, the submit fails, and an error message box appears to tell you what is wrong.
                                 </p>
                                 <p>This kind of form validation is unobtrusive — you can still use the form absolutely fine without the JavaScript being available, and any sensible form implementation will have server-side validation active as well, because it is too easy for malicious users to bypass client-side validation (for example, by turning JavaScript off in the browser). The client-side validation is still really useful for reporting errors — users can know about mistakes they make instantly, rather than having to wait for a round trip to the server and a page reload. This is a definite usability advantage.</p>
@@ -5330,7 +5313,7 @@ a:focus</span>
                                 </div>
                                 <p>
                                     We've made this form validation pretty accessible too. We've used 
-                                    <a href="/en-US/docs/Web/HTML/Element/label">
+                                    <a href="https://datarist.com/learn/HTML/Element/label">
                                         <code>&lt;label &gt;</code>
                                     </a>
                                     elements to make sure the form labels are unambiguously linked to their inputs, so screen readers can read them out alongside:
@@ -5476,7 +5459,7 @@ a:focus</span>
                                 <p>
                                     When the validation has been performed, if the tests pass then the form is submitted. If there are errors (<code>if (errorList.innerHTML !== '')</code>
                                     ) then we stop the form submitting (using 
-                                    <a href="/en-US/docs/Web/API/Event/preventDefault">
+                                    <a href="https://datarist.com/learn/API/Event/preventDefault">
                                         <code>preventDefault()</code>
                                     </a>
                                     ), and display any error messages that have been created (see below). This mechanism means that the errors will only be shown if there are errors, which is better for usability.
@@ -5635,7 +5618,7 @@ a:focus</span>
                                         , and <code>max</code>
                                         /<code>maxlength</code>
                                         attributes (see the 
-                                        <a href="/en-US/docs/Web/HTML/Element/input">
+                                        <a href="https://datarist.com/learn/HTML/Element/input">
                                             <code>&lt;input &gt;</code>
                                         </a>
                                         element reference for more information). We didn't end up using these in the demo because cross-browser support for them is patchy (for example IE10 and above only).
@@ -5658,20 +5641,20 @@ a:focus</span>
                                 <p>There are other things to be aware of when implementing JavaScript and thinking about accessibility. We will add more as we find them.</p>
                                 <h4 id="mouse-specific_events">mouse-specific events</h4>
                                 <p>
-                                    As you will be aware, most user interactions are implemented in client-side JavaScript using event handlers, which allow us to run functions in response to certain events happening. Some events can have accessibility issues. The main example you'll come across is mouse-specific events like <a href="/en-US/docs/Web/API/Element/mouseover_event">mouseover</a>
-                                    , <a href="/en-US/docs/Web/API/Element/mouseout_event">mouseout</a>
-                                    , <a href="/en-US/docs/Web/API/Element/dblclick_event">dblclick</a>
+                                    As you will be aware, most user interactions are implemented in client-side JavaScript using event handlers, which allow us to run functions in response to certain events happening. Some events can have accessibility issues. The main example you'll come across is mouse-specific events like <a href="https://datarist.com/learn/API/Element/mouseover_event">mouseover</a>
+                                    , <a href="https://datarist.com/learn/API/Element/mouseout_event">mouseout</a>
+                                    , <a href="https://datarist.com/learn/API/Element/dblclick_event">dblclick</a>
                                     , etc. Functionality that runs in response to these events will not be accessible using other mechanisms, like keyboard controls.
                                 </p>
                                 <p>
-                                    To mitigate such problems, you should double up these events with similar events that can be activated by other means (so-called device-independent event handlers) — <a href="/en-US/docs/Web/API/Element/focus_event">focus</a>
-                                    and <a href="/en-US/docs/Web/API/Element/blur_event">blur</a>
+                                    To mitigate such problems, you should double up these events with similar events that can be activated by other means (so-called device-independent event handlers) — <a href="https://datarist.com/learn/API/Element/focus_event">focus</a>
+                                    and <a href="https://datarist.com/learn/API/Element/blur_event">blur</a>
                                     would provide accessibility for keyboard users.
                                 </p>
                                 <p>Let's look at an example that highlights when this could be useful. Maybe we want to provide a thumbnail image that shows a larger version of the image when it is moused over or focused (like you'd see on an e-commerce product catalog.)</p>
                                 <p>
-                                    We've made a very simple example, which you can find at <a href="https://mdn.github.io/learning-area/accessibility/css/mouse-and-keyboard-events.html" class="external" target="_blank">mouse-and-keyboard-events.html</a>
-                                    (see also the <a href="https://github.com/mdn/learning-area/blob/main/accessibility/css/mouse-and-keyboard-events.html" class="external" target="_blank">source code</a>
+                                    We've made a very simple example, which you can find at <a href="https://datarist.github.io/learning-area/accessibility/css/mouse-and-keyboard-events.html" class="external" target="_blank">mouse-and-keyboard-events.html</a>
+                                    (see also the <a href="https://github.com/mydatarist/learning-area/blob/main/accessibility/css/mouse-and-keyboard-events.html" class="external" target="_blank">source code</a>
                                     ). The code features two functions that show and hide the zoomed-in image; these are run by the following lines that set them as event handlers:
                                 </p>
                                 <div class="code-example">
@@ -5700,8 +5683,8 @@ a:focus</span>
                                     on it.
                                 </p>
                                 <p>
-                                    The <a href="/en-US/docs/Web/API/Element/click_event">click</a>
-                                    event is interesting — it sounds mouse-dependent, but most browsers will activate <a href="/en-US/docs/Web/API/Element/click_event">onclick</a>
+                                    The <a href="https://datarist.com/learn/API/Element/click_event">click</a>
+                                    event is interesting — it sounds mouse-dependent, but most browsers will activate <a href="https://datarist.com/learn/API/Element/click_event">onclick</a>
                                     event handlers after Enter/Return is pressed on a link or form element that has focus, or when such an element is tapped on a touchscreen device. This doesn't work by default however when you allow a non-default-focusable event to have focus using tabindex — in such cases you need to detect specifically when that exact key is pressed (see <a href="https://datarist.com/learn/Accessibility/HTML#building_keyboard_accessibility_back_in">Building keyboard accessibility back in</a>
                                     ).
                                 </p>

@@ -1156,7 +1156,7 @@
                             <use xlink:href="#chevron-expand"></use>
                         </svg>
                     </button>
-                    <strong class="d-none d-md-block my-2 ms-3">On this page</strong>
+                    <span class="text-black d-none d-md-block my-2 ms-3">On this page</span>
                     <div class="collapse dd-toc-collapse" id="tocContents">
                         <nav id="TableOfContents">
                             <ul>
@@ -1239,19 +1239,19 @@
                                     If you place an image on a page and do not change its height or width, either by using attributes on the <code>&lt;img &gt;</code>
                                     tag or else by CSS, it will be displayed using that intrinsic size. We have given the image in the example below a border so that you can see the extent of its size as defined in its file.
                                 </p>
-                                <iframe width="100%" height="600" src="https://mdn.github.io/css-examples/learn/sizing/intrinsic-image.html" loading="lazy"></iframe>
+                                <iframe width="100%" height="600" src="https://datarist.github.io/css-examples/learn/sizing/intrinsic-image.html" loading="lazy"></iframe>
                                 <p>
                                     An empty 
-                                    <a href="/en-US/docs/Web/HTML/Element/div">
+                                    <a href="https://datarist.com/learn/HTML/Element/div">
                                         <code>&lt;div &gt;</code>
                                     </a>
                                     , on the other hand, has no size of its own. If you add a 
-                                    <a href="/en-US/docs/Web/HTML/Element/div">
+                                    <a href="https://datarist.com/learn/HTML/Element/div">
                                         <code>&lt;div &gt;</code>
                                     </a>
                                     to your HTML with no content, then give it a border as we did with the image, you will see a line on the page. This is the collapsed border on the element — there is no content to hold it open. In our example below, that border stretches to the width of the container, because it is a block level element, a behavior that should be starting to become familiar to you. It has no height (or size in the block dimension) because there is no content.
                                 </p>
-                                <iframe width="100%" height="500" src="https://mdn.github.io/css-examples/learn/sizing/intrinsic-text.html" loading="lazy"></iframe>
+                                <iframe width="100%" height="500" src="https://datarist.github.io/css-examples/learn/sizing/intrinsic-text.html" loading="lazy"></iframe>
                                 <p>
                                     In the example above, try adding some text inside the empty element. The border now contains that text because the height of the element is defined by the content. Therefore the size of this <code>&lt;div &gt;</code>
                                     in the block dimension comes from the size of the content. Again, this is the intrinsic size of the element — its size is defined by its content.
@@ -1267,17 +1267,17 @@
                                     We can, of course, give elements in our design a specific size. When a size is given to an element (the content of which then needs to fit into that size) we refer to it as an <strong>extrinsic size</strong>
                                     . Take our <code>&lt;div &gt;</code>
                                     from the example above — we can give it specific 
-                                    <a href="/en-US/docs/Web/CSS/width">
+                                    <a href="https://datarist.com/learn/CSS/width">
                                         <code>width</code>
                                     </a>
                                     and 
-                                    <a href="/en-US/docs/Web/CSS/height">
+                                    <a href="https://datarist.com/learn/CSS/height">
                                         <code>height</code>
                                     </a>
                                     values, and it will now have that size no matter what content is placed into it. As we discovered in <a href="https://datarist.com/learn/CSS/Building_blocks/Overflowing_content">our previous lesson on overflow</a>
                                     , a set height can cause content to overflow if there is more content than the element has space to fit inside it.
                                 </p>
-                                <iframe width="100%" height="600" src="https://mdn.github.io/css-examples/learn/sizing/height.html" loading="lazy"></iframe>
+                                <iframe width="100%" height="600" src="https://datarist.github.io/css-examples/learn/sizing/height.html" loading="lazy"></iframe>
                                 <p>Due to this problem of overflow, fixing the height of elements with lengths or percentages is something we need to do very carefully on the web.</p>
                             </div>
                         </section>
@@ -1291,7 +1291,7 @@
                                     , they can often be used interchangeably with lengths. When using a percentage you need to be aware what it is a percentage <em>of</em>
                                     . In the case of a box inside another container, if you give the child box a percentage width it will be a percentage of the width of the parent container.
                                 </p>
-                                <iframe width="100%" height="600" src="https://mdn.github.io/css-examples/learn/sizing/percent-width.html" loading="lazy"></iframe>
+                                <iframe width="100%" height="600" src="https://datarist.github.io/css-examples/learn/sizing/percent-width.html" loading="lazy"></iframe>
                                 <p>
                                     This is because percentages resolve against the size of the containing block. With no percentage applied, our <code>&lt;div &gt;</code>
                                     would take up 100% of the available space, as it is a block level element. If we give it a percentage width, this becomes a percentage of the space it would normally fill.
@@ -1307,16 +1307,16 @@
                                     If you set <code>margins</code>
                                     and <code>padding</code>
                                     as a percentage, you may notice some strange behavior. In the below example we have a box. We have given the inner box a 
-                                    <a href="/en-US/docs/Web/CSS/margin">
+                                    <a href="https://datarist.com/learn/CSS/margin">
                                         <code>margin</code>
                                     </a>
                                     of 10% and a 
-                                    <a href="/en-US/docs/Web/CSS/padding">
+                                    <a href="https://datarist.com/learn/CSS/padding">
                                         <code>padding</code>
                                     </a>
                                     of 10%. The padding and margin on the top and bottom of the box are the same size as the padding and margin on the left and right.
                                 </p>
-                                <iframe width="100%" height="800" src="https://mdn.github.io/css-examples/learn/sizing/percent-mp.html" loading="lazy"></iframe>
+                                <iframe width="100%" height="800" src="https://datarist.github.io/css-examples/learn/sizing/percent-mp.html" loading="lazy"></iframe>
                                 <p>You might expect for example the percentage top and bottom margins to be a percentage of the element's height, and the percentage left and right margins to be a percentage of the element's width. However, this is not the case!</p>
                                 <p>
                                     When you use margin and padding set in percentages, the value is calculated from the <strong>inline size</strong>
@@ -1332,7 +1332,7 @@
                                 <p>
                                     In addition to giving things a fixed size, we can ask CSS to give an element a minimum or a maximum size. If you have a box that might contain a variable amount of content, and you always want it to be <em>at least</em>
                                     a certain height, you could set the 
-                                    <a href="/en-US/docs/Web/CSS/min-height">
+                                    <a href="https://datarist.com/learn/CSS/min-height">
                                         <code>min-height</code>
                                     </a>
                                     property on it. The box will always be at least this height, but will then grow taller if there is more content than the box has space for at its minimum height.
@@ -1341,11 +1341,11 @@
                                     In the example below you can see two boxes, both with a defined <code>min-height</code>
                                     of 150 pixels. The box on the left is 150 pixels tall; the box on the right has content that needs more room, and so it has grown taller than 150 pixels.
                                 </p>
-                                <iframe width="100%" height="800" src="https://mdn.github.io/css-examples/learn/sizing/min-height.html" loading="lazy"></iframe>
+                                <iframe width="100%" height="800" src="https://datarist.github.io/css-examples/learn/sizing/min-height.html" loading="lazy"></iframe>
                                 <p>This is very useful for dealing with variable amounts of content while avoiding overflow.</p>
                                 <p>
                                     A common use of 
-                                    <a href="/en-US/docs/Web/CSS/max-width">
+                                    <a href="https://datarist.com/learn/CSS/max-width">
                                         <code>max-width</code>
                                     </a>
                                     is to cause images to scale down if there is not enough space to display them at their intrinsic width while making sure they don't become larger than that width.
@@ -1364,7 +1364,7 @@
                                     set on it and therefore does not stretch to fill the container. The third box contains the same image again, also with <code>max-width: 100%</code>
                                     set; in this case you can see how it has scaled down to fit into the box.
                                 </p>
-                                <iframe width="100%" height="800" src="https://mdn.github.io/css-examples/learn/sizing/max-width.html" loading="lazy"></iframe>
+                                <iframe width="100%" height="800" src="https://datarist.github.io/css-examples/learn/sizing/max-width.html" loading="lazy"></iframe>
                                 <p>
                                     This technique is used to make images <em>responsive</em>
                                     , so that when viewed on a smaller device they scale down appropriately. You should, however, not use this technique to load really large images and then scale them down in the browser. Images should be appropriately sized to be no larger than they need to be for the largest size they are displayed in the design. Downloading overly large images will cause your site to become slow, and it can cost users more money if they are on a metered connection.
@@ -1393,18 +1393,18 @@
                                     is equal to 1% of the viewport height, and <code>1vw</code>
                                     is equal to 1% of the viewport width. You can use these units to size boxes, but also text. In the example below we have a box which is sized as 20vh and 20vw. The box contains a letter <code>A</code>
                                     , which has been given a 
-                                    <a href="/en-US/docs/Web/CSS/font-size">
+                                    <a href="https://datarist.com/learn/CSS/font-size">
                                         <code>font-size</code>
                                     </a>
                                     of 10vh.
                                 </p>
-                                <iframe width="100%" height="600" src="https://mdn.github.io/css-examples/learn/sizing/vw-vh.html" loading="lazy"></iframe>
+                                <iframe width="100%" height="600" src="https://datarist.github.io/css-examples/learn/sizing/vw-vh.html" loading="lazy"></iframe>
                                 <p>
                                     <strong>
                                         If you change the <code>vh</code>
                                         and <code>vw</code>
                                         values this will change the size of the box or font; changing the viewport size will also change their sizes because they are sized relative to the viewport. To see the example change when you change the viewport size you will need to load the example in a new browser window that you can resize (as the embedded <code>&lt;iframe &gt;</code>
-                                        that contains the example shown above is its viewport). <a href="https://mdn.github.io/css-examples/learn/sizing/vw-vh.html" class="external" target="_blank">Open the example</a>
+                                        that contains the example shown above is its viewport). <a href="https://datarist.github.io/css-examples/learn/sizing/vw-vh.html" class="external" target="_blank">Open the example</a>
                                         , resize the browser window, and observe what happens to the size of the box and text.
                                     </strong>
                                 </p>

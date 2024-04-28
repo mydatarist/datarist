@@ -1156,7 +1156,7 @@
                             <use xlink:href="#chevron-expand"></use>
                         </svg>
                     </button>
-                    <strong class="d-none d-md-block my-2 ms-3">On this page</strong>
+                    <span class="text-black d-none d-md-block my-2 ms-3">On this page</span>
                     <div class="collapse dd-toc-collapse" id="tocContents">
                         <nav id="TableOfContents">
                             <ul>
@@ -1233,19 +1233,19 @@
                             <div class="section-content">
                                 <p>
                                     Everything in CSS is a box. You can constrain the size of these boxes by assigning values of 
-                                    <a href="/en-US/docs/Web/CSS/width">
+                                    <a href="https://datarist.com/learn/CSS/width">
                                         <code>width</code>
                                     </a>
                                     and 
-                                    <a href="/en-US/docs/Web/CSS/height">
+                                    <a href="https://datarist.com/learn/CSS/height">
                                         <code>height</code>
                                     </a>
                                     (or 
-                                    <a href="/en-US/docs/Web/CSS/inline-size">
+                                    <a href="https://datarist.com/learn/CSS/inline-size">
                                         <code>inline-size</code>
                                     </a>
                                     and 
-                                    <a href="/en-US/docs/Web/CSS/block-size">
+                                    <a href="https://datarist.com/learn/CSS/block-size">
                                         <code>block-size</code>
                                     </a>
                                     ). <strong>Overflow happens when there is too much content to fit in a box.</strong>
@@ -1263,9 +1263,9 @@
                                     The first example is a box that has been restricted by setting a <code>height</code>
                                     . Then we add content that exceeds the allocated space. The content overflows the box and falls into the paragraph below.
                                 </p>
-                                <iframe width="100%" height="700" src="https://mdn.github.io/css-examples/learn/overflow/block-overflow.html" loading="lazy"></iframe>
+                                <iframe width="100%" height="700" src="https://datarist.github.io/css-examples/learn/overflow/block-overflow.html" loading="lazy"></iframe>
                                 <p>The second example is a word in a box. The box has been made too small for the word and so it breaks out of the box.</p>
-                                <iframe width="100%" height="600" src="https://mdn.github.io/css-examples/learn/overflow/inline-overflow.html" loading="lazy"></iframe>
+                                <iframe width="100%" height="600" src="https://datarist.github.io/css-examples/learn/overflow/inline-overflow.html" loading="lazy"></iframe>
                                 <p>You might wonder why CSS works in such a messy way, displaying content outside of its intended container. Why not hide overflowing content? Why not scale the size of the container to fit all the content?</p>
                                 <p>Wherever possible, CSS does not hide content. This would cause data loss. The problem with data loss is that you might not notice. Website visitors may not notice. If the submit button on a form disappears and no one can complete the form, this could be a big problem! Instead, CSS overflows in visible ways. You are more likely to see there is a problem. At worst, a site visitor will let you know that content is overlapping.</p>
                                 <p>
@@ -1283,11 +1283,11 @@
                             <div class="section-content">
                                 <p>
                                     The 
-                                    <a href="/en-US/docs/Web/CSS/overflow">
+                                    <a href="https://datarist.com/learn/CSS/overflow">
                                         <code>overflow</code>
                                     </a>
                                     property helps you manage an element's content overflow. Using this property, you can convey to a browser how it should handle overflow content. The default value of the 
-                                    <a href="/en-US/docs/Web/CSS/overflow_value">
+                                    <a href="https://datarist.com/learn/CSS/overflow_value">
                                         <code>&lt;overflow &gt;</code>
                                     </a>
                                     value type is <code>visible</code>
@@ -1297,7 +1297,7 @@
                                     To crop content when it overflows, you can set <code>overflow: hidden</code>
                                     . This does exactly what it says: it hides overflow. Beware that this can make some content invisible. You should only do this if hiding content won't cause problems.
                                 </p>
-                                <iframe width="100%" height="700" src="https://mdn.github.io/css-examples/learn/overflow/hidden.html" loading="lazy"></iframe>
+                                <iframe width="100%" height="700" src="https://datarist.github.io/css-examples/learn/overflow/hidden.html" loading="lazy"></iframe>
                                 <p>
                                     Instead, perhaps you would like to add scrollbars when content overflows? Using <code>overflow: scroll</code>
                                     , browsers with visible scrollbars will always display them—even if there is not enough content to overflow. This offers the advantage of keeping the layout consistent, instead of scrollbars appearing or disappearing, depending upon the amount of content in the container.
@@ -1305,35 +1305,35 @@
                                 <p>
                                     <strong>Remove some content from the box below. Notice how the scrollbars remain, even if there is no need for scrolling.</strong>
                                 </p>
-                                <iframe width="100%" height="700" src="https://mdn.github.io/css-examples/learn/overflow/scroll.html" loading="lazy"></iframe>
+                                <iframe width="100%" height="700" src="https://datarist.github.io/css-examples/learn/overflow/scroll.html" loading="lazy"></iframe>
                                 <p>
                                     In the example above, we only need to scroll on the <code>y</code>
                                     axis, however we get scrollbars in both axes. To just scroll on the <code>y</code>
                                     axis, you could use the 
-                                    <a href="/en-US/docs/Web/CSS/overflow-y">
+                                    <a href="https://datarist.com/learn/CSS/overflow-y">
                                         <code>overflow-y</code>
                                     </a>
                                     property, setting <code>overflow-y: scroll</code>
                                     .
                                 </p>
-                                <iframe width="100%" height="700" src="https://mdn.github.io/css-examples/learn/overflow/scroll-y.html" loading="lazy"></iframe>
+                                <iframe width="100%" height="700" src="https://datarist.github.io/css-examples/learn/overflow/scroll-y.html" loading="lazy"></iframe>
                                 <p>
                                     You can also enable scrolling along the x-axis by using 
-                                    <a href="/en-US/docs/Web/CSS/overflow-x">
+                                    <a href="https://datarist.com/learn/CSS/overflow-x">
                                         <code>overflow-x</code>
                                     </a>
                                     , although this is not a recommended way to accommodate long words! If you have a long word in a small box, consider using the 
-                                    <a href="/en-US/docs/Web/CSS/word-break">
+                                    <a href="https://datarist.com/learn/CSS/word-break">
                                         <code>word-break</code>
                                     </a>
                                     or 
-                                    <a href="/en-US/docs/Web/CSS/overflow-wrap">
+                                    <a href="https://datarist.com/learn/CSS/overflow-wrap">
                                         <code>overflow-wrap</code>
                                     </a>
                                     property. In addition, some of the methods discussed in <a href="https://datarist.com/learn/CSS/Building_blocks/Sizing_items_in_CSS">Sizing items in CSS</a>
                                     may help you create boxes that scale better with varying amounts of content.
                                 </p>
-                                <iframe width="100%" height="600" src="https://mdn.github.io/css-examples/learn/overflow/scroll-x.html" loading="lazy"></iframe>
+                                <iframe width="100%" height="600" src="https://datarist.github.io/css-examples/learn/overflow/scroll-x.html" loading="lazy"></iframe>
                                 <p>
                                     As with <code>scroll</code>
                                     , you get a scrollbar in the scrolling dimension whether or not there is enough content to cause a scrollbar.
@@ -1361,7 +1361,7 @@
                                 <p>
                                     <strong>In the example below, remove content until it fits into the box. You should see the scrollbars disappear.</strong>
                                 </p>
-                                <iframe width="100%" height="700" src="https://mdn.github.io/css-examples/learn/overflow/auto.html" loading="lazy"></iframe>
+                                <iframe width="100%" height="700" src="https://datarist.github.io/css-examples/learn/overflow/auto.html" loading="lazy"></iframe>
                             </div>
                         </section>
                         <section aria-labelledby="overflow_establishes_a_block_formatting_context">
@@ -1374,7 +1374,7 @@
                                     values <code>scroll</code>
                                     and <code>auto</code>
                                     , you create a 
-                                    <a href="/en-US/docs/Web/CSS/CSS_display/Block_formatting_context">
+                                    <a href="https://datarist.com/learn/CSS/CSS_display/Block_formatting_context">
                                         <strong>Block Formatting Context</strong>
                                         (BFC)
                                     </a>
