@@ -1156,7 +1156,7 @@
                             <use xlink:href="#chevron-expand"></use>
                         </svg>
                     </button>
-                    <strong class="d-none d-md-block my-2 ms-3">On this page</strong>
+                    <span class="text-black d-none d-md-block my-2 ms-3">On this page</span>
                     <div class="collapse dd-toc-collapse" id="tocContents">
                         <nav id="TableOfContents">
                             <ul>
@@ -1238,7 +1238,7 @@
                                 <p>The first question you should answer before starting to optimize your CSS is "what do I need to optimize?". Some of the tips and techniques discussed below are good practices that will benefit just about any web project, whereas some are only needed in certain situations. Trying to apply all these techniques everywhere is probably unnecessary, and may be a waste of your time. You should figure out what performance optimizations are actually needed in each project.</p>
                                 <p>
                                     To do this, you need to <a href="https://datarist.com/learn/Performance/Measuring_performance">measure the performance</a>
-                                    of your site. As the previous link shows, there are several different ways to measure performance, some involving sophisticated <a href="/en-US/docs/Web/API/Performance_API">performance APIs</a>
+                                    of your site. As the previous link shows, there are several different ways to measure performance, some involving sophisticated <a href="https://datarist.com/learn/API/Performance_API">performance APIs</a>
                                     . The best way to get started however, is to learn how to use tools such as built-in browser <a href="https://datarist.com/learn/Performance/Measuring_performance#network_monitor_tools">network</a>
                                     and <a href="https://datarist.com/learn/Performance/Measuring_performance#performance_monitor_tools">performance</a>
                                     tools, to see what parts of the page load are taking a long time and need optimizing.
@@ -1348,7 +1348,7 @@
                                             </pre>
                                         </div>
                                         The above example provides three sets of styles — default styles that will always load, styles that will only be loaded when the document is being printed, and styles that will be loaded only by devices with narrow screens. By default, the browser assumes that each specified style sheet is render-blocking. You can tell the browser when a style sheet should be applied by adding a <code>media</code>
-                                        attribute containing a <a href="/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries">media query</a>
+                                        attribute containing a <a href="https://datarist.com/learn/CSS/CSS_media_queries/Using_media_queries">media query</a>
                                         . When the browser sees a style sheet that it only needs to apply in a specific scenario, it still downloads the stylesheet, but doesn't render-block. By separating the CSS into multiple files, the main render-blocking file, in this case <code>styles.css</code>
                                         , is much smaller, reducing the time for which rendering is blocked.
 
@@ -1390,7 +1390,7 @@
                                     </li>
                                     <li>
                                         <strong>Don't apply styles to more elements than needed</strong>
-                                        : A common mistake is to apply styles to all elements using the <a href="/en-US/docs/Web/CSS/Universal_selectors">universal selector</a>
+                                        : A common mistake is to apply styles to all elements using the <a href="https://datarist.com/learn/CSS/Universal_selectors">universal selector</a>
                                         , or at least, to more elements than needed. This kind of styling can impact performance negatively, especially on larger sites.
 
                                         <div class="code-example">
@@ -1413,7 +1413,7 @@
                                             </pre>
                                         </div>
                                         Remember that many properties (such as 
-                                        <a href="/en-US/docs/Web/CSS/font-size">
+                                        <a href="https://datarist.com/learn/CSS/font-size">
                                             <code>font-size</code>
                                         </a>
                                         ) inherit their values from their parents, so you don't need to apply them everywhere. And powerful tools such as <a href="https://datarist.com/learn/CSS/CSS_layout/Flexbox">Flexbox</a>
@@ -1424,7 +1424,7 @@
                                         <strong>Cut down on image HTTP requests with CSS sprites</strong>
                                         : <a href="https://css-tricks.com/css-sprites/" class="external" target="_blank">CSS sprites</a>
                                         is a technique that places several small images (such as icons) that you want to use on your site into a single image file, and then uses different 
-                                        <a href="/en-US/docs/Web/CSS/background-position">
+                                        <a href="https://datarist.com/learn/CSS/background-position">
                                             <code>background-position</code>
                                         </a>
                                         values to display the chunk of image that you want to show in each different place. This can dramatically cut down on the number of HTTP requests needed to fetch the images.
@@ -1432,11 +1432,11 @@
                                     <li>
                                         <strong>Preload important assets</strong>
                                         : You can use 
-                                        <a href="/en-US/docs/Web/HTML/Attributes/rel/preload">
+                                        <a href="https://datarist.com/learn/HTML/Attributes/rel/preload">
                                             <code>rel="preload"</code>
                                         </a>
                                         to turn 
-                                        <a href="/en-US/docs/Web/HTML/Element/link">
+                                        <a href="https://datarist.com/learn/HTML/Element/link">
                                             <code>&lt;link &gt;</code>
                                         </a>
                                         elements into preloaders for critical assets. This includes CSS files, fonts, and images:
@@ -1556,14 +1556,14 @@ See also <a href="https://web.dev/articles/preload-critical-assets" class="exter
                                 <p>Animations can improve perceived performance, making interfaces feel snappier and making users feel like progress is being made when they are waiting for a page to load (loading spinners, for example). However, larger animations and a higher number of animations will naturally require more processing power to handle, which can degrade performance.</p>
                                 <p>
                                     The simplest advice is to cut down on all unnecessary animations. You could also provide users with a control/site preference to turn off animations if they are using a low-powered device or a mobile device with limited battery power. You could also use JavaScript to control whether or not animation is applied to the page in the first place. There is also a media query called 
-                                    <a href="/en-US/docs/Web/CSS/@media/prefers-reduced-motion">
+                                    <a href="https://datarist.com/learn/CSS/@media/prefers-reduced-motion">
                                         <code>prefers-reduced-motion</code>
                                     </a>
                                     that can be used to selectively serve animation styles or not based on a user's OS-level preferences for animation.
                                 </p>
                                 <p>
-                                    For essential DOM animations, you are advised to use <a href="/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations">CSS animations</a>
-                                    where possible, rather than JavaScript animations (the <a href="/en-US/docs/Web/API/Web_Animations_API">Web Animations API</a>
+                                    For essential DOM animations, you are advised to use <a href="https://datarist.com/learn/CSS/CSS_animations/Using_CSS_animations">CSS animations</a>
+                                    where possible, rather than JavaScript animations (the <a href="https://datarist.com/learn/API/Web_Animations_API">Web Animations API</a>
                                     provides a way to directly hook into CSS animations using JavaScript).
                                 </p>
                             </div>
@@ -1581,64 +1581,64 @@ See also <a href="https://web.dev/articles/preload-critical-assets" class="exter
                                 <ul>
                                     <li>
                                         Alter an element's dimensions, such as 
-                                        <a href="/en-US/docs/Web/CSS/width">
+                                        <a href="https://datarist.com/learn/CSS/width">
                                             <code>width</code>
                                         </a>
                                         , 
-                                        <a href="/en-US/docs/Web/CSS/height">
+                                        <a href="https://datarist.com/learn/CSS/height">
                                             <code>height</code>
                                         </a>
                                         , 
-                                        <a href="/en-US/docs/Web/CSS/border">
+                                        <a href="https://datarist.com/learn/CSS/border">
                                             <code>border</code>
                                         </a>
                                         , and 
-                                        <a href="/en-US/docs/Web/CSS/padding">
+                                        <a href="https://datarist.com/learn/CSS/padding">
                                             <code>padding</code>
                                         </a>
                                         .
                                     </li>
                                     <li>
                                         Reposition an element, such as 
-                                        <a href="/en-US/docs/Web/CSS/margin">
+                                        <a href="https://datarist.com/learn/CSS/margin">
                                             <code>margin</code>
                                         </a>
                                         , 
-                                        <a href="/en-US/docs/Web/CSS/top">
+                                        <a href="https://datarist.com/learn/CSS/top">
                                             <code>top</code>
                                         </a>
                                         , 
-                                        <a href="/en-US/docs/Web/CSS/bottom">
+                                        <a href="https://datarist.com/learn/CSS/bottom">
                                             <code>bottom</code>
                                         </a>
                                         , 
-                                        <a href="/en-US/docs/Web/CSS/left">
+                                        <a href="https://datarist.com/learn/CSS/left">
                                             <code>left</code>
                                         </a>
                                         , and 
-                                        <a href="/en-US/docs/Web/CSS/right">
+                                        <a href="https://datarist.com/learn/CSS/right">
                                             <code>right</code>
                                         </a>
                                         .
                                     </li>
                                     <li>
                                         Change an element's layout, such as 
-                                        <a href="/en-US/docs/Web/CSS/align-content">
+                                        <a href="https://datarist.com/learn/CSS/align-content">
                                             <code>align-content</code>
                                         </a>
                                         , 
-                                        <a href="/en-US/docs/Web/CSS/align-items">
+                                        <a href="https://datarist.com/learn/CSS/align-items">
                                             <code>align-items</code>
                                         </a>
                                         , and 
-                                        <a href="/en-US/docs/Web/CSS/flex">
+                                        <a href="https://datarist.com/learn/CSS/flex">
                                             <code>flex</code>
                                         </a>
                                         .
                                     </li>
                                     <li>
                                         Add visual effects that change the element geometry, such as 
-                                        <a href="/en-US/docs/Web/CSS/box-shadow">
+                                        <a href="https://datarist.com/learn/CSS/box-shadow">
                                             <code>box-shadow</code>
                                         </a>
                                         .
@@ -1648,15 +1648,15 @@ See also <a href="https://web.dev/articles/preload-critical-assets" class="exter
                                 <p>If at all possible, it is better to animate properties that do not cause reflow/repaint. This includes:</p>
                                 <ul>
                                     <li>
-                                        <a href="/en-US/docs/Web/CSS/CSS_transforms">Transforms</a>
+                                        <a href="https://datarist.com/learn/CSS/CSS_transforms">Transforms</a>
                                     </li>
                                     <li>
-                                        <a href="/en-US/docs/Web/CSS/opacity">
+                                        <a href="https://datarist.com/learn/CSS/opacity">
                                             <code>opacity</code>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/en-US/docs/Web/CSS/filter">
+                                        <a href="https://datarist.com/learn/CSS/filter">
                                             <code>filter</code>
                                         </a>
                                     </li>
@@ -1672,40 +1672,40 @@ See also <a href="https://web.dev/articles/preload-critical-assets" class="exter
                                 <ul>
                                     <li>
                                         3D transform animations such as 
-                                        <a href="/en-US/docs/Web/CSS/transform">
+                                        <a href="https://datarist.com/learn/CSS/transform">
                                             <code>transform: translateZ()</code>
                                         </a>
                                         and 
-                                        <a href="/en-US/docs/Web/CSS/transform-function/rotate3d">
+                                        <a href="https://datarist.com/learn/CSS/transform-function/rotate3d">
                                             <code>rotate3d()</code>
                                         </a>
                                         .
                                     </li>
                                     <li>
                                         Elements with certain other properties animated such as 
-                                        <a href="/en-US/docs/Web/CSS/position">
+                                        <a href="https://datarist.com/learn/CSS/position">
                                             <code>position: fixed</code>
                                         </a>
                                         .
                                     </li>
                                     <li>
                                         Elements with 
-                                        <a href="/en-US/docs/Web/CSS/will-change">
+                                        <a href="https://datarist.com/learn/CSS/will-change">
                                             <code>will-change</code>
                                         </a>
                                         applied (see the section below).
                                     </li>
                                     <li>
                                         Certain elements that are rendered in their own layer, including 
-                                        <a href="/en-US/docs/Web/HTML/Element/video">
+                                        <a href="https://datarist.com/learn/HTML/Element/video">
                                             <code>&lt;video &gt;</code>
                                         </a>
                                         , 
-                                        <a href="/en-US/docs/Web/HTML/Element/canvas">
+                                        <a href="https://datarist.com/learn/HTML/Element/canvas">
                                             <code>&lt;canvas &gt;</code>
                                         </a>
                                         , and 
-                                        <a href="/en-US/docs/Web/HTML/Element/iframe">
+                                        <a href="https://datarist.com/learn/HTML/Element/iframe">
                                             <code>&lt;iframe &gt;</code>
                                         </a>
                                         .
@@ -1726,7 +1726,7 @@ See also <a href="https://web.dev/articles/preload-critical-assets" class="exter
                             <div class="section-content">
                                 <p>
                                     Browsers may set up optimizations before an element is actually changed. These kinds of optimizations can increase the responsiveness of a page by doing potentially expensive work before it is required. The CSS 
-                                    <a href="/en-US/docs/Web/CSS/will-change">
+                                    <a href="https://datarist.com/learn/CSS/will-change">
                                         <code>will-change</code>
                                     </a>
                                     property hints to browsers how an element is expected to change.
@@ -1763,7 +1763,7 @@ See also <a href="https://web.dev/articles/preload-critical-assets" class="exter
                             <div class="section-content">
                                 <p>
                                     CSS can scope styles to particular conditions with media queries. Media queries are important for a responsive web design and help us optimize a critical rendering path. The browser blocks rendering until it parses all of these styles but will not block rendering on styles it knows it will not use, such as the print stylesheets. By splitting the CSS into multiple files based on media queries, you can prevent render blocking during download of unused CSS. To create a non-blocking CSS link, move the not-immediately used styles, such as print styles, into separate file, add a 
-                                    <a href="/en-US/docs/Web/HTML/Element/link">
+                                    <a href="https://datarist.com/learn/HTML/Element/link">
                                         <code>&lt;link &gt;</code>
                                     </a>
                                     to the HTML mark up, and add a media query, in this case stating it's a print stylesheet.
@@ -1851,7 +1851,7 @@ See also <a href="https://web.dev/articles/preload-critical-assets" class="exter
                                 </div>
                                 <p>
                                     By default, the browser assumes that each specified style sheet is render blocking. Tell the browser when the style sheet should be applied by adding a <code>media</code>
-                                    attribute with the <a href="/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries">media query</a>
+                                    attribute with the <a href="https://datarist.com/learn/CSS/CSS_media_queries/Using_media_queries">media query</a>
                                     . When the browser sees a style sheet it knows that it only needs to apply it for a specific scenario, it still downloads the stylesheet, but doesn't render block. By separating out the CSS into multiple files, the main render-blocking file, in this case <code>styles.css</code>
                                     , is much smaller, reducing the time that rendering is blocked.
                                 </p>
@@ -1876,11 +1876,11 @@ See also <a href="https://web.dev/articles/preload-critical-assets" class="exter
                             <div class="section-content">
                                 <p>
                                     Bear in mind that a font is only loaded when it is actually applied to an element using the 
-                                    <a href="/en-US/docs/Web/CSS/font-family">
+                                    <a href="https://datarist.com/learn/CSS/font-family">
                                         <code>font-family</code>
                                     </a>
                                     property, not when it is first referenced using the 
-                                    <a href="/en-US/docs/Web/CSS/@font-face">
+                                    <a href="https://datarist.com/learn/CSS/@font-face">
                                         <code>@font-face</code>
                                     </a>
                                     at-rule:
@@ -1980,14 +1980,14 @@ h3</span>
                                 <ul>
                                     <li>
                                         Using 
-                                        <a href="/en-US/docs/Web/HTML/Attributes/rel/preconnect">
+                                        <a href="https://datarist.com/learn/HTML/Attributes/rel/preconnect">
                                             <code>rel="preconnect"</code>
                                         </a>
                                         to make an early connection with the font provider. See <a href="https://web.dev/articles/font-best-practices#preconnect_to_critical_third-party_origins" class="external" target="_blank">Preconnect to critical third-party origins</a>
                                         for details.
                                     </li>
                                     <li>
-                                        Using the <a href="/en-US/docs/Web/API/CSS_Font_Loading_API">CSS Font Loading API</a>
+                                        Using the <a href="https://datarist.com/learn/API/CSS_Font_Loading_API">CSS Font Loading API</a>
                                         to customize the font loading behavior via JavaScript.
                                     </li>
                                 </ul>
@@ -2002,7 +2002,7 @@ h3</span>
                                 <p>
                                     However, if you know you are going to use a specific set of glyphs (for example, glyphs for headings or specific punctuation characters only), you could limit the number of glyphs the browser has to download. This can be done by creating a font file that only contains the required subset. A process called <a href="https://fonts.google.com/knowledge/glossary/subsetting" class="external" target="_blank">subsetting</a>
                                     . The 
-                                    <a href="/en-US/docs/Web/CSS/@font-face/unicode-range">
+                                    <a href="https://datarist.com/learn/CSS/@font-face/unicode-range">
                                         <code>unicode-range</code>
                                     </a>
                                     <code>@font-face</code>
@@ -2055,7 +2055,7 @@ h3</span>
                                 <p>
                                     Applied to the <code>@font-face</code>
                                     at-rule, the 
-                                    <a href="/en-US/docs/Web/CSS/@font-face/font-display">
+                                    <a href="https://datarist.com/learn/CSS/@font-face/font-display">
                                         <code>font-display</code>
                                     </a>
                                     descriptor defines how font files are loaded and displayed by the browser, allowing text to appear with a fallback font while a font loads, or fails to load. This improves performance by making the text visible instead of having a blank screen, with a trade-off being a flash of unstyled text.
@@ -2106,15 +2106,15 @@ h3</span>
                             </h2>
                             <div class="section-content">
                                 <p>
-                                    By using the properties defined in the <a href="/en-US/docs/Web/CSS/CSS_containment">CSS containment</a>
+                                    By using the properties defined in the <a href="https://datarist.com/learn/CSS/CSS_containment">CSS containment</a>
                                     module, you can instruct the browser to isolate different parts of a page and optimize their rendering independently from one another. This allows for improved performance in rendering individual sections. As an example, you can specify to the browser to not render certain containers until they are visible in the viewport.
                                 </p>
                                 <p>
                                     The 
-                                    <a href="/en-US/docs/Web/CSS/contain">
+                                    <a href="https://datarist.com/learn/CSS/contain">
                                         <code>contain</code>
                                     </a>
-                                    property allows an author to specify exactly what <a href="/en-US/docs/Web/CSS/CSS_containment/Using_CSS_containment">containment types</a>
+                                    property allows an author to specify exactly what <a href="https://datarist.com/learn/CSS/CSS_containment/Using_CSS_containment">containment types</a>
                                     they want applied to individual containers on the page. This allows the browser to recalculate layout, style, paint, size, or any combination of them for a limited part of the DOM.
                                 </p>
                                 <div class="code-example">
@@ -2134,14 +2134,14 @@ h3</span>
                                 </div>
                                 <p>
                                     The 
-                                    <a href="/en-US/docs/Web/CSS/content-visibility">
+                                    <a href="https://datarist.com/learn/CSS/content-visibility">
                                         <code>content-visibility</code>
                                     </a>
                                     property is a useful shortcut, which allows authors to apply a strong set of containments on a set of containers and specify that the browser should not lay out and render those containers until needed.
                                 </p>
                                 <p>
                                     A second property, 
-                                    <a href="/en-US/docs/Web/CSS/contain-intrinsic-size">
+                                    <a href="https://datarist.com/learn/CSS/contain-intrinsic-size">
                                         <code>contain-intrinsic-size</code>
                                     </a>
                                     , is also available, which allows you to provide a placeholder size for containers while they are under the effects of containment. This means that the containers will take up space even if their contents have not yet been rendered, allowing containment to do its performance magic without the risk of scroll bar shift and jank as elements render and come into view. This improves the quality of the user experience as the content is loaded.
@@ -2190,7 +2190,7 @@ h3</span>
                             <div class="section-content">
                                 <ul>
                                     <li>
-                                        <a href="/en-US/docs/Web/Performance/CSS_JavaScript_animation_performance">CSS animation performance</a>
+                                        <a href="https://datarist.com/learn/Performance/CSS_JavaScript_animation_performance">CSS animation performance</a>
                                     </li>
                                     <li>
                                         <a href="https://web.dev/articles/font-best-practices" class="external" target="_blank">Best practices for fonts</a>

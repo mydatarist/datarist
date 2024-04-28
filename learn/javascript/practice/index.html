@@ -1156,7 +1156,7 @@
                             <use xlink:href="#chevron-expand"></use>
                         </svg>
                     </button>
-                    <strong class="d-none d-md-block my-2 ms-3">On this page</strong>
+                    <span class="text-black d-none d-md-block my-2 ms-3">On this page</span>
                     <div class="collapse dd-toc-collapse" id="tocContents">
                         <nav id="TableOfContents">
                             <ul>
@@ -1240,7 +1240,7 @@
                                 <p>
                                     This example will make use of the <a href="https://datarist.com/learn/JavaScript/Client-side_web_APIs/Drawing_graphics">Canvas API</a>
                                     for drawing the balls to the screen, and the 
-                                    <a href="/en-US/docs/Web/API/window/requestAnimationFrame">
+                                    <a href="https://datarist.com/learn/API/window/requestAnimationFrame">
                                         <code>requestAnimationFrame</code>
                                     </a>
                                     API for animating the whole display — you don't need to have any previous knowledge of these APIs, and we hope that by the time you've finished this article you'll be interested in exploring them more. Along the way, we'll make use of some nifty objects, and show you a couple of nice techniques like bouncing balls off walls, and checking whether they have hit each other (otherwise known as <em>collision detection</em>
@@ -1255,24 +1255,24 @@
                             <div class="section-content">
                                 <p>
                                     To begin with, make local copies of our 
-                                    <a href="https://github.com/mdn/learning-area/blob/main/javascript/oojs/bouncing-balls/index.html" class="external" target="_blank">
+                                    <a href="https://github.com/mydatarist/learning-area/blob/main/javascript/oojs/bouncing-balls/index.html" class="external" target="_blank">
                                         <code>index.html</code>
                                     </a>
                                     , 
-                                    <a href="https://github.com/mdn/learning-area/blob/main/javascript/oojs/bouncing-balls/style.css" class="external" target="_blank">
+                                    <a href="https://github.com/mydatarist/learning-area/blob/main/javascript/oojs/bouncing-balls/style.css" class="external" target="_blank">
                                         <code>style.css</code>
                                     </a>
                                     , and 
-                                    <a href="https://github.com/mdn/learning-area/blob/main/javascript/oojs/bouncing-balls/main.js" class="external" target="_blank">
+                                    <a href="https://github.com/mydatarist/learning-area/blob/main/javascript/oojs/bouncing-balls/main.js" class="external" target="_blank">
                                         <code>main.js</code>
                                     </a>
                                     files. These contain the following, respectively:
                                 </p>
                                 <ol>
                                     <li>
-                                        A very simple HTML document featuring an <a href="/en-US/docs/Web/HTML/Element/Heading_Elements">h1</a>
+                                        A very simple HTML document featuring an <a href="https://datarist.com/learn/HTML/Element/Heading_Elements">h1</a>
                                         element, a 
-                                        <a href="/en-US/docs/Web/HTML/Element/canvas">
+                                        <a href="https://datarist.com/learn/HTML/Element/canvas">
                                             <code>&lt;canvas &gt;</code>
                                         </a>
                                         element to draw our balls on, and elements to apply our CSS and JavaScript to our HTML.
@@ -1331,7 +1331,7 @@
                                 <p>
                                     This script gets a reference to the <code>&lt;canvas &gt;</code>
                                     element, then calls the 
-                                    <a href="/en-US/docs/Web/API/HTMLCanvasElement/getContext">
+                                    <a href="https://datarist.com/learn/API/HTMLCanvasElement/getContext">
                                         <code>getContext()</code>
                                     </a>
                                     method on it to give us a context on which we can start to draw. The resulting constant (<code>ctx</code>
@@ -1343,11 +1343,11 @@
                                     , and the width and height of the canvas element (represented by the <code>canvas.width</code>
                                     and <code>canvas.height</code>
                                     properties) to equal the width and height of the browser viewport (the area which the webpage appears on — this can be gotten from the 
-                                    <a href="/en-US/docs/Web/API/Window/innerWidth">
+                                    <a href="https://datarist.com/learn/API/Window/innerWidth">
                                         <code>Window.innerWidth</code>
                                     </a>
                                     and 
-                                    <a href="/en-US/docs/Web/API/Window/innerHeight">
+                                    <a href="https://datarist.com/learn/API/Window/innerHeight">
                                         <code>Window.innerHeight</code>
                                     </a>
                                     properties).
@@ -1440,7 +1440,7 @@
                                     The <code>random()</code>
                                     function takes two numbers as arguments, and returns a random number in the range between the two. The <code>randomRGB()</code>
                                     function generates a random color represented as an 
-                                    <a href="/en-US/docs/Web/CSS/color_value/rgb">
+                                    <a href="https://datarist.com/learn/CSS/color_value/rgb">
                                         <code>rgb()</code>
                                     </a>
                                     string.
@@ -1595,14 +1595,14 @@
                                 <ul>
                                     <li>
                                         First, we use 
-                                        <a href="/en-US/docs/Web/API/CanvasRenderingContext2D/beginPath">
+                                        <a href="https://datarist.com/learn/API/CanvasRenderingContext2D/beginPath">
                                             <code>beginPath()</code>
                                         </a>
                                         to state that we want to draw a shape on the paper.
                                     </li>
                                     <li>
                                         Next, we use 
-                                        <a href="/en-US/docs/Web/API/CanvasRenderingContext2D/fillStyle">
+                                        <a href="https://datarist.com/learn/API/CanvasRenderingContext2D/fillStyle">
                                             <code>fillStyle</code>
                                         </a>
                                         to define what color we want the shape to be — we set it to our ball's <code>color</code>
@@ -1610,7 +1610,7 @@
                                     </li>
                                     <li>
                                         Next, we use the 
-                                        <a href="/en-US/docs/Web/API/CanvasRenderingContext2D/arc">
+                                        <a href="https://datarist.com/learn/API/CanvasRenderingContext2D/arc">
                                             <code>arc()</code>
                                         </a>
                                         method to trace an arc shape on the paper. Its parameters are:
@@ -1636,7 +1636,7 @@
                                     </li>
                                     <li>
                                         Last of all, we use the 
-                                        <a href="/en-US/docs/Web/API/CanvasRenderingContext2D/fill">
+                                        <a href="https://datarist.com/learn/API/CanvasRenderingContext2D/fill">
                                             <code>fill()</code>
                                         </a>
                                         method, which basically states "finish drawing the path we started with <code>beginPath()</code>
@@ -2232,8 +2232,8 @@
                                 <div class="notecard note" id="sect1">
                                     <p>
                                         <strong>Note:</strong>
-                                        If you have trouble getting this example to work, try comparing your JavaScript code against our <a href="https://github.com/mdn/learning-area/blob/main/javascript/oojs/bouncing-balls/main-finished.js" class="external" target="_blank">finished version</a>
-                                        (also see it <a href="https://mdn.github.io/learning-area/javascript/oojs/bouncing-balls/index-finished.html" class="external" target="_blank">running live</a>
+                                        If you have trouble getting this example to work, try comparing your JavaScript code against our <a href="https://github.com/mydatarist/learning-area/blob/main/javascript/oojs/bouncing-balls/main-finished.js" class="external" target="_blank">finished version</a>
+                                        (also see it <a href="https://datarist.github.io/learning-area/javascript/oojs/bouncing-balls/index-finished.html" class="external" target="_blank">running live</a>
                                         ).
                                     </p>
                                 </div>
@@ -2255,11 +2255,11 @@
                             <div class="section-content">
                                 <ul>
                                     <li>
-                                        <a href="/en-US/docs/Web/API/Canvas_API/Tutorial">Canvas tutorial</a>
+                                        <a href="https://datarist.com/learn/API/Canvas_API/Tutorial">Canvas tutorial</a>
                                         — a beginner's guide to using 2D canvas.
                                     </li>
                                     <li>
-                                        <a href="/en-US/docs/Web/API/window/requestAnimationFrame">requestAnimationFrame()</a>
+                                        <a href="https://datarist.com/learn/API/window/requestAnimationFrame">requestAnimationFrame()</a>
                                     </li>
                                     <li>
                                         <a href="/en-US/docs/Games/Techniques/2D_collision_detection">2D collision detection</a>
