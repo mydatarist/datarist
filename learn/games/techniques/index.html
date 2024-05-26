@@ -536,7 +536,7 @@
                                             <a href="https://datarist.com/learn/css/flow/" class="dd-links-link d-inline-block rounded " aria-current="true">Flow</a>
                                         </li>
                                         <li>
-                                            <a href="https://datarist.com/learn/css/flexbox/" class="dd-links-link d-inline-block rounded " aria-current="true">Flexbox</a>
+                                            <a href="https://datarist.com/learn/css/flexbox/box/" class="dd-links-link d-inline-block rounded " aria-current="true">Flexbox</a>
                                         </li>
                                         <li>
                                             <a href="https://datarist.com/learn/css/grids/" class="dd-links-link d-inline-block rounded " aria-current="true">Grids</a>
@@ -807,7 +807,7 @@
                                             <a href="https://datarist.com/learn/accessibility/wai-aria/" class="dd-links-link d-inline-block rounded " aria-current="true">WAI-ARIA</a>
                                         </li> 
                                         <li>
-                                            <a href="https://datarist.com/learn/accessibility/-structure/" class="dd-links-link d-inline-block rounded " aria-current="true">Content structure</a>
+                                            <a href="https://datarist.com/learn/accessibility/" class="dd-links-link d-inline-block rounded " aria-current="true">Content structure</a>
                                         </li>
                                         <li>
                                             <a href="https://datarist.com/learn/accessibility/document/" class="dd-links-link d-inline-block rounded " aria-current="true">Document</a>
@@ -1707,7 +1707,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                 </p>
                                 <p>
                                     For a text-heavy site such as a blog or a news site, the <a href="https://datarist.com/learn/glossary/First_contentful_paint">First Contentful Paint</a>
-                                    metric could reflect more closely the user behavior. (i.e. How fast can users start reading), which will inform file specific budgets (e.g. Font size), and their optimizations. (e.g. Using <a href="https://datarist.com/learn/CSS/@font-face/font-display">font-display</a>
+                                    metric could reflect more closely the user behavior. (i.e. How fast can users start reading), which will inform file specific budgets (e.g. Font size), and their optimizations. (e.g. Using <a href="https://datarist.com/learn/css/@font-face/font-display">font-display</a>
                                     to improve <a href="https://datarist.com/learn/performance/">Perceived Performance</a>
                                     ).
                                 </p>
@@ -1899,11 +1899,11 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                 </p>
                                 <p>
                                     Fully static content is the exception rather than the rule for rich applications. Rich applications use dynamic content with 
-                                    <a href="https://datarist.com/learn/CSS/animation">
+                                    <a href="https://datarist.com/learn/css/animation">
                                         <code>animation</code>
                                     </a>
                                     and 
-                                    <a href="https://datarist.com/learn/CSS/transition">
+                                    <a href="https://datarist.com/learn/css/transition">
                                         <code>transition</code>
                                     </a>
                                     effects. Transitions and animations are particularly important to applications: developers can use CSS to declare complicated behavior with a simple, high-level syntax. In turn, Gecko's graphics pipeline is highly optimized to render common animations efficiently. Common-case animations are "offloaded" to the system compositor, which can render them in a performant, power-efficient fashion.
@@ -1977,7 +1977,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                 <p>The first important thing for high frame rate is to choose the right tool. Use HTML and CSS to implement content that's mostly static, scrolled, and infrequently animated. Use Canvas to implement highly dynamic content, like games that need tight control over rendering and don't need theming.</p>
                                 <p>For content drawn using Canvas, it's up to the developer to hit frame rate targets: they have direct control over what's drawn.</p>
                                 <p>
-                                    For HTML and CSS content, the path to high frame rate is to use the right primitives. Firefox is highly optimized to scroll arbitrary content; this is usually not a concern. But often trading some generality and quality for speed, such as using a static rendering instead of a CSS radial gradient, can push scrolling frame rate over a target. CSS <a href="https://datarist.com/learn/CSS/CSS_media_queries/Using_media_queries">media queries</a>
+                                    For HTML and CSS content, the path to high frame rate is to use the right primitives. Firefox is highly optimized to scroll arbitrary content; this is usually not a concern. But often trading some generality and quality for speed, such as using a static rendering instead of a CSS radial gradient, can push scrolling frame rate over a target. CSS <a href="https://datarist.com/learn/css/CSS_media_queries/Using_media_queries">media queries</a>
                                     allow these compromises to be restricted only to devices that need them.
                                 </p>
                                 <p>Many applications use transitions or animations through "pages", or "panels". For example, the user taps a "Settings" button to transition into an application configuration screen, or a settings menu "pops up". Firefox is highly optimized to transition and animate scenes that:</p>
@@ -2023,22 +2023,22 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                     </a>
                                     or <code>top</code>
                                     /<code>left</code>
-                                    positioning, for example) use <a href="https://datarist.com/learn/CSS/CSS_animations/Using_CSS_animations">CSS animations</a>
-                                    . In many cases, you can actually use <a href="https://datarist.com/learn/CSS/CSS_transitions/Using_CSS_transitions">CSS Transitions</a>
+                                    positioning, for example) use <a href="https://datarist.com/learn/css/CSS_animations/Using_CSS_animations">CSS animations</a>
+                                    . In many cases, you can actually use <a href="https://datarist.com/learn/css/CSS_transitions/Using_CSS_transitions">CSS Transitions</a>
                                     to get the job done. This works well because the browser is designed to optimize these effects and use the GPU to handle them smoothly with minimal impact on processor performance. Another benefit is that you can define these effects in CSS along with the rest of your app's look-and-feel, using a standardized syntax.
                                 </p>
                                 <p>
-                                    CSS animations give you very granular control over your effects using <a href="https://datarist.com/learn/CSS/@keyframes">keyframes</a>
+                                    CSS animations give you very granular control over your effects using <a href="https://datarist.com/learn/css/@keyframes">keyframes</a>
                                     , and you can even watch events fired during the animation process in order to handle other tasks that need to be performed at set points in the animation process. You can easily trigger these animations with the 
-                                    <a href="https://datarist.com/learn/CSS/">
+                                    <a href="https://datarist.com/learn/css/">
                                         <code>:hover</code>
                                     </a>
                                     , 
-                                    <a href="https://datarist.com/learn/CSS/">
+                                    <a href="https://datarist.com/learn/css/">
                                         <code>:focus</code>
                                     </a>
                                     , or 
-                                    <a href="https://datarist.com/learn/CSS/:target">
+                                    <a href="https://datarist.com/learn/css/:target">
                                         <code>:target</code>
                                     </a>
                                     , or by dynamically adding and removing classes on parent elements.
@@ -2055,15 +2055,15 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                         <code>transform</code>
                                     </a>
                                     CSS property to adjust the position, scale, and so forth of your content. Alternatively, you can use the individual transformation properties of 
-                                    <a href="https://datarist.com/learn/CSS/translate">
+                                    <a href="https://datarist.com/learn/css/translate">
                                         <code>translate</code>
                                     </a>
                                     , 
-                                    <a href="https://datarist.com/learn/CSS/scale">
+                                    <a href="https://datarist.com/learn/css/scale">
                                         <code>scale</code>
                                     </a>
                                     , and 
-                                    <a href="https://datarist.com/learn/CSS/rotate">
+                                    <a href="https://datarist.com/learn/css/rotate">
                                         <code>rotate</code>
                                     </a>
                                     . The reason is, once again, hardware acceleration. The browser can do these tasks on your GPU, letting the CPU handle other things.
@@ -2800,7 +2800,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                         <code>&lt;canvas &gt;</code>
                                     </a>
                                     , and any element which has the CSS properties of 
-                                    <a href="https://datarist.com/learn/CSS/opacity">
+                                    <a href="https://datarist.com/learn/css/opacity">
                                         <code>opacity</code>
                                     </a>
                                     , a 3D 
@@ -2808,7 +2808,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                         <code>transform</code>
                                     </a>
                                     , 
-                                    <a href="https://datarist.com/learn/CSS/will-change">
+                                    <a href="https://datarist.com/learn/css/will-change">
                                         <code>will-change</code>
                                     </a>
                                     , and a few others. These nodes will be painted onto their own layer, along with their descendants, unless a descendant necessitates its own layer for one (or more) of the above reasons.

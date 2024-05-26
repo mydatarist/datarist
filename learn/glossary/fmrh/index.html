@@ -11,12 +11,12 @@
 </script>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Learn about Forbidden Response Header Name for web development and how to apply the general best practices.">
+        <meta name="description" content="Learn about Fetch Metadata Request Header for web development and how to apply the general best practices.">
         <meta name="author" content="Datarist">
         <meta name="docsearch:language" content="en">
         <meta name="docsearch:version" content="1.0">
-        <title>FRHN — Definitions of web terms — Datarist</title>
-        <link rel="canonical" href="https://datarist.com/learn/glossary/forbidden-response-header-name/">
+        <title>FMRH — Definitions of web terms — Datarist</title>
+        <link rel="canonical" href="https://datarist.com/learn/glossary/fetch-metadata-request-header/">
         <link rel="preconnect" href="https://J81I0DUQA2-dsn.algolia.net" crossorigin>
         <script src="https://datarist.com/assets/js/color-modes.js"></script>
         <link href="https://datarist.com/assets/css/bootstrap.min.css" rel="stylesheet">
@@ -444,7 +444,7 @@
                                             <a href="https://datarist.com/learn/glossary/block/" class="dd-links-link d-inline-block rounded" aria-current="true">Block</a>
                                         </li>
                                         <li>
-                                            <a href="https://datarist.com/learn/glossary/block-cipher-mode-of-operation/" class="dd-links-link d-inline-block rounded" aria-current="true">Block cipher mode of operation</a>
+                                            <a href="https://datarist.com/learn/glossary/bcmop/" class="dd-links-link d-inline-block rounded" aria-current="true">Block cipher mode of operation</a>
                                         </li>
                                         <li>
                                             <a href="https://datarist.com/learn/glossary/block-level-content/" class="dd-links-link d-inline-block rounded" aria-current="true">Block-level content</a>
@@ -843,7 +843,7 @@
                                             <a href="https://datarist.com/learn/glossary/forbidden-header-name/" class="dd-links-link d-inline-block rounded" aria-current="true">Forbidden header name</a>
                                         </li>
                                         <li>
-                                            <a href="https://datarist.com/learn/glossary/forbidden-response-header-name/" class="dd-links-link d-inline-block rounded" aria-current="true">Forbidden response header name</a>
+                                            <a href="https://datarist.com/learn/glossary/frhn/" class="dd-links-link d-inline-block rounded" aria-current="true">Forbidden response header name</a>
                                         </li>
                                         <li>
                                             <a href="https://datarist.com/learn/glossary/fork/" class="dd-links-link d-inline-block rounded" aria-current="true">Fork</a>
@@ -1602,7 +1602,7 @@
                                             <a href="https://datarist.com/learn/glossary/css-selector/" class="dd-links-link d-inline-block rounded" aria-current="true">Selector (CSS)</a>
                                         </li>
                                         <li>
-                                            <a href="https://datarist.com/learn/glossary/self-executing-anonymous-function/" class="dd-links-link d-inline-block rounded" aria-current="true">Self-Executing Anonymous Function</a>
+                                            <a href="https://datarist.com/learn/glossary/seaf/" class="dd-links-link d-inline-block rounded" aria-current="true">Self-Executing Anonymous Function</a>
                                         </li>
                                         <li>
                                             <a href="https://datarist.com/learn/glossary/semantics/" class="dd-links-link d-inline-block rounded" aria-current="true">Semantics</a>
@@ -2054,15 +2054,68 @@
                 <div class="dd-content ps-lg-2">
                     <article class="main-page-content" lang="en-US">
                         <header>
-                            <h1>Forbidden response header name</h1>
+                            <h1>Fetch metadata request header</h1>
                         </header>
                         <div class="section-content">
                             <p>
-                                A <em>forbidden response header name</em>
-                                is an <a href="https://datarist.com/learn/Web/HTTP/Headers">HTTP header</a>
-                                name (<code>Set-Cookie</code>
-                                ) that cannot be modified programmatically.
+                                A <strong>fetch metadata request header</strong>
+                                is an <a href="https://datarist.com/learn/glossary/Request_header">HTTP request header</a>
+                                that provides additional information about the context from which the request originated. This allows the server to make decisions about whether a request should be allowed based on where the request came from and how the resource will be used.
                             </p>
+                            <p>
+                                With this information a server can implement a <a class="page-not-created" title="The documentation about this has not yet been written; please consider contributing!">resource isolation policy</a>
+                                , allowing external sites to request only those resources that are intended for sharing, and that are used appropriately. This approach can help mitigate common cross-site web vulnerabilities such as <a href="https://datarist.com/learn/glossary/CSRF">CSRF</a>
+                                , Cross-site Script Inclusion('XSSI'), timing attacks, and cross-origin information leaks.
+                            </p>
+                            <p>
+                                These headers are prefixed with <code>Sec-</code>
+                                , and hence have <a href="https://datarist.com/learn/glossary/Forbidden_header_name">forbidden header names</a>
+                                . As such, they cannot be modified from JavaScript.
+                            </p>
+                            <p>The fetch metadata request headers are:</p>
+                            <ul>
+                                <li>
+                                    <a href="https://datarist.com/learn/Web/HTTP/Headers/Sec-Fetch-Site">
+                                        <code>Sec-Fetch-Site</code>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://datarist.com/learn/Web/HTTP/Headers/Sec-Fetch-Mode">
+                                        <code>Sec-Fetch-Mode</code>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://datarist.com/learn/Web/HTTP/Headers/Sec-Fetch-User">
+                                        <code>Sec-Fetch-User</code>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://datarist.com/learn/Web/HTTP/Headers/Sec-Fetch-Dest">
+                                        <code>Sec-Fetch-Dest</code>
+                                    </a>
+                                </li>
+                            </ul>
+                            <p>
+                                The following request headers are not <em>strictly</em>
+                                "fetch metadata request headers", as they are not in the same specification, but similarly provide information about the context of how a resource will be used.
+A server might use them to modify its caching behavior, or the information that is returned:
+
+                            </p>
+                            <ul>
+                                <li>
+                                    <a href="https://datarist.com/learn/Web/HTTP/Headers/Sec-Purpose">
+                                        <code>Sec-Purpose</code>
+                                    </a>
+                                    <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future.">
+                                        <span class="visually-hidden">Experimental</span>
+                                    </abbr>
+                                </li>
+                                <li>
+                                    <a href="https://datarist.com/learn/Web/HTTP/Headers/Service-Worker-Navigation-Preload">
+                                        <code>Service-Worker-Navigation-Preload</code>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                         <section aria-labelledby="see-also">
                             <h2 id="see-also">
@@ -2071,11 +2124,35 @@
                             <div class="section-content">
                                 <ul>
                                     <li>
-                                        <a href="https://fetch.spec.whatwg.org/#forbidden-response-header-name" class="external" target="_blank">Fetch specification: forbidden response-header name</a>
+                                        <a href="https://web.dev/articles/fetch-metadata" class="external" target="_blank">Protect your resources from web attacks with Fetch Metadata</a>
+                                        (web.dev)
                                     </li>
                                     <li>
-                                        <a href="https://datarist.com/learn/glossary/Forbidden_header_name">Forbidden header name</a>
-                                        (Glossary)
+                                        <a href="https://secmetadata.appspot.com/" class="external" target="_blank">Fetch Metadata Request Headers playground</a>
+                                        (secmetadata.appspot.com)
+                                    </li>
+                                    <li>
+                                        <a href="https://datarist.com/learn/Web/HTTP/Headers">List of all HTTP headers</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://datarist.com/learn/Web/HTTP/Headers#fetch_metadata_request_headers">List of all HTTP headers &gt;Fetch metadata request headers</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://datarist.com/learn/glossary/">Glossary</a>
+                                        <ul>
+                                            <li>
+                                                <a href="https://datarist.com/learn/glossary/Representation_header">Representation header</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://datarist.com/learn/glossary/HTTP_header">HTTP header</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://datarist.com/learn/glossary/Response_header">Response header</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://datarist.com/learn/glossary/Request_header">Request header</a>
+                                            </li>
+                                        </ul>
                                     </li>
                                 </ul>
                             </div>
