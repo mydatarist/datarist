@@ -1239,7 +1239,7 @@
                             <figcaption class="wd-caption">A desktop PWA showing theme and accent colors, and an Android PWA splash screen showing theme and background colors.</figcaption>
                             </figure>
                             
-                            <aside class="note"><b>Note: </b>  When planning your Progressive Web App user interface, beware that you can't use images, or gradients for your theme, just plain colors. It's best to pick colors without transparency, and  use the <code translate="no" dir="ltr">rgb</code> or <code translate="no" dir="ltr">hsl</code> colors, hex codes, or named colors. Theming your app may also affect browser theming even without installing the app, such as when using the <a href="/articles/add-manifest#theme-color"><code translate="no" dir="ltr">&lt;meta name=&quot;theme-color&quot;&gt;</code></a> element. </aside>
+                            <aside class="note"><b>Note: </b>  When planning your Progressive Web App user interface, beware that you can't use images, or gradients for your theme, just plain colors. It's best to pick colors without transparency, and  use the <code translate="no" dir="ltr">rgb</code> or <code translate="no" dir="ltr">hsl</code> colors, hex codes, or named colors. Theming your app may also affect browser theming even without installing the app, such as when using the <a "articles/add-manifest#theme-color"><code translate="no" dir="ltr">&lt;meta name=&quot;theme-color&quot;&gt;</code></a> element. </aside>
                             
                             <h2 id="display_modes" data-text="Display modes" tabindex="-1">Display modes</h2>
                             
@@ -1313,7 +1313,7 @@
                             <p>When you design a Progressive Web App to work on a desktop,
                             you need to think about the endless possibilities for window size as compared to being in the browser&#39;s tab or as an app in a mobile operating system.</p>
                             
-                            <p>In <a href="/learn/pwa/foundations">Chapter 3</a>, we mentioned mini-mode: a desktop app can be as small as 200 by 100 pixels. This window will use the <code translate="no" dir="ltr">&lt;title&gt;</code> element&#39;s content in your HTML as the title of the window. That content is also rendered when you <strong>alt-tab</strong> between apps and in other places.</p>
+                            <p>In <a "learn/pwa/foundations">Chapter 3</a>, we mentioned mini-mode: a desktop app can be as small as 200 by 100 pixels. This window will use the <code translate="no" dir="ltr">&lt;title&gt;</code> element&#39;s content in your HTML as the title of the window. That content is also rendered when you <strong>alt-tab</strong> between apps and in other places.</p>
                             
                             <p>Pay attention to your HTML&#39;s <code translate="no" dir="ltr">&lt;title&gt;</code> element and rethink how you use it. The <code translate="no" dir="ltr">&lt;title&gt;</code> isn&#39;t just for SEO or to render just the first characters in a browser&#39;s tab; it will be part of the user experience of your standalone desktop window.</p>
                             
@@ -1321,16 +1321,16 @@
                             
                             <h2 id="css_best_practices" data-text="CSS best practices" tabindex="-1">CSS best practices</h2>
                             
-                            <p>All your experience with <a href="/learn/css">CSS layout, design, and animation</a> is valid when your content is rendered in its standalone experience. However, there are a couple of tips and tricks to making the experience better for a standalone window.</p>
+                            <p>All your experience with <a "learn/css">CSS layout, design, and animation</a> is valid when your content is rendered in its standalone experience. However, there are a couple of tips and tricks to making the experience better for a standalone window.</p>
                             
-                            <aside class="tip">Remember that CSS only defines styles for the content of the PWA; later in this course, we will see how to specify style declarations for the window around your content, such as properties in the <a href="/learn/pwa/web-app-manifest">web app manifest</a>. </aside>
+                            <aside class="tip">Remember that CSS only defines styles for the content of the PWA; later in this course, we will see how to specify style declarations for the window around your content, such as properties in the <a "learn/pwa/web-app-manifest">web app manifest</a>. </aside>
                             
                             <h3 id="media_queries" data-text="Media Queries" tabindex="-1">Media Queries</h3>
                             
-                            <p>The first <a href="/learn/design/media-queries">media query</a> that you can take advantage of in your PWA is the <code translate="no" dir="ltr">display-mode</code> property accepting the values <code translate="no" dir="ltr">browser</code>, <code translate="no" dir="ltr">standalone</code>, <code translate="no" dir="ltr">minimal-ui</code>, or <code translate="no" dir="ltr">fullscreen</code>.</p>
+                            <p>The first <a "learn/design/media-queries">media query</a> that you can take advantage of in your PWA is the <code translate="no" dir="ltr">display-mode</code> property accepting the values <code translate="no" dir="ltr">browser</code>, <code translate="no" dir="ltr">standalone</code>, <code translate="no" dir="ltr">minimal-ui</code>, or <code translate="no" dir="ltr">fullscreen</code>.</p>
                             
                             <p>This media query applies different styles to each mode.
-                            For example, you could render an <a href="/learn/pwa/installation">installation invitation</a> only when in browser mode, or render one particular piece of information only when the user uses your app from the system icon. This might include adding a back button to use when your app launches in standalone mode.</p>
+                            For example, you could render an <a "learn/pwa/installation">installation invitation</a> only when in browser mode, or render one particular piece of information only when the user uses your app from the system icon. This might include adding a back button to use when your app launches in standalone mode.</p>
                             <pre class="prettyprint lang-css" translate="no" dir="ltr"><code translate="no" dir="ltr">/* It targets only the app used within the browser */
                             @media (display-mode: browser) {
                             }
@@ -1341,7 +1341,7 @@
                             @media (display-mode: standalone), (display-mode: fullscreen), (display-mode: minimal-ui) {
                             }
                             </code></pre>
-                            <aside class="note"><b>Note: </b> Users expect apps to integrate with the platform, so consider offering dark and light modes using <a href="https://developer.mozilla.org/docs/Web/CSS/@media/prefers-color-scheme"><code translate="no" dir="ltr">prefers-colors-scheme</code></a> and honoring <a href="/articles/prefers-reduced-motion"><code translate="no" dir="ltr">prefers-reduced-motion</code></a> media queries to disable or reduce transitions and animations. </aside>
+                            <aside class="note"><b>Note: </b> Users expect apps to integrate with the platform, so consider offering dark and light modes using <a href="https://developer.mozilla.org/docs/Web/CSS/@media/prefers-color-scheme"><code translate="no" dir="ltr">prefers-colors-scheme</code></a> and honoring <a "articles/prefers-reduced-motion"><code translate="no" dir="ltr">prefers-reduced-motion</code></a> media queries to disable or reduce transitions and animations. </aside>
                             
                             <h2 id="the_app_experience" data-text="The app experience" tabindex="-1">The app experience</h2>
                             
@@ -1362,7 +1362,7 @@
                             
                             <h3 id="accent_color" data-text="Accent color" tabindex="-1">Accent color</h3>
                             
-                            <p>In your PWA, you can define a color to match your brand within HTML form controls using the property <a href="/articles/accent-color"><code translate="no" dir="ltr">accent-color</code></a>.</p>
+                            <p>In your PWA, you can define a color to match your brand within HTML form controls using the property <a "articles/accent-color"><code translate="no" dir="ltr">accent-color</code></a>.</p>
                             
                             <h3 id="system_fonts" data-text="System fonts" tabindex="-1">System fonts</h3>
                             
@@ -1399,10 +1399,10 @@
                             <ul>
                             <li><a href="https://developer.mozilla.org/docs/Web/CSS/@media/display-mode">CSS display-mode media query</a></li>
                             <li><a href="https://developer.chrome.com/blog/overscroll-behavior">Take control of your scroll: customizing pull-to-refresh and overflow effects</a></li>
-                            <li><a href="/articles/prefers-color-scheme">prefers-color-scheme: Hello darkness, my old friend</a></li>
-                            <li><a href="/articles/prefers-reduced-motion">prefers-reduced-motion: Sometimes less movement is more</a></li>
+                            <li><a "articles/prefers-color-scheme">prefers-color-scheme: Hello darkness, my old friend</a></li>
+                            <li><a "articles/prefers-reduced-motion">prefers-reduced-motion: Sometimes less movement is more</a></li>
                             <li><a href="https://developer.mozilla.org/docs/Web/CSS/env()">env() CSS function</a></li>
-                            <li><a href="/articles/accent-color">CSS Accent Color</a></li>
+                            <li><a "articles/accent-color">CSS Accent Color</a></li>
                             </ul>
                             
                              

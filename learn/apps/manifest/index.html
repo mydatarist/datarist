@@ -1196,7 +1196,7 @@
 
                             <p>The web app manifest is a file you create that tells the browser how you want your web content to display as an app in the operating system. The manifest can include basic information such as the app&#39;s name, icon, and theme color; advanced preferences, such as desired orientation and app shortcuts; and catalog metadata, such as screenshots.</p>
 
-                            <aside class="warning"><b>Warning: </b> A web app manifest is a required <a href="/learn/pwa/installation#installation_criteria">installability criteria</a> in every browser. Your PWA will not install without it. </aside>
+                            <aside class="warning"><b>Warning: </b> A web app manifest is a required <a "learn/pwa/installation#installation_criteria">installability criteria</a> in every browser. Your PWA will not install without it. </aside>
                             
                             <p>Each PWA should include a single manifest per application, typically hosted in the root folder, and linked on all HTML pages your PWA can be installed from. Its official extension is <code translate="no" dir="ltr">.webmanifest</code>, so you could name your manifest something like <code translate="no" dir="ltr">app.webmanifest</code>.</p>
                             
@@ -1270,7 +1270,7 @@
                             <dt><code translate="no" dir="ltr">start_url</code></dt>
                             <dd>The URL the PWA should load when the user starts it from the installed icon. An absolute path is recommended, so if your PWA&#39;s home page is the root of your site, you could set this to ‘/&#39; to open it when your app starts. If you don&#39;t provide a start URL, the browser can use the URL the PWA was installed from as a start. It can be a deep link, such as the details of a product instead of your home screen.</dd>
                             <dt><code translate="no" dir="ltr">display</code></dt>
-                            <dd>One of <code translate="no" dir="ltr">fullscreen</code>, <code translate="no" dir="ltr">standalone</code>,  <code translate="no" dir="ltr">minimal-ui</code>, or <code translate="no" dir="ltr">browser</code>, describing how the OS should draw the PWA window. You can read more about the different display modes in the <a href="/learn/pwa/app-design#display_modes">App Design chapter</a>. <a href="https://almanac.httparchive.org/en/2021/pwa#top-manifest-display-values">Most</a> use cases implement <code translate="no" dir="ltr">standalone</code>.</dd>
+                            <dd>One of <code translate="no" dir="ltr">fullscreen</code>, <code translate="no" dir="ltr">standalone</code>,  <code translate="no" dir="ltr">minimal-ui</code>, or <code translate="no" dir="ltr">browser</code>, describing how the OS should draw the PWA window. You can read more about the different display modes in the <a "learn/pwa/app-design#display_modes">App Design chapter</a>. <a href="https://almanac.httparchive.org/en/2021/pwa#top-manifest-display-values">Most</a> use cases implement <code translate="no" dir="ltr">standalone</code>.</dd>
                             <dt><code translate="no" dir="ltr">id</code></dt>
                             <dd>A string that uniquely identifies this PWA against others that may be hosted on the same origin. If it&#39;s not set, the <code translate="no" dir="ltr">start_url</code> will be used as a fallback value. Keep in mind that by changing the <code translate="no" dir="ltr">start_url</code> in the future (such as when changing a query string value) you may be removing the browser&#39;s ability to detect that a PWA is already installed.</dd>
                             </dl>
@@ -1301,7 +1301,7 @@
                             </code></pre>
                             <aside class="caution"><b>Caution: </b> Some resources will suggest you add more icon sizes for Android, such as 48 by 48, 72 by 72, 96 by 96, 144 by 144, 168 by 168, 256 by 256. While you can add as many sizes as you want, these are no longer necessary as they are Android icon sizes for legacy devices; even if you still have some users expecting those resolutions, the browser will resize one of your shipped icons. </aside>
                             
-                            <p>If you don&#39;t provide an icon or the icons are not in the recommended sizes, on some platforms you won&#39;t pass <a href="/learn/pwa/installation#installation_criteria">installation criteria</a>. On other platforms, the icon will be automatically generated, for instance from a screenshot of the PWA or by using a generic icon.</p>
+                            <p>If you don&#39;t provide an icon or the icons are not in the recommended sizes, on some platforms you won&#39;t pass <a "learn/pwa/installation#installation_criteria">installation criteria</a>. On other platforms, the icon will be automatically generated, for instance from a screenshot of the PWA or by using a generic icon.</p>
                             
                             <h5 id="maskable_icons" data-text="Maskable icons" tabindex="-1">Maskable icons</h5>
                             
@@ -1364,7 +1364,7 @@
                             
                             <aside class="note"><b>Note: </b> If you want to provide different theme colors for dark and light modes, you can override the manifest's value with a meta tag in the HTML using a media query, such as with <code translate="no" dir="ltr">&lt;meta name=&quot;theme-color&quot; content=&quot;red&quot; media=&quot;(prefers-color-scheme: dark)&quot;&gt;</code> </aside>
                             
-                            <p>When defining colors in the manifest, such as within <code translate="no" dir="ltr">theme_color</code> and <code translate="no" dir="ltr">background_color</code>, you should use CSS named colors, such as <code translate="no" dir="ltr">salmon</code> or <code translate="no" dir="ltr">orange</code>, RGB colors such as <code translate="no" dir="ltr">#FF5500</code>, or color functions without transparency such as <code translate="no" dir="ltr">rgb()</code> or <code translate="no" dir="ltr">hsl()</code>. Check the <a href="/learn/pwa/app-design#theming_your_app">App design chapter</a> for more information.</p>
+                            <p>When defining colors in the manifest, such as within <code translate="no" dir="ltr">theme_color</code> and <code translate="no" dir="ltr">background_color</code>, you should use CSS named colors, such as <code translate="no" dir="ltr">salmon</code> or <code translate="no" dir="ltr">orange</code>, RGB colors such as <code translate="no" dir="ltr">#FF5500</code>, or color functions without transparency such as <code translate="no" dir="ltr">rgb()</code> or <code translate="no" dir="ltr">hsl()</code>. Check the <a "learn/pwa/app-design#theming_your_app">App design chapter</a> for more information.</p>
                             
                             <aside class="warning"><b>Warning: </b> Do not use transparency, CSS variables, gradient functions, or color functions with transparency (such as <code translate="no" dir="ltr">rgba()</code>) as they are not supported by most browsers. You will get inconsistent results. </aside>
                             
@@ -1390,7 +1390,7 @@
                             
                             <p><img src="/static/learn/pwa/web-app-manifest/image/a-pwa-android-splash-scr-fb6e3edede13e.png" alt="A PWA on Android splash screen taking different values from the manifest." width="800" height="533" srcset="https://web.dev/static/learn/pwa/web-app-manifest/image/a-pwa-android-splash-scr-fb6e3edede13e_36.png 36w,https://web.dev/static/learn/pwa/web-app-manifest/image/a-pwa-android-splash-scr-fb6e3edede13e_48.png 48w,https://web.dev/static/learn/pwa/web-app-manifest/image/a-pwa-android-splash-scr-fb6e3edede13e_72.png 72w,https://web.dev/static/learn/pwa/web-app-manifest/image/a-pwa-android-splash-scr-fb6e3edede13e_96.png 96w,https://web.dev/static/learn/pwa/web-app-manifest/image/a-pwa-android-splash-scr-fb6e3edede13e_480.png 480w,https://web.dev/static/learn/pwa/web-app-manifest/image/a-pwa-android-splash-scr-fb6e3edede13e_720.png 720w,https://web.dev/static/learn/pwa/web-app-manifest/image/a-pwa-android-splash-scr-fb6e3edede13e_856.png 856w,https://web.dev/static/learn/pwa/web-app-manifest/image/a-pwa-android-splash-scr-fb6e3edede13e_960.png 960w,https://web.dev/static/learn/pwa/web-app-manifest/image/a-pwa-android-splash-scr-fb6e3edede13e_1440.png 1440w,https://web.dev/static/learn/pwa/web-app-manifest/image/a-pwa-android-splash-scr-fb6e3edede13e_1920.png 1920w,https://web.dev/static/learn/pwa/web-app-manifest/image/a-pwa-android-splash-scr-fb6e3edede13e_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
                             
-                            <p>Safari on iOS and iPadOS, on the other hand, doesn&#39;t use the web app manifest to generate splash screens. Instead, they use an image linked from a proprietary <code translate="no" dir="ltr">&lt;link&gt;</code> element similar to how they handle icons. Check the <a href="/learn/pwa/enhancements">Enhancement chapter</a> for more details.</p>
+                            <p>Safari on iOS and iPadOS, on the other hand, doesn&#39;t use the web app manifest to generate splash screens. Instead, they use an image linked from a proprietary <code translate="no" dir="ltr">&lt;link&gt;</code> element similar to how they handle icons. Check the <a "learn/pwa/enhancements">Enhancement chapter</a> for more details.</p>
                             
                             <h3 id="extended_fields" data-text="Extended fields" tabindex="-1">Extended fields</h3>
                             
@@ -1444,15 +1444,15 @@
                             
                             <h3 id="capabilities_fields" data-text="Capabilities Fields" tabindex="-1">Capabilities Fields</h3>
                             
-                            <p>Finally, there are a number of fields related to different capabilities that your PWA can use in supported browsers, such as the <code translate="no" dir="ltr">shortcuts</code>, <code translate="no" dir="ltr">share_target</code>, <code translate="no" dir="ltr">display_overrides</code> fields as we cover in the <a href="/learn/pwa/capabilities">Capabilities chapter</a>. There are also fields, like <code translate="no" dir="ltr">related_apps</code> and <code translate="no" dir="ltr">prefer_related_apps</code> (see the <a href="/learn/pwa/detection">Detection chapter</a> for more information), to connect your PWA to installed apps, often from an app store.</p>
+                            <p>Finally, there are a number of fields related to different capabilities that your PWA can use in supported browsers, such as the <code translate="no" dir="ltr">shortcuts</code>, <code translate="no" dir="ltr">share_target</code>, <code translate="no" dir="ltr">display_overrides</code> fields as we cover in the <a "learn/pwa/capabilities">Capabilities chapter</a>. There are also fields, like <code translate="no" dir="ltr">related_apps</code> and <code translate="no" dir="ltr">prefer_related_apps</code> (see the <a "learn/pwa/detection">Detection chapter</a> for more information), to connect your PWA to installed apps, often from an app store.</p>
                             
                             <p>Many new fields may appear in the future while browsers add more capabilities to Progressive Web Apps.</p>
                             
                             <h2 id="resources" data-text="Resources" tabindex="-1">Resources</h2>
                             
                             <ul>
-                            <li><a href="/articles/add-manifest">Add a Web App Manifest</a></li>
-                            <li><a href="/articles/maskable-icon">Adaptive icon support in PWAs with maskable icons</a></li>
+                            <li><a "articles/add-manifest">Add a Web App Manifest</a></li>
+                            <li><a "articles/maskable-icon">Adaptive icon support in PWAs with maskable icons</a></li>
                             <li><a href="https://developer.chrome.com/blog/richer-pwa-installation">Richer PWA installation UI</a></li>
                             <li><a href="https://developer.mozilla.org/docs/Web/Manifest">datarist: Web App Manifest</a></li>
                             </ul>

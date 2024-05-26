@@ -1237,8 +1237,8 @@
                             
                             <ul>
                             <li>Full update: every change, even a minor one, triggers the replacement of the entire cache content. This pattern mimics how device-specific apps handle updates, and it will consume more bandwidth and will take more time.</li>
-                            <li>Changed assets update: only the assets that have changed since the last update get replaced in cache. It is often implemented using a library such as <a href="/learn/pwa/workbox">Workbox</a>. It involves creating a list of cached files, a hash representation of the file, and timestamps. With this information, the service worker compares this list with the cached assets and decides which assets to update.</li>
-                            <li>Individual assets update: each asset is updated individually when it changes. The stale while revalidate strategy described in the <a href="/learn/pwa/serve">Serving chapter</a> is an example of updating assets individually.</li>
+                            <li>Changed assets update: only the assets that have changed since the last update get replaced in cache. It is often implemented using a library such as <a "learn/pwa/workbox">Workbox</a>. It involves creating a list of cached files, a hash representation of the file, and timestamps. With this information, the service worker compares this list with the cached assets and decides which assets to update.</li>
+                            <li>Individual assets update: each asset is updated individually when it changes. The stale while revalidate strategy described in the <a "learn/pwa/serve">Serving chapter</a> is an example of updating assets individually.</li>
                             </ul>
                             
                             <h3 id="when_to_update" data-text="When to update" tabindex="-1">When to update</h3>
@@ -1251,7 +1251,7 @@
                             <li>When background events are triggered, such as when your PWA receives a push notification or a background sync fires. You can update your cache then and your users will have the asset&#39;s new version the next time they open the app.</li>
                             </ul>
                             
-                            <aside class="warning"><b>Warning: </b> When checking for updates, make sure you don't interrupt the loading process and impact your app's performance. Do not wait for an update check before rendering the app as it will harm your user experience and reflect on your <a href="/articles/vitals">core web vitals</a>. If you need to update part of your app frequently, use the <a href="/learn/pwa/serving#stale_while_revalidate">stale while revalidate</a> caching strategy. </aside>
+                            <aside class="warning"><b>Warning: </b> When checking for updates, make sure you don't interrupt the loading process and impact your app's performance. Do not wait for an update check before rendering the app as it will harm your user experience and reflect on your <a "articles/vitals">core web vitals</a>. If you need to update part of your app frequently, use the <a "learn/pwa/serving#stale_while_revalidate">stale while revalidate</a> caching strategy. </aside>
                             
                             <h3 id="live_updates" data-text="Live updates" tabindex="-1">Live updates</h3>
                             
@@ -1263,7 +1263,7 @@
                             
                             <p>The browser triggers an update algorithm when your service worker or its dependencies change. The browser detects updates using a byte-by-byte comparison between the cached files and the resources coming from the network.</p>
                             
-                            <p>Then the browser tries to install the new version of the service worker, and the new service worker will be in the <em>waiting</em> state, as described in the <a href="/learn/pwa/service-workers#updating_a_service_worker">Service workers chapter</a>. The new installation will run the <code translate="no" dir="ltr">install</code> event for the new service worker. If you are caching assets in that event handler, assets will also be re-cached.</p>
+                            <p>Then the browser tries to install the new version of the service worker, and the new service worker will be in the <em>waiting</em> state, as described in the <a "learn/pwa/service-workers#updating_a_service_worker">Service workers chapter</a>. The new installation will run the <code translate="no" dir="ltr">install</code> event for the new service worker. If you are caching assets in that event handler, assets will also be re-cached.</p>
                             
                             <aside class="caution"><b>Caution: </b> If you delete or rename your service worker file, the browser won't remove the previously registered service worker from its clients. To completely remove a service worker, you need to use the <a href="https://developer.mozilla.org/docs/Web/API/ServiceWorkerContainer/getRegistrations">getRegistrations()</a> and the <a href="https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration/unregister">unregister()</a> methods. </aside>
                             
@@ -1291,7 +1291,7 @@
                             
                             <p>Even though it is not recommended, the new service worker can skip that waiting period and start the activation immediately.</p>
                             
-                            <aside class="caution"><b>Caution: </b> <code translate="no" dir="ltr">skipWaiting()</code> means that your new service worker is probably controlling pages that were loaded with an older version. This means some of your page's fetches will have been handled by your old service worker, but your new service worker will be handling subsequent fetches. If this might prevent your app from working, don't use <code translate="no" dir="ltr">skipWaiting()</code>. This warning comes from <a href="/articles/service-worker-lifecycle">service worker lifecycle</a>. Check out the article for more best practice advice. </aside>
+                            <aside class="caution"><b>Caution: </b> <code translate="no" dir="ltr">skipWaiting()</code> means that your new service worker is probably controlling pages that were loaded with an older version. This means some of your page's fetches will have been handled by your old service worker, but your new service worker will be handling subsequent fetches. If this might prevent your app from working, don't use <code translate="no" dir="ltr">skipWaiting()</code>. This warning comes from <a "articles/service-worker-lifecycle">service worker lifecycle</a>. Check out the article for more best practice advice. </aside>
                             <pre class="prettyprint lang-js" translate="no" dir="ltr"><code translate="no" dir="ltr">self.addEventListener(&#34;install&#34;, event =&gt; {
                                // forces a service worker to activate immediately
                                self.skipWaiting();
@@ -1310,7 +1310,7 @@
                             </code></pre>
                             <h2 id="updating_metadata" data-text="Updating metadata" tabindex="-1">Updating metadata</h2>
                             
-                            <p>You can also update your app&#39;s metadata, which is mainly set in the <a href="/learn/pwa/web-app-manifest">web app manifest</a>. For example, update its icon, name, or start URL, or you can add a new feature such as <a href="/articles/app-shortcuts">app shortcuts</a>.
+                            <p>You can also update your app&#39;s metadata, which is mainly set in the <a "learn/pwa/web-app-manifest">web app manifest</a>. For example, update its icon, name, or start URL, or you can add a new feature such as <a "articles/app-shortcuts">app shortcuts</a>.
                             But what happens with all the users who have already installed the app with the old icon on their devices? How and when do they get the updated version?</p>
                             
                             <p>The answer depends on the platform. Let&#39;s cover the options available.</p>
@@ -1321,28 +1321,28 @@
                             
                             <p>On these platforms, the only way to get the new manifest metadata is to re-install the app from the browser.</p>
                             
-                            <aside class="note"><b>Note: </b> If you modify your <code translate="no" dir="ltr">start_url</code> the browser may install the app as a completely new app. However, it has been a common practice to add a manual version identifier within the <code translate="no" dir="ltr">start_url</code> property, such as <code translate="no" dir="ltr">/?version=3</code> to identify the version. From Chrome 96 <a href="/%E2%80%8B%E2%80%8Bhttps://developer.chrome.com/blog/pwa-manifest-id">you can add an <code translate="no" dir="ltr">id</code> into the manifest</a> to identify your app. </aside>
+                            <aside class="note"><b>Note: </b> If you modify your <code translate="no" dir="ltr">start_url</code> the browser may install the app as a completely new app. However, it has been a common practice to add a manual version identifier within the <code translate="no" dir="ltr">start_url</code> property, such as <code translate="no" dir="ltr">/?version=3</code> to identify the version. From Chrome 96 <a "%E2%80%8B%E2%80%8Bhttps://developer.chrome.com/blog/pwa-manifest-id">you can add an <code translate="no" dir="ltr">id</code> into the manifest</a> to identify your app. </aside>
                             
                             <h3 id="google_chrome_on_android_with_webapk" data-text="Google Chrome on Android with WebAPK" tabindex="-1">Google Chrome on Android with WebAPK</h3>
                             
-                            <p>When the user has installed your PWA on Android using Google Chrome with <a href="/learn/pwa/installation#webapks">WebAPK</a> activated (most of the Chrome PWA installations), the update will be detected and applied based on an algorithm. Check out  the details in this <a href="/articles/manifest-updates">manifest updates</a> article.</p>
+                            <p>When the user has installed your PWA on Android using Google Chrome with <a "learn/pwa/installation#webapks">WebAPK</a> activated (most of the Chrome PWA installations), the update will be detected and applied based on an algorithm. Check out  the details in this <a "articles/manifest-updates">manifest updates</a> article.</p>
                             
                             <p>Some additional notes about the process:</p>
                             
                             <p>If the user doesn&#39;t open your PWA, its WebAPK won&#39;t be updated.
                             If the server doesn&#39;t respond with the manifest file (there is a 404 error), Chrome won&#39;t check for updates for a minimum of 30 days, even if the user opens the PWA.</p>
                             
-                            <p>Go to <code translate="no" dir="ltr">about:webapks</code> in Chrome on Android to see the status of the &quot;needing update&quot; flag, and request an update. In the <a href="/learn/pwa/tools-and-debug">Tools and debug chapter</a>, you can read more about this debugging tool.</p>
+                            <p>Go to <code translate="no" dir="ltr">about:webapks</code> in Chrome on Android to see the status of the &quot;needing update&quot; flag, and request an update. In the <a "learn/pwa/tools-and-debug">Tools and debug chapter</a>, you can read more about this debugging tool.</p>
                             
                             <h3 id="samsung_internet_on_android_with_webapk" data-text="Samsung Internet on Android with WebAPK" tabindex="-1">Samsung Internet on Android with WebAPK</h3>
                             
-                            <p>The process is similar to the Chrome version. In this case, if the PWA manifest requires an update, during the next 24 hours the WebAPK will be updated on Wi-Fi after <a href="/learn/pwa/installation#webapks">minting the updated WebAPK</a>.</p>
+                            <p>The process is similar to the Chrome version. In this case, if the PWA manifest requires an update, during the next 24 hours the WebAPK will be updated on Wi-Fi after <a "learn/pwa/installation#webapks">minting the updated WebAPK</a>.</p>
                             
                             <h3 id="google_chrome_and_microsoft_edge_on_desktop" data-text="Google Chrome and Microsoft Edge on desktop" tabindex="-1">Google Chrome and Microsoft Edge on desktop</h3>
                             
                             <p>On desktop devices, when the PWA is launched, the browser determines the last time it checked the local manifest for changes. If the manifest hasn&#39;t been reviewed since the browser last started or hasn&#39;t been checked in the last 24 hours, the browser will make a network request for the manifest and then compare it against the local copy.</p>
                             
-                            <p>When <a href="/articles/manifest-updates#cr-desktop-trigger">selected properties</a> are updated, it will trigger an update after all windows have been closed.</p>
+                            <p>When <a "articles/manifest-updates#cr-desktop-trigger">selected properties</a> are updated, it will trigger an update after all windows have been closed.</p>
                             
                             <h2 id="alerting_the_user" data-text="Alerting the user" tabindex="-1">Alerting the user</h2>
                             
@@ -1353,14 +1353,14 @@
                             <ul>
                             <li>Use the DOM or <a href="https://developer.mozilla.org/docs/Web/API/Canvas_API">canvas API</a> to render a notice on the screen.</li>
                             <li>Use the <a href="https://developer.mozilla.org/docs/Web/API/notification">Web Notifications API</a>. This API is part of the push permission to generate a notification in the operating system. You will need to request web push permission to use it, even if you don&#39;t use the push messaging protocol from your server. This is the only option we have if the PWA is not opened.</li>
-                            <li>Use the <a href="/badging-api">Badging API</a> to show that updates are available in the PWA&#39;s installed icon</li>
+                            <li>Use the <a "badging-api">Badging API</a> to show that updates are available in the PWA&#39;s installed icon</li>
                             </ul>
                             
                             <p><img src="/static/learn/pwa/update/image/an-update-notification-sh-1afdaff83bea2.png" alt="An update notification shown in the DOM." width="800" height="821" srcset="https://web.dev/static/learn/pwa/update/image/an-update-notification-sh-1afdaff83bea2_36.png 36w,https://web.dev/static/learn/pwa/update/image/an-update-notification-sh-1afdaff83bea2_48.png 48w,https://web.dev/static/learn/pwa/update/image/an-update-notification-sh-1afdaff83bea2_72.png 72w,https://web.dev/static/learn/pwa/update/image/an-update-notification-sh-1afdaff83bea2_96.png 96w,https://web.dev/static/learn/pwa/update/image/an-update-notification-sh-1afdaff83bea2_480.png 480w,https://web.dev/static/learn/pwa/update/image/an-update-notification-sh-1afdaff83bea2_720.png 720w,https://web.dev/static/learn/pwa/update/image/an-update-notification-sh-1afdaff83bea2_856.png 856w,https://web.dev/static/learn/pwa/update/image/an-update-notification-sh-1afdaff83bea2_960.png 960w,https://web.dev/static/learn/pwa/update/image/an-update-notification-sh-1afdaff83bea2_1440.png 1440w,https://web.dev/static/learn/pwa/update/image/an-update-notification-sh-1afdaff83bea2_1920.png 1920w,https://web.dev/static/learn/pwa/update/image/an-update-notification-sh-1afdaff83bea2_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px">.</p>
                             
                             <h3 id="more_about_the_badging_api" data-text="More about the Badging API" tabindex="-1">More about the Badging API</h3>
                             
-                            <p>The <a href="/badging-api">Badging API</a> lets you mark your PWA&#39;s icon with a badge number, or a badge dot on compatible browsers. A badge dot is a tiny mark within the installed icon that expresses something is waiting inside the app.</p>
+                            <p>The <a "badging-api">Badging API</a> lets you mark your PWA&#39;s icon with a badge number, or a badge dot on compatible browsers. A badge dot is a tiny mark within the installed icon that expresses something is waiting inside the app.</p>
                             
                             <p><img src="/static/learn/pwa/update/image/example-twitter-eight-n-c72836fb4a749.webp" alt="Example of Twitter with eight notifications and another app showing a flag type badge." width="800" height="252"></p>
                             
@@ -1376,13 +1376,13 @@
                             <h2 id="resources" data-text="Resources" tabindex="-1">Resources</h2>
                             
                             <ul>
-                            <li><a href="/articles/service-worker-lifecycle">Service Worker Lifecycle</a></li>
-                            <li><a href="/articles/manifest-updates">How Chrome handles updates to the web app manifest</a></li>
+                            <li><a "articles/service-worker-lifecycle">Service Worker Lifecycle</a></li>
+                            <li><a "articles/manifest-updates">How Chrome handles updates to the web app manifest</a></li>
                             <li><a href="https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/background-syncs">Synchronize and update a PWA in the Background</a></li>
-                            <li><a href="/periodic-background-sync">Richer offline experiences with the Periodic Background Sync API</a></li>
+                            <li><a "periodic-background-sync">Richer offline experiences with the Periodic Background Sync API</a></li>
                             <li><a href="https://developer.mozilla.org/docs/Web/API/Push_API">Push API</a></li>
-                            <li><a href="/articles/push-notifications-overview">Push notifications overview</a></li>
-                            <li><a href="/badging-api">Badging for app icons</a></li>
+                            <li><a "articles/push-notifications-overview">Push notifications overview</a></li>
+                            <li><a "badging-api">Badging for app icons</a></li>
                             <li><a href="https://medium.com/google-developer-experts/workbox-4-implementing-refresh-to-update-version-flow-using-the-workbox-window-module-41284967e79c">Workbox 4: Implementing refresh-to-update-version flow using the workbox-window module</a></li>
                             </ul>
                             

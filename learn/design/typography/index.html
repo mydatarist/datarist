@@ -1202,7 +1202,7 @@
                             
                             <p>But just because text fits on a screen doesn&#39;t mean it&#39;s comfortable to read. Good typography is all about presenting your text in an appropriate way. There&#39;s more to typography than choosing suitable fonts to use. You need to consider the user&#39;s preferences, the size of the text, line length, and the distance between the lines of text.</p>
                             
-                            <aside class="note"><b>Note: </b> You may even need to consider the primary language of your user, as you may need to leave room for accents and other special characters. Learn more about this in the <a href="/learn/design/internationalization">internationalization</a> module. </aside>
+                            <aside class="note"><b>Note: </b> You may even need to consider the primary language of your user, as you may need to leave room for accents and other special characters. Learn more about this in the <a "learn/design/internationalization">internationalization</a> module. </aside>
                             
                             <h2 id="text_size" data-text="Text size" tabindex="-1">Text size</h2>
                             
@@ -1331,7 +1331,7 @@
                             
                             <p>You can&#39;t set a line length directly in CSS. There is no <code translate="no" dir="ltr">line-length</code> property. But you can stop text from getting too wide by limiting how wide the container can be. The <a href="https://developer.mozilla.org/docs/Web/CSS/max-inline-size"><code translate="no" dir="ltr">max-inline-size</code></a> property is perfect for this.</p>
                             
-                            <p>Don&#39;t set your line-lengths with a fixed unit like <code translate="no" dir="ltr">px</code>. Users can scale their font size up and down and your line lengths should adjust accordingly. Use a <a href="/learn/css/sizing#relative_lengths">relative unit</a> like <code translate="no" dir="ltr">rem</code> or <code translate="no" dir="ltr">ch</code>.</p>
+                            <p>Don&#39;t set your line-lengths with a fixed unit like <code translate="no" dir="ltr">px</code>. Users can scale their font size up and down and your line lengths should adjust accordingly. Use a <a "learn/css/sizing#relative_lengths">relative unit</a> like <code translate="no" dir="ltr">rem</code> or <code translate="no" dir="ltr">ch</code>.</p>
                             
                             <div class="wd-compare">
                               <div class="compare-worse">Don't</div>
@@ -1436,7 +1436,7 @@
                             
                             <p>Use the CSS <a href="https://developer.mozilla.org/docs/Web/CSS/@font-face/font-display"><code translate="no" dir="ltr">font-display</code></a> property to tell the browser how to manage the switchover from a system font to a web font. You could choose to show no text at all until the web font is loaded. You could choose to display the system font immediately and then switch over to the web font once it loads. Both strategies have their downsides. If you wait until the web font is downloaded before showing any text, users may find themselves staring at a blank page for a frustratingly long time. If you show the text in a system font first and then switch over to the web font, users may experience a jarring shifting of content on the page.</p>
                             
-                            <aside class="note"><b>Note: </b> You can mitigate the jarring effect of text shifting around by using <a href="/articles/css-size-adjust"><code translate="no" dir="ltr">size-adjust</code></a> in your <code translate="no" dir="ltr">@font-face</code> rule. </aside>
+                            <aside class="note"><b>Note: </b> You can mitigate the jarring effect of text shifting around by using <a "articles/css-size-adjust"><code translate="no" dir="ltr">size-adjust</code></a> in your <code translate="no" dir="ltr">@font-face</code> rule. </aside>
                             
                             <p>A good compromise is to wait for a short while before displaying any text. If the web font loads before that time is up, the text is displayed using the web font with no content shifts. If the web font still hasn&#39;t loaded after the time is up, the text is displayed using the system font so at least the user can read the content.</p>
                             
@@ -1456,17 +1456,17 @@
                             
                             <p>If you are using lots of different weights or styles of the same typeface, you may end up using lots of separate font files—a separate font file for each weight or style.</p>
                             
-                            <p><a href="/articles/variable-fonts">Variable fonts</a> solve this problem by using one file. Instead of having separate files for regular, bold, extra bold, and so on, a variable font file is responsive. It contains all the information it needs to be displayed across a spectrum of weights or styles.</p>
+                            <p><a "articles/variable-fonts">Variable fonts</a> solve this problem by using one file. Instead of having separate files for regular, bold, extra bold, and so on, a variable font file is responsive. It contains all the information it needs to be displayed across a spectrum of weights or styles.</p>
                             
                             <p><img src="/static/learn/design/typography/image/the-letter-shown-diff-ddf0d3e19bf74.png" alt="The letter 'A' shown in different weights." width="800" height="218" srcset="https://web.dev/static/learn/design/typography/image/the-letter-shown-diff-ddf0d3e19bf74_36.png 36w,https://web.dev/static/learn/design/typography/image/the-letter-shown-diff-ddf0d3e19bf74_48.png 48w,https://web.dev/static/learn/design/typography/image/the-letter-shown-diff-ddf0d3e19bf74_72.png 72w,https://web.dev/static/learn/design/typography/image/the-letter-shown-diff-ddf0d3e19bf74_96.png 96w,https://web.dev/static/learn/design/typography/image/the-letter-shown-diff-ddf0d3e19bf74_480.png 480w,https://web.dev/static/learn/design/typography/image/the-letter-shown-diff-ddf0d3e19bf74_720.png 720w,https://web.dev/static/learn/design/typography/image/the-letter-shown-diff-ddf0d3e19bf74_856.png 856w,https://web.dev/static/learn/design/typography/image/the-letter-shown-diff-ddf0d3e19bf74_960.png 960w,https://web.dev/static/learn/design/typography/image/the-letter-shown-diff-ddf0d3e19bf74_1440.png 1440w,https://web.dev/static/learn/design/typography/image/the-letter-shown-diff-ddf0d3e19bf74_1920.png 1920w,https://web.dev/static/learn/design/typography/image/the-letter-shown-diff-ddf0d3e19bf74_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
                             
                             <p>This means that a single variable font file is larger than a single regular font file, but a single variable font file will probably be smaller than multiple regular font files. If you&#39;re using lots of different weights, a variable font could give you a big performance gain.</p>
                             
-                            <aside class="note"><b>Note: </b> If you're styling elements using the <code translate="no" dir="ltr">system-ui</code> value for <code translate="no" dir="ltr">font-face</code> property, you might get all the benefits of variable fonts without downloading any font files. <a href="/articles/more-variable-font-options-in-chromium-83">More and more system fonts are now variable fonts</a>. </aside>
+                            <aside class="note"><b>Note: </b> If you're styling elements using the <code translate="no" dir="ltr">system-ui</code> value for <code translate="no" dir="ltr">font-face</code> property, you might get all the benefits of variable fonts without downloading any font files. <a "articles/more-variable-font-options-in-chromium-83">More and more system fonts are now variable fonts</a>. </aside>
                             
                             <p>Good typography on the web isn&#39;t just about the type choices that you make as a designer. Responsive typography is also about respecting the user&#39;s device and network connection. The end result is a design that feels right no matter how it&#39;s being viewed.</p>
                             
-                            <p>Now that you&#39;ve mastered responsive text, it&#39;s time to dive into <a href="/learn/design/responsive-images">responsive images</a>.</p>
+                            <p>Now that you&#39;ve mastered responsive text, it&#39;s time to dive into <a "learn/design/responsive-images">responsive images</a>.</p>
                             
 
 

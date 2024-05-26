@@ -1207,7 +1207,7 @@
                             <li>Make new files and folders.</li>
                             </ul>
                             
-                            <p>Before the <a href="/file-system-access">File System Access API</a>, web apps couldn&#39;t do this. Opening files required a file upload, saving changes required users to download them, and the web had no access at all to make new files and folders in the user&#39;s filesystem.</p>
+                            <p>Before the <a "file-system-access">File System Access API</a>, web apps couldn&#39;t do this. Opening files required a file upload, saving changes required users to download them, and the web had no access at all to make new files and folders in the user&#39;s filesystem.</p>
                             
                             <h3 id="opening_a_file" data-text="Opening a file" tabindex="-1">Opening a file</h3>
                             
@@ -1257,7 +1257,7 @@
                             
                             <h2 id="file_handling" data-text="File handling" tabindex="-1">File handling</h2>
                             
-                            <p>The File System Access API lets you open files from within your app, but what about the other way around? Users want to set their favorite app as their default to open files with. The <a href="/file-handling">file handling API</a> is an experimental API that lets installed PWAs:
+                            <p>The File System Access API lets you open files from within your app, but what about the other way around? Users want to set their favorite app as their default to open files with. The <a "file-handling">file handling API</a> is an experimental API that lets installed PWAs:
                             Register as a file handler on a user&#39;s device, specifying the MIME type and file extension that your PWA supports in your web app manifest. You can specify custom file icons for your supported extensions.</p>
                             
                             <p>Once registered, your installed PWA will show up as an option from the user&#39;s file system, allowing them to open the file directly into it.
@@ -1279,7 +1279,7 @@
                             
                             <p>This behavior is automatically available on Android when WebAPK is used, such as when users install a PWA with Chrome. It&#39;s impossible to capture URLs on PWAs installed on iOS and iPadOS from Safari.</p>
                             
-                            <p>For desktop browsers, the web browser community created a new spec. This spec is currently <a href="/learn/pwa/experimental">experimental</a>; it adds a new manifest file member: <code translate="no" dir="ltr">url_handlers</code>. This property expects an array of origins that the PWA wants to capture. The origin of your PWA will be granted automatically, and each other origin must accept that handling operating through a file named <code translate="no" dir="ltr">web-app-origin-association</code>.
+                            <p>For desktop browsers, the web browser community created a new spec. This spec is currently <a "learn/pwa/experimental">experimental</a>; it adds a new manifest file member: <code translate="no" dir="ltr">url_handlers</code>. This property expects an array of origins that the PWA wants to capture. The origin of your PWA will be granted automatically, and each other origin must accept that handling operating through a file named <code translate="no" dir="ltr">web-app-origin-association</code>.
                             For example, if your PWA&#39;s manifest is hosted on the web.dev, and you want to add the app.web.dev origin, it would look like this:</p>
                             <pre class="prettyprint lang-json" translate="no" dir="ltr"><code translate="no" dir="ltr">&#34;url_handlers&#34;: [
                                 {&#34;origin&#34;: &#34;https://app.web.dev&#34;},
@@ -1303,7 +1303,7 @@
                             
                             <p>URL handling works with standard <code translate="no" dir="ltr">https</code> protocol URLs, but it is possible to use custom URI-schemes, such as <code translate="no" dir="ltr">pwa://</code>. In several operating systems, installed apps gain this ability by apps registering their schemes.</p>
                             
-                            <p>For PWA, this capability is enabled using the <a href="/url-protocol-handler">URL protocol handler API</a>, available only on desktop devices. You can only allow custom protocols for mobile devices by distributing your PWA on app stores.</p>
+                            <p>For PWA, this capability is enabled using the <a "url-protocol-handler">URL protocol handler API</a>, available only on desktop devices. You can only allow custom protocols for mobile devices by distributing your PWA on app stores.</p>
                             
                             <aside class="caution"><b>Caution: </b> For PWAs using the URL protocol handler API, the protocol name has to be one of the <a href="https://html.spec.whatwg.org/multipage/system-state.html#safelisted-scheme">safelisted schemes</a>, or it must use a <code translate="no" dir="ltr">web+</code> prefix. So, in our example, a link should point to <code translate="no" dir="ltr">web+pwa://</code> to open our PWA. </aside>
                             
@@ -1639,13 +1639,13 @@
                             <h2 id="resources" data-text="Resources" tabindex="-1">Resources</h2>
                             
                             <ul>
-                            <li><a href="/file-system-access">The File System Access API: simplifying access to local files</a></li>
-                            <li><a href="/file-handling">Let installed web applications be file handlers</a></li>
+                            <li><a "file-system-access">The File System Access API: simplifying access to local files</a></li>
+                            <li><a "file-handling">Let installed web applications be file handlers</a></li>
                             <li><a href="https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/handle-files">Handle files in Progressive Web Apps</a></li>
-                            <li><a href="/articles/web-share">Integrate with the OS Sharing UI with the Web Share API</a></li>
+                            <li><a "articles/web-share">Integrate with the OS Sharing UI with the Web Share API</a></li>
                             <li><a href="https://docs.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/share">Share content with other apps</a></li>
                             <li><a href="https://developer.chrome.com/articles/web-share-target">Receiving shared data with the Web Share Target API</a></li>
-                            <li><a href="/contact-picker">A contact picker for the web</a></li>
+                            <li><a "contact-picker">A contact picker for the web</a></li>
                             </ul>
                             
                               

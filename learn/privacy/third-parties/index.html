@@ -1381,7 +1381,7 @@
                             
                             <p>The first step is non-technical: read the privacy policies of your suppliers. If you include any third-party resources,
                             check the privacy policies. They will be long and full of legal text, and some documents may use some of the approaches
-                            specifically warned against <a href="/learn/privacy/data">in earlier modules</a>, such as overly general statements and without any indication
+                            specifically warned against <a "learn/privacy/data">in earlier modules</a>, such as overly general statements and without any indication
                             of how or when collected data will be removed. It is important to realize that from a user perspective, all the data that
                             is collected on your site, including by third parties, will be governed by these privacy policies. Even if you do
                             everything correctly, when you are transparent about your goals and exceed your users&#39; expectations of data privacy and
@@ -1618,7 +1618,7 @@
                             
                             <p>By default, each HTTP request the browser makes passes on a <code translate="no" dir="ltr">Referer</code> header which contains the URL of the page initiating the request,
                             whether a link, an embedded image, or script. This can be a privacy issue because URLs can contain private information, and those URLs
-                            being available to third parties passes that private information to them. <a href="/articles/referrer-best-practices#referer_and_referrer-policy_101">Web.dev lists some examples</a>
+                            being available to third parties passes that private information to them. <a "articles/referrer-best-practices#referer_and_referrer-policy_101">Web.dev lists some examples</a>
                             of URLs containing private data—knowing that a user came to your site from <code translate="no" dir="ltr">https://social.example.com/user/me@example.com</code> tells you who that user is,
                             which is a definite leak. But even a URL which does not itself expose private information does expose that this particular user (who you may know,
                             if they&#39;re logged in) came here from another site and this therefore reveals that this user visited that other site. This is in itself exposure of
@@ -1635,7 +1635,7 @@
                             (This is a nice example of the privacy-versus-utility balance; the new default is much more privacy-preserving than before, but it
                             still gives high level information to third parties of your choice, such as your analytics provider.)</p>
                             
-                            <p>It&#39;s also useful to explicitly specify this header <a href="/articles/referrer-best-practices#why_explicitly">because then you know exactly what the policy is, rather than relying on the browser defaults</a>.
+                            <p>It&#39;s also useful to explicitly specify this header <a "articles/referrer-best-practices#why_explicitly">because then you know exactly what the policy is, rather than relying on the browser defaults</a>.
                             If you aren&#39;t able to set headers, then it&#39;s possible to set a referrer policy for a whole HTML page using a meta element in the <code translate="no" dir="ltr">&lt;head&gt;</code>:
                             <code translate="no" dir="ltr">&lt;meta name=&quot;referrer&quot; content=&quot;same-origin&quot;&gt;</code>; and if concerned about specific third parties, it&#39;s also possible to set a <code translate="no" dir="ltr">referrerpolicy</code>
                             attribute on individual elements such as <code translate="no" dir="ltr">&lt;script&gt;</code>, <code translate="no" dir="ltr">&lt;a&gt;</code>, or <code translate="no" dir="ltr">&lt;iframe&gt;</code>: <code translate="no" dir="ltr">&lt;script src=&quot;https://thirdparty.example.com/data.js&quot; referrerpolicy=&quot;no-referrer&quot;&gt;</code></p>
@@ -1649,11 +1649,11 @@
                             <p>This is potentially a less-than-great user experience; if one of your third-party scripts starts loading a dependency from an
                             origin not on your list, then that request will be blocked, the script will fail, and your application may fail with it
                             (or at least be reduced to its JavaScript-failing fallback version). This is useful when CSP is implemented for security,
-                            which is its normal purpose: protecting against cross-site scripting issues (and to do this, use a <a href="/articles/strict-csp">strict CSP</a>).
+                            which is its normal purpose: protecting against cross-site scripting issues (and to do this, use a <a "articles/strict-csp">strict CSP</a>).
                             Once you know all the inline scripts that your page uses, you can make a list of them, calculate a hash value or add a random value
                             (called a &quot;nonce&quot;) for each, and then add the list of hashes to your Content Security Policy. This will prevent any script that
                             isn&#39;t on the list from being loaded. This needs to be baked into the production process for the site: scripts in your pages need
-                            to include the nonce or to have a hash calculated as part of the build. See <a href="/articles/strict-csp">the article on strict-csp</a> for all the details.</p>
+                            to include the nonce or to have a hash calculated as part of the build. See <a "articles/strict-csp">the article on strict-csp</a> for all the details.</p>
                             
                             <p>Fortunately, browsers support a related header, <code translate="no" dir="ltr">Content-Security-Policy-Report-Only</code>. If this header is provided, requests
                             that violate the supplied policy will not be blocked, but a JSON report will be sent to a supplied URL. Such a header might
@@ -1696,7 +1696,7 @@
                             but it restricts access to powerful browser features. For example, it’s possible to restrict use of device hardware such as the accelerometer,
                             camera, or USB devices, or to restrict non-hardware features such as permission to go fullscreen or use synchronous <code translate="no" dir="ltr">XMLHTTPRequest</code>.
                             These restrictions can be applied to a top-level page (to avoid loaded scripts from attempting to use these features) or to
-                            subframed pages loaded in via an iframe. This restriction of API usage isn’t really about browser <a href="/learn/privacy/fingerprinting">fingerprinting</a>; it&#39;s about disallowing third-parties from doing intrusive things (such as using powerful APIs, popping up
+                            subframed pages loaded in via an iframe. This restriction of API usage isn’t really about browser <a "learn/privacy/fingerprinting">fingerprinting</a>; it&#39;s about disallowing third-parties from doing intrusive things (such as using powerful APIs, popping up
                             permissions windows, etc). This is defined by the Target Privacy Threat Model as <a href="https://w3cping.github.io/privacy-threat-model/#intrusion">&quot;intrusion&quot;</a>.</p>
                             
                             <p>A <code translate="no" dir="ltr">Permissions-Policy</code> header is specified as a list of (feature, allowed origins) pairs, thus:</p>
@@ -1745,7 +1745,7 @@
                             in Firefox (and its engine, Gecko). These all make it difficult for third parties to build detailed profiles of your users.</p>
                             
                             <p>Browser approaches on privacy features change frequently, and it’s important to stay up to date; the following list of protections
-                            are correct at time of writing. Browsers may also implement other protections; these lists are not exhaustive. See <a href="/learn/privacy/best-practices">the module on best practices</a>
+                            are correct at time of writing. Browsers may also implement other protections; these lists are not exhaustive. See <a "learn/privacy/best-practices">the module on best practices</a>
                             for ways to keep up with changes here, and be sure to test with upcoming browser versions for changes that may affect your projects.
                             Bear in mind that incognito/private browsing modes sometimes implement different settings from the browser’s default (third-party cookies may be blocked
                             by default in such modes, for example). Therefore, testing in incognito mode may not always be reflective of most users’ typical browsing experience if

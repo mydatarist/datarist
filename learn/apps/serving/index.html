@@ -1348,7 +1348,7 @@
                             };
                             const htmlResponse = new Response(&#34;&lt;b&gt;HTML&lt;/b&gt; content&#34;, options)
                             </code></pre>
-                            <aside class="warning"><b>Warning: </b> Be extra careful when creating responses with a service worker buggy code can lead to corner cases and hard to debug issues, such as the browser being unable to load the HTML document that renders your PWA. While debugging, you can always use your browser's reload button with the Shift key pressed, which will bypass the service worker; or use service worker devtools on supported browsers as we'll see in <a href="/learn/pwa/tools-and-debug">Tools and Debug</a>. </aside>
+                            <aside class="warning"><b>Warning: </b> Be extra careful when creating responses with a service worker buggy code can lead to corner cases and hard to debug issues, such as the browser being unable to load the HTML document that renders your PWA. While debugging, you can always use your browser's reload button with the Shift key pressed, which will bypass the service worker; or use service worker devtools on supported browsers as we'll see in <a "learn/pwa/tools-and-debug">Tools and Debug</a>. </aside>
                             
                             <div class="wd-embed" style="height: 420px;">
                               <iframe
@@ -1363,7 +1363,7 @@
                             <h3 id="responding_from_the_cache" data-text="Responding from the cache" tabindex="-1">Responding from the cache</h3>
                             
                             <p>Now that you know how to serve HTTP responses from a service worker,
-                            it&#39;s time to use the <a href="/learn/pwa/caching">Caching Storage interface</a> to store assets on the device.</p>
+                            it&#39;s time to use the <a "learn/pwa/caching">Caching Storage interface</a> to store assets on the device.</p>
                             
                             <p>You can use the cache storage API to check if the request received from the PWA is available in the cache, and if it is, respond to <code translate="no" dir="ltr">respondWith()</code> with it.
                             To do that, you first need to search within the cache. The <code translate="no" dir="ltr">match()</code> function, available at the top-level <code translate="no" dir="ltr">caches</code> interface searches all stores in your origin, or on a single open cache object.</p>
@@ -1387,7 +1387,7 @@
                             
                             <p>Serving files only from the browser cache doesn&#39;t fit every use case. For example the user or the browser can evict the cache. That&#39;s why you should define your own strategies for delivering assets for your PWA.
                             You&#39;re not restricted to one caching strategy. You can define different ones for different URL patterns. For example, you can have one strategy for the minimum UI assets, another for API calls, and a third for image and data URLs.
-                            To do this, read <code translate="no" dir="ltr">event.request.url</code> in <code translate="no" dir="ltr">ServiceWorkerGlobalScope.onfetch</code> and parse it through regular expressions or a <a href="/urlpattern">URL Pattern</a>. (At the time of writing, URL Pattern is not supported on all platforms).</p>
+                            To do this, read <code translate="no" dir="ltr">event.request.url</code> in <code translate="no" dir="ltr">ServiceWorkerGlobalScope.onfetch</code> and parse it through regular expressions or a <a "urlpattern">URL Pattern</a>. (At the time of writing, URL Pattern is not supported on all platforms).</p>
                             
                             <p>The most common strategies are:</p>
                             
@@ -1520,13 +1520,13 @@
                             
                             <h2 id="updating_assets" data-text="Updating assets" tabindex="-1">Updating assets</h2>
                             
-                            <p>Keeping your PWA&#39;s cached assets up-to-date can be a challenge. While the stale while revalidate strategy is one way to do so, it&#39;s not the only one. In the <a href="/learn/pwa/update">Update chapter</a> you will learn different techniques to keep your app&#39;s content and assets updated.</p>
+                            <p>Keeping your PWA&#39;s cached assets up-to-date can be a challenge. While the stale while revalidate strategy is one way to do so, it&#39;s not the only one. In the <a "learn/pwa/update">Update chapter</a> you will learn different techniques to keep your app&#39;s content and assets updated.</p>
                             
                             <h2 id="resources" data-text="Resources" tabindex="-1">Resources</h2>
                             
                             <ul>
                             <li><a href="https://developer.mozilla.org/docs/Web/API/FetchEvent">Fetch event on datarist</a></li>
-                            <li><a href="/articles/offline-cookbook">The Offline Cookbook</a></li>
+                            <li><a "articles/offline-cookbook">The Offline Cookbook</a></li>
                             <li><a href="https://developer.mozilla.org/docs/Web/API/Cache/match">Cache Match on datarist</a></li>
                             </ul>
                             
