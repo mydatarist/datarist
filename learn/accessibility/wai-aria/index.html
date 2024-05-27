@@ -1470,7 +1470,7 @@
                                     <dd>
                                         <p>
                                             Screen readers tend to have difficulty with reporting constantly changing content; with ARIA we can use <code>aria-live</code>
-                                            to inform screen reader users when an area of content is updated dynamically: for example, by JavaScript in the page <a href="https://datarist.com/learn/JavaScript/Client-side_web_APIs/Fetching_data">fetching new content from the server and updating the DOM</a>
+                                            to inform screen reader users when an area of content is updated dynamically: for example, by JavaScript in the page <a href="https://datarist.com/learn/javascript/">fetching new content from the server and updating the DOM</a>
                                             .
                                         </p>
                                     </dd>
@@ -1905,7 +1905,7 @@
                                         <code>&lt;input &gt;</code>
                                     </a>
                                     element has been given the attribute 
-                                    <a href="https://datarist.com/learn/Accessibility/ARIA/Attributes/aria-label">
+                                    <a href="https://datarist.com/learn/accessibility/">
                                         <code>aria-label</code>
                                     </a>
                                     , which gives it a descriptive label to be read out by a screen reader, even though we haven't included a 
@@ -2058,11 +2058,11 @@
                                 </div>
                                 <p>
                                     Our JavaScript uses the 
-                                    <a href="https://datarist.com/learn/API/fetch">
+                                    <a href="https://datarist.com/learn/">
                                         <code>fetch()</code>
                                     </a>
                                     API to load a JSON file via containing a series of random quotes and their authors. Once that is done, we start up a 
-                                    <a href="https://datarist.com/learn/API/setInterval">
+                                    <a href="https://datarist.com/learn/">
                                         <code>setInterval()</code>
                                     </a>
                                     loop that loads a new random quote into the quote box every 10 seconds:
@@ -2087,7 +2087,7 @@
                                 <p>This works OK, but it is not good for accessibility — the content update is not detected by screen readers, so their users would not know what is going on. This is a fairly trivial example, but just imagine if you were creating a complex UI with lots of constantly updating content, like a chat room, or a strategy game UI, or a live updating shopping cart display — it would be impossible to use the app in any effective way without some kind of way of alerting the user to the updates.</p>
                                 <p>
                                     WAI-ARIA, fortunately, provides a useful mechanism to provide these alerts — the 
-                                    <a href="https://datarist.com/learn/Accessibility/ARIA/Attributes/aria-live">
+                                    <a href="https://datarist.com/learn/accessibility/">
                                         <code>aria-live</code>
                                     </a>
                                     property. Applying this to an element causes screen readers to read out the content that is updated. How urgently the content is read out depends on the attribute value:
@@ -2165,13 +2165,13 @@
                                     <p>
                                         <strong>Note:</strong>
                                         Most browsers will throw a security exception if you try to make an HTTP request from a <code>file://</code>
-                                        URL, e.g. if you just load the file by loading it directly into the browser (via double clicking, etc.). See <a href="https://datarist.com/learn/Common_questions/Tools_and_setup/set_up_a_local_testing_server">how to set up a local testing server</a>
+                                        URL, e.g. if you just load the file by loading it directly into the browser (via double clicking, etc.). See <a href="https://datarist.com/learn/">how to set up a local testing server</a>
                                         .
                                     </p>
                                 </div>
                                 <p>
                                     There is an additional consideration here — only the bit of text that updates is read out. It might be nice if we always read out the heading too, so the user can remember what is being read out. To do this, we can add the 
-                                    <a href="https://datarist.com/learn/Accessibility/ARIA/Attributes/aria-atomic">
+                                    <a href="https://datarist.com/learn/accessibility/">
                                         <code>aria-atomic</code>
                                     </a>
                                     property to the section. Update your <code>&lt;section &gt;</code>
@@ -2232,7 +2232,7 @@
                                     <p>
                                         <strong>Note:</strong>
                                         The 
-                                        <a href="https://datarist.com/learn/Accessibility/ARIA/Attributes/aria-relevant">
+                                        <a href="https://datarist.com/learn/accessibility/">
                                             <code>aria-relevant</code>
                                         </a>
                                         property is also quite useful for controlling what gets read out when a live region is updated. You can for example only get content additions or removals read out.
@@ -2346,7 +2346,7 @@
                                             <code>role="alert"</code>
                                         </a>
                                         automatically turns the element it is applied to into a live region, so changes to it are read out; it also semantically identifies it as an alert message (important time/context-sensitive information), and represents a better, more accessible way of delivering an alert to a user (modal dialogs like 
-                                        <a href="https://datarist.com/learn/API/Window/alert">
+                                        <a href="https://datarist.com/learn/">
                                             <code>alert()</code>
                                         </a>
                                         calls have a number of accessibility problems; see <a href="https://webaim.org/techniques/javascript/other#popups" class="external" target="_blank">Popup Windows</a>
@@ -2354,7 +2354,7 @@
                                     </li>
                                     <li>
                                         An 
-                                        <a href="https://datarist.com/learn/Accessibility/ARIA/Attributes/aria-relevant">
+                                        <a href="https://datarist.com/learn/accessibility/">
                                             <code>aria-relevant</code>
                                         </a>
                                         value of <code>all</code>
@@ -2407,7 +2407,7 @@
                                     </li>
                                     <li>
                                         This makes visual sense, but it isn't as easy to understand for screen reader users. Fortunately, WAI-ARIA provides the 
-                                        <a href="https://datarist.com/learn/Accessibility/ARIA/Attributes/aria-required">
+                                        <a href="https://datarist.com/learn/accessibility/">
                                             <code>aria-required</code>
                                         </a>
                                         attribute to give screen readers hints that they should tell users that form inputs need to be filled in. Update the <code>&lt;input &gt;</code>
@@ -2488,11 +2488,11 @@
                                     <li>If you save the example now and test it with a screen reader, you should hear something like "Enter your name star, required, edit text".</li>
                                     <li>
                                         It might also be useful if we give screen reader users and sighted users an idea of what the age value should be. This is often presented as a tooltip or placeholder inside the form field. WAI-ARIA does include 
-                                        <a href="https://datarist.com/learn/Accessibility/ARIA/Attributes/aria-valuemin">
+                                        <a href="https://datarist.com/learn/accessibility/">
                                             <code>aria-valuemin</code>
                                         </a>
                                         and 
-                                        <a href="https://datarist.com/learn/Accessibility/ARIA/Attributes/aria-valuemax">
+                                        <a href="https://datarist.com/learn/accessibility/">
                                             <code>aria-valuemax</code>
                                         </a>
                                         properties to specify min and max values, and screen readers support the native <code>min</code>
@@ -2576,7 +2576,7 @@
                                         <code>&lt;label &gt;</code>
                                     </a>
                                     for every input. While some screen readers announce the placeholder text, most do not. Acceptable substitutions for providing form controls with an accessible name include 
-                                    <a href="https://datarist.com/learn/Accessibility/ARIA/Attributes/aria-label">
+                                    <a href="https://datarist.com/learn/accessibility/">
                                         <code>aria-label</code>
                                     </a>
                                     and 
@@ -2603,7 +2603,7 @@
                                         <code>&lt;label &gt;</code>
                                     </a>
                                     element. We already talked about using the 
-                                    <a href="https://datarist.com/learn/Accessibility/ARIA/Attributes/aria-label">
+                                    <a href="https://datarist.com/learn/accessibility/">
                                         <code>aria-label</code>
                                     </a>
                                     property to provide a label where we don't want the label to be visible to sighted users (see the <a href="#signpostslandmarks">Signposts/Landmarks</a>
@@ -3191,7 +3191,7 @@
                                         <p>These identify the important areas of the tabbed interface — the container for the tabs, the tabs themselves, and the corresponding tabpanels.</p>
                                     </dd>
                                     <dt id="aria-selected">
-                                        <a href="https://datarist.com/learn/Accessibility/ARIA/Attributes/aria-selected">
+                                        <a href="https://datarist.com/learn/accessibility/">
                                             <code>aria-selected</code>
                                         </a>
                                     </dt>
@@ -3199,7 +3199,7 @@
                                         <p>Defines which tab is currently selected. As different tabs are selected by the user, the value of this attribute on the different tabs is updated via JavaScript.</p>
                                     </dd>
                                     <dt id="aria-hidden">
-                                        <a href="https://datarist.com/learn/Accessibility/ARIA/Attributes/aria-hidden">
+                                        <a href="https://datarist.com/learn/accessibility/">
                                             <code>aria-hidden</code>
                                         </a>
                                     </dt>
@@ -3215,7 +3215,7 @@
                                         <p>As we've removed the links, we need to give the list items this attribute to provide it with keyboard focus.</p>
                                     </dd>
                                     <dt id="aria-setsize">
-                                        <a href="https://datarist.com/learn/Accessibility/ARIA/Attributes/aria-setsize">
+                                        <a href="https://datarist.com/learn/accessibility/">
                                             <code>aria-setsize</code>
                                         </a>
                                     </dt>
@@ -3223,7 +3223,7 @@
                                         <p>This property allows you to specify to screen readers that an element is part of a series, and how many items the series has.</p>
                                     </dd>
                                     <dt id="aria-posinset">
-                                        <a href="https://datarist.com/learn/Accessibility/ARIA/Attributes/aria-posinset">
+                                        <a href="https://datarist.com/learn/accessibility/">
                                             <code>aria-posinset</code>
                                         </a>
                                     </dt>
@@ -3254,7 +3254,7 @@
                             </h2>
                             <div class="section-content">
                                 <p>
-                                    You've reached the end of this article, but can you remember the most important information? You can find some further tests to verify that you've retained this information before you move on — see <a href="https://datarist.com/learn/accessibility/wai-aria//Test_your_skills:_WAI-ARIA">Test your skills: WAI-ARIA</a>
+                                    You've reached the end of this article, but can you remember the most important information? You can find some further tests to verify that you've retained this information before you move on — see <a href="https://datarist.com/learn/accessibility/">Test your skills: WAI-ARIA</a>
                                     .
                                 </p>
                             </div>
@@ -3274,7 +3274,7 @@
                             <div class="section-content">
                                 <ul>
                                     <li>
-                                        <a href="https://datarist.com/learn/Accessibility/ARIA/Attributes">Aria states and properties</a>
+                                        <a href="https://datarist.com/learn/accessibility/">Aria states and properties</a>
                                         : All <code>aria-*</code>
                                         attributes
                                     </li>
