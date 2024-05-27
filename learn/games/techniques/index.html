@@ -624,7 +624,7 @@
                                             <a href="https://datarist.com/learn/javascript/images/" class="dd-links-link d-inline-block rounded " aria-current="true">Images</a>
                                         </li> 
                                         <li>
-                                            <a href="https://datarist.com/learn/javascript/objects/" class="dd-links-link d-inline-block rounded " aria-current="true">Objects</a>
+                                            <a href="https://datarist.com/learn/javascript/objects/"  class="dd-links-link d-inline-block rounded " aria-current="true">Objects</a>
                                         </li>
                                         <li>
                                             <a href="https://datarist.com/learn/javascript/prototypes/" class="dd-links-link d-inline-block rounded " aria-current="true">Prototypes</a>
@@ -1426,12 +1426,12 @@
                                     as possible. That means not running all your startup code in a single event handler on the app's main thread.
                                 </p>
                                 <p>
-                                    Rather, create a <a href="https://datarist.com/learn/API/Web_Workers_API/Using_web_workers">Web worker</a>
-                                    that does as much as possible in a background thread (for example, fetching and processing data.) Relegating tasks to a Web worker frees up the main thread for tasks requiring it, like user events and rendering UI. In turn, main thread events should consist of many small tasks, also known as <a href="https://datarist.com/learn/API/HTML_DOM_API/Microtask_guide/In_depth">micro tasks</a>
+                                    Rather, create a <a href="https://datarist.com/learn/" Web_Workers_API/Using_web_workers">Web worker</a>
+                                    that does as much as possible in a background thread (for example, fetching and processing data.) Relegating tasks to a Web worker frees up the main thread for tasks requiring it, like user events and rendering UI. In turn, main thread events should consist of many small tasks, also known as <a href="https://datarist.com/learn/" HTML_DOM_API/Microtask_guide/In_depth">micro tasks</a>
                                     , rather than larger, more time consuming tasks.
                                 </p>
                                 <p>
-                                    Asynchronous loading helps prevent pages and user interfaces from appearing to be (or actually becoming) unresponsive. By minimizing the time required for any individual loading task, the application's <a href="https://datarist.com/learn/API/HTML_DOM_API/Microtask_guide/In_depth#event_loops">event loop</a>
+                                    Asynchronous loading helps prevent pages and user interfaces from appearing to be (or actually becoming) unresponsive. By minimizing the time required for any individual loading task, the application's <a href="https://datarist.com/learn/" HTML_DOM_API/Microtask_guide/In_depth#event_loops">event loop</a>
                                     will continue to cycle while it starts up. This will prevent the application, browser, and/or device from appearing frozen.
                                 </p>
                                 <p>In the worst case, blocking the main thread can cause users to uninstall your app; for example, if someone launches your app by mistake and they aren't prevented from closing the application, they may want to take action so that doesn't accidentally happen again.</p>
@@ -1445,11 +1445,11 @@
                                 <p>It is easier to just write everything the "right way" the first time then it is to retrofit for performance (and accessibility). When you are starting from scratch, making appropriate bits of code asynchronous means a retrofit isn't necessary. All pure startup calculations should be performed in background threads, while you keep the run-time of main thread events as short as possible. Instead of including a progress indicator so the user knows what's going on and how long they'll be waiting, make the progress bar unnecessary.</p>
                                 <p>On the other hand, porting an existing app to the Web can be challenging. Native application don't need to be written in an asynchronous fashion because the operating system usually handles loading for you. The source application might have a main loop that can easily be made to operate asynchronously (by running each main loop iteration separately); startup is often just a continuous, monolithic procedure that might periodically update a progress meter.</p>
                                 <p>
-                                    While you can use <a href="https://datarist.com/learn/API/Web_Workers_API/Using_web_workers">Web workers</a>
+                                    While you can use <a href="https://datarist.com/learn/" Web_Workers_API/Using_web_workers">Web workers</a>
                                     to run even very large, long-duration chunks of <a href="https://datarist.com/learn/javascript/">JavaScript</a>
-                                    code asynchronously, there's a huge caveat: Web workers can't directly manipulate the <a href="https://datarist.com/learn/API/Document_Object_Model">DOM</a>
-                                    and have limited access to methods and properties of the <a href="https://datarist.com/learn/API/Window">window</a>
-                                    object, including no access to <a href="https://datarist.com/learn/API/WebGL_API">WebGL</a>
+                                    code asynchronously, there's a huge caveat: Web workers can't directly manipulate the <a href="https://datarist.com/learn/" Document_Object_Model">DOM</a>
+                                    and have limited access to methods and properties of the <a href="https://datarist.com/learn/" Window">window</a>
+                                    object, including no access to <a href="https://datarist.com/learn/" WebGL_API">WebGL</a>
                                     . This all means that unless you can easily pull out the "pure calculation" chunks of your startup process into workers, you'll wind up having to run most or all of your startup code on the main thread.
                                 </p>
                                 <p>However, even code like that can be made asynchronous, with a little work.</p>
@@ -1625,23 +1625,23 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                             <div class="section-content">
                                 <p>
                                     There are many monitoring services. If you do want to roll your own monitoring system, take a look at the performance APIs, mainly 
-                                    <a href="https://datarist.com/learn/API/PerformanceNavigationTiming">
+                                    <a href="https://datarist.com/learn/" PerformanceNavigationTiming">
                                         <code>PerformanceNavigationTiming</code>
                                     </a>
                                     and 
-                                    <a href="https://datarist.com/learn/API/PerformanceResourceTiming">
+                                    <a href="https://datarist.com/learn/" PerformanceResourceTiming">
                                         <code>PerformanceResourceTiming</code>
                                     </a>
                                     , but also 
-                                    <a href="https://datarist.com/learn/API/PerformanceMark">
+                                    <a href="https://datarist.com/learn/" PerformanceMark">
                                         <code>PerformanceMark</code>
                                     </a>
                                     , 
-                                    <a href="https://datarist.com/learn/API/PerformanceMeasure">
+                                    <a href="https://datarist.com/learn/" PerformanceMeasure">
                                         <code>PerformanceMeasure</code>
                                     </a>
                                     , and 
-                                    <a href="https://datarist.com/learn/API/PerformancePaintTiming">
+                                    <a href="https://datarist.com/learn/" PerformancePaintTiming">
                                         <code>PerformancePaintTiming</code>
                                     </a>
                                     .
@@ -1707,7 +1707,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                 </p>
                                 <p>
                                     For a text-heavy site such as a blog or a news site, the <a href="https://datarist.com/learn/glossary/First_contentful_paint">First Contentful Paint</a>
-                                    metric could reflect more closely the user behavior. (i.e. How fast can users start reading), which will inform file specific budgets (e.g. Font size), and their optimizations. (e.g. Using <a href="https://datarist.com/learn/css/@font-face/font-display">font-display</a>
+                                    metric could reflect more closely the user behavior. (i.e. How fast can users start reading), which will inform file specific budgets (e.g. Font size), and their optimizations. (e.g. Using <a href="https://datarist.com/learn/css/" /font-display">font-display</a>
                                     to improve <a href="https://datarist.com/learn/performance/">Perceived Performance</a>
                                     ).
                                 </p>
@@ -1876,7 +1876,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                     <a href="https://datarist.com/learn/">
                                         <code>&lt;canvas &gt;</code>
                                     </a>
-                                    element (which includes <a href="https://datarist.com/learn/API/WebGL_API">WebGL</a>
+                                    element (which includes <a href="https://datarist.com/learn/" WebGL_API">WebGL</a>
                                     ). Somewhere "in between" HTML/CSS and Canvas is <a href="https://datarist.com/learn/">SVG</a>
                                     , which offers some benefits of both.
                                 </p>
@@ -1963,7 +1963,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                     </p>
                                 </div>
                                 <p>
-                                    On the same note, notice that locally-cached, static resources can be loaded much faster than dynamic data fetched over high-latency, low-bandwidth mobile networks. Network requests should never be on the critical path to early application startup. Local caching/offline apps can be achieved via <a href="https://datarist.com/learn/API/Service_Worker_API">Service Workers</a>
+                                    On the same note, notice that locally-cached, static resources can be loaded much faster than dynamic data fetched over high-latency, low-bandwidth mobile networks. Network requests should never be on the critical path to early application startup. Local caching/offline apps can be achieved via <a href="https://datarist.com/learn/" Service_Worker_API">Service Workers</a>
                                     . See <a href="https://datarist.com/learn/Progressive_web_apps/Guides/Offline_and_background_operation">Offline and background operation</a>
                                     for a guide about using service workers for offline and background sync capabilities.
                                 </p>
@@ -2001,7 +2001,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                 <p>Modern CPUs can enter a lower-power mode when mostly idle. Applications that constantly fire timers or keep unnecessary animations running prevent CPUs from entering low-power mode. Power-efficient applications shouldn't do that.</p>
                                 <p>
                                     When applications are sent to the background, a 
-                                    <a href="https://datarist.com/learn/API/Document/visibilitychange_event" title="visibilitychange">
+                                    <a href="https://datarist.com/learn/" Document/visibilitychange_event" title="visibilitychange">
                                         <code>visibilitychange</code>
                                     </a>
                                     event is fired on their documents. This event is a developer's friend; applications should listen for it.
@@ -2018,7 +2018,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                 <p>
                                     Instead of using some library's <code>animate()</code>
                                     function, which probably currently uses many badly performing technologies (
-                                    <a href="https://datarist.com/learn/API/setTimeout">
+                                    <a href="https://datarist.com/learn/" setTimeout">
                                         <code>setTimeout()</code>
                                     </a>
                                     or <code>top</code>
@@ -2038,7 +2038,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                         <code>:focus</code>
                                     </a>
                                     , or 
-                                    <a href="https://datarist.com/learn/css/:target">
+                                    <a href="https://datarist.com/learn/css/" target">
                                         <code>:target</code>
                                     </a>
                                     , or by dynamically adding and removing classes on parent elements.
@@ -2098,7 +2098,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                 </p>
                                 <p>
                                     Instead, you should try to use 
-                                    <a href="https://datarist.com/learn/API/window/requestAnimationFrame">
+                                    <a href="https://datarist.com/learn/" window/requestAnimationFrame">
                                         <code>window.requestAnimationFrame()</code>
                                     </a>
                                     . This waits until the browser is actually ready to start building the next frame of your animation, and won't bother if the hardware isn't going to actually draw anything. Another benefit to this API is that animations won't run while your app isn't visible on the screen (such as if it's in the background and some other task is operating). This will save battery life and prevent users from cursing your name into the night sky.
@@ -2106,11 +2106,11 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                 <h4 id="make_events_immediate">Make events immediate</h4>
                                 <p>
                                     As old-school, accessibility-aware Web developers we love click events since they also support keyboard input. On mobile devices, these are too slow. You should use 
-                                    <a href="https://datarist.com/learn/API/Element/touchstart_event" title="touchstart">
+                                    <a href="https://datarist.com/learn/" Element/touchstart_event" title="touchstart">
                                         <code>touchstart</code>
                                     </a>
                                     and 
-                                    <a href="https://datarist.com/learn/API/Element/touchend_event" title="touchend">
+                                    <a href="https://datarist.com/learn/" Element/touchend_event" title="touchend">
                                         <code>touchend</code>
                                     </a>
                                     instead. The reason is that these don't have a delay that makes the interaction with the app appear sluggish. If you test for touch support first, you don't sacrifice accessibility, either. For example, the Financial Times uses a library called <a href="https://github.com/ftlabs/fastclick" class="external" target="_blank">fastclick</a>
@@ -2118,7 +2118,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                 </p>
                                 <h4 id="keep_your_interface_simple">Keep your interface simple</h4>
                                 <p>
-                                    One big performance issue we found in HTML apps was that moving lots of <a href="https://datarist.com/learn/API/Document_Object_Model">DOM</a>
+                                    One big performance issue we found in HTML apps was that moving lots of <a href="https://datarist.com/learn/" Document_Object_Model">DOM</a>
                                     elements around makes everything sluggish — especially when they feature lots of gradients and drop shadows. It helps a lot to simplify your look-and-feel and move a proxy element around when you drag and drop.
                                 </p>
                                 <p>When, for example, you have a long list of elements (let's say tweets), don't move them all. Instead, keep in your DOM tree only the ones that are visible and a few on either side of the currently visible set of tweets. Hide or remove the rest. Keeping the data in a JavaScript object instead of accessing the DOM can vastly improve your app's performance. Think of the display as a presentation of your data rather than the data itself. That doesn't mean you can't use straight HTML as the source; just read it once and then scroll 10 elements, changing the content of the first and last accordingly to your position in the results list, instead of moving 100 elements that aren't visible. The same trick applies in games to sprites: if they aren't currently on the screen, there is no need to poll them. Instead, re-use elements that scroll off-screen as new ones coming in.</p>
@@ -2239,7 +2239,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                             </h3>
                             <div class="section-content">
                                 <p>
-                                    Once the IP address is known, the browser sets up a connection to the server via a <a href="https://datarist.com/learn/glossary/TCP_handshake">TCP three-way handshake</a>
+                                    Once the IP address is known, the browser sets up a connection to the server via a <a href="https://datarist.com/learn/glossary/tcp-handshake/">TCP three-way handshake</a>
                                     . This mechanism is designed so that two entities attempting to communicate — in this case the browser and web server — can negotiate the parameters of the network TCP socket connection before transmitting data, often over <a href="https://datarist.com/learn/glossary/https/">HTTPS</a>
                                     .
                                 </p>
@@ -2269,7 +2269,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                             <div class="section-content">
                                 <p>
                                     Once we have an established connection to a web server, the browser sends an initial 
-                                    <a href="https://datarist.com/learn/HTTP/Methods">
+                                    <a href="https://datarist.com/learn/" Methods">
                                         HTTP <code>GET</code>
                                         request
                                     </a>
@@ -2565,7 +2565,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                     .
                                 </p>
                                 <p>
-                                    The first step is processing the HTML markup and building the DOM tree. HTML parsing involves <a href="https://datarist.com/learn/API/DOMTokenList">tokenization</a>
+                                    The first step is processing the HTML markup and building the DOM tree. HTML parsing involves <a href="https://datarist.com/learn/" DOMTokenList">tokenization</a>
                                     and tree construction. HTML tokens include start and end tags, as well as attribute names and values. If the document is well-formed, parsing it is straightforward and faster. The parser parses tokenized input into the document, building up the document tree.
                                 </p>
                                 <p>
@@ -2581,7 +2581,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                 <p>
                                     When the parser finds non-blocking resources, such as an image, the browser will request those resources and continue parsing. Parsing can continue when a CSS file is encountered, but <code>&lt;script &gt;</code>
                                     elements — particularly those without an 
-                                    <a href="https://datarist.com/learn/JavaScript/Reference/Statements/async_function">
+                                    <a href="https://datarist.com/learn/" Statements/async_function">
                                         <code>async</code>
                                     </a>
                                     or <code>defer</code>
@@ -2716,7 +2716,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                 <h4 id="javascript_compilation">JavaScript compilation</h4>
                                 <p>
                                     While the CSS is being parsed and the CSSOM created, other assets, including JavaScript files, are downloading (thanks to the preload scanner). JavaScript is parsed, compiled, and interpreted. The scripts are parsed into abstract syntax trees. Some browser engines take the <a href="https://en.wikipedia.org/wiki/Abstract_Syntax_Tree" class="external" target="_blank">abstract syntax trees</a>
-                                    and pass them into a compiler, outputting bytecode. This is known as JavaScript compilation. Most of the code is interpreted on the main thread, but there are exceptions such as code run in <a href="https://datarist.com/learn/API/Web_Workers_API">web workers</a>
+                                    and pass them into a compiler, outputting bytecode. This is known as JavaScript compilation. Most of the code is interpreted on the main thread, but there are exceptions such as code run in <a href="https://datarist.com/learn/" Web_Workers_API">web workers</a>
                                     .
                                 </p>
                                 <h4 id="building_the_accessibility_tree">Building the accessibility tree</h4>
@@ -2832,7 +2832,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                             <div class="section-content">
                                 <p>
                                     Once the main thread is done painting the page, you would think we would be "all set." That isn't necessarily the case. If the load includes JavaScript, that was correctly deferred, and only executed after the 
-                                    <a href="https://datarist.com/learn/API/Window/load_event">
+                                    <a href="https://datarist.com/learn/" Window/load_event">
                                         <code>onload</code>
                                     </a>
                                     event fires, the main thread might be busy, and not available for scrolling, touch, and other interactions.
@@ -2973,7 +2973,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                 <p>Speculative loading is achieved in two main ways.</p>
                                 <p>
                                     First, some browsers will automatically prerender pages based on various heuristics to provide automatic performance improvements. Exactly how this is done depends on the browser implementation. Chrome, for example, automatically prerenders pages when matching strings are typed into the address bar — if it has a high confidence that you will visit that page (see <a href="https://developer.chrome.com/blog/prerender-pages/#viewing-chromes-address-bar-predictions" class="external" target="_blank">Viewing Chrome's address bar predictions</a>
-                                    for more details). In addition, it may automatically prerender search results pages when search terms are typed into the address bar, when instructed to do so by the search engine. It does this using the same mechanism as the <a href="https://datarist.com/learn/API/Speculation_Rules_API">Speculation Rules API</a>
+                                    for more details). In addition, it may automatically prerender search results pages when search terms are typed into the address bar, when instructed to do so by the search engine. It does this using the same mechanism as the <a href="https://datarist.com/learn/" Speculation_Rules_API">Speculation Rules API</a>
                                     .
                                 </p>
                                 <p>Second, there are several different platform features that developers can use to provide instructions on what speculative loading they want the browser to perform. These are reviewed in the next section.</p>
@@ -3037,7 +3037,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                     to save time on the first step — the DNS lookup.
                                 </p>
                                 <p>
-                                    You can also implement preconnect as an HTTP <a href="https://datarist.com/learn/HTTP/Headers/Link">Link</a>
+                                    You can also implement preconnect as an HTTP <a href="https://datarist.com/learn/" Headers/Link">Link</a>
                                     header, for example:
                                 </p>
                                 <div class="code-example">
@@ -3201,7 +3201,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                 </div>
                                 <p>The result is kept in a per-document in-memory cache. If you preload something your current page doesn't use as a subresource, it is generally a waste of resources, although the result may populate the HTTP cache if headers allow.</p>
                                 <p>
-                                    You can also implement preload as an HTTP <a href="https://datarist.com/learn/HTTP/Headers/Link">Link</a>
+                                    You can also implement preload as an HTTP <a href="https://datarist.com/learn/" Headers/Link">Link</a>
                                     header, for example:
                                 </p>
                                 <div class="code-example">
@@ -3258,7 +3258,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                 </div>
                                 <p>
                                     It is a specialized version of <code>&lt;link rel="preload"&gt;</code>
-                                    for <a href="https://datarist.com/learn/JavaScript/Guide/Modules">JavaScript modules</a>
+                                    for <a href="https://datarist.com/learn/" Modules">JavaScript modules</a>
                                     and works basically the same way. However, there are some differences:
                                 </p>
                                 <ul>
@@ -3351,7 +3351,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                     </pre>
                                 </div>
                                 <p>
-                                    The result is kept in the HTTP cache on disk. Because of this it is useful for prefetching subresources, even if they are not used by the current page. You could also use it to prefetch the next document the user will likely visit on the site. However, as a result you need to be careful with headers — for example certain <a href="https://datarist.com/learn/HTTP/Headers/Cache-Control">Cache-Control</a>
+                                    The result is kept in the HTTP cache on disk. Because of this it is useful for prefetching subresources, even if they are not used by the current page. You could also use it to prefetch the next document the user will likely visit on the site. However, as a result you need to be careful with headers — for example certain <a href="https://datarist.com/learn/" Headers/Cache-Control">Cache-Control</a>
                                     headers could block prefetching (for example <code>no-cache</code>
                                     or <code>no-store</code>
                                     ).
@@ -3403,7 +3403,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                         </a>
                                         call with a <code>priority: "low"</code>
                                         option set on it, except that the former will generally have an even lower priority, and it will have a 
-                                        <a href="https://datarist.com/learn/HTTP/Headers/Sec-Purpose">
+                                        <a href="https://datarist.com/learn/" Headers/Sec-Purpose">
                                             <code>Sec-Purpose: prefetch</code>
                                         </a>
                                         header set on the request.
@@ -3414,18 +3414,18 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                         <strong>Note:</strong>
                                         The fetch request for a <code>prefetch</code>
                                         operation results in an HTTP Request that includes the HTTP header 
-                                        <a href="https://datarist.com/learn/HTTP/Headers/Sec-Purpose">
+                                        <a href="https://datarist.com/learn/" Headers/Sec-Purpose">
                                             <code>Sec-Purpose: prefetch</code>
                                         </a>
                                         . A server might use this header to change the cache timeouts for the resources, or perform other special handling.
 The request will also include the 
-                                        <a href="https://datarist.com/learn/HTTP/Headers/Sec-Fetch-Dest">
+                                        <a href="https://datarist.com/learn/" Headers/Sec-Fetch-Dest">
                                             <code>Sec-Fetch-Dest</code>
                                         </a>
                                         header with the value set to <code>empty</code>
                                         .
 The 
-                                        <a href="https://datarist.com/learn/HTTP/Headers/Accept">
+                                        <a href="https://datarist.com/learn/" Headers/Accept">
                                             <code>Accept</code>
                                         </a>
                                         header in the request will match the value used for normal navigation requests. This allows the browser to find the matching cached resources following navigation.
@@ -3451,7 +3451,7 @@ If a response is returned, it gets cached with the request in the HTTP cache.
                                 <div class="notecard note" id="sect5">
                                     <p>
                                         <strong>Note:</strong>
-                                        This technology was only ever available in Chrome, and is now deprecated. You should use the <a href="https://datarist.com/learn/API/Speculation_Rules_API">Speculation Rules API</a>
+                                        This technology was only ever available in Chrome, and is now deprecated. You should use the <a href="https://datarist.com/learn/" Speculation_Rules_API">Speculation Rules API</a>
                                         instead, which supercedes this.
                                     </p>
                                 </div>
@@ -3493,7 +3493,7 @@ If a response is returned, it gets cached with the request in the HTTP cache.
                                 </div>
                                 <p>
                                     It will fetch the referenced document, then fetch any linked resources that are statically findable and fetch them too, storing the result in the HTTP cache on disk with a five-minute timeout. The exception is subresources loaded via JavaScript — it does not find these. It has other problems too — like <code>&lt;link rel="prefetch"&gt;</code>
-                                    it can also be blocked by <a href="https://datarist.com/learn/HTTP/Headers/Cache-Control">Cache-Control</a>
+                                    it can also be blocked by <a href="https://datarist.com/learn/" Headers/Cache-Control">Cache-Control</a>
                                     headers, and be rendered useless for resources intended for use by different top-level sites by browser <a href="https://developer.chrome.com/en/blog/http-cache-partitioning/" class="external" target="_blank">cache partitioning</a>
                                     .
                                 </p>
@@ -3505,13 +3505,13 @@ If a response is returned, it gets cached with the request in the HTTP cache.
                             </h3>
                             <div class="section-content">
                                 <p>
-                                    The <a href="https://datarist.com/learn/API/Speculation_Rules_API">Speculation Rules API</a>
+                                    The <a href="https://datarist.com/learn/" Speculation_Rules_API">Speculation Rules API</a>
                                     is used to specify a set of rules that determine what future documents should be prefetched or prerendered by the browser. These rules are provided as JSON structures inside inline 
                                     <a "script/type/speculationrules">
                                         <code>&lt;script type="speculationrules"&gt;</code>
                                     </a>
                                     elements and external text files referenced by the 
-                                    <a href="https://datarist.com/learn/HTTP/Headers/Speculation-Rules">
+                                    <a href="https://datarist.com/learn/" Headers/Speculation-Rules">
                                         <code>Speculation-Rules</code>
                                     </a>
                                     response header.
@@ -3581,8 +3581,8 @@ If a response is returned, it gets cached with the request in the HTTP cache.
                                                 </td>
                                                 <td>Pre-populating the HTTP cache</td>
                                                 <td>
-                                                    Use to prefetch same-site future navigation resources or subresources used on those pages. Uses HTTP cache therefore has a number of issues with document prefetches, such as being potentially blocked by <a href="https://datarist.com/learn/HTTP/Headers/Cache-Control">Cache-Control</a>
-                                                    headers. Use the <a href="https://datarist.com/learn/API/Speculation_Rules_API">Speculation Rules API</a>
+                                                    Use to prefetch same-site future navigation resources or subresources used on those pages. Uses HTTP cache therefore has a number of issues with document prefetches, such as being potentially blocked by <a href="https://datarist.com/learn/" Headers/Cache-Control">Cache-Control</a>
+                                                    headers. Use the <a href="https://datarist.com/learn/" Speculation_Rules_API">Speculation Rules API</a>
                                                     for document prefetches instead, where it is supported.
                                                 </td>
                                             </tr>
@@ -3594,30 +3594,30 @@ If a response is returned, it gets cached with the request in the HTTP cache.
                                                 </td>
                                                 <td>Preparing for the next navigation</td>
                                                 <td>
-                                                    Deprecated; you are advised not to use this. Use <a href="https://datarist.com/learn/API/Speculation_Rules_API">Speculation Rules API</a>
+                                                    Deprecated; you are advised not to use this. Use <a href="https://datarist.com/learn/" Speculation_Rules_API">Speculation Rules API</a>
                                                     prerender instead, where it is supported.
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <a href="https://datarist.com/learn/API/Speculation_Rules_API">Speculation Rules API</a>
+                                                    <a href="https://datarist.com/learn/" Speculation_Rules_API">Speculation Rules API</a>
                                                     prefetch
                                                 </td>
                                                 <td>Preparing for the next navigation</td>
                                                 <td>
-                                                    Use to prefetch same or cross-site future navigation documents. Broad adoption is recommended, where it is supported; check to make sure the pages are <a href="https://datarist.com/learn/API/Speculation_Rules_API#unsafe_prefetching">safe to prefetch</a>
+                                                    Use to prefetch same or cross-site future navigation documents. Broad adoption is recommended, where it is supported; check to make sure the pages are <a href="https://datarist.com/learn/" Speculation_Rules_API#unsafe_prefetching">safe to prefetch</a>
                                                     . It doesn't handle subresource prefetches; for that you'll need to use <code>&lt;link rel="prefetch"&gt;</code>
                                                     .
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <a href="https://datarist.com/learn/API/Speculation_Rules_API">Speculation Rules API</a>
+                                                    <a href="https://datarist.com/learn/" Speculation_Rules_API">Speculation Rules API</a>
                                                     prerender
                                                 </td>
                                                 <td>Preparing for the next navigation</td>
                                                 <td>
-                                                    Use to preload same-origin future navigation resources, for near-instant navigations. Use on high-priority pages, where it is supported; check to make sure the pages are <a href="https://datarist.com/learn/API/Speculation_Rules_API#unsafe_prerendering">safe to prerender</a>
+                                                    Use to preload same-origin future navigation resources, for near-instant navigations. Use on high-priority pages, where it is supported; check to make sure the pages are <a href="https://datarist.com/learn/" Speculation_Rules_API#unsafe_prerendering">safe to prerender</a>
                                                     .
                                                 </td>
                                             </tr>
@@ -3663,7 +3663,7 @@ If a response is returned, it gets cached with the request in the HTTP cache.
                             <div class="section-content">
                                 <p>
                                     Latency is generally considered to be the amount of time it takes from when a request is made by the user to the time it takes for the response to get back to that user. On a first request, for the first 14Kb bytes, latency is longer because it includes a <a href="https://datarist.com/learn/glossary/DNS">DNS</a>
-                                    lookup, a <a href="https://datarist.com/learn/glossary/TCP_handshake">TCP handshake</a>
+                                    lookup, a <a href="https://datarist.com/learn/glossary/tcp-handshake/">TCP handshake</a>
                                     , the secure <a href="https://datarist.com/learn/glossary/TLS">TLS</a>
                                     negotiation. Subsequent requests will have less latency because the connection to the server is already set.
                                 </p>
@@ -3763,12 +3763,12 @@ If a response is returned, it gets cached with the request in the HTTP cache.
                                 <p>
                                     <strong>DNS resolution</strong>
                                     is the time it took to do the <a href="https://datarist.com/learn/glossary/DNS">DNS</a>
-                                    lookup. The greater the number of <a href="https://datarist.com/learn/API/URL/hostname">hostnames</a>
+                                    lookup. The greater the number of <a href="https://datarist.com/learn/" URL/hostname">hostnames</a>
                                     , the more DNS lookups need to be done.
                                 </p>
                                 <p>
                                     <strong>Connecting</strong>
-                                    is the time it takes for a <a href="https://datarist.com/learn/glossary/TCP_handshake">TCP handshake</a>
+                                    is the time it takes for a <a href="https://datarist.com/learn/glossary/tcp-handshake/">TCP handshake</a>
                                     to complete. Like DNS, the greater the number of server connections needed, the more time is spent creating server connections.
                                 </p>
                                 <p>
@@ -3833,7 +3833,7 @@ If a response is returned, it gets cached with the request in the HTTP cache.
                             </h2>
                             <div class="section-content">
                                 <p>
-                                    When a browser requests a resource from a (third party) server, that <a href="https://datarist.com/learn/HTTP/CORS">cross-origin</a>
+                                    When a browser requests a resource from a (third party) server, that <a href="https://datarist.com/learn/" CORS">cross-origin</a>
                                     's domain name must be resolved to an IP address before the browser can issue the request. This process is known as DNS resolution. While DNS caching can help to reduce this latency, DNS resolution can add significant latency to requests. For websites that open connections to many third parties, this latency can significantly reduce loading performance.
                                 </p>
                                 <p>
@@ -3849,7 +3849,7 @@ If a response is returned, it gets cached with the request in the HTTP cache.
                                         attribute
                                     </a>
                                     value of <code>dns-prefetch</code>
-                                    . The <a href="https://datarist.com/learn/HTTP/CORS">cross-origin</a>
+                                    . The <a href="https://datarist.com/learn/" CORS">cross-origin</a>
                                     domain is then specified in the <a href="https://datarist.com/learn/HTML/Attributes">href attribute</a>
                                     :
                                 </p>
@@ -4025,14 +4025,14 @@ If a response is returned, it gets cached with the request in the HTTP cache.
                                 <p>
                                     <strong>For one</strong>
                                     , <code>dns-prefetch</code>
-                                    is only effective for DNS lookups on <a href="https://datarist.com/learn/HTTP/CORS">cross-origin</a>
+                                    is only effective for DNS lookups on <a href="https://datarist.com/learn/" CORS">cross-origin</a>
                                     domains, so avoid using it to point to your site or domain. This is because the IP behind your site's domain will have already been resolved by the time the browser sees the hint.
                                 </p>
                                 <p>
                                     <strong>Second</strong>
                                     , it's also possible to specify <code>dns-prefetch</code>
-                                    (and other resources hints) as an <a href="https://datarist.com/learn/HTTP/Headers">HTTP header</a>
-                                    by using the <a href="https://datarist.com/learn/HTTP/Headers/Link">HTTP Link field</a>
+                                    (and other resources hints) as an <a href="https://datarist.com/learn/" Headers">HTTP header</a>
+                                    by using the <a href="https://datarist.com/learn/" Headers/Link">HTTP Link field</a>
                                     :
                                 </p>
                                 <div class="code-example">
@@ -4055,9 +4055,9 @@ If a response is returned, it gets cached with the request in the HTTP cache.
                                     only performs a DNS lookup, <code>preconnect</code>
                                     establishes a connection to a server. This process includes DNS resolution, as well as establishing the TCP connection, and performing the <a href="https://datarist.com/learn/glossary/TLS">TLS</a>
                                     handshake—if a site is served over HTTPS. Using <code>preconnect</code>
-                                    provides an opportunity to further reduce the perceived latency of <a href="https://datarist.com/learn/HTTP/CORS">cross-origin requests</a>
-                                    . You can use it as an <a href="https://datarist.com/learn/HTTP/Headers">HTTP header</a>
-                                    by using the <a href="https://datarist.com/learn/HTTP/Headers/Link">HTTP Link field</a>
+                                    provides an opportunity to further reduce the perceived latency of <a href="https://datarist.com/learn/" CORS">cross-origin requests</a>
+                                    . You can use it as an <a href="https://datarist.com/learn/" Headers">HTTP header</a>
+                                    by using the <a href="https://datarist.com/learn/" Headers/Link">HTTP Link field</a>
                                     :
                                 </p>
                                 <div class="code-example">
@@ -4142,13 +4142,13 @@ If a response is returned, it gets cached with the request in the HTTP cache.
                                         <a href="https://datarist.com/learn/HTML/Attributes/crossorigin">crossorigin</a>
                                     </li>
                                     <li>
-                                        <a href="https://datarist.com/learn/HTTP/CORS">Cross-Origin Resource Sharing (CORS)</a>
+                                        <a href="https://datarist.com/learn/" CORS">Cross-Origin Resource Sharing (CORS)</a>
                                     </li>
                                     <li>
-                                        <a href="https://datarist.com/learn/HTTP/Headers">HTTP headers</a>
+                                        <a href="https://datarist.com/learn/" Headers">HTTP headers</a>
                                     </li>
                                     <li>
-                                        <a href="https://datarist.com/learn/HTTP/Headers/Link">HTTP header Link</a>
+                                        <a href="https://datarist.com/learn/" Headers/Link">HTTP header Link</a>
                                     </li>
                                 </ul>
                             </div>

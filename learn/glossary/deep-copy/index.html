@@ -2106,21 +2106,21 @@
                                 . It is somewhat useless to talk about the depth of such a copy, though, because it has no nested properties and we usually talk about deep copying in the context of mutating nested properties.
                             </p>
                             <p>
-                                In JavaScript, standard built-in object-copy operations (<a href="https://datarist.com/learn/Web/JavaScript/Reference/Operators/Spread_syntax">spread syntax</a>
+                                In JavaScript, standard built-in object-copy operations (<a href="https://datarist.com/learn/" JavaScript/Reference/Operators/Spread_syntax">spread syntax</a>
                                 , 
-                                <a href="https://datarist.com/learn/Web/JavaScript/Reference/Global_Objects/Array/concat">
+                                <a href="https://datarist.com/learn/" JavaScript/Reference/Global_Objects/Array/concat">
                                     <code>Array.prototype.concat()</code>
                                 </a>
                                 , 
-                                <a href="https://datarist.com/learn/Web/JavaScript/Reference/Global_Objects/Array/slice">
+                                <a href="https://datarist.com/learn/" JavaScript/Reference/Global_Objects/Array/slice">
                                     <code>Array.prototype.slice()</code>
                                 </a>
                                 , 
-                                <a href="https://datarist.com/learn/Web/JavaScript/Reference/Global_Objects/Array/from">
+                                <a href="https://datarist.com/learn/" JavaScript/Reference/Global_Objects/Array/from">
                                     <code>Array.from()</code>
                                 </a>
                                 , and 
-                                <a href="https://datarist.com/learn/Web/JavaScript/Reference/Global_Objects/Object/assign">
+                                <a href="https://datarist.com/learn/" JavaScript/Reference/Global_Objects/Object/assign">
                                     <code>Object.assign()</code>
                                 </a>
                                 ) do not create deep copies (instead, they create shallow copies).
@@ -2128,11 +2128,11 @@
                             <p>
                                 One way to make a deep copy of a JavaScript object, if it can be <a href="https://datarist.com/learn/glossary/Serialization">serialized</a>
                                 , is to use 
-                                <a href="https://datarist.com/learn/Web/JavaScript/Reference/Global_Objects/JSON/stringify">
+                                <a href="https://datarist.com/learn/" JavaScript/Reference/Global_Objects/JSON/stringify">
                                     <code>JSON.stringify()</code>
                                 </a>
                                 to convert the object to a JSON string, and then 
-                                <a href="https://datarist.com/learn/Web/JavaScript/Reference/Global_Objects/JSON/parse">
+                                <a href="https://datarist.com/learn/" JavaScript/Reference/Global_Objects/JSON/parse">
                                     <code>JSON.parse()</code>
                                 </a>
                                 to convert the string back into a (completely new) JavaScript object:
@@ -2212,18 +2212,18 @@
                             </div>
                             <p>
                                 However, while the object in the code above is simple enough to be <a href="https://datarist.com/learn/glossary/Serialization">serializable</a>
-                                , many JavaScript objects are not serializable at all — for example, <a href="https://datarist.com/learn/Web/JavaScript/Guide/Functions">functions</a>
-                                (with closures), <a href="https://datarist.com/learn/Web/JavaScript/Reference/Global_Objects/Symbol">Symbols</a>
-                                , objects that represent HTML elements in the <a href="https://datarist.com/learn/Web/API/HTML_DOM_API">HTML DOM API</a>
+                                , many JavaScript objects are not serializable at all — for example, <a href="https://datarist.com/learn/" JavaScript/Guide/Functions">functions</a>
+                                (with closures), <a href="https://datarist.com/learn/" JavaScript/Reference/Global_Objects/Symbol">Symbols</a>
+                                , objects that represent HTML elements in the <a href="https://datarist.com/learn/" API/HTML_DOM_API">HTML DOM API</a>
                                 , recursive data, and many other cases. Calling <code>JSON.stringify()</code>
                                 to serialize the objects in those cases will fail. So there's no way to make deep copies of such objects.
                             </p>
                             <p>
                                 The web API 
-                                <a href="https://datarist.com/learn/Web/API/structuredClone">
+                                <a href="https://datarist.com/learn/" API/structuredClone">
                                     <code>structuredClone()</code>
                                 </a>
-                                also creates deep copies and has the advantage of allowing <a href="https://datarist.com/learn/Web/API/Web_Workers_API/Transferable_objects">transferable objects</a>
+                                also creates deep copies and has the advantage of allowing <a href="https://datarist.com/learn/" API/Web_Workers_API/Transferable_objects">transferable objects</a>
                                 in the source to be <em>transferred</em>
                                 to the new copy, rather than just cloned. It also handles more data types, such as <code>Error</code>
                                 . But note that <code>structuredClone()</code>
@@ -2242,7 +2242,7 @@
                                         <a href="https://datarist.com/learn/glossary/Shallow_copy">Shallow copy</a>
                                     </li>
                                     <li>
-                                        <a href="https://datarist.com/learn/Web/API/structuredClone">
+                                        <a href="https://datarist.com/learn/" API/structuredClone">
                                             <code>window.structuredClone()</code>
                                         </a>
                                     </li>
