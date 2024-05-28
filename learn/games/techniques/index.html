@@ -1184,7 +1184,7 @@
                         </header>
                         <div class="section-content">
                             <p>
-                                Every medium or large game should compile <a href="https://datarist.com/learn/Games/Tools/asm.js">asm.js</a>
+                                Every medium or large game should compile <a href="https://datarist.com/learn/games/">asm.js</a>
                                 code as part of an async script to give the browser the maximum flexibility to optimize the compilation process. In Gecko, async compilation allows the JavaScript engine to compile the asm.js off the main thread when the game is loading and cache the generated machine code so that the game doesn't need to be compiled on subsequent loads (starting in Firefox 28). To see the difference, toggle <code>javascript.options.parallel_parsing</code>
                                 in <code>about:config</code>
                                 .
@@ -1477,7 +1477,7 @@
                                     <li>When dealing with data supported by the browser (for example, decoding image data), use the decoders built into the browser or device rather than rolling your own or using one from the original codebase. The provided one is almost certainly significantly faster, and will reduce your app size to boot. In addition, the browser may automatically parallelize these decoders.</li>
                                     <li>Any data processing that can be done in parallel should be. Don't do one chunk of data after another; do them all at once when possible!</li>
                                     <li>
-                                        Don't include scripts or stylesheets that don't participate in the <a href="https://datarist.com/learn/Performance/Critical_rendering_path">critical rendering path</a>
+                                        Don't include scripts or stylesheets that don't participate in the <a href="https://datarist.com/learn/">critical rendering path</a>
                                         in your startup HTML file. Load them only when needed.
                                     </li>
                                     <li>Reduce the size of your JavaScript files. Try to send the minified version of the file to the browser and use compression like Gzip or Brotli.</li>
@@ -1522,7 +1522,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                     </dt>
                                     <dd>
                                         <p>
-                                            Keep in mind how long it will take the user to download your application's data. If your application is very popular, or has to re-download content frequently, you should try to have as fast a hosting server as possible. Always <a href="https://datarist.com/learn/glossary/GZip_compression">compress</a>
+                                            Keep in mind how long it will take the user to download your application's data. If your application is very popular, or has to re-download content frequently, you should try to have as fast a hosting server as possible. Always <a href="https://datarist.com/learn/glossary/">compress</a>
                                             your data to make it as small as you can.
                                         </p>
                                     </dd>
@@ -1551,10 +1551,10 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                             <div class="section-content">
                                 <ul>
                                     <li>
-                                        <a href="https://datarist.com/learn/Progressive_web_apps">Apps</a>
+                                        <a href="https://datarist.com/learn/">Apps</a>
                                     </li>
                                     <li>
-                                        <a href="https://datarist.com/learn/Games">Games</a>
+                                        <a href="https://datarist.com/learn/">Games</a>
                                     </li>
                                     <li>
                                         <a href="https://mozakai.blogspot.com/2012/07/bananabread-or-any-compiled-codebase.html" class="external" target="_blank">BananaBread (or any compiled codebase) Startup Experience</a>
@@ -1586,7 +1586,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                 <p>Synthetic monitoring involves monitoring the performance of a page in a 'laboratory' environment, typically with automation tooling in a consistent as possible environment. Synthetic Monitoring involves deploying scripts to simulate the path an end user might take through a web application, reporting back the performance the simulator experiences. The traffic measured is not of your actual users, but rather synthetically generated traffic collecting data on page performance.</p>
                                 <p>
                                     An example of synthetic monitoring is <a href="https://WebPageTest.org" class="external" target="_blank">WebPageTest.org</a>
-                                    . It is done in a controlled environment where variable like geography, network, device, browser, and cached status are predetermined. It provides waterfall charts for every asset served by the host and <a href="https://datarist.com/learn/glossary/CDN">CDN</a>
+                                    . It is done in a controlled environment where variable like geography, network, device, browser, and cached status are predetermined. It provides waterfall charts for every asset served by the host and <a href="https://datarist.com/learn/glossary/">CDN</a>
                                     as well as every third party asset and asset requests generated by all third party scripts, such as ads and analytic services.
                                 </p>
                                 <p>Controlling for environmental variables is helpful in understanding where performance bottlenecks have been occurring and identifying the source of any performance issues. For example, but it isn't reflective of the actual experience of users, especially the long tail.</p>
@@ -1612,7 +1612,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                             </h2>
                             <div class="section-content">
                                 <p>
-                                    Synthetic is well suited for catching regressions during development life cycles, especially with <a href="https://datarist.com/learn/glossary/Network_throttling">network throttling</a>
+                                    Synthetic is well suited for catching regressions during development life cycles, especially with <a href="https://datarist.com/learn/glossary/">network throttling</a>
                                     . It is fairly easy, inexpensive, and great for spot-checking performance during development as an effective way to measure the effect of code changes, but it doesn't reflect what real users are experiencing and provides only a narrow view of performance.
                                 </p>
                                 <p>RUM, on the other hand, provides real metrics from real users using the site or application. While this is more expensive and likely less convenient, it provides vital user experience data.</p>
@@ -1660,7 +1660,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                         </header>
                         <div class="section-content">
                             <p>
-                                A performance budget is a limit to prevent regressions. It can apply to a file, a file type, all files loaded on a page, a specific metric (e.g. <a href="https://datarist.com/learn/glossary/Time_to_interactive">Time to Interactive</a>
+                                A performance budget is a limit to prevent regressions. It can apply to a file, a file type, all files loaded on a page, a specific metric (e.g. <a href="https://datarist.com/learn/glossary/">Time to Interactive</a>
                                 ), a custom metric (e.g. Time to Hero Element), or a threshold over a period of time.
                             </p>
                         </div>
@@ -1673,8 +1673,8 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                 <p>These goals can be:</p>
                                 <ul>
                                     <li>
-                                        Timing based (e.g. <a href="https://datarist.com/learn/glossary/Time_to_interactive">Time to Interactive</a>
-                                        , <a href="https://datarist.com/learn/glossary/First_contentful_paint">First Contentful Paint</a>
+                                        Timing based (e.g. <a href="https://datarist.com/learn/glossary/">Time to Interactive</a>
+                                        , <a href="https://datarist.com/learn/glossary/">First Contentful Paint</a>
                                         ).
                                     </li>
                                     <li>Quantity-based (e.g. amount of JS files/total image size).</li>
@@ -1706,7 +1706,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                     . However, based on the specific goals and content of your site, you might choose to focus on other metrics.
                                 </p>
                                 <p>
-                                    For a text-heavy site such as a blog or a news site, the <a href="https://datarist.com/learn/glossary/First_contentful_paint">First Contentful Paint</a>
+                                    For a text-heavy site such as a blog or a news site, the <a href="https://datarist.com/learn/glossary/">First Contentful Paint</a>
                                     metric could reflect more closely the user behavior. (i.e. How fast can users start reading), which will inform file specific budgets (e.g. Font size), and their optimizations. (e.g. Using <a href="https://datarist.com/learn/css/" /font-display">font-display</a>
                                     to improve <a href="https://datarist.com/learn/performance/">Perceived Performance</a>
                                     ).
@@ -1735,7 +1735,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                     </li>
                                 </ul>
                                 <p>
-                                    File size checks are the first line of defense against regressions but translating size back into time metrics can be difficult since development environments could be missing 3rd party scripts, and optimizations commonly provided by a <a href="https://datarist.com/learn/glossary/CDN">CDN</a>
+                                    File size checks are the first line of defense against regressions but translating size back into time metrics can be difficult since development environments could be missing 3rd party scripts, and optimizations commonly provided by a <a href="https://datarist.com/learn/glossary/">CDN</a>
                                     .
                                 </p>
                                 <p>The first step is to define a development baseline for each branch to compare to and the precision of the difference between development and production can be used as a goal towards better match the live environment.</p>
@@ -1899,11 +1899,11 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                 </p>
                                 <p>
                                     Fully static content is the exception rather than the rule for rich applications. Rich applications use dynamic content with 
-                                    <a href="https://datarist.com/learn/css/animation">
+                                    <a href="https://datarist.com/learn/css/animations/">
                                         <code>animation</code>
                                     </a>
                                     and 
-                                    <a href="https://datarist.com/learn/css/transition">
+                                    <a href="https://datarist.com/learn/css/transitions/">
                                         <code>transition</code>
                                     </a>
                                     effects. Transitions and animations are particularly important to applications: developers can use CSS to declare complicated behavior with a simple, high-level syntax. In turn, Gecko's graphics pipeline is highly optimized to render common animations efficiently. Common-case animations are "offloaded" to the system compositor, which can render them in a performant, power-efficient fashion.
@@ -1958,13 +1958,13 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                 <div class="notecard note" id="sect2">
                                     <p>
                                         <strong>Note:</strong>
-                                        For much more information on improving startup performance, read <a href="https://datarist.com/learn/Performance/Optimizing_startup_performance">Optimizing startup performance</a>
+                                        For much more information on improving startup performance, read <a href="https://datarist.com/learn/">Optimizing startup performance</a>
                                         .
                                     </p>
                                 </div>
                                 <p>
                                     On the same note, notice that locally-cached, static resources can be loaded much faster than dynamic data fetched over high-latency, low-bandwidth mobile networks. Network requests should never be on the critical path to early application startup. Local caching/offline apps can be achieved via <a href="https://datarist.com/learn/" Service_Worker_API">Service Workers</a>
-                                    . See <a href="https://datarist.com/learn/Progressive_web_apps/Guides/Offline_and_background_operation">Offline and background operation</a>
+                                    . See <a href="https://datarist.com/learn/">Offline and background operation</a>
                                     for a guide about using service workers for offline and background sync capabilities.
                                 </p>
                             </div>
@@ -2023,12 +2023,12 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                     </a>
                                     or <code>top</code>
                                     /<code>left</code>
-                                    positioning, for example) use <a href="https://datarist.com/learn/css/CSS_animations/Using_CSS_animations">CSS animations</a>
-                                    . In many cases, you can actually use <a href="https://datarist.com/learn/css/CSS_transitions/Using_CSS_transitions">CSS Transitions</a>
+                                    positioning, for example) use <a href="https://datarist.com/learn/css/">CSS animations</a>
+                                    . In many cases, you can actually use <a href="https://datarist.com/learn/css/">CSS Transitions</a>
                                     to get the job done. This works well because the browser is designed to optimize these effects and use the GPU to handle them smoothly with minimal impact on processor performance. Another benefit is that you can define these effects in CSS along with the rest of your app's look-and-feel, using a standardized syntax.
                                 </p>
                                 <p>
-                                    CSS animations give you very granular control over your effects using <a href="https://datarist.com/learn/css/@keyframes">keyframes</a>
+                                    CSS animations give you very granular control over your effects using <a href="https://datarist.com/learn/css/">keyframes</a>
                                     , and you can even watch events fired during the animation process in order to handle other tasks that need to be performed at set points in the animation process. You can easily trigger these animations with the 
                                     <a href="https://datarist.com/learn/css/">
                                         <code>:hover</code>
@@ -2055,15 +2055,15 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                         <code>transform</code>
                                     </a>
                                     CSS property to adjust the position, scale, and so forth of your content. Alternatively, you can use the individual transformation properties of 
-                                    <a href="https://datarist.com/learn/css/translate">
+                                    <a href="https://datarist.com/learn/css/">
                                         <code>translate</code>
                                     </a>
                                     , 
-                                    <a href="https://datarist.com/learn/css/scale">
+                                    <a href="https://datarist.com/learn/css/">
                                         <code>scale</code>
                                     </a>
                                     , and 
-                                    <a href="https://datarist.com/learn/css/rotate">
+                                    <a href="https://datarist.com/learn/css/">
                                         <code>rotate</code>
                                     </a>
                                     . The reason is, once again, hardware acceleration. The browser can do these tasks on your GPU, letting the CPU handle other things.
@@ -2228,7 +2228,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                 <p>Your browser requests a DNS lookup, which is eventually fielded by a name server, which in turn responds with an IP address. After this initial request, the IP will likely be cached for a time, which speeds up subsequent requests by retrieving the IP address from the cache instead of contacting a name server again.</p>
                                 <p>DNS lookups usually only need to be done once per hostname for a page load. However, DNS lookups must be done for each unique hostname the requested page references. If your fonts, images, scripts, ads, and metrics all have different hostnames, a DNS lookup will have to be made for each one.</p>
                                 <p>
-                                    <img src="https://datarist.com/learn/Performance/How_browsers_work/latency.jpg" alt="Mobile requests go first to the cell tower, then to a central phone company computer before being sent to the internet" width="792" height="281" loading="lazy">
+                                    <img src="https://datarist.com/learn//latency.jpg" alt="Mobile requests go first to the cell tower, then to a central phone company computer before being sent to the internet" width="792" height="281" loading="lazy">
                                 </p>
                                 <p>This can be problematic for performance, particularly on mobile networks. When a user is on a mobile network, each DNS lookup has to go from the phone to the cell tower to reach an authoritative DNS server. The distance between a phone, a cell tower, and the name server can add significant latency.</p>
                             </div>
@@ -2252,11 +2252,11 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                             </h3>
                             <div class="section-content">
                                 <p>
-                                    For secure connections established over HTTPS, another "handshake" is required. This handshake, or rather the <a href="https://datarist.com/learn/glossary/TLS">TLS</a>
+                                    For secure connections established over HTTPS, another "handshake" is required. This handshake, or rather the <a href="https://datarist.com/learn/glossary/">TLS</a>
                                     negotiation, determines which cipher will be used to encrypt the communication, verifies the server, and establishes that a secure connection is in place before beginning the actual transfer of data. This requires five more round trips to the server before the request for content is actually sent.
                                 </p>
                                 <p>
-                                    <img src="https://datarist.com/learn/Performance/How_browsers_work/ssl.jpg" alt="The DNS lookup, the TCP handshake, and 5 steps of the TLS handshake including clienthello, serverhello and certificate, clientkey and finished for both server and client." width="729" height="412" loading="lazy">
+                                    <img src="https://datarist.com/learn//ssl.jpg" alt="The DNS lookup, the TCP handshake, and 5 steps of the TLS handshake including clienthello, serverhello and certificate, clientkey and finished for both server and client." width="729" height="412" loading="lazy">
                                 </p>
                                 <p>While making the connection secure adds time to the page load, a secure connection is worth the latency expense, as the data transmitted between the browser and the web server cannot be decrypted by a third party.</p>
                                 <p>After the eight round trips to the server, the browser is finally able to make the request.</p>
@@ -2518,7 +2518,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                     </pre>
                                 </div>
                                 <p>
-                                    This response for this initial request contains the first byte of data received. <a href="https://datarist.com/learn/glossary/Time_to_first_byte">Time to First Byte</a>
+                                    This response for this initial request contains the first byte of data received. <a href="https://datarist.com/learn/glossary/">Time to First Byte</a>
                                     (TTFB) is the time between when the user made the request — say by clicking on a link — and the receipt of this first packet of HTML. The first chunk of content is usually 14KB of data.
                                 </p>
                                 <p>In our example above, the request is definitely less than 14KB, but the linked resources aren't requested until the browser encounters the links during parsing, described below.</p>
@@ -2533,7 +2533,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                 <p>If the server waits for an ACK after each segment, that will result in frequent ACKs from the client and may increase transmission time, even in the case of a low-load network.</p>
                                 <p>On the other hand, sending too many segments at once can lead to the problem that in a busy network the client will not be able to receive the segments and will just keep responding with ACKs for a long time, and the server will have to keep re-sending the segments.</p>
                                 <p>
-                                    In order to balance the number of transmitted segments, the <a href="https://datarist.com/learn/glossary/TCP_slow_start">TCP slow start</a>
+                                    In order to balance the number of transmitted segments, the <a href="https://datarist.com/learn/glossary/">TCP slow start</a>
                                     algorithm is used to gradually increase the amount of transmitted data until the maximum network bandwidth can be determined, and to reduce the amount of transmitted data in case of high network load.
                                 </p>
                                 <p>The number of segments to be transmitted is controlled by the value of the congestion window (CWND), which can be initialized to 1, 2, 4, or 10 MSS (MSS is 1500 bytes over the Ethernet protocol). That value is the number of bytes to send, upon receipt of which the client must send an ACK.</p>
@@ -2546,9 +2546,9 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                             </h2>
                             <div class="section-content">
                                 <p>
-                                    Once the browser receives the first chunk of data, it can begin parsing the information received. <a href="https://datarist.com/learn/glossary/Parse">Parsing</a>
+                                    Once the browser receives the first chunk of data, it can begin parsing the information received. <a href="https://datarist.com/learn/glossary/">Parsing</a>
                                     is the step the browser takes to turn the data it receives over the network into the <a href="https://datarist.com/learn/glossary/dom/">DOM</a>
-                                    and <a href="https://datarist.com/learn/glossary/CSSOM">CSSOM</a>
+                                    and <a href="https://datarist.com/learn/glossary/">CSSOM</a>
                                     , which is used by the renderer to paint a page to the screen.
                                 </p>
                                 <p>The DOM is the internal representation of the markup for the browser. The DOM is also exposed and can be manipulated through various APIs in JavaScript.</p>
@@ -2561,7 +2561,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                             </h3>
                             <div class="section-content">
                                 <p>
-                                    We describe five steps in the <a href="https://datarist.com/learn/Performance/Critical_rendering_path">critical rendering path</a>
+                                    We describe five steps in the <a href="https://datarist.com/learn/">critical rendering path</a>
                                     .
                                 </p>
                                 <p>
@@ -2576,7 +2576,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                     element is the first element and root node of the document tree. The tree reflects the relationships and hierarchies between different elements. Elements nested within other elements are child nodes. The greater the number of DOM nodes, the longer it takes to construct the DOM tree.
                                 </p>
                                 <p>
-                                    <img src="https://datarist.com/learn/Performance/How_browsers_work/dom.gif" alt="The DOM tree for our sample code, showing all the nodes, including text nodes." width="754" height="689" loading="lazy">
+                                    <img src="https://datarist.com/learn//dom.gif" alt="The DOM tree for our sample code, showing all the nodes, including text nodes." width="754" height="689" loading="lazy">
                                 </p>
                                 <p>
                                     When the parser finds non-blocking resources, such as an image, the browser will request those resources and continue parsing. Parsing can continue when a CSS file is encountered, but <code>&lt;script &gt;</code>
@@ -2725,7 +2725,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                     tree that assistive devices use to parse and interpret content. The accessibility object model (AOM) is like a semantic version of the DOM. The browser updates the accessibility tree when the DOM is updated. The accessibility tree is not modifiable by assistive technologies themselves.
                                 </p>
                                 <p>
-                                    Until the AOM is built, the content is not accessible to <a href="https://datarist.com/learn/Accessibility/ARIA/ARIA_Screen_Reader_Implementors_Guide">screen readers</a>
+                                    Until the AOM is built, the content is not accessible to <a href="https://datarist.com/learn/">screen readers</a>
                                     .
                                 </p>
                             </div>
@@ -2786,7 +2786,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                             </h3>
                             <div class="section-content">
                                 <p>
-                                    The last step in the critical rendering path is painting the individual nodes to the screen, the first occurrence of which is called the <a href="https://datarist.com/learn/glossary/First_meaningful_paint">first meaningful paint</a>
+                                    The last step in the critical rendering path is painting the individual nodes to the screen, the first occurrence of which is called the <a href="https://datarist.com/learn/glossary/">first meaningful paint</a>
                                     . In the painting or rasterization phase, the browser converts each box calculated in the layout phase to actual pixels on the screen. Painting involves drawing every visual part of an element to the screen, including text, colors, borders, shadows, and replaced elements like buttons and images. The browser needs to do this super quickly.
                                 </p>
                                 <p>To ensure smooth scrolling and animation, everything occupying the main thread, including calculating styles, along with reflow and paint, must take the browser less than 16.67ms to accomplish. At 2048 x 1536, the iPad has over 3,145,000 pixels to be painted to the screen. That is a lot of pixels that have to be painted very quickly. To ensure repainting can be done even faster than the initial paint, the drawing to the screen is generally broken down into several layers. If this occurs, then compositing is necessary.</p>
@@ -2800,7 +2800,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                         <code>&lt;canvas &gt;</code>
                                     </a>
                                     , and any element which has the CSS properties of 
-                                    <a href="https://datarist.com/learn/css/opacity">
+                                    <a href="https://datarist.com/learn/css/">
                                         <code>opacity</code>
                                     </a>
                                     , a 3D 
@@ -2808,7 +2808,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                         <code>transform</code>
                                     </a>
                                     , 
-                                    <a href="https://datarist.com/learn/css/will-change">
+                                    <a href="https://datarist.com/learn/css/">
                                         <code>will-change</code>
                                     </a>
                                     , and a few others. These nodes will be painted onto their own layer, along with their descendants, unless a descendant necessitates its own layer for one (or more) of the above reasons.
@@ -2838,8 +2838,8 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                     event fires, the main thread might be busy, and not available for scrolling, touch, and other interactions.
                                 </p>
                                 <p>
-                                    <a href="https://datarist.com/learn/glossary/Time_to_interactive">Time to Interactive</a>
-                                    (TTI) is the measurement of how long it took from that first request which led to the DNS lookup and TCP connection to when the page is interactive — interactive being the point in time after the <a href="https://datarist.com/learn/glossary/First_contentful_paint">First Contentful Paint</a>
+                                    <a href="https://datarist.com/learn/glossary/">Time to Interactive</a>
+                                    (TTI) is the measurement of how long it took from that first request which led to the DNS lookup and TCP connection to when the page is interactive — interactive being the point in time after the <a href="https://datarist.com/learn/glossary/">First Contentful Paint</a>
                                     when the page responds to user interactions within 50ms. If the main thread is occupied parsing, compiling, and executing JavaScript, it is not available and therefore not able to respond to user interactions in a timely (less than 50ms) fashion.
                                 </p>
                                 <p>
@@ -2847,7 +2847,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                     file was 2MB and our user's network connection was slow. In this case, the user would see the page super quickly, but wouldn't be able to scroll without jank until the script was downloaded, parsed, and executed. That is not a good user experience. Avoid occupying the main thread, as demonstrated in this WebPageTest example:
                                 </p>
                                 <p>
-                                    <img src="https://datarist.com/learn/Performance/How_browsers_work/visa_network.png" alt="The main thread is occupied by the downloading, parsing and execution of a JavaScript file - over a fast connection" width="1200" height="699" loading="lazy">
+                                    <img src="https://datarist.com/learn//visa_network.png" alt="The main thread is occupied by the downloading, parsing and execution of a JavaScript file - over a fast connection" width="1200" height="699" loading="lazy">
                                 </p>
                                 <p>In this example, JavaScript execution took over 1.5 seconds, and the main thread was fully occupied that entire time, unresponsive to click events or screen taps.</p>
                             </div>
@@ -2884,7 +2884,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                             <div class="section-content">
                                 <p>The 'Under a second' is often touted as optimal for load, but what does that mean? A second should be considered a rule in the maximum amount of time to indicate to a user that the request for new content was made and will load, such as the browser displaying the page title and the background color of the page displaying.</p>
                                 <p>
-                                    The first asset retrieved from a request is usually an HTML document, which then makes calls for additional assets. As noted in the description of the <a href="https://datarist.com/learn/Performance/Critical_rendering_path">critical rendering path</a>
+                                    The first asset retrieved from a request is usually an HTML document, which then makes calls for additional assets. As noted in the description of the <a href="https://datarist.com/learn/">critical rendering path</a>
                                     , when received, browsers immediately start processing the HTML, rendering the content as it is received rather than waiting for additional assets to load.
                                 </p>
                                 <p>Yes, one second for loading is a goal, but it's something few sites achieve. Expectations differ. A 'hello world' on the corporate network would be expected to load in milliseconds, but a user downloading a cat video on a five-year-old device over an edge network in northern Siberia would likely find a 20-second download speedy. If you wait three or four seconds without communicating to the user that a load is happening and showing some progress, the typical site will lose potential visitors, and those visitors will take a long time to come back if they ever do.</p>
@@ -2993,7 +2993,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                             </h3>
                             <div class="section-content">
                                 <p>
-                                    <a href="https://datarist.com/learn/HTML/Attributes/rel/preconnect">
+                                    <a href="https://datarist.com/learn/">
                                         <code>&lt;link rel="preconnect"&gt;</code>
                                     </a>
                                     provides a hint to browsers that the user is likely to need resources from the specified resource's origin, and therefore the browser can likely improve performance by preemptively initiating a connection to that origin. Supporting browsers will preemptively perform part or all of the connection handshake (i.e. DNS + TCP + TLS).
@@ -3064,7 +3064,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                             </h3>
                             <div class="section-content">
                                 <p>
-                                    <a href="https://datarist.com/learn/HTML/Attributes/rel/dns-prefetch">
+                                    <a href="https://datarist.com/learn/">
                                         <code>&lt;link rel="dns-prefetch"&gt;</code>
                                     </a>
                                     provides a hint to browsers that the user is likely to need resources from the specified resource's origin, and therefore the browser may be able to improve performance by preemptively performing DNS resolution for that origin. It is identical to <code>&lt;link rel="preconnect"&gt;</code>
@@ -3103,7 +3103,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                                 <div class="notecard note" id="sect2">
                                     <p>
                                         <strong>Note:</strong>
-                                        See <a href="https://datarist.com/learn/Performance/dns-prefetch">Using dns-prefetch</a>
+                                        See <a href="https://datarist.com/learn/">Using dns-prefetch</a>
                                         for more details.
                                     </p>
                                 </div>
@@ -3117,7 +3117,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                             </h3>
                             <div class="section-content">
                                 <p>
-                                    <a href="https://datarist.com/learn/HTML/Attributes/rel/preload">
+                                    <a href="https://datarist.com/learn/">
                                         <code>&lt;link rel="preload"&gt;</code>
                                     </a>
                                     provides a hint to browsers as to what resources are high-priority on <em>the current page</em>
@@ -3233,7 +3233,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                             </h3>
                             <div class="section-content">
                                 <p>
-                                    <a href="https://datarist.com/learn/HTML/Attributes/rel/modulepreload">
+                                    <a href="https://datarist.com/learn/">
                                         <code>&lt;link rel="modulepreload"&gt;</code>
                                     </a>
                                     provides a hint to browsers as to what JavaScript modules are high-priority on <em>the current page</em>
@@ -3279,7 +3279,7 @@ A site that takes 1 or 2 seconds before content first appears is usually seen as
                             </h3>
                             <div class="section-content">
                                 <p>
-                                    <a href="https://datarist.com/learn/HTML/Attributes/rel/prefetch">
+                                    <a href="https://datarist.com/learn/">
                                         <code>&lt;link rel="prefetch"&gt;</code>
                                     </a>
                                     provides a hint to browsers that the user is likely to need the target resource for future navigations, and therefore the browser can likely improve the user experience by preemptively fetching and caching the resource. <code>&lt;link rel="prefetch"&gt;</code>
@@ -3456,7 +3456,7 @@ If a response is returned, it gets cached with the request in the HTTP cache.
                                     </p>
                                 </div>
                                 <p>
-                                    <a href="https://datarist.com/learn/HTML/Attributes/rel/prerender">
+                                    <a href="https://datarist.com/learn/">
                                         <code>&lt;link rel="prerender"&gt;</code>
                                     </a>
                                     provides a hint to browsers that the user might need the target resource for the next navigation, and therefore the browser can likely improve performance by prerendering the resource. <code>prerender</code>
@@ -3536,7 +3536,7 @@ If a response is returned, it gets cached with the request in the HTTP cache.
                                         <tbody>
                                             <tr>
                                                 <td>
-                                                    <a href="https://datarist.com/learn/HTML/Attributes/rel/preconnect">
+                                                    <a href="https://datarist.com/learn/">
                                                         <code>&lt;link rel="preconnect"&gt;</code>
                                                     </a>
                                                 </td>
@@ -3545,7 +3545,7 @@ If a response is returned, it gets cached with the request in the HTTP cache.
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <a href="https://datarist.com/learn/HTML/Attributes/rel/dns-prefetch">
+                                                    <a href="https://datarist.com/learn/">
                                                         <code>&lt;link rel="dns-prefetch"&gt;</code>
                                                     </a>
                                                 </td>
@@ -3554,7 +3554,7 @@ If a response is returned, it gets cached with the request in the HTTP cache.
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <a href="https://datarist.com/learn/HTML/Attributes/rel/preload">
+                                                    <a href="https://datarist.com/learn/">
                                                         <code>&lt;link rel="preload"&gt;</code>
                                                     </a>
                                                 </td>
@@ -3566,7 +3566,7 @@ If a response is returned, it gets cached with the request in the HTTP cache.
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <a href="https://datarist.com/learn/HTML/Attributes/rel/modulepreload">
+                                                    <a href="https://datarist.com/learn/">
                                                         <code>&lt;link rel="modulepreload"&gt;</code>
                                                     </a>
                                                 </td>
@@ -3575,7 +3575,7 @@ If a response is returned, it gets cached with the request in the HTTP cache.
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <a href="https://datarist.com/learn/HTML/Attributes/rel/prefetch">
+                                                    <a href="https://datarist.com/learn/">
                                                         <code>&lt;link rel="prefetch"&gt;</code>
                                                     </a>
                                                 </td>
@@ -3588,7 +3588,7 @@ If a response is returned, it gets cached with the request in the HTTP cache.
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <a href="https://datarist.com/learn/HTML/Attributes/rel/prerender">
+                                                    <a href="https://datarist.com/learn/">
                                                         <code>&lt;link rel="prerender"&gt;</code>
                                                     </a>
                                                 </td>
@@ -3662,9 +3662,9 @@ If a response is returned, it gets cached with the request in the HTTP cache.
                             </h2>
                             <div class="section-content">
                                 <p>
-                                    Latency is generally considered to be the amount of time it takes from when a request is made by the user to the time it takes for the response to get back to that user. On a first request, for the first 14Kb bytes, latency is longer because it includes a <a href="https://datarist.com/learn/glossary/DNS">DNS</a>
+                                    Latency is generally considered to be the amount of time it takes from when a request is made by the user to the time it takes for the response to get back to that user. On a first request, for the first 14Kb bytes, latency is longer because it includes a <a href="https://datarist.com/learn/glossary/">DNS</a>
                                     lookup, a <a href="https://datarist.com/learn/glossary/tcp-handshake/">TCP handshake</a>
-                                    , the secure <a href="https://datarist.com/learn/glossary/TLS">TLS</a>
+                                    , the secure <a href="https://datarist.com/learn/glossary/">TLS</a>
                                     negotiation. Subsequent requests will have less latency because the connection to the server is already set.
                                 </p>
                                 <p>Latency describes the amount of delay on a network or Internet connection. Low latency implies that there are no or almost no delays. High latency implies that there are many delays. One of the main aims of improving performance is to reduce latency.</p>
@@ -3680,7 +3680,7 @@ If a response is returned, it gets cached with the request in the HTTP cache.
                             <div class="section-content">
                                 <p>To emulate the latency of a low bandwidth network, you can use developer tools and switch to a lower end network connection.</p>
                                 <p>
-                                    <img src="https://datarist.com/learn/Performance/Understanding_latency/emulate_latency.png" alt="Emulate latency by emulating throttling" width="829" height="268" loading="lazy">
+                                    <img src="https://datarist.com/learn//emulate_latency.png" alt="Emulate latency by emulating throttling" width="829" height="268" loading="lazy">
                                 </p>
                                 <p>In the developer tools, under the network table, you can switch the throttling option to 2G, 3G, etc. Different browser developer tools have different preset options, the characteristics emulated include download speed, upload speed, and minimum latency, or the minimum amount of time it takes to send a packet of data. The approximate values of some presets include:</p>
                                 <figure class="table-container">
@@ -3754,7 +3754,7 @@ If a response is returned, it gets cached with the request in the HTTP cache.
                             <div class="section-content">
                                 <p>Also, on the network tab, you can see how long each request took to complete. We can look at how long a 267.5Kb SVG image asset took to download.</p>
                                 <p>
-                                    <img src="https://datarist.com/learn/Performance/Understanding_latency/latencymlw.png" alt="The time it took for a large SVG asset to load." width="1311" height="342" loading="lazy">
+                                    <img src="https://datarist.com/learn//latencymlw.png" alt="The time it took for a large SVG asset to load." width="1311" height="342" loading="lazy">
                                 </p>
                                 <p>
                                     When a request is in a queue, waiting for a network connection it is considered <strong>blocked</strong>
@@ -3762,7 +3762,7 @@ If a response is returned, it gets cached with the request in the HTTP cache.
                                 </p>
                                 <p>
                                     <strong>DNS resolution</strong>
-                                    is the time it took to do the <a href="https://datarist.com/learn/glossary/DNS">DNS</a>
+                                    is the time it took to do the <a href="https://datarist.com/learn/glossary/">DNS</a>
                                     lookup. The greater the number of <a href="https://datarist.com/learn/" URL/hostname">hostnames</a>
                                     , the more DNS lookups need to be done.
                                 </p>
@@ -3774,7 +3774,7 @@ If a response is returned, it gets cached with the request in the HTTP cache.
                                 <p>
                                     The 
                                     <strong>
-                                        <a href="https://datarist.com/learn/glossary/TLS">TLS</a>
+                                        <a href="https://datarist.com/learn/glossary/">TLS</a>
                                         handshake
                                     </strong>
                                     is how long it took to set up a secure connection. While a TLS handshake does take longer to connect than an insecure connection, the additional time needed for a secure connection is worth it.
@@ -3844,13 +3844,13 @@ If a response is returned, it gets cached with the request in the HTTP cache.
                                         element
                                     </a>
                                     offers this functionality by way of a 
-                                    <a href="https://datarist.com/learn/HTML/Attributes/rel">
+                                    <a href="https://datarist.com/learn/">
                                         <code>rel</code>
                                         attribute
                                     </a>
                                     value of <code>dns-prefetch</code>
                                     . The <a href="https://datarist.com/learn/" CORS">cross-origin</a>
-                                    domain is then specified in the <a href="https://datarist.com/learn/HTML/Attributes">href attribute</a>
+                                    domain is then specified in the <a href="https://datarist.com/learn/">href attribute</a>
                                     :
                                 </p>
                             </div>
@@ -4053,7 +4053,7 @@ If a response is returned, it gets cached with the request in the HTTP cache.
                                     <strong>Third</strong>
                                     , while <code>dns-prefetch</code>
                                     only performs a DNS lookup, <code>preconnect</code>
-                                    establishes a connection to a server. This process includes DNS resolution, as well as establishing the TCP connection, and performing the <a href="https://datarist.com/learn/glossary/TLS">TLS</a>
+                                    establishes a connection to a server. This process includes DNS resolution, as well as establishing the TCP connection, and performing the <a href="https://datarist.com/learn/glossary/">TLS</a>
                                     handshake—if a site is served over HTTPS. Using <code>preconnect</code>
                                     provides an opportunity to further reduce the perceived latency of <a href="https://datarist.com/learn/" CORS">cross-origin requests</a>
                                     . You can use it as an <a href="https://datarist.com/learn/" Headers">HTTP header</a>
@@ -4121,7 +4121,7 @@ If a response is returned, it gets cached with the request in the HTTP cache.
                                 </div>
                                 <p>The logic behind pairing these hints is because support for dns-prefetch is better than support for preconnect. Browsers that don't support preconnect will still get some added benefit by falling back to dns-prefetch. Because this is an HTML feature, it is very fault-tolerant. If a non-supporting browser encounters a dns-prefetch hint—or any other resource hint—your site won't break. You just won't receive the benefits it provides.</p>
                                 <p>
-                                    Some resources such as fonts are loaded in anonymous mode. In such cases you should set the <a href="https://datarist.com/learn/HTML/Attributes/crossorigin">crossorigin</a>
+                                    Some resources such as fonts are loaded in anonymous mode. In such cases you should set the <a href="https://datarist.com/learn/">crossorigin</a>
                                     attribute with the preconnect hint. If you omit it, the browser will only perform the DNS lookup.
                                 </p>
                             </div>
@@ -4136,10 +4136,10 @@ If a response is returned, it gets cached with the request in the HTTP cache.
                                         <a href="https://datarist.com/learn/">&lt;link &gt;</a>
                                     </li>
                                     <li>
-                                        <a href="https://datarist.com/learn/HTML/Attributes/rel">HTML attribute: rel</a>
+                                        <a href="https://datarist.com/learn/">HTML attribute: rel</a>
                                     </li>
                                     <li>
-                                        <a href="https://datarist.com/learn/HTML/Attributes/crossorigin">crossorigin</a>
+                                        <a href="https://datarist.com/learn/">crossorigin</a>
                                     </li>
                                     <li>
                                         <a href="https://datarist.com/learn/" CORS">Cross-Origin Resource Sharing (CORS)</a>
