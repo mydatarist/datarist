@@ -1,9 +1,3 @@
-/*!
- * Bootstrap Docs (https://getbootstrap.com/)
- * Copyright 2011-2023 The Bootstrap Authors
- * Licensed under the Creative Commons Attribution 3.0 Unported License.
- * For details, see https://creativecommons.org/licenses/by/3.0/.
- */
 :root {
     --bs-breakpoint-xs: 0;
     --bs-breakpoint-sm: 576px;
@@ -584,6 +578,7 @@
 
 :root,
 [data-bs-theme="light"] {
+    --dd-black: #000;
     --dd-body-bg: #212529;
     --dd-body-bg-rgb: 33, 37, 41;
     --dd-purple: #4c0bce;
@@ -1379,8 +1374,8 @@
 }
 
 .dd-toc nav a:hover,.dd-toc nav a.active {
-    color: var(--dd-body-bg);
-    border-left-color: var(--dd-body-bg)
+    color: var(--dd-black);
+    border-left-color: var(--dd-black);
 }
 
 .dd-toc nav a.active {
@@ -1406,18 +1401,18 @@
 @media (max-width: 767.98px) {
     .dd-toc-toggle {
         color:var(--bs-body-color);
-        border: 1px solid var(--bs-body-bg);
-        border-radius: var(--bs-border-radius)
+        border: 1px solid var(--bs-black);
+        border-radius: var(--bs-border-radius);
     }
 
     .dd-toc-toggle:hover,.dd-toc-toggle:focus,.dd-toc-toggle:active,.dd-toc-toggle[aria-expanded="true"] {
         color: var(--dd-body-bg);
-        background-color: var(--bs-body-bg);
-        border-color: var(--dd-body-bg)
+        background-color: var(--bs-black);
+        border-color: var(--dd-black);
     }
 
     .dd-toc-toggle:focus,.dd-toc-toggle[aria-expanded="true"] {
-        box-shadow: 0 0 0 2px rgba(var(--dd-body-bg-rgb), 0.25)
+        box-shadow: 0 0 0 2px rgba(var(--dd-body-bg-rgb), 0.25);
     }
 }
 
@@ -1448,7 +1443,7 @@
 
 .dd-footer a:hover, 
 .dd-footer a:focus {
-    color: var(--bs-body-color) !important; /*color: var(--bs-link-hover-color) !important;
+    color: var(--bs-black) !important; /*color: var(--bs-link-hover-color) !important;
     text-decoration: underline;*/
 }
 
