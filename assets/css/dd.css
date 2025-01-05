@@ -1,11 +1,96 @@
-:root,
-[data-bs-theme="light"] {
-    --dd-bg: #fff;
-}
-[data-bs-theme="dark"] {
-    --dd-bg: #212529;
-}
 .dd-navbar {
-    background-color: var(--dd-bg);
-    
+    background-color: var(--dd-bg);    
 }
+.dd-navbar::after {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    display: block;
+    content: "";
+}
+.dd-navbar .navbar-toggler {
+    padding: 0;
+    margin-right: -.5rem;
+    border: 0;
+}
+.dd-navbar .navbar-toggler:first-child {
+    margin-left: -.5rem;
+}
+.dd-navbar .navbar-toggler .bi {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.dd-navbar .navbar-toggler:focus {
+    box-shadow: none;
+}
+.dd-navbar .navbar-brand {
+    color: var(--dd-color);
+}
+.dd-navbar .navbar-toggler,.dd-navbar .nav-link {
+    padding-right: .25rem;
+    padding-left: .25rem;
+    color: var(--dd-color);
+}
+.dd-navbar .navbar-toggler:hover,.dd-navbar .navbar-toggler:focus,.dd-navbar .nav-link:hover,.dd-navbar .nav-link:focus {
+    color: var(--dd-color-focus);
+}
+.dd-navbar .navbar-toggler.active,.dd-navbar .nav-link.active {
+    font-weight: 600;
+    color: #fff
+}
+.dd-navbar .navbar-nav-svg {
+    display: inline-block;
+    vertical-align: -.125rem
+}
+.dd-navbar .offcanvas-lg {
+    background-color: var(--dd-dark-bg);
+    border-left: 0
+}
+.dd-navbar .dropdown-toggle:focus:not(:focus-visible) {
+    outline: 0
+}
+.dd-navbar .dropdown-menu {
+    --bs-dropdown-min-width: 12rem;
+    --bs-dropdown-padding-x: .25rem;
+    --bs-dropdown-padding-y: .25rem;
+    --bs-dropdown-link-hover-bg: rgba(var(--dd-body-bg-rgb), .1);
+    --bs-dropdown-link-active-bg: rgba(var(--dd-body-bg-rgb), 1);
+    --bs-dropdown-font-size: .875rem;
+    font-size: .875rem;
+    border-radius: .5rem;
+    box-shadow: var(--bs-box-shadow)
+}
+.dd-navbar .dropdown-menu li+li {
+    margin-top: .125rem
+}
+.dd-navbar .dropdown-menu .dropdown-item {
+    border-radius: .25rem
+}
+.dd-navbar .dropdown-menu .dropdown-item:active .bi {
+    color: inherit !important
+}
+.dd-navbar .dropdown-menu .active {
+    font-weight: 600
+}
+.dd-navbar .dropdown-menu .active .bi {
+    display: block !important
+}
+.dd-navbar .dropdown-menu-end {
+    --bs-dropdown-min-width: 8rem
+}
+@media (max-width: 991.98px) {
+    .dd-navbar .dd-navbar-toggle {
+        width:4.25rem
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .dd-navbar .navbar-brand {
+        transition: none
+    }
+}
+@media (max-width: 991.98px) {
+    .dd-navbar .offcanvas-lg {
+        box-shadow:var(--bs-box-shadow-lg)
+    }
+}
+
