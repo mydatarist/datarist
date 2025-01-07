@@ -1,5 +1,5 @@
 .dd-navbar {
-    background-color: var(--bs-body-bg); 
+    background-color: var(--bs-body-bg) !important; 
 }
 .dd-navbar::after {
     position: absolute;
@@ -19,9 +19,11 @@
 .dd-navbar .navbar-toggler .bi {
     width: 1.5rem;
     height: 1.5rem;
+    color: var(--bs-body-color) !important;
 }
 .dd-navbar .navbar-toggler:focus {
     box-shadow: none;
+    color: var(--bs-emphasis-color) !important;
 }
 .dd-navbar .navbar-brand {
     
@@ -29,14 +31,14 @@
 .dd-navbar .navbar-toggler,.dd-navbar .nav-link {
     padding-right: .25rem;
     padding-left: .25rem;
-    color: var(--bs-body-color);
+    color: var(--bs-body-color) !important;
 }
 .dd-navbar .navbar-toggler:hover,.dd-navbar .navbar-toggler:focus,.dd-navbar .nav-link:hover,.dd-navbar .nav-link:focus {
-    color: var(--bs-emphasis-color);
+    color: var(--bs-emphasis-color) !important;
 }
 .dd-navbar .navbar-toggler.active,.dd-navbar .nav-link.active {
-    font-weight: 400;
-    color: var(--bs-emphasis-color);
+    font-weight: var(--bs-body-font-weight) !important;
+    color: var(--bs-emphasis-color) !important;
 }
 .dd-navbar .navbar-nav-svg {
     display: inline-block;
@@ -57,16 +59,16 @@
     --bs-dropdown-link-hover-bg: rgba(var(--bs-emphasis-color), .1);
     --bs-dropdown-link-active-bg: rgba(var(--bs-emphasis-color), 1);
     border-radius: var(--bs-border-radius) !important;
-    font-size: var(--bs-font-size) !important;
+    font-size: var(--bs-body-font-size) !important;
 }
 .dd-navbar .dropdown-menu li+li {
     margin-top: .125rem;
-    font-size: var(--bs-font-size) !important;
+    font-size: var(--bs-body-font-size) !important;
     color: var(--bs-body-color) !important;
 }
 .dd-navbar .dropdown-menu .dropdown-item {
     border-radius: var(--bs-border-radius) !important;
-    font-size: var(--bs-font-size) !important;
+    font-size: var(--bs-body-font-size) !important;
     color: var(--bs-body-color) !important;
 }
 .dd-navbar .dropdown-menu .dropdown-item:active .bi {
