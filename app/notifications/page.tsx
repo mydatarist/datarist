@@ -33,7 +33,7 @@ export default function App() {
 
   return (
     <main>
-      <h1>Explore</h1>
+      <h1>Notifications</h1>
     </main>
   );
 }
