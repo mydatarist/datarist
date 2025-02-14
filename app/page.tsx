@@ -35,7 +35,7 @@ export default function App() {
   return (
     <main>
       <h1>Datarist: Data Insights.</h1>
-      <Link href="/contact/">Contact us</Link>
+      <Link href="/contact/">Contact Datarist</Link>
     </main>    
   );
 }
