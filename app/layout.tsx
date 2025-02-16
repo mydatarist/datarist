@@ -15,15 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" data-bs-theme="light">
-      <!-- Google tag (gtag.js) -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-TBTRB5K1Q9"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-TBTRB5K1Q9');
-      </script>
+    <html lang="en">
       <body className={inter.className}>{children}
         <Link href="/contact/">Contact</Link>
       </body>
