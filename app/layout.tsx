@@ -3,8 +3,7 @@ import "./globals.css";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Datarist: Data Insights.",
-  description: "Empowering people and organizations with data.",
+  
 };
 
 export default function RootLayout({
