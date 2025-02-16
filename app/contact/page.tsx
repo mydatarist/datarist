@@ -3,7 +3,7 @@
 export default function Page() {  
   return (
     <main>
-      <h1>About Datarist</h1>
+      <h1>Contact Datarist</h1>
     </main>
   );
 }
