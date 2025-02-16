@@ -18,11 +18,12 @@ export default function RootLayout({
         <div class="container">
           <footer class="py-5">
             <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
-              <p>&copy; 2024 Company, Inc. All rights reserved.</p>
+              <p>&copy; 2025 Datarist, Inc.</p>
               <ul class="list-unstyled d-flex">
-                <li class="ms-3"><a class="link-body-emphasis" href="#"></a></li>
-                <li class="ms-3"><a class="link-body-emphasis" href="#"></a></li>
-                <li class="ms-3"><a class="link-body-emphasis" href="#"></a></li>
+                <li class="ms-3"><Link class="link-body-emphasis" href="/terms/">Terms</Link></li>
+                <li class="ms-3"><Link class="link-body-emphasis" href="/privacy/">Privacy</Link></li>
+                <li class="ms-3"><Link class="link-body-emphasis" href="/cookies/">Cookies</Link></li>
+                <li class="ms-3"><Link class="link-body-emphasis" href="/contact/">Contact</Link></li>
               </ul>
             </div>
           </footer>
