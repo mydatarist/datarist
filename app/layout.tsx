@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Link href="https://datarist.com">Home</Link>
+        <Link href="https://datarist.com">Datarist</Link>
         <Link href="/solutions/">Solutions</Link>
         <Link href="/pricing/">Pricing</Link>
         {children}        
