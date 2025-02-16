@@ -10,10 +10,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Link href="https://datarist.com">Datarist</Link>
-        <Link href="/solutions/">Solutions</Link>
-        <Link href="/pricing/">Pricing</Link>
-        {children}        
-        <Link href="/about/">About</Link>        
+        {children}          
         <Link href="/terms/">Terms</Link>
         <Link href="/privacy/">Privacy</Link>
         <Link href="/cookies/">Cookies</Link>
