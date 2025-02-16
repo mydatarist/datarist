@@ -19,10 +19,12 @@ export default function RootLayout({
               </Link>
               <span className="mb-3 mb-md-0 text-body-secondary">&copy; 2025 Datarist, Inc.</span>
             </div>
-            <Link className="nav-link p-0 text-body-secondary" href="/terms/">Terms</Link>
-            <Link className="nav-link p-0 text-body-secondary" href="/privacy/">Privacy</Link>
-            <Link className="nav-link p-0 text-body-secondary" href="/cookies/">Cookies</Link>
-            <Link className="nav-link p-0 text-body-secondary" href="/contact/">Contact</Link> 
+            <ul className="nav col-md-4 justify-content-end list-unstyled d-flex">
+              <Link className="text-body-secondary" href="/terms/">Terms</Link>
+              <Link className="text-body-secondary" href="/privacy/">Privacy</Link>
+              <Link className="text-body-secondary" href="/cookies/">Cookies</Link>
+              <Link className="text-body-secondary" href="/contact/">Contact</Link> 
+            </ul>            
           </div>         
         </footer>                
       </body>
