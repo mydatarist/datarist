@@ -15,15 +15,15 @@ export default function RootLayout({
         <Link href="/privacy/">Privacy</Link>
         <Link href="/cookies/">Cookies</Link>
         <Link href="/contact/">Contact</Link> 
-        <div class="container">
-          <footer class="py-5">
-            <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+        <div className="container">
+          <footer className="py-5">
+            <div className="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
               <p>2025 Datarist, Inc.</p>
-              <ul class="list-unstyled d-flex">
-                <li class="ms-3"><Link class="link-body-emphasis" href="/terms/">Terms</Link></li>
-                <li class="ms-3"><Link class="link-body-emphasis" href="/privacy/">Privacy</Link></li>
-                <li class="ms-3"><Link class="link-body-emphasis" href="/cookies/">Cookies</Link></li>
-                <li class="ms-3"><Link class="link-body-emphasis" href="/contact/">Contact</Link></li>
+              <ul className="list-unstyled d-flex">
+                <li className="ms-3"><Link class="link-body-emphasis" href="/terms/">Terms</Link></li>
+                <li className="ms-3"><Link class="link-body-emphasis" href="/privacy/">Privacy</Link></li>
+                <li className="ms-3"><Link class="link-body-emphasis" href="/cookies/">Cookies</Link></li>
+                <li className="ms-3"><Link class="link-body-emphasis" href="/contact/">Contact</Link></li>
               </ul>
             </div>
           </footer>
