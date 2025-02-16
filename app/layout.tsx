@@ -11,10 +11,10 @@ export default function RootLayout({
       <body>
         <Link href="https://datarist.com">Datarist</Link>
         {children}          
-        <Link href="/terms/">Terms</Link>
-        <Link href="/privacy/">Privacy</Link>
-        <Link href="/cookies/">Cookies</Link>
-        <Link href="/contact/">Contact</Link> 
+        <Link className="nav-link p-0 text-body-secondary" href="/terms/">Terms</Link>
+        <Link className="nav-link p-0 text-body-secondary" href="/privacy/">Privacy</Link>
+        <Link className="nav-link p-0 text-body-secondary" href="/cookies/">Cookies</Link>
+        <Link className="nav-link p-0 text-body-secondary" href="/contact/">Contact</Link> 
       </body>
     </html>
   );
