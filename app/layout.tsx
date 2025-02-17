@@ -11,7 +11,7 @@ export default function RootLayout({
       <body>
         <Link href="https://datarist.com">Datarist</Link>
         {children} 
-        <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <footer className="py-3 my-4 border-top">
           <div className="container-fluid">
             <ul className="nav">
               <li className="text-body-secondary"><Link className="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1" href="/"><svg width="30" height="24"></svg></Link> &copy; 2025 Datarist, Inc.</li>
