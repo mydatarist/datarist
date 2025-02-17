@@ -11,7 +11,7 @@ export default function RootLayout({
       <body>
         <Link href="https://datarist.com">Datarist</Link>
         {children} 
-        <div className="container">
+        <div className="container-fluid">
           <ul className="nav list-unstyled">
             <li className="text-body-secondary"><Link className="text-body-secondary text-decoration-none" href="/"><svg width="30" height="24"></svg></Link> &copy; 2025 Datarist, Inc.</li>
             <li className="ms-3"><Link className="text-body-secondary text-decoration-none" href="/terms/">Terms</Link></li>
