@@ -1,5 +1,6 @@
 import "./globals.css";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function RootLayout({
   children,
@@ -14,7 +15,7 @@ export default function RootLayout({
         <footer className="py-3 my-4 border-top footer text-body-secondary">
           <div className="container-fluid">
             <ul className="nav">
-              <li className="text-body-secondary"><Link className="text-body-secondary text-decoration-none" href="/"><svg width="30" height="24"></svg></Link></li>
+              <li className="text-body-secondary"><Link className="text-body-secondary text-decoration-none" href="/"><Image src="/public/brand/logo.svg/" alt="Datarist logo" /></Link></li>
               <li className="ms-3 text-body-secondary">&copy; 2025 Datarist, Inc.</li>
               <li className="ms-3"><Link className="text-body-secondary text-decoration-none" href="/terms/">Terms</Link></li>
               <li className="ms-3"><Link className="text-body-secondary text-decoration-none" href="/privacy/">Privacy</Link></li>
