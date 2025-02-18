@@ -15,7 +15,7 @@ export default function RootLayout({
         <footer className="py-3 my-4 border-top footer text-body-secondary">
           <div className="container-fluid">
             <ul className="nav">
-              <li className="text-body-secondary"><Link className="text-body-secondary text-decoration-none" href="/"><Image src="/brand/logo.svg" alt="Datarist logo" width="22" height="18" className="text-body-secondary" /></Link></li>
+              <li className="text-body-secondary"><Link className="text-body-secondary text-decoration-none" href="/"><Image src="/brand/logo.svg" alt="Datarist logo" width="20" height="16" /></Link></li>
               <li className="ms-3 text-body-secondary">&copy; 2025 Datarist, Inc.</li>
               <li className="ms-3"><Link className="text-body-secondary text-decoration-none" href="/terms/">Terms</Link></li>
               <li className="ms-3"><Link className="text-body-secondary text-decoration-none" href="/privacy/">Privacy</Link></li>
