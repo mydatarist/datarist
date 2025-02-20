@@ -4,8 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  template: {
-    title: '%s',
+  title: {
+    template: '%s',
     default: "Datarist: Data Insights",
   },
 }
