@@ -9,7 +9,8 @@ import "@aws-amplify/ui-react/styles.css";
 
 export const metadata: Metadata = {
   title: "Datarist: Data Insights",
-}
+  description: "Empowering people and organizations with data.",
+};
 
 Amplify.configure(outputs);
 
