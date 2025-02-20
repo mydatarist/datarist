@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Datarist: Data Insights";
+  title: "Datarist: Data Insights",
 }
 
 export default function RootLayout({
