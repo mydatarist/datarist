@@ -4,10 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: { 
-    template: "%s",
-    default: "Datarist: Data Insights", 
-  },
+  
 }
 
 export default function RootLayout({
