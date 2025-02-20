@@ -13,6 +13,7 @@ const client = generateClient<Schema>();
 
 export const metadata: Metadata = {
   title: "Datarist: Data Insights",
+  default: "Empowering people and organizations with data.",
 }
 
 export default function App() {  
