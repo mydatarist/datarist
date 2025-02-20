@@ -8,7 +8,7 @@ import outputs from "@/amplify_outputs.json";
 import "@aws-amplify/ui-react/styles.css";
 
 export const metadata: Metadata = {
-  title: 'Datarist',
+  title: 'Datarist: Data Insights',
 }
 
 Amplify.configure(outputs);
