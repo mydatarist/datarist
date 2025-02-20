@@ -12,7 +12,9 @@ Amplify.configure(outputs);
 const client = generateClient<Schema>();
 
 export const metadata: Metadata = {
-  title: 'Datarist: Data Insights',
+  title: {
+    absolute: "Datarist",
+  },
 }
 
 export default function App() {  

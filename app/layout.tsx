@@ -6,7 +6,6 @@ import Image from "next/image";
 export const metadata: Metadata = {
   title: {
     template: '%s',
-    default: "Datarist",
   },
 }
 
