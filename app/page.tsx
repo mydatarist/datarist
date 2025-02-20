@@ -1,16 +1,10 @@
 "use client";
 
-import type { Metadata } from "next";
 import { generateClient } from "aws-amplify/data";
 import type { Schema } from "@/amplify/data/resource";
 import { Amplify } from "aws-amplify";
 import outputs from "@/amplify_outputs.json";
 import "@aws-amplify/ui-react/styles.css";
-
-export const metadata: Metadata = {
-  title: "Datarist: Data Insights",
-  description: "Empowering people and organizations with data.",
-};
 
 Amplify.configure(outputs);
 
