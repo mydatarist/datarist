@@ -7,13 +7,13 @@ import { Amplify } from "aws-amplify";
 import outputs from "@/amplify_outputs.json";
 import "@aws-amplify/ui-react/styles.css";
 
+export const metadata: Metadata = {
+  title: 'Datarist',
+}
+
 Amplify.configure(outputs);
 
 const client = generateClient<Schema>();
-
-export const metadata: Metadata = {
-  title: 'Datarist: Data Insights',
-}
 
 export default function App() {  
   return (
