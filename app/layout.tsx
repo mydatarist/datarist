@@ -1,12 +1,12 @@
-import type { Metadata } from 'next';
+import type { Metadata } from "next";
 import "./globals.css";
 import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
   title: { 
-    template: '%s',
-    default: 'Datarist: Data Insights', 
+    template: "%s",
+    default: "Datarist: Data Insights", 
   },
 }
 
