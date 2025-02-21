@@ -1,6 +1,8 @@
 "use client";
 
-export const metadata = {
+import type { Metadata } from "next";
+
+export const Metadata = {
   title: "Datarist",
 }
 
