@@ -1,7 +1,9 @@
 "use client";
 
+import type { Metadata } from 'next'
+ 
 export const metadata: Metadata = {
-  title: "Terms",
+  title: 'About',
 }
 
 export default function Page() {  
