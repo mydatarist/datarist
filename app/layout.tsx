@@ -3,6 +3,25 @@ import "./globals.css";
 import Link from "next/link";
 import Image from "next/image";
 
+export const metadataConfig = {
+  "/": {
+    title: "Home | Free Background Remove",
+    description: "Home page of the best free background remover tool.",
+    canonical: "https://www.datarist.com/",
+  },
+  "/about": {
+    title: "About Us | Free Background Remove",
+    description:
+      "Learn more about the team behind the background remover tool.",
+    canonical: "https://www.datarist.com/about",
+  },
+  "/contact": {
+    title: "Contact Us | Free Background Remove",
+    description: "Get in touch with us for inquiries or support.",
+    canonical: "https://www.datarist.com/contact",
+  },
+};
+
 export async function generateMetadata({
   params,
 }: {
