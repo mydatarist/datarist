@@ -1,7 +1,7 @@
 "use client";
 
 export const metadata: Metadata = {
-  title: 'Terms',
+  title: "Terms",
 }
 
 export default function Page() {  
