@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, generateMetadata } from "next";
 import "./globals.css";
 import Link from "next/link";
 import Image from "next/image";
