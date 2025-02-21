@@ -1,7 +1,7 @@
 "use client";
 
 export const metadata = {
-  title: 'Datarist',
+  title: "Datarist",
 }
 
 export default function Page() {  
