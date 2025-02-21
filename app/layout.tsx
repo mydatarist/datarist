@@ -3,11 +3,26 @@ import "./globals.css";
 import Link from "next/link";
 import Image from "next/image";
 
-export const metadata: Metadata = {
-  title: {
-    template: '%s',
-    default: "Datarist: Data Insights",
-  },
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const slug = params.slug || ""; // Ensure slug is always a string
+  const pathname = slug ? `/${slug}` : "/"; // Use '/' for home
+  const metadata = metadataConfig[pathname as keyof typeof metadataConfig];
+
+  if (!metadata) {
+    return {
+      title: "Default Title",
+      description: "Default description.",
+    };
+  }
+
+  return {
+    title: metadata.title,
+    description: metadata.description,
+  };
 }
 
 export default function RootLayout({
