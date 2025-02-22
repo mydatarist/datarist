@@ -4,9 +4,9 @@ export const metadata: Metadata = {
   title: "Datarist: Data Insights",
   description: "Empowering people and organizations with data.",
   alternates: {
-    canonical: "https://www.datarist.com",
+    canonical: "https://www.datarist.com/",
     languages: {
-      "en-US": "https://datarist.com/en-US",
+      "en-us": "https://datarist.com/en-us/",
     }
   }  
 }
