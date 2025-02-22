@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Terms",
   description: "Legal.",
-  canonical: "https://www.datarist.com/terms/",
 }
 
 export default function Page() {  
