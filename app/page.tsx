@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Datarist: Data Insights",
   description: "Empowering people and organizations with data.",
-  canonical: "https://datarist.com",
+  canonical: "https://www.datarist.com",
 }
 
 export default function App() {  
