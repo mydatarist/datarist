@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Let's talk about your project."
+  description: "Let's talk about your project.",
   canonical: "https://www.datarist.com/contact/",
 }
 
