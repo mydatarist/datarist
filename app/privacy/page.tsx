@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Privacy",
   description: "Our Privacy Notices describe the data our products and services receive, share, and use, as well as choices available to you.",
-  canonical: "https://datarist.com/privacy/",
+  canonical: "https://www.datarist.com/privacy/",
 }
 
 export default function Page() {  
