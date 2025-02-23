@@ -1,3 +1,4 @@
+import Script from "next/script";
 import "./globals.css";
 import Link from "next/link";
 import Image from "next/image";
@@ -9,6 +10,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-RS1PX7109Y" />
+        <Script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-RS1PX7109Y');
+        </Script>
+      </head>
       <body>
         <Link href="https://datarist.com">Datarist</Link>
         {children} 
