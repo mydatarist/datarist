@@ -1,4 +1,4 @@
-import GoogleAnalytics from "@/components/analytics"
+import Analytics from "@/components/analytics"
 import "./globals.css";
 import Link from "next/link";
 import Image from "next/image";
@@ -11,7 +11,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <GoogleAnalytics />
+        <Analytics />
       </head>
       <body>
         <Link href="https://datarist.com">Datarist</Link>
