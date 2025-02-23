@@ -9,13 +9,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RS1PX7109Y"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-RS1PX7109Y');
-    </script>
       <body>
         <Link href="https://datarist.com">Datarist</Link>
         {children} 
