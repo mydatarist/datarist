@@ -1,5 +1,4 @@
 import Script from "next/script";
-import Analytics from "components/Analytics/Analytics";
 import "./globals.css";
 import Link from "next/link";
 import Image from "next/image";
@@ -12,7 +11,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <Analytics />
+        <Script src={'https://www.googletagmanager.com/gtag/js?id=G-RS1PX7109Y'} strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+        </Script>
       </head>
       <body>
         <Link href="https://datarist.com">Datarist</Link>
