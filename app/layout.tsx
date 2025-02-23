@@ -1,4 +1,4 @@
-import { GoogleAnalytics } from "@next/third-parties/google";
+import { GoogleAnalytics } from "next/third-parties/google";
 import "./globals.css";
 import Link from "next/link";
 import Image from "next/image";
