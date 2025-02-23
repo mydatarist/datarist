@@ -1,4 +1,3 @@
-import Script from "next/script";
 import Analytics from "@/components/analytics"
 import "./globals.css";
 import Link from "next/link";
