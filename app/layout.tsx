@@ -1,4 +1,4 @@
-import Analytics from "@components/Analytics/Analytics";
+import Analytics from "components/Analytics/Analytics";
 import "./globals.css";
 import Link from "next/link";
 import Image from "next/image";
