@@ -1,4 +1,3 @@
-import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import Link from "next/link";
 import Image from "next/image";
@@ -10,7 +9,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <GoogleAnalytics />
       <body>
         <Link href="https://datarist.com">Datarist</Link>
         {children} 
