@@ -1,7 +1,5 @@
+import Script from "next/script";
 import "./globals.css";
-import React, { Suspense } from "react";
-import GoogleAnalytics from "@/components/google-analytics";
-import CookieBanner from "@/components/cookie-banner";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -13,14 +11,25 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <Suspense fallback={null}>
-          <GoogleAnalytics GA_MEASUREMENT_ID="G-RS1PX7109Y" />
-        </Suspense>
+        <Script src={'https://www.googletagmanager.com/gtag/js?id=G-RS1PX7109Y'} strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {"window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);}"}
+        </Script>
+        <Script src={`https://www.googletagmanager.com/gtag/js?id=G-RS1PX7109Y`} strategy="afterInteractive" />
+          <Script id='google-analytics' strategy="afterInteractive"
+                dangerouslySetInnerHTML={{
+                    __html: `
+                    window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-RS1PX7109Y');
+                `,
+                }}
+            />
       </head>
       <body>
         <Link href="https://datarist.com">Datarist</Link>
-        {children}
-        <CookieBanner /> 
+        {children} 
         <footer className="py-3 my-4 border-top footer text-body-secondary">
           <div className="container-fluid">
             <ul className="nav">
