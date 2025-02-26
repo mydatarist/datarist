@@ -42,7 +42,11 @@ export default function RootLayout({
             </div>
             <div className="offcanvas-lg offcanvas-end flex-grow-1 bg-dark" tabindex="-1" id="ddNavbar" aria-labelledby="ddNavbarOffcanvasLabel" data-bs-scroll="true">
               <div className="offcanvas-header px-4 pb-0">
-                <h5 className="offcanvas-title text-white" id="ddNavbarOffcanvasLabel"><a class="nav-link px-0" href="https://datarist.com"><img src="https://datarist.com/assets/brand/logo-white.png"  role="img" alt="Datarist" /></a></h5>
+                <h5 className="offcanvas-title text-white" id="ddNavbarOffcanvasLabel">
+                  <a className="nav-link px-0" href="https://datarist.com">
+                    <Image src="/brand/logo.svg" alt="Datarist logo" role="img" alt="Datarist" />
+                  </a>
+                </h5>
                 <button type="button" className="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#ddNavbar"></button>
               </div>
               <div className="offcanvas-body p-4 pt-0 p-lg-0">
