@@ -11,19 +11,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <Script src={'https://www.googletagmanager.com/gtag/js?id=G-RS1PX7109Y'} strategy="afterInteractive" />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {"window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);}"}
-        </Script>
-        <Script src={`https://www.googletagmanager.com/gtag/js?id=G-RS1PX7109Y`} strategy="afterInteractive" />
-        <Script id='google-analytics' strategy="afterInteractive">
-        {
-          window.dataLayer = window.dataLayer || []; 
-          function gtag(){dataLayer.push(arguments);} 
-          gtag('js', new Date()); 
-          gtag('config', 'G-RS1PX7109Y');          
-        }
-        </Script> 
       </head>
       <body>        
         <Link href="https://datarist.com">Datarist</Link>
