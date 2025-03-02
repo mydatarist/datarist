@@ -12,7 +12,9 @@ export default function RootLayout({
     <html lang="en">
       <head>
       </head>
-      <body>        
+      <body> 
+        <header className="navbar navbar-expand-lg dd-navbar bg-dark sticky-top">
+        </header>       
         <Link href="https://datarist.com">Datarist</Link>
         {children} 
         <footer className="py-3 my-4 border-top footer text-body-secondary">
