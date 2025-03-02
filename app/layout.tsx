@@ -21,11 +21,6 @@ export default function RootLayout({
                 <title>Datarist</title>
               </Link>
             </div>
-            <div className="d-flex">
-              <div className="dd-search" id="docsearch" data-dd-docs-version="5.3">
-              
-              </div>
-            </div>
           </nav>
         </header>       
         <Link href="https://datarist.com">Datarist</Link>
