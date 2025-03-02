@@ -15,11 +15,18 @@ export default function RootLayout({
       <body> 
         <header className="navbar navbar-expand-lg dd-navbar bg-dark sticky-top">
           <nav className="container-xxl dd-gutter flex-wrap flex-lg-nowrap bg-dark" aria-label="Main navigation">
-            <div className="d-lg-none nav-logo"></div>
+            <div className="d-lg-none nav-logo">
               <Link className="navbar-brand p-0 me-0 me-lg-2" href="https://datarist.com/" aria-label="Datarist">
                 <Image src="/brand/logo.svg" alt="Datarist logo"  className="d-block my-1" />
                 <title>Datarist</title>
               </Link>
+            </div>
+            <div className="d-flex">
+              <div className="dd-search" id="docsearch" data-dd-docs-version="5.3">
+              <button className="navbar-toggler d-flex d-lg-none order-3 p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#ddNavbar" aria-controls="ddNavbar" aria-label="Toggle navigation">
+                <svg className="bi" aria-hidden="true"><use xlink:href="#three-dots"></use></svg>
+              </button>
+            </div>
           </nav>
         </header>       
         <Link href="https://datarist.com">Datarist</Link>
