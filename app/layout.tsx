@@ -15,7 +15,7 @@ export default function RootLayout({
       <body> 
         <header className="navbar navbar-expand-lg dd-navbar bg-dark sticky-top">
           <nav className="container-xxl dd-gutter flex-wrap flex-lg-nowrap bg-dark" aria-label="Main navigation">
-            <div className="d-lg-none" style="width: 4.25rem;">
+            <div className="d-lg-none nav-logo">
               <Link className="navbar-brand p-0 me-0 me-lg-2" href="https://datarist.com/" aria-label="Datarist">
                 <Image src="/brand/logo.svg" alt="Datarist logo"  className="d-block my-1"  role="img" alt="Datarist" />
                 <title>Datarist</title>
