@@ -14,6 +14,8 @@ export default function RootLayout({
       </head>
       <body> 
         <header className="navbar navbar-expand-lg dd-navbar bg-dark sticky-top">
+          <nav className="container-xxl dd-gutter flex-wrap flex-lg-nowrap bg-dark" aria-label="Main navigation">
+          </nav>
         </header>       
         <Link href="https://datarist.com">Datarist</Link>
         {children} 
