@@ -19,6 +19,12 @@ export default function RootLayout({
               <Image src="/brand/logo.svg" alt="Datarist logo"  className="d-block my-1" />
               <title>Datarist</title>
             </Link>
+            <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+              <li><Link href="/terms/" className="nav-link px-2 link-secondary">Terms</Link></li>
+              <li><Link href="/privacy/" className="nav-link px-2 link-body-emphasis">Privacy</Link></li>
+              <li><Link href="/cookies/" className="nav-link px-2 link-body-emphasis">Cookies</Link></li>
+              <li><Link href="/contact/" className="nav-link px-2 link-body-emphasis">Contact</Link></li>
+            </ul>
           </div>
         </header>      
         <Link href="https://datarist.com">Datarist</Link>
