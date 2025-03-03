@@ -22,7 +22,9 @@ export default function RootLayout({
               </Link>
             </div>
             <div className="d-flex">
-              
+              <div className="dd-search" id="docsearch" data-dd-docs-version="5.3">
+
+              </div>
             </div>
           </nav>
         </header>       
