@@ -29,8 +29,7 @@ export default function RootLayout({
               <Link type="button" className="btn btn-outline-dark">Sign-up</Link>
             </div>
           </div>
-        </header>      
-        <Link href="https://datarist.com">Datarist</Link>
+        </header> 
         {children} 
         <footer className="py-3 my-4 border-top footer text-body-secondary">
           <div className="container-fluid">
