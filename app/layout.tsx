@@ -25,17 +25,9 @@ export default function RootLayout({
               <li><Link href="/cookies/" className="nav-link px-2 link-body-emphasis">Cookies</Link></li>
               <li><Link href="/contact/" className="nav-link px-2 link-body-emphasis">Contact</Link></li>
             </ul>
-            <div className="dropdown text-end">
-              <Link href="#" className="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                <Image src="https://github.com/mdo.png" alt="mdo" width="32" height="32" className="rounded-circle">
-              </Link>
-              <ul className="dropdown-menu text-small">
-                <li><Link className="dropdown-item" href="/">New project...</Link></li>
-                <li><Link className="dropdown-item" href="/">Settings</Link></li>
-                <li><Link className="dropdown-item" href="/">Profile</Link></li>
-                <li><hr className="dropdown-divider"></li>
-                <li><Link className="dropdown-item" href="/">Sign out</Link></li>
-              </ul>
+            <div className="text-end">
+              <button type="button" className="btn btn-outline-light me-2">Login</button>
+              <button type="button" className="btn btn-warning">Sign-up</button>
             </div>
           </div>
         </header>      
