@@ -23,7 +23,9 @@ export default function RootLayout({
             </div>
             <div className="d-flex">
               <div className="dd-search" id="docsearch" data-dd-docs-version="5.3">
-
+              <button className="navbar-toggler d-flex d-lg-none order-3 p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#ddNavbar" aria-controls="ddNavbar" aria-label="Toggle navigation">
+                
+              </button>
               </div>
             </div>
           </nav>
