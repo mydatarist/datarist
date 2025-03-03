@@ -25,8 +25,8 @@ export default function RootLayout({
               <li><Link href="/contact/" className="nav-link px-2 link-body-emphasis">Contact</Link></li>
             </ul>
             <div className="text-end">
-              <button type="button" className="btn btn-outline-light me-2">Login</button>
-              <button type="button" className="btn btn-warning">Sign-up</button>
+              <Link type="button" className="btn btn-outline-primary me-2">Login</Link>
+              <Link type="button" className="btn btn-outline-dark">Sign-up</Link>
             </div>
           </div>
         </header>      
