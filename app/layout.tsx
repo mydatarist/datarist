@@ -26,7 +26,7 @@ export default function RootLayout({
               <li><Link href="/contact/" className="nav-link px-2 link-body-emphasis">Contact</Link></li>
             </ul>
             <Form className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-              <input  />
+              
             </Form>
             <div className="text-end">
               <button type="button" className="btn btn-outline-light me-2">Login</button>
