@@ -34,7 +34,8 @@ export default function RootLayout({
         <footer className="py-3 my-4 border-top footer text-body-secondary">
           <div className="container-fluid">
             <ul className="nav">
-              <li className="ms-1 text-body-secondary">&copy; 2025 Datarist, Inc.</li>
+              document.getElementById("year").innerHTML = new Date().getFullYear();
+              <li className="ms-1 text-body-secondary">&copy; <span id="year"></span> Datarist, Inc.</li>
               <li className="ms-3"><Link className="text-body-secondary text-decoration-none" href="/terms/">Terms</Link></li>
               <li className="ms-3"><Link className="text-body-secondary text-decoration-none" href="/privacy/">Privacy</Link></li>
               <li className="ms-3"><Link className="text-body-secondary text-decoration-none" href="/cookies/">Cookies</Link></li>
