@@ -37,6 +37,7 @@ export default function RootLayout({
               <li className="ms-1 text-body-secondary">&copy; 2025 Datarist, Inc.</li>
               <li className="ms-3"><Link className="text-body-secondary text-decoration-none" href="/terms/">Terms</Link></li>
               <li className="ms-3"><Link className="text-body-secondary text-decoration-none" href="/privacy/">Privacy</Link></li>
+              <li className="ms-3"><Link className="text-body-secondary text-decoration-none" href="/sitemap/">Sitemap</Link></li>
               <li className="ms-3"><Link className="text-body-secondary text-decoration-none" href="/cookies/">Cookies</Link></li>
               <li className="ms-3"><Link className="text-body-secondary text-decoration-none" href="/contact/">Contact</Link></li>               
             </ul>        
