@@ -21,6 +21,8 @@ export default function RootLayout({
             <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
               <li><Link href="/products/" className="nav-link px-2 link-body-emphasis">Products</Link></li>
               <li><Link href="/solutions/" className="nav-link px-2 link-body-emphasis">Solutions</Link></li>
+              <li><Link href="/resources/" className="nav-link px-2 link-body-emphasis">Resources</Link></li>
+              <li><Link href="/pricing/" className="nav-link px-2 link-body-emphasis">Pricing</Link></li>
             </ul>
             <div className="text-end">
               <Link href="https://datarist.com/"><button type="button" className="btn btn-light me-2">Sign in</button></Link>
