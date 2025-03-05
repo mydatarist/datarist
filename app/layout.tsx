@@ -15,7 +15,7 @@ export default function RootLayout({
         <header className="p-3 mb-3 border-bottom">
           <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <Link href="https://datarist.com/" className="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
-              <Image src="/brand/logo.svg" alt="Datarist logo"  className="bi me-2" width="40" height="32" aria-label="Datarist"/>
+              <Image src="/brand/logo.svg" alt="Datarist logo"  className="bi me-2" width="38" height="30" aria-label="Datarist"/>
               <title>Datarist</title>
             </Link>
             <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
