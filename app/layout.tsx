@@ -26,7 +26,7 @@ export default function RootLayout({
             </ul>
             <div className="text-end">
               <Link href="https://datarist.com/"><button type="button" className="btn btn-light me-2">Sign in</button></Link>
-              <Link href="https://datarist.com/"><button type="button" className="btn btn-outline-dark">Sign up</button></Link>
+              <Link href="https://datarist.com/sign-up/"><button type="button" className="btn btn-outline-dark">Sign up</button></Link>
             </div>
           </div>
         </header> 
