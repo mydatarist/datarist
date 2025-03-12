@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Sign-up",
+  title: "Sign up",
   description: "Create your free account",
   alternates: {
-    canonical: "https://datarist.com/signup/",
+    canonical: "https://datarist.com/sign-up/",
     languages: {
       "en-us": "https://datarist.com/en-us/",
     },
