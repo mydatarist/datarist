@@ -26,7 +26,7 @@ interface SignUpForm extends HTMLFormElement {
   readonly elements: SignUpFormElements
 }
 
-export default function Page() {  
+export default function App() {  
   async function handleSubmit(event: FormEvent<SignUpForm>) {
     event.preventDefault()
     const form = event.currentTarget
@@ -39,7 +39,7 @@ export default function Page() {
   return (
     <main>
       <h1>Create your free account.</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
       <label htmlFor="email">Email:</label>
       <input type="text" id="email" name="email" />
       <label htmlFor="password">Password:</label>
