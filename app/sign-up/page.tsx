@@ -1,4 +1,5 @@
 import type { FormEvent } from "react";
+import { Amplify } from "aws-amplify";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
