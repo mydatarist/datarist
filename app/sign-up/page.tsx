@@ -39,8 +39,8 @@ export default function Page() {
   return (
     <main>
       <h1>Create your free account.</h1>
-      <form onSubmit={handleSubmit}>
-        
+      <form onSubmit={handleSubmit(onSubmit)}>
+
       </form>
     </main>
   );
