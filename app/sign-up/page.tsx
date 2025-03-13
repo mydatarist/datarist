@@ -1,4 +1,4 @@
-import type { FormEvent } from "react";
+import type { FormEvent } from "next";
 import { Amplify } from "aws-amplify";
 import { signUp } from "aws-amplify/auth";
 import outputs from "../amplify_outputs.json";
@@ -16,15 +16,6 @@ export const metadata: Metadata = {
 }
 
 Amplify.configure(outputs)
-
-interface SignUpFormElements extends HTMLFormControlsCollection {
-  email: HTMLInputElement
-  password: HTMLInputElement
-}
-
-interface SignUpForm extends HTMLFormElement {
-  readonly elements: SignUpFormElements
-}
 
 export default function Page() {
   async function handleSubmit(event: FormEvent<SignUpForm>) {
